@@ -20,8 +20,8 @@ and start from Section 1.
 ## Requirements
 
 To pass the course, you need to complete at least 75 % of the
-exercises in these tutorials. Moreover, you need to complete at least
-50 % of the exercises in ViLLE. Exercises are released after the
+maximum score of these tutorials. Moreover, you need to complete at least
+50 % of the maximum score in ViLLE. Exercises are released after the
 lecture on Tuesday, and **the deadline is at following Thursday**.
 
 ## How to get help?
