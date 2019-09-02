@@ -1,23 +1,23 @@
 ---
-path: "/part-1/5-laskentaa"
+path: "/part-1/5-calculating"
 # title: "Laskentaa luvuilla"
 title: "Calculating with numbers"
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name='Learning objectives'>
 
 <!-- - Osaat tehdä laskutoimintoja muuttujien avulla. -->
 
-- You know how to perform calculations with the help of variables.
+- learn to perform calculations with the help of variables.
 
 <!-- - Osaat muodostaa tulostuslauseita, jossa on mukana sekä laskuoperaatioita (lausekkeita) että merkkijonoja. -->
-- You can form printable statements, including both calculations (expressions) and strings.
+- know how to form printable statements including both calculations (expressions) and strings.
 
 </text-box>
 
 <!-- Laskuoperaatiot ovat tuttuja ja suoraviivaisia: yhteenlasku `+`, erotus `-`, kertolasku `*` ja jakolasku `/`. Laskentajärjestys on myös tuttu: laskenta tehdään vasemmalta oikealle sulut huomioon ottaen. Kuitenkin `*` ja `/` lasketaan ennen `+` ja `-` operaatioita, samoin kuin perus- tai kansakoulumatematiikassa on tullut tutuksi. -->
 
-The basic mathematical operations are both familiar and straightforward: addition `+`, subtraction `-`, multiplication `*`, and division`/`. The order of operations is also familiar: operations are performed from left to right with the parentheses taken into account. Expressions involving `*` and `/` are calculated before those involving `+` and `-`, as is customary in elementary school mathematics.
+The basic mathematical operations are both familiar and straightforward: addition `+`, subtraction `-`, multiplication `*`, and division`/`. The precedence is also familiar: operations are performed from left to right with the parentheses taken into account. Expressions involving `*` and `/` are calculated before those involving `+` and `-`, as is customary in elementary school mathematics.
 
 <!-- ```java
 int eka = 2;
@@ -40,11 +40,11 @@ System.out.println(sum); // prints 6
 ```
 
 <!-- ## Laskujärjestys ja sulut -->
-## Order of Operations and Parentheses
+## Precedence and Parentheses
 
 <!-- Laskujärjestykseen voi vaikuttaa sulkujen avulla. Sulkujen sisällä olevat laskuoperaatiot suoritetaan ennen niiden ulkopuolella olevia laskuoperaatioita. -->
 
-It's possible to affect the order of operations through the use of parentheses. Operations within parentheses are performed before those outside it.
+You can affect the order of operations by using of parentheses. Operations within parentheses are performed before those outside them.
 
 <!-- ```java
 int laskuSuluilla = (1 + 1) + 3 * (2 + 5);
@@ -123,7 +123,7 @@ System.out.println("You gave " + number);
 
 <!-- Esimerkkitulostuksia: -->
 
-Print examples:
+Examples of expected output:
 
 <!-- <sample-output>
 
@@ -183,7 +183,7 @@ How many days would you like to convert to seconds?
 
 <!-- Lauseke (expression) on arvojen yhdistelmä, joka muuntuu arvoksi laskuoperaation tai evaluaation yhteydessä. Alla oleva lause sisältää lausekkeen `1 + 1 + 3 * 2 + 5`, joka evaluoidaan ennen arvon asetusta muuttujaan. -->
 
-An expression is a combination of values that is turned into another value through a calculation or evaluation. The statement below includes the expression `1 + 1 + 3 * 2 + 5`, which is evaluated prior to its assignment to the variable.
+An *expression* is a combination of values that is turned into another value through a calculation or evaluation. The *statement* below includes the expression `1 + 1 + 3 * 2 + 5`, which is evaluated prior to its assignment to the variable.
 
 <!-- ```java
 int laskuSuluitta = 1 + 1 + 3 * 2 + 5;
@@ -195,14 +195,14 @@ int calculationWithoutParentheses = 1 + 1 + 3 * 2 + 5;
 
 <!-- Lausekkeen evaluaatio tapahtuu aina ennen muuttujan arvon asetusta, eli yllä lasku "1 + 1 + 3 * 2 + 5" suoritetaan ennen tuloksen asetusta muuttujaan. -->
 
-The evaluation of an expression is always performed before its value is assigned to a variable. As such, the calculation "1 + 1 + 3 * 2 + 5" in the example above is performed before the result is placed in the variable.
+The evaluation of an expression is always performed before its value is assigned to a variable. As such, the calculation "1 + 1 + 3 * 2 + 5" in the example above is performed before the result is assigned to the variable.
 
 </text-box>
 
 
 <!-- Lausekkeen evaluointi tapahtuu ohjelmakoodissa siinä kohtaa, missä lauseke on. Evaluointi onnistuu siis esimerkiksi myös tulostuslauseen yhteydessä, jos lauseketta käytetään tulostuslauseen parametrin arvon laskemisessa. -->
 
-An expression is evaluated where it occurs in the program's source code. As such, the evaluation can occur within a print statement if the expression is used in calculating the value of the print statement's parameter.
+An expression is evaluated where it occurs in the program's source code. As such, the evaluation can occur within a print statement, if the expression is used in calculating the value of the print statement's parameter.
 
 
 <!-- ```java
@@ -252,7 +252,7 @@ first + second;
 ## Calculating and Printing
 
 <!-- Muuttujan arvon voi tulostaa komennolla `System.out.println`. Tulostettavaan hipsuilla merkittyyn merkkijonoon, esim. "Pituus ", voidaan lisätä muuta tulostettavaa operaation `+` avulla. -->
-The command `System.out.println` prints the value of a variable. The string to be printed, which is marked by quotation marks, can be appended with the operation `+`.
+The command `System.out.println` prints the value of a variable. The string literal to be printed, which is marked by quotation marks, can be appended with the operation `+`.
 
 <!-- ```java
 int pituus = 42;
@@ -283,8 +283,8 @@ System.out.println(2 + " < -- tuossa on kokonaisluku");
 -->
 
 ```java
-System.out.println("that is an integer --> " + 2);
-System.out.println(2 + " <-- that is an integer");
+System.out.println("here is an integer --> " + 2);
+System.out.println(2 + " <-- here is an integer");
 ```
 
 
@@ -297,8 +297,8 @@ tuossa on kokonaisluku -- > 2
 
 <sample-output>
 
-that is an integer --> 2
-2 <-- that is an integer
+here is an integer --> 2
+2 <-- here is an integer
 
 </sample-output>
 
@@ -308,7 +308,7 @@ If one of the operands of the operation `+` is a string, the other operand will 
 
 <!-- Aiemmin esitellyt laskusäännöt pätevät täälläkin: -->
 
-The operation rules introduced earlier also apply here:
+The precedence introduced earlier also apply here:
 
 <!-- ```java
 System.out.println("Neljä: " + (2 + 2));
@@ -375,7 +375,7 @@ int second = Integer.valueOf(scanner.nextLine());
 
 <!-- Alla on annettuna ohjelman toivottuja esimerkkitulostuksia: -->
 
-A number of expected prints from the program are given below:
+Here's how the program is expected to work:
 
 <!-- <sample-output>
 
@@ -428,7 +428,7 @@ Write a program that asks the user for three numbers. After this the program pri
 
 <!-- Alla on annettuna ohjelman esimerkkitulostuksia: -->
 
-A number of example print from the program are given below:
+The program should work like this:
 
 <!-- <sample-output>
 
@@ -485,7 +485,7 @@ The sum of the numbers is 4
 
 <!-- Edellistä tietoa soveltamalla voimme luoda lausekkeen, joka sisältää tekstiä ja muuttujan, ja joka evaluoidaan tulostuksen yhteydessä: -->
 
-Putting the previous information into use, we can create an expression consisting of some text and a variable, which is evaluated in connection with the printing:
+Applying this knowledge, we can create an expression consisting of some text and a variable, which is evaluated in connection with the printing:
 
 <!-- ```java
 int x = 10;
@@ -510,8 +510,6 @@ System.out.println("y is " + y + " and z is " + z);
 ```
 
 <!-- Tulostus: -->
-
-The print:
 
 <!-- <sample-output>
 
@@ -538,12 +536,11 @@ y is 5 and z is 6
 Tee ohjelma, jonka avulla voidaan laskea kahden kokonaisluvun summa. Ohjelman alussa kysytään kahta kokonaislukua, jotka sisältävät summattavat luvut. Tämän jälkeen ohjelma tulostaa lukujen summausta kuvaavan kaavan. -->
 
 <!-- TODO: specify the assignment (the formula, too) -->
-Create a program that can be used to add  two integers together. At the beginning, the user is asked to enter two integers that are to be summed. The program then prints the formula that describes the addition of the numbers.
+Create a program that can be used to add two integers together. In the beginning, the user is asked to give two integers that are to be summed. The program then prints the formula that describes the addition of the numbers.
 
 
 <!-- Tulostusesimerkkejä: -->
-
-Print examples:
+Exampe output:
 
 <!-- <sample-output>
 
@@ -651,7 +648,7 @@ Give the second number:
 
 <!-- Kun olet saanut edellisen tehtävän toteutettua, kokeile mikä on suurin mahdollinen kertolasku minkä saat laskettua. Huomaamasi ilmiön taustalla on se, että kokonaislukumuuttujan arvo voi olla korkeintaan 2<sup>31</sup>-1 eli 2147483647. Tämä johtuu siitä, että kokonaislukumuuttujat esitetään tietokoneen muistissa 32 bitin avulla. Tähän tutustutaan tarkemmin muunmuassa kurssilla Tietokoneen toiminta. -->
 
-Once you have completed the previous exercise, try finding out the greatest possible multiplication that you can calculate. The reason behind the phenomenon you've observed is that the value of an integer value is capped at the maximum of 2<sup>31</sup>-1(i.e. 2147483647). This is because integer variables are represented with 32 bits in the computer's memory. Variable representation is covered in more detail on the Computer Organization course, as well as others.
+Once you have completed the previous exercise, try finding out the greatest possible multiplication that you can calculate. The reason behind the phenomenon you've observed is that the value of an integer value is capped at the maximum of 2<sup>31</sup>-1(i.e. 2147483647). This is because integer variables are represented with 32 bits in the computer's memory. Variable representation is covered in more detail on the Computer Organization course.
 
 
 <!-- ## Jakolasku -->
@@ -660,7 +657,7 @@ Once you have completed the previous exercise, try finding out the greatest poss
 
 <!-- Kokonaislukujen jakolasku on hieman hankalampi operaatio. Jakolausekkeessa käytettyjen muuttujien tyyppi määrää evaluaation tuloksena saatavan arvon tyypin. Jos kaikki jakolausekkeessa olevat muuttujat ovat kokonaislukuja, on tulos myös kokonaisluku. -->
 
-Dividing integers is a slightly trickier operation. The types of the variables that are part of the division determine the type of result achieved by executing the command. If all of the variables in the division are integers, the resulting value is an integer as well.
+Division of integers is a slightly trickier operation. The types of the variables that are part of the division determine the type of result achieved by executing the command. If all of the variables in the division expression are integers, the resulting value is an integer as well.
 
 <!-- ```java
 int tulos = 3 / 2;
@@ -704,7 +701,7 @@ System.out.println(result);
 
 <!-- Nytkin tulostus on 1, sillä eka ja toka ovat (yhä) kokonaislukuja. -->
 
-The print is 1 also in this case, since first and second are integers.
+The output 1 again, since first and second are (still) integers.
 
 <!-- Jos jakolaskun jakaja tai jaettava (tai molemmat!) ovat liukulukuja, tulee tulokseksi myös liukuluku. -->
 
@@ -736,7 +733,7 @@ System.out.println(whenDivisorIsFloat); // prints 1.5
 
 <!-- Kokonaisluku voidaan tarvittaessa muuttaa liukuluvuksi lisäämällä sen eteen tyyppimuunnosoperaatio `(double)`: -->
 
-An integers can be converted into a floating point number by placing a type-casting operation `(double)` before it:
+An integer can be converted into a floating point number by placing a type-casting operation `(double)` before it:
 
 <!-- ```java
 int eka = 3;
@@ -833,7 +830,7 @@ System.out.println(result);
 
 <!-- Seuraavissa tehtävissä pyydetään laskemaan syötettyjen lukujen keskiarvo. Kerrataan peruskoulu- tai kansakoulumatematiikasta tutun keskiarvon käsite pikaisesti. -->
 
-The next exercises task you with calculating the average of the entered numbers. Let's briefly review the notion of an average, which is familiar from elementary- school mathematics.
+The next exercises task you with calculating the average of the entered numbers. Let's briefly review the concept of *average*.
 
 <!-- Keskiarvolla tarkoitetaan lukujen summaa jaettuna niiden lukumäärällä. Esimerkiksi, jos haluaisimme lukujen 5 ja 3 keskiarvon, laskettaisiin keskiarvo kaavalla (5+3)/2. Vastaavasti, mikäli haluaisimme laskea lukujen 1, 2 ja 4 keskiarvon, laskettaisiin keskiarvo kaavalla (1+2+4)/3. -->
 
@@ -841,7 +838,7 @@ An average refers to the sum of numbers divided by their count. For instance, th
 
 <!-- Ohjelmoinnissa tähän liittyy muutamia asioita, jotka tulee muistaa. Ensiksi, nollalla jakaminen ei tyypillisesti ole sallittua. Tämä tarkoittaa sitä, että nollan luvun keskiarvon laskeminen ei onnistu. Toiseksi, mikäli ohjelma käsittelee lukujen lukumäärän ja summan kokonaislukumuuttujina, tulee muuttujista jompikumpi (tai kummatkin) muuntaa liukulukumuuttujaksi kertomalla luku arvolla 1.0 ennen jakolaskua. -->
 
-In the context of programming, there are a few things to keep in mind. Firstly, dividing by zero is typically not permitted. This implies that calculating the average of the number zero is impossible. Secondly, if the program handles both the sum of the numbers and their total count as integers, one (or both) of the variables should be cast to a floating-point number by dividing it by 1.0 before the division.
+In the context of programming, there are a few things to keep in mind. Firstly, dividing by zero is typically not permitted. This implies that calculating the average of the number zero is impossible. Secondly, if the program handles both the sum of the numbers and their total count as integers, one (or both) of the variables should be casted to a floating-point number by multiplying it by 1.0 before the division.
 
 </text-box>
 
@@ -948,7 +945,7 @@ The average is 4.333333333333333
 
 <!-- Kirjoita ohjelma, joka lukee käyttäjältä kaksi lukua ja tulostaa lukujen summan, lukujen erotuksen, lukujen kertolaskun, ja lukujen jakolaskun. Alla on kaksi esimerkkiä ohjelman toiminnasta. -->
 
-Write a program that reads two numbers from the user and prints their sum, difference, product, and quotient. Two examples of the execution of the program are supplied below.
+Write a program that asks the user for two numbers and prints their sum, difference, product, and quotient. Two examples of the execution of the program are given below.
 
 <!-- <sample-output>
 
@@ -1009,7 +1006,7 @@ It's crucial for a programmer to understand that assigning a value to a variable
 
 <!-- Kolme yleistä väärinkäsitystä, jotka liittyvät muuttujan arvon asettamiseen ovat seuraavat: -->
 
-Three common misunderstanding related to assigning a value to a variable are as follows:
+Here's three common misunderstanding related to assigning a value to a variable:
 
 <!-- * Muuttujan asettamisen näkeminen siirtona kopioimisen sijaan: ohjelmakoodin `eka = toka` suorituksen jälkeen ajatellaan, että muuttujan `toka` arvo on siirtynyt muuttujan `eka` arvoksi, jonka jälkeen muuttujalla `toka` ei ole enää arvoa, tai sen arvo on esimerkiksi nolla. Tämä ei pidä paikkansa, sillä ohjelmakoodin `eka = toka` suorituksessa muuttujan `toka` nimeämässä paikassa oleva arvo kopioidaan muuttujan `eka` nimeämään paikkaan. Muuttujan `toka` arvo ei siis muutu. -->
 
@@ -1094,7 +1091,7 @@ rivi 9: tulostetaan arvo 28
 
 <sample-output>
 
-row 1: initially create a variable first
+row 1: initiate a variable first
 row 1: copy the result of the calculation 1 + 1 as the value of the variable first
 row 1: the value of the variable first is 2
 row 2: create the variable second

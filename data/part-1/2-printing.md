@@ -20,11 +20,13 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Learning Objectives'>
 
-- You learn to write a program that prints text.
-- You become familiar with executing programs.
-- You know what the term parameter means.
+- learn to write a program that prints text.
+- become familiar with executing programs.
+- know what the term "parameter" means.
 
-<!-- </text-box>
+</text-box>
+
+<!--
 
 Tulostuskomento `System.out.println("Hei maailma");` tulostaa tekstin "Hei maailma".
 
@@ -38,7 +40,7 @@ Hei maailma!
 
 </sample-output> -->
 
-</text-box>
+
 
 The print command `System.out.println("Hello world");` prints the text "Hello world".
 
@@ -56,9 +58,9 @@ Hello world!
 
 Tulostuskomennon avulla tulostettavaa tekstiä voi vaihtaa mielivaltaisesti, kunhan komento `System.out.println("mielivaltainen teksti");` -- eli `System` piste `out` piste `println` sulut auki `(` "teksti" sulut kiinni `)` ja puolipiste `;` pysyy muuttumattomana. Alla oleva komento tulostaa tekstin "Hei vaan!". -->
 
-Sections in the material similar to the text area above demonstrate an output produced by some example code. Accordingly, the above program would produce the print output "Hello World!". You can try all of the material's examples in the exercise template named "Sandbox", which is found in the programming environment.
+In this material, the text boxes like the one above demonstrate an output produced by the example code. Accordingly, the above program would produce the print output "Hello World!". You can try any of these examples in the exercise template named "Sandbox", which you will find in the programming environment.
 
-Text printed with the print command can be changed arbitrarily as long as the command `System.out.println("arbitary text");` -- i.e., `System` dot `out` dot `println` open parentheses `(` "the text" close parentheses `)` and semicolon `;` remains unchanged. The command below command will print the text "Hello there!".
+You can print any text you want with the command, as long as the command `System.out.println("arbitary text");` -- i.e., `System` dot `out` dot `println` open parentheses `(` "the text" close parentheses `)` and semicolon `;` remains unchanged. The command below will print the text "Hello there!".
 
 <!-- ```java
 System.out.println("Hei vaan!");
@@ -94,9 +96,9 @@ public class Esimerkki {
 }
 ``` -->
 
-## Program Frame
+## Program Boilerplate
 
-Our programs have to be written within a program frame, such as the one below, for them to work. The name of the frame, `Example` in this case, corresponds to the file name that contains the source code (e.g. `Example.java`).
+Our programs have to be written within a program boilerplate (the frame around the program itself), such as the one below, for them to work. The name of the boilerplate, `Example` in this case, corresponds to the name of the file that contains the source code (e.g. `Example.java`).
 
 ```java
 public class Example {
@@ -149,13 +151,13 @@ public class Esimerkki {
 
 <text-box variant="hint" name="Examples in material and code boilerplate">
 
-Not all of the material examples use a template, but you should assume that one is always needed. The examples can consist of only a single line, such as the printing example below.
+The examples in the material will not always show the boilerplate, but you can assume that your program file always needs one. So the program examples might be one-liners like the example below
 
 ```java
 System.out.println("Hello world");
 ```
 
-In reality however, the example above looks like the following when written in Java.
+In reality however, the above example written as a full Java program looks like this:
 
 ```java
 public class Example {
@@ -198,6 +200,8 @@ Kun olet tehnyt tehtävän ja huomaat, että ohjelma tulostaa halutun merkkijono
 -->
 
 You'll find the second programming exercise of the course below. If you want, you can watch the video linked below in advance to see how the exercise is solved.
+Here is the second programming exercise of the course. If you want, you can see first the video on how to solve this exercise:
+
 
 <!-- TODO video englanniksi? -->
 
@@ -216,7 +220,7 @@ public class AdaLovelace {
 }
 ```
 
-The line "// Write your program here" is a _line comment_, which the computer ignores when executing the program. Add a new line below the line comment that prints the string "Ada Lovelace" and run the program. The output of the program should be:
+The line "// Write your program here" is a _line comment_, and the computer will ignore it when executing the program. Add a new line below the line comment that prints the string "Ada Lovelace" and run the program. The output of the program should be:
 
 <sample-output>
 
@@ -224,7 +228,7 @@ Ada Lovelace
 
 </sample-output>
 
-Once you've finished the exercise and see that it prints the correct string, return the exercise to TMC. Following that, you can read more about [Ada Lovelace](https://en.wikipedia.org/wiki/Ada_Lovelace), who was one of the first programmers.
+Once you've finished the exercise and see that it prints the correct string, return the exercise to TMC server. After that, you can read more about [Ada Lovelace](https://en.wikipedia.org/wiki/Ada_Lovelace), who was one of the first programmers.
 
 </programming-exercise>
 
@@ -246,13 +250,11 @@ Käytössämme oleva ohjelmointiympäristö kääntää ja suorittaa ohjelman yh
 
 You can run a program in TMC by pressing the green play-button, or by selecting "Run project" from the TMC-menu.
 
-TODO: tähän kuva TMC:stä (highlightattuna run-nappi).
-
 Although running the program is straightforward, a lot happens behind the scenes. When a program is run, the source code is first compiled into Java bytecode. This compilation process is done by Java's own compiler, which itself is a program. Following that, the program gets executed, meaning the commands are executed one-by-one by a Java-interpreter that is able to read Java bytecode.
 
-This compile process affects how and when errors occur. When program is compiled before execution, the program used for compiling can search errors from your program. This affects also what tips the programming environment can offer so that a programmer can get feedback about possible errors instantly.
+This compile process affects how and when errors occur. When program is compiled before execution, the compiler can search errors from your program. This can also help the IDE to give tips, so the programmer can immediately notice their errors.
 
-Our programming environment compiles and executes the program at the touch of a button. However, the programming environment compiles the program continually in which case it can report errors. You can for example try to change above Ada Lovelace exercise print command to `Systemoutprintln("hi!")` -- you will notice, that the row will be underlined and there will be notification about a error on the left side.
+The IDE both compiles and executes the program with just one touch of a button. However, the programming environment compiles the program continuously, so it can report errors. You can for example try to change above Ada Lovelace exercise print command to `Systemoutprintln("hi!")` -- you will notice, that the line will be underlined and there will be notification about a error on the left side.
 
 </text-box>
 
@@ -298,7 +300,7 @@ Above program will print:
 Hello world!
 ... and the universe!
 
-</sample-output> -->
+</sample-output>
 
 <!--
 <text-box variant='hint' name='Tarkka tarkastaja'>
@@ -315,13 +317,14 @@ Ohjelmoinnin opettelu onkin oikeastaan tie täynnä virheitä -- jokainen virhev
 
 <text-box variant='hint' name='Exact inspector'>
 
-Programming exercises will be checked by TMC-Henrik, who is very exact. Expectations about print format in assignmenst are very exact. If, for example, the assignment expects you to print a parenthese, you must print a parenthese.
+Programming exercises will be checked by TMC-Henrik, who is very exact. Expectations about print format in assignmenst are very precise. If, for example, the assignment expects you to print a parenthese, you must print a parenthese.
 
-This exactness in printing is widelt relevant in programming. Missing a sinlge character can cause an error. Beginner programmers often input a comma instead of a point, write for example `printin` instad of `println`, leave apostrophes out, or forget the following semicolon after a command. Every example of the above would cause and error where executing of a program fails.
+This exactness in printing is widely relevant in programming. Missing a single character can cause an error. Beginner programmers often input a comma instead of a dot, write for example `printin` instad of `println`, leave apostrophes out, or forget the following semicolon after a command. Each of these would cause an error and make executing of a program fail.
 
-Learning programming really is a road full of errors -- every error is a learning situation.
+Learning programming really is a road full of errors -- every error message is a chance to learn. So look for any red signs in the IDE and read the test errors!
 
 </text-box>
+
 <!--
 <programming-exercise name='Olipa kerran ohjelma' tmcname='osa01-Osa01_03.OlipaKerranOhjelma'>
 
@@ -350,7 +353,7 @@ ohjelma
 
 <programming-exercise name='Once upon a time' tmcname='part01-Part01_03.OnceUponATime'>
 
-The exercise template comes with the following code frame:
+The exercise template comes with the following template:
 
 ```java
 public class OnceUponATime {
@@ -361,7 +364,7 @@ public class OnceUponATime {
 }
 ```
 
-Edit the program so that it will print the following text. Use three `System.out.println` commands for printing.
+Edit the program so that it will print the following text. Use three `System.out.println`-commands for printing.
 
 <sample-output>
 
@@ -383,7 +386,7 @@ Alla oleva animaatio kuvaa sout-komennon käyttöä. Kun käyttäjä on kirjoitt
 
 </text-box> -->
 
-<text-box>
+<text-box variant='hint' name='"sout"'>
 
 Writing the command `System.out.println("...") can be pretty cumbersome. In NetBeans try to write on a blank line (in main) **sout** and press tabulator (key left to q). What happens? This small tool will propably save much of your time.
 
@@ -491,7 +494,7 @@ world
 
 </sample-output>
 
-Although the above example works, it's important to be considerate of other programmers and to use line breaks. That way, anyone reading the program knows that each line does only a single concrete thing.
+Although the above example works, it's important to be considerate of other programmers (and future you!) and to use line breaks. That way, anyone reading the program knows that each line does only a single concrete thing.
 
 <!-- TODO: quiz, jossa kysytään että mistä tietyssä termissä on kyse -->
 
@@ -551,5 +554,3 @@ public class Comments {
 ```
 
 The last line of the example shows a particularly handy use-case for comments. The source code does not need to be removed to temporarily try out something.
-
-<!-- TODO: Tää ei nyt oikei käy järkeen? -->

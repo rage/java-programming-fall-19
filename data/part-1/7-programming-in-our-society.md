@@ -1,13 +1,13 @@
 ---
-path: '/part-1/7-ohjelmointi-yhteiskunnassa'
+path: '/part-1/7-programming-in-our-society'
 # title: 'Ohjelmointi yhteiskunnassa'
-title: 'The role of programming in society'
+title: 'Programming in our society'
 hidden: false
 ---
 
 <!-- Ohjelmoinnin opiskelua aloitteleva tietää harvoin kuinka riippuvainen yhteiskuntamme on ohjelmoijien tuottamista ohjelmistoista. Ilman ohjelmistoja yhteydenpito, kaupankäynti, matkustaminen ja niin edelleen olisi monimutkaisempaa. Puhelimet eivät toimisi tai niitä olisi vain muutamia, verkkopankkeja saatikka pankki- tai luottokortteja ei olisi, matkojen varaaminen ja henkilöasiakirjojen käyttäminen ei onnistuisi verkon yli, ja terveydenhuoltopalveluissa sähköisistä palveluista kuten e-reseptistä tai potilastietojen nopeasta siirtämisestä osastojen ja sairaaloiden välillä voisi vain unelmoida. Wikipediaa tai hakukoneita ei myöskään olisi ja tiedon hakeminen tapahtuisi sana- ja tietokirjoista. -->
 
-It's rare for a beginner programmer to be aware of how dependent our society actually is on the software produced by developers. Without software, everyday things such as communication, shopping, travel, and so on would all be more complicated. Most mobile phones wouldn't work, and we'd have no credit cards, let alone online banking. Travel reservations and the use of personal documents online would be impossible. Electronic health services such as e-prescriptions and the seamless transfer of patients between wards and hospitals would be the stuff of dreams. There'd also be no Wikipedia or search engines, and information would have to be fetched from dictionaries and encyclopedias.
+When you're just starting to learn programming, it's hard to realize how dependent our society actually is on the software produced by developers. Without software, everyday things such as communication, shopping, travel, and so on would all be more complicated. Mobile phones could not work -- or there would be very few of them, and we'd have no credit cards, let alone online banking. Travel reservations and the use of personal documents online would be impossible. Electronic health services such as e-prescriptions and the seamless transfer of patient data between wards and hospitals would be the stuff of dreams. There'd also be no Wikipedia or search engines, so any time you'd like to know something, you'd open a dictionary or an encyclopedia.
 
 
 

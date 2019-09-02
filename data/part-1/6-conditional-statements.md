@@ -1,21 +1,21 @@
 ---
 # path: "/part-1/6-ehtolauseet"
 # title: "Ehtolauseet ja vaihtoehtoinen toiminta"
-path: "/part-1/6-ehtolauseet" # NOTE: not translated
+path: "/part-1/6-conditional-statements"
 title: "Conditional statements and alternative operation"
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name='Learning objectives'>
 
 <!-- - Tunnet käsitteen ehtolause ja osaat luoda ohjelmaan vaihtoehtoista toimintaa ehtolauseen avulla. -->
 <!-- - Tunnet ehtolauseissa tyypillisesti käytettävät vertailuoperaattorit ja loogiset operaatiot. -->
 <!-- - Osaat vertailla sekä lukuja että merkkijonoja, muistaen merkkijonoihin liittyvän equals-komennon. -->
 <!-- - Tunnet ehtolauseen suoritusjärjestyksen ja tiedät, että ehtolauseiden läpikäynti lopetetaan ensimmäiseen ehtoon, jonka lauseke evaluoituu todeksi. -->
 
-- You are familiar with the idea of a conditional statement and know how to create a program containing optional operations through the use of conditional statements.
-- You are familiar with comparison and logical operators commonly used in conditional statements.
-- You know how to compare numbers as well as strings while remembering the equals-command for strings.
-- You are familiar with the order of execution for a conditional statement, and know that the parsing of a conditional statement stops at the first condition whose statement evaluates to true.
+- get familiar with the idea of a conditional statement and know how to create a program containing optional operations through the use of conditional statements.
+- get familiar with comparison and logical operators commonly used in conditional statements.
+- know how to compare numbers as well as strings while remembering the equals-command for strings.
+- get familiar with the order of execution for a conditional statement, and know that the parsing of a conditional statement stops at the first condition whose statement evaluates to true.
 
 </text-box>
 
