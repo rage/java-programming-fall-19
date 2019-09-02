@@ -1,12 +1,12 @@
 ---
-path: '/osa-2'
+path: '/part-2'
 title: 'Osa 2'
 overview: true
-hidden: false
+hidden: true
 ---
 
 <only-for-course-variant variant="dl">
-  <deadline>28.1.2019</deadline>
+  <deadline>28.1.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="nodl">
@@ -22,7 +22,7 @@ hidden: false
 </only-for-course-variant>
 
 <only-for-course-variant variant="kesa-dl">
-  <deadline>20.5.2019</deadline>
+  <deadline>20.5.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="kesa-ohja-dl">
@@ -33,8 +33,8 @@ hidden: false
   <deadline>Kirjaudu sisään nähdäksesi deadlinen tälle osalle</deadline>
 </only-for-not-logged-in>
 
-Tässä osassa opit ohjelmointiongelmiin liittyviä osaongelmia sekä niiden ratkaisumalleja. Opit loogiset operaatiot ja, tai ja ei ja opit käyttämään niitä ehto- ja toistolauseissa. Opit käsitteet metodi, metodin parametri, metodin palautusarvo ja ohjelman kutsupino. Opit luomaan metodeja ja tulet ymmärtämään miten ohjelman suoritus etenee kun metodia kutsutaan ja toisaalta kun metodikutsusta palataan.
 
+Kurssimateriaalin toisen osan pääteemoina ovat ohjelman toistaminen sekä toiminnallisuuden pilkkominen erillisiksi kokonaisuuksiksi.
 
 <please-login></please-login>
 

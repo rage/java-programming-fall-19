@@ -1,7 +1,7 @@
 ---
-path: '/osa-10/2-pakkaukset'
+path: '/part-10/2-pakkaukset'
 title: 'Pakkaukset'
-hidden: false
+hidden: true
 ---
 
 
@@ -505,7 +505,7 @@ public class Lentohallinta {
 }
 ```
 
-<quiz id="2ff672ac-1e86-4f60-ada9-f54460845d56"></quiz>
+<quiz id="ad9d86d2-ee96-5f5d-b734-962c2f4f1832"></quiz>
 
 
 ### Tekstikäyttöliittymä

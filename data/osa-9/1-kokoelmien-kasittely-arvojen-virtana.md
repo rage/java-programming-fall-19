@@ -1,7 +1,7 @@
 ---
-path: '/osa-9/1-kokoelmien-kasittely-virtana'
+path: '/part-9/1-kokoelmien-kasittely-virtana'
 title: 'Kokoelmien käsittely arvojen virtana'
-hidden: false
+hidden: true
 ---
 
 
@@ -13,7 +13,7 @@ hidden: false
 
 </text-box>
 
-<quiz id="2a9f8b11-1b20-4f4d-98f2-d9f66d838a92"></quiz>
+<quiz id="0d314996-d23a-5fea-a150-f82ad637a3d7"></quiz>
 
 
 Tutustutaan kokoelmien kuten listojen läpikäyntiin arvojen virtana (stream). Virta on menetelmä tietoa sisältävän kokoelman läpikäyntiin siten, että ohjelmoija määrittelee kullekin arvolle suoritettavan toiminnallisuuden. Indeksistä tai kullakin hetkellä käsiteltävästä muuttujasta ei pidetä kirjaa.
@@ -420,7 +420,7 @@ positiiviset.stream()
 </sample-output>
 
 
-<quiz id='21d6120d-d75c-42a8-ab42-ad0748efd583'></quiz>
+<quiz id='8e1fb8c3-cfcd-5d29-9b69-95f44985c425'></quiz>
 
 
 <programming-exercise name='Jaolliset' tmcname='osa09-Osa09_04.Jaolliset'>

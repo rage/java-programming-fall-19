@@ -1,7 +1,7 @@
 ---
-path: '/osa-11/2-arraylist-ja-hajautustaulu'
+path: '/part-11/2-arraylist-ja-hajautustaulu'
 title: 'ArrayList ja Hajautustaulu'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -77,7 +77,7 @@ Taulukossa on 4 alkiota.
 </sample-output>
 
 
-<quiz id='3f607783-2856-483d-99c5-2068b74695cd'></quiz>
+<quiz id='96696460-8111-5be7-9c4f-b0b998630add'></quiz>
 
 
 <programming-exercise name='Rajatut taulukossa' tmcname='osa11-Osa11_03.RajatutTaulukossa'>
@@ -720,7 +720,7 @@ private void kopioi(Lista<Pari<K, V>>[] uusi, int indeksista) {
 }
 ```
 
-<quiz id='51ad938b-33fc-47bd-9de5-29c48b18aa1c'></quiz>
+<quiz id='079d35ee-f543-5a17-ac74-14d65be2d4fb'></quiz>
 
 Nyt kopioi-metodia voidaan kutsua kasvata-metodista.
 
@@ -842,4 +842,3 @@ Hajautustaulu: haku kesti noin 0 millisekuntia (805106 nanosekuntia.)
 
 
 *Edellä kuvatut ja kursseilla käyttämämme listat ja hajautustaulut poikkeavat toki sisäiseltä toteutukselta hieman toisistaan. Ohjelmointikielten tarjoamissa tietorakenteissa on hieman enemmän erilaisia optimointeja -- näihinkin palataan myöhemmillä kursseilla. Tämän kurssin puitteissa riittää em. tietorakenteiden käyttöosaaminen sekä jonkintasoinen ymmärrys niiden tehokkuuseroista sekä käyttötapauksista.*
-

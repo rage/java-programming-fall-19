@@ -1,7 +1,7 @@
 ---
-path: '/osa-10/5-tehtavan-luominen-ja-laajempi-tehtava'
+path: '/part-10/5-tehtavan-luominen-ja-laajempi-tehtava'
 title: 'Tehtävän luominen ja laajempi tehtävä'
-hidden: false
+hidden: true
 ---
 
 
@@ -14,7 +14,7 @@ hidden: false
 </text-box>
 
 Tässä osassa pääset suunnittelemaan CrowdSorcerer-työkalua käyttämällä oman ohjelmointitehtävän. Osaa kurssilaisten luomista ohjelmointitehtävistä tullaan käyttämään myöhemmillä kursseilla.
-Käy kertaamassa CrowdSorcererin käyttöä kurssin <a href="https://ohjelmointi-19.mooc.fi/osa-7/4-ohjelmointitehtavien-luominen">seitsemännestä osasta</a> ennen aloittamista.
+Käy kertaamassa CrowdSorcererin käyttöä kurssin <a href="https://ohjelmointi-19.mooc.fi/part-7/4-ohjelmointitehtavien-luominen">seitsemännestä osasta</a> ennen aloittamista.
 
 <br/>
 

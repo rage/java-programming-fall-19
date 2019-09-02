@@ -1,12 +1,12 @@
 ---
-path: '/osa-6'
+path: '/part-6'
 title: 'Osa 6'
 overview: true
-hidden: false
+hidden: true
 ---
 
 <only-for-course-variant variant="dl">
-  <deadline>25.2.2019</deadline>
+  <deadline>25.2.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="nodl">
@@ -22,7 +22,7 @@ hidden: false
 </only-for-course-variant>
 
 <only-for-course-variant variant="kesa-dl">
-  <deadline>17.6.2019</deadline>
+  <deadline>17.6.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="kesa-ohja-dl">
@@ -34,7 +34,7 @@ hidden: false
 </only-for-not-logged-in>
 
 
-Tässä osassa opit miksi joissakin metodeissa on määre static ja miksi joissain sitä ei ole. Tutustut hajautustauluun ja opit käyttämään sitä ohjelmissasi. Opit ryhmittelemään tietoa hajautustaulun avulla. Harjoittelet ohjelman jakamista käyttöliittymästä vastaavaan osaan ja sovelluslogiikasta vastaavaan osaan.
+Kurssimateriaalin kuudennessa osassa käsitellään olioista koostuvia olioita sekä tutustutaan tekstikäyttöliittymän ja sovelluslogiikan eriyttämiseen.
 
 <please-login></please-login>
 

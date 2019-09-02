@@ -33,7 +33,7 @@ class QuizPartial extends React.Component {
         <StyledPaper id={normalizeExerciseId(`quiz-${id}`)}>
           <Quiz
             id={id}
-            languageId="fi_FI"
+            languageId="en_US"
             backendAddress="https://quizzes.mooc.fi"
             customContent={loginPrompt}
           />

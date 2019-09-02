@@ -1,7 +1,7 @@
 ---
-path: '/osa-7/1-ohjelmointiparadigmoja'
+path: '/part-7/1-ohjelmointiparadigmoja'
 title: 'Ohjelmointiparadigmoja'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -425,7 +425,7 @@ Toinen: 0/100
 </programming-exercise>
 
 
-<quiz id="3aa71d4e-2554-4c9f-b21b-1dfe49e550b6"></quiz>
+<quiz id="2179fdc5-dab5-5b73-9476-9aaf84da67dd"></quiz>
 
 Kerrataan seuraavaksi olio-ohjelmointia laajemman olioita olioiden sisällä käsittelevän tehtävän kautta.
 

@@ -1,7 +1,7 @@
 ---
-path: '/osa-9/2-rajapinta-comparable'
+path: '/part-9/2-rajapinta-comparable'
 title: 'Valmis rajapinta Comparable'
-hidden: false
+hidden: true
 ---
 
 
@@ -115,7 +115,7 @@ matti (187)
 </sample-output>
 
 
-<quiz id='282ca05c-ffb3-4604-a9be-cd708f280cb1'></quiz>
+<quiz id='740810d6-0158-5f8a-9119-9afb80d52dc6'></quiz>
 
 
 <programming-exercise name='Palkkajärjestys' tmcname='osa09-Osa09_11.Palkkajarjestys'>

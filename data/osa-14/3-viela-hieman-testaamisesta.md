@@ -1,7 +1,7 @@
 ---
-path: '/osa-14/3-viela-hieman-testaamisesta'
+path: '/part-14/3-viela-hieman-testaamisesta'
 title: 'Vielä hieman testaamisesta'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -133,4 +133,4 @@ Huom! Ohjelman toiminnallisuuden lisäksi tehtävässä tulee kirjoittaa ohjelma
 </programming-exercise>
 
 
-<quiz id="4c008511-305f-4a52-ad4a-26dd7e2d8af5"></quiz>
+<quiz id="2128a8cf-a93f-53ff-bbeb-cdefed403d5e"></quiz>

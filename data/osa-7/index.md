@@ -1,12 +1,12 @@
 ---
-path: '/osa-7'
+path: '/part-7'
 title: 'Osa 7'
 overview: true
-hidden: false
+hidden: true
 ---
 
 <only-for-course-variant variant="dl">
-  <deadline>4.3.2019</deadline>
+  <deadline>4.3.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="nodl">
@@ -22,7 +22,7 @@ hidden: false
 </only-for-course-variant>
 
 <only-for-course-variant variant="kesa-dl">
-  <deadline>24.6.2019</deadline>
+  <deadline>24.6.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="kesa-ohja-dl">
@@ -33,7 +33,8 @@ hidden: false
   <deadline>Kirjaudu sisään nähdäksesi deadlinen tälle osalle</deadline>
 </only-for-not-logged-in>
 
-Tässä osassa opit erilaisista ohjelmointiparadigmoista. Osan läpikäytyäsi tiedät proseduraalisen ohjelmoinnin ja olio-ohjelmoinnin eroista ja osaat toteuttaa ohjelmia kumpaakin ohjelmointiparadigmaa noudattaen. Opit käsitteen algoritmi sekä sanan algoritmi alkuperän, ja opit käyttämään muutamia järjestämis- ja hakualgoritmeja. Opit myös kirjoittamaan yksikkötestejä ja harjoittelet testivetoisen ohjelmistokehityksen perusaskeleita. Teet myös muutaman tehtävän tuleville kurssilaisille ja osallistut ohjelmointiosaamistasi arvioiviin kyselyihin.
+Kurssimateriaalin seitsemännessä osassa käsitellään yleisiä ohjelmointiparadigmoja sekä algoritmiikkaa. Kurssi Ohjelmoinnin perusteet (TKT-10002) päättyy seitsemänteen osaan ja kurssi Ohjelmoinnin jatkokurssi (TKT-10003) alkaa kahdeksannesta osasta.
+
 
 <text-box variant="hint" name="Kurssin kokeesta">
 

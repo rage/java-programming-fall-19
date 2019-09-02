@@ -1,7 +1,7 @@
 ---
-path: '/osa-12/2-kayttoliittymakomponentit-ja-niiden-asettelu'
+path: '/part-12/2-kayttoliittymakomponentit-ja-niiden-asettelu'
 title: 'Käyttöliittymäkomponentit ja niiden asettelu'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -135,7 +135,7 @@ Osoitteessa [https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/](h
 
 Käyttöliittymäkomponentteja on huomattava määrä. Niiden opiskeluun kannattaa käyttää verkossa olevia valmiita oppaita kuten edellä mainittua verkkosivua. Käyttöliittymäkomponentteja kannattaa kokeilla aluksi erikseen siten, että kokeilee yhden komponentin lisäämistä ja tarkastelee sen toimintaa.
 
-<quiz id='2d4ca0df-1cd4-4ff7-b2f5-e7a5c09176c6'></quiz>
+<quiz id='20d84598-305f-50d7-9507-0860b9f67c1a'></quiz>
 
 Kun yksittäiset komponentit tulevat tutuksi, on niiden käyttäminen suoraviivaisempaa. Lähes kaikille komponenteille yhteistä on se, miten ne lisätään sovellukseen. Kun osaat lisätä yhden komponentin käyttöliittymään, osaat lisätä käytännössä lähes kaikki komponentit käyttöliittymään.
 
@@ -355,4 +355,3 @@ Luo tehtäväpohjassa olevaan luokkaan sovellus, joka käyttää BorderPane-luok
 
 
 </programming-exercise>
-

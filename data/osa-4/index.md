@@ -1,12 +1,12 @@
 ---
-path: '/osa-4'
+path: '/part-4'
 title: 'Osa 4'
 overview: true
-hidden: false
+hidden: true
 ---
 
 <only-for-course-variant variant="dl">
-  <deadline>11.2.2019</deadline>
+  <deadline>11.2.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="nodl">
@@ -22,7 +22,7 @@ hidden: false
 </only-for-course-variant>
 
 <only-for-course-variant variant="kesa-dl">
-  <deadline>3.6.2019</deadline>
+  <deadline>3.6.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="kesa-ohja-dl">
@@ -33,8 +33,8 @@ hidden: false
   <deadline>Kirjaudu sisään nähdäksesi deadlinen tälle osalle</deadline>
 </only-for-not-logged-in>
 
-Tässä osassa tutustut käsitteisiin tiedosto ja tiedostojärjestelmä sekä opit lukemaan merkkijonomuotoista tietoa tiedostosta. Otat ensiaskeleet olio-ohjelmointiin ja opit olio-ohjelmoinnin keskeiset käsitteet kuten luokka ja olio. Opit luomaan luokkia ja olioita sekä käyttämään niitä osana toteuttamiasi ohjelmia.
 
+Kurssimateriaalin neljännen osan pääteema on olio-ohjelmointi. Opit lukemaan tietoa tiedostoista ja esittämään sekä käsittelemään tietoa olioiden avulla.
 
 <please-login></please-login>
 

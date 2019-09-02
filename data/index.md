@@ -18,7 +18,7 @@ Ohjelmoinnin jatkokurssi. Kurssit vastaavat yhteensä kymmentä
 opintopistettä (5+5).
 
 **Kurssi on käynnissä!** Luo tunnus tai kirjaudu sisään, jonka
-jälkeen valitse [Osa 1](/osa-1) navigaatiosta.
+jälkeen valitse [Osa 1](/part-1) navigaatiosta.
 
 ## Sisältö ja kurssin versiot
 

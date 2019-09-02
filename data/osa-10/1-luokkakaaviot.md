@@ -1,7 +1,7 @@
 ---
-path: '/osa-10/1-luokkakaaviot'
+path: '/part-10/1-luokkakaaviot'
 title: 'Luokkakaaviot'
-hidden: false
+hidden: true
 ---
 
 
@@ -377,4 +377,4 @@ Alla on kuvattuna isompi luokkakaavio, jossa on luokat A, B, C, D ja E, sekä ra
 </programming-exercise>
 
 
-<quiz id="3d444930-26fe-4b39-baa2-1f547bb5315b"></quiz>
+<quiz id="8d94bdb1-6c84-5b35-9416-5808adaa2105"></quiz>

@@ -1,29 +1,43 @@
 ---
-path: '/osa-2/1-ongelmia-ja-ratkaisuja'
-title: 'Ongelman osia ja niiden ratkaisumalleja'
+path: '/part-2/1-ongelmia-ja-ratkaisumalleja'
+title: 'Recurring problems and patterns to solve them'
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-- Huomaat, että ohjelmissa toistuu samankaltaiset osaongelmat kuten syötteen lukeminen tai laskun laskeminen.
+<!-- - Huomaat, että ohjelmissa toistuu samankaltaiset osaongelmat kuten syötteen lukeminen tai laskun laskeminen.
 - Tiedät valmiin ratkaisumallin muutamaan osaongelmaan.
-- Harjoittelet osaongelmiin littyvien ratkaisumallien yhdistämistä laajempien ongelmien ratkaisemisessa.
+- Harjoittelet osaongelmiin littyvien ratkaisumallien yhdistämistä laajempien ongelmien ratkaisemisessa. -->
+
+- You recognize that certain sub-problems, such as reading input or calculations, recur in programs.
+- You're aware of solution models to certain sub-problems.
+- You practice combining solution patterns used on sub-problems to solve broader ones.
 
 </text-box>
 
-<quiz id="38dcffe8-2431-4357-ba9c-1d1405abff5d"></quiz>
-
-Samat pienet ongelmat (tai "osaongelmat") toistuvat ohjelmissa yhä uudestaan ja uudestaan: "Lue käyttäjältä syötettä", "Laske lukujen summa", "Laske lukujen keskiarvo",  "Lue käyttäjältä syötettä kunnes", "Montako lukua käyttäjä on syöttänyt.", jne.
-
-Tarkastellaan muutamia tällaisia ongelmia sekä niihin liittyviä ratkaisuja.
+<quiz id="570e362e-6eb3-5c73-850e-fb0e8c640041"></quiz>
 
 
-## Lukemista
+<!-- Samat pienet ongelmat (tai "osaongelmat") toistuvat ohjelmissa yhä uudestaan ja uudestaan: "Lue käyttäjältä syötettä", "Laske lukujen summa", jne. -->
 
-Ratkaisumalli käyttäjältä lukemista vaativiin ohjelmointiongelmiin on suoraviivainen. Mikäli ohjelmassa halutaan lukea käyttäjältä syötettä, tulee ohjelmaan luoda syötteen lukemiseen käytettävä Scanner-apuväline. Scanner-apuväline luodaan pääohjelman (eli lauseen `public static void main(String[] args) {`) jälkeiselle riville. Scanner-apuvälineen käyttö vaatii, että ohjelman määrittelyä (`public class`) edeltävillä riveillä on lause `import java.util.Scanner;`, joka tuo Scanner-apuvälineen ohjelman tietoon.
+The same small problems, or "sub-problems", reappear in programs time after time: "Read input from the user", "Calculate the sum of values", and so forth.
+
+<!-- Tarkastellaan muutamia tällaisia ongelmia sekä niihin liittyviä ratkaisuja. -->
+
+Let's look at a few sub-problems and patterns for solving them.
+
+<!-- ## Lukemista
+ -->
 
 
-```java
+## Reading User Input
+
+<!-- Ratkaisumalli käyttäjältä lukemista vaativiin ohjelmointiongelmiin on suoraviivainen. Mikäli ohjelmassa halutaan lukea käyttäjältä syötettä, tulee ohjelmaan luoda syötteen lukemiseen käytettävä Scanner-apuväline. Scanner-apuväline luodaan pääohjelman (eli lauseen `public static void main(String[] args) {`) jälkeiselle riville. Scanner-apuvälineen käyttö vaatii, että ohjelman määrittelyä (`public class`) edeltävillä riveillä on lause `import java.util.Scanner;`, joka tuo Scanner-apuvälineen ohjelman tietoon. -->
+
+The solution pattern for programming tasks involving reading user input is straightforward. If the program needs to read from the user, a Scanner helper tool is created for the task. The Scanner is created in the main method after the row `public static void main(String[] args) {`. To use the Scanner, it needs to be made available in the program through the statement `import java.util.Scanner;`, which comes before the class definition (`public class ...`). Importing the Scanner tool brings it to the program's use.
+
+<!-- ```java
 // Tuodaan Scanner-apuväline ohjelman tietoon
 import java.util.Scanner;
 
@@ -40,20 +54,51 @@ public class Ohjelma {
 
     }
 }
-```
-
-## Laskemista
-
-Ohjelmissa tulee usein laskea asioita kuten lukujen keskiarvoa tai lukujen summaa. Ratkaisumalli tällaisissa ohjelmissa on seuraava.
-
-1. Määrittele laskemiseen tarvittavat syötteet ja luo niitä varten muuttujat. Ohjelman syötteitä ovat laskemisessa käytettävät arvot. Syötteiden tyypit tunnistaa tyypillisesti ongelma-alueen kuvauksesta.
-2. Selvitä tehtävä laskuoperaatio ja luo laskuoperaation tulokselle muuttuja. Tee ohjelman syötteiden perusteella lasku, jonka arvo asetetaan laskuoperaation tulokselle varattuun muuttujaan. Myös laskuoperaation tuloksen tyypin tunnistaa ongelma-alueen kuvauksesta.
-3. Kun lasku on laskettu, tee jotain laskun tuloksella. Tämä voi olla esimerkiksi laskuoperaation tuloksen tulostaminen, tai vaikkapa keskiarvon laskemisen yhteydessä lukujen summan jakamista lukujen määrällä.
-
-Esimerkiksi ongelman _Tee ohjelma, jonka avulla voidaan laskea kahden kokonaisluvun summa_. ratkaisumalli on seuraava.
-
+``` -->
 
 ```java
+// Making the scanner available in the program
+import java.util.Scanner;
+
+public class Program {
+    public static void main(String[] main) {
+        // Creating the scanner
+        Scanner reader = new Scanner(System.in);
+
+        // Examples of reading different types of user input
+        String text = reader.nextLine();
+        int neumber = Integer.valueOf(reader.nextLine());
+        double numberWithDecimals = Double.valueOf(reader.nextLine());
+        boolean trueOrFalse = Boolean.valueOf(reader.nextLine());
+
+    }
+}
+```
+
+TODO: quiz -- ohjelma, jossa käyttäjältä kysytään luku ja merkkijono, tulostus käyttää niitä -- kysytään mitä käyttäjän tulee syöttää, jotta tulostus tietty
+
+
+<!-- ## Laskemista -->
+
+## Calculating
+
+<!-- Ohjelmissa tulee usein laskea asioita kuten lukujen keskiarvoa tai lukujen summaa. Ratkaisumalli tällaisissa ohjelmissa on seuraava. -->
+
+We quite often need to calculate something in a program, such as an average or a sum. The solution patter to solve such problems is as follows.
+
+<!-- 1. Määrittele laskemiseen tarvittavat syötteet ja luo niitä varten muuttujat. Ohjelman syötteitä ovat laskemisessa käytettävät arvot. Syötteiden tyypit tunnistaa tyypillisesti ongelma-alueen kuvauksesta.
+1. Selvitä tehtävä laskuoperaatio ja luo laskuoperaation tulokselle muuttuja. Tee ohjelman syötteiden perusteella lasku, jonka arvo asetetaan laskuoperaation tulokselle varattuun muuttujaan. Myös laskuoperaation tuloksen tyypin tunnistaa ongelma-alueen kuvauksesta.
+2. Kun lasku on laskettu, tee jotain laskun tuloksella. Tämä voi olla esimerkiksi laskuoperaation tuloksen tulostaminen, tai vaikkapa keskiarvon laskemisen yhteydessä lukujen summan jakamista lukujen määrällä. -->
+
+1. Define the inputs required for the calculation and declare variables for them. Input refers to the values used in the calculation. You can typically identify the type of inputs from the problem description.
+2. Identify the operation needed, and declare a variable for the result of the calculation. Perform the calculation using the inputs, and assign the result to the variable that was reserved for it. The type of the result can also usually be identified from the problem description.
+3. Once the calculation is done, do something with its result. This can mean printing the result of a computation, or, for example, using it in calculating an average by dividing a sum of integers by their count.
+
+<!-- Esimerkiksi ongelman _Tee ohjelma, jonka avulla voidaan laskea kahden kokonaisluvun summa_. ratkaisumalli on seuraava. -->
+
+For example, the solution patter for the problem _Create a program to calculate the sum of two integers_ is the following.
+
+<!-- ```java
 // Määritellään syötteet ja luodaan niitä varten muuttujat
 int eka = 1;
 int toka = 2;
@@ -64,12 +109,25 @@ int summa = eka + toka;
 
 // Tulostetaan laskuoperaation tulos
 System.out.println("Lukujen " + eka + " ja " + toka + " summa on " + summa);
-```
-
-Sekä lukemista että laskemista sisältävä ohjelma yhdistää edelliset ratkaisumallit. Kahden käyttäjältä pyydetyn luvun tulon laskeva ohjelma on seuraavanlainen.
-
+``` -->
 
 ```java
+// Identifying the input values and declaring the variables for them
+int first = 1;
+int second = 2;
+
+// Identifying the operation and declaring a variable for the result
+int sum = first + second;
+
+// printing the result of the calculation
+System.out.println("The sum of " + first + " and " + second + " is " + sum);
+```
+
+<!-- Sekä lukemista että laskemista sisältävä ohjelma yhdistää edelliset ratkaisumallit. Kahden käyttäjältä pyydetyn luvun tulon laskeva ohjelma on seuraavanlainen. -->
+
+A program that both reads and calculates combines both of these patterns. One that calculates the product of two integers provided by the use looks like this:
+
+<!-- ```java
 // Tuodaan Scanner-apuväline ohjelman tietoon
 import java.util.Scanner;
 
@@ -95,11 +153,40 @@ public class Ohjelma {
 
     }
 }
-```
-
-Edellä olevassa esimerkissä ohjelma on toteutettu niin, että muuttujat määritellään ensin ja niihin luetaan arvot vasta tämän jälkeen. Muuttujien määrittelyn sekä niiden arvojen lukemisen voi myös yhdistää.
+``` -->
 
 ```java
+// Making the scanner available in the program
+import java.util.Scanner;
+
+public class Ohjelma {
+    public static void main(String[] main) {
+        // Creating the scanner
+        Scanner reader = new Scanner(System.in);
+
+        // Identifying the input values and declaring the variables for them
+        int first = 1;
+        int second = 2;
+
+        // Assigning the user input to the variables
+        first = Integer.valueOf(lukija.nextLine());
+        second = Integer.valueOf(lukija.nextLine());
+
+        // Identifying the operation and declaring a variable for the result
+        int product = first * second;
+
+        // Printing the result of the operation
+        System.out.println("The product of " + first + " and " + second + " is " + product);
+
+    }
+}
+```
+
+<!-- Edellä olevassa esimerkissä ohjelma on toteutettu niin, että muuttujat määritellään ensin ja niihin luetaan arvot vasta tämän jälkeen. Muuttujien määrittelyn sekä niiden arvojen lukemisen voi myös yhdistää. -->
+
+In the example above, the program has been implemented so that the variables are declared first after which values are read into them. Variable declaration and the reading of values into them can also be combined into one.
+
+<!-- ```java
 // Tuodaan Scanner-apuväline ohjelman tietoon
 import java.util.Scanner;
 
@@ -120,11 +207,36 @@ public class Ohjelma {
 
     }
 }
+``` -->
+
+```java
+// Making the Scanner available to the program
+import java.util.Scanner;
+
+public class Program {
+    public static void main(String[] main) {
+        // Creating the Scanner
+        Scanner reader = new Scanner(System.in);
+
+        // Declaring the variables and assigning user input to them
+        int first = Integer.valueOf(reader.nextLine());
+        int second = Integer.valueOf(reader.nextLine());
+
+        // Identifying the operation and declaring a variable for the result
+        int product = first * second;
+
+        // Printing the result of the operation
+        System.out.println("The product of " + first + " and " + second + " is " + product);
+
+    }
+}
 ```
 
-<programming-exercise name='Toiseen potenssiin' tmcname='osa02-Osa02_01.ToiseenPotenssiin'>
+<programming-exercise name='Squared' tmcname='part02-Part02_01.Squared'>
 
-Kirjoita ohjelma, joka lukee käyttäjältä kokonaisluvun ja tulostaa luvun korotettuna toiseen potenssin eli luvun kerrottuna itsellään.
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä kokonaisluvun ja tulostaa luvun korotettuna toiseen potenssin eli luvun kerrottuna itsellään. -->
+
+Write a program that reads an integer from the user input, and then prints the second power of the given integer, i.e. the integer multiplied by itself.
 
 <sample-output>
 
@@ -150,9 +262,28 @@ Kirjoita ohjelma, joka lukee käyttäjältä kokonaisluvun ja tulostaa luvun kor
 </programming-exercise>
 
 
-<programming-exercise name='Summan neliöjuuri' tmcname='osa02-Osa02_02.SummanNeliojuuri'>
+<programming-exercise name='Square root of sum' tmcname='part02-Part02_02_SquareRootOfSum'>
 
-Kirjoita ohjelma, joka lukee käyttäjältä kaksi kokonaislukua ja tulostaa lukujen summan neliöjuuren. Ohjelman ei tarvitse käsitellä negatiivisia lukuja. Alla muutamia esimerkkejä.
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä kaksi kokonaislukua ja tulostaa lukujen summan neliöjuuren. Ohjelman ei tarvitse käsitellä negatiivisia lukuja. -->
+Write a program that reads two integers from the user, and prints the square root of the sum of these integers. The program does not need to work with negative values.
+
+<!-- Saat annetun luvun neliöjuuren laskettua komennolla `Math.sqrt` seuraavasti: -->
+You can get the square root of an integer with the command `Math.sqrt` like this:
+
+<!-- ```java
+int luku = 42;
+double neliojuuri = Math.sqrt(luku);
+System.out.println(neliojuuri);
+``` -->
+
+```java
+int number = 42;
+double squareRoot = Math.sqrt(number);
+System.out.println(squareRoot);
+```
+
+<!-- Alla muutamia esimerkkejä. -->
+Here are a few examples:
 
 <sample-output>
 
@@ -178,46 +309,59 @@ Kirjoita ohjelma, joka lukee käyttäjältä kaksi kokonaislukua ja tulostaa luk
 
 </sample-output>
 
-Vinkki! Saat neliöjuuren laskettua komennolla `Math.sqrt` seuraavasti:
-
-```java
-int luku = 42;
-double neliojuuri = Math.sqrt(luku);
-System.out.println(neliojuuri);
-```
 
 </programming-exercise>
 
 
-## Jos ... niin ...
+<!-- ## Vaihtoehtoista toiminnallisuutta -->
 
+## Some Alternative Functionality
 
-Ongelmat sisältävät usein vaihtoehtoista toiminnallisuutta. Tällaisen toteuttamiseen käytetään ehtolauseita. Ehtolause alkaa `if`-komennosta, jota seuraa suluissa oleva lauseke. Lauseke evaluoituu joko todeksi tai epätodeksi. Mikäli lauseke evaluoituu todeksi, suoritetaan ehtolauseen lohko, joka on rajattuna aaltosuluilla.
+<!-- Ongelmat sisältävät usein vaihtoehtoista toiminnallisuutta. Tällaisen toteuttamiseen käytetään ehtolauseita. Ehtolause alkaa `if`-komennosta, jota seuraa suluissa oleva lauseke. Lauseke evaluoituu joko todeksi tai epätodeksi. Mikäli lauseke evaluoituu todeksi, suoritetaan ehtolauseen lohko, joka on rajattuna aaltosuluilla. -->
 
+Problems often contain some alternative functionality, and in such case we use conditional statements. A Conditional statement starts with an `if` command followed by an expression in parentheses. The expression evaluates to either true or false. If it evaluates true, the following block delimited by curly brackets gets executed.
 
-```java
+<!-- ```java
 // jos luku on suurempi kuin viisi
 if (luku > 5) {
     // niin...
 }
-```
-
-Ohjelma, joka tulostaa "ok" kun ohjelmassa olevan lukumuuttujan arvo on suurempi kuin `42`, mulloin "ei ok", toteutetaan seuraavasti.
-
+``` -->
 
 ```java
+// if the value is greater than five
+if (value > 5) {
+    // then...
+}
+```
+
+<!-- Ohjelma, joka tulostaa "ok" kun ohjelmassa olevan lukumuuttujan arvo on suurempi kuin `42`, mulloin "ei ok", toteutetaan seuraavasti. -->
+
+A program that prints "ok" if the value of the variable is greater than `42`, and otherwise prints "not ok" looks like this:
+
+<!-- ```java
 int luku = 15;
 if (luku > 42) {
     System.out.println("ok");
 } else {
     System.out.println("ei ok")
 }
-```
-
-Ehtolauseiden ketjuttaminen on mahdollista. Tällöin ongelmat ovat muotoa "jos a, niin b; muulloin jos c, niin d; muulloin jos e, niin f; muulloin g". Ketjutus toteutetaan `if`-komennon lohkoa seuraavasta `else if` -komennosta, johon liittyy oma lauseke sekä lohko. Lopuksi tulee `else`komento sekä siihen liittyvä lohko.
-
+``` -->
 
 ```java
+int value = 15;
+if (value > 42) {
+    System.out.println("ok");
+} else {
+    System.out.println("not ok")
+}
+```
+
+<!-- Ehtolauseiden ketjuttaminen on mahdollista. Tällöin ongelmat ovat muotoa "jos a, niin b; muulloin jos c, niin d; muulloin jos e, niin f; muulloin g". Ketjutus toteutetaan `if`-komennon lohkoa seuraavasta `else if` -komennosta, johon liittyy oma lauseke sekä lohko. Lopuksi tulee `else`komento sekä siihen liittyvä lohko. -->
+
+You can also chain together multiple conditions. In such a case, the problem takes the form "if a, then b; else if c, then d; else if e, then f; otherwise g". The chain consists of an `if`-statement followed by `else if`-statements each containing its own expression and a block.
+
+<!-- ```java
 // jos luku on suurempi kuin viisi
 if (luku > 5) {
     // toiminnallisuus kun luku suurempi kuin viisi
@@ -227,16 +371,36 @@ if (luku > 5) {
 } else {  // muulloin
     // toiminnallisuus muulloin
 }
-```
-
-
-<quiz id="333846bf-2099-4aca-89e7-1a313babf7a5"></quiz>
-
-
-Ehtotoiminnallisuutta voi yhdistää myös muiden ratkaisumallien kanssa. Tarkastellaan ongelmaa "Lue käyttäjältä kaksi lukua. Mikäli lukujen summa on yli 100, tulosta käyttäjälle merkkijono `liikaa`. Mikäli lukujen summa on alle 0, tulosta käyttäjälle merkkijono `liian vähän`. Muulloin, tulosta käyttäjälle merkkijono `ok`.". Ohjelma, joka yhdistää lukemisen, laskemisen ja ehtolauseen on annettu alla.
-
+``` -->
 
 ```java
+// if the value is greater than five
+if (value > 5) {
+    // functionality when value is greater than five
+} else if (value < 0) { //
+    // functionality when value is less than zero
+    // and the value IS NOT larger than five
+} else {  // otherwise
+    // functionality otherwise
+}
+```
+
+<text-box variant="hint" name="System.out.print">
+
+<!-- Alla olevassa kyselyssä käytetään tulostuskomentoa `System.out.print`. Komento toimii muuten täysin samoin kuin komento `System.out.println`, mutta se ei lisää rivinvaihtoa parametrina saadun merkkijonon perään. -->
+
+The quiz below uses `System.out.print` for printing. It works exactly like `System.out.println`, but it doesn't add a newline character after the string.
+
+</text-box>
+
+<quiz id="ba233660-b119-5c9a-9b75-7b34b0ceb8ef"></quiz>
+
+
+<!-- Ehtotoiminnallisuutta voi yhdistää myös muiden ratkaisumallien kanssa. Tarkastellaan ongelmaa "Lue käyttäjältä kaksi lukua. Mikäli lukujen summa on yli 100, tulosta käyttäjälle merkkijono `liikaa`. Mikäli lukujen summa on alle 0, tulosta käyttäjälle merkkijono `liian vähän`. Muulloin, tulosta käyttäjälle merkkijono `ok`.". Ohjelma, joka yhdistää lukemisen, laskemisen ja ehtolauseen on annettu alla. -->
+
+Conditional functionality can be combined with other solution patterns. Let's look into a problem "Read two integers from the user. If the sum of the integers is over 100, print `too much`. If the sum is less than 0, print `too little`. Otherwise, print `ok`. The program below combines reading, calculating and conditional functionality.
+
+<!-- ```java
 // Tuodaan Scanner-apuväline ohjelman tietoon
 import java.util.Scanner;
 
@@ -265,12 +429,45 @@ public class Ohjelma {
         }
     }
 }
+``` -->
+
+```java
+// Making Scanner available in the program
+import java.util.Scanner;
+
+public class Program {
+    public static void main(String[] main) {
+        // Creating the scanner
+        Scanner reader = new Scanner(System.in);
+
+        // Declaring the variables and assigning user input to them
+        int first = Integer.valueOf(reader.nextLine());
+        int second = Integer.valueOf(reader.nextLine());
+
+        // Identifying the operation and declaring variable for the result
+        int sum = first + second;
+
+        // Doing something with the result. In this case
+        // the result is used in the conditional operations.
+
+        if (sum > 100) { // if the sum is over 100
+            System.out.println("too much");
+        } else if (summa < 0) { // if the sum is less than 0
+            System.out.println("too little");
+        } else { // otherwise
+            System.out.println("ok");
+        }
+    }
+}
 ```
 
 
-<programming-exercise name='Itseisarvo' tmcname='osa02-Osa02_03.Itseisarvo'>
+<!-- <programming-exercise name='Itseisarvo' tmcname='osa02-Osa02_03.Itseisarvo'> -->
+<programming-exercise name='Absolute Value' tmcname='osa02-Osa02_03.AbsoluteValue'>
 
-Kirjoita ohjelma, joka lukee käyttäjältä kokonaisluvun. Mikäli luku on pienempi kuin 0, ohjelma tulostaa luvun kerrottuna luvulla -1. Muulloin ohjelma tulostaa käyttäjän syöttämän luvun. Alla on muutamia esimerkkejä ohjelman odotetusta toiminnasta.
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä kokonaisluvun. Mikäli luku on pienempi kuin 0, ohjelma tulostaa luvun kerrottuna luvulla -1. Muulloin ohjelma tulostaa käyttäjän syöttämän luvun. Alla on muutamia esimerkkejä ohjelman odotetusta toiminnasta. -->
+
+Write a program, that reads an integer from the user. If the number is less than 0, it prints the number multiplied by -1. Otherwise the program prints the number itself. A few examples of the expected function below:
 
 <sample-output>
 
@@ -295,17 +492,26 @@ Kirjoita ohjelma, joka lukee käyttäjältä kokonaisluvun. Mikäli luku on pien
 
 </programming-exercise>
 
-<programming-exercise name='Tietoa luvuista' tmcname='osa02-Osa02_04.TietoaLuvuista'>
+<<<<<<< HEAD
+<programming-exercise name='Comparing numbers' tmcname='part02-Part02_04.ComparingNumbers'>
+=======
+<!-- <programming-exercise name='Tietoa luvuista' tmcname='osa02-Osa02_04.TietoaLuvuista'> -->
+<programming-exercise name='Comparing numbers' tmcname='osa02-Osa02_04.ComparingNumbers'>
+>>>>>>> 0862e628e064df037e8f9ab4ed0422f01ec40580
 
-Kirjoita ohjelma, joka lukee käyttäjältä kaksi kokonaislukua. Mikäli ensimmäinen luku on suurempi kuin toinen luku, ohjelma tulostaa "Luku (ensimmäinen) on suurempi kuin luku (toinen).". Mikäli ensimmäinen luku on pienempi kuin toinen luku, ohjelma tulostaa "Luku (ensimmäinen) on pienempi kuin luku (toinen).". Muulloin ohjelma tulostaa "Luku (ensimmäinen) on yhtä suuri kuin luku (toinen).". Edeltävissä esimerkeissä kohdat (ensimmäinen) ja (toinen) tulee aina korvata syötetyillä luvuilla.
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä kaksi kokonaislukua. Mikäli ensimmäinen luku on suurempi kuin toinen luku, ohjelma tulostaa "Luku (ensimmäinen) on suurempi kuin luku (toinen).". Mikäli ensimmäinen luku on pienempi kuin toinen luku, ohjelma tulostaa "Luku (ensimmäinen) on pienempi kuin luku (toinen).". Muulloin ohjelma tulostaa "Luku (ensimmäinen) on yhtä suuri kuin luku (toinen).". Edeltävissä esimerkeissä kohdat (ensimmäinen) ja (toinen) tulee aina korvata syötetyillä luvuilla. -->
 
-Alla on muutamia esimerkkejä ohjelman odotetusta toiminnasta.
+Write a program that reads two integers from the user input. If the first number is greater than the second, the program prints "(first) is greater than (second)." If the first number is less than the second, the program prints "(first) is less than (second)." Otherwise the program prints "(first) is equal to (second)." The (first) and (second) should always be replaced with the actual numbers given by the user.
+
+<!-- Alla on muutamia esimerkkejä ohjelman odotetusta toiminnasta. -->
+
+A few examples of the expected behaviour:
 
 <sample-output>
 
 **8**
 **4**
-Luku 8 on suurempi kuin luku 4.
+8 is greater than 4.
 
 </sample-output>
 
@@ -313,7 +519,7 @@ Luku 8 on suurempi kuin luku 4.
 
 **-3**
 **5**
-Luku -3 on pienempi kuin luku 5.
+-3 is less than 5.
 
 </sample-output>
 
@@ -321,612 +527,8 @@ Luku -3 on pienempi kuin luku 5.
 
 **1**
 **1**
-Luku 1 on yhtä suuri kuin luku 1.
+1 is equal to 1.
 
 </sample-output>
 
 </programming-exercise>
-
-
-## Lue käyttäjältä kunnes
-
-Ongelmat, jotka pyytävät lukemaan käyttäjältä syötettä kunnes käyttäjä syöttää tietynlaisen syötteen, ratkeavat toistolauseen avulla. Kohtaa "kunnes" vastaa toistolauseissa ehtolause, joka sisältää toistolauseesta poistumiseen johtavan `break`-komennon.
-
-Alla oleva malli sisältää "lue käyttäjältä kunnes"-tyyppisten ohjelmien peruspalat. Nämä ovat ikuisesti toistaminen eli `while (true)`, toistolauseen sisällä oleva lukeminen eli tässä `String luettu = lukija.nextLine();`, ja toistolauseesta poistuminen eli toistolauseen sisällä olevan `if`-komennon sisältämä `break`-komento. Alla toistolauseesta poistutaan kun käyttäjä syöttää merkkijonon "lopeta".
-
-
-```java
-// Tuodaan Scanner-apuväline ohjelman tietoon
-import java.util.Scanner;
-
-public class Ohjelma {
-
-    public static void main(String[] args) {
-        // Luodaan lukemiseen käytettävä Scanner-apuväline
-        Scanner lukija = new Scanner(System.in);
-
-        // luetaan käyttäjältä kunnes käyttäjä syöttää
-        // merkkijonon lopeta
-        while (true) {
-            String luettu = lukija.nextLine();
-
-            if (luettu.equals("lopeta")) {
-                break;
-            }
-
-            // lukemisen jälkeen tehtävä toiminnallisuus
-
-        }
-
-        // toistolauseen jälkeen tehtävä toiminnallisuus
-
-    }
-}
-```
-
-<programming-exercise name='Hip hip hurraa!' tmcname='osa02-Osa02_05.HipHipHurraa'>
-
-Kirjoita ohjelma, joka lukee käyttäjältä syötettä kunnes käyttäjä syöttää merkkijonon "lopeta". Kun käyttäjä syöttää merkkijonon "lopeta", ohjelma tulostaa merkkijonon "hurraa!", jonka jälkeen ohjelman suoritus päättyy. Muulloin, eli kun käyttäjä syöttää jotain muuta kuin merkkijonon "lopeta", ohjelma tulostaa merkkijonon "hip!".
-
-Alla on muutamia esimerkkejä ohjelman odotetusta toiminnasta.
-
-<sample-output>
-
-**huuda**
-hip!
-**huuda**
-hip!
-**huuda**
-hip!
-**lopeta**
-hurraa!
-
-</sample-output>
-
-<sample-output>
-
-**lopeta**
-hurraa!
-
-</sample-output>
-
-<sample-output>
-
-**huuda**
-hip!
-**lopeta**
-hurraa!
-
-</sample-output>
-
-</programming-exercise>
-
-
-Kuten muissa ratkaisumalleissa, myös muotoa "lue käyttäjältä kunnes" olevien ongelmien ratkaisumallit voi yhdistää muiden ongelmien ratkaisumallien kanssa. Tarkastellaan seuraavaksi hieman laajempaa esimerkkiä, mikä demonstroi tämän.
-
-_Lue käyttäjältä kokonaislukuja kunnes käyttäjä syöttää luvun nolla. Tämän jälkeen ohjelman tulee tulostaa merkkijono "optimistista" mikäli käyttäjän syöttämien lukujen keskiarvo on suurempi kuin nolla. Mikäli käyttäjän syöttämien lukujen keskiarvo on pienempi kuin nolla, tulee ohjelman tulostaa merkkijono "pessimististä". Muulloin ohjelman tulee tulostaa merkkijono "neutraalia meininkiä". Lukua nolla ei tule huomioida keskiarvoa laskettaessa._
-
-Yllä kuvatussa tehtävänannossa on monta osaa:
-
-* lukeminen: ohjelman tulee lukea käyttäjältä kokonaislukuja
-* laskeminen: ohjelman tulee laskea käyttäjän syöttämien lukujen keskiarvo
-* ehdollinen toiminta (jos ... niin ...): ohjelman lopussa tehtävä tulostus riippuu käyttäjän syöttämien lukujen keskiarvosta
-* toistolause (lue käyttäjältä kunnes): ohjelman tulee lukea käyttäjältä syötettä kunnes käyttäjä syöttää luvun nolla
-
-
-Tarkastellaan näitä osia ensin erikseen.
-
-**Kokonaislukujen lukeminen**: Kokonaislukujen lukemista varten tarvitaan Scanner-apuväline. Kokonaisluvun lukeminen tapahtuu lukemalla käyttäjältä merkkijono, joka muunnetaan kokonaisluvuksi komennolla `Integer.valueOf`.
-
-
-```java
-// Tuodaan Scanner-apuväline ohjelman tietoon
-import java.util.Scanner;
-
-public class Ohjelma {
-
-    public static void main(String[] args) {
-        // Luodaan lukemiseen käytettävä Scanner-apuväline
-        Scanner lukija = new Scanner(System.in);
-
-        int luku = Integer.valueOf(lukija.nextLine());
-
-    }
-}
-```
-
-
-**Keskiarvon laskeminen**: lukujen keskiarvon laskemiseen tarvitaan lukujen lukumäärä sekä lukujen summa. Kun nämä ovat tiedossa, saadaan keskiarvo laskettua jakamalla summa lukumäärällä. Huomaa, että nollalla jakaminen ei ole matemaattisessa mielessä sallittua, kts. <a href="https://fi.wikipedia.org/wiki/Nollalla_jakaminen" target="_blank">https://fi.wikipedia.org/wiki/Nollalla_jakaminen</a>. Joissakin ohjelmointikielissä tämä on kuitenkin mahdollista. Mikäli ohjelmassa jakaa luvun nollalla, on lopputulos erittäin harvoin toivottu.
-
-
-```java
-int lukuja = 42;
-int summa = 1;
-
-double keskiarvo = 1.0 * summa / lukuja;
-```
-
-**Ehdollinen toiminta**: ehdollista toimintaa tehdään ehtolauseen avulla. Alla on kuvattuna ohjelmaan kuuluva keskiarvoon liittyvä ehdollinen toiminta.
-
-```java
-double keskiarvo = 0.0;
-if (keskiarvo < 0) {
-    System.out.println("pessimististä");
-} else if (keskiarvo > 0) {
-    System.out.println("optimistista");
-} else {
-    System.out.println("neutraalia")
-}
-```
-
-**Lukeminen kunnes**: lukeminen "kunnes" tapahtuu toistolauseen avulla. Toistolause sisältää ehtolauseen, jossa poistutaan toistolauseesta kun käyttäjä syöttää halutun luvun.
-
-```java
-Scanner lukija = new Scanner(System.in);
-
-while (true) {
-    String syote = lukija.nextLine();
-
-    if (syote.equals("lopeta")) {
-        break;
-    }
-}
-```
-
-Ratkaisumallien toiminta on erillisinä paloina selkeää. Aloitetaan ratkaisumallien yhdistäminen. Yhdistetään ensin **kokonaisluvun lukeminen** ja **lukeminen kunnes**. Kokonaisluvun lukeminen tapahtuu osana ehtolausetta.
-
-```java
-Scanner lukija = new Scanner(System.in);
-
-while (true) {
-    int luku = Integer.valueOf(lukija.nextLine());
-
-    if (luku == 0) {
-        break;
-    }
-}
-```
-
-Yhdistetään edelliseen kokonaisuuteen eli kokonaisluvun lukemiseen kunnes käyttäjä syöttää luvun nolla **keskiarvon laskeminen**. Keskiarvon laskemiseen -- tai laskemiseen liittyvään ratkaisumalliin yleensä -- kuuluu muuttujien määrittely, laskenta, sekä jotain laskun tuloksella tekeminen. Koska keskiarvo lasketaan käyttäjän syöttämistä luvuista ja lukuja lasketaan kunnes käyttäjä syöttää tietyn luvun, tulee lukujen lukumäärän ja summan laskeminen lisätä osaksi toistolausetta.
-
-```java
-Scanner lukija = new Scanner(System.in);
-
-// lukujen määrittely
-int lukuja = 0;
-int summa = 0;
-
-while (true) {
-    int luku = Integer.valueOf(lukija.nextLine());
-
-    if (luku == 0) {
-        break;
-    }
-
-    // summan ja lukujen lukumäärän laskeminen
-    lukuja = lukuja + 1;
-    summa = summa + luku;
-}
-
-// keskiarvon laskeminen
-double keskiarvo = 1.0 * summa / lukuja;
-```
-
-Yhdistetään lopulta ohjelmaan vaihtoehtoinen toiminnallisuus, joka tekee asioita käyttäjän syötteen perusteella.
-
-
-```java
-Scanner lukija = new Scanner(System.in);
-
-// lukujen määrittely
-int lukuja = 0;
-int summa = 0;
-
-while (true) {
-    int luku = Integer.valueOf(lukija.nextLine());
-
-    if (luku == 0) {
-        break;
-    }
-
-    // summan ja lukujen lukumäärän laskeminen
-    lukuja = lukuja + 1;
-    summa = summa + luku;
-}
-
-// keskiarvon laskeminen
-double keskiarvo = 1.0 * summa / lukuja;
-
-// vaihtoehtoinen toiminta keskiarvon perusteella
-if (keskiarvo < 0) {
-    System.out.println("pessimististä");
-} else if (keskiarvo > 0) {
-    System.out.println("optimistista");
-} else {
-    System.out.println("neutraalia")
-}
-```
-
-On hyvä kysymys, mikäli alkuperäisen ongelman antaja tietää ettei nollalla lukeminen ole sallittua, tai että nollalla jakaminen johtaa mahdollisesti virheeseen. Mikäli voimme olettaa, että ongelman antaja tietää tilanteesta (esim. hän kertoo siitä), ei poikkeustilanteeseen tarvitse varautua. Mikäli taas on mahdollista, että ongelman antaja ei ole ajatellun nollalla jakamista, ohjelmaan on hyvä toteuttaa erillinen toiminnallisuus, joka estää nollalla jakamisen.
-
-Eräs mahdollinen kokonaisvaltainen ratkaisu alkuperäiseen ongelmaan on seuraava.
-
-```java
-Scanner lukija = new Scanner(System.in);
-
-// lukujen määrittely
-int lukuja = 0;
-int summa = 0;
-
-while (true) {
-    int luku = Integer.valueOf(lukija.nextLine());
-
-    if (luku == 0) {
-        break;
-    }
-
-    // summan ja lukujen lukumäärän laskeminen
-    lukuja = lukuja + 1;
-    summa = summa + luku;
-}
-
-if (lukuja == 0) {
-    System.out.println("Ei syötteitä.");
-} else {
-    // keskiarvon laskeminen
-    double keskiarvo = 1.0 * summa / lukuja;
-
-    // vaihtoehtoinen toiminta keskiarvon perusteella
-    if (keskiarvo < 0) {
-        System.out.println("pessimististä");
-    } else if (keskiarvo > 0) {
-        System.out.println("optimistista");
-    } else {
-        System.out.println("neutraalia")
-    }
-}
-```
-
-
-<programming-exercise name='Merkkijonojen lukumäärä' tmcname='osa02-Osa02_06.MerkkijonojenLukumaara'>
-
-Kirjoita ohjelma, joka lukee käyttäjältä syötettä kunnes käyttäjä syöttää merkkijonon "loppu". Tämän jälkeen ohjelma tulostaa käyttäjältä luettujen merkkijonojen määrän. Merkkijonojen määrään ei tule ottaa mukaan syötteen loppumista ilmoittavaa merkkijonoa "loppu".
-
-Alla on muutamia esimerkkejä ohjelman toiminnasta.
-
-<sample-output>
-
-**hei**
-**vaan**
-**kaikki**
-**loppu**
-3
-
-</sample-output>
-
-<sample-output>
-
-**never**
-**gonna**
-**give**
-**you**
-**up**
-**never**
-**gonna**
-**let**
-**you**
-**down**
-**loppu**
-10
-
-</sample-output>
-
-<sample-output>
-
-**loppu**
-0
-
-</sample-output>
-
-</programming-exercise>
-
-
-<programming-exercise name='Lukujen summa' tmcname='osa02-Osa02_07.LukujenSumma'>
-
-Kirjoita ohjelma, joka lukee käyttäjältä kokonaislukuja kunnes käyttäjä syöttää luvun 0. Tämän jälkeen ohjelma tulostaa lukujen summan.
-
-Alla on muutamia esimerkkejä ohjelman toiminnasta.
-
-<sample-output>
-
-**2**
-**5**
-**1**
-**0**
-8
-
-</sample-output>
-
-
-<sample-output>
-
-**-3**
-**4**
-**1**
-**0**
-2
-
-</sample-output>
-
-</programming-exercise>
-
-
-<programming-exercise name='Ykkösten lukumäärä' tmcname='osa02-Osa02_08.YkkostenLukumaara'>
-
-Kirjoita ohjelma, joka lukee käyttäjältä kokonaislukuja kunnes käyttäjä syöttää luvun 0. Tämän jälkeen ohjelma tulostaa syötteessä esiintyneiden ykkösten (eli luvun yksi) lukumäärän.
-
-Alla on muutamia esimerkkejä ohjelman toiminnasta.
-
-<sample-output>
-
-**2**
-**5**
-**1**
-**0**
-1
-
-</sample-output>
-
-
-<sample-output>
-
-**-3**
-**4**
-**1**
-**0**
-1
-
-</sample-output>
-
-<sample-output>
-
-**-1**
-**8**
-**12**
-**0**
-0
-
-</sample-output>
-
-<sample-output>
-
-**1**
-**1**
-**0**
-2
-
-</sample-output>
-
-</programming-exercise>
-
-
-<programming-exercise name='Ykkösten osuus' tmcname='osa02-Osa02_09.YkkostenOsuus'>
-
-Kirjoita ohjelma, joka lukee käyttäjältä kokonaislukuja kunnes käyttäjä syöttää luvun 0. Tämän jälkeen ohjelma tulostaa syötteessä esiintyneiden ykkösten (eli luvun yksi) osuuden, eli ykkösten lukumäärän jaettuna syötettyjen lukujen lukumäärällä. Syötteen lopettavaa lukua 0 ei tule ottaa huomioon ykkösten osuutta laskettaessa.
-
-Mikäli ohjelmassa ei syötetä yhtäkään kelpoa lukua (eli käyttäjä aloittaa syöttämällä luvun 0), ohjelman tulee tulostaa "ykkösten osuutta ei voida laskea".
-
-Muistathan, että jakolaskua tehdessä osoittaja tai nimittäjä tulee kertoa 1.0:lla, jolloin luku muuttuu liukuluvuksi. Muulloin on mahdollista, että jakolaskun tulos ei ole toivottu.
-
-Alla on muutamia esimerkkejä ohjelman toiminnasta.
-
-<sample-output>
-
-**2**
-**5**
-**1**
-**6**
-**0**
-0.25
-
-</sample-output>
-
-<sample-output>
-
-**-3**
-**1**
-**0**
-0.5
-
-</sample-output>
-
-<sample-output>
-
-**1**
-**1**
-**0**
-1.0
-
-</sample-output>
-
-<sample-output>
-
-**0**
-ykkösten osuutta ei voida laskea
-
-</sample-output>
-
-</programming-exercise>
-
-
-## Lue käyttäjältä kunnes ja rajaa
-
-Ongelmat, jotka pyytävät lukemaan käyttäjältä syötettä kunnes käyttäjä syöttää tietynlaisen syötteen, sekä rajaamaan syötteestä käyttöön vain tietynlaiset arvot, ratkeavat myös toistolauseen avulla. Kohtaa "kunnes" vastaa toistolauseissa `break`-komennon ja rajaamiseen käytetään toistolauseen alkuun siirtymistä kuvaavaa komentoa `continue`.
-
-```java
-// Tuodaan Scanner-apuväline ohjelman tietoon
-import java.util.Scanner;
-
-public class Ohjelma {
-
-    public static void main(String[] args) {
-        // Luodaan lukemiseen käytettävä Scanner-apuväline
-        Scanner lukija = new Scanner(System.in);
-
-        // lue käyttäjältä kunnes -- toistolause
-        while (true) {
-            String syote = lukija.nextLine();
-
-            // kunnes
-            if (syote.equals("lopeta")) { // poistuminen
-                break;
-            }
-
-            // rajausehto
-            int luku = Integer.valueOf(syote);
-            if (luku > 10) { // rajaus
-                continue;
-            }
-
-            // lukemisen jälkeen tehtävä toiminnallisuus
-        }
-
-        // toistolauseen jälkeen tehtävä toiminnallisuus
-
-    }
-}
-```
-
-Alla on kuvattuna ohjelma, missä `syötteitä luetaan kunnes`, jonka lisäksi myös `syötteitä rajataan`.
-
-_Kirjoita ohjelma, joka lukee käyttäjältä kokonaislukuja kunnes käyttäjä syöttää luvun nolla. Tämän jälkeen ohjelma tulostaa niiden lukujen lukumäärän, jotka ovat pienempiä kuin kymmenen mutta suurempia kuin nolla._
-
-Syötteiden lukeminen lopetetaan kokonaislukuun nolla. Rajauksia on kaksi: (1) luvut, jotka ovat suurempia tai yhtä suuria kuin kymmenen tulee rajata pois; (2) luvut, jotka ovat pienempiä tai yhtä suuria kuin nolla tulee rajata pois. Lukumäärän laskemiseen tarvitaan erikseen muuttuja. Ohjelma kokonaisuudessaan alla.
-
-
-```java
-// Tuodaan Scanner-apuväline ohjelman tietoon
-import java.util.Scanner;
-
-public class Ohjelma {
-
-    public static void main(String[] args) {
-        // Luodaan lukemiseen käytettävä Scanner-apuväline
-        Scanner lukija = new Scanner(System.in);
-
-        int rajattujenLukujenLukumaara = 0;
-
-        // lue käyttäjältä kunnes -- toistolause
-        while (true) {
-            // lue käyttäjältä kokonaislukuja
-            int luku = Integer.valueOf(lukija.nextLine());
-
-            // kunnes käyttäjä syöttää nollan
-            if (luku == 0) {
-                break;
-            }
-
-            // rajataan pois luvut, jotka ovat suurempia
-            /// tai yhtä suuria kuin kymmenen
-            if (luku >= 10) {
-                continue;
-            }
-
-            // rajataan pois luvut, jotka ovat pienempiä
-            // tai yhtä pieniä kuin nolla
-            if (luku <= 0) {
-                continue;
-            }
-
-            // lukemisen jälkeen tehtävä toiminnallisuus
-            rajattujenLukujenLukumaara = rajattujenLukujenLukumaara + 1;
-        }
-
-        // toistolauseen jälkeen tehtävä toiminnallisuus
-        System.out.println(rajattujenLukujenLukumaara);
-
-    }
-}
-```
-
-Alla muutamia ohjelman esimerkkitulosteita.
-
-<sample-output>
-
-**11**
-**4**
-**-2**
-**1**
-**0**
-2
-
-</sample-output>
-
-<sample-output>
-
-**10**
-**0**
-0
-
-</sample-output>
-
-
-<quiz id="36820352-22b1-46bd-9d8e-1bdfac286615"></quiz>
-
-
-<programming-exercise name='Positiivisten lukujen keskiarvo' tmcname='osa02-Osa02_10.PositiivistenLukujenKeskiarvo'>
-
-Kirjoita ohjelma, joka lukee käyttäjältä kokonaislukuja kunnes käyttäjä syöttää luvun 0. Tämän jälkeen ohjelma tulostaa syötteessä esiintyneiden positiivisten (eli nollaa suurempien lukujen) keskiarvon.
-
-Mikäli ohjelmassa ei syötetä yhtäkään positiivista lukua, ohjelman tulee tulostaa "keskiarvon laskeminen ei ole mahdollista".
-
-Alla on muutamia esimerkkejä ohjelman toiminnasta.
-
-<sample-output>
-
-**3**
-**5**
-**1**
-**-3**
-**0**
-3.0
-
-</sample-output>
-
-<sample-output>
-
-**0**
-keskiarvon laskeminen ei ole mahdollista
-
-</sample-output>
-
-<sample-output>
-
-**-3**
-**1**
-**0**
-1.0
-
-</sample-output>
-
-<sample-output>
-
-**1**
-**1**
-**0**
-1.0
-
-</sample-output>
-
-</programming-exercise>
-
-
-
-<text-box variant='hint' name='Osaongelmien tunnistaminen ja ratkaiseminen'>
-
-* Tutki ongelman kuvausta tai tehtävänantoa ja tunnista ongelmaan liittyvät avainsanat kuten "lue kunnes" tai "lue kokonaislukuja".
-* Kullekin avainsanalle, tunnista niihin liittyvät ratkaisumallit, ja ota ratkaisumallit käyttöön.
-* Mikäli ongelmaan liittyy aiemmin tuntemattomia osaongelmia, eriytä osaongelma ensin erilleen kaikesta muusta ja harjoittele sen ratkaisemista -- yrittäminen (ja erehtyminen) on tärkeää!.
-* Yhdistä osat yksi kerrallaan ja muodosta niistä ratkaisu.
-
-</text-box>

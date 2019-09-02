@@ -1,7 +1,7 @@
 ---
-path: '/osa-11/6-yhteenveto'
+path: '/part-11/6-yhteenveto'
 title: 'Yhteenveto'
-hidden: false
+hidden: true
 ---
 
 
@@ -9,4 +9,4 @@ Yhdennessätoista osassa eli Ohjelmoinnin jatkokurssin neljännessä osassa tutu
 
 Vastaa vielä alla olevaan kyselyyn.
 
-<quiz id='2aaaf03c-1b28-4358-8f7c-da30b314f3b8'></quiz>
+<quiz id='10c523e9-dd15-5497-91e9-4c167866b792'></quiz>

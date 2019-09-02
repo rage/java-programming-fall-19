@@ -1,7 +1,7 @@
 ---
-path: '/osa-13/3-laajempi-sovellus-asteroids'
+path: '/part-13/3-laajempi-sovellus-asteroids'
 title: 'Laajempi sovellus: Asteroids'
-hidden: false
+hidden: true
 ---
 
 
@@ -604,7 +604,7 @@ public class Asteroidi extends Hahmo {
 }
 ```
 
-<quiz id="31c57663-1fad-4a8d-a048-fe8418f1d25f"></quiz>
+<quiz id="55f5368f-f852-5c25-8448-89d40088b03f"></quiz>
 
 Testataan vielä, että asteroidin voi lisätä sovellukseen.
 
@@ -1232,4 +1232,3 @@ Kun olet saanut nämä ja edelliset osat toimimaan, aseta luokan `AsteroidsSovel
 *Tehtävässä ei ole esimerkkiratkaisua. Tehtävä on tarkoitettu toteutettavaksi materiaalin esimerkkiä askel askeleelta noudattaen.*
 
 </programming-exercise>
-

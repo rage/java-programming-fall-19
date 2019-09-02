@@ -1,7 +1,7 @@
 ---
-path: '/osa-12/6-tehtavan-luominen'
+path: '/part-12/6-tehtavan-luominen'
 title: 'Tehtävän luominen'
-hidden: false
+hidden: true
 ---
 
 
@@ -13,7 +13,7 @@ hidden: false
 </text-box>
 
 
-Tässä osassa pääset jälleen suunnittelemaan oman ohjelmointitehtävän. Mikäli CrowdSorcererin käyttö on päässyt unohtumaan, käy kertaamassa sitä kurssin [seitsemännestä osasta](https://ohjelmointi-19.mooc.fi/osa-7/4-ohjelmointitehtavien-luominen).
+Tässä osassa pääset jälleen suunnittelemaan oman ohjelmointitehtävän. Mikäli CrowdSorcererin käyttö on päässyt unohtumaan, käy kertaamassa sitä kurssin [seitsemännestä osasta](https://ohjelmointi-19.mooc.fi/part-7/4-ohjelmointitehtavien-luominen).
 
 <br/>
 

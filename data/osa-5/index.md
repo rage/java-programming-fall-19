@@ -1,12 +1,12 @@
 ---
-path: '/osa-5'
+path: '/part-5'
 title: 'Osa 5'
 overview: true
-hidden: false
+hidden: true
 ---
 
 <only-for-course-variant variant="dl">
-  <deadline>18.2.2019</deadline>
+  <deadline>18.2.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="nodl">
@@ -22,7 +22,7 @@ hidden: false
 </only-for-course-variant>
 
 <only-for-course-variant variant="kesa-dl">
-  <deadline>10.6.2019</deadline>
+  <deadline>10.6.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="kesa-ohja-dl">
@@ -34,8 +34,7 @@ hidden: false
 </only-for-not-logged-in>
 
 
-Tässä osassa jatkat matkaasi olio-ohjelmoinnin saloihin. Opit Javan alkeis- ja viittaustyyppisistä muuttujista sekä niiden eroista. Opit kuormittamaan konstruktoreja ja metodeja eli luomaan useita konstruktoreja ja useita samannimisiä metodeja. Tutustut olioiden samankaltaisuuden vertailuun ja opit luomaan olioiden vertailussa käytettävän equals-metodin omiin luokkiisi. Harjoittelet olioiden käyttöä oliomuuttujina ja metodien paluuarvona. Opettelet lisäksi listojen käyttöä oliomuuttujina sekä harjoittelet yksikkötestien kirjoittamista.
-
+Kurssimateriaalin viides osa jatkaa neljännestä osasta alkaneen olio-ohjelmoinnin parissa.
 
 <please-login></please-login>
 

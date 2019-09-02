@@ -1,7 +1,7 @@
 ---
-path: '/osa-10/4-tiedostojen-kasittely'
+path: '/part-10/4-tiedostojen-kasittely'
 title: 'Tiedostojen käsittely'
-hidden: false
+hidden: true
 ---
 
 
@@ -59,7 +59,7 @@ Mikäli tiedostoja haluaa käsitellä siten, että kirjoitus tapahtuu olemassaol
 
 <br/>
 
-<quiz id="42343ea4-2a23-42ef-9a06-21dad5aa1671"></quiz>
+<quiz id="05822c24-34ad-5a60-a3f0-b09ac094c7c7"></quiz>
 
 
 <programming-exercise name='Muistava sanakirja (4 osaa)' nocoins='true' tmcname='osa10-Osa10_13.MuistavaSanakirja'>

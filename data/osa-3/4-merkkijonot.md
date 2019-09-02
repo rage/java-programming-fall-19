@@ -1,47 +1,61 @@
 ---
-path: '/osa-3/4-merkkijonot'
+path: '/part-3/5-merkkijonot'
 title: 'Merkkijonojen käsittely'
-hidden: false
+hidden: true
 ---
-
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-- Kertaat merkkijonojen lukemista, tulostamista sekä vertailua.
-- Osaat ottaa merkkijonosta osajonon sekä etsiä merkkijonosta toista merkkijonoa.
-- Osaat pilkkoa merkkijonon useampaan osaan.
+<!-- - Kertaat merkkijonojen lukemista, tulostamista sekä vertailua.
+- Osaat pilkkoa merkkijonon useampaan osaan. -->
+
+- You revise reading, printing and comparing Strings
+- You can split a string into several pieces
 
 </text-box>
 
 
-Tutustutaan seuraavaksi tarkemmin merkkijonoihin (`String`) sekä kerrataan hieman niihin liittyviä perusominaisuuksia. Merkkijonomuuttuja määritellään kertomalla sen tyyppi (String) sekä nimi. Tätä seuraa muuttujan arvo, joka on hipsujen sisällä olevaa tekstiä. Alla luodaan merkkijonomuuttuja `taikasana`, joka sisältää arvon `"abrakadabra"`.
+<!-- Kerrataan seuraavaksi merkkijonoihin liittyviä perusominaisuuksia ja tutustutaan niiden pilkkomiseen. Alla luodaan merkkijonomuuttuja `taikasana`, joka sisältää arvon `"abrakadabra"`. -->
 
+Let's first revise what we already know about Strings and see how to split them. Below we create a String variable `magicWord`, that contains value `"abracadabra"`.
+
+<!-- ```java
+String taikasana = "abrakadabra";
+``` -->
 
 ```java
-String taikasana = "abrakadabra";
+String magicWord = "abracadabra";
 ```
 
-Merkkijonomuuttujan antaminen tulostuskomennolle (tai oikeastaan mille tahansa metodille) parametrina onnistuu tutulla tavalla. Alla määritellään merkkijono, joka tulostetaan.
+<!-- Merkkijonomuuttujan antaminen tulostuskomennolle (tai oikeastaan mille tahansa merkkijonon parametrina ottavalle metodille) parametrina onnistuu tutulla tavalla. Alla määritellään merkkijono, joka tulostetaan. -->
 
+Passing a String as a parameter to a printing command (or actually to any method that takes a String parameter) should look quite familiar by now:
 
-```java
+<!-- ```java
 String taikasana = "abrakadabra";
 System.out.println(taikasana);
+``` -->
+
+```java
+String magicWord = "abracadabra";
+System.out.println(magicWord);
 ```
 
 <sample-output>
 
-abrakadabra
+<!-- abrakadabra -->
+abracadabra
 
 </sample-output>
 
 
-## Merkkijonojen lukeminen ja tulostaminen
+<!-- ## Merkkijonojen lukeminen ja tulostaminen -->
+## Reading and printing strings
 
-Kuten muistamme, merkkijonon lukeminen onnistuu tutun Scanner-apuvälineen tarjoamalla nextLine-metodilla. Alla oleva ohjelma lukee käyttäjän nimen ja tulostaa sen seuraavalla rivillä (esimerkissä käyttäjän syöttämä teksti on merkitty punaisella):
+<!-- Merkkijonon lukeminen onnistuu Scannerin tarjoamalla nextLine-metodilla. Alla oleva ohjelma lukee käyttäjän nimen ja tulostaa sen seuraavalla rivillä: -->
+You can read a string with the nextLine-method of Scanner- Here we read the name of the user and print it:
 
-
-```java
+<!-- ```java
 Scanner lukija = new Scanner(System.in);
 
 System.out.print("Mikä on nimesi? ");
@@ -49,20 +63,31 @@ System.out.print("Mikä on nimesi? ");
 String nimi = lukija.nextLine();
 
 System.out.println(nimi);
+``` -->
+
+```java
+Scanner reader = new Scanner(System.in);
+
+System.out.print("What's your name? ");
+// reading one line of user input and assigning it to the name variable
+String name = reader.nextLine();
+
+System.out.println(name);
 ```
 
 <sample-output>
 
-Mikä on nimesi? **Venla**
-Venla
+<!-- Mikä on nimesi? **Venla**
+Venla -->
+What's your name? **Vicky**
+Vicky
 
 </sample-output>
 
+<!-- Merkkijonoja voi myös yhdistellä. Jos plus-operaatiota `+` sovelletaan kahden merkkijonon välille, syntyy uusi merkkijono, jossa kaksi merkkijonoa on yhdistetty. Huomaa nokkela välilyönnin käyttö lauseen "muuttujien" osana! -->
+You can also concatenate strings. If you apply a `+`-operation between two strings, you get a new string made of the two strings. Note the white spaces in the variables!
 
-Merkkijonoja voi myös yhdistellä. Jos plus-operaatiota `+` sovelletaan kahden merkkijonon välille, syntyy uusi merkkijono, jossa kaksi merkkijonoa on yhdistetty. Huomaa nokkela välilyönnin käyttö lauseen "muuttujien" osana!
-
-
-```java
+<!-- ```java
 String tervehdys = "Hei ";
 String nimi = "Lilja";
 String hyvastely = " ja näkemiin!";
@@ -70,137 +95,60 @@ String hyvastely = " ja näkemiin!";
 String lause = tervehdys + nimi + hyvastely;
 
 System.out.println(lause);
-```
-
-<sample-output>
-
-Hei Lilja ja näkemiin!
-
-</sample-output>
-
-
-Jos toinen operaation `+` kohteista on merkkijono, muutetaan myös toinen operaation kohteista merkkijonoksi. Alla olevassa esimerkissä kokonaisluku `2` on muutettu merkkijonoksi "2", ja siihen on yhdistetty merkkijono.
-
+``` -->
 
 ```java
-String teksti = "tuossa on kokonaisluku";
-System.out.println(teksti + " --> " + 2);
-System.out.println(2 + " <-- " + teksti);
+String greeting = "Hi ";
+String name = "Lily";
+String goodbye = " and bye!";
+
+String phrase = greeting + name + goodbye;
+
+System.out.println(phrase);
 ```
 
 <sample-output>
 
-tuossa on kokonaisluku --> 2
-2 <-- tuossa on kokonaisluku
+<!-- Hei Lilja ja näkemiin! -->
+Hi Lily and bye!
 
 </sample-output>
 
 
-Aiemmin tutuksi tulleet laskusäännöt sekä sulkeiden noudattaminen pätee myös merkkijonoja käsiteltäessä.
+<programming-exercise name='Print thrice' tmcname='part03-Part03_23.printThrice'>
 
 
-```java
-String teksti = " oho!";
-System.out.println("Neljä: " + (2 + 2) + teksti);
-System.out.println("Mutta! kaksikymmentäkaksi: " + 2 + 2 + teksti);
-```
+<!-- Tee ohjelma joka lukee käyttäjältä merkkijonon ja tulostaa merkkijonon kolmesti peräkkäin. -->
+Write a program, that reads a string from the user and then prints it three times.
 
 <sample-output>
 
-Neljä: 4 oho!
-Mutta! kaksikymmentäkaksi: 22 oho!
+<!-- Mikä tulostetaan? **kukka**
+
+kukkakukkakukka -->
+
+Give a word: **cake**
+
+cakecakecake
 
 </sample-output>
 
 
-
-Seuraavassa on ensimmäisestä osasta tuttu käyttäjää tervehtivä ohjelma pääohjelmarungon kanssa. Ohjelman nimi on _Tervehdys_.
-
-
-```java
-import java.util.Scanner;
-
-public class Tervehdys {
-
-    public static void main(String[] args) {
-        Scanner lukija = new Scanner(System.in);
-
-        System.out.print("Kenelle sanotaan hei: ");
-        String nimi = lukija.nextLine();
-
-        System.out.println("Hei " + nimi);
-    }
-}
-```
-
-Kun yllä oleva ohjelma ajetaan, pääset kirjoittamaan syötteen.  NetBeansin tulostusvälilehti näyttää ajetun ohjelman jälkeen seuraavalta (käyttäjä syöttää nimen "Venla").
-
-<div><img class="naytto" src="../img/material/netbeans-output-venla.png"/></div>
-
-
-<programming-exercise name='Tulostus kolmesti' tmcname='osa03-Osa03_23.TulostusKolmesti'>
-
-
-Tee ohjelma joka lukee käyttäjältä merkkijonon ja tulostaa merkkijonon kolmesti peräkkäin.
-
-
-<sample-output>
-
-Mikä tulostetaan? **kukka**
-
-kukkakukkakukka
-
-</sample-output>
-
-
-Huom! Ohjelma kysyy vain yhtä merkkijonoa. Älä käytä tässä toistolausetta.
+<!-- Huom! Ohjelma kysyy vain yhtä merkkijonoa. Älä käytä tässä toistolausetta. -->
+NB! The program should ask for only one string. Don't use a loop here.
 
 </programming-exercise>
 
 
 
+<!-- ## Merkkijonojen vertailu ja equals -->
 
+## Comparing strings and "equals"
 
-<text-box variant='hint' name='Merkkijonojen ja lukujen lukeminen'>
+<!-- Merkkijonoja ei voi vertailla yhtäsuuri kuin operaatiolla `==`.  Merkkijonojen vertailuun käytetään erillistä `equals`-komentoa, joka liittyy aina verrattavaan merkkijonoon. -->
+You can't compare Strings with `==`-operator. There's a separate `equals`-command which is always attached to the string to compare.
 
-
-Käyttäjän kanssa keskustelevan ohjelman runko:
-
-
-```java
-import java.util.Scanner;
-
-public class OhjelmanNimi {
-    public static void main(String[] args) {
-        Scanner lukija = new Scanner(System.in);
-
-        // koodi tähän
-    }
-}
-```
-
-Merkkijonon lukeminen:
-
-
-```java
-String merkkijono = lukija.nextLine();
-```
-
-Kokonaisluvun lukeminen:
-
-
-```java
-int kokonaisluku = Integer.valueOf(lukija.nextLine());
-```
-
-</text-box>
-
-
-## Merkkijonojen vertailu ja equals
-
-Merkkijonoja ei voi vertailla yhtäsuuri kuin operaatiolla `==`.  Merkkijonojen vertailuun käytetään erillistä `equals`-komentoa, joka liittyy aina verrattavaan merkkijonoon.
-
-```java
+<!-- ```java
 String teksti = "kurssi";
 
 if (teksti.equals("marsipaani")) {
@@ -208,13 +156,21 @@ if (teksti.equals("marsipaani")) {
 } else {
     System.out.println("Teksti-muuttujassa ei ole tekstiä marsipaani.");
 }
-```
-
-
-Komento `equals` liitetään aina siihen verrattavaan tekstimuuttujaan, "tekstimuuttuja piste equals teksti". Tekstimuuttujaa voidaan myös verrata toiseen tekstimuuttujaan.
-
+``` -->
 
 ```java
+String text = "course";
+
+if (text.equals("marzipan")) {
+    System.out.println("there's marzipan assigned to the text variable.");
+} else {
+    System.out.println("there isn't marzipan assigned to the text variable.");
+}
+```
+
+<!-- Komento `equals` liitetään aina siihen verrattavaan tekstimuuttujaan, "tekstimuuttuja piste equals teksti". Tekstimuuttujaa voidaan myös verrata toiseen tekstimuuttujaan. --> The `equals` command is always attached to string variable that is compared, "variable dot equals string-to-compare". You can also compare a string variable to another string variable.
+
+<!-- ```java
 String teksti = "kurssi";
 String toinenTeksti = "pursi";
 
@@ -223,17 +179,26 @@ if (teksti.equals(toinenTeksti)) {
 } else {
     System.out.println("Eri tekstit!");
 }
-```
-
-
-Merkkijonoja vertailtaessa on syytä varmistaa että verrattavalla tekstimuuttujalla on arvo. Jos muuttujalla ei ole arvoa, ohjelma tuottaa virheen _NullPointerException_, joka tarkoittaa ettei muuttujan arvoa ole asetettu tai se on tyhjä (_null_).
-
-
-
-Seuraavassa käännetään `!`:n eli negaatio-operaation avulla ehdon arvo päinvastaiseksi:
-
+``` -->
 
 ```java
+String text = "course";
+String anotherText = "horse";
+
+if (text.equals(anotherText)) {
+    System.out.println("The two texts are equal!");
+} else {
+    System.out.println("The two texts are the same!");
+}
+```
+
+<!-- Merkkijonoja vertailtaessa on syytä varmistaa että verrattavalla tekstimuuttujalla on arvo. Jos muuttujalla ei ole arvoa, ohjelma tuottaa virheen _NullPointerException_, joka tarkoittaa ettei muuttujan arvoa ole asetettu tai se on tyhjä (_null_). -->
+When you compare Strings, you should make sure the string variable has a value assigned. If it doesn't have a value, the program will produce a _NullPointerException_, which means no value has been assigned to the variable, or that it is empty (_null_).
+
+<!-- Kuten aiemmin, negaation avulla arvon voi kääntää päinvastaiseksi. -->
+The comparison produces a boolean, which can be switched to the opposite with negation `!`.
+
+<!-- ```java
 System.out.println("Eihän merkkijono ole 'maito'");
 String merkkijono = "piimä";
 
@@ -242,494 +207,318 @@ if (!(merkkijono.equals("maito"))) {  // tosi jos ehto merkkijono.equals("maito"
 } else {
     System.out.println("oli");
 }
-```
-
-<sample-output>
-
-ei ollut!
-
-</sample-output>
-
-
-Negaatio-operaatio, eli `!ehto`, kääntää siis totuusarvon ympäri.
-
+``` -->
 
 ```java
-int eka = 1;
-int toka = 3;
+System.out.println("Make sure the text is not 'cake'");
+String text = "pie";
 
-boolean onkoSuurempi = eka > toka;
-
-if (!onkoSuurempi) {
-    System.out.println("1 ei ole suurempi kuin 3");
+if (!(text.equals("cake"))) {  // true if the condition text.equals("cake") is false
+    System.out.println("it wasn't!");
+} else {
+    System.out.println("it was!");
 }
 ```
 
 <sample-output>
 
-1 ei ole suurempi kuin 3
+<!-- ei ollut! -->
+it wasn't!
 
 </sample-output>
 
 
-<programming-exercise name='Onko totta' tmcname='osa03-Osa03_24.OnkoTotta'>
+<programming-exercise name='Is it true' tmcname='part03-Part03_24.IsItTrue'>
 
-
-Tee ohjelma, joka pyytää käyttäjää kirjoittamaan merkkijonon. Jos käyttäjä kirjoittaa merkkijonon "totta", tulostetaan merkkijono "Oikein meni!", muulloin tulostetaan merkkijono "Koitappa uudelleen!".
-
+<!-- Tee ohjelma, joka pyytää käyttäjää kirjoittamaan merkkijonon. Jos käyttäjä kirjoittaa merkkijonon "totta", tulostetaan merkkijono "Oikein meni!", muulloin tulostetaan merkkijono "Koitappa uudelleen!". -->
+Write a program that asks the user for a string. If the user writes the string "true", the program prints "You got it right!", otherwise it prints "Try again!".
 
 <sample-output>
 
-Kirjoita merkkijono: **totta**
-Oikein meni!
+<!-- Kirjoita merkkijono: **totta**
+Oikein meni! -->
+
+Give a string: **true**
+You got it right!
 
 </sample-output>
 
 <sample-output>
 
-Kirjoita merkkijono: **tottapa**
-Koitappa uudelleen!
+<!-- Kirjoita merkkijono: **tottapa**
+Koitappa uudelleen! -->
+Give a string: **trueish**
+Try again!
 
 </sample-output>
 
 </programming-exercise>
 
+<programming-exercise name='Login' tmcname='part03-Part03_25.Login'>
 
-<programming-exercise name='Käyttäjätunnukset' tmcname='osa03-Osa03_25.Kayttajatunnukset'>
 
-
-Tee ohjelma, joka tunnistaa seuraavat käyttäjät:
+<!-- Tee ohjelma, joka tunnistaa seuraavat käyttäjät:
 
 | tunnus  | salasana  |
 |---------|-----------|
 | aleksi  | tappara   |
-| elina   | kissa     |
+| elina   | kissa     | -->
+
+write a program that recognizes the following users:
+
+| username | password  |
+|----------|-----------|
+| alex     | sunshine  |
+| emma     | haskell   |
 
 
-Ohjelma näyttää käyttäjälle henkilökohtaisen viestin tai ilmoittaa, jos tunnus tai salasana on väärin.
+<!-- Ohjelma näyttää käyttäjälle henkilökohtaisen viestin tai ilmoittaa, jos tunnus tai salasana on väärin. -->
 
+The program either shows a personal message or informs of incorrect username or password.
 
 <sample-output>
 
-Anna tunnus: **aleksi**
+<!-- Anna tunnus: **aleksi**
 Anna salasana: **tappara**
-Olet kirjautunut järjestelmään
+Olet kirjautunut järjestelmään -->
+
+Enter username: **alex**
+Enter password: **sunshine**
+You have successfully logged in!
 
 </sample-output>
 
 <sample-output>
 
-Anna tunnus: **elina**
+<!-- Anna tunnus: **elina**
 Anna salasana: **kissa**
-Olet kirjautunut järjestelmään
+Olet kirjautunut järjestelmään -->
+
+Enter username: **emma**
+Enter password: **haskell**
+You have successfully logged in!
 
 </sample-output>
 
 <sample-output>
 
-Anna tunnus: **aleksi**
+<!-- Anna tunnus: **aleksi**
 Anna salasana: **jokerit**
-Virheellinen tunnus tai salasana!
+Virheellinen tunnus tai salasana! -->
+
+Enter username: **alex**
+Enter password: **thunderstorm**
+Incorrect username or password!
 
 </sample-output>
 
 
-**HUOM:** muista, että merkkijonoja ei voi vertailla `==`-operaatiolla!
+<!-- **HUOM:** muista, että merkkijonoja ei voi vertailla `==`-operaatiolla! -->
+**NB!** You can't compare strings with `==`!
 
-
-**HUOM:** Todellisuudessa kirjautumistoiminnallisuutta ei tule toteuttaa, eikä yleensä toteutetakkaan näin. Kirjautumistoiminnallisuuden toteuttamiseen tutustutaan mm. web-ohjelmointiin liittyvillä kursseilla.
+<!-- **HUOM:** Todellisuudessa kirjautumistoiminnallisuutta ei tule toteuttaa, eikä yleensä toteutetakkaan näin. Kirjautumistoiminnallisuuden toteuttamiseen tutustutaan mm. web-ohjelmointiin liittyvillä kursseilla. -->
+**NB!** In read life login should not be implemented like this! You can get familiar with safer ways to implement login on courses focusing on web programming.
 
 </programming-exercise>
 
 
-Merkkijonoilta voi kysyä niiden pituutta kirjoittamalla merkkijonon perään `.length()` eli kutsumalla merkkijonolle sen pituuden kertovaa metodia.
+<!-- ## Merkkijonon jakaminen osiin -->
+## Splitting a string
 
+<!-- Merkkijonon jakaminen useampaan osaan tapahtuu merkkijonoihin liittyvällä metodilla `split`, jolle annetaan parametrina merkkijono, jonka kohdalta käsiteltävä merkkijono jaetaan osiin. Metodi `split` palauttaa merkkijonoista koostuvan taulukon. Allaolevassa esimerkissä merkkijono jaetaan osiin välilyönnin kohdalta. -->
+You can split a string to multiple pieces with the `split`-method of a string. As a parameter it takes a string to split it by. `split` returns an array of the parts. In the example below we split a string by the spaces:
 
-```java
-String banaani = "banaani";
-String kurkku = "kurkku";
-String yhdessa = banaani + kurkku;
 
-System.out.println("Banaanin pituus on " + banaani.length());
-System.out.println("Kurkku pituus on " + kurkku.length());
-System.out.println("Sanan " + yhdessa + " pituus on " + yhdessa.length());
-```
-
-
-Edellä kutsutaan metodia `length()` kolmelle eri merkkijonolle. Kutsu `banaani.length()` kutsuu nimenomaan merkkijonon `banaani` pituuden kertovaa metodia, kun taas `kurkku.length()` on merkkijonon `kurkku` pituuden kertovan metodin kutsu. Pisteen vasemman puoleinen osa kertoo _kenen_ metodia kutsutaan.
-
-
-<programming-exercise name='Nimen pituus' tmcname='osa03-Osa03_26.NimenPituus'>
-
-
-Tee ohjelma, joka kysyy käyttäjän nimen ja ilmoittaa, kuinka monta kirjainta siinä on. Toteuta merkkijonon pituuden selvittäminen erilliseen metodiin `public static int laskeKirjaimet(String merkkijono)`.
-
-
-<sample-output>
-
-Anna nimi: **Pekka**
-Kirjainmäärä: 5
-
-</sample-output>
-
-<sample-output>
-
-Anna nimi: **Katariina**
-Kirjainmäärä: 9
-
-</sample-output>
-
-**Huom!** Rakenna ohjelmasi niin että laitat pituuden laskemisen omaan metodiinsa: `public static int laskeKirjaimet(String merkkijono)`. Testit testaavat sekä metodia `laskeKirjaimet` että koko ohjelman toimintaa.
-
-</programming-exercise>
-
-
-Toistolauseen käyttö merkkijonojen kanssa käy samalla tavalla kuin muiden muuttujien kanssa. Alla olevassa esimerkissä luetaan käyttäjältä merkkijonoja, kunnes käyttäjä syöttää tyhjän merkkijonon (eli painaa vain enteriä). Tämän jälkeen tulostetaan pisin merkkijono sekä pisimmän merkkijonon pituus.
-
-
-```java
-Scanner lukija = new Scanner(System.in);
-
-String pisin = "";
-
-while (true) {
-    System.out.println("Syötä sana, tyhjä lopettaa.");
-    String syote = lukija.nextLine();
-
-    if (syote.equals("")) {
-        break;
-    }
-
-    if (pisin.length() < syote.length()) {
-        pisin = syote;
-    }
-}
-
-if (pisin.length() > 0) {
-    System.out.println("Pisin merkkijono: " + pisin + " (pituus: " + pisin.length() + ")");
-} else {
-    System.out.println("Ei järkeviä syötteitä...");
-}
-```
-
-
-<programming-exercise name='Salasana' tmcname='osa03-Osa03_27.Salasana'>
-
-Tässä tehtävässä luodaan ohjelma joka kyselee käyttäjältä salasanaa. Jos salasana menee oikein, nähdään salainen viesti.
-
-
-<sample-output>
-
-Anna salasana: **nauris**
-Väärin!
-Anna salasana: **lanttu**
-Väärin!
-Anna salasana: **porkkana**
-Oikein!
-
-Salaisuus on: znvavbfgv grugl!
-
-</sample-output>
-
-Ohjelmarunkoon on määritelty muuttuja `String salasana`, jolle on asetettu arvoksi `porkkana` -- älä muuta tätä salasanaa. Toteuta lisätoiminnallisuus, jossa ohjelma kysyy käyttäjältä salasanaa ja vertailee sitä muuttujassa `salasana` olevaan arvoon. Muista mitä erityistä merkkijonojen vertailussa on!
-
-<sample-output>
-
-Anna salasana: **nauris**
-Väärin!
-
-</sample-output>
-
-
-<sample-output>
-
-Anna salasana: **porkkana**
-Oikein!
-
-</sample-output>
-
-
-<sample-output>
-
-Anna salasana: **bataatti**
-Väärin!
-
-</sample-output>
-
-
-Muokkaa tämän jälkeen ohjelmaa siten, että se kysyy salasanaa kunnes käyttäjä syöttää oikean salasanan. Toteuta salasanan jatkuva kysyminen `while (true) { ... }` -toistolausekkeen avulla. Toistolausekkeesta pääsee pois, jos ja vain jos käyttäjän syöttämä salasana on sama kuin muuttujassa `salasana` oleva arvo.
-
-
-<sample-output>
-
-Anna salasana: **nauris**
-Väärin!
-Anna salasana: **lanttu**
-Väärin!
-Anna salasana: **porkkana**
-Oikein!
-
-</sample-output>
-
-Lisää ohjelmaan lopulta oma salainen viestisi joka näytetään kun käyttäjä kirjoittaa salasanan oikein. Se voi olla mitä tahansa!
-
-
-<sample-output>
-
-Anna salasana: **nauris**
-Väärin!
-Anna salasana: **lanttu**
-Väärin!
-Anna salasana: **porkkana**
-Oikein!
-
-Salaisuus on: znvavbfgv grugl!
-
-</sample-output>
-
-
-Ylläoleva salaisuus on salattu käyttäen <a href="http://fi.wikipedia.org/wiki/Rot13" target="_blank">Rot13</a>-algoritmia.
-
-
-</programming-exercise>
-
-
-
-
-## Merkkijonon osa
-
-
-Merkkijonosta halutaan usein lukea jokin tietty osa. Tämä onnistuu mekkkijonojen eli String-luokan metodilla `substring`. Metodia `substring` voidaan käyttää kahdella tavalla: yksiparametrisenä palauttamaan merkkijonon loppuosa tai kaksiparametrisena palauttamaan parametrien määrittelemä osajono merkkijonosta:
-
-
-```java
-String kirja = "Kalavale";
-
-System.out.println(kirja.substring(4));
-System.out.println(kirja.substring(2, 6));
-```
-
-<sample-output>
-
-vale
-lava
-
-</sample-output>
-
-Koska `substring`-metodin _paluuarvo_ on `String`-tyyppinen, voidaan metodin paluuarvo ottaa talteen String-tyyppiseen muuttujaan loppuosa.
-
-
-```java
-String kirja = "8 veljestä";
-
-String loppuosa = kirja.substring(2);
-System.out.println("7 " + loppuosa); // tulostaa: 7 veljestä
-```
-
-<sample-output>
-7 veljestä
-</sample-output>
-
-
-<programming-exercise name='Alkuosa' tmcname='osa03-Osa03_28.Alkuosa'>
-
-
-Tee ohjelma, joka tulostaa sanan alkuosan. Ohjelma kysyy käyttäjältä sanan ja alkuosan pituuden. Käytä ohjelmassa metodia `substring`.
-
-
-<sample-output>
-
-Anna sana: **esimerkki**
-Alkuosan pituus: **4**
-Tulos: esim
-
-</sample-output>
-
-<sample-output>
-
-Anna sana: **esimerkki**
-Alkuosan pituus: **7**
-Tulos: esimerk
-
-</sample-output>
-
-</programming-exercise>
-
-
-<programming-exercise name='Loppuosa' tmcname='osa03-Osa03_29.Loppuosa'>
-
-
-Tee ohjelma, joka tulostaa sanan loppuosan. Ohjelma kysyy käyttäjältä sanan ja loppuosan pituuden. Käytä ohjelmassa merkkijonon metodia `substring`.
-
-
-<sample-output>
-
-Anna sana: **esimerkki**
-Loppuosan pituus: **4**
-Tulos: rkki
-
-</sample-output>
-
-
-<sample-output>
-
-Anna sana: **esimerkki**
-Loppuosan pituus: **7**
-Tulos: imerkki
-
-</sample-output>
-
-</programming-exercise>
-
-
-
-## Merkkijonosta etsiminen
-
-String-luokan metodit tarjoavat myös mahdollisuuden etsiä tekstistä tiettyä sanaa. Esimerkiksi sana "erkki" sisältyy tekstiin "merkki". Metodi `indexOf()` etsii sille parametrina annettua sanaa merkkijonosta. Jos sana löytyy, metodi `indexOf()` palauttaa sanan ensimmäisen kirjaimen indeksin, eli paikan (muista että paikkanumerointi alkaa nollasta!). Jos taas sanaa ei merkkijonosta löydy, metodi palauttaa arvon -1.
-
-
-```java
-String sana = "merkkijono";
-
-int indeksi = sana.indexOf("erkki"); //indeksin arvoksi tulee 1
-System.out.println(sana.substring(indeksi)); //tulostetaan "erkkijono"
-
-indeksi = sana.indexOf("jono"); //indeksin arvoksi tulee 6
-System.out.println(sana.substring(indeksi)); //tulostetaan "jono"
-
-indeksi = sana.indexOf("kirja"); //sana "kirja" ei sisälly sanaan "merkkijono"
-System.out.println(indeksi); // tulostetaan -1
-System.out.println(sana.substring(indeksi)); // virhe!
-```
-
-<code-states-visualizer input='{"code":"public class Esimerkki {\n   public static void main(String[] args) {\n      String sana = \"merkkijono\";\n\n      int indeksi = sana.indexOf(\"erkki\");\n      System.out.println(sana.substring(indeksi));\n\n      indeksi = sana.indexOf(\"jono\");\n      System.out.println(sana.substring(indeksi));\n\n      indeksi = sana.indexOf(\"kirja\");\n      System.out.println(indeksi);\n      System.out.println(sana.substring(indeksi));\n   }\n}","stdin":"","trace":[{"stdout":"","event":"call","line":3,"stack_to_render":[{"func_name":"main:3","encoded_locals":{},"ordered_varnames":[],"parent_frame_id_list":[],"is_highlighted":true,"is_zombie":false,"is_parent":false,"unique_hash":"1","frame_id":1}],"globals":{},"ordered_globals":[],"func_name":"main","heap":{}},{"stdout":"","event":"step_line","line":3,"stack_to_render":[{"func_name":"main:3","encoded_locals":{},"ordered_varnames":[],"parent_frame_id_list":[],"is_highlighted":true,"is_zombie":false,"is_parent":false,"unique_hash":"2","frame_id":2}],"globals":{},"ordered_globals":[],"func_name":"main","heap":{}},{"stdout":"","event":"step_line","line":5,"stack_to_render":[{"func_name":"main:5","encoded_locals":{"sana":"merkkijono"},"ordered_varnames":["sana"],"parent_frame_id_list":[],"is_highlighted":true,"is_zombie":false,"is_parent":false,"unique_hash":"4","frame_id":4}],"globals":{},"ordered_globals":[],"func_name":"main","heap":{}},{"stdout":"","event":"step_line","line":6,"stack_to_render":[{"func_name":"main:6","encoded_locals":{"sana":"merkkijono","indeksi":1},"ordered_varnames":["sana","indeksi"],"parent_frame_id_list":[],"is_highlighted":true,"is_zombie":false,"is_parent":false,"unique_hash":"8","frame_id":8}],"globals":{},"ordered_globals":[],"func_name":"main","heap":{}},{"stdout":"erkkijono\n","event":"step_line","line":8,"stack_to_render":[{"func_name":"main:8","encoded_locals":{"sana":"merkkijono","indeksi":1},"ordered_varnames":["sana","indeksi"],"parent_frame_id_list":[],"is_highlighted":true,"is_zombie":false,"is_parent":false,"unique_hash":"12","frame_id":12}],"globals":{},"ordered_globals":[],"func_name":"main","heap":{}},{"stdout":"erkkijono\n","event":"step_line","line":9,"stack_to_render":[{"func_name":"main:9","encoded_locals":{"sana":"merkkijono","indeksi":6},"ordered_varnames":["sana","indeksi"],"parent_frame_id_list":[],"is_highlighted":true,"is_zombie":false,"is_parent":false,"unique_hash":"15","frame_id":15}],"globals":{},"ordered_globals":[],"func_name":"main","heap":{}},{"stdout":"erkkijono\njono\n","event":"step_line","line":11,"stack_to_render":[{"func_name":"main:11","encoded_locals":{"sana":"merkkijono","indeksi":6},"ordered_varnames":["sana","indeksi"],"parent_frame_id_list":[],"is_highlighted":true,"is_zombie":false,"is_parent":false,"unique_hash":"19","frame_id":19}],"globals":{},"ordered_globals":[],"func_name":"main","heap":{}},{"stdout":"erkkijono\njono\n","event":"step_line","line":12,"stack_to_render":[{"func_name":"main:12","encoded_locals":{"sana":"merkkijono","indeksi":-1},"ordered_varnames":["sana","indeksi"],"parent_frame_id_list":[],"is_highlighted":true,"is_zombie":false,"is_parent":false,"unique_hash":"22","frame_id":22}],"globals":{},"ordered_globals":[],"func_name":"main","heap":{}},{"stdout":"erkkijono\njono\n-1\n","event":"step_line","line":13,"stack_to_render":[{"func_name":"main:13","encoded_locals":{"sana":"merkkijono","indeksi":-1},"ordered_varnames":["sana","indeksi"],"parent_frame_id_list":[],"is_highlighted":true,"is_zombie":false,"is_parent":false,"unique_hash":"25","frame_id":25}],"globals":{},"ordered_globals":[],"func_name":"main","heap":{}},{"stdout":"erkkijono\njono\n-1\n","event":"exception","exception_msg":"java.lang.StringIndexOutOfBoundsException: String index out of range: -1","stack_to_render":[],"globals":{},"ordered_globals":[],"func_name":"runMain","heap":{}}],"userlog":"Debugger VM maxMemory: 455M\n"}'></code-states-visualizer>
-
-
-<programming-exercise name='Sana sanassa' tmcname='osa03-Osa03_30.SanaSanassa'>
-
-Tee ohjelma, joka kysyy käyttäjältä kaksi sanaa. Tämän jälkeen ohjelma kertoo onko toinen sana ensimmäisen sanan osana. Käytä ohjelmassa merkkijonon metodia `indexOf`.
-
-<sample-output>
-
-Anna 1. sana: **suppilovahvero**
-Anna 2. sana: **ilo**
-Sana 'ilo' on sanan 'suppilovahvero' osana.
-
-</sample-output>
-
-<sample-output>
-
-Anna 1. sana: **suppilovahvero**
-Anna 2. sana: **suru**
-Sana 'suru' ei ole sanan 'suppilovahvero' osana.
-
-</sample-output>
-
-**Huom:** toteuta ohjelmasi tulostus täsmälleen samassa muodossa kuin esimerkin tulostus!
-
-</programming-exercise>
-
-
-Metodille `indexOf` voi antaa haettavan merkkijonon lisäksi parametrina myös indeksin, mistä lähtien merkkijonoa haetaan. Esimerkiksi
-
-
-```java
-String sana = "merkkijono";
-
-int indeksi = sana.indexOf("erkki"); // indeksin arvoksi tulee 1
-System.out.println(sana.substring(indeksi)); //tulostetaan "erkkijono"
-
-indeksi = sana.indexOf("erkki", 2); // indeksin arvoksi tulee -1 sillä erkkiä ei löydy lopusta
-System.out.println(sana.substring(indeksi)); // tapahtuu virhe!
-```
-
-
-<programming-exercise name='Montako kertaa merkkijonossa' tmcname='osa03-Osa03_31.MontakoKertaaMerkkijonossa'>
-
-
-Tehtäväpohjassa tulee mukana ohjelma, joka kysyy käyttäjältä kahta merkkijonoa. Tämän jälkeen ohjelma tulostaa indeksit, joista toinen merkkijono löytyy ensimmäisessä merkkijonossa. Ohjelman esimerkkitulostus on seuraava:
-
-
-<sample-output>
-
-Mistä haetaan: **ski-bi dibby dib yo da dub dub**
-Mitä haetaan: **dib**
-Merkkijono dib löytyy kohdasta 7
-Merkkijono dib löytyy kohdasta 13
-
-</sample-output>
-
-
-Muokaa ohjelmaa siten, että ohjelma ei tulosta esiintymiskohtia, mutta tulostaa esiintymiskertojen yhteislukumäärän. Ohjelman tulee muokkauksen jälkeen toimia seuraavasti:
-
-
-<sample-output>
-
-Mistä haetaan: **ski-bi dibby dib yo da dub dub**
-Mitä haetaan: **dib**
-Merkkijonon dib esiintymiskertoja: 2
-
-</sample-output>
-
-
-Voit olettaa, että haettava merkkijono ei itsessään sisällä toistuvaa hahmoa. Haettava ei siis voi olla esim. "voivoi" (mitä harmia tästä voisi tulla jos merkkijono olisi esimerkiksi "voivoivoivoi"?).
-
-</programming-exercise>
-
-
-
-## Merkkijonojen pilkkominen pienempiin osiin
-
-
-Merkkijonon pilkkominen useampaan osaan tapahtuu merkkijonon tarjoamalla metodilla `split`, jolle annetaan parametrina merkkijono, jonka kohdalta käsiteltävä merkkijono jaetaan osiin. Tässä esimerkissä merkkijono jaetaan palasiin `\\s+`:n mukaan, joka on [säännöllinen lauseke](https://fi.wikipedia.org/wiki/Säännöllinen_lauseke) (engl. regular expression) ja sisältää kaikki "tyhjät merkit" eli välilyönnit, rivinvaihdot, tabulaattorimerkit jne. Metodi palauttaa taulukon, joka sisältää merkkijonoja. Taulukon indekseissä on pilkotun merkkijonon osat. Metodi toimii seuraavasti:
-
-
-```java
+<!-- ```java
 String merkkijono = "eka toka kolmas neljäs";
-String[] palat = merkkijono.split("\\s+");
+String[] palat = merkkijono.split(" ");
 System.out.println(palat[0]);
 System.out.println(palat[1]);
 System.out.println(palat[2]);
 System.out.println(palat[3]);
 
-int indeksi = 0;
-while (indeksi < palat.length) {
-    System.out.println(palat[indeksi]);
-    indeksi = indeksi + 1;
+System.out.println();
+
+for (int i = 0; i < palat.length; i++) {
+    System.out.println(palat[i]);
+}
+``` -->
+
+```java
+String text = "first second third fourth";
+String[] pieces = text.split(" ");
+System.out.println(pieces[0]);
+System.out.println(pieces[1]);
+System.out.println(pieces[2]);
+System.out.println(pieces[3]);
+
+System.out.println();
+
+for (int i = 0; i < pieces.length; i++) {
+    System.out.println(pieces[i]);
 }
 ```
 
 <sample-output>
 
-eka
+<!-- eka
 toka
 kolmas
 neljäs
+
 eka
 toka
 kolmas
-neljäs
+neljäs -->
+
+first
+second
+third
+fourth
+
+first
+second
+third
+fourth
 
 </sample-output>
 
 
-Merkkijonojen pilkkominen on erityisesti hyödyllistä silloin kun käsitellään määrämuotoista tietoa. Määrämuotoisella tiedolla tarkoitetaan tietoa, joka noudattaa jotain tiettyä säännönmukaista muotoa. Tällaisia muotoja ovat esimerkiksi tab separated format (`tsv`) missä arvot ovat eritelty toisistaan sarkainmerkeillä, sekä comma separated format (`csv`) missä arvot on eritelty toisistaan pilkuilla. Alla on esimerkki csv-muotoisesta nimiä ja ikiä sisältävästä tiedosta. Ensimmäinen sarake sisältää nimen ja toinen iän. Sarakkeet on eroteltu toisistaan pilkuilla.
+<programming-exercise name='Line by line' tmcname='part03-Part03_26.LineByLine'>
 
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Mikäli syötetty merkkijono on tyhjä, ohjelma lopettaa käyttäjältä lukemisen ja ohjelman suoritus päättyy. Mikäli merkkijono ei ole tyhjä, ohjelma pilkkoo syötetyn merkkijonon osiksi välilyöntien ` ` kohdalta ja tulostaa pilkotun merkkijonon osat omille riveilleen. -->
+Write a program that reads strings from the user. If the input is empty, the program stops reading input and halts. For each non-empty input it splits the string input by whitespaces ` ` and prints each part of the string on a new line.
+
+
+<sample-output>
+
+<!-- **olipa kerran**
+olipa
+kerran
+**pieni ohjelma joka**
+pieni
+ohjelma
+joka
+**loppui**
+loppui -->
+**once upon a time**
+once
+upon
+a
+time
+**a little program**
+a
+little
+program
+**halted**
+halted
+
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='AV-club' tmcname='part03-Part03_27.AVClub'>
+
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Mikäli syötetty merkkijono on tyhjä, ohjelma lopettaa käyttäjältä lukemisen ja ohjelman suoritus päättyy. Mikäli merkkijono ei ole tyhjä, ohjelma pilkkoo syötetyn merkkijonon osiksi välilyöntien ` ` kohdalta ja tulostaa omille riveilleen pilkotusta merkkijonosta ne merkkijonot (merkkijonon osat), joissa esiintyy merkkijono `av`. -->
+Write a program, that reads user input until an empty line. For each non-empty string, the program splits the string by spaces ` ` and then prints the pieces that contain `av`, each on a new line.
+
+
+<sample-output>
+
+<!-- **java on ohjelmointikieli**
+java
+**avaa ovi!**
+avaa -->
+**java is a programming language**
+java
+**navy blue shirt**
+navy
+
+</sample-output>
+
+<sample-output>
+
+<!-- **aivot avaavat ovia**
+avaavat
+**tavat sinua kaunistavat**
+tavat
+kaunistavat
+**was it a cat i saw** -->
+
+**Do you have a favorite flavor**
+have
+favorite
+flavor
+**was it a cat?**
+**bye**
+
+</sample-output>
+
+<!-- Vinkki: Merkkijonolla on metodi `contains`, jolla voit tarkastaa esiintyykö jokin merkkijono merkkijonossa. Metodi toimii seuraavasti. -->
+Tip! Strings have a `contains`-method, which tells if a string contains another string. It works like this:
+
+<!-- ```java
+String merkkijono = "saippuakauppias";
+
+if (merkkijono.contains("aka")) {
+    System.out.println("aka löytyi");
+}
+
+if (!merkkijono.contains("hiisi")) {
+    System.out.println("hiisi ei löytynyt");
+}
+``` -->
+
+```java
+String text = "volcanologist";
+
+if (merkkijono.contains("can")) {
+    System.out.println("can was found");
+}
+
+if (!merkkijono.contains("tin")) {
+    System.out.println("tin wasn't found");
+}
+```
+
+<sample-output>
+
+<!-- aka löytyi
+hiisi ei löytynyt -->
+can was found
+tin wasn't found
+
+</sample-output>
+
+</programming-exercise>
+
+<!-- ## Määrämuotoinen tieto -->
+## Data of fixed format
+
+<!-- Merkkijonojen pilkkomista käytetään erityisesti silloin, kun käsitellään määrämuotoista tietoa. Määrämuotoisella tiedolla tarkoitetaan tietoa, joka noudattaa jotain tiettyä säännönmukaista muotoa. Tällainen muoto on esimerkiksi comma separated format (`csv`), missä arvot on eritelty toisistaan pilkuilla. Alla on esimerkki csv-muotoisesta nimiä ja ikiä sisältävästä tiedosta. Ensimmäinen sarake sisältää nimen ja toinen iän. Sarakkeet on eroteltu toisistaan pilkuilla. -->
+
+Splitting strings is used especially for data of fixed format -- data that is given in some predefined, regularly shaped format. One of these is Comma-separated values (`csv`), which commas to separate the values. Below is an example of csv data containing names and ages. First column contains names, the second one ages. The columns are separed by a comma.
 
 <sample-data>
 
-etunimi,ika
-anton,2
+<!-- anton,2
 leevi,2
-lilja,1
+lilja,1 -->
+sebastian,2
+lucas,2
+lily,1
 
 </sample-data>
 
 
-Oletetaan, että käyttäjä syöttää yllä olevat tiedot ohjelmaan riveittäin. Syötteen lukeminen lopetetaan tyhjällä merkkijonolla. Ohjelma, joka laskisi syötettyjen henkilöiden keski-iän voidaan toteuttaa seuraavasti.
+<!-- Oletetaan, että käyttäjä syöttää yllä olevat tiedot ohjelmaan riveittäin. Syötteen lopettaminen lopetetaan tyhjällä merkkijonolla. -->
+Let's assume the user enters the data above row by row, ending with an empty line.
 
+<!-- Ohjelma, joka tulostaa nimet ja iät toteutetaan seuraavasti. -->
+A program to print the names and ages looks like this:
 
-```java
+<!-- ```java
 Scanner lukija = new Scanner(System.in);
 int ikienSumma = 0;
 int ikienLukumaara = 0;
@@ -741,32 +530,183 @@ while (true) {
     }
 
     String[] palat = luettu.split(",");
-    ikienSumma = ikienSumma + Integer.valueOf(palat[1]);
-    ikienLukumaara = ikienLukumaara + 1;
+    System.out.println("Nimi: " + palat[0] + ", ikä: " + palat[1]);
 }
+``` -->
 
-if (ikienLukumaara > 0) {
-    System.out.println("Ikien keskiarvo: " + (1.0 * ikienSumma / ikienLukumaara));
-} else {
-    System.out.println("Ei syötteitä.");
+```java
+Scanner reader = new Scanner(System.in);
+
+while (true) {
+    String input = reader.nextLine();
+    if (input.equals("")) {
+        break;
+    }
+
+    String[] pieces = input.split(",");
+    System.out.println("Name: " + pieces[0] + ", age: " + pieces[1]);
 }
 ```
 
+
 <sample-output>
 
-**leevi,2**
+<!-- **leevi,2**
+Nimi: leevi, ikä: 2
 **lilja,1**
-Ikien keskiarvo: 1.5
+Nimi: lilja, ikä: 1 -->
+
+**sebastian,2**
+Name: sebastian, age: 2
+**lucas,2**
+Name: lucas, age: 2
+**lily,1**
+Name: lily, age: 1
 
 </sample-output>
 
 
-Vastaavalla tavalla voisi myös toteuttaa ohjelman, joka eriyttää nimet luettavasta tiedosta. Alla olevassa esimerkissä nimet säilötään listaan, jonka sisältö tulostetaan ohjelman lopuksi.
+<programming-exercise name='First words' tmcname='part03-Part03_28.FirstWords'>
 
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Mikäli syötetty merkkijono on tyhjä, ohjelma ei jatka lukemista ja ohjelman suoritus päättyy. Mikäli merkkijono ei ole tyhjä, ohjelma pilkkoo syötetyn merkkijonon osiksi välilyöntien ` ` kohdalta ja tulostaa kunkin pilkotun merkkijonon ensimmäisen osan. -->
+Write a program, that reads user input until an empty line. For each non-empty line the program splits the string by spaces ` ` and prints the first part of the string.
+
+<sample-output>
+
+<!-- **yksi kaksi kolme neljä**
+yksi
+**viestin purku tässä selvä**
+viestin -->
+**one two three four**
+one
+**this is a very important message**
+this
+
+</sample-output>
+
+</programming-exercise>
+
+
+<programming-exercise name='LastWords' tmcname='part03-Part03_29.LastWords'>
+
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Mikäli syötetty merkkijono on tyhjä, ohjelma ei jatka lukemista ja ohjelman suoritus päättyy. Mikäli merkkijono ei ole tyhjä, ohjelma pilkkoo syötetyn merkkijonon osiksi välilyöntien ` ` kohdalta ja tulostaa kunkin pilkotun merkkijonon viimeisen osan. -->
+Write a program, that reads user input until an empty line. For each non-empty line the program splits the string by spaces ` ` and prints the last part of the string.
+
+<sample-output>
+
+<!-- **yksi kaksi kolme neljä**
+neljä
+**viestin purku tässä selvä**
+selvä -->
+
+**one two three four**
+four
+**this is a very important message**
+message
+
+</sample-output>
+
+
+<!-- Vinkki: saat taulukon pituuden selville seuraavalla tavalla: -->
+Tip! You can find out the length of the array like this:
+
+<!-- ```java
+String[] osat = {"eka", "toka", "kolmas"};
+System.out.println("Osia yhteensä: " + osat.length);
+``` -->
 
 ```java
+String[] parts = {"one", "two", "three"};
+System.out.println("Number of parts: " + parts.length);
+```
+
+<sample-output>
+
+Number of parts: 3
+
+</sample-output>
+
+</programming-exercise>
+
+<!-- <text-box type="info" name="Yksinkertaisia piiloviestejä"> -->
+<text-box type="info" name="Secret messages">
+
+<!-- Yllä olevissa tehtävissä on oikeastaan toteutettu hyvin yksinkertaisten piiloviestien purkumenetelmä. Eräs tällaisten piiloviestien variantti koostuu kunkin rivin ensimmäisestä merkistä. Esimerkiksi seuraavaan (hieman sekavaan) tekstiin on piilotettu viesti "ohjelmointi". -->
+In the excercises above we were actually decrypting some very simple secret messages. One kind of hihidden message consists of the first character of each line. For example the (very cryptic) text below contains a secret message "program".
+
+<sample-data>
+
+<!-- Older desktops deliver.
+Huge mainframes link.
+Juicy calculators honour.
+Electronic devices install.
+Laborious computations elaborate.
+Many microcomputers letter.
+Additional workstations modem. -->
+
+Polymorphous computations elaborate.
+Real calculators honour.
+Older desktops deliver.
+Great mainframes link.
+Reversed devices install.
+Additional workstations modem.
+Many microcomputers letter.
+
+
+
+</sample-data>
+
+<!-- Mikäli haluat jatkaa teeman parissa, yksittäisen merkkijonon merkin saa tietystä indeksistä merkkijonon metodilla `charAt`. -->
+Let's continue with the same theme! You can get a character at a specified index of the string with the `charAt` method.
+
+<!-- ```java
+String text = "Hei maailma!";
+char merkki = merkkijono.charAt(0);
+System.out.println(merkki);
+``` -->
+
+```java
+String text = "Hello world!";
+char character = text.charAt(0);
+System.out.println(character);
+```
+
+<sample-output>
+
+H
+
+</sample-output>
+
+</text-box>
+
+### Using diverse text
+
+<!-- Edellä olevissa esimerkeissä tulostimme merkkijonoja. Osa määrämuotoisesta merkkijonosta voi olla numeromuotoista. Aiemmin käyttämässämme nimiä ja ikiä sisältävässä aineistossa ikä on kokonaisluku. -->
+
+In the examples above we've printed strings. Some of the data contained in a fixed format string can be numbers. In the previous data of names and ages, the ages are integers.
+
+<sample-data>
+
+<!-- anton,2
+leevi,2
+lilja,1 -->
+sebastian,2
+lucas,2
+lily,1
+
+</sample-data>
+
+<!-- Merkkijonon pilkkominen osiin tuottaa merkkijonoista koostuvan taulukon. Mikäli teksti on määrämuotoista, voimme olettaa, että tietyssä indeksissä oleva tieto on aina tietyn muotoista -- esimerkiksi yllä indeksissä yksi oleva ikä on luku. -->
+
+Splitting a string creates always an array of strings. If the text is of fixet format, we can assume the data in a specific index to always be of the same kind -- e.g. above the age in the index 1 is an integer.
+
+<!-- Alla olevassa esimerkissä ohjelma laskee yllä kuvattua syötemuotoa noudattavan tiedon ikien summan. Jotta summa voidaan laskea, ikä muunnetaan luvuksi (tuttu komento `Integer.valueOf()`) -->
+
+The program below computes the sum of ages in this fixed format data. In order to compute the sum, the age must first be converted to a number (the familiar command `Integer.valueOf()`)
+
+<!-- ```java
 Scanner lukija = new Scanner(System.in);
-ArrayList<String> nimet = new ArrayList<>();
+int summa = 0;
 
 while (true) {
     String luettu = lukija.nextLine();
@@ -775,97 +715,225 @@ while (true) {
     }
 
     String[] palat = luettu.split(",");
-    nimet.add(palat[0]);
+    summa = summa + Integer.valueOf(palat[1]);
 }
 
-for (String nimi: nimet) {
-    System.out.println(nimi);
+System.out.println("Ikien summa on " + summa);
+``` -->
+
+```java
+Scanner reader = new Scanner(System.in);
+int sum = 0;
+
+while (true) {
+    String input = reader.nextLine();
+    if (input.equals("")) {
+        break;
+    }
+
+    String[] parts = input.split(",");
+    sum = sum + Integer.valueOf(parts[1]);
+}
+
+System.out.println("Sum of the ages is " + sum);
+```
+
+<sample-output>
+
+<!-- **leevi,2**
+**lilja,1**
+
+Ikien summa on 3 -->
+**sebastian,2**
+**lucas,2**
+**lily,1**
+
+Sum of the ages is 5
+
+</sample-output>
+
+<!-- Vastaavalla tavalla voisi toteuttaa ohjelman, joka laskee henkilöiden keski-iän. -->
+Likewise we can write a program to compute the average of the ages:
+
+<!-- ```java
+Scanner lukija = new Scanner(System.in);
+int summa = 0;
+int lukumaara = 0;
+
+while (true) {
+    String luettu = lukija.nextLine();
+    if (luettu.equals("")) {
+        break;
+    }
+
+    String[] palat = luettu.split(",");
+    summa = summa + Integer.valueOf(palat[1]);
+    lukumaara = lukumaara + 1;
+}
+
+if (lukumaara > 0) {
+    System.out.println("Ikien keskiarvo: " + (1.0 * summa / lukumaara));
+} else {
+    System.out.println("Ei syötteitä.");
+}
+``` -->
+
+```java
+Scanner reader = new Scanner(System.in);
+int sum = 0;
+int count = 0;
+
+while (true) {
+    String input = reader.nextLine();
+    if (input.equals("")) {
+        break;
+    }
+
+    String[] parts = input.split(",");
+    sum = sum + Integer.valueOf(parts[1]);
+    count = count + 1;
+}
+
+if (count > 0) {
+    System.out.println("Average of the ages: " + (1.0 * sum / count));
+} else {
+    System.out.println("No input.");
 }
 ```
 
 <sample-output>
 
-**anton,2**
-**leevi,2**
+<!-- **leevi,2**
 **lilja,1**
-anton
-leevi
-lilja
+Ikien keskiarvo: 1.5 -->
+
+**sebastian,2**
+**lucas,2**
+**lily,1**
+
+Average of the ages: 1.666
 
 </sample-output>
 
-<programming-exercise name='Sanat riveittäin' tmcname='osa03-Osa03_32.SanatRiveittain'>
 
+<programming-exercise name='Age of the oldest' tmcname='part03-Part03_30.AgeOfTheOldest'>
 
-Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Kun käyttäjä syöttää merkkijonon, ohjelma tarkastelee syötettyä merkkijonoa. Mikäli syötetty merkkijono on tyhjä, ohjelma lopettaa käyttäjältä lukemisen ja ohjelman suoritus päättyy. Mikäli merkkijono ei ole tyhjä, ohjelma pilkkoo syötetyn merkkijonon osiksi välilyöntien kohdalta ja tulostaa yksittäiset osat omille riveilleen.
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä henkilötietoja. Henkilötiedot sisältävät etunimen ja syntymävuoden pilkulla eroteltuna. Tietojen lukemista jatketaan kunnes käyttäjä syöttää tyhjän merkkijonon. -->
+Write a program that reads names and ages from the user until an empty line is entered. The  name and age are separed by a comma.
 
+<!-- Kun lukeminen lopetetaan, ohjelma tulostaa vanhimman henkilön iän. Voit olettaa, käyttäjä syöttää aina vähintään yhden henkilön ja että vanhimman henkilön ikä on yksikäsitteinen. -->
+After reading the program prints the age of the oldest person. You can assume, that the user enters at least one person, and the that one of the users is older than the others.
 
 <sample-output>
 
-**olipa kerran**
-olipa
-kerran
-**pieni ohjelma joka**
-pieni
-ohjelma
-joka
-**loppui**
-loppui
+<!-- **leevi,2**
+**anton,2**
+**lilja,1**
+**venla,5**
+**gabriel,10**
+
+Vanhimman ikä: 10 -->
+
+**sebastian,2**
+**lucas,2**
+**lily,1**
+**hanna,5**
+**gabriel,10**
+
+Age of the oldest: 10
 
 </sample-output>
 
 </programming-exercise>
 
 
-<programming-exercise name='Joka toinen sana' tmcname='osa03-Osa03_33.JokaToinenSana'>
+<programming-exercise name='Name of the oldest' tmcname='part03-Part03_31.NameOfTheOldest'>
 
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä henkilötietoja. Henkilötiedot sisältävät etunimen ja syntymävuoden pilkulla eroteltuna. Tietojen lukemista jatketaan kunnes käyttäjä syöttää tyhjän merkkijonon. -->
+Write a program that reads names and ages from the user until an empty line is entered. The  name and age are separed by a comma.
 
-Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Kun käyttäjä syöttää merkkijonon, ohjelma tarkastelee syötettyä merkkijonoa. Mikäli syötetty merkkijono on tyhjä, ohjelma lopettaa käyttäjältä lukemisen ja ohjelman suoritus päättyy. Mikäli merkkijono ei ole tyhjä, ohjelma pilkkoo syötetyn merkkijonon osiksi välilyöntien kohdalta ja tulostaa joka toisen osan ensimmäisestä (ei nollannesta) indeksistä lähtien.
+<!-- Kun lukeminen lopetetaan, ohjelma tulostaa vanhimman henkilön nimen. Voit olettaa, että vanhimman henkilön ikä on yksikäsitteinen. -->
+After reading the program prints the name of the oldest person. You can assume, that the user enters at least one person, and the that one of the users is older than the others.
 
 
 <sample-output>
 
-**olipa kerran pieni kuva**
-kerran
-kuva
-**missä oli metsä**
-oli
-**loppu**
-**oikeasti loppuu vasta kun syotetaan tyhja mjono**
-loppuu
-kun
-tyhja
+<!-- **leevi,2**
+**anton,2**
+**lilja,1**
+**venla,5**
+**gabriel,10**
+
+Vanhimman nimi: gabriel -->
+
+**sebastian,2**
+**lucas,2**
+**lily,1**
+**hanna,5**
+**gabriel,10**
+
+Name of the oldest: gabriel
 
 </sample-output>
 
-
 </programming-exercise>
 
+<text-box type="hint" name="Merkkijonon pituus">
+
+<!-- Seuraavassa tehtävässä pyydetään selvittämään nimen pituus. Saat merkkijonon pituuden selville merkkijonon metodilla `length()` seuraavasti. -->
+In the next exercise you'll be asked for the length of the names. You can find out the length of a string with `length()`-method:
+
+<!-- ```java
+String mjono = "heippatirallaa";
+int pituus = mjono.length();
+System.out.println("Merkkijonon " + mjono + " pituus on " + pituus);
+``` -->
+
+```java
+String word = "equisterian";
+int length = word.length();
+System.out.println("The length of the word" + word + " is " + length);
+```
+
+<sample-output>
+
+<!-- Merkkijonon heippatirallaa pituus on 14 -->
+
+The length of the word equisterian is 11
+
+</sample-output>
+
+</text-box>
 
 
-<programming-exercise name='Henkilötietojen tarkastelu' tmcname='osa03-Osa03_34.HenkilotietojenTarkastelu'>
+<programming-exercise name='Personal details' tmcname='part03-Part03_32.PersonalDetails'>
 
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä henkilötietoja. Henkilötiedot sisältävät etunimen ja syntymävuoden pilkulla eroteltuna. TIetojen lukemista jatketaan kunnes käyttäjä syöttää tyhjän merkkijonon. -->
+Write a program that reads names and birth years from the user until an empty line is entered. The  name and birth year are separed by a comma.
 
-Kirjoita ohjelma, joka lukee käyttäjältä comma separated values -muodossa olevia henkilötietoja. Tiedot sisältävät etunimen ja syntymävuoden pilkulla eroteltuna. TIetojen lukemista jatketaan kunnes käyttäjä syöttää tyhjän merkkijonon.
-
-
-
-Kun lukeminen lopetetaan, ohjelma tulostaa pisimmän luetun etunimen sekä luettujen henkilöiden syntymävuosien keskiarvon. Mikäli pisimpiä etunimiä on useita, voit tulostaa niistä minkä tahansa. Voit olettaa, että käyttäjä syöttää aina vähintään yhden henkilötiedon.
+<!-- Kun lukeminen lopetetaan, ohjelman tulee tulostaa pisin luettu etunimi sekä luettujen henkilöiden syntymävuosien keskiarvo. Mikäli pisimpiä etunimiä on useita, voit tulostaa niistä minkä tahansa. Voit olettaa, että käyttäjä syöttää aina vähintään yhden henkilötiedon. -->
+After that the program prints the longest name and the average of the birth years. If multiple names are equally longest, you can print any of them. You can assume the user to enter at least one person.
 
 
 <sample-output>
 
-**leevi,2017**
+<!-- **leevi,2017**
 **anton,2017**
 **lilja,2017**
 **venla,2014**
+**gabriel,2009** -->
+**sebastian,2017**
+**lucas,2017**
+**lily,2017**
+**hanna,2014**
 **gabriel,2009**
 
-Pisin nimi: gabriel
-Syntymävuosien keskiarvo: 2014.8
+<!-- Pisin nimi: gabriel
+Syntymävuosien keskiarvo: 2014.8 -->
+Longest name: sebastian
+Average of the birth years: 2014.8
 
 </sample-output>
-
 
 
 <sample-output>
@@ -876,10 +944,11 @@ Syntymävuosien keskiarvo: 2014.8
 **mauno,1923**
 **urho,1900**
 
-Pisin nimi: martti
-Syntymävuosien keskiarvo: 1930.0
+<!-- Pisin nimi: martti
+Syntymävuosien keskiarvo: 1930.0 -->
+Longest name: martti
+Average of the birth years: 1930.0
 
 </sample-output>
-
 
 </programming-exercise>

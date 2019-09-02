@@ -10,10 +10,10 @@ exports.createPages = ({ actions, graphql }) => {
   const { createPage, createRedirect } = actions
 
   createRedirect({
-    fromPath: `/osa-1/4-muuttujat`,
+    fromPath: `/part-1/4-muuttujat`,
     isPermanent: true,
     redirectInBrowser: true,
-    toPath: `/osa-1/4-laskentaa`,
+    toPath: `/part-1/4-laskentaa`,
   })
 
   const courseMaterialTemplate = path.resolve(
