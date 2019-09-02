@@ -5,158 +5,54 @@ hidden: false
 information_page: true
 ---
 
-Tässä usein kysyttyjä kysymyksiä ja ongelmia. Jos et löydä kysymykseesi vastausta täältä, voit esitttää sen [tukiväylillämme](/tukivaylat).
+Here's some of the most frequently asked questions. If you can't find the answer for your question, you should ask it through one of the [support channels](/support-and-assistance).
 
 <table-of-contents></table-of-contents>
 
-### Minulla on ongelma ohjelmointiympäristön TMC pluginin kanssa
+### I've got a problem with the TMC plugin
 
-Varmista että sinulla on uusin versio TMC liitännäisestä valitsemalla Netbeanssin ylävalikosta `Help` -> `Check for Updates`.
+Make sure you've got the newest version of the TMC plugin by clicking `Help` -> `Check for Updates` on the top bar of Netbeans.
 
-### Netbeans jäätyy tehtävän palauteikkunan avautuessa
+If you can't make it work, come to the workshops and we'll help you :)
 
-Ongelma pitäisi olla korjattu TMC liitännäisen uusimmassa versiossa. Saat sen ladattua valitsemalla Netbeanssin yläpalkista <code>Help</code> -> <code>Check for updates</code> ja seuraamalla näytölle tulevia ohjeita.
+### Netbeans freezes when the feedback window opens
 
-### Ohjelmointitehtävässä on mielestäni virhe
+This problem shouldn't be present in the newer version of the plugin. You can download it at `Help` -> `Check for updates` and following the instructions.
 
-Varmista, että ongelma ei ole omassa koodissasi. Kysy tarvittaessa apua kurssin tukikanavilla. Kokeile myös onko tehtävään saatavilla päivitystä valitsemalla Netbeanssin yläpalkista `TMC` -> `Download or update exercises`. Jos näidenkin toimenpiteiden jälkeen vaikuttaa siltä, että virhe on tehtävässä, avaa uusi issue kurssin Github-repossa: https://github.com/rage/ohjelmointi-19.
+### I think one of the programming exercises has a bug
 
-### Löysin materiaalista virheen
+Make sure it's not a problem with your code. Ask for help in the telegram chat or in the workshop. Check for possible updates on the exercise by clicking `TMC` -> `Download or update exercises` on the top bar of Netbeans. If after all this you think there is a problem with the exercise, open a new issue in the github repo of the course: LINK.
 
-Avaa joko issue tai muutosehdoitus kurssin Github-repossa: https://github.com/rage/ohjelmointi-19.
+### I found an error in the material
 
-### Miten saan ladattua seuraavan osan ohjelmointitehtävät?
+Open an issue or make a request in the Github repo: LINK.
 
-NetBeans -liitännäinen tarjoaa sinulle seuraavan osan tehtäviä, kun olet saanut tarpeeksi edellisen osan ohjelmointitehtävien pisteistä. Aikataulullisella kurssilla tämä raja on 25% ja aikatauluttomalla kurssilla tämä raja on 90%.
+### Doing the exercises and returning them is slow on macOS
 
-### Tehtävien lataaminen ja palauttaminen on hidasta macOS -käyttöjärjestelmällä
+Follow these instructions to fix the issue: https://materiaalit.github.io/tmc-asennus/macos-verkkoongelma/.
 
-Seuraa tätä ohjetta ongelman ratkaisemiseksi: https://materiaalit.github.io/tmc-asennus/macos-verkkoongelma/.
+If it doesn't help, try changing the proxy setting on Netbeans to "no proxy".
 
-Jos tämä ei auta, kokeile vaihtaa Netbeanssin asetuksista proxy setting vaihtoehtoon "no proxy".
+### The installer of Netbeans is not opening on macOS
 
-### Netbeanssin asennusohjelma ei avaudu macOS:lla
+Try clicking the installer with the right button of the mouse and then choose "Open".
 
-Kokele painaa asennusohjelmaa hiiren oikealla näppäimellä ja valitse Avaa/Open.
+### the tests of part are not working on my mac
 
-### Osan 12 tehtävien testit eivät toimi macOS-tietokoneellani
+Check these instructions: [macOS ohjeet](/macos-ohjeet)
 
-Katso tämä ohje: [macOS ohjeet](/macos-ohjeet)
+### while running the tests, I get an error about JAVA_HOME
 
-### Saan testejä ajattaessa virheviestin, joka valittaa JAVA_HOME:sta
+Follow these instructions: [https://materiaalit.github.io/tmc-asennus/java_home_not_found/](https://materiaalit.github.io/tmc-asennus/java_home_not_found/).
 
-Seuraa tätä ohjetta ongelman ratkaisemiseksi: [https://materiaalit.github.io/tmc-asennus/java_home_not_found/](https://materiaalit.github.io/tmc-asennus/java_home_not_found/).
+### Netbeans or its installer doesn't open, or looks odd when opening
 
-### Netbeans tai netbeanssin asennusohjelma ei avaannu tai näyttää avauduttuaan oudolta.
+Make sure you have Java Development Kit (JDK) version 8 installed. The environment used on this course doesn't work properly with newer versions of Java. If you have a problem with this, try removing the newer versions of Java on your computer, and then install "Netbeans with TMC" again.
 
-Varmista, että sinulla on Javan kehitystyökalujen versio 8 asennettuna. Kurssilla käytetty ohjelmointiympäristö ei toimi kunnolla uudemmilla Javan versioilla. Jos törmäät ongelmaan, kokeile poistaa koneeltasi Javan JDK:n uudemmat versiot ja sitten asenna Netbeans with TMC uudestaan.
+### The buttons to run and to send to the server on Netbeans are gray
 
-### En voi aloittaa kurssia, koska en tiedä minne ilmoittautua
+This usually indicates either passed deadline or wrong course being selected in `TMC` -> `Settings`.
 
-Kurssin aloittamiseen ei tarvitse ilmoittautumista. Älä ilmoittaudu minnekkään ellei kurssin sivu (ohjelmointi-19.mooc.fi) erikseen kehoita sinua tekemään niin. Kurssin kokeeseen on erikseen ilmoittautuminen täällä: [koe ja moodle ilmoittautuminen](/koe-ja-moodle-ilmoittautuminen).
+### I want to apply for study right through the programming mooc. Is this the right course?
 
-Valitettavasti me loimme vahingossa avoimen yliopiston yliopiston sivulle ja courses.helsinki.fi:hin kurssille ylimääräisiä ilmoittautumissivuja, joista voi saada käsityksen että kurssille ei pääse mukaan tai että joutuu kurssin väärään versioon jos ei ilmoitttaudu näillä sivuilla. Tämä tieto ei kuitenkaan pidä paikkaansa.
-
-### Milloin voin aloittaa aikatauluttoman kurssin?
-
-Aikatauluton kurssi julkaistaan ensimmäisen deadlinen jälkeen. Huomaathan kuitenkin, että aikatauluttomassa kurssissa täytyy tehdä enemmän tehtäviä kuin aikataulullisessa kurssissa ja aikatauluttomasta kurssista ei voi saada opinto-oikeutta. Voit kuitenkin aloittaa aikataulullisen kurssin jo nyt ja siirtyä kurssimateriaalista aikatauluttomaan jos et ehdi johonkin deadlineen.
-
-### Kurssimateriaalin uuden osan pitäisi olla julki tänään, mutta en näe sitä
-
-Emme takaa mihin kellonaikaan kurssimateriaalin uusi osa ilmestyy. Vaikka materiaali on yleensä julkaistu noin puolen päivän maissa, julkaisu saattaa venyä myöhempään. Kiitos kärsivällisyydestäsi!
-
-### Työ- ja elinkeinotoimisto haluaa minulta selvityksen kurssista
-
-Ohjaa TE-toimisto tälle sivulle:
-
-Ohjelmoinnin MOOC on kaikille avoin ja ilmainen verkkokurssi. Kurssin käymistä voi verrata kirjan lainaamiseen kirjastosta. Kirjastosta lainattava kirja saattaa liittyä johonkin yliopisto-opintoihin liittyvään kurssiin. Aivan samalla tavalla kuin kirjastosta lainattava kirja, verkkokurssimme on luettavissa huvin ja itsensä sivistämisen vuoksi tai yliopisto-opintojen edistämiseksi.
-
-Ohjelmoinnin MOOC on Helsingin yliopiston kurssien Ohjelmoinnin perusteet (5 opintopistettä) ja Ohjelmoinnin jatkokurssi (5 opintopistettä) kurssimateriaali. Kurssin suorittajat eivät kuitenkaan automaattisesti ole Helsingin yliopiston opiskelijoita, emmekä pakota ketään suorittamaan kurssia opintopisteisiin johtavassa muodossa. Kurssista voi kuitenkin halutessaan -- ja kurssin menestyksekkäästi suorittamalla -- saada opintopisteitä. Huomaathan, että kurssille osallistuminen ei oikeuta opintotukeen.
-
-### Saan tukea Työ- ja elinkeinotoimistolta. Voinko silti tehdä kurssin?
-
-Sovi asiasta etukäteen TE-toimistosi kanssa. TE-toimistot eivät valitettavasti käsittele kurssiimme liittyviä asioita yhdenmukaisesti. Jotkut ovat evänneet tukia jo kurssillemme osallistumisesta, vaikkei tavoitteena olisi opintopisteet tai opinnot. Toisaalta toiset TE-toimistot ovat suositelleet kurssia ja jopa ohjanneet ihmisiä kurssille ilman tukien epäämistä.
-
-
-### Kela haluaa minulta todistuksen opiskelustani
-
-Ohjaa Kela tälle sivulle:
-
-Ohjelmoinnin MOOC on kaikille avoin ja ilmainen verkkokurssi. Kurssin käymistä voi verrata kirjan lainaamiseen kirjastosta. Kirjastosta lainattava kirja saattaa liittyä johonkin yliopisto-opintoihin liittyvään kurssiin. Aivan samalla tavalla kuin kirjastosta lainattava kirja, verkkokurssimme on luettavissa huvin ja itsensä sivistämisen vuoksi tai yliopisto-opintojen edistämiseksi.
-
-Ohjelmoinnin MOOC on Helsingin yliopiston kurssien Ohjelmoinnin perusteet (5 opintopistettä) ja Ohjelmoinnin jatkokurssi (5 opintopistettä) kurssimateriaali. Kurssin suorittajat eivät kuitenkaan automaattisesti ole Helsingin yliopiston opiskelijoita, emmekä pakota ketään suorittamaan kurssia opintopisteisiin johtavassa muodossa. Kurssista voi kuitenkin halutessaan -- ja kurssin menestyksekkäästi suorittamalla -- saada opintopisteitä. Huomaathan, että kurssille osallistuminen ei oikeuta opintotukeen.
-
-### Saako kursseista jonkinlaisen virallisen opintosuoritusotteen? Ja miten hyväksiluen sen oppilaitoksessani?
-
-Kurssin päätteeksi voi osallistua Helsingin yliopiston Avoimen yliopiston tarjoamiin verkkotentteihin kursseista Ohjelmoinnin perusteet ja Ohjelmoinnin jatkokurssi. Jos nämä verkkotentit läpäisee hyväksytysti, Avoimelta yliopistolta saa viralliset kurssisuoritteet. Ne kelpaavat todennäköisesti hyväksilukemista varten, mutta kannattaa varmistaa asia vielä oman oppilaitoksen opintovastaavalta.
-
-### Miten vaihdan aikataululliselta kurssilta aikatauluttomaan?
-
-Lue tämä ohje: [vaihtaminen aikatauluttomaan versioon](/vaihda-aikatauluttomaan).
-
-### Testien ajamis- ja lähettämispainikkeet ovat Netbeanssissa harmaita
-
-Jos olet aikataulutetussa kurssissa niin ota huomioon että ensimmäsen osan deadline oli 21.1.2020. Katso myös ohje: [vaihtaminen aikatauluttomaan versioon](/vaihda-aikatauluttomaan).
-
-### Tarvitsenko Helsingin yliopiston tunnukset?
-
-Kaikki jotka haluavat osallistua kurssin ilmaisiin tentteihin tai pystyä lukemaan Moodlea tarvii Helsingin yliopiston tunnukset. Jos tekee täysin omaksi ilokseen kurssia niin silloin ei ole pakollista, tosin vaikka tekisi vain omaksi ilokseen niin suosittelisimme tenttien tekemistä ja noiden toisten tunnusten hankkimista. Ohjeet tunnuksen hankkimiseen löytyy täältä: [koe ja moodle ilmoittautuminen](/koe-ja-moodle-ilmoittautuminen).
-
-### Aion hakea opiskelupaikkaa MOOCin kautta. Pitääkö minun osallistua Avoimen yliopiston tentteihin?
-
-Näyttökokeeseen saa kutsun, jos saa vähintään 90% kaikkien kurssin osien ohjelmointitehtävistä. Tentteihin osallistuminen ei ole pakollista tähän. Suosittelemme kuitenkin kaikille Avoimen yliopiston tentteihin osallistumista, koska vain niin voi varmistaa saavansa kurssisuoritukset. Pelkkään näyttökokeeseen osallistuminen ei takaa kurssisuorituksia. Käymällä Avoimen tentit suoritukset saa myös silloin, jos päätyy yliopistolle normaalin pääsykokeen tai Avoimen väylän kautta, tai jos aloittaa opiskelemaan muuta alaa.
-
-### Mihin asti voin tehdä aikataulutonta kurssia?
-
-Aikataulutonta kurssia voi tehdä näillä näkymin vuoden loppuun asti.
-
-### Miten perun kurssiosallistumiseni?
-
-Kurssiosallistumista ei tarvitse erikseen perua. Riittää, että lopettaa kurssin tekemisen.
-
-Jos osallistumisen esteenä on muut kiireet, kannattaa harkita aikatauluttomalle kurssille siirtymistä. Tällöin kurssia voi tehdä rennompaa tahtia. [vaihtaminen aikatauluttomaan versioon](/vaihda-aikatauluttomaan)
-
-Jos kurssi tuntuu liian hankalalta, kannattaa hakea apua tukiväyliltämme ennen kurssin lopettamista. [Tukiväylät](/tukivaylat)
-
-### Pääsenkö käsiksi kaikkiin kurssin osiin heti aikatauluttomalla kurssilla?
-
-Valitettavasti et. Osien julkaisupäivät koskevat sekä aikataulullista että aikataulutonta kurssia.
-
-### Miten ilmoittaudun kurssikokeeseen?
-
-Ohjeet kurssin kokeeseen ilmoittautumiseen löytyvät [täältä](/koe-ja-moodle-ilmoittautuminen).
-
-### Mistä tiedän onnistuinko koeilmoittautumisessa?
-
-Sinun täytyy muistaa oletko käynyt täyttämässä [koe ja moodle ilmoittautumisen](/koe-ja-moodle-ilmoittautuminen) "Avoimen yliopiston kurssi-ilmoittautuminen":n kohdan 1. ilmoittautumislomakkket.
-Muista tehdä ilmoittautuminen molemmille kurssin puolikkaille ("Ohjelmoinnin Perusteet" ja "Ohjelmoinnin jatkokurssi").
-
-### Täytyykö kokeeseen ilmoittautua vielä erikseen jos on jo ilmoittautunut kurssin Moodleen?
-
-Ei tarvitse ilmoittautua erikseen -- kurssin kokeeseen ja Moodleen ilmoittautuminen on sama.
-
-### Liittyykö koeilmoittautuminen johonkin tiettyyn koepäivään?
-
-Ei liity. Koeilmoittautumisella voit osallistua mihin tahansa kokeeseen.
-
-### Miten kurssin loppuosan kokeeseen ilmoittaudutaan?
-
-Kurssin loppuosan (osat 8-14) kokeeseen pääset ilmoittautumaan täyttämällä [koe ja moodle ilmoittautumisen](/koe-ja-moodle-ilmoittautuminen) "Avoimen yliopiston kurssi-ilmoittautuminen":n kohdan 1. ilmoittautumislomakkeen Ohjelmoinnin Jatkokurssin osalta.
-
-### Löysin Avoimen yliopiston sivulta yleiset ohjeet kokeeseen ilmoittautumiseen. Voinko seurata niitä?
-
-Tämä kurssi ei seuraa Avoimen yliopiston yleisiä koeilmoittautumisohjeita. Ohjeet kokeeseen ilmoittautumiseen löytyy täältä: [koe ja moodle ilmoittautuminen](/koe-ja-moodle-ilmoittautuminen).
-
-### Löysin koeilmoittautumisen vasta koepäivänä. Voinko silti osallistua kokeeseen?
-
-Jos sinulla ei ole Helsingin yliopiston käyttäjätunnuksia, voit osallistua vasta seuraavana koepäivänä järjestettävään kokeeseen.
-
-Jos sinulla on jo Helsingin yliopiston käyttäjätunnukset, voit osallistua kokeeseen, jos käyt tekemässä koeilmoittautumisen nyt täyttämällä [koe ja moodle ilmoittautumisen](/koe-ja-moodle-ilmoittautuminen) kohdan 1. ilmoittautumislomakkeen.
-
-### Kokeen piti olla ilmainen, mutta koeilmoittautumisessa puhutaan maksuehdoista
-
-Koe on täysin ilmainen. Koeilmoittautumisessa (= Avoimen yliopiston kurssi-ilmoittautuminen) puhutaan maksuehdoista, koska monet muut Avoimen yliopiston kurssit ovat maksullisia. Tämä kurssi on kuitenkin ilmainen, joten ehdoista huolimatta sinun ei tarvitse maksaa kurssista tai kokeesta mitään.
-
-### Milloin näyttökoe järjestetään?
-
-Lue tietoja näyttökokeista täältä: [Mahdollisuus opinto-oikeuteen](/opinto-oikeus#heading-nayttokokeet)
+No, you cannot apply for the study right based on this course.
