@@ -21,11 +21,14 @@ This problem shouldn't be present in the newer version of the plugin. You can do
 
 ### I think one of the programming exercises has a bug
 
-Make sure it's not a problem with your code. Ask for help in the telegram chat or in the workshop. Check for possible updates on the exercise by clicking `TMC` -> `Download or update exercises` on the top bar of Netbeans. If after all this you think there is a problem with the exercise, open a new issue in the github repo of the course: LINK.
+Please make sure the bug is not in your code. You may ask for help to spot a possible bug from one of the course's [support channels](/support-and-assistance). You can also test if there's an update to the exercise in NetBeans by selecting TMC --> Download or update exercises from NetBeans' navigation bar. If the problem still persists, please open a new discussion thread in the course's Moodle-forum where the course assistants can see what's wrong with the exercise and fix the issue.
 
 ### I found an error in the material
 
-Open an issue or make a request in the Github repo: LINK.
+Please open a new discussion thread in the course's Moodle-forum regarding the error you found.
+
+If you are able to fix the error yourself, for example if it's a typing error, you can open a pull request in the course material's Github repository: https://github.com/rage/java-programming-fall-19
+
 
 ### Doing the exercises and returning them is slow on macOS
 

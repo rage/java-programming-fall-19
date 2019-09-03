@@ -11,14 +11,14 @@ const courseSettings = {
       title: "About Course",
       path: "/",
     },
-    {
-      title: "Learning Objectives",
-      path: "/learning-objectives",
-    },
-    {
-      title: "Grading and exams",
-      path: "/grading-and-exams",
-    },
+    // {
+    //   title: "Learning Objectives",
+    //   path: "/learning-objectives",
+    // },
+    // {
+    //   title: "Grading and exams",
+    //   path: "/grading-and-exams",
+    // },
     { title: "Support and Assistance", path: "/support-and-assistance" },
     {
       title: "Frequently asked questions",
