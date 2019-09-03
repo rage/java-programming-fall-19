@@ -27,14 +27,13 @@ The easiest way to contact course staff is via workshops. You can also
 mail to erkki.kaila(@)helsinki.fi or reetta.puska@helsinki.fi or use
 the course discussion forum.
 
-Kurssilla on vertaistukeen perustuva keskustelukanava, jonka lisäksi tammikuun puolesta välistä lähtien kaikilla kurssilaisilla on mahdollisuus ohjaukseen Helsingin yliopiston kumpulan kampuksella.
+## Chat channel
 
-## Keskustelukanava
+The course has a support chat channel in Telegram. We suggest that you use the channel either with Telegram's web browser client or with Telegram's desktop application.
 
-Kurssilla on käytössä Telegram-keskusteluhuone. Suosittelemme, että käytät tukikanavaa joko Telegramin selaimessa toimivalla versiolla tai Telegrammin työpöytäohjelmalla.
+You can join the channel through this link: [https://t.me/programming_f19](https://t.me/programming_f19)
+You can access the web browser client here: [https://web.telegram.org](https://web.telegram.org/)
 
-Pääset kanavalle tästä linkistä: [https://t.me/programming_f19](https://t.me/programming_f19) . Pääset Telegrammin selaimessa toimivaan versioon täältä: [https://web.telegram.org](https://web.telegram.org/) .
+The participants in the channel are fellow students and volunteer course assistants. The channel's activity is based on voluntary assistance. Please also help other students on the channel when you can.
 
-Kanavan osallistujat ovat kanssaopiskelijoita sekä vapaaehtoisia ohjaajia. Kanavan toiminta perustuu vapaaehtoisuuteen. Autathan muita myös vastavuoroisesti.
-
-Jos kysyt kanavalta apua ohjelmointitehtävään, voit liittää kysymykseesi myös ohjelmasi lähdekoodin. Valitse Netbeanssista "`TMC`" -> "`Send code to TMC Pastebin`" ja valitse avautuvasta ikkunasta "`Send`". Tämän jälkeen saat linkin koodiisi, jonka voit jakaa keskustelukanavalla apupyynnön yhteydessä.
+If you ask for help in the channel, you may add a link to your program code. You can get a link to your code in NetBeans by pressing "`TMC`" --> "`Send code to pastebin`" and then selecting "`Send`" from the opened view. After you've sent the code, a new view should show up with the link to your code, which you can then share on the channel when you're asking for help.
