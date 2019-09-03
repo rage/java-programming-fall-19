@@ -25,62 +25,10 @@ Modern programming is pratically always done in an IDE (integrated development e
 The IDE we use on this course is called [NetBeans](https://netbeans.apache.org), and we use it with Test My Code plugin.
 
 <!-- Tarvitset kurssin aloittamiseen (1) käyttäjätunnuksen kurssilla käytettyyn TMC-järjestelmään, (2) Javan (Java JDK), ja (3) NetBeans with TMC -ohjelmointiympäristön (jatkossa TMC). Näiden asentaminen onnistuu seuraavia ohjeita noudattamalla. -->
-To start the course you need (1) an account on the TMC - system used in this course, (2) Java (Java JDK), and (3) Netbeans with TMC - development environment (in the future TMC).
+To start the course you need (1) a MOOC.fi -account that you can create at the top of this course material, (2) Java (Java JDK), and (3) Netbeans with TMC - development environment (in the future TMC).
 All of these can be installed with the following instructions.
 
-TODO: Ohjelinkki englanninkielisiin ohjeisiin, ja oikea kurssiversio tähän
-
-<only-for-course-variant variant="dl">
-
-  <!-- Ohjeistus oleellisten työvälineiden asentamiseen sekä kurssilla tarvittavan käyttäjätunnuksen luomiseen löytyy osoitteesta [https://materiaalit.github.io/tmc-asennus/netbeans/](https://materiaalit.github.io/tmc-asennus/netbeans/). Valitse organisaatioksi "MOOC" ja kurssiksi "Ohjelmoinnin MOOC 2019". -->
-  Instructions for installing the necessary tools and creating an TMC account can be found from the address [https://materiaalit.github.io/tmc-asennus/netbeans/](https://materiaalit.github.io/tmc-asennus/netbeans/). Select "MOOC" as your organization and "Ohjelmoinnin MOOC 2019" as your course.
-
-</only-for-course-variant>
-
-<only-for-course-variant variant="nodl">
-
-  <!-- Ohjeistus oleellisten työvälineiden asentamiseen sekä kurssilla tarvittavan käyttäjätunnuksen luomiseen löytyy osoitteesta [https://materiaalit.github.io/tmc-asennus/netbeans/](https://materiaalit.github.io/tmc-asennus/netbeans/). Valitse organisaatioksi "MOOC" ja kurssiksi "Ohjelmoinnin MOOC 2019 (aikatauluton)". -->
-  Instructions for installing the necessary tools and creating an TMC account can be found from the address [https://materiaalit.github.io/tmc-asennus/netbeans/](https://materiaalit.github.io/tmc-asennus/netbeans/). Select "MOOC" as your organization and "Ohjelmoinnin MOOC 2019" as your course.
-
-</only-for-course-variant>
-
-<only-for-course-variant variant="ohja-dl">
-
-  <!-- Ohjeistus oleellisten työvälineiden asentamiseen sekä kurssilla tarvittavan käyttäjätunnuksen luomiseen löytyy osoitteesta [https://materiaalit.github.io/tmc-asennus/netbeans/](https://materiaalit.github.io/tmc-asennus/netbeans/). Valitse organisaatioksi "MOOC" ja kurssiksi "Ohjelmoinnin MOOC 2019 -- Aloitan osasta 8". -->
-  Instructions for installing the necessary tools and creating an TMC account can be found from the address [https://materiaalit.github.io/tmc-asennus/netbeans/](https://materiaalit.github.io/tmc-asennus/netbeans/). Select "MOOC" as your organization and "Ohjelmoinnin MOOC 2019" as your course.
-
-</only-for-course-variant>
-
-<only-for-course-variant variant="ohja-nodl">
-
-  <!-- Ohjeistus oleellisten työvälineiden asentamiseen sekä kurssilla tarvittavan käyttäjätunnuksen luomiseen löytyy osoitteesta [https://materiaalit.github.io/tmc-asennus/netbeans/](https://materiaalit.github.io/tmc-asennus/netbeans/). Valitse organisaatioksi "MOOC" ja kurssiksi "Ohjelmoinnin MOOC 2019 -- Aloitan osasta 8 (aikatauluton)". -->
-  Instructions for installing the necessary tools and creating an TMC account can be found from the address [https://materiaalit.github.io/tmc-asennus/netbeans/](https://materiaalit.github.io/tmc-asennus/netbeans/). Select "MOOC" as your organization and "Ohjelmoinnin MOOC 2019" as your course.
-
-</only-for-course-variant>
-
-<only-for-course-variant variant="kesa-dl">
-
-  <!-- Ohjeistus oleellisten työvälineiden asentamiseen sekä kurssilla tarvittavan käyttäjätunnuksen luomiseen löytyy osoitteesta [https://materiaalit.github.io/tmc-asennus/netbeans/](https://materiaalit.github.io/tmc-asennus/netbeans/). Valitse organisaatioksi "MOOC" ja kurssiksi "Ohjelmoinnin MOOC 2019, Kesä". -->
-  Instructions for installing the necessary tools and creating an TMC account can be found from the address [https://materiaalit.github.io/tmc-asennus/netbeans/](https://materiaalit.github.io/tmc-asennus/netbeans/). Select "MOOC" as your organization and "Ohjelmoinnin MOOC 2019" as your course.
-
-</only-for-course-variant>
-
-<only-for-course-variant variant="kesa-ohja-dl">
-
-  <!-- Ohjeistus oleellisten työvälineiden asentamiseen sekä kurssilla tarvittavan käyttäjätunnuksen luomiseen löytyy osoitteesta [https://materiaalit.github.io/tmc-asennus/netbeans/](https://materiaalit.github.io/tmc-asennus/netbeans/). Valitse organisaatioksi "MOOC" ja kurssiksi "Ohjelmoinnin MOOC 2019 -- Aloitan osasta 8, Kesä". -->
-  Instructions for installing the necessary tools and creating an TMC account can be found from the address [https://materiaalit.github.io/tmc-asennus/netbeans/](https://materiaalit.github.io/tmc-asennus/netbeans/). Select "MOOC" as your organization and "Ohjelmoinnin MOOC 2019" as your course.
-
-</only-for-course-variant>
-
-<only-for-not-logged-in>
-
-  <!-- Kirjaudu sisään nähdäksesi, mikä organisaatio ja kurssi sinun tulee valita TMC:stä -->
-  Log in to see which organization and course to select from TMC.
-
-</only-for-not-logged-in>
-
-<!-- [Ohjeisiin!](https://materiaalit.github.io/tmc-asennus/netbeans/) -->
-TODO ohjelinkki ja sen sisältö englanniksi
+Installation instructions for Java and NetBeans can be found here: [Java and NetBeans installation guide](/netbeans-installation-guide)
 
 <!-- Kun olet luonut käyttäjätunnuksen ja asentanut Javan ja TMC:n, katso alla oleva video. Video näyttää mitä tapahtuu kun NetBeans with TMC -ohjelmointiympäristö käynnistetään ensimmäistä kertaa. Videolla valitaan organisaatio ja kurssi, sekä tehdään ensimmäinen ohjelmointitehtävä. -->
 Once you have created the user account and installed Java and TMC, watch the video below. The video demonstrates what happens, when "Netbeans with TMC" is opened for the first time. We select the organization and the course, and do the first programming exercise.
