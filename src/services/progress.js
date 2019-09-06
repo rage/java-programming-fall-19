@@ -4,16 +4,6 @@ import { zip } from "../util/arrays"
 import { fetchQuizProgress } from "./quiznator"
 import { fetchQuizzesProgress } from "./quizzes"
 
-const introductionCourseGroups = [
-  "osa01",
-  "osa02",
-  "osa03",
-  "osa04",
-  "osa05",
-  "osa06",
-  "osa07",
-]
-
 export async function fetchProgress() {
   // await fetchQuizzesProgress()
   const serviceIdentifiers = ["Programming exercises", "Quizzes"]
@@ -32,22 +22,19 @@ export async function fetchProgress() {
         if (!progressByGroup[progressEntry.group]) {
           progressByGroup[progressEntry.group] = {}
         }
-        progressByGroup[progressEntry.group][identifier] = progressEntry
+        progressByGroup[progressEntry.group][
+          identifier.replace("osa", "part")
+        ] = progressEntry
       })
     },
   )
   const toBeDeleted = []
   Object.entries(progressByGroup).forEach(([group, serviceEntries]) => {
-    if (!Object.keys(serviceEntries).find(o => o === "Ohjelmointitehtävät")) {
+    if (!Object.keys(serviceEntries).find(o => o === "Programming exercises")) {
       toBeDeleted.push(group)
     }
   })
-  if (
-    currentCourseVariant === "ohja-dl" ||
-    currentCourseVariant === "ohja-nodl"
-  ) {
-    introductionCourseGroups.forEach(group => toBeDeleted.push(group))
-  }
+
   toBeDeleted.forEach(o => {
     delete progressByGroup[o]
   })
