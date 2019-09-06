@@ -3,7 +3,7 @@ const courseSettings = {
   name: "Java Programming Fall 2019",
   subtitle: "Learn how to program",
   slug: "java-programming-fall-19",
-  tmcCourse: "programming-fall-19",
+  tmcCourse: "introduction-to-programming-fall-19",
   tmcOrganization: "hy",
   bannerPath: "banner.svg",
   sidebarEntries: [
