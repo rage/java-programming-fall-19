@@ -182,7 +182,7 @@ Going forward, program code needs to be indented correctly in exercises too. If 
 </text-box>
 
 <!-- <programming-exercise name="Sisennys kuntoon" tmcname='osa01-Osa01_25.SisennysKuntoon'> -->
-<programming-exercise name="Check your indentation" tmcname='part01-Part01_25.Check your indentation'>
+<programming-exercise name="Check your indentation" tmcname='part01-Part01_25.CheckYourIndentation'>
 
 <!-- Tehtäväpohjassa on ehtolauseen käyttöä demonstroiva ohjelma. Ohjelma on kuitenkin sisennetty väärin. -->
 The exercise template contains a program demonstrating the use of conditional statements. However, it's indented wrong.
@@ -516,7 +516,7 @@ The number is greater than zero.
 The example above prints the string "The number is greater than zero." even if the condition `number > 2` is true. The comparing stops at the first condition that evaluates to true.
 
 <!-- <programming-exercise name="Arvosanat ja pisteet" tmcname='osa01-Osa01_31.ArvosanatJaPisteet'> -->
-<programming-exercise name="Grades and points" tmcname='Part01-Part01_31.GradesAndPoints'>
+<programming-exercise name="Grades and points" tmcname='part01-Part01_31.GradesAndPoints'>
 
 <!-- Alla oleva taulukko kuvaa erään kurssin arvosanan muodostumista. Tee ohjelma, joka ilmoittaa kurssiarvosanan annetun taulukon mukaisesti. -->
 
