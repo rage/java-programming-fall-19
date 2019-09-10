@@ -420,7 +420,7 @@ The sum of the numbers is 2
 
 <!-- <programming-exercise name="Kolmen luvun summa" tmcname='osa01-Osa01_18.KolmenLuvunSumma'> -->
 
-<programming-exercise name="Sum of three numbers" tmcname='osa01-Osa01_18.SumOfThreeNumbers'>
+<programming-exercise name="Sum of three numbers" tmcname='part01-Part01_18.SumOfThreeNumbers'>
 
 <!-- Kirjoita ohjelma, joka kysyy käyttäjältä kolmea lukua. Tämän jälkeen ohjelma tulostaa käyttäjän syöttämien lukujen summan. -->
 
@@ -940,7 +940,7 @@ The average is 4.333333333333333
 
 <!-- <programming-exercise name="Nelilaskin" tmcname='osa01-Osa01_23.Nelilaskin'> -->
 
-<programming-exercise name="Simple calculator" tmcname='part01-Part01_23.Simple calculator'>
+<programming-exercise name="Simple calculator" tmcname='part01-Part01_23.SimpleCalculator'>
 
 
 <!-- Kirjoita ohjelma, joka lukee käyttäjältä kaksi lukua ja tulostaa lukujen summan, lukujen erotuksen, lukujen kertolaskun, ja lukujen jakolaskun. Alla on kaksi esimerkkiä ohjelman toiminnasta. -->

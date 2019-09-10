@@ -379,7 +379,10 @@ You wrote this
 
 </sample-output>
 
-<programming-exercise name='Greeting' tmcname='osa01-Osa01_08.Greeting'>
+
+
+
+<programming-exercise name='Greeting' tmcname='part01-Part01_08.Greeting'>
 
 <!-- Kirjoita ohjelma, joka kysyy käyttäjältä nimeä käyttäen tekstiä "Mikä on nimesi?". Kun käyttäjä syöttää nimen, ohjelman tulee tulostaa käyttäjälle merkkijonon "Hei ", jota seuraa käyttäjän nimi. -->
 Write a program that asks the user for their name by prompting them with the message "What's your name?". When the user writes their name, the program has to print "Hi " followed by the user's name.
@@ -472,7 +475,7 @@ third
 </sample-output>
 
 
-<programming-exercise name='Conversation' tmcname='part01-Part01_10.Conversation'>
+<programming-exercise name='Conversation' tmcname='part01-Part01_09.Conversation'>
 
 <!-- Kirjoita ohjelma, joka toimii seuraavalla tavalla. -->
 Write a program that works as follows:
