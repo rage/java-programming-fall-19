@@ -23,7 +23,7 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  ns: ["common", "user", "points-balloon"],
+  ns: ["common", "user", "points-balloon", "signIn"],
   defaultNS: "common",
   react: {
     wait: true,
