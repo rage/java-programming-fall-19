@@ -11,7 +11,7 @@ export async function fetchQuizzesProgress() {
 
 export async function fetchQuizNames() {
   const response = await axios.get(
-    "https://quizzes.mooc.fi/api/v1/quizzes/d4dbe426-33dd-41df-b934-0a4eaa5658fb/titles/fi_FI",
+    "https://quizzes.mooc.fi/api/v1/quizzes/d4dbe426-33dd-41df-b934-0a4eaa5658fb/titles/en_US",
   )
   return response.data
 }
