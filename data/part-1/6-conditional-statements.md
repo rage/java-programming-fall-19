@@ -267,7 +267,7 @@ Orwell
 <programming-exercise name="Ancient" tmcname='part01-Part01_27.Ancient'>
 
 <!-- Tee ohjelma, joka kysyy käyttäjältä vuosilukua. Jos käyttäjä syöttää luvun, joka on pienempi kuin 2015, ohjelma tulostaa merkkijonon "Wanha!". -->
-Write a program that prompts the user for a year. If the user inputs a number that is smaller than 2015, then the program prints the string "Old!".
+Write a program that prompts the user for a year. If the user inputs a number that is smaller than 2015, then the program prints the string "Ancient history!".
 
 <sample-output>
 
