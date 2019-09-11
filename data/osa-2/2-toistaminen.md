@@ -1,11 +1,11 @@
 ---
-path: '/part-2/2-toistaminen'
-title: 'Toiminnallisuuden toistaminen'
+path: '/part-2/2-repeating'
+title: 'Repeating functionality'
 hidden: true
 ---
 
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name='Learning Objectives'>
 
 <!-- - Tunnet käsitteen toistolause ja osaat luoda ohjelman, joka sisältää toistolauseen. -->
 - You are familiar with loops and know how to utilize them in your program.
@@ -189,19 +189,19 @@ Ready!
 </sample-output>
 
 <!-- <programming-exercise name="Jatketaanko" tmcname='osa02-Osa02_05.Jatketaanko'> -->
-<programming-exercise name="Continue?" tmcname='osa02-Osa02_05.Continue'>
+<programming-exercise name="Carry on?" tmcname='part02-Part02_05.CarryOn'>
 
 <!-- Kirjoita edellä olevaa toistolause-esimerkkiä mukaillen ohjelma, joka kysyy käyttäjältä "Jatketaanko?" kunnes käyttäjä syöttää merkkijonon "ei". -->
-Write a program by using the loop-example that asks "Continue?" until the user inputs a string "no".
+Write a program by using the loop-example that asks "Carry on?" until the user inputs a string "no".
 <sample-output>
 
-Continue?
+Carry on?
 **yes**
-Continue?
+Carry on?
 **ye**
-Continue?
+Carry on?
 **y**
-Continue?
+Carry on?
 **no**
 
 </sample-output>
@@ -246,7 +246,7 @@ Done, thank you!
 </sample-output>
 
 <!-- <programming-exercise name="Uudestaan" tmcname='osa02-Osa02_06.Uudestaan'> -->
-<programming-exercise name="Again" tmcname='osa02-Osa02_06.Again'>
+<programming-exercise name="Are we there yet?" tmcname='part02-Part02_06.AreWeThereYet'>
 
 <!-- Kirjoita edellä olevaa esimerkkiä mukaillen ohjelma, joka kysyy käyttäjältä lukuja kunnes käyttäjä syöttää luvun 4. -->
 Write a program according to the preceding example that asks a user to input values until they input the value 4.
@@ -327,7 +327,7 @@ TODO: tänne tarttee visualisoinnin
 <quiz id="36891f81-9e52-5546-97c3-4c2f0f180135"></quiz>
 
 <!-- <programming-exercise name="Syötteiden rajaus" tmcname='osa02-Osa02_07.SyotteidenRajaus'> -->
-<programming-exercise name="Restricting Input" tmcname='osa02-Osa02_07.RestrictingInput'>
+<programming-exercise name="Only positives" tmcname='osa02-Osa02_07.OnlyPositives'>
 
 <!-- Kirjoita ohjelma, joka kysyy käyttäjältä lukuja. Mikäli luku on negatiivinen (eli pienempi kuin nolla), käyttäjälle tulostetaan viesti "Epäkelpo luku" ja käyttäjältä kysytään uutta lukua. Jos taas luku on nolla, lukujen lukeminen lopetetaan ja ohjelma poistuu toistolauseesta. Mikäli luku on positiivinen, ohjelma tulostaa luvun toisen potenssin. -->
 Write a program that asks a user for numbers. If the number is negative (smaller than zero) the program prints for user "unfit number" and asks user for a new number. If the number is zero, the program exits the loop. If the number is positive, the program prints the number power of two.
@@ -623,7 +623,7 @@ int ones = 0;
 
 // The task is to read an input from the user
 while (true) {
-    System.out.println("Syötä luku (0 lopettaa): ");
+    System.out.println("Give a number (end with 0): ");
     // The task is to read a user inputted number
     int number = Integer.valueOf(scanner.nextLine());
 
@@ -649,15 +649,15 @@ Bellow is the example output of the program.
 
 <sample-output>
 
-Input a number
+Give a number (end with 0):
 **1**
-Input a number
+Give a number (end with 0):
 **2**
-Input a number
+Give a number (end with 0):
 **1**
-Input a number
+Give a number (end with 0):
 **-1**
-Input a number
+Give a number (end with 0):
 **0**
 Total of ones: 2
 
@@ -665,7 +665,7 @@ Total of ones: 2
 
 
 <!-- <programming-exercise name="Lukujen lukumäärä" tmcname='osa02-Osa02_08.LukujenLukumaara'> -->
-<programming-exercise name="Input Count" tmcname='osa02-Osa02_08.InputCount'>
+<programming-exercise name="Number of Numbers" tmcname='part02-Part02_08.NumberOfNumbers'>
 
 <!-- Kirjoita ohjelma, joka lukee käyttäjältä lukuja kunnes käyttäjä syöttää luvun 0. Tämän jälkeen ohjelman tulee tulostaa syötettyjen lukujen lukumäärän. Syötteen loppumisesta kertovaa nollaa ei tule laskea osaksi lukujen lukumäärää. -->
 Write a program that reads values from the user until they input a 0. After this, the program prints the total number of inputted values. The zero, that's given as input to exit the loop, should not be included in the total number count.
@@ -675,17 +675,17 @@ Example output of the program:
 
 <sample-output>
 
-Input a number
+Give a number:
 **5**
-Input a number
+Give a number:
 **22**
-Input a number
+Give a number:
 **9**
-Input a number
+Give a number:
 **-2**
-Input a number
+Give a number:
 **0**
-Total number count 4
+umber of numbers: 4
 
 </sample-output>
 
@@ -693,7 +693,7 @@ Total number count 4
 
 
 <!-- <programming-exercise name="Negatiivisten lukujen lukumäärä" tmcname='osa02-Osa02_09.NegatiivistenLukujenMaara'> -->
-<programming-exercise name="Negative Number Count" tmcname='osa02-Osa02_09.NegativeNumberCount'>
+<programming-exercise name="Number of negative numbers" tmcname='part02-Part02_09.NumberOfNegativeNumbers'>
 
 <!-- Kirjoita ohjelma, joka lukee käyttäjältä lukuja kunnes käyttäjä syöttää luvun 0. Tämän jälkeen ohjelman tulee tulostaa syötteessä olleiden negatiivisten lukujen lukumäärän. Syötteen loppumisesta kertovaa nollaa ei tule laskea osaksi lukujen lukumäärää. -->
 Write a program that reads values from the user until they input a 0. After this, the program prints the total number of inputted values that are negative. The zero, that's given as input to exit the loop, should not be included in the total number count.
@@ -703,17 +703,17 @@ Example output of the program:
 
 <sample-output>
 
-Input a number
+Give a number:
 **5**
-Input a number
+Give a number:
 **22**
-Input a number
+Give a number:
 **9**
-Input a number
+Give a number:
 **-2**
-Input a number
+Give a number:
 **0**
-Total negative number count 1
+Number of negative numbers: 1
 
 </sample-output>
 
@@ -723,7 +723,7 @@ Total negative number count 1
 The previously programs done in previous exercises have read user inputs and kept track about certain types of numbers. In the next exercise the sum of numbers is no different --- this time you will keep track of numbers, which means that instead of adding one the amount of numbers, you add the number to the sum.
 
 <!-- <programming-exercise name="Lukujen summa" tmcname='osa02-Osa02_10.LukujenSumma'> -->
-<programming-exercise name="Sum of Numbers" tmcname='osa02-Osa02_10.SumOfNumbers'>
+<programming-exercise name="Sum of Numbers" tmcname='part02-Part02_10.SumOfNumbers'>
 
 <!-- Kirjoita ohjelma, joka lukee käyttäjältä lukuja kunnes käyttäjä syöttää luvun 0. Tämän jälkeen ohjelman tulee tulostaa syötettyjen lukujen summan. Syötteen loppumisesta kertovaa nollaa ei tarvitse osaksi lukujen summaa, vaikkei siitä tässä tapauksessa oikeastaan haittaakaan ole. -->
 Write a program that reads numbers from the user until the user inputs a number 0. After this the program outputs the sum of the numbers. The number zero does not need to be added to the sum albeit it does not change the results.

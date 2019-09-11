@@ -1,5 +1,5 @@
 ---
-path: '/part-2/4-metodit'
+path: '/part-2/4-methods'
 # title: 'Metodit ja ohjelman jakaminen pienempiin osiin'
 title: 'Methods and dividing the program into smaller parts'
 hidden: true
@@ -333,7 +333,7 @@ In a hole in the ground there lived a method
 
 <!-- **Huom:** tulosta kehote `Kuinka monta?` omalle rivilleen! -->
 
-**N.B.:** print the prompt `How many times?` its own separate line!
+**N.B.:** print the prompt `How many times?` on its own separate line!
 
 
 </programming-exercise>
@@ -384,7 +384,6 @@ public static void thisMethodSaysWoof() {
 }
 ```
 
-TODO: quiz, kirjoita metodin nimi oikein (esim. tulosta_koodaus_on_kivaa() -> tulostaKoodausOnKivaa())
 
 <!-- ##  Metodin parametrit -->
 
@@ -410,7 +409,7 @@ public static void greet(int numOfTimes) {
 
 <!-- Kutsutaan metodia `tervehdi` siten, että parametrin `montakoKertaa` arvoksi asetetaan ensimmäisellä kutsulla `1` ja toisella kutsulla `3`. -->
 
-We will call the method `greed` with different values. The parameter `numOfTimes` is assigned the value `1`on the first call, and `3`on the second.
+We will call the method `greet` with different values. The parameter `numOfTimes` is assigned the value `1`on the first call, and `3`on the second.
 
 <!-- ```java
 public static void main(String[] args) {
@@ -1392,7 +1391,7 @@ public static void main(String[] args) {
     System.out.print("Enter the first number: ");
     int number1 = Integer.valueOf(scanner.nextLine());
 
-    System.out.print("Anna toinen luku: ");
+    System.out.print("Enter the second number: ");
     int number2 = Integer.valueOf(scanner.nextLine());
 
     System.out.print("The total sum of the numbers is: " + sum(number1, number2));
@@ -1783,12 +1782,6 @@ The execution of the program begins on the first line of the `main` method. The 
 
 <sample-output>
 main
-  alku = 1
-  loppu = 5
-</sample-output>
-
-<sample-output>
-main
   beginning = 1
   end = 5
 </sample-output>
@@ -1840,12 +1833,6 @@ main
 <!-- Metodin `main` muuttujien arvot eivät siis muutu. Metodin `tulostaTahtia` suoritus jatkuisi tämän jälkeen jokusen hetken. Kun metodin `tulostaTahtia` suoritus loppuu, palataan takaisin `main`-metodin suoritukseen. -->
 
 So the values of the variables in the method `main` remain unchanged. The execution of the method `printStart` would continue for some time after this. When the execution of that method ends, the execution resumes inside the `main` method.
-
-<sample-output>
-main
-  alku = 1
-  loppu = 5
-</sample-output>
 
 <sample-output>
 main
