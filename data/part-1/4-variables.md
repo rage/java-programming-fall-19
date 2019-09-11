@@ -81,7 +81,7 @@ Booolean: true
 
 <!-- <programming-exercise name="Muuttuvat muuttujat" tmcname='osa01-Osa01_11.MuuttuvatMuuttujat'> -->
 
-<programming-exercise name="Varying Variables" tmcname='part01-Part01_11.VaryingVariables'>
+<programming-exercise name="Various Variables" tmcname='part01-Part01_11.VariousVariables'>
 
 <!-- Tehtäväpohja sisältää ohjelman, joka tulostaa seuraavaa. -->
 
