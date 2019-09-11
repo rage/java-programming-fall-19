@@ -71,11 +71,8 @@ class CourseOptionsEditor extends React.Component {
     e.preventDefault()
     this.setState({ submitting: true })
     let extraFields = {
-      applies_for_study_right: this.state.applies_for_study_right,
-      digital_education_for_all: this.state.digital_education_for_all,
       marketing: this.state.marketing,
       research: this.state.research,
-      course_variant: this.state.currentCourseVariant,
     }
     const userField = {
       first_name: this.state.first_name,
@@ -216,65 +213,6 @@ class CourseOptionsEditor extends React.Component {
                   helperText={this.props.t("nosid")}
                   onFocus={this.handleFocus}
                   onBlur={this.handleUnFocus}
-                />
-              </Row>
-
-              <Row>
-                <DropdownMenu
-                  selectedVariant={
-                    this.state.currentCourseVariant ||
-                    this.props.courseVariant ||
-                    "dl"
-                  }
-                  setSelectedVariant={this.setSelectedVariant}
-                />
-              </Row>
-              {!this.props.courseVariant &&
-                (this.state.currentCourseVariant === "nodl" ||
-                  this.state.currentCourseVariant === "ohja-nodl") && (
-                  <Row>
-                    <InfoBox>
-                      <Card>
-                        <CardContent>
-                          <StyledIcon icon={icon} />
-                          Jos olet vaihtamassa aikataulullisesta kurssista
-                          aikatauluttomaan, katso tämä ohje ohjelmointitehtävien
-                          pisteiden siirtämiseksi:{" "}
-                          <Link to="/vaihda-aikatauluttomaan">
-                            Kurssin vaihto aikatauluttomaan versioon
-                          </Link>
-                          .
-                        </CardContent>
-                      </Card>
-                    </InfoBox>
-                  </Row>
-                )}
-
-              <Row>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={this.state.applies_for_study_right}
-                      onChange={this.handleCheckboxInput}
-                      name="applies_for_study_right"
-                      value="1"
-                    />
-                  }
-                  label="Aion hakea aikataulutetun Ohjelmoinnin MOOCin kautta opinto-oikeutta Helsingin yliopistoon."
-                />
-              </Row>
-
-              <Row>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={this.state.digital_education_for_all}
-                      onChange={this.handleCheckboxInput}
-                      name="digital_education_for_all"
-                      value="1"
-                    />
-                  }
-                  label="Olen tällä hetkellä opiskelijana Digital Education for All -hankkeessa. Jätä tämä valitsematta mikäli et tiedä kyseisestä hankkeesta."
                 />
               </Row>
 
