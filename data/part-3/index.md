@@ -1,6 +1,6 @@
 ---
 path: '/part-3'
-title: 'Osa 3'
+title: 'Part 3'
 overview: true
 hidden: true
 ---

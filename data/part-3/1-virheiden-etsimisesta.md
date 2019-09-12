@@ -1,5 +1,5 @@
 ---
-path: '/part-3/1-virheiden-etsimisesta'
+path: '/part-3/1-on-searching-errors'
 # title: 'Virheiden etsimisestä'
 title: 'On searching errors'
 hidden: true
