@@ -1202,7 +1202,6 @@ Impossible!
 
 </programming-exercise>
 
-TODO: quiz -- mitä tulostaa? (useampi osa)
 
 <!-- ## Ehtolauseiden suoritusjärjestys -->
 ## Execution Order of Conditional Statements

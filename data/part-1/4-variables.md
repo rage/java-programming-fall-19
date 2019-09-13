@@ -758,7 +758,6 @@ You wrote 18.0
 <!-- <programming-exercise name="Liukuluvun lukeminen" tmcname='osa01-Osa01_13.LiukuluvunLukeminen'> -->
 <programming-exercise name="Double Input" tmcname='part01-Part01_13.DoubleInput'>
 <!-- Kirjoita ohjelma, joka kysyy käyttäjältä liukulukua. Tämän jälkeen ohjelma tulostaa käyttäjän syöttämän luvun.
-
 Alla on annettuna ohjelman esimerkkitulostuksia: -->
 
 Write a program that asks the user for a floating-point number. The program then prints the user's input value.

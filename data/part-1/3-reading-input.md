@@ -174,7 +174,7 @@ message
 ### Concatenation - Joining Strings Together
 
 <!-- Tulostettavan merkkijonon voi koostaa useammista merkkijonoista `+`-merkin avulla. Esimerkiksi alla oleva ohjelma tulostaa viestin "Hei maailma!" yhdelle riville. -->
-The string to be printed can be formed from multiple strings using the `+` -operator. For example, the program below prints "Hello world!" on one line.
+The string to be printed can be formed from multiple strings using the `+` operator. For example, the program below prints "Hello world!" on one line.
 
 ```java
 public class Program {

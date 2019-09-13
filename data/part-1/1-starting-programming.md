@@ -8,8 +8,11 @@ hidden: false
 <text-box variant='learningObjectives' name='Learning objectives'>
 
 <!-- - Tutustut kurssilla käytettyyn NetBeans with TMC -ohjelmointiympäristöön. -->
- - Get familiar with the NetBeans with TMC - development environment used in this course.
+
+ - Get familiar with the NetBeans with TMC  development environment used in this course.
+
 <!-- - Opit lataamaan ja palauttamaan kurssin ohjelmointitehtäviä. -->
+
  - Learn to download and submit programming exercises.
 
 </text-box>
@@ -19,18 +22,22 @@ hidden: false
 
 
 <!-- Nykyaikainen ohjelmointi tapahtuu lähes poikkeuksetta ohjelmointiympäristössä. Ohjelmointiympäristö sisältää joukon ohjelmoijaa auttavia aputoimintoja. Se ei rakenna ohjelmaa ohjelmoijan puolesta, mutta se muunmuassa vinkkaa helpoista virheistä ohjelmakoodissa ja auttaa ohjelmoijaa hahmottamaan ohjelman rakennetta. -->
-Modern programming is pratically always done in an IDE (integrated development environment). An IDE contains a set of useful tools for the programmer. It does not create the prgram by itself, but can give hints about common mistakes in the code, and help the programmer understand the structure of the program.
+
+Modern programming is pratically always done in an IDE (integrated development environment). An IDE contains a set of useful tools for the programmer. It does not create the program by itself, but it can give hints about common mistakes in the code, and help the programmer understand the structure of the program.
 
 <!-- Käytämme tällä kurssilla [NetBeans](https://netbeans.apache.org)-nimistä ohjelmointiympäristöä sekä siihen liitettävää Test My Code -liitännäistä. -->
+
 The IDE we use on this course is called [NetBeans](https://netbeans.apache.org), and we use it with Test My Code plugin.
 
 <!-- Tarvitset kurssin aloittamiseen (1) käyttäjätunnuksen kurssilla käytettyyn TMC-järjestelmään, (2) Javan (Java JDK), ja (3) NetBeans with TMC -ohjelmointiympäristön (jatkossa TMC). Näiden asentaminen onnistuu seuraavia ohjeita noudattamalla. -->
-To start the course you need (1) a MOOC.fi -account that you can create at the top of this course material, (2) Java (Java JDK), and (3) Netbeans with TMC - development environment (in the future TMC).
+
+To start the course you need (1) a MOOC.fi -account that you can create at the top of this course material, (2) Java (Java JDK), and (3) Netbeans with TMC  development environment (in the future TMC).
 
 All of these can be installed with the following instructions. **When following the instructions, select "Helsingin yliopisto" as your organization and "Introduction to programming Fall 2019" as your course.** Installation instructions for Java and NetBeans can be found here: [Java and NetBeans installation guide](/netbeans-installation-guide)
 
 <!-- Kun olet luonut käyttäjätunnuksen ja asentanut Javan ja TMC:n, katso alla oleva video. Video näyttää mitä tapahtuu kun NetBeans with TMC -ohjelmointiympäristö käynnistetään ensimmäistä kertaa. Videolla valitaan organisaatio ja kurssi, sekä tehdään ensimmäinen ohjelmointitehtävä. -->
-Once you have created the user account and installed Java and TMC, watch the video below. The video demonstrates what happens, when "Netbeans with TMC" is opened for the first time. We select the organization and the course, and do the first programming exercise.
+
+Once you have created the user account and installed Java and TMC, watch the video below. The video demonstrates what happens when "Netbeans with TMC" is opened for the first time. We select the organization and the course, and do the first programming exercise.
 
 <youtube id="zvE8XA8D0gE"></youtube>
 
@@ -74,26 +81,26 @@ Programming is designing and implementing software. The functionality is impleme
 Programs are implemented (or written or "coded")  typically in a programming language that is made to be written and read by humans.
 
 <!-- Ohjelmointikieliä on satoja ja tällä kurssilla keskitytään näistä kielistä yhteen. Kurssin kielenä on [Java](<https://en.wikipedia.org/wiki/Java_(programming_language)>), joka on yksi maailman eniten käytetyistä ohjelmointikielistä. Javaa tuntevan on myös helppo oppia uusia ohjelmointikieliä. -->
-There are hundereds of programming languages out there, and in this course we concentrate on one of them. The language used in this course is [Java](<https://en.wikipedia.org/wiki/Java_(programming_language)>), which is one of the most used programming languages in the world. After learning Java it is easy to pick up other programming languages.
+There are hundreds of programming languages out there, and in this course we concentrate on one of them. The language used in this course is [Java](<https://en.wikipedia.org/wiki/Java_(programming_language)>), which is one of the most used programming languages in the world. After learning Java it is easy to pick up other programming languages.
 
 <!-- Ohjelmointikielet kuten Java tarjoavat suuren määrän valmiita komentoja, joita ohjelmoija käyttää ohjelmistoja luodessa. Tämä helpottaa ohjelmointia, sillä aivan kaikkea ei tarvitse toteuttaa alusta lähtien. Esimerkiksi graafisia käyttöliittymiä toteutettaessa ohjelmointikielillä on tyypillisesti valmiita toiminnallisuuksia erilaisten valikoiden ja näkymien luomiseen. Iso osa ohjelmoinnista onkin ohjelmointikielen valmiiksi tarjoamien komentojen soveltamista ongelmien ratkaisuissa -- tämä toisaalta vaatii ohjelmointirutiinia, joka kehittyy vain ohjelmoimalla. -->
 Programming languages such as Java have many commands pre-defined , so you as a programmer can use them to implement your programs. This makes programming easier, as you don't need to implement everything from scratch. For example programming languages typically have functionalities available for different menus and views for making graphical user interfaces. Indeed large part of programming is utilizing the available commands and tools for solving problems -- this in the other hand requires programming experience, which you only get by programming.
 
 <!-- Kirjoitettua "koodia" kutsutaan **lähdekoodiksi**. Lähdekoodi koostuu lauseista (statement) ja lausekkeista (expression), joita yleensä voidaan lukea rivi riviltä ylhäältä alaspäin ja vasemmalta oikealle. Esimerkiksi tekstin "Hei maailma" tulostuksessa käytetään Java-ohjelmointikielen valmista komentoa `System.out.println()`, jolle kerrotaan sulkujen sisälle tulostettava teksti. -->
-The "code" you write is called **source code**. Source code consists of statements and expressions, which are read line by line from top to bottom and from left to right. For example, to print "Hello world", you can use the pre-defined Java command `System.out.println()`, you just need to give text you'd like to print inside its brackets:
+The "code" you write is called **source code**. Source code consists of statements and expressions, which are read line by line from top to bottom and from left to right. For example, to print "Hello world", you can use the pre-defined Java command `System.out.println()`, you just need to give text you'd like to print inside the parentheses:
 
 ```java
 System.out.println("Hello World");
 ```
 
 <!-- Yllä oleva lause on Java-ohjelmointikielen valmiiksi tarjoama komento, jota käytetään merkkijonon tulostamiseen. Komento käytännössä käskee tietokonetta tulostamaan sille sulkeiden sisällä lainausmerkeissä (joita ohjelmoijat kutsuvat usein 'hipsuiksi') annetun merkkijonon. Lauseen loppuun kirjoitetaan puolipiste `;`. -->
-The above statement is readily available in Java, and it is used for printing a string. In practice the command is given a string in quotation marks (or "quotes") inside of its brackets, and it instructs a computer to print it. The statement ends with a semicolon `;`.
+The above statement is readily available in Java, and it is used for printing a string. In practice the command is given a string in quotation marks (or "quotes") inside of its parentheses, and it instructs a computer to print it. The statement ends with a semicolon `;`.
 
 <!-- Java-ohjelmat vaativat toimiakseen ohjelmarungon, joka tulee kurssin aikana tutuksi. Vaikket ohjelmarunkoa vielä tunne, voit jo yllä kuvatun tulostuslauseen perusteella arvata seuraavan ohjelman mahdollisen toiminnan. -->
 
-Java programs require a "code boilerplate", the frame around the code, in order to work. Don't worry if it looks intimidating, you'll get familiar with it over this course. Even though you don't know how tohe boilerplate works, you can probably guess what this following program does based on the print statement:
+Java programs require a "code boilerplate", the frame around the code, in order to work. Don't worry if it looks intimidating, you'll get familiar with it over this course. Even though you don't know how the boilerplate works, you can probably guess what this following program does based on the print statement:
 
 <!-- Alla on kurssin ensimmäinen kyselytehtävä. Kyselytehtäviin vastataan suoraan kurssimateriaalissa. -->
-Below is the first quizz of the course. You can answer the quizzes right here in the course material.
+Below is the first quiz of the course. You can answer the quizzes right here in the course material.
 
 <quiz id="118e6b38-0d42-5667-a674-84ae174ad798"></quiz>
