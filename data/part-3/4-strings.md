@@ -878,7 +878,7 @@ Name of the oldest: gabriel
 
 </programming-exercise>
 
-<text-box type="hint" name="Merkkijonon pituus">
+<text-box type="hint" name="Length of string">
 
 <!-- Seuraavassa tehtävässä pyydetään selvittämään nimen pituus. Saat merkkijonon pituuden selville merkkijonon metodilla `length()` seuraavasti. -->
 In the next exercise you'll be asked for the length of the names. You can find out the length of a string with `length()`-method:

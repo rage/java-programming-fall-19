@@ -2552,7 +2552,9 @@ The last value of the second list Työntekijän eläkevakuutus
 Each list is its own separate entity, and the listmethods always target the list that is used to call the method. Below is a summary of some list methods. It is assumed that created lists contains string type variables.
 
 <!-- * Listalle lisääminen tapahtuu metodilla `add`, jolle annetaan parametrina lisättävä arvo. -->
+
 * Adding to a list is done with the method `add` that receives the value to be added as a parameter.
+
 <!-- ```java
 ArrayList<String> lista = new ArrayList<>();
 lista.add("hei maailma!");
@@ -2562,7 +2564,9 @@ ArrayList<String> list = new ArrayList<>();
 list.add("hello world!");
 ```
 <!-- * Listalla olevien alkioiden lukumäärän saa selville parametrittomalla metodilla `size`, joka palauttaa kokonaisuvun. -->
+
 * The number of elements in a list can be discovered with the non-parameterized method `size`; it returns an integer.
+
 <!-- ```java
 ArrayList<String> lista = new ArrayList<>();
 int koko = lista.size();
@@ -2574,7 +2578,9 @@ int size = list.size();
 System.out.println(size);
 ```
 <!-- * Listan tietyssä indeksissä oleva arvo haetaan metodilla `get`, jolle annetaan parametrina indeksi mistä haetaan. -->
+
 * You can retrieve a value from a certain index with the method `get` that is given the wanted index as a parameter.
+
 <!-- ```java
 ArrayList<String> lista = new ArrayList<>();
 lista.add("hei maailma!");
@@ -2588,7 +2594,9 @@ String string = list.get(0);
 System.out.println(string);
 ```
 <!-- * Listalta poistaminen tapahtuu metodilla `remove`, jolle annetaan joko poistettava arvo tai  poistettavan arvon indeksi. -->
+
 * Removing from a list is done with the help of `remove`. It receives as a parameter one of the following two: the value that is to be removed, or the index of the value to be removed.
+
 <!-- ```java
 ArrayList<String> lista = new ArrayList<>();
 // poistetaan merkkijono "hei maailma!"
@@ -2604,7 +2612,9 @@ list.remove("hello world!");
 list.remove(3);
 ```
 <!-- * Arvon olemassaolon tarkastaminen tapahtuu totuusarvon palauttavalla metodilla `contains`, joka saa parametrinaan haettavan arvon. -->
+
 * Testing the existence of a value is done with the method `contains`. It is given the value to be searched for as a parameter, and it returns a boolean.
+
 <!-- ```java
 ArrayList<String> lista = new ArrayList<>();
 boolean oliko = lista.contains("hei maailma!");
