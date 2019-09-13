@@ -1,5 +1,5 @@
 ---
-path: '/part-3/5-using-strings'
+path: '/part-3/4-using-strings'
 title: 'Using strings'
 hidden: true
 ---
@@ -115,7 +115,7 @@ Hi Lily and bye!
 </sample-output>
 
 
-<programming-exercise name='Print thrice' tmcname='part03-Part03_23.printThrice'>
+<programming-exercise name='Print thrice' tmcname='part03-Part03_23.PrintThrice'>
 
 
 <!-- Tee ohjelma joka lukee käyttäjältä merkkijonon ja tulostaa merkkijonon kolmesti peräkkäin. -->
