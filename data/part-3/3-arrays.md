@@ -4,13 +4,13 @@ title: 'Arrays'
 hidden: true
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name='Learning objectives'>
 
 <!-- - Tunnet taulukon ja osaat käyttää sitä osana ohjelmia.
 - Osaat luoda taulukon, asettaa taulukon indeksiin arvon ja käydä taulukon läpi toistolauseen avulla.
 - Tiedät, että taulukko on viittaustyyppinen muuttuja ja osaat käyttää taulukkoa metodin parametrina. -->
 
-- You know what is an Array and how to use it.
+- You know what an Array is and how to use it.
 - You can create an Array, assign a value to a given index and iterate over it.
 - You recognize, that array is a reference type and know how to use array as a parameter of a method
 

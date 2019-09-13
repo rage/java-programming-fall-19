@@ -35,6 +35,8 @@ class ExerciseList extends React.Component {
       sectionPath = currentPath.substr(0, sectionSeparator)
     }
 
+    console.log("Values all", value.all)
+
     const sectionPages = value.all
       .filter(o => o.path.startsWith(`${sectionPath}/`))
       .sort((a, b) => {
