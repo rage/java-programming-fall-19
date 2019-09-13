@@ -21,7 +21,9 @@ hidden: false
 <text-box variant='learningObjectives' name='Learning Objectives'>
 
 - learn to write a program that prints text.
+
 - become familiar with executing programs.
+
 - know what the term "parameter" means.
 
 </text-box>
@@ -60,7 +62,7 @@ Tulostuskomennon avulla tulostettavaa tekstiä voi vaihtaa mielivaltaisesti, kun
 
 In this material, the text boxes like the one above demonstrate an output produced by the example code. Accordingly, the above program would produce the print output "Hello World!". You can try any of these examples in the exercise template named "Sandbox", which you will find in the programming environment.
 
-You can print any text you want with the command, as long as the command `System.out.println("arbitary text");` -- i.e., `System` dot `out` dot `println` open parentheses `(` "the text" close parentheses `)` and semicolon `;` remains unchanged. The command below will print the text "Hello there!".
+You can print any text you want with the command, as long as the command `System.out.println("arbitary text");` -- i.e., `System` dot `out` dot `println` open parenthesis `(` "the text" close parenthesis `)` and semicolon `;` remains unchanged. The command below will print the text "Hello there!".
 
 <!-- ```java
 System.out.println("Hei vaan!");
@@ -293,7 +295,7 @@ public class Ohjelma {
 }
 ```
 
-Above program will print:
+The program above will print:
 
 <sample-output>
 
@@ -317,9 +319,9 @@ Ohjelmoinnin opettelu onkin oikeastaan tie täynnä virheitä -- jokainen virhev
 
 <text-box variant='hint' name='Exact inspector'>
 
-Programming exercises will be checked by TMC-Henrik, who is very exact. Expectations about print format in assignmenst are very precise. If, for example, the assignment expects you to print a parenthese, you must print a parenthese.
+Programming exercises will be checked by TMC Henrik, who is very exact. Expectations about the print format in assignments are very precise. If, for example, the assignment expects you to print a parenthesis, you must obey and print the parenthesis.
 
-This exactness in printing is widely relevant in programming. Missing a single character can cause an error. Beginner programmers often input a comma instead of a dot, write for example `printin` instad of `println`, leave apostrophes out, or forget the following semicolon after a command. Each of these would cause an error and make executing of a program fail.
+This exactness in printing is widely relevant in programming. Missing a single character can cause an error. Beginner programmers often enter a comma instead of a dot, write for example `printin` instad of `println`, leave out apostrophes, or forget the ending semicolon after a command. Any of these would cause an error and make executing of a program fail.
 
 Learning programming really is a road full of errors -- every error message is a chance to learn. So look for any red signs in the IDE and read the test errors!
 
@@ -494,7 +496,7 @@ world
 
 </sample-output>
 
-Although the above example works, it's important to be considerate of other programmers (and future you!) and to use line breaks. That way, anyone reading the program knows that each line does only a single concrete thing.
+Although the previous example works, it's important to be considerate of other programmers (and future you!) and to use line breaks. That way, anyone reading the program knows that each line does only a single concrete thing.
 
 <!-- TODO: quiz, jossa kysytään että mistä tietyssä termissä on kyse -->
 
@@ -531,6 +533,7 @@ Esimerkin alin rivi esittelee erityisen kätevän käyttökohteen kommenteille. 
 Source code can be commented to clarify it or to add notes. There are two ways to do this.
 
 - Single-line comments are marked with two slashes `//`. Everything following them on the same line is interpreted as a comment.
+
 - Multi-line comments are marked with a slash and an asterisk `/*`, and closed with an asterisk followed by a slash `*/`. Everything between them is interpreted as a comment.
 
 Below is an example of a program where both are used.
