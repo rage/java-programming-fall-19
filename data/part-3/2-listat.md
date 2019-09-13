@@ -1,5 +1,5 @@
 ---
-path: '/part-3/2-listat'
+path: '/part-3/2-lists'
 # title: 'Listat'
 title: 'Lists'
 hidden: true
@@ -1231,6 +1231,8 @@ Mari
 
 </sample-output> -->
 
+<sample-output>
+
 **Tom**
 **Emma**
 **Alex**
@@ -1240,8 +1242,6 @@ Tom
 Mary
 
 </sample-output>
-
-<sample-output>
 
 <!-- **Juno**
 **Elizabeth**

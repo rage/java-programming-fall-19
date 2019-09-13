@@ -1,6 +1,8 @@
 ---
-path: '/part-3/6-kasvava-tiedon-maara'
-title: 'Kasvava tiedon määrä'
+# path: '/part-3/5-kasvava-tiedon-maara'
+path: '/part-3/5-conclusion'
+# title: 'Kasvava tiedon määrä'
+title: 'Conclusion'
 hidden: true
 ---
 

@@ -1,10 +1,10 @@
 ---
-path: '/part-3/5-merkkijonot'
-title: 'Merkkijonojen käsittely'
+path: '/part-3/4-using-strings'
+title: 'Using strings'
 hidden: true
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name='Learning objectives'>
 
 <!-- - Kertaat merkkijonojen lukemista, tulostamista sekä vertailua.
 - Osaat pilkkoa merkkijonon useampaan osaan. -->
@@ -115,7 +115,7 @@ Hi Lily and bye!
 </sample-output>
 
 
-<programming-exercise name='Print thrice' tmcname='part03-Part03_23.printThrice'>
+<programming-exercise name='Print thrice' tmcname='part03-Part03_23.PrintThrice'>
 
 
 <!-- Tee ohjelma joka lukee käyttäjältä merkkijonon ja tulostaa merkkijonon kolmesti peräkkäin. -->
