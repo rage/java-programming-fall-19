@@ -11,14 +11,23 @@ hidden: true
 
 
 <!-- - Tunnet listarakenteen ja osaat käyttää listaa osana ohjelmia. -->
+
 - You are familiar with the list structure and can use it in your programs
+
 <!-- - Tunnet käsitteen indeksi, osaat lisätä arvoja listalle ja osaat hakea tietoa listan indeksistä. -->
+
 - You are familiar with the concept of index, you can add values to a list, and you know how to retrieve information from a list's indices
+
 <!-- - Osaat käydä listan läpi useammalla erilaisella toistolauseella. -->
+
 - You can use several kinds of looping statements to iterate over a list
+
 <!-- - Osaat tarkistaa onko arvo listalla ja osaat toisaalta poistaa arvoja listalta. -->
+
 - You know how to check if a value exists in a list, and you can remove values from a list
+
 <!-- - Tiedät, että lista on viittaustyyppinen muuttuja ja tutustut listan käyttöön metodin parametrina. -->
+
 - You are aware that a list is a reference-type variable, and you will familiarize yourself with using lists as method parameters
 
 </text-box>

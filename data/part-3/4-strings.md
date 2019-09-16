@@ -418,7 +418,7 @@ halted
 
 </programming-exercise>
 
-<programming-exercise name='AV-club' tmcname='part03-Part03_27.AVClub'>
+<programming-exercise name='AV Club' tmcname='part03-Part03_27.AVClub'>
 
 <!-- Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Mikäli syötetty merkkijono on tyhjä, ohjelma lopettaa käyttäjältä lukemisen ja ohjelman suoritus päättyy. Mikäli merkkijono ei ole tyhjä, ohjelma pilkkoo syötetyn merkkijonon osiksi välilyöntien ` ` kohdalta ja tulostaa omille riveilleen pilkotusta merkkijonosta ne merkkijonot (merkkijonon osat), joissa esiintyy merkkijono `av`. -->
 Write a program, that reads user input until an empty line. For each non-empty string, the program splits the string by spaces ` ` and then prints the pieces that contain `av`, each on a new line.
@@ -473,11 +473,11 @@ if (!merkkijono.contains("hiisi")) {
 ```java
 String text = "volcanologist";
 
-if (merkkijono.contains("can")) {
+if (text.contains("can")) {
     System.out.println("can was found");
 }
 
-if (!merkkijono.contains("tin")) {
+if (!text.contains("tin")) {
     System.out.println("tin wasn't found");
 }
 ```

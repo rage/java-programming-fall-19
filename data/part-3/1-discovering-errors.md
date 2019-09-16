@@ -8,7 +8,9 @@ hidden: true
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
 <text-box variant='learningObjectives' name='Learning Objectives'>
 
-- TODO
+- You can use comments to clarify your code
+
+- You know how to begin searching for the causes of errors
 
 </text-box>
 
