@@ -1,7 +1,7 @@
 ---
 path: '/part-2/1-problems-and-patterns'
 title: 'Recurring problems and patterns to solve them'
-hidden: true
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Learning Objectives'>
@@ -72,7 +72,7 @@ public class Program {
 }
 ```
 
-TODO: quiz -- ohjelma, jossa käyttäjältä kysytään luku ja merkkijono, tulostus käyttää niitä -- kysytään mitä käyttäjän tulee syöttää, jotta tulostus tietty
+<!-- TODO: quiz -- ohjelma, jossa käyttäjältä kysytään luku ja merkkijono, tulostus käyttää niitä -- kysytään mitä käyttäjän tulee syöttää, jotta tulostus tietty -->
 
 
 <!-- ## Laskemista -->
@@ -259,7 +259,7 @@ Write a program that reads an integer from the user input, and then prints the s
 </programming-exercise>
 
 
-<programming-exercise name='Square root of sum' tmcname='part02-Part02_02_SquareRootOfSum'>
+<programming-exercise name='Square root of sum' tmcname='part02-Part02_02.SquareRootOfSum'>
 
 <!-- Kirjoita ohjelma, joka lukee käyttäjältä kaksi kokonaislukua ja tulostaa lukujen summan neliöjuuren. Ohjelman ei tarvitse käsitellä negatiivisia lukuja. -->
 Write a program that reads two integers from the user, and prints the square root of the sum of these integers. The program does not need to work with negative values.
