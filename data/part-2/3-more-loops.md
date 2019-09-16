@@ -1,6 +1,7 @@
 ---
 path: '/part-2/3-more-loops'
 title: 'More loops'
+hidden: false
 ---
 
 

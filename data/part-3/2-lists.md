@@ -2,7 +2,7 @@
 path: '/part-3/2-lists'
 # title: 'Listat'
 title: 'Lists'
-hidden: true
+hidden: false
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->

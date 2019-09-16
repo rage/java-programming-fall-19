@@ -1,6 +1,7 @@
 ---
 path: '/part-2/5-end-questionnaire'
 title: 'End questionnaire'
+hidden: false
 ---
 
 Please answer the questionnaire to complete the course part!

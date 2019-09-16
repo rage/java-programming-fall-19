@@ -3,7 +3,7 @@
 path: '/part-3/5-summary'
 # title: 'Kasvava tiedon määrä'
 title: 'Summary'
-hidden: true
+hidden: false
 ---
 
 <!-- TODO: kirjoita uudelleen. Kulma: tiedon määrä kasvaa, miten hoidetaan? -->
