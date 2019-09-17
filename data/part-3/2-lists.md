@@ -824,7 +824,7 @@ In total: 11
 
 <!-- Huom! Käytä tässä listan valmiiksi tarjoamaa metodia `size`. -->
 
-N.B.! Be sure to use the `size` method of the list.
+**NB!** Be sure to use the `size` method of the list.
 
 </programming-exercise>
 
@@ -1310,7 +1310,6 @@ Expand the functionality of the program so that after reading the numbers, it pr
 **8**
 **11**
 **-1**
-
 72
 2
 8
@@ -1354,7 +1353,6 @@ Mihin? **2**
 **8**
 **11**
 **-1**
-
 From where? **1**
 To where? **2**
 2
@@ -1383,7 +1381,6 @@ Mihin? **2**
 **8**
 **11**
 **-1**
-
 From where? **0**
 To where? **2**
 72

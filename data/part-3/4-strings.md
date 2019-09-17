@@ -839,7 +839,6 @@ Vanhimman ikä: 10 -->
 **lily,1**
 **hanna,5**
 **gabriel,10**
-
 Age of the oldest: 10
 
 </sample-output>

@@ -284,6 +284,7 @@ while (number != 2) {
 It prints the following:
 
 <sample-output>
+
 1
 2
 1
@@ -291,6 +292,7 @@ It prints the following:
 1
 2
 ...
+
 </sample-output>
 
 <!-- Vaikka muuttujan `luku` arvo on välillä 2, toistolauseen suoritus ei lopu koskaan. -->
@@ -715,6 +717,7 @@ Numbers: 3
 Extend the program so, that it prints the mean of the numbers (not including the -1) the user has written.
 
 <sample-output>
+
 Give numbers:
 **5**
 **2**
