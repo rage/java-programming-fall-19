@@ -6,6 +6,7 @@ hidden: true
 
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
+
 <text-box variant='learningObjectives' name='Learning Objectives'>
 
 <!-- - Tunnet käsitteet luokka, olio, konstruktori, olion metodit ja olion muuttujat (eli oliomuuttujat).
@@ -13,9 +14,10 @@ hidden: true
 - Osaat luoda luokkia ja olioita ja osaat käyttää olioita osana ohjelmia. -->
 
 - You're familiar with the concepts class, object, constructor, object methods, and object variables.
-- You understand that a class defines an object's methods and that the values of instance variables are object-specific.
-- You know how to create classes and objects, and know how to use objects as parts of a program.
 
+- You understand that a class defines an object's methods and that the values of instance variables are object-specific.
+
+- You know how to create classes and objects, and know how to use objects as parts of a program.asdfasdfsa
 
 </text-box>
 
@@ -1861,7 +1863,7 @@ Pekka is of legal age
 
 
 <!-- <programming-exercise name='Mittari' tmcname='osa04-Osa04_12.Mittari'> -->
-<programming-exercise name='Meter' tmcname='osa04-Osa04_12.Mittari'>
+<programming-exercise name='Gauge' tmcname='part04-Part04_12.Gauge'>
 
 <!-- Luo luokka `Mittari`. Mittarilla on oliomuuttuja `private int mitta`, parametriton konstruktori (asettaa muuttujan mitta alkuarvoksi 0), sekä seuraavat neljä metodia:
 
@@ -1872,12 +1874,12 @@ Pekka is of legal age
 
 Esimerkki luokan käytöstä. -->
 
-Create the class `Meter`. The meter has the instance variable `private int meter`, a constructor without parameters (sets the initial value of the meter variable to 0), and also the following four methods:
+Create the class `Gauge`. The gauge has the instance variable `private int value`, a constructor without parameters (sets the initial value of the meter variable to 0), and also the following four methods:
 
-- Method `public void increase()` grows the `meter` instance variable's value by one. It does not grow the value beyond five.
-- Method `public void decrease()` decreases the `meter` instance variable's value by one. It does not decrease the value to negative numbers.
-- Method `public int meter()` returns the `meter` variable's value.
-- Method `public boolean full()` returns `true` if the instance variable `meter` has the value five. Otherwise, it returns false.
+- Method `public void increase()` grows the `value` instance variable's value by one. It does not grow the value beyond five.
+- Method `public void decrease()` decreases the `value` instance variable's value by one. It does not decrease the value to negative numbers.
+- Method `public int value()` returns the `value` variable's value.
+- Method `public boolean full()` returns `true` if the instance variable `value` has the value five. Otherwise, it returns false.
 
 An example of the class in use.
 
@@ -1895,16 +1897,16 @@ System.out.println("Ei täynnä! Mitta: " + m.mitta());
 
 ``` -->
 ```java
-Meter m = new Meter();
+Gauge g = new Gauge();
 
-while(!m.full()) {
-    System.out.println("Not full! Meter: " + m.meter());
-    m.increase();
+while(!g.full()) {
+    System.out.println("Not full! Value: " + g.value());
+    g.increase();
 }
 
-System.out.println("Full! Meter: " + m.meter());
-m.decrease();
-System.out.println("Not full! Meter: " + m.meter());
+System.out.println("Full! Value: " + g.value());
+g.decrease();
+System.out.println("Not full! Value: " + g.value());
 
 ```
 
@@ -1917,13 +1919,13 @@ Ei täynnä! Mitta: 3
 Ei täynnä! Mitta: 4
 Täynnä! Mitta: 5
 Ei täynnä! Mitta: 4 -->
-Not full! Meter: 0
-Not full! Meter: 1
-Not full! Meter: 2
-Not full! Meter: 3
-Not full! Meter: 4
-Full! Meter: 5
-Not full! Meter: 4
+Not full! Value: 0
+Not full! Value: 1
+Not full! Value: 2
+Not full! Value: 3
+Not full! Value: 4
+Full! Value: 5
+Not full! Value: 4
 
 </sample-output>
 
@@ -2053,7 +2055,8 @@ The second part of the screencast:
 
 
 <!-- <programming-exercise name='Agentti' tmcname='osa04-Osa04_13.Agentti'>**** -->
-<programming-exercise name='Agent' tmcname='osa04-Osa04_13.Agentti'>****
+
+<programming-exercise name='Agent' tmcname='part04-Part04_13.Agent'>
 
 <!-- Tehtäväpohjassa on määriteltynä luokka Agentti, jolla on etunimi ja sukunimi. Luokalle on määritelty metodi `tulosta`, joka luo seuraavanlaisen merkkijonoesityksen. -->
 The exercise template defines an Agent class, having a first name and last name. A `print` method is defined for the class that creates the following string representation.
@@ -2094,7 +2097,7 @@ System.out.println(ionic);
 ```java
 Agent bond = new Agent("James", "Bond");
 
-bond.toString(); // ei tulosta mitään
+bond.toString(); // prints nothing
 System.out.println(bond);
 
 Agent ionic = new Agent("Ionic", "Bond");
@@ -2109,7 +2112,7 @@ My name is Bond, Ionic Bond
 </sample-output>
 
 </programming-exercise>
-
+java
 
 
 <!-- ## Metodin parametrit -->
@@ -2299,7 +2302,7 @@ public void setHeight(int height) {
 
 
 <!-- <programming-exercise name='Kertoja' tmcname='osa04-Osa04_14.Kertoja'> -->
-<programming-exercise name='Multiplier' tmcname='osa04-Osa04_14.Kertoja'>
+<programming-exercise name='Multiplier' tmcname='part04-04_14.Multiplier'>
 
 <!-- Luo luokka `Kertoja` jolla on:
 
@@ -2315,7 +2318,7 @@ Create a class Multiplier that has a:
 - Constructor `public Multiplier(int number)`.
 - Method `public int multiply(int number)` which returns the value `number` passed to it multiplied by the `number` provided to the constructor.
 
-You also need an instance variable here...
+You also need to create an instance variable in this exercise.
 
 An example of the class in use:
 
@@ -2352,9 +2355,9 @@ neljallaKertoja.kerro(2): 8
 kolmellaKertoja.kerro(1): 3
 neljallaKertoja.kerro(1): 4 -->
 
-multiplyByThee.multiply(2): 6
+multiplyByThree.multiply(2): 6
 multiplyByFour.multiply(2): 8
-multiplyByThee.multiply(1): 3
+multiplyByThree.multiply(1): 3
 multiplyByFour.multiply(1): 4
 
 </sample-output>
@@ -2404,10 +2407,10 @@ The screencast's third part:
 
 
 <!-- <programming-exercise name='Lukutilasto (4 osaa)' tmcname='osa04-Osa04_15.Lukutilasto'> -->
-<programming-exercise name='Number statistics (4 osaa)' tmcname='osa04-Osa04_15.Lukutilasto'>
+<programming-exercise name='Statistics (4 parts)' tmcname='osa04-Osa04_15.NumberStatistics'>
 
 <!-- <h2>Lukujen määrä</h2> -->
-<h2>Number count</h2>
+<h2>Count</h2>
 
 <!-- Tee luokka `Lukutilasto` (tiedosto luomaasi luokkaa varten on tehtäväpohjassa valmiina), joka tuntee seuraavat toiminnot:
 
@@ -2418,10 +2421,10 @@ Luokan ei tarvitse tallentaa mihinkään lisättyjä lukuja, vaan riittää muis
 
 Luokan runko on seuraava: -->
 
-Create a class `NumberStatistics` (the file for the class is provided in the in the exercise template), that has the following functionality:
+Create a class `Statistics` that has the following functionality(the file for the class is provided in the in the exercise template):
 
 - a method `addNumber` adds a new number to the statistics
-- a method `getNumberCount` tells the number of added numbers
+- a method `getCount` tells the number of added numbers
 
 The class does not need to store the added numbers anywhere, it is enough for it to remember their count. At this stage, the `addNumber` method can even neglect the numbers being added to the statistics, since the only thing being stored is the count of numbers added.
 
@@ -2446,8 +2449,8 @@ public class Lukutilasto {
 ``` -->
 
 ```java
-public class NumberStatistics {
-    private int numberCount;
+public class Statistics {
+    private int count;
 
     public NumberStatistics() {
         // initialize the variable numberCount here
@@ -2457,7 +2460,7 @@ public class NumberStatistics {
         // write code here
     }
 
-    public int getNumberCount() {
+    public int getCount() {
         // write code here
     }
 }
@@ -2482,12 +2485,12 @@ public class Paaohjelma {
 ```java
 public class MainProgram {
     public static void main(String[] args) {
-        NumberStatistics statistics = new NumberStatistics();
+        Statistics statistics = new Statistics();
         statistics.addNumber(3);
-        statistaddNumber(5);
+        statistics.addNumber(5);
         statistics.addNumber(1);
         statistics.addNumber(2);
-        System.out.println("Count: " + statistics.getNumberCount());
+        System.out.println("Count: " + statistics.getCount());
     }
 }
 ```
@@ -2546,11 +2549,11 @@ public class Lukutilasto {
 }
 ``` -->
 ```java
-public class NumberStatistics {
-    private int numberCount;
+public class Statistics {
+    private int count;
     private int sum;
 
-    public NumberStatistics() {
+    public Statistics() {
         // initialize the variables count and sum here
     }
 
@@ -2558,7 +2561,7 @@ public class NumberStatistics {
         // write code here
     }
 
-    public int getNumberCount() {
+    public int getCount() {
         // write code here
     }
 
@@ -2598,7 +2601,7 @@ public class Main {
         statistics.addNumber(5);
         statistics.addNumber(1);
         statistics.addNumber(2);
-        System.out.println("Count: " + statistics.haeLukujenMaara());
+        System.out.println("Count: " + statistics.getCount());
         System.out.println("Sum: " + statistics.sum());
         System.out.println("Average: " + statistics.average());
     }
@@ -2623,7 +2626,7 @@ Average: 2.75
 
 
 <!-- <h2>Summa käyttäjältä</h2> -->
-<h2>A sum from the user</h2>
+<h2>Sum of user input</h2>
 
 
 <!-- Tee ohjelma, joka kysyy lukuja käyttäjältä, kunnes käyttäjä antaa luvun -1. Sitten ohjelma ilmoittaa lukujen summan.
@@ -2646,7 +2649,7 @@ The program should use a `NumberStatistics` object to calculate the sum.
 **4**
 **-1**
 Summa: 15 -->
-Provide numbers:
+Enter numbers:
 **4**
 **2**
 **5**
@@ -2658,7 +2661,7 @@ Sum: 15
 
 
 <!-- <h2>Monta summaa</h2> -->
-<h2>Many sums</h2>
+<h2>Multiple sums</h2>
 
 <!-- Muuta edellistä ohjelmaa niin, että ohjelma laskee myös parillisten ja parittomien lukujen summaa.
 
@@ -2671,11 +2674,11 @@ Sum: 15
 Ohjelman tulee toimia seuraavasti: -->
 Change the previous program so that it also calculates the sum of even and odd numbers.
 
-**NOTE**: Define *three* NumberStatistics objects in the program. Use the first to calculate the sum of all numbers, the second to calculate the sum of even numbers, and the third to calculate the sum of odd numbers.
+**NOTE**: Define *three* Statistics objects in the program. Use the first to calculate the sum of all numbers, the second to calculate the sum of even numbers, and the third to calculate the sum of odd numbers.
 
 **For the test to work, the objects must be created in the main program in the order they were mentioned above (i.e., first the object that sums all the numbers, then the one that sums the even ones, and then finally the one that sums the odd numbers)!**
 
-**NOTE:** Do not change the NumberStatistics class in any way!
+**NOTE:** Do not change the Statistics class in any way!
 
 The program should work as follows:
 
@@ -2690,7 +2693,7 @@ The program should work as follows:
 Summa: 13
 Parillisten summa: 8
 Parittomien summa: 5 -->
-Provide numbers:
+Enter numbers:
 **4**
 **2**
 **5**
@@ -2707,10 +2710,10 @@ Sum of odd numbers: 5
 
 
 <!-- <programming-exercise name='Maksukortti (6 osaa)' tmcname='osa04-Osa04_16.Maksukortti'> -->
-<programming-exercise name='Payment Card (6 parts)' tmcname='osa04-Osa04_16.Maksukortti'>
+<programming-exercise name='Payment Card (6 parts)' tmcname='part04-Part04_16.PaymentCard'>
 
 <!-- Helsingin Yliopiston opiskelijaruokaloissa eli Unicafeissa opiskelijat maksavat lounaansa käyttäen maksukorttia. Lopullinen Maksukortti tulee näyttämään luokkakaaviona seuraavalta: -->
-At the University of Helsinki's student canteen, i.e., Unicafe, students pay for their lunches using a payment card. The final PaymentCard will as a class diagram look like the following:
+At the University of Helsinki student canteen, i.e. Unicafe, students pay for their lunch using a payment card. The final PaymentCard will look like the following as a class diagram:
 
 <img src="../img/diagrams/part4.1-classdiagram-ex-paymentCard.png" alt="[Maksukortti|-saldo:double|+Maksukortti(double);+syoEdullisesti():void;+syoMaukkaasti():void;+lataaRahaa(double):void;+toString():String]">
 
@@ -2758,7 +2761,7 @@ public class Maksukortti {
 public class PaymentCard {
     private double balance;
 
-    public Maksukortti(double openingBalance) {
+    public PaymentCard(double openingBalance) {
         // write code here
     }
 
@@ -2801,7 +2804,7 @@ The card has a balance of 50.0 euros
 
 
 <!-- <h2>Kortilla maksaminen</h2> -->
-<h2>Making card payments</h2>
+<h2>Making transactions</h2>
 
 <!--
 Täydennä `Maksukortti`-luokkaa seuraavilla metodeilla: -->
@@ -2822,7 +2825,7 @@ public void eatAffordably() {
     // write code here
 }
 
-public void () {
+public void eatHeartily() {
     // write code here
 }
 ```
@@ -2867,6 +2870,7 @@ public class MainProgram {
 
 <!-- Ohjelman tulisi tuottaa kutakuinkin seuraava tulostus: -->
 The program should print approximately the following:
+
 <sample-output>
 
 <!-- Kortilla on rahaa 50.0 euroa
@@ -3035,9 +3039,9 @@ public class Paaohjelma {
 public class MainProgram {
     public static void main(String[] args) {
         PaymentCard card = new PaymentCard(10);
-        System.out.println("Pekka: " + card);
+        System.out.println("Paul: " + card);
         card.addMoney(-15);
-        System.out.println("Pekka: " + card);
+        System.out.println("Paul: " + card);
     }
 }
 ```
@@ -3050,8 +3054,8 @@ The program should print the following:
 
 <!-- Pekka: Kortilla on rahaa 10.0 euroa
 Pekka: Kortilla on rahaa 10.0 euroa -->
-Pekka: The card has a balance of 10.0 euros
-Pekka: The card has a balance of 10.0 euros
+Paul: The card has a balance of 10.0 euros
+Paul: The card has a balance of 10.0 euros
 
 </sample-output>
 
@@ -3079,17 +3083,17 @@ Pekka: The card has a balance of 10.0 euros
 Pääohjelman runko on seuraava: -->
 Write code in the `main` method of the `MainProgram` class that contains the following sequence of events:
 
-- Create Pekka's card. The opening balance of the card is 20 euros
+- Create Paul's card. The opening balance of the card is 20 euros
 - Create Matt's card. The opening balance of the card is 30 euros
-- Pekka eats heartily
-- Matti eats affordably
+- Paul eats heartily
+- Matt eats affordably
 - The cards' values ​​are printed (each on its own line, with the cardholder name at the beginning of it)
-- Pekka tops up 20 euros
-- Matti eats heartily
+- Paul tops up 20 euros
+- Matt eats heartily
 - The cards' values ​​are printed (each on its own line, with the cardholder name at the beginning of it)
-- Pekka eats affordably
-- Pekka eats affordably
-- Matti tops up 50 euros
+- Paul eats affordably
+- Paul eats affordably
+- Matt tops up 50 euros
 - The cards' values ​​are printed (each on its own line, with the cardholder name at the beginning of it)
 
 The main program's template is as follows:
@@ -3107,8 +3111,8 @@ public class Main {
 ```java
 public class Main {
     public static void main(String[] args) {
-        PaymentCard pekkasCard = new PaymentCard(20);
-        PaymentCard mattisCard = new PaymentCard(30);
+        PaymentCard paulsCard = new PaymentCard(20);
+        PaymentCard mattsCard = new PaymentCard(30);
 
         // write code here
     }
@@ -3126,12 +3130,12 @@ Pekka: Kortilla on rahaa 35.4 euroa
 Matti: Kortilla on rahaa 22.799999999999997 euroa
 Pekka: Kortilla on rahaa 30.199999999999996 euroa
 Matti: Kortilla on rahaa 72.8 euroa -->
-Pekka: The card has a balance of 15.4 euros
+Paul: The card has a balance of 15.4 euros
 Matti: The card has a balance of 27.4 euros
-Pekka: The card has a balance of 35.4 euros
-Matti: The card has a balance of 22.799999999999997 euros
-Pekka: The card has a balance of 30.199999999999996 euros
-Matti: The card has a balance of 72.8 euros
+Paul: The card has a balance of 35.4 euros
+Matt: The card has a balance of 22.799999999999997 euros
+Paul: The card has a balance of 30.199999999999996 euros
+Matt: The card has a balance of 72.8 euros
 
 </sample-output>
 

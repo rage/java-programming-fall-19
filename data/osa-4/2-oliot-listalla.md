@@ -12,9 +12,13 @@ hidden: true
 
 
 <!-- - Osaat lisätä olioita listalle. -->
+
 - You can add objects to a list
+
 <!-- - Osaat käydä listalla olevia olioita läpi. -->
+
 - You can go through object in a list
+
 </text-box>
 
 
@@ -385,13 +389,13 @@ Kristen Nygaard, age 0 years
 
 <!-- <programming-exercise name='Esineet' tmcname='osa04-Osa04_17.Esineet'> -->
 
-<programming-exercise name='Items' tmcname='osa04-Osa04_17.Esineet'>
+<programming-exercise name='Items' tmcname='part04-Part04_17.Items'>
 
 
 
 <!-- Toteuta tässä kuvattu ohjelma luokkaan `Esineet`. **Huom!** Älä muuta luokkaa `Esine`. -->
 
-Implement the class `Items` described here. **N.B.!** Don't modify the class `Item`.
+Implement the class `Items` described here. **NB!** Don't modify the class `Item`.
 
 <!-- Kirjoita ohjelma, joka lukee käyttäjältä esineiden nimiä. Mikäli nimi on tyhjä, lopeta lukeminen. Mikäli nimi ei ole tyhjä, lue nimen perusteella uusi esine, jonka lisäät `esineet`-listalle. -->
 
@@ -399,7 +403,7 @@ Write a program that reads names of items from the user. If the name is empty, t
 
 <!-- Tulosta tämän jälkeen esineet `Esine`-luokan `toString`-metodia hyödyntäen. Luokan `Esine` toteutus pitää syöttämäsi nimen lisäksi kirjaa esineen luomishetkestä. -->
 
-Having read all the names, print all the items by using the `toString` method of the  `Item` calss. The implementation of the `Item` class keeps track of the time of creation, in addition to the name of the item.
+Having read all the names, print all the items by using the `toString` method of the  `Item` class. The implementation of the `Item` class keeps track of the time of creation, in addition to the name of the item.
 
 Ohjelman esimerkkitulostus:
 
@@ -416,9 +420,9 @@ Kuokka (luotu: 06.07.2018 12:34:57)
 
 <sample-output>
 
-Nimi: **Hammer**
-Nimi: **Collar**
-Nimi:
+Name: **Hammer**
+Name: **Collar**
+Name:
 
 Hammer (created at: 06.07.2018 12:34:56)
 Collar (created at: 06.07.2018 12:34:57)
@@ -574,12 +578,12 @@ Grace Hopper, age 85 years
 
 <!-- <programming-exercise name='Henkilotiedot' tmcname='osa04-Osa04_18.Henkilotiedot'> -->
 
-<programming-exercise name='Personal information' tmcname='osa04-Osa04_18.Henkilotiedot'>
+<programming-exercise name='Personal information' tmcname='part04-Part04_18.PersonalInformation'>
 
 
 <!-- Toteuta tässä kuvattu ohjelma luokkaan `Henkilotiedot`. **Huom!** Älä muuta luokkaa `Henkilotieto`. -->
 
-The program described here should be implemented in the class `PersonalInformationCollection`. **N.B.!** Do not modify the class `PersonalInformation`.
+The program described here should be implemented in the class `PersonalInformationCollection`. **NB!** Do not modify the class `PersonalInformation`.
 
 <!-- Kirjoita ohjelma, joka lukee käyttäjältä henkilötietoja. Käyttäjä syöttää etunimen, sukunimen, ja henkilötunnuksen. Mikäli etunimi on tyhjä, lopeta lukeminen. Mikäli etunimi ei ole tyhjä, lue loput tiedot ja luo käyttäjän syöttämistä tiedoista olio, jonka lisäät `henkilotiedot`-listalle. -->
 
@@ -755,12 +759,12 @@ for (Person person: persons) {
 
 <!-- <programming-exercise name='Televisio-ohjelmat' tmcname='osa04-Osa04_19.TelevisioOhjelmat'> -->
 
-<programming-exercise name='Television programs' tmcname='osa04-Osa04_19.TelevisioOhjelmat'>
+<programming-exercise name='Television programs' tmcname='part04-Part04_19.TelevisionPrograms'>
 
 
 <!-- Tehtäväpohjassa on valmiina televisio-ohjelmaa kuvaava luokka TelevisioOhjelma. Luokalla on oliomuuttujat nimi ja pituus, konstruktori, ja muutamia metodeja. -->
 
-In the exercise template there is a ready-made class TelevisionProgram, representing a television program. The class has object variables name and length, a constructor, and a few methods.
+In the exercise template there is a ready-made class TelevisionProgram, representing a television program. The class has object variables name and duration, a constructor, and a few methods.
 
 <!-- Toteuta ohjelma, joka ensin lukee käyttäjältä televisio-ohjelmia. Kun käyttäjä syöttää tyhjän ohjelman nimen, televisio-ohjelmien lukeminen lopetetaan. -->
 
@@ -768,7 +772,7 @@ Implement a program that begins by reading television programs from the user. Wh
 
 <!-- Tämän jälkeen käyttäjältä kysytään ohjelman maksimipituutta. Kun käyttäjä on syöttänyt ohjelman maksimipituuden, tulostetaan kaikki ne ohjelmat, joiden pituus on pienempi tai yhtäsuuri kuin haluttu maksimipituus. -->
 
-After this the user is queried for a maximum length. Once the maximum length is given, the program proceeds to list all the programs whose length is smaller or equal to the specified maximum length.
+After this the user is queried for a maximum duration. Once the maximum is given, the program proceeds to list all the programs whose duration is smaller or equal to the specified maximum duration.
 
 <!-- <sample-output>
 
@@ -789,16 +793,16 @@ Miehen puolikkaat, 30 minuuttia
 
 <sample-output>
 
-Nimi: **Rick and Morty**
-Pituus: **25**
-Nimi: **Two and a Half Men**
-Pituus: **30**
-Nimi: **Love it or list it**
-Pituus: **60**
-Nimi: **House**
-Pituus: **60**
+Name: **Rick and Morty**
+Duratio: **25**
+Name: **Two and a Half Men**
+Duration: **30**
+Name: **Love it or list it**
+Duration: **60**
+Name: **House**
+Duration: **60**
 
-Program's maximum length? **30**
+Program's maximum duration? **30**
 Rick and Morty, 25 minutes
 Two and a Half Men, 30 minutes
 
@@ -809,12 +813,12 @@ Two and a Half Men, 30 minutes
 
 <!-- <programming-exercise name='Kirjat (2 osaa)' tmcname='osa04-Osa04_20.Kirjat'> -->
 
-<programming-exercise name='Books (2 parts)' tmcname='osa04-Osa04_20.Kirjat'>
+<programming-exercise name='Books' tmcname='part04-Part04_20.Books'>
 
 
 <!-- Toteuta ohjelma, joka ensin lukee kirjojen tietoja käyttäjältä. Jokaisesta kirjasta tulee lukea kirjan nimi, sivujen lukumäärä sekä kirjoitusvuosi. Kirjojen lukeminen lopetetaan kun käyttäjä syöttää tyhjän kirjan nimen. -->
 
-Write a program that first reads book information from the user. The details to be asked for each book include the title, page number and the publication year. Entering an emtpy string as the name of the book ends the reading process.
+Write a program that first reads book information from the user. The details to be asked for each book include the title, the number of pages, and the publication year. Entering an empty string as the name of the book ends the reading process.
 
 <!-- Tämän jälkeen käyttäjältä kysytään mitä tulostetaan. Jos käyttäjä syöttää merkkijonon "kaikki", tulostetaan kirjojen nimet, sivujen lukumäärät sekä kirjoitusvuodet. Jos taas käyttäjä syöttää merkkijonon "nimi", tulostetaan vain kirjojen nimet. -->
 
