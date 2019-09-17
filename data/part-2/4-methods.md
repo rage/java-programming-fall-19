@@ -338,7 +338,7 @@ In a hole in the ground there lived a method
 
 <!-- **Huom:** tulosta kehote `Kuinka monta?` omalle rivilleen! -->
 
-**N.B.:** print the prompt `How many times?` on its own separate line!
+**NB:** print the prompt `How many times?` on its own separate line!
 
 
 </programming-exercise>
@@ -359,7 +359,7 @@ The names of methods begin with a word written entirely with lower-case letters,
 
 <!-- Alla olevassa esimerkissä metodi on nimetty väärin. Nimi alkaa isolla alkukirjaimella ja metodin nimen osat on eroteltu toisistaan merkillä \_. Metodin sulut ovat myös erillään toisistaan ja sisennys on väärin. -->
 
-In the code example below the method is poorly named. It begins with an upper-case letter and the words are separated by \_ charactes. The parentheses after the method name have a space between and indentation in the code block is incorrect.
+In the code example below the method is poorly named. It begins with an upper-case letter and the words are separated by \_ characters. The parentheses after the method name have a space between and indentation in the code block is incorrect.
 
 <!-- ```java
 public static void Tama_metodi_sanoo_mur ( ) {
@@ -455,7 +455,7 @@ Greetings!
 
 <!-- Aivan kuten Javan valmista `System.out.println()`-metodia kutsuttaessa, voi oman metodin kutsussa parametrina antaa lausekkeen. -->
 
-Just like when calling the predefined method `Systme.out.println`, you can pass an expression as a paratmeter.
+Just like when calling the predefined method `System.out.println`, you can pass an expression as a paratmeter.
 
 <!-- ```java
 public static void main(String[] args) {
@@ -1473,7 +1473,7 @@ Sum: 14
 
 <!-- **Huom:** kun tehtävässä sanotaan että metodin pitää _palauttaa_ jotain, tarkoittaa tämä sitä että metodissa tulee olla määritelty paluutyyppi ja `return`-komento jolla haluttu asia palautetaan. Metodi ei itse tulosta (eli käytä komentoa `System.out.println(..)`), tulostuksen hoitaa metodin kutsuja, eli tässä tapauksessa pääohjelma. -->
 
-**N.B.:** when an exercise describes a method that should _return_ something, this means that the type of the return value must be declared in the method definition, and that the method contains a `return` command that returns the wanted data. The method itself will print nothing (i.e. will not use the command `System.out.println`) - that task is left to the method caller, which in this case is the main program.
+**NB:** when an exercise describes a method that should _return_ something, this means that the type of the return value must be declared in the method definition, and that the method contains a `return` command that returns the wanted data. The method itself will print nothing (i.e. will not use the command `System.out.println`) - that task is left to the method caller, which in this case is the main program.
 
 </programming-exercise>
 
@@ -2263,6 +2263,6 @@ The call `christmasTree(10)` should print:
 
 <!-- **Huom:** korkeuksien jotka ovat alle 3 ei tarvitse toimia! -->
 
-**N.B.:** heights shorter that 3 don't have work correctly!
+**NB:** heights shorter that 3 don't have work correctly!
 
 </programming-exercise>

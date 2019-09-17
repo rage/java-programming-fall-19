@@ -13,8 +13,11 @@ title: "Conditional statements and alternative operation"
 <!-- - Tunnet ehtolauseen suoritusjärjestyksen ja tiedät, että ehtolauseiden läpikäynti lopetetaan ensimmäiseen ehtoon, jonka lauseke evaluoituu todeksi. -->
 
 - get familiar with the idea of a conditional statement and know how to create a program containing optional operations through the use of conditional statements.
+
 - get familiar with comparison and logical operators commonly used in conditional statements.
+
 - know how to compare numbers as well as strings while remembering the equals-command for strings.
+
 - get familiar with the order of execution for a conditional statement, and know that the parsing of a conditional statement stops at the first condition whose statement evaluates to true.
 
 </text-box>
@@ -1048,12 +1051,19 @@ Different
 ## Logical Operators
 
 <!-- Ehtolauseen lauseke voi koostua useammasta osasta, joissa käytetään loogisia operaatioita **ja** `&&`, **tai** `||`, sekä **ei** `!`. -->
+
 The expression of a conditional statement may consist of multiple parts, in which the logical operators **and** `&&`, **or** `||`, and **not** `!` are used.
+
 <!-- * Kahdesta lausekkeesta koostuva lauseke, joka yhdistetään ja-operaatiolla, on totta jos ja vain jos yhdistettävistä lausekkeista molemmat evaluoituvat todeksi. -->
+
 * An expression consisting of two expressions combined using the and-operator is true, if and only if both of the combined expressions evaluate to true.
+
 <!-- * Kahdesta lausekkeesta koostuva lauseke, joka yhdistetään tai-operaatiolla, on totta jos jompikumpi tai molemmat yhdistettävistä lausekkeista evaluoituvat todeksi. -->
+
 * An expression consisting of two expressions combined using the or-operator is true if either one, or both, of the combined expressions evaluate to true.
+
 <!-- * Loogista operaatiota ei käytetään totuusarvon muuntamiseen truesta falseksi tai falsesta trueksi. -->
+
 * Logical operators are not used for changing the boolean value from true to false, or false to true.
 
 <!-- Seuraavassa yhdistetään `&&`:lla eli ja-operaatiolla kaksi yksittäistä ehtoa. Koodilla tarkistetaan, onko muuttujassa oleva luku suurempi kuin 4 ja pienempi kuin 11, eli siis välillä 5-10: -->
@@ -1166,6 +1176,7 @@ Below is a table showing the operation of expressions containing logical operato
 
 
 <!-- <programming-exercise name='Iän tarkistus' tmcname='osa01-Osa01_35.IanTarkistus'> -->
+
 <programming-exercise name='Checking the age' tmcname='part01-Part01_35.CheckingTheAge'>
 
 <!-- Tee ohjelma, joka kysyy käyttäjän iän ja tarkistaa, että se on mahdollinen (ainakin 0 ja korkeintaan 120). Käytä ohjelmassa vain yhtä `if`-komentoa. -->
@@ -1218,12 +1229,19 @@ _'Write a program that prompts the user for a number between one and one hundred
 The programmer begins solving the exercise by reading the exercise description and by writing code according to the description. The conditions for execution are presented in a given order by the description, and the initial structure for the program is formed based on that order. The structure is formed based on the following steps:
 
 <!-- * Tee ohjelma, joka lukee luvun käyttäjältä ja tulostaa sen. -->
+
 * Write a program that prompts the user for a number and prints that number.
+
 <!-- * Jos luku on jaollinen kolmella, tulosta luvun sijaan merkkijono "Fizz". -->
+
 * If the number is divisible by three, then print "Fizz" instead of the number.
+
 <!-- * Jos luku on jaollinen viidellä, tulosta luvun sijaan merkkijono "Buzz". -->
+
 * If the number is divisible by five, then print "Buzz" instead of the number.
+
 <!-- * Jos luku on jaollinen kolmella ja viidellä, tulosta luvun sijan merkkijono "FizzBuzz". -->
+
 * If the number is divisible by both three and five, then print "FizzBuzz" instead of the number.
 
 <!-- Jos-tyyppiset ehdot on helppo toteuttaa `if - else if - else` -valintakäskyjen avulla. Alla oleva koodi on toteutettu yllä olevien askelten perusteella, mutta se ei kuitenkaan toimi oikein, kuten alla olevista esimerkeistä huomataan. -->
@@ -1300,14 +1318,23 @@ The problem with the previous approach is that **the parsing of conditional stat
 One approach for developing this train of thought would be to first find the **most demanding condition**,  and implement it. After that, we would implement the other conditions. In the example above, the condition "if the number is divisible by both three **and** five" requires two things to happen. Now the train of thought would be:
 
 <!-- 1. Tee ohjelma, joka lukee luvun käyttäjältä. -->
+
 1. Write a program that reads input from the user.
+
 <!-- 2. Jos luku on jaollinen kolmella ja viidellä, tulosta luvun sijan merkkijono "FizzBuzz". -->
+
 2. If the number is divisible by both three and five, then print "FizzBuzz" instead of the number.
+
 <!-- 3. Jos luku on jaollinen kolmella, tulosta luvun sijaan merkkijono "Fizz". -->
+
 3. If the number is divisible by three, then print "Fizz" instead of the number.
+
 <!-- 4. Jos luku on jaollinen viidellä, tulosta luvun sijaan merkkijono "Buzz". -->
+
 4. If the number is divisible by five, then print "Buzz" instead of the number.
+
 <!-- 5. Muulloin ohjelma tulostaa käyttäjältä luetun luvun. -->
+
 5. Otherwise the program prints the number given by the user.
 
 
@@ -1369,6 +1396,7 @@ FizzBuzz
 
 
 <!-- <programming-exercise name='Karkausvuosi' tmcname='osa01-Osa01_36.Karkausvuosi'> -->
+
 <programming-exercise name='Leap year' tmcname='part01-Part01_36.LeapYear'>
 
 <!-- Vuosi on karkausvuosi, jos se on jaollinen 4:llä. Kuitenkin jos vuosi on jaollinen 100:lla, se on karkausvuosi vain silloin, kun se on jaollinen myös 400:lla. -->
@@ -1471,6 +1499,7 @@ if (number % 4 != 0) {
 
 
 <!-- <programming-exercise name='Lahjaverolaskuri' tmcname='osa01-Osa01_37.Lahjaverolaskuri'> -->
+
 <programming-exercise name='Gift tax' tmcname='part01-Part01_37.GiftTax'>
 
 <!-- [https://www.vero.fi/henkiloasiakkaat/omaisuus/lahja/](https://www.vero.fi/henkiloasiakkaat/omaisuus/lahja/): *Lahja tarkoittaa sitä, että omaisuus siirtyy toiselle henkilölle ilman korvausta. Lahjasta pitää maksaa lahjaveroa, jos samalta lahjanantajalta saatujen lahjojen arvo on kolmen vuoden aikana 5 000 euroa tai enemmän.* -->
