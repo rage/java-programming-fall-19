@@ -178,22 +178,26 @@ How many days would you like to convert to seconds?
 
 <quiz id="54056702-b227-5747-8d6c-d3f15e8f5c8a"></quiz>
 
+<!--
+<text-box variant='hint' name='Lauseke ja lause'>
+
+Lauseke (expression) on arvojen yhdistelmä, joka muuntuu arvoksi laskuoperaation tai evaluaation yhteydessä. Alla oleva lause sisältää lausekkeen `1 + 1 + 3 * 2 + 5`, joka evaluoidaan ennen arvon asetusta muuttujaan.
+
+```java
+int laskuSuluitta = 1 + 1 + 3 * 2 + 5;
+```
+
+Lausekkeen evaluaatio tapahtuu aina ennen muuttujan arvon asetusta, eli yllä lasku "1 + 1 + 3 * 2 + 5" suoritetaan ennen tuloksen asetusta muuttujaan.
+
+</text-box> -->
 
 <text-box variant='hint' name='Expression and Statement'>
 
-<!-- Lauseke (expression) on arvojen yhdistelmä, joka muuntuu arvoksi laskuoperaation tai evaluaation yhteydessä. Alla oleva lause sisältää lausekkeen `1 + 1 + 3 * 2 + 5`, joka evaluoidaan ennen arvon asetusta muuttujaan. -->
-
 An *expression* is a combination of values that is turned into another value through a calculation or evaluation. The *statement* below includes the expression `1 + 1 + 3 * 2 + 5`, which is evaluated prior to its assignment to the variable.
-
-<!-- ```java
-int laskuSuluitta = 1 + 1 + 3 * 2 + 5;
-``` -->
 
 ```java
 int calculationWithoutParentheses = 1 + 1 + 3 * 2 + 5;
 ```
-
-<!-- Lausekkeen evaluaatio tapahtuu aina ennen muuttujan arvon asetusta, eli yllä lasku "1 + 1 + 3 * 2 + 5" suoritetaan ennen tuloksen asetusta muuttujaan. -->
 
 The evaluation of an expression is always performed before its value is assigned to a variable. As such, the calculation "1 + 1 + 3 * 2 + 5" in the example above is performed before the result is assigned to the variable.
 
@@ -249,6 +253,7 @@ first + second;
 
 
 <!-- ## Laskentaa ja tulostamista -->
+
 ## Calculating and Printing
 
 <!-- Muuttujan arvon voi tulostaa komennolla `System.out.println`. Tulostettavaan hipsuilla merkittyyn merkkijonoon, esim. "Pituus ", voidaan lisätä muuta tulostettavaa operaation `+` avulla. -->

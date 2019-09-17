@@ -65,12 +65,17 @@ System.out.println("Boolean: " + trueOrFalse);
 <!-- Tulostus: -->
 Output:
 
-<sample-output>
-<!--
+
+<!-- <sample-output>
+
 Tekstimuuttuja: sisältää tekstiä
 Kokonaislukumuuttuja: 123
 Liukulukumuuttuja: 3.141592653
-Totuusarvo: true -->
+Totuusarvo: true
+
+</sample-output> -->
+
+<sample-output>
 
 Text variable: contains text
 Integer variable: 123
@@ -120,9 +125,9 @@ None!
 
 Modify the program in the given places so that it outputs the following:
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Kanoja:
+Kanoja:
 9000
 Pekonia (kg):
 0.1
@@ -132,7 +137,13 @@ Zetor
 Tässä vielä tiivistelmä:
 9000
 0.1
-Zetor -->
+Zetor
+
+</sample-output> -->
+
+
+
+<sample-output>
 
 Chicken:
 9000
@@ -228,10 +239,16 @@ System.out.println("The value of the variable is " + number);
 <!-- Tulostus: -->
 Output:
 
+
+<!-- <sample-output>
+
+Muuttujan arvo on 123
+Muuttujan arvo on 42
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Muuttujan arvo on 123
-Muuttujan arvo on 42 -->
 The value of the variable is 123
 The value of the variable is 42
 
@@ -552,11 +569,16 @@ public class Program {
 }
 ```
 
+<!-- <sample-output>
+
+Kirjoita tekstiä ja paina enter
+**teksti**
+Kirjoitit teksti
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Kirjoita tekstiä ja paina enter
-**teksti**
-Kirjoitit teksti -->
 Write text and press enter
 **text**
 You wrote text
@@ -624,11 +646,18 @@ public class Program {
     }
 }
 ```
+
+<!-- <sample-output>
+
+Kirjoita luku
+**42**
+Kirjoitit 42
+
+</sample-output> -->
+
+
 <sample-output>
 
-<!-- Kirjoita luku
-**42**
-Kirjoitit 42 -->
 Write a value
 **42**
 You wrote 42
@@ -647,11 +676,17 @@ Write a program that asks the user for a value. The program should then print th
 
 Here's a couple of examples:
 
+<!-- <sample-output>
+
+Syötä luku!
+**3**
+Syötit luvun 3
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Syötä luku!
-**3**
-Syötit luvun 3 -->
+
 
 Give a number:
 **3**
@@ -659,15 +694,20 @@ You gave the number 3
 
 </sample-output>
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Syötä luku!
+Syötä luku!
 **42**
-Syötit luvun 42 -->
+Syötit luvun 42
+
+</sample-output> -->
+
+<sample-output>
 
 Give a number:
 **42**
 You gave the number 42
+
 </sample-output>
 
 </programming-exercise>
@@ -729,26 +769,38 @@ public class Program {
 }
 ```
 
+<!-- <sample-output>
+
+ Kirjoita luku
+**1234.2**
+Kirjoitit 1234.2
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Kirjoita luku
-**1234.2**
-Kirjoitit 1234.2 -->
 Write a value
 **1234.2**
 You wrote 1234.2
 
 </sample-output>
+
 <!--
 Liukulukutyyppiseen muuttujaan voi lukea myös kokonaisluvun. Tällöin luku muunnetaan liukulukutyyppiseksi automaattisesti. Alla oleva esimerkki näyttää edellisen ohjelman toiminnan kun käyttäjä syöttää kokonaisluvun. -->
 
 It's possible to also read an integer variable into a double, in which case the value is converted automatically to type double. The example below demonstrates how the previous program functions when the user inputs an integer.
 
+<!-- <sample-output>
+
+Kirjoita luku
+**18**
+Kirjoitit 18.0
+
+</sample-output> -->
+
+
 <sample-output>
 
-<!-- Kirjoita luku
-**18**
-Kirjoitit 18.0 -->
 Write a value
 **18**
 You wrote 18.0
@@ -756,7 +808,9 @@ You wrote 18.0
 </sample-output>
 
 <!-- <programming-exercise name="Liukuluvun lukeminen" tmcname='osa01-Osa01_13.LiukuluvunLukeminen'> -->
+
 <programming-exercise name="Double Input" tmcname='part01-Part01_13.DoubleInput'>
+
 <!-- Kirjoita ohjelma, joka kysyy käyttäjältä liukulukua. Tämän jälkeen ohjelma tulostaa käyttäjän syöttämän luvun.
 Alla on annettuna ohjelman esimerkkitulostuksia: -->
 
@@ -764,22 +818,33 @@ Write a program that asks the user for a floating-point number. The program then
 
 Example prints for the program are provided below:
 
+<!-- <sample-output>
+
+Syötä luku!
+**3.14**
+Syötit luvun 3.14
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Syötä luku!
-**3.14**
-Syötit luvun 3.14 -->
 Give a number:
 **3.14**
 You gave the number 3.14
 
 </sample-output>
 
+<!-- <sample-output>
+
+Syötä luku!
+**2.718**
+Syötit luvun 2.718
+
+</sample-output> -->
+
+
 <sample-output>
 
-<!-- Syötä luku!
-**2.718**
-Syötit luvun 2.718 -->
 Give a number:
 **2.718**
 You gave the number 2.718
@@ -827,33 +892,48 @@ public class program {
 }
 ```
 
+<!-- <sample-output>
+
+Kirjoita totuusarvo
+**enpäs!**
+Kirjoitit false
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Kirjoita totuusarvo
-**enpäs!**
-Kirjoitit false -->
 Write a boolean
 **I wont'!**
 You wrote false
 
 </sample-output>
 
+<!-- <sample-output>
+
+Kirjoita totuusarvo
+**TRUE**
+Kirjoitit true
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Kirjoita totuusarvo
-**TRUE**
-Kirjoitit true -->
 Write a boolean
 **TRUE**
 You wrote true
 
 </sample-output>
 
+<!-- <sample-output>
+
+Kirjoita totuusarvo
+**true**
+Kirjoitit true
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Kirjoita totuusarvo
-**true**
-Kirjoitit true -->
 Write a boolean
 **true**
 You wrote true
@@ -873,11 +953,15 @@ Write a program that asks the user for a boolean value. The program should then 
 
 Example prints for the program are provided below.
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Syötä jotain!
+Syötä jotain!
 **joulupukkia ei ole olemassa**
-Totta vaiko ei? false -->
+Totta vaiko ei? false
+
+</sample-output> -->
+
+<sample-output>
 
 Write something:
 **santa does not exist**
@@ -885,11 +969,16 @@ True or false? false
 
 </sample-output>
 
+<!-- <sample-output>
+
+Syötä jotain!
+**TRUE**
+Totta vaiko ei? true
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Syötä jotain!
-**TRUE**
-Totta vaiko ei? true -->
 Write something:
 **TRUE**
 True or false? true
@@ -948,9 +1037,9 @@ Write a program that asks the user for a string, an integer, a floating-point nu
 
 Example prints for the program are provided below.
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Syötä merkkijono!
+Syötä merkkijono!
 **heippa**
 Syötä kokonaisluku!
 **11**
@@ -961,7 +1050,13 @@ Syötä totuusarvo!
 Syötit merkkijonon heippa
 Syötit kokonaisluvun 11
 Syötit liukuluvun 4.2
-Syötit totuusarvon true -->
+Syötit totuusarvon true
+
+</sample-output> -->
+
+
+
+<sample-output>
 
 Give a string:
 **bye-bye**
@@ -978,9 +1073,9 @@ You gave the boolean true
 
 </sample-output>
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Syötä merkkijono!
+Syötä merkkijono!
 **oho!**
 Syötä kokonaisluku!
 **-4**
@@ -991,7 +1086,11 @@ Syötä totuusarvo!
 Syötit merkkijonon oho!
 Syötit kokonaisluvun -4
 Syötit liukuluvun 3200.1
-Syötit totuusarvon false -->
+Syötit totuusarvon false
+
+</sample-output> -->
+
+<sample-output>
 
 Give a string:
 **Oops!**

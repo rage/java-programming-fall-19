@@ -11,7 +11,9 @@ hidden: false
 <!-- - Tiedät mitä merkkijonot ovat ohjelmoinnissa. -->
 <!-- - Tiedät miten merkkijonoja voidaan yhdistää toisiinsa ("katenointi"). -->
  - learn to write a program that reads text written by a user.
+
  - know what "string" means in programming.
+
  - know how to join strings together ("concatenation").
 
 </text-box>
@@ -199,9 +201,14 @@ public class Program {
 }
 ```
 
+<!-- <sample-output>
+
+Hei maailma! ... ja maailmankaikkeus!
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Hei maailma! ... ja maailmankaikkeus! -->
 Hello world! ... and the universe!
 
 </sample-output>
