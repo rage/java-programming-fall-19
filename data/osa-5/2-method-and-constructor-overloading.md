@@ -209,7 +209,7 @@ Eve is 0 years old.
 TODO: tänne tehtävä
 
 
-<programming-exercise name='Monta konstruktoria' tmcname='osa05-Osa05_05.MontaKonstruktoria'>
+<programming-exercise name='Constructor overload' tmcname='part05-Part05_05.ConstructorOverload'>
 
 <!-- Tehtäväpohjassa on luokka `Esine`, joka kuvaa kaupassa olevaa esinettä. Jokaisella esineellä on nimi, sijainti sekä paino. -->
 The exercise template has a class `Product`, which represents a  product in a shop. Every product has a name, location and weight.
@@ -225,7 +225,7 @@ Add the following three constructors to the `Product` class:
  -  `public Product(String name, String location)` creates a product with the given name and the given location. Its weight is set to 1.
 
 <!-- - `public Esine(String nimi, int paino)` luo esineen annetulla nimellä ja painolla. Esineen sijainniksi tulee "varasto". -->
- - `public Product(String name, int weight)` creates a product with the given name and the given weight. Its lovation is set to "warehouse".
+ - `public Product(String name, int weight)` creates a product with the given name and the given weight. Its location is set to "warehouse".
 
 <!-- Voit kokeilla ohjelmasi toimintaa seuraavalla koodilla: -->
 You can test your program with the following code:
@@ -233,8 +233,8 @@ You can test your program with the following code:
 
 ```java
 Esine tapeMeasure = new Product("Tape measure");
-Esine plaster = new Esine("Plaster", "home improvement section");
-Esine tyre = new Esine("Tyre", 5);
+Esine plaster = new Product("Plaster", "home improvement section");
+Esine tyre = new Product("Tyre", 5);
 
 System.out.println(tapeMeasure);
 System.out.println(plaster);
@@ -327,7 +327,7 @@ TODO: tarkasta että video oikealla kohdalla
 
 
 
-<programming-exercise name='Kuormitettu laskuri (2 osaa)' tmcname='osa05-Osa05_06.KuormitettuLaskuri'>
+<programming-exercise name='Overloaded Counter (2 parts)' tmcname='osa05-Osa05_06.OverloadedCounter'>
 
 <h2>Multiple constructors</h2>
 
