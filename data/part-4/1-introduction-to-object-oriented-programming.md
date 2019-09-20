@@ -1,6 +1,7 @@
 ---
-path: '/part-4/1-johdatus-olio-ohjelmointiin'
-title: 'Johdatus olio-ohjelmointiin'
+path: '/part-4/1-introduction-to-object-oriented-programming'
+#title: 'Johdatus olio-ohjelmointiin'
+title: 'Introduction to object-oriented programming'
 hidden: true
 ---
 
@@ -33,7 +34,9 @@ Object-oriented programming is concerned with isolating concepts that appear in 
 
 Once concepts are identified from a given problem, we can build constructs representing them into programs as well. These constructs, and the individual instances formed from them, i.e., objects, are used in solving the problem. The statement "programs are built from small, clear, and cooperative objects" may currently not make much sense, but will slowly begin to appear more sensible as we progress in the course, perhaps even self-evident.
 
-##  Luokka ja Olio
+<!-- ##  Luokka ja Olio -->
+
+## Classes and Objects
 
 <!-- Olemme käyttäneet jo joitakin Javan tarjoamia luokkia ja olioita. **Luokka** määrittelee olioiden ominaisuudet eli niihin liittyvät tiedot eli oliomuuttujat ja niiden tarjoamat komennot eli metodit. Oliomuuttujien arvot määrittelevät yksittäisen olion sisäisen tilan ja metodit taas olion tarjoamat toiminnallisuudet. **Olio** luodaan luokkaan kirjoitetun määrittelyn perusteella. Samasta luokasta voidaan luoda useampia olioita, joilla jokaisella on eri tila eli jokaisella on omat oliomuuttujien arvot. Jokaisella oliolla on myös metodit, jotka olion luomiseen käytetyssä luokassa on määritelty. -->
 
@@ -63,17 +66,16 @@ System.out.println(luvut.size());
 ``` -->
 ```java
 // we create an object from the ArrayList class named integers
-ArrayList<Integer> integres = new ArrayList<>();
+ArrayList<Integer> integers = new ArrayList<>();
 
 // let's add the values 15, 34, 65, 111 to the integers object
-integres.add(15);
-integres.add(34);
-integres.add(65);
-integres.add(111);
+integers.add(15);
+integers.add(34);
+integers.add(65);
+integers.add(111);
 
-// tulostetaan integres-olion koko
 // we print the size of the integers object
-System.out.println(integres.size());
+System.out.println(integers.size());
 ```
 <!--
 Luokasta luodaan olio aina kutsumalla olion luovaa metodia eli **konstruktoria** komennon `new` avulla. Esimerkiksi yllä `ArrayList`-luokasta luodaan uusi kokonaislukuja hyväksyvä ilmentymä eli olio kun kutsutaan `new ArrayList<Integer>()`. Konstruktorit voivat saada parametreja kuten muutkin metodit. -->
@@ -145,7 +147,7 @@ System.out.println(artosSwissAccount);
 
 <!-- Tee ohjelma, joka luo tilin jonka saldo on 100.0, panee tilille 20.0 ja tulostaa tilin. **Huom!** tee kaikki nämä operaatiot täsmälleen tässä järjestyksessä. -->
 
-Write a program that creates an account with a balance of 100.0, deposits 20.0 in it, and finally prints the balance. ** Note ** Perform all the operations in this exact order.
+Write a program that creates an account with a balance of 100.0, deposits 20.0 in it, and finally prints the balance. **NB!** Perform all the operations in this exact order.
 
 
 </programming-exercise>
@@ -312,7 +314,7 @@ Olet nyt luonut luokan nimeltä `Koira`. Lisää luokalle oliomuuttujat `private
 
 In this exercise, you'll practice creating a class.
 
-A new class can be added in NetBeans the following way: On the left side of the screen is the Projects list. Right-click on the project's name, which for this exercise is `Osa04_03.KoiranOminaisuudet`. From the drop-down menu, select *New* and *Java Class*. NetBeans will then ask for the class name.
+A new class can be added in NetBeans the following way: On the left side of the screen is the Projects list. Right-click on the project's name, which for this exercise is `Part04_03.DogAttributes`. From the drop-down menu, select *New* and *Java Class*. NetBeans will then ask for the class name.
 
 Name the class `Dog` in this exercise, and press the finish button.
 
@@ -417,7 +419,10 @@ This class doesn't do much either. However,in the following exercise the object 
 </programming-exercise>
 
 
-<text-box variant='hint' name='Oletuskonstruktori'>
+<!-- <text-box variant='hint' name='Oletuskonstruktori'> -->
+
+<text-box variant='hint' name='Default constructor'>
+
 
 <!-- Mikäli ohjelmoija ei tee luokalle konstruktoria, tekee Java automaattisesti luokalle oletuskonstruktorin. Oletuskonstruktori on konstruktori joka ei tee mitään muuta kuin luo olion. Olion muuttujat jäävät alustamattomiksi (yleisesti ottaen viittaustyyppisten muuttujien arvoksi tulee `null`, eli ei viitettä mihinkään, ja alkeistyyppisten muuttujien arvoksi `0`).
 
@@ -425,7 +430,7 @@ Esimerkiksi alla olevasta luokasta voidaan luoda olio kutsulla `new Henkilo()`. 
 
 If the programmer does not define a constructor for a class, Java automatically creates a default one for it. A default constructor is a constructor that doesn't do anything except create an object. The object's variables remain uninitialized (generally, the value of any object references will be `null`, meaning that they do not point to anything, and the values of primitives will be `0`)
 
-For example, an object can be created from the class below by making the call `new Peron()`
+For example, an object can be created from the class below by making the call `new Person()`
 
 <!--
 ```java
@@ -635,7 +640,7 @@ roosterWhistle.sound();
 duckWhistle.sound();
 ```
 
-<sample-output
+<sample-output>
 
 Kvaak
 Peef
@@ -996,11 +1001,15 @@ public class MainPorgram {
 
 The program above should have the following print output.
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- arvo: 10
+arvo: 10
 arvo: 9
-arvo: 8 -->
+arvo: 8
+
+</sample-output> -->
+
+<sample-output>
 
 value: 10
 value: 9
@@ -1053,13 +1062,13 @@ public class MainProgram {
 
         counter.printValue();
 
-        counter.dexcrement();
+        counter.decrement();
         counter.printValue();
 
-        counter.dexcrement();
+        counter.decrement();
         counter.printValue();
 
-        counter.dexcrement();
+        counter.decrement();
         counter.printValue();
     }
 }
@@ -1068,12 +1077,17 @@ public class MainProgram {
 <!-- Tulostuu: -->
 Prints:
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- arvo: 2
+arvo: 2
 arvo: 1
 arvo: 0
-arvo: 0 -->
+arvo: 0
+
+</sample-output> -->
+
+<sample-output>
+
 value: 2
 value: 1
 value: 0
@@ -1123,11 +1137,16 @@ public class MainProgram {
 <!-- Tulostuu: -->
 Prints:
 
+<!-- <sample-output>
+
+arvo: 100
+arvo: 0
+arvo: 0
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- arvo: 100
-arvo: 0
-arvo: 0 -->
 value: 100
 value: 0
 value: 0
@@ -1363,7 +1382,7 @@ public void metodiJokaEiPalautaMitaan() {
 
 ```java
 public void methodThatReturnsNothing() {
-    // metodin runko - TODO: miksi tämä (ja seuraavat) ei ole sisennetty oikein?
+    // the method body
 }
 ```
 
@@ -1373,6 +1392,7 @@ public int metodiJokaPalauttaaKokonaisLuvun() {
     // metodin runko, tarvitsee return-komennon
 }
 ``` -->
+
 - A method that returns an integer variable has the `int` modifier as the type of variable to be returned.
 
 ```java
@@ -1387,7 +1407,9 @@ public String metodiJokaPalauttaaTekstin() {
     // metodin runko, tarvitsee return-komennon
 }
 ``` -->
+
 - A method that returns a string has the `String` modifier as the type of the variable to be returned
+
 ```java
 public int methodThatReturnsAString() {
     // the method body, requires a return statement
@@ -1402,6 +1424,7 @@ public double metodiJokaPalauttaaLiukuluvun() {
 ``` -->
 
 - A method that returns a floating-point number has the `double` modifier as the type of the variable to be returned.
+
 ```java
 public double methodThatReturnsAFloat() {
     // the method body, requires a return statement
@@ -1517,12 +1540,17 @@ public class Main {
 }
 ```
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Pekan ikä 2
+Pekan ikä 2
 Antin ikä 1
 
-Pekka ja Antti yhteensä 3 vuotta -->
+Pekka ja Antti yhteensä 3 vuotta
+
+</sample-output> -->
+
+<sample-output>
+
 Pekka's age 2
 Antti's age 1
 
@@ -1605,12 +1633,16 @@ if (age >= chipmunks.ageRating()) {
 }
 ```
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Minkä ikäinen olet?
+Minkä ikäinen olet?
 **7**
 
-Saat katsoa elokuvan Alvin and the Chipmunks: The Squeakquel -->
+Saat katsoa elokuvan Alvin and the Chipmunks: The Squeakquel
+
+</sample-output> -->
+
+<sample-output>
 
 How old are you?
 **7**
@@ -1741,10 +1773,17 @@ public static void main(String[] args) {
 }
 ```
 
+<!-- <sample-output>
+
+alaikäinen: Antti, ikä 1 vuotta
+täysi-ikäinen: Pekka, ikä 30 vuotta
+
+</sample-output> -->
+
+
+
 <sample-output>
 
-<!-- alaikäinen: Antti, ikä 1 vuotta
-täysi-ikäinen: Pekka, ikä 30 vuotta -->
 underage: Antti, age 1 years
 of legal age: Pekka, age 30 years
 
@@ -1852,10 +1891,15 @@ public static void main(String[] args) {
 The print output is starting to turn out quit neat:
 
 
+<!-- <sample-output>
+
+Antti on alaikäinen
+Pekka on täysi-ikäinen
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Antti on alaikäinen
-Pekka on täysi-ikäinen -->
 Antti is underage
 Pekka is of legal age
 
@@ -1910,15 +1954,20 @@ System.out.println("Not full! Value: " + g.value());
 
 ```
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Ei täynnä! Mitta: 0
+Ei täynnä! Mitta: 0
 Ei täynnä! Mitta: 1
 Ei täynnä! Mitta: 2
 Ei täynnä! Mitta: 3
 Ei täynnä! Mitta: 4
 Täynnä! Mitta: 5
-Ei täynnä! Mitta: 4 -->
+Ei täynnä! Mitta: 4
+
+</sample-output> -->
+
+<sample-output>
+
 Not full! Value: 0
 Not full! Value: 1
 Not full! Value: 2
@@ -2081,7 +2130,7 @@ My name is Bond, James Bond
 
 Luokan tulee toimia jatkossa seuraavasti. -->
 
-Remove the class' `result` method, and create a `public String toString()` method for it, which returns the string representation shown above.
+Remove the class' `print` method, and create a `public String toString()` method for it, which returns the string representation shown above.
 
 The class should function as follows.
 
@@ -2112,7 +2161,6 @@ My name is Bond, Ionic Bond
 </sample-output>
 
 </programming-exercise>
-java
 
 
 <!-- ## Metodin parametrit -->
@@ -2226,10 +2274,15 @@ public static void main(String[] args) {
 <!-- Tulostus: -->
 Prints:
 
+<!-- <sample-output>
+
+Matti, painoindeksisi on 26.54320987654321
+Juhana, painoindeksisi on 20.897959183673468
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Matti, painoindeksisi on 26.54320987654321
-Juhana, painoindeksisi on 20.897959183673468 -->
 Matti, body mass index is 26.54320987654321
 Juhana, body mass index is 20.897959183673468
 
@@ -2348,12 +2401,17 @@ System.out.println("multiplyByFour.multiply(1): " + multiplyByFour.multiply(1));
 <!-- Tulostus -->
 Output
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- kolmellaKertoja.kerro(2): 6
+kolmellaKertoja.kerro(2): 6
 neljallaKertoja.kerro(2): 8
 kolmellaKertoja.kerro(1): 3
-neljallaKertoja.kerro(1): 4 -->
+neljallaKertoja.kerro(1): 4
+
+</sample-ouptput> -->
+
+<sample-output>
+
 
 multiplyByThree.multiply(2): 6
 multiplyByFour.multiply(2): 8
@@ -2498,9 +2556,14 @@ public class MainProgram {
 <!-- Ohjelman tulostus on seuraava: -->
 The program prints the following:
 
+<!-- <sample-output>
+
+Määrä: 4
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Määrä: 4 -->
 Count: 4
 
 </sample-output>
@@ -2611,12 +2674,16 @@ public class Main {
 <!-- Ohjelman tulostus on seuraava: -->
 The program prints the following:
 
+<!-- <sample-output>
+
+Määrä: 4
+Summa: 11
+Keskiarvo: 2.75
+
+</sample-output> -->
 
 <sample-output>
 
-<!-- Määrä: 4
-Summa: 11
-Keskiarvo: 2.75 -->
 Count: 4
 Sum: 11
 Average: 2.75
@@ -2640,15 +2707,20 @@ The program should use a `NumberStatistics` object to calculate the sum.
 
 **NOTE:** Do not modify the NumberStatistics class in this part. Instead, implement the program for calculating the sum by making use of it.
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Anna lukuja:
+Anna lukuja:
 **4**
 **2**
 **5**
 **4**
 **-1**
-Summa: 15 -->
+Summa: 15
+
+</sample-output> -->
+
+<sample-output>
+
 Enter numbers:
 **4**
 **2**
@@ -2682,7 +2754,6 @@ Change the previous program so that it also calculates the sum of even and odd n
 
 The program should work as follows:
 
-<sample-output>
 
 <!-- Anna lukuja:
 **4**
@@ -2692,7 +2763,12 @@ The program should work as follows:
 **-1**
 Summa: 13
 Parillisten summa: 8
-Parittomien summa: 5 -->
+Parittomien summa: 5
+
+</sample-output> -->
+
+<sample-output>
+
 Enter numbers:
 **4**
 **2**
@@ -2795,9 +2871,14 @@ public class MainProgram {
 
 The program should print the following:
 
+<!-- <sample-output>
+
+Kortilla on rahaa 50.0 euroa
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Kortilla on rahaa 50.0 euroa -->
 The card has a balance of 50.0 euros
 
 </sample-output>
@@ -2871,11 +2952,16 @@ public class MainProgram {
 <!-- Ohjelman tulisi tuottaa kutakuinkin seuraava tulostus: -->
 The program should print approximately the following:
 
+<!-- <sample-output>
+
+Kortilla on rahaa 50.0 euroa
+Kortilla on rahaa 47.4 euroa
+Kortilla on rahaa 40.199999999999996 euroa
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Kortilla on rahaa 50.0 euroa
-Kortilla on rahaa 47.4 euroa
-Kortilla on rahaa 40.199999999999996 euroa -->
 The card has a balance of 50.0 euros
 The card has a balance of 47.4 euros
 The card has a balance of 40.199999999999996 euros
@@ -2924,11 +3010,16 @@ public class MainProgram {
 <!-- Ohjelman tulisi tuottaa seuraava tulostus: -->
 The program should print the following:
 
+<!-- <sample-output>
+
+Kortilla on rahaa 5.0 euroa
+Kortilla on rahaa 0.40000000000000036
+Kortilla on rahaa 0.40000000000000036
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Kortilla on rahaa 5.0 euroa
-Kortilla on rahaa 0.40000000000000036
-Kortilla on rahaa 0.40000000000000036 -->
 The card has a balance 5.0 euros
 The card has a balance 0.40000000000000036 euros
 The card has a balance 0.40000000000000036 euros
@@ -3001,12 +3092,17 @@ public class MainProgram {
 <!-- Ohjelman tulisi tuottaa seuraava tulostus: -->
 The program should print the following:
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Kortilla on rahaa 10.0 euroa
+Kortilla on rahaa 10.0 euroa
 Kortilla on rahaa 25.0 euroa
 Kortilla on rahaa 35.0 euroa
-Kortilla on rahaa 150.0 euroa -->
+Kortilla on rahaa 150.0 euroa
+
+</sample-output> -->
+
+<sample-output>
+
 The card has a balance of 10.0 euros
 The card has a balance of 25.0 euros
 The card has a balance of 35.0 euros
@@ -3050,10 +3146,15 @@ public class MainProgram {
 
 The program should print the following:
 
+<!-- <sample-output>
+
+Pekka: Kortilla on rahaa 10.0 euroa
+Pekka: Kortilla on rahaa 10.0 euroa
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Pekka: Kortilla on rahaa 10.0 euroa
-Pekka: Kortilla on rahaa 10.0 euroa -->
 Paul: The card has a balance of 10.0 euros
 Paul: The card has a balance of 10.0 euros
 
@@ -3122,14 +3223,19 @@ public class Main {
 <!-- Ohjelman tulisi tuottaa seuraava tulostus: -->
 The program should produce the following print output:
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Pekka: Kortilla on rahaa 15.4 euroa
+Pekka: Kortilla on rahaa 15.4 euroa
 Matti: Kortilla on rahaa 27.4 euroa
 Pekka: Kortilla on rahaa 35.4 euroa
 Matti: Kortilla on rahaa 22.799999999999997 euroa
 Pekka: Kortilla on rahaa 30.199999999999996 euroa
-Matti: Kortilla on rahaa 72.8 euroa -->
+Matti: Kortilla on rahaa 72.8 euroa
+
+</sample-output> -->
+
+<sample-output>
+
 Paul: The card has a balance of 15.4 euros
 Matti: The card has a balance of 27.4 euros
 Paul: The card has a balance of 35.4 euros
