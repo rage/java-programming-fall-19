@@ -370,7 +370,7 @@ The clock we implemented above is an object whose functionality is based on "sim
 
 
 <!-- <programming-exercise name='Sekuntikello' tmcname='osa05-Osa05_01.Sekuntikello'> -->
-<programming-exercise name='Stopwatch' tmcname='osa05-Osa05_01.Sekuntikello'>
+<programming-exercise name='One minute' tmcname='part05-Part05_01.OneMinute'>
 
 
 <!-- Tehtäväpohjassa tulee edellä kuvattu luokka `Viisari`. Toteuta materiaalin `Kello`-luokkaa mukaillen luokka `Sekuntikello`.
@@ -378,9 +378,9 @@ The clock we implemented above is an object whose functionality is based on "sim
 
 Sekuntikellossa on kaksi viisaria. Yksi sadasosasekunneille ja yksi sekunneille. Sekuntikellon edetessä sadasosasekuntien määrä kasvaa yhdellä. Kun sadasosasekunteja vastaava viisari saavuttaa arvon sata, viisarin arvo nollaantuu ja sekuntien määrä kasvaa yhdellä. Vastaavasti, kun sekunteja vastaava viisari saavuttaa arvon kuusikymmentä, viisarin arvo nollaantuu. -->
 
-The exercise template comes with the "ClockHand" class described above. Implement a `Stopwatch` class based on the material's `Clock` class.
+The exercise template comes with the "ClockHand" class described above. Implement a `Timer` class based on the material's `Clock` class.
 
-The stopwatch has two hands, one for hundredths of a second and one for seconds. As the stopwatch progresses, the number of hundredths of a second grows by one. When the hand corresponding to hundredths of a second reaches a value of 100, its value is set to zero, and the number of seconds grows by one. In the same way, when the value of the hand corresponding to seconds reaches the value of sixty, its value is set to zero.
+The timer has two hands, one for hundredths of a second and one for seconds. As it progresses, the number of hundredths of a second grows by one. When the hand corresponding to hundredths of a second reaches a value of 100, its value is set to zero, and the number of seconds grows by one. In the same way, when the value of the hand corresponding to seconds reaches the value of sixty, its value is set to zero.
 
 
 <!-- - `public Sekuntikello()` luo uuden sekuntikellon.
@@ -393,15 +393,15 @@ Kun olet saanut tehtävän tehtyä, palauta se palvelimelle.
 
 Voit halutessasi kokeilla kellon toimintaa pääohjelmassa. Alla olevalla esimerkkikoodilla saat aikaan ohjelman, missä kello tulostetaan ja kello etenee kerran sadasosasekunnissa. -->
 
-- `public Stopwatch()` creates a new stopwatch.
-- `public String toString()` returns a string representation of the stopwatch. The string representation should be in the form "seconds: hundredths of a second", where both the seconds and the hundredths of a second are represented by two numbers. For example, "19:83" would represent the time 19 seconds, 83 hundredths of a second.
-- `public void advance()` moves the clock forward by a hundredth of a second.
+- `public Timer()` creates a new timer.
+- `public String toString()` returns a string representation of the timer. The string representation should be in the form "seconds: hundredths of a second", where both the seconds and the hundredths of a second are represented by two numbers. For example, "19:83" would represent the time 19 seconds, 83 hundredths of a second.
+- `public void advance()` moves the timer forward by a hundredth of a second.
 
 
 Once you've completed the task, return it to the server.
 
 
-You can test out the clock's functionality in the main program whenever you like. The example code below provides you with a program where the clock is printed and the clock advances once every hundredth of a second.
+You can test out the timer's functionality in the main program whenever you like. The example code below provides you with a program where the timer is printed and it advances once every hundredth of a second.
 
 
 <!-- ```java
@@ -419,11 +419,11 @@ while (true) {
 }
 ``` -->
 ```java
-Stopwatch stopwatch = new Stopwatch();
+Stopwatch timer = new Timer();
 
 while (true) {
-    System.out.println(stopwatch);
-    stopwatch.advance();
+    System.out.println(timer);
+    timer.advance();
 
     try {
         Thread.sleep(10);
@@ -723,7 +723,7 @@ System.out.println(first.surfaceArea());
 
 
 <!-- <programming-exercise name='Kirja' tmcname='osa05-Osa05_02.Kirja'> -->
-<programming-exercise name='Book' tmcname='osa05-Osa05_02.Kirja'>
+<programming-exercise name='Book' tmcname='part05-Part05_02.Kirja'>
 
 <!-- Luo kirjaa esittävä luokka `Kirja`. Jokaisella kirjalla on kirjailija, nimi ja sivujen lukumäärä.
 
@@ -741,7 +741,7 @@ Create a "Book" class which describes a book. Each book has an author, title, an
 Make the class a:
 
 - Constructor `public Book(String author, String name, int pages)`
-- Method `public String getWriter()` which returns the book's author's name.
+- Method `public String getAuthor()` which returns the book's author's name.
 - Method `public String getName()` which returns the name of the book.
 - Method `public int getPages()` which returns the number of pages in the book.
 
@@ -758,7 +758,7 @@ J. K. Rowling, Harry Potter and the Sorcerer's Stone, 223 sivua
 
 
 <!-- <programming-exercise name='Kuutio' tmcname='osa05-Osa05_03.Kuutio'> -->
-<programming-exercise name='Cube' tmcname='osa05-Osa05_03.Kuutio'>
+<programming-exercise name='Cube' tmcname='part05-Part05_03.Cube'>
 
 <!-- Luo kuutiota (eli säännöllistä kuusitahokasta) esittävä luokka `Kuutio`. Luo luokalle konstruktori `public Kuutio(int sarmanPituus)`, joka saa parametrinaan kuution särmän pituuden.
 
@@ -771,7 +771,7 @@ Alla esimerkkejä -->
 Create a `Cube` class that represents a cube (i.e., a standard hexahedron). Create a `public Cube (int edgeLength)` constructor for the class, that takes the length of the cube's edge as its parameter.
 
 
-Make a `public int volume()` method for the cube, which calculates and returns the cube's volume. The volume of the cube is calculated with the formula `edgeLength * edgeLength * edgeLength`. Moreover, make a `public String toString()` method for the cube, which returns a string representation of it. The string representation should take the form "`The length of the cube edge is l, its volume v`", where `l` is the length and `v` the volume - both the length and volume must be represented as integers.
+Make a `public int volume()` method for the cube, which calculates and returns the cube's volume. The volume of the cube is calculated with the formula `edgeLength * edgeLength * edgeLength`. Moreover, make a `public String toString()` method for the cube, which returns a string representation of it. The string representation should take the form "`The length of the edge is l and the volume v`", where `l` is the length and `v` the volume - both the length and volume must be represented as integers.
 
 Examples are provided beneath
 
@@ -808,10 +808,10 @@ Kuution särmän pituus on 4, tilavuus on 64
 Kuution särmän pituus on 2, tilavuus on 8 -->
 
 64
-The cube edge has a lenght of 4 and a volume of 64
+The length of the edge is 4 and the volume 64
 
 8
-The cube edge has a lenght of 2 and a volume of 8
+The length of the edge is 2 and the volume 8
 
 </sample-output>
 
@@ -819,19 +819,19 @@ The cube edge has a lenght of 2 and a volume of 8
 
 
 <!-- <programming-exercise name='Harjoitusapuri' tmcname='osa05-Osa05_04.Harjoitusapuri'> -->
-<programming-exercise name='Exercise Assistant' tmcname='osa05-Osa05_04.Harjoitusapuri'>
+<programming-exercise name='Fitbyte' tmcname='part05-Part05_04.Fitbyte'>
 
 
 <!-- <a href="https://fi.wikipedia.org/wiki/Karvosen_kaava" target="_blank" norel>Karvosen kaavan</a> avulla voidaan laskea tavoitesyke fyysistä harjoittelua varten. Tavoitesykkeen laskeminen perustuu kaavaan `(maksimisyke - leposyke) * (tavoitesykeprosentti) + leposyke`, missä tavoitesyke annetaan prosenttina maksimisykkeestä. -->
 
-<a href="https://fi.wikipedia.org/wiki/Karvosen_kaava" target="_blank" norel>The Karvonen method </a> allows you to calculate your target heart rate for physical exercise. The calculation of the target heart rate is based on the formula `(maximum heart rate - resting heart rate) * (target heart rate percentage) + resting heart rate`, where the target heart rate is given as a percentage of the maximum heart rate.
+<a href="https://en.wikipedia.org/wiki/Heart_rate#Karvonen_method" target="_blank" norel>The Karvonen method </a> allows you to calculate your target heart rate for physical exercise. The calculation of the target heart rate is based on the formula `(maximum heart rate - resting heart rate) * (target heart rate percentage) + resting heart rate`, where the target heart rate is given as a percentage of the maximum heart rate.
 
 <!-- Esimerkiksi, jos henkilön maksimisyke on `200`, leposyke `50`, ja tavoitesyke `75%` maksimisykkeestä, on tavoiteltava sydämen syke noin `((200-50) * (0.75) + 50)` eli `162.5` lyöntiä minuutissa. -->
 For example, if a person has a maximum heart rate of `200`, a resting heart rate of `50`, and a target heart rate of `75%` of the maximum heart rate, the target heart rate should be about `((200-50) * (0.75) + 50)`, i.e., `162.5` beats per minute.
 
 
 <!-- Luo luokka `Harjoitusapuri`, jolle annetaan konstruktorin parametrina ikä ja leposyke. Harjoitusapurin tulee tarjota metodi tavoitesyke, jolle annetaan parametrina prosentuaalista maksimisykkeen osuutta kuvaava double-tyyppinen luku. Osuus annetaan lukuna nollan ja yhden välillä. Luokalla tulee olla: -->
-Create a class called `ExerciseAssistant`, whose constructor takes age and resting heart rate as its parameters. The exercise assistant should provide a method targetHeartRate, which is given a double-type number as a parameter representing a percentual portion of the maximum heart rate. The proportion is given as a number between zero and one. The class should have:
+Create a class called `Fitbyte`, whose constructor takes age and resting heart rate as its parameters. The exercise assistant should provide a method targetHeartRate, which is given a double-type number as a parameter representing a percentual portion of the maximum heart rate. The proportion is given as a number between zero and one. The class should have:
 <!--
 - Konstruktori `public Harjoitusapuri(int ika, int leposyke)`
 - Metodi `public double tavoitesyke(double prosenttiaMaksimista)`, joka laskee ja palauttaa tavoiteltavan sykkeen.
@@ -843,7 +843,7 @@ Käyttöesimerkki:
 
 -->
 
-- A constructor `public ExerciseAssistant(int age, int restingHeartRate)`
+- A constructor `public Fitbyte(int age, int restingHeartRate)`
 - A method `public double targetHeartRate(double percentageOfMaximum)` that calculates and returns the target heart rate.
 
 
@@ -864,14 +864,14 @@ while (prosenttiosuus < 1.0) {
 }
 ``` -->
 ```java
-ExerciseAssistant assistant = new ExerciseAssistant(30, 60);
+Fitbyte assistant = new Fitbyte(30, 60);
 
-double prosenttiosuus = 0.5;
+double percentage = 0.5;
 
-while (prosenttiosuus < 1.0) {
-    double tavoite = assistant.tavoitesyke(prosenttiosuus);
-    System.out.println("Tavoite " + (prosenttiosuus * 100) + "% maksimista: " + tavoite);
-    prosenttiosuus = prosenttiosuus + 0.1;
+while (percentage < 1.0) {
+    double target = assistant.targetHeartRate(percentage);
+    System.out.println("Target " + (percentage * 100) + "% of maximum: " + target);
+    percentage = percentage + 0.1;
 }
 ```
 
