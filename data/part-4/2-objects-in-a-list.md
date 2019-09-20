@@ -1,5 +1,5 @@
 ---
-path: '/part-4/2-oliot-listalla'
+path: '/part-4/2-objects-in-a-list'
 # title: 'Oliot listalla'
 title: 'Objects in a list'
 hidden: true
@@ -72,9 +72,9 @@ for (String nimi: nimet) {
 ArrayList<String> names = new ArrayList<>();
 
 // string can first be stored in a variable
-String nimi = "Betty Jennings";
+String name = "Betty Jennings";
 // then add it to the list
-names.add(nimi);
+names.add(name);
 
 // strings can also be directly added to the list:
 names.add("Betty Snyder");
@@ -264,7 +264,7 @@ for (Henkilo henkilo: henkilot) {
 ArrayList<Person> persons = new ArrayList<>();
 
 // a person object can be created first
-Person john = new Henkilo("John");
+Person john = new Person("John");
 // and then added to the list
 persons.add(john);
 
@@ -277,13 +277,13 @@ for (Person person: persons) {
 }
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Juhana, ikä 0 vuotta
 Matti, ikä 0 vuotta
 Martin, ikä 0 vuotta
 
-</sample-output>
+</sample-output> -->
 
 
 <sample-output>
@@ -688,7 +688,6 @@ while (true) {
     persons.add(new Person(name, age));
 }
 
-// Tulostetaan syötettyjen henkilöiden määrä sekä henkilöt
 // Print the number of the entered persons, and the persons themselves
 System.out.println();
 System.out.println("Total number of persons: " + persons.size());
