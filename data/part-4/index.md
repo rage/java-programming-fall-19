@@ -3,7 +3,7 @@ path: '/part-4'
 #title: 'Osa 4'
 title: 'Part 4'
 overview: true
-hidden: true
+hidden: false
 ---
 
 <only-for-course-variant variant="dl">

@@ -2,7 +2,7 @@
 path: '/part-4/1-introduction-to-object-oriented-programming'
 #title: 'Johdatus olio-ohjelmointiin'
 title: 'Introduction to object-oriented programming'
-hidden: true
+hidden: false
 ---
 
 
@@ -102,7 +102,7 @@ Individual objects, i.e., detached houses are created from the same blueprint. I
 
 <!-- <programming-exercise name='Ensimmäinen tilisi' tmcname='osa04-Osa04_01.EnsimmainenTilisi'> -->
 
-<programming-exercise name='Your first account' tmcname='osa04-Osa04_01.EnsimmainenTilisi'>
+<programming-exercise name='Your first account' tmcname='part04-Part04_01.YourFirstAccount'>
 
 <!-- Tehtäväpohjan mukana tulee valmis luokka `Tili`. Luokan `Tili` olio esittää pankkitiliä, jolla on saldo (eli jossa on jokin määrä rahaa). Tilejä käytetään näin: -->
 
@@ -154,7 +154,7 @@ Write a program that creates an account with a balance of 100.0, deposits 20.0 i
 
 
 <!-- <programming-exercise name='Ensimmäinen tilisiirtosi' tmcname='osa04-Osa04_02.EnsimmainenTilisiirtosi'> -->
-<programming-exercise name='Your first bank transfer' tmcname='osa04-Osa04_02.EnsimmainenTilisiirtosi'>
+<programming-exercise name='Your first bank transfer' tmcname='part04-Part04_02.YourFirstBankTransfer'>
 
 <!-- Tässäkin tehtävässä on käytössä edellisessä tehtävässä mukana ollut luokka `Tili`.
 
@@ -302,7 +302,7 @@ We have now defined a blueprint -- a class -- for the person object. Each new pe
 
 
 <!-- <programming-exercise name='Koiran ominaisuudet' tmcname='osa04-Osa04_03.KoiranOminaisuudet'> -->
-<programming-exercise name='Dog attributes' tmcname='osa04-Osa04_03.KoiranOminaisuudet'>
+<programming-exercise name='Dog attributes' tmcname='part04-Part04_03.DogAttributes'>
 
 <!-- Tässä tehtävässä harjoittelet luokan luomista.
 
@@ -401,7 +401,7 @@ A few things to note: the constructor contains the expression `this.age = 0`. Th
 
 
 <!-- <programming-exercise name='Huone' tmcname='osa04-Osa04_04.Huone'> -->
-<programming-exercise name='Room' tmcname='osa04-Osa04_04.Huone'>
+<programming-exercise name='Room' tmcname='part04-Part04_04.Room'>
 
 <!-- Luo luokka nimeltä `Huone`. Lisää luokalle oliomuuttujat `private String koodi` ja `private int istumapaikat`. Luo tämän jälkeen konstruktori `public Huone(String luokanKoodi, int istumapaikkojenMaara)`, jonka avulla oliomuuttujiin asetetaan arvot.
 
@@ -612,7 +612,7 @@ The same as a screencast:
 
 <!-- <programming-exercise name='Pilli' tmcname='osa04-Osa04_05.Pilli'> -->
 
-<programming-exercise name='Straw' tmcname='osa04-Osa04_05.Pilli'>
+<programming-exercise name='Whistle' tmcname='part04-Part04_05.Whistle'>
 
 <!-- Luo luokka nimeltä `Pilli`. Lisää luokalle oliomuuttuja `private String aani`. Luo tämän jälkeen konstruktori `public Pilli(String pillinAani)`, jonka avulla luodaan uusi pilli, jolle annetaan ääni.
 
@@ -657,7 +657,7 @@ Luo luokka nimeltä `Ovi`. Ovella ei ole oliomuuttujia. Luo sille parametriton k
 
 Oven tulee toimia seuraavasti. -->
 
-<programming-exercise name='Door' tmcname='osa04-Osa04_06.Ovi'>
+<programming-exercise name='Door' tmcname='part04-Part04_06.Door'>
 
 Create a class named `Door`. The door does not have any variables. Create for it a constructor with no parameters (or use the default constructor). After that, create a `public void knock()` method for the door that prints the message "Who's there?" when called.
 
@@ -714,7 +714,7 @@ Yllä oleva tulostus olettaa, että tuotteen nimeksi on annettu `banaani`, hinna
 
 </programming-exercise> -->
 
-<programming-exercise name='Product' tmcname='osa04-Osa04_07.Tuote'>
+<programming-exercise name='Product' tmcname='part04-Part04_07.Product'>
 
 Create a class `Product` that represents a store product. The product should have a price (double), a quantity (int) and a name (String).
 
@@ -846,11 +846,11 @@ The program's print output is as follows:
 
 <sample-output>
 
-Ada, age years
-Antti, age years
+Ada, age 0 years
+Antti, age 0 years
 
-Ada, age years
-Antti, age years
+Ada, age 2 years
+Antti, age 0 years
 
 </sample-output>
 
@@ -910,7 +910,7 @@ public class Person {
 
 
 <!-- <programming-exercise name='Vähenevä laskuri (3 osaa)' tmcname='osa04-Osa04_08.VahenevaLaskuri'> -->
-<programming-exercise name='Decreasing counter (3 parts)' tmcname='osa04-Osa04_08.VahenevaLaskuri'>
+<programming-exercise name='Decreasing counter (3 parts)' tmcname='part04-Part04_08.DecreasingCounter'>
 
 <!-- Tässä tehtävässä on useampi osa. Jokainen osa vastaa yhtä tehtäväpistettä.
 
@@ -1158,7 +1158,7 @@ value: 0
 
 
 <!-- <programming-exercise name='Velka' tmcname='osa04-Osa04_09.Velka'> -->
-<programming-exercise name='Debt' tmcname='osa04-Osa04_09.Velka'>
+<programming-exercise name='Debt' tmcname='part04-Part04_09.Debt'>
 
 <!--
 Luo luokka `Velka`, jolla on double-tyyppiset oliomuuttujat `saldo` ja `korkokerroin`. Saldo ja korkokerroin annetaan konstruktorin parametrina `public Velka(double saldoAlussa, double korkokerroinAlussa)`.
@@ -1563,7 +1563,7 @@ Pekka's and Antti's combined age 3 years
 
 
 <!-- <programming-exercise name='Musiikkikappale' tmcname='osa04-Osa04_10.Musiikkikappale'> -->
-<programming-exercise name='Music song' tmcname='osa04-Osa04_10.Musiikkikappale'>
+<programming-exercise name='Music song' tmcname='part04-Part04_10.MusicSong'>
 
 <!-- Luo luokka nimeltä `Musiikkikappale`. Musiikkikappaleella on oliomuuttujat `nimi` (merkkijono) ja `pituus` sekunteina (kokonaisluku). Molemmat asetetaan konstruktorissa `public Musiikkikappale(String kappaleenNimi, int kappaleenPituus)`. Lisää oliolle myös metodit `public String nimi()`, joka palauttaa kappaleen nimen, ja `public int pituus()`, joka palauttaa kappaleen pituuden.
 
@@ -1593,7 +1593,7 @@ The song In The Garden has a length of 10910 seconds.
 
 
 <!-- <programming-exercise name='Elokuva' tmcname='osa04-Osa04_11.Elokuva'> -->
-<programming-exercise name='Film' tmcname='osa04-Osa04_11.Elokuva'>
+<programming-exercise name='Film' tmcname='part04-Part04_11.Film'>
 
 <!-- Luo luokka Elokuva, jolla on oliomuuttujat `nimi` (String) ja `ikaraja` (int). Tee luokalle konstruktori `public Elokuva(String elokuvanNimi, int elokuvanIkaraja)` sekä metodit `public String nimi()` ja `public int ikaraja()`. Ensimmäinen palauttaa elokuvan nimen ja toinen elokuvan ikärajan.
 
@@ -2355,7 +2355,7 @@ public void setHeight(int height) {
 
 
 <!-- <programming-exercise name='Kertoja' tmcname='osa04-Osa04_14.Kertoja'> -->
-<programming-exercise name='Multiplier' tmcname='part04-04_14.Multiplier'>
+<programming-exercise name='Multiplier' tmcname='part04-Part04_14.Multiplier'>
 
 <!-- Luo luokka `Kertoja` jolla on:
 
@@ -2465,7 +2465,7 @@ The screencast's third part:
 
 
 <!-- <programming-exercise name='Lukutilasto (4 osaa)' tmcname='osa04-Osa04_15.Lukutilasto'> -->
-<programming-exercise name='Statistics (4 parts)' tmcname='osa04-Osa04_15.NumberStatistics'>
+<programming-exercise name='Statistics (4 parts)' tmcname='part04-Part04_15.NumberStatistics'>
 
 <!-- <h2>Lukujen määrä</h2> -->
 <h2>Count</h2>

@@ -27,7 +27,6 @@ const courseSettings = {
     { separator: true, title: "Introduction to programming" },
   ],
   sidebarFuturePages: [
-    { title: "Part 4", tba: "17.9.2019" },
     { title: "Part 5", tba: "24.9.2019" },
     { title: "Part 6", tba: "1.10.2019" },
     { title: "Part 7", tba: "8.10.2019" },
