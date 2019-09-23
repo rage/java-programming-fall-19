@@ -1,7 +1,7 @@
 ---
 path: '/part-4/3-files-and-reading-data'
 title: 'Files and reading data'
-hidden: true
+hidden: false
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
@@ -21,7 +21,6 @@ hidden: true
 
 </text-box>
 
-<quiz id="716bb458-0ca9-5e79-af45-dc1002959d63"></quiz>
 
 
 <!-- Merkittävä osa ohjelmistoista perustuu tavalla tai toisella tiedon käsittelyyn. Musiikin toistoon tarkoitetut ohjelmistot käsittelevät musiikkitiedostoja, kuvankäsittelyohjelmat käsittelevät kuvatiedostoja. Verkossa ja mobiililaitteissa toimivat sovellukset kuten Facebook, WhatsApp ja Telegram taas käsittelevät tiedostoihin perustuviin tietokantoihin tallennettuja henkilötietoja. Kaikissa näistä sovelluksista on yhteistä tiedon lukeminen, tiedon käsitteleminen tavalla tai toisella sekä se, että käsiteltävä tieto on loppujenlopulta tallennettu jonkinlaisessa muodossa yhteen tai useampaan tiedostoon. -->
@@ -606,7 +605,7 @@ Failed to read the file nonexistent.txt.
 
 
 <!-- <programming-exercise name='Mittaukset tiedostosta' tmcname='osa04-Osa04_08.MittauksetTiedostosta'> -->
-<programming-exercise name='Numbers from a file' tmcname='part04-Part04_08.NumbersFromAFile'>
+<programming-exercise name='Numbers from a file' tmcname='part04-Part04_28.NumbersFromAFile'>
 
 <!-- Toteuta ohjelma, joka lukee käyttäjältä tiedoston nimen sekä hyväksyttävien lukujen ala- ja ylärajan. Tämän jälkeen ohjelma lukee tiedoston sisältämät luvut (jokainen luku on omalla rivillään) ja ottaa huomioon vain ne luvut, jotka ovat annetulla lukuvälillä. Lopulta ohjelma tulostaa annetulla lukuvälillä olleiden lukujen lukumäärän. -->
 
@@ -971,7 +970,7 @@ System.out.println("Total amount of people read: " + people.size());
 Reading objects from a file is clearly own thing, which should probably be separated as its a method. This is what we will do in the next exercise.
 
 <!-- <programming-exercise name='Henkilot tiedostosta' tmcname='osa04-Osa04_30.HenkilotTiedostosta'> -->
-<programming-exercise name='Storing records' tmcname='osa04-Osa04_30.StoringRecords'>
+<programming-exercise name='Storing records' tmcname='part04-Part04_30.StoringRecords'>
 
 <!-- Tehtävässä käsitellään CSV-muodossa tallennettuja tiedostoja, jotka sisältävät riveittän pilkuilla eroteltuna nimiä ja ikiä. Tiedoston muoto on esimerkiksi seuraava: -->
 
