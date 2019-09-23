@@ -1,22 +1,30 @@
 ---
-path: '/osa-6/1-olioista-koostuvat-oliot'
-title: 'Olioita listalla ja listan sisältävät oliot'
+path: "/osa-6/1-olioista-koostuvat-oliot"
+title: "Olioita listalla ja listan sisältävät oliot"
 hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-- Kertaat listojen käyttöä.
+<!-- - Kertaat listojen käyttöä.
 - Tiedät, että viittaustyyppisen muuttujan lisääminen listalle kopioi listalle muuttujan viitteen.
-- Osaat käyttää listaa oliomuuttujana.
+- Osaat käyttää listaa oliomuuttujana. -->
+
+- You review the use of lists.
+- You know that adding a reference-type variable to a list copies the reference of the variable to the list.
+- You know how to use a list as an instance variable.
 
 </text-box>
 
-Tutustutaan seuraavaksi olioihin, jonka sisältävät listan. Tällaisia olioita ovat esimerkiksi joukkoja kuvaavat oliot, kuten vaikkapa soittolistat.
+<!-- Tutustutaan seuraavaksi olioihin, jonka sisältävät listan. Tällaisia olioita ovat esimerkiksi joukkoja kuvaavat oliot, kuten vaikkapa soittolistat.
 
-Alla olevassa esimerkissä käsitteelle soittolista on luotu luokka. Soittolista sisältää kappaleita: siihen voi lisätä kappaleita, siitä voi poistaa kappaleita, ja siinä olevat kappaleet voi tulostaa.
+Alla olevassa esimerkissä käsitteelle soittolista on luotu luokka. Soittolista sisältää kappaleita: siihen voi lisätä kappaleita, siitä voi poistaa kappaleita, ja siinä olevat kappaleet voi tulostaa. -->
 
-```java
+We'll now be looking at objects that contain lists. These kinds of objects are, for instance, those that represent collections, such as playlists.
+
+In the example below, a class for the playlist concept has been created . A playlist contains songs: you can add songs to it, remove them from it, and also print them.
+
+<!-- ```java
 // importit
 
 public class Soittolista {
@@ -40,16 +48,50 @@ public class Soittolista {
         }
     }
 }
-```
-
-Soittolistojen luominen on edellisen luokan avulla helppoa.
-
+``` -->
 
 ```java
+// imports
+
+public class Playlist {
+    private ArrayList<String> songs;
+
+    public Playlist() {
+        this.songs = new ArrayList<>();
+    }
+
+    public void addSong(String song) {
+        this.songs.add(song);
+    }
+
+    public void removeSong(String song) {
+        this.songs.remove(song);
+    }
+
+    public void printSongs() {
+        for (String song: this.songs) {
+            System.out.println(song);
+        }
+    }
+}
+```
+
+<!-- Soittolistojen luominen on edellisen luokan avulla helppoa. -->
+
+Creating playlists is easy with the help of the class above.
+
+<!-- ```java
 Soittolista lista = new Soittolista();
 lista.lisaaKappale("Sorateiden kuningas");
 lista.lisaaKappale("Teuvo, maanteiden kuningas");
 lista.tulostaKappaleet();
+``` -->
+
+```java
+Playlist list = new Playlist();
+list.addSong("Sorateiden kuningas");
+list.addSong("Teuvo, maanteiden kuningas");
+list.printSongs();
 ```
 
 <sample-output>
@@ -59,15 +101,18 @@ Teuvo, maanteiden kuningas
 
 </sample-output>
 
+<!-- <programming-exercise name='Ruokalis (3 osaa)' tmcname='osa06-Osa06_01.Ruokalis'> -->
+<programming-exercise name='Menu (3 osaa)' tmcname='osa06-Osa06_01.Menu'>
 
-<programming-exercise name='Ruokalista (3 osaa)' tmcname='osa06-Osa06_01.Ruokalista'>
+<!-- Kumpulan kampuksella Helsingissä toimivaan Unicafe-nimiseen gourmet-ravintolaan tarvitaan uusi ruokalista. Keittiömestari tietää ohjelmoinnista, ja haluaa listan hallinnointiin tietokonejärjestelmän. Toteutetaan tässä tehtävässä järjestelmän sydän, luokka Ruokalista.
 
-Kumpulan kampuksella Helsingissä toimivaan Unicafe-nimiseen gourmet-ravintolaan tarvitaan uusi ruokalista. Keittiömestari tietää ohjelmoinnista, ja haluaa listan hallinnointiin tietokonejärjestelmän. Toteutetaan tässä tehtävässä järjestelmän sydän, luokka Ruokalista.
+Tehtäväpohjan mukana tulee `Main`-luokka, jossa voit testata ruokalistan toimintaa. Ruokalistan toteuttamista varten saat seuraavanlaisen tehtäväpohjan: -->
 
-Tehtäväpohjan mukana tulee `Main`-luokka, jossa voit testata ruokalistan toimintaa. Ruokalistan toteuttamista varten saat seuraavanlaisen tehtäväpohjan:
+The gourmet 'Unicafe' restaurant on Helsinki's Kumpula campus needs a new menu. The chef knows about programming and wants a computer system to manage the list. In this assignment, we'll implement the heart of the system, the Menu class.
 
+The exercise base comes with a `Main` class that you can use to test the menu. For the implementation of the menu, you'll have the following template:
 
-```java
+<!-- ```java
 import java.util.ArrayList;
 
 public class Ruokalista {
@@ -80,9 +125,24 @@ public class Ruokalista {
 
     // toteuta tänne tarvittavat metodit
 }
+``` -->
+
+```java
+import java.util.ArrayList;
+
+public class Menu {
+
+    private ArrayList<String> meals;
+
+    public Menu() {
+        this.meals = new ArrayList<>();
+    }
+
+    // implement the required methods here
+}
 ```
 
-Ruokalistaoliolla on oliomuuttujana ArrayList, jonka on tarkoitus tallentaa ruokalistalla olevien ruokalajien nimet. Ruokalistan tulee tarjota seuraavat metodit:
+<!-- Ruokalistaoliolla on oliomuuttujana ArrayList, jonka on tarkoitus tallentaa ruokalistalla olevien ruokalajien nimet. Ruokalistan tulee tarjota seuraavat metodit:
 
 - `public void lisaaAteria(String ateria)` lisää aterian ruokalistalle. Mikäli ateria on jo listalla, sitä ei lisätä uudestaan.
 
@@ -90,9 +150,19 @@ Ruokalistaoliolla on oliomuuttujana ArrayList, jonka on tarkoitus tallentaa ruok
 
 - `public void tyhjennaRuokalista()` tyhjentää ruokalistan.
 
-Kun ruokalista on valmis, sitä voi käyttää seuraavalla tavalla.
+Kun ruokalista on valmis, sitä voi käyttää seuraavalla tavalla. -->
 
-```java
+The menu object has an ArrayList as an instance variable to store the names of the dishes on the menu. The menu should provide the following methods:
+
+- `public void addMeal(String meal)` adds a meal to the menu. If the meal is already on the list, it should not be added again.
+
+- `public void printMeals()` prints the meals.
+
+- `public void clearMenu()` clears the menu.
+
+Once the menu is done, you can use it as follows.
+
+<!-- ```java
 Ruokalista menu = new Ruokalista();
 menu.lisaaAteria("Tofuratatouille");
 menu.lisaaAteria("Chili-kookoskana");
@@ -105,30 +175,49 @@ menu.tyhjennaRuokalista();
 System.out.println();
 menu.lisaaAteria("Tomaatti-mozzarellasalaatti");
 menu.tulostaAteriat();
+``` -->
+
+```java
+Menu menu = new Menu();
+menu.addMeal("Tofuratatouille");
+menu.addMeal("Chilli coconut chicken");
+menu.addMeal("Chilli coconut chicken");
+menu.addMeal("Meatballs with mustard sauce");
+
+menu.printMeals();
+menu.clearMenu();
+
+System.out.println();
+menu.addMeal("Tomato and mozzarella salad");
+menu.printMeals();
 ```
 
 <sample-output>
 
 Tofuratatouille
-Chili-kookoskana
-Lihapyörykät sinappikastikeella
+Chilli coconut chicken
+Meatballs with mustard sauce
 
-Tomaatti-mozzarellasalaatti
+Tomato and mozzarella salad
 
 </sample-output>
 
-
-<h2>Aterian lisääminen</h2>
+<!-- <h2>Aterian lisääminen</h2>
 
 Toteuta metodi `public void lisaaAteria(String ateria)`, joka lisää uuden aterian listalle `ateriat`. Jos lisättävä ateria on jo listalla, sitä ei tule lisätä uudelleen. Listan metodi `contains` on näppärä olemassaolon tarkastamiseen.
 
-
 <h2>Aterioiden tulostaminen</h2>
 
-Toteuta metodi `public void tulostaAteriat()`, joka tulostaa ateriat. Voit kokeilla ohjelmaa seuraavalla esimerkkikoodilla.
+Toteuta metodi `public void tulostaAteriat()`, joka tulostaa ateriat. Voit kokeilla ohjelmaa seuraavalla esimerkkikoodilla. -->
+<h2>Adding a Meal</h2>
 
+Implement the `public void addMeal(String meal)` method, which adds a new meal to the `meals` list. If the meal you want to add is already on the list, you shouldn't add it again. The list method `contains` is handy for checking an items existence on it.
 
-```java
+<h2>Printing the Meals</h2>
+
+Implement the `public void printMeals()` method, which prints the meals. You can test out the program using the following example code.
+
+<!-- ```java
 Ruokalista menu = new Ruokalista();
 menu.lisaaAteria("Tofuratatouille");
 menu.lisaaAteria("Chili-kookoskana");
@@ -136,24 +225,42 @@ menu.lisaaAteria("Chili-kookoskana");
 menu.lisaaAteria("Lihapyörykät sinappikastikeella");
 
 menu.tulostaAteriat();
+``` -->
+
+```java
+Menu menu = new Menu();
+menu.addMeal("Tofuratatouille");
+menu.addMeal("Chilli Coconut Chicken");
+menu.addMeal("Chilli Coconut Chicken");
+menu.addMeal("Meatballs with mustard sauce");
+
+menu.printMeals();
 ```
 
 <sample-output>
 
-Tofuratatouille
+<!-- Tofuratatouille
 Chili-kookoskana
-Lihapyörykät sinappikastikeella
+Lihapyörykät sinappikastikeella -->
+
+Tofuratatouille
+Chilli Coconut Chicken
+Meatballs with mustard sauce
 
 </sample-output>
 
-
-<h2>Ruokalistan tyhjentäminen</h2>
+<!-- <h2>Ruokalistan tyhjentäminen</h2>
 
 Toteuta metodi `public void tyhjennaRuokalista()` joka tyhjentää ruokalistan. `ArrayList`-luokalla on metodi josta on tässä hyötyä. NetBeans osaa vihjata käytettävissä olevista metodeista kun kirjoitat olion nimen ja pisteen. Yritä kirjoittaa `ateriat.` metodirungon sisällä ja katso mitä käy.
 
-Kun ruokalista on valmis, kokeile sitä seuraavalla esimerkkikoodilla.
+Kun ruokalista on valmis, kokeile sitä seuraavalla esimerkkikoodilla. -->
+<h2>Clearing the Food List</h2>
 
-```java
+Implement the `public void clearMenu()` method, which clears the menu. The `ArrayList` class has a method which is useful here. NetBeans can hint at the available methods when you type the object name an a dot. Try to write `meals.` inside the method frame and see what happens.
+
+Once the menu is ready, try it with the following example code.
+
+<!-- ```java
 Ruokalista menu = new Ruokalista();
 menu.lisaaAteria("Tofuratatouille");
 menu.lisaaAteria("Chili-kookoskana");
@@ -166,25 +273,45 @@ menu.tyhjennaRuokalista();
 System.out.println();
 menu.lisaaAteria("Tomaatti-mozzarellasalaatti");
 menu.tulostaAteriat();
+``` -->
+
+```java
+Menu menu = new Menu();
+menu.addMeal("Tofuratatouille");
+menu.addMeal("Chilli Coconut Chicken");
+menu.addMeal("Chilli Coconut Chicken");
+menu.addMeal("Meatballs with mustard sauce");
+
+menu.printMeals();
+menu.clearMenu();
+
+System.out.println();
+menu.addMeal("Tomato and mozzarella salad");
+menu.printMeals();
 ```
 
 <sample-output>
 
-Tofuratatouille
+<!-- Tofuratatouille
 Chili-kookoskana
 Lihapyörykät sinappikastikeella
 
-Tomaatti-mozzarellasalaatti
+Tomaatti-mozzarellasalaatti -->
+
+Tofuratatouille
+Chilli Coconut Chicken
+Meatballs with mustard sauce
+
+Tomato and mozzarella salad
 
 </sample-output>
 
-
 </programming-exercise>
 
+<!-- <programming-exercise name='Pakka (2 osaa)' tmcname='osa06-Osa06_02.Pakka'> -->
+<programming-exercise name='Deque (2 parts)' tmcname='osa06-Osa06_02.Deque'>
 
-<programming-exercise name='Pakka (2 osaa)' tmcname='osa06-Osa06_02.Pakka'>
-
-Pakka on tietorakenne, johon voi lisätä ja josta voi ottaa. Aina päälle tai päältä.
+<!-- Pakka on tietorakenne, johon voi lisätä ja josta voi ottaa. Aina päälle tai päältä.
 
 <h2>Pakkaan lisääminen ja tyhjyyden tarkastaminen</h2>
 
@@ -196,32 +323,62 @@ Luo luokka `Pakka`, jolla on oliomuuttujana merkkijonoja sisältävä listan. Li
 
 - `public ArrayList<String> arvot()` - palauttaa pakan sisältämän arvot listana.
 
-Voit kokeilla luokkaasi seuraavalla koodilla:
+Voit kokeilla luokkaasi seuraavalla koodilla: -->
 
-```java
+A deque is a data structure that you can add to and take from. Always to the top of it or from the top.
+
+<h2> Adding to the Deque and Checking Emptiness </h2>
+
+Create a `Deque` class that has a list of strings as an instance variable. Add the following methods to the class:
+
+- `public boolean isEmpty()` - returns a `boolean`-type value (true or false) that tells whether or not the deque is empty.
+
+- `public void add(String value)` - Adds the value given as a parameter to the top of the deque.
+
+- `public ArrayList<String> values()` - returns the values ​​contained in the deque as a list.
+
+You can test your class with the following code:
+
+<!-- ```java
 Pakka p = new Pakka();
 System.out.println(p.onTyhja());
 System.out.println(p.arvot());
 p.lisaa("Arvo");
 System.out.println(p.onTyhja());
 System.out.println(p.arvot());
+``` -->
+
+```java
+Deque d = new Deque();
+System.out.println(d.isEmpty());
+System.out.println(d.values());
+d.add("Value");
+System.out.println(d.isEmpty());
+System.out.println(d.values());
 ```
 
 <sample-output>
 
+<!-- true
+[]
+false
+[Arvo] -->
+
 true
 []
 false
-[Arvo]
+[Value]
 
 </sample-output>
 
+<!-- <h2>Pakasta ottaminen</h2>
 
-<h2>Pakasta ottaminen</h2>
+Lisää luokalle `Pakka` metodi `public String ota()`, joka palauttaa pakan päällimmäisenä olevan arvon (eli pakkaan viimeisenä lisätyn arvon) ja poistaa sen pakasta. -->
+<h2>Taking from the Deque</h2>
 
-Lisää luokalle `Pakka` metodi `public String ota()`, joka palauttaa pakan päällimmäisenä olevan arvon (eli pakkaan viimeisenä lisätyn arvon) ja poistaa sen pakasta.
+Add to the `Deque` class a `public String take()` method, which returns the topmost value of the deque (i.e., the last value added to the deque) and removes it from the deque.
 
-```java
+<!-- ```java
 Pakka p = new Pakka();
 System.out.println(p.onTyhja());
 System.out.println(p.arvot());
@@ -232,21 +389,42 @@ String otettu = p.ota();
 System.out.println(p.onTyhja());
 System.out.println(p.arvot());
 System.out.println(otettu);
+``` -->
+
+```java
+Deque d = new Deque();
+System.out.println(d.isEmpty());
+System.out.println(d.values());
+d.add("Value");
+System.out.println(d.isEmpty());
+System.out.println(d.values());
+String taken = d.take();
+System.out.println(d.isEmpty());
+System.out.println(d.values());
+System.out.println(take);
 ```
 
 <sample-output>
 
-true
+<!-- true
 []
 false
 [Arvo]
 true
 []
-Arvo
+Arvo -->
+
+true
+[]
+false
+[Value]
+true
+[]
+Value
 
 </sample-output>
 
-```java
+<!-- ```java
 Pakka p = new Pakka();
 p.lisaa("1");
 p.lisaa("2");
@@ -256,6 +434,19 @@ p.lisaa("5");
 
 while (!p.onTyhja()) {
     System.out.println(p.ota());
+}
+``` -->
+
+```java
+Deque d = new Deque();
+d.add("1");
+d.add("2");
+d.add("3");
+d.add("4");
+d.add("5");
+
+while (!d.isEmpty()) {
+    System.out.println(d.ota());
 }
 ```
 
@@ -269,18 +460,25 @@ while (!p.onTyhja()) {
 
 </sample-output>
 
-Vinkki! Kun ArrayListiin lisätään arvo, se menee listan loppuun. Viimeksi lisätty arvo on siis listan viimeisessä indeksissä -- listan tarjoamasta `length`-metodista on hyötyä viimeisen indeksin selvittämisessä. Poistaminen tietystä indeksistä onnistuu listan tarjoaman `remove`-metodin avulla.
+<!-- Vinkki! Kun ArrayListiin lisätään arvo, se menee listan loppuun. Viimeksi lisätty arvo on siis listan viimeisessä indeksissä -- listan tarjoamasta `length`-metodista on hyötyä viimeisen indeksin selvittämisessä. Poistaminen tietystä indeksistä onnistuu listan tarjoaman `remove`-metodin avulla. -->
+
+Tip! When a value is added to an ArrayList, it goes to the end of the list. As such, the most recently added value is in the last index of the list - the `length` method provided by the list is useful for finding the last index. You can remove an element from a particular index using the `remove` method provided by the list.
 
 </programming-exercise>
 
+<!-- ## Omia olioita oliomuuttujana olevalla listalla -->
 
-## Omia olioita oliomuuttujana olevalla listalla
+## Objects in an Instance Variable List
 
-Oliomuuttujana oleva lista voi sisältää merkkijonojen lisäksi myös muunlaisia olioita, kunhan listalla olevien olioiden tyyppi määritellään listan määrittelyn yhteydessä.
+<!-- Oliomuuttujana oleva lista voi sisältää merkkijonojen lisäksi myös muunlaisia olioita, kunhan listalla olevien olioiden tyyppi määritellään listan määrittelyn yhteydessä.
 
-Loimme edellisessä osassa luokan `Huvipuistolaite`, jonka avulla tarkastellaan pääseekö henkilö laitteen kyytiin. Luokka `Huvipuistolaite` näyttää seuraavalta.
+Loimme edellisessä osassa luokan `Huvipuistolaite`, jonka avulla tarkastellaan pääseekö henkilö laitteen kyytiin. Luokka `Huvipuistolaite` näyttää seuraavalta. -->
 
-```java
+A list that is an object's instance variable can contain objects other than strings as long as the type of objects in the list is specified when defining the list.
+
+In the previous section, we created a class called `AmusementParkRide`, which was used to check whether or not a person was eligible to get on a particular ride. The `Amusement park` class looks like the following.
+
+<!-- ```java
 public class Huvipuistolaite {
     private String nimi;
     private int alinPituus;
@@ -306,12 +504,41 @@ public class Huvipuistolaite {
             ", kävijöitä: " + this.kavijoita;
     }
 }
-```
-
-Laajennetaan luokkaa siten, että huvipuistolaite pitää kirjaa kyydissä olevista henkilöistä. Laajennetussa versiossa huvipuistolaitteella on oliomuuttujana lista, joka sisältää laitteeseen päässeet henkilöt. Lista luodaan konstruktorissa.
-
+``` -->
 
 ```java
+public class AmusementParkRide {
+    private String name;
+    private int minimumHeight;
+    private int visitors;
+
+    public AmusementParkRide(String name, int minimumHeight) {
+        this.name = name;
+        this.minimumHeight = minimumHeight;
+        this.visitors = 0;
+    }
+
+    public boolean isAllowedOn(Person person) {
+        if (person.getPituus() < this.minimumHeight) {
+            return false;
+        }
+
+        this.visitors++;
+        return true;
+    }
+
+    public String toString() {
+        return this.name + ", minimum height requirement: " + this.minimumHeight +
+            ", visitors: " + this.visitors;
+    }
+}
+```
+
+<!-- Laajennetaan luokkaa siten, että huvipuistolaite pitää kirjaa kyydissä olevista henkilöistä. Laajennetussa versiossa huvipuistolaitteella on oliomuuttujana lista, joka sisältää laitteeseen päässeet henkilöt. Lista luodaan konstruktorissa. -->
+
+We'll extend the class so that the amusement park keeps track of the people on the ride. In this version, the ride has, as an instance variable, a list of the people who have been allowed on the ride. The list is created in the constructor.
+
+<!-- ```java
 public class Huvipuistolaite {
     private String nimi;
     private int alinPituus;
@@ -327,11 +554,31 @@ public class Huvipuistolaite {
 
     // ..
 }
-```
-
-Muokataan seuraavaksi metodia `paaseeKyytiin`. Metodi lisää listalle ne henkilöt, jotka ovat tarpeeksi pitkiä.
+``` -->
 
 ```java
+public class AmusementParkRide {
+    private String name;
+    private int minimumHeigth;
+    private int visitors;
+    private ArrayList<Person> riding;
+
+    public AmusementParkRide(String name, int minimumHeigth) {
+        this.name = name;
+        this.minimumHeigth = minimumHeigth;
+        this.visitors = 0;
+        this.riding = new ArrayList<>();
+    }
+
+    // ..
+}
+```
+
+<!-- Muokataan seuraavaksi metodia `paaseeKyytiin`. Metodi lisää listalle ne henkilöt, jotka ovat tarpeeksi pitkiä. -->
+
+Let's change the method `isAllowedOn`. The method adds to the list all the persons who meet the height requirements.
+
+<!-- ```java
 public class Huvipuistolaite {
     private String nimi;
     private int alinPituus;
@@ -360,13 +607,43 @@ public class Huvipuistolaite {
             ", kävijöitä: " + this.kavijoita;
     }
 }
+``` -->
+
+```java
+public class AmusementParkRide {
+    private String name;
+    private int minimumHeight;
+    private int visitors;
+    private ArrayList<Person> riding;
+
+    public AmusementParkRide(String name, int minimumHeight) {
+        this.name = name;
+        this.minimumHeight = minimumHeight;
+        this.visitors = 0;
+        this.riding = new ArrayList<>();
+    }
+
+    public boolean isAllowedOn(Person person) {
+        if (person.getHeight() < this.minimumHeight) {
+            return false;
+        }
+
+        this.visitors++;
+        this.riding.add(person);
+        return true;
+    }
+
+    public String toString() {
+        return this.name + ", minimum height requirement: " + this.minimumHeight +
+            ", visitors: " + this.visitors;
+    }
+}
 ```
 
+<!-- <programming-exercise name='Viestipalvelu' tmcname='osa06-Osa06_03.Viestipalvelu'> -->
+<programming-exercise name='MessagingService' tmcname='osa06-Osa06_03.MessagingService'>
 
-
-<programming-exercise name='Viestipalvelu' tmcname='osa06-Osa06_03.Viestipalvelu'>
-
-Tehtäväpohjassa on valmiina luokka `Viesti`, jonka avulla voidaan luoda viestejä kuvaavia olioita. Jokaisella viestillä on lähettäjä ja sisältö.
+<!-- Tehtäväpohjassa on valmiina luokka `Viesti`, jonka avulla voidaan luoda viestejä kuvaavia olioita. Jokaisella viestillä on lähettäjä ja sisältö.
 
 Toteuta luokka `Viestipalvelu`. Luokalla tulee olla parametriton konstruktori ja sen tulee sisältää lista `Viesti`-olioita. Lisää luokalle tämän jälkeen seuraavat kaksi metodia:
 
@@ -374,17 +651,29 @@ Toteuta luokka `Viestipalvelu`. Luokalla tulee olla parametriton konstruktori ja
 
 - `public ArrayList<Viesti> getViestit()` - palauttaa viestipaveluun lisätyt viestit.
 
-Vinkki! Saat merkkijonon pituuden merkkijonoon liittyvällä `length()`-metodilla.
+Vinkki! Saat merkkijonon pituuden merkkijonoon liittyvällä `length()`-metodilla. -->
+
+The exercise template comes with a pre-defined `Message` class that can be used to create objects representing messages. Each message has a sender and some content.
+
+Implement the `MessagingService` class. The class must have a parameterless constructor and contain a list of `Message` objects. After that, add the following two methods to the class:
+
+- `public void Add(Message message)` - adds a message passed as a parameter to the messaging service as long as the message content is at most 280 characters long.
+
+- `public ArrayList<Message> getMessages()` - returns the messages added to the messaging service.
+
+Tip! You can find out the length of the string using the `length()` method associated with the string.
 
 </programming-exercise>
 
+<!-- ### Listan sisältävän olion tulostaminen -->
 
-### Listan sisältävän olion tulostaminen
+### Printing an Object from a List
 
-Muokataan seuraavaksi metodia `toString` siten, että metodin palauttama merkkijono sisältää jokaisen kyydissä olevan henkilön nimen.
+<!-- Muokataan seuraavaksi metodia `toString` siten, että metodin palauttama merkkijono sisältää jokaisen kyydissä olevan henkilön nimen. -->
 
+Let's now modify the `toString` method so that the string returned by the method contains the name of each and every person on the ride.
 
-```java
+<!-- ```java
 public class Huvipuistolaite {
     private String nimi;
     private int alinPituus;
@@ -407,11 +696,38 @@ public class Huvipuistolaite {
             "kyydissä:\n" + kyydissaOlijat;
     }
 }
-```
-
-Kokeillaan laajennettua huvipuistolaitetta:
+``` -->
 
 ```java
+public class AmusementParkRide {
+    private String name;
+    private int minimumHeight;
+    private int visitors;
+    private ArrayList<Person> riding;
+
+    // ...
+
+    public String toString() {
+        // let's form a string from all the people on the list
+        String onTheRide = "";
+        for (Person person: kyydissa) {
+            onTheRide = onTheRide + person.getName() + "\n";
+        }
+
+        // we return a string describing the object
+        // including the names of those on the ride
+        return this.name + ", minimum height requirement: " + this.minimumHeight +
+            ", visitors: " + this.visitors + "\n" +
+            "riding:\n" + onTheRide;
+    }
+}
+```
+
+<!-- Kokeillaan laajennettua huvipuistolaitetta: -->
+
+Let's test out the extended amusement park ride:
+
+<!-- ```java
 Henkilo matti = new Henkilo("Matti");
 matti.setPaino(86);
 matti.setPituus(180);
@@ -438,27 +754,68 @@ if (hurjakuru.paaseeKyytiin(juhana)) {
 }
 
 System.out.println(hurjakuru);
+``` -->
+
+```java
+Person matti = new Person("Matti");
+matti.setWeigth(86);
+matti.setHeight(180);
+
+Person juhana = new Person("Juhana");
+juhana.setWeigth(34);
+juhana.setHeight(132);
+
+AmusementParkRide hurjakuru = new AmusementParkRide("Hurjakuru", 140);
+System.out.println(hurjakuru);
+
+System.out.println();
+
+if (hurjakuru.isAllowedOn(matti)) {
+    System.out.println(matti.getNimi() + " is allowed on the ride");
+} else {
+    System.out.println(matti.getNimi() + " is not allowed on the ride");
+}
+
+if (hurjakuru.isAllowedOn(juhana)) {
+    System.out.println(juhana.getNimi() + " is allowed on the ride");
+} else {
+    System.out.println(juhana.getNimi() + " is not allowed on the ride");
+}
+
+System.out.println(hurjakuru);
 ```
 
-Ohjelma tulostaa:
+<!-- Ohjelma tulostaa: -->
+
+The program's output is:
 
 <sample-output>
 
-Hurjakuru, pituusalaraja: 140, kävijöitä: 0
+<!-- Hurjakuru, pituusalaraja: 140, kävijöitä: 0
 kyydissä:
 
 Matti pääsee laitteeseen
 Juhana ei pääse laitteeseen
 Hurjakuru, pituusalaraja: 140, kävijöitä: 1
 kyydissä:
+Matti -->
+
+Hurjakuru, minimum height requirement: 140, visitors: 0
+riding:
+
+Matti is allowed on the ride
+Juhana is not allowed on the ride
+Hurjakuru, minimum height requirement: 140, visitors: 1
+riding:
 Matti
 
 </sample-output>
 
-Vaikka laitteessa ei ole ketään kyydissä, on tulostuksessa silti merkkijono `kyydissä:`. Muokataan metodia `toString` siten, että jos kyydissä ei ole ketään, metodi palauttamassa merkkijonossa on tieto siitä.
+<!-- Vaikka laitteessa ei ole ketään kyydissä, on tulostuksessa silti merkkijono `kyydissä:`. Muokataan metodia `toString` siten, että jos kyydissä ei ole ketään, metodi palauttamassa merkkijonossa on tieto siitä. -->
 
+Even though there is no one on the ride, the string `riding:` is on the print output. Let's modify the `toString` method so that if there is no one on the ride, the string returned by the method informs of it.
 
-```java
+<!-- ```java
 public class Huvipuistolaite {
     private String nimi;
     private int alinPituus;
@@ -494,12 +851,51 @@ public class Huvipuistolaite {
             "kyydissä:\n" + kyydissaOlijat;
     }
 }
-```
-
-Nyt olion tulostus on parempi.
-
+``` -->
 
 ```java
+public class AmusementParkRide {
+    private String name;
+    private int minimumHeight;
+    private int visitors;
+    private ArrayList<Person> kyydissa;
+
+    public AmusementParkRide(String name, int minimumHeight) {
+        this.name = name;
+        this.minimumHeight = minimumHeight;
+        this.visitors = 0;
+        this.riding = new ArrayList<>();
+    }
+
+    // ...
+
+    public String toString() {
+
+        String printOutput = this.name + ", minimum height requirement: " + this.minimumHeight +
+            ", visitors: " + this.visitors + "\n";
+
+        if (riding.isEmpty()) {
+            return printOutput + "no one is on the ride.";
+        }
+
+        // we form a string from the people on the list
+        String peopleOnRide = "";
+
+        for (Person person: riding) {
+            peopleOnRide = peopleOnRide + person.getName() + "\n";
+        }
+
+        return printOutput + "\n" +
+            "on the ride:\n" + peopleOnRide;
+    }
+}
+```
+
+<!-- Nyt olion tulostus on parempi. -->
+
+The print output has now been improved.
+
+<!-- ```java
 Henkilo matti = new Henkilo("Matti");
 matti.setPaino(86);
 matti.setPituus(180);
@@ -526,32 +922,74 @@ if (hurjakuru.paaseeKyytiin(juhana)) {
 }
 
 System.out.println(hurjakuru);
+``` -->
+
+```java
+Person matti = new Person("Matti");
+matti.setWeight(86);
+matti.setHeight(180);
+
+Person juhana = new Person("Juhana");
+juhana.setWeight(34);
+juhana.setHeight(132);
+
+AmusementParkRide hurjakuru = new AmusementParkRide("Hurjakuru", 140);
+System.out.println(hurjakuru);
+
+System.out.println();
+
+if (hurjakuru.isAllowedOn(matti)) {
+    System.out.println(matti.getName() + " is allowed on the ride");
+} else {
+    System.out.println(matti.getName() + " is not allowed on the ride");
+}
+
+if (hurjakuru.isAllowedOn(juhana)) {
+    System.out.println(juhana.getName() + " is allowed on the ride");
+} else {
+    System.out.println(juhana.getName() + " is not allowed on the ride");
+}
+
+System.out.println(hurjakuru);
 ```
 
-Ohjelma tulostaa:
+<!-- Ohjelma tulostaa: -->
 
+The program's output is:
 <sample-output>
 
-Hurjakuru, pituusalaraja: 140, kävijöitä: 0
+<!-- Hurjakuru, pituusalaraja: 140, kävijöitä: 0
 ei ketään kyydissä.
 
 Matti pääsee laitteeseen
 Juhana ei pääse laitteeseen
 Hurjakuru, pituusalaraja: 140, kävijöitä: 1
 kyydissä:
+Matti -->
+
+Hurjakuru, minimum height requirement: 140, visitors: 0
+no one is on the ride.
+
+Matti is allowed on the ride
+Juhana is not allowed on the ride
+Hurjakuru, minimum height requirement: 140, visitors: 1
+on the ride:
 Matti
 
 </sample-output>
 
+<!-- <programming-exercise name='Joukon tulostaminen' tmcname='osa06-Osa06_04.JoukonTulostaminen'> -->
+<programming-exercise name='Printing a Set' tmcname='osa06-Osa06_04.PrintingASet'>
 
-<programming-exercise name='Joukon tulostaminen' tmcname='osa06-Osa06_04.JoukonTulostaminen'>
+<!-- Tehtäväpohjassa on valmiina luokka `Joukko`, jota käytetään arvoja sisältävän joukon kuvaamiseen. Luokalta puuttuu tulostamiseen käytettävä `toString`-metodi.
 
-Tehtäväpohjassa on valmiina luokka `Joukko`, jota käytetään arvoja sisältävän joukon kuvaamiseen. Luokalta puuttuu tulostamiseen käytettävä `toString`-metodi.
+Toteuta luokalle `toString`-metodi, jonka avulla tulostus toimii seuraavien esimerkkien kuvaamalla tavalla. -->
 
-Toteuta luokalle `toString`-metodi, jonka avulla tulostus toimii seuraavien esimerkkien kuvaamalla tavalla.
+The exercise template has a predefined `Set` class, which is used to represent a group of values. The class is missing the `toString` method used for printing.
 
+Implement a `toString` method for the class that will perform as demonstrated in the following examples.
 
-```java
+<!-- ```java
 Joukko j = new Joukko("aakkoset");
 System.out.println(j);
 
@@ -569,11 +1007,31 @@ System.out.println();
 
 j.lisaa("c");
 System.out.println(j);
+``` -->
+
+```java
+Set s = new Set("alphabet");
+System.out.println(s);
+
+System.out.println();
+
+s.add("a");
+System.out.println(s);
+
+System.out.println();
+
+s.add("b");
+System.out.println(s);
+
+System.out.println();
+
+s.add("c");
+System.out.println(s);
 ```
 
 <sample-output>
 
-Joukko aakkoset on tyhjä.
+<!-- Joukko aakkoset on tyhjä.
 
 Joukossa aakkoset on 1 alkio:
 a
@@ -585,12 +1043,25 @@ b
 Joukossa aakkoset on 3 alkiota:
 a
 b
+c -->
+
+The set alphabet is empty.
+
+The set alphabet has 1 element:
+a
+
+The set alphabet has 2 elements:
+a
+b
+
+The set alphabet on 3 elements:
+a
+b
 c
 
 </sample-output>
 
-
-```java
+<!-- ```java
 Joukko j = new Joukko("hahmot");
 System.out.println(j);
 
@@ -608,11 +1079,31 @@ System.out.println();
 
 j.lisaa("phoenix");
 System.out.println(j);
+``` -->
+
+```java
+Set s = new Set("characters");
+System.out.println(s);
+
+System.out.println();
+
+s.lisaa("magneto");
+System.out.println(s);
+
+System.out.println();
+
+s.lisaa("mystique");
+System.out.println(s);
+
+System.out.println();
+
+s.lisaa("phoenix");
+System.out.println(s);
 ```
 
 <sample-output>
 
-Joukko hahmot on tyhjä.
+<!-- Joukko hahmot on tyhjä.
 
 Joukossa hahmot on 1 alkio:
 magneto
@@ -624,19 +1115,35 @@ mystique
 Joukossa hahmot on 3 alkiota:
 magneto
 mystique
+phoenix -->
+
+The set characters is empty.
+
+The set characters has 1 element:
+magneto
+
+The set characters has 2 elements:
+magneto
+mystique
+
+The set characters has 3 elements:
+magneto
+mystique
 phoenix
 
 </sample-output>
 
 </programming-exercise>
 
+<!-- ### Olion sisältämän listan tyhjentäminen -->
 
-### Olion sisältämän listan tyhjentäminen
+### Clearing an Object's List
 
-Lisätään huvipuistolaitteelle seuraavaksi metodi `poistaKaikkiKyydista`, joka poistaa kaikki laitteessa olevat henkilöt laitteen kyydistä. Tässä listan metodi `clear` on erittäin kätevä.
+<!-- Lisätään huvipuistolaitteelle seuraavaksi metodi `poistaKaikkiKyydista`, joka poistaa kaikki laitteessa olevat henkilöt laitteen kyydistä. Tässä listan metodi `clear` on erittäin kätevä. -->
 
+We'll next add a `removeEveryoneOnRide` method to the amusement park ride, which removes each and every person currently on the ride.The list method `clear` is very handy here.
 
-```java
+<!-- ```java
 public class Huvipuistolaite {
     // ..
 
@@ -646,9 +1153,21 @@ public class Huvipuistolaite {
 
     // ..
 }
-```
+``` -->
 
 ```java
+public class AmusementParkRIde {
+    // ..
+
+    public void removeEveryoneOnRide() {
+        this.riding.clear();
+    }
+
+    // ..
+}
+```
+
+<!-- ```java
 Henkilo matti = new Henkilo("Matti");
 matti.setPaino(86);
 matti.setPituus(180);
@@ -680,14 +1199,49 @@ hurjakuru.poistaKaikkiKyydista();
 
 System.out.println();
 System.out.println(hurjakuru);
+``` -->
+
+```java
+Person matti = new Person("Matti");
+matti.setWeight(86);
+matti.setHeight(180);
+
+Person juhana = new Person("Juhana");
+juhana.setWeight(34);
+juhana.setHeight(132);
+
+AmusementParkRide hurjakuru = new AmusementParkRide("Hurjakuru", 140);
+System.out.println(hurjakuru);
+
+System.out.println();
+
+if (hurjakuru.isAllowedOn(matti)) {
+    System.out.println(matti.getName() + " is allowed on the ride");
+} else {
+    System.out.println(matti.getName() + " is not allowed on the ride");
+}
+
+if (hurjakuru.isAllowedOn(juhana)) {
+    System.out.println(juhana.getName() + " is allowed on the ride");
+} else {
+    System.out.println(juhana.getName() + " is not allowed on the ride");
+}
+
+System.out.println(hurjakuru);
+
+hurjakuru.removeEveryoneOnRide();
+
+System.out.println();
+System.out.println(hurjakuru);
 ```
 
-Ohjelma tulostaa:
+<!-- Ohjelma tulostaa: -->
+
+The program's output is:
 
 <sample-output>
 
-
-Hurjakuru, pituusalaraja: 140, kävijöitä: 0
+<!-- Hurjakuru, pituusalaraja: 140, kävijöitä: 0
 ei ketään kyydissä.
 
 Matti pääsee laitteeseen
@@ -697,19 +1251,35 @@ kyydissä:
 Matti
 
 Hurjakuru, pituusalaraja: 140, kävijöitä: 1
-ei ketään kyydissä.
+ei ketään kyydissä. -->
+
+Hurjakuru, minimum height requirement: 140, visitors: 0
+no one is on the ride.
+
+Matti is allowed on the ride.
+Juhana is not allowed on the ride
+Hurjakuru, minimum height requirement: 140, visitors: 1
+on the ride:
+Matti
+
+Hurjakuru, minimum height requirement: 140, visitors: 1
+no one is on the ride.
 
 </sample-output>
 
+<!-- ### Yhteenvetoarvon laskeminen listalla olevista olioista -->
 
-### Yhteenvetoarvon laskeminen listalla olevista olioista
+### Calculating a Sum from Objects on a List
 
-Tehdään huvipuistolaitteelle seuraavaksi metodi, joka laskee kyydissä olevien henkilöiden keskipituuden. Keskipituus saadaan laskemalla kyydissä olevien keskiarvo -- keskiarvo laskettiin selvittämällä lukujen summa ja jakamalla summa lukujen määrällä.
+<!-- Tehdään huvipuistolaitteelle seuraavaksi metodi, joka laskee kyydissä olevien henkilöiden keskipituuden. Keskipituus saadaan laskemalla kyydissä olevien keskiarvo -- keskiarvo laskettiin selvittämällä lukujen summa ja jakamalla summa lukujen määrällä.
 
-Alla olevassa toteutuksessa palautetaan arvo `-1` mikäli kyydissä ei ole yhtäkään henkilöä. Pituuksien keskiarvoa laskevassa ohjelmassa luku `-1` on mahdoton, joten siitä voi päätellä ettei keskiarvoa ole voitu laskea.
+Alla olevassa toteutuksessa palautetaan arvo `-1` mikäli kyydissä ei ole yhtäkään henkilöä. Pituuksien keskiarvoa laskevassa ohjelmassa luku `-1` on mahdoton, joten siitä voi päätellä ettei keskiarvoa ole voitu laskea. -->
 
+Let's now create a method for the amusement park ride that calculates the average height of the people currently on it. Average height can obtained by calculating the average from the persons on the ride -- the average is calculated by adding up the individual values and dividing that sum by the number of values.
 
-```java
+The implementation underneath returns `-1` if not a single person is on the ride. The result of `-1` is impossible in a program that calculates averages. Based on that, we can determine that the average could not have been calculated.
+
+<!-- ```java
 public class Huvipuistolaite {
     private String nimi;
     private int alinPituus;
@@ -729,6 +1299,32 @@ public class Huvipuistolaite {
         }
 
         return 1.0 * pituuksienSumma / kyydissa.size();
+    }
+
+    // ..
+}
+``` -->
+
+```java
+public class AmusementParkRide {
+    private String name;
+    private int minimumHeight;
+    private int visitors;
+    private ArrayList<Henkilo> riding;
+
+    // ..
+
+    public double averageHeightOfPeopleOnRide() {
+        if (riding.isEmpty()) {
+            return -1;
+        }
+
+        int sumOfHeights = 0;
+        for (Person per: riding) {
+            sumOfHeights += per.getHeight();
+        }
+
+        return 1.0 * sumOfHeights / riding.size();
     }
 
     // ..
@@ -767,11 +1363,9 @@ Awak
 
 </sample-output>
 
-
 <programming-exercise name='Lahjapakkaamo (2 osaa)' tmcname='osa06-Osa06_05.Lahjapakkaamo'>
 
 Tässä tehtävässä harjoitellaan lahjojen pakkaamista. Tehdään luokat `Lahja` ja `Pakkaus`. Lahjalla on nimi ja paino, ja Pakkaus sisältää lahjoja.
-
 
 <h2>Lahja-luokka</h2>
 
@@ -787,9 +1381,7 @@ Lisää luokkaan seuraavat metodit:
 
 - Metodi `public String toString()`, joka palauttaa merkkijonon muotoa "nimi (paino kg)"
 
-
 Seuraavassa on luokan käyttöesimerkki:
-
 
 ```java
 public class Main {
@@ -804,9 +1396,7 @@ public class Main {
 }
 ```
 
-
 Ohjelman tulostuksen tulisi olla seuraava:
-
 
 <sample-output>
 
@@ -815,7 +1405,6 @@ Lahjan paino: 2
 Lahja: Aapiskukko (2 kg)
 
 </sample-output>
-
 
 <h2>Pakkaus-luokka</h2>
 
@@ -827,16 +1416,13 @@ Tee luokka `Pakkaus`, johon voi lisätä lahjoja, ja joka pitää kirjaa pakkauk
 
 - Metodi `public int yhteispaino()`, joka palauttaa pakkauksessa olevien lahjojen yhteispainon.
 
-
 Tavarat kannattaa tallentaa `ArrayList`-olioon:
-
 
 ```java
 ArrayList<Lahja> lahjat = new ArrayList<>();
 ```
 
 Seuraavassa on luokan käyttöesimerkki:
-
 
 ```java
 public class Main {
@@ -859,7 +1445,6 @@ Ohjelman tulostuksen tulisi olla seuraava:
 </sample-output>
 
 </programming-exercise>
-
 
 ### Tietyn olion hakeminen listalta
 
@@ -937,7 +1522,6 @@ Awak
 
 </sample-output>
 
-
 <programming-exercise name='Joukon pisin' tmcname='osa06-Osa06_06.JoukonPisin'>
 
 Tehtäväpohjassa on mukana aiemmasta tehtävästä tuttu luokka `Joukko`. Toteuta luokkaan metodi `public String pisin()`, joka palauttaa joukon pisimmän merkkijonon. Mikäli joukko on tyhjä, metodin tulee palauttaa `null`-viite.
@@ -962,13 +1546,11 @@ Pisin: mystique
 
 </programming-exercise>
 
-
 <programming-exercise name='Pituusjärjestys (3 osaa)' tmcname='osa06-Osa06_07.Pituusjarjestys'>
 
 Tehtäväpohjassa on valmiina luokka `Henkilo`. Henkilöllä on nimi ja pituus. Toteutetaan tässä tehtävässä luokka `Huone`, jonne voi lisätä henkilöitä, ja jota voi käyttää henkilöiden pituusjärjestykseen asettamiseen -- henkilön ottaminen huoneesta palauttaa aina lyhyimmän henkilön.
 
 Luokka tulee lopulta toimimaan seuraavalla tavalla.
-
 
 <h2>Huone</h2>
 
@@ -1009,11 +1591,9 @@ Terhi (185 cm)
 
 </sample-output>
 
-
 <h2>Lyhin henkilö</h2>
 
 Lisää luokalle `Huone` metodi `public Henkilo lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, palauttaa `null`-viitteen. Metodin ei tule poistaa henkilöä huoneesta.
-
 
 ```java
 Huone huone = new Huone();
@@ -1060,7 +1640,6 @@ Nina (172 cm)
 Terhi (185 cm)
 
 </sample-output>
-
 
 <h2>Huoneesta ottaminen</h2>
 
@@ -1131,14 +1710,11 @@ Auli (186 cm)
 
 </programming-exercise>
 
-
 <programming-exercise name='Tavara, Matkalaukku ja Lastiruuma (7 osaa)' tmcname='osa06-Osa06_08.TavaraMatkalaukkuJaLastiruuma' nocoins='true'>
 
 Tässä tehtäväsarjassa tehdään luokat `Tavara`, `Matkalaukku` ja `Lastiruuma`, joiden avulla harjoitellaan lisää olioita, jotka sisältävät toisia olioita.
 
-
 <h2>Tavara-luokka</h2>
-
 
 Tee luokka `Tavara`, josta muodostetut oliot vastaavat erilaisia tavaroita. Tallennettavat tiedot ovat tavaran nimi ja paino (kg).
 
@@ -1171,7 +1747,6 @@ public class Main {
 
 Ohjelman tulostuksen tulisi olla seuraava:
 
-
 <sample-output>
 
 Kirjan nimi: Aapiskukko
@@ -1181,22 +1756,19 @@ Puhelin: Nokia 3210 (1 kg)
 
 </sample-output>
 
-
 <h2>Matkalaukku-luokka</h2>
 
 Tee luokka `Matkalaukku`. Matkalaukkuun liittyy tavaroita ja maksimipaino, joka määrittelee tavaroiden suurimman mahdollisen yhteispainon.
 
 Lisää luokkaan seuraavat metodit:
 
--  Konstruktori, jolle annetaan maksimipaino
+- Konstruktori, jolle annetaan maksimipaino
 
--  Metodi `public void lisaaTavara(Tavara tavara)`, joka lisää parametrina annettavan tavaran matkalaukkuun. Metodi ei palauta mitään arvoa.
+- Metodi `public void lisaaTavara(Tavara tavara)`, joka lisää parametrina annettavan tavaran matkalaukkuun. Metodi ei palauta mitään arvoa.
 
--  Metodi `public String toString()`, joka palauttaa merkkijonon muotoa "x tavaraa (y kg)"
-
+- Metodi `public String toString()`, joka palauttaa merkkijonon muotoa "x tavaraa (y kg)"
 
 Tavarat kannattaa tallentaa `ArrayList`-olioon:
-
 
 ```java
 ArrayList<Tavara> tavarat = new ArrayList<>();
@@ -1205,7 +1777,6 @@ ArrayList<Tavara> tavarat = new ArrayList<>();
 Luokan `Matkalaukku` tulee valvoa, että sen sisältämien tavaroiden yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi lisättävän tavaran vuoksi, metodi `lisaaTavara` ei saa lisätä uutta tavaraa laukkuun.
 
 Seuraavassa on luokan käyttöesimerkki:
-
 
 ```java
 public class Main {
@@ -1240,7 +1811,6 @@ Ohjelman tulostuksen tulisi olla seuraava:
 
 </sample-output>
 
-
 <h2>Kielenhuoltoa</h2>
 
 Ilmoitukset "0 tavaraa" ja "1 tavaraa" eivät ole kovin hyvää suomea -- paremmat muodot olisivat "ei tavaroita" ja "1 tavara". Tee tämä muutos luokassa `Matkalaukku` sijaitsevaan toString-metodiin.
@@ -1256,19 +1826,15 @@ ei tavaroita (0 kg)
 
 </sample-output>
 
-
 <h2>Kaikki tavarat</h2>
-
 
 Lisää luokkaan `Matkalaukku` seuraavat metodit:
 
--  metodi `tulostaTavarat`, joka tulostaa kaikki matkalaukussa olevat tavarat
+- metodi `tulostaTavarat`, joka tulostaa kaikki matkalaukussa olevat tavarat
 
--  metodi `yhteispaino`, joka palauttaa tavaroiden yhteispainon
-
+- metodi `yhteispaino`, joka palauttaa tavaroiden yhteispainon
 
 Seuraavassa on luokan käyttöesimerkki:
-
 
 ```java
 public class Main {
@@ -1303,7 +1869,6 @@ Yhteispaino: 7 kg
 
 Muokkaa myös luokkaasi siten, että käytät vain kahta oliomuuttujaa. Toinen sisältää maksimipainon, toinen on lista laukussa olevista tavaroista.
 
-
 <h2>Raskain tavara</h2>
 
 Lisää vielä luokkaan `Matkalaukku` metodi `raskainTavara`, joka palauttaa painoltaan suurimman tavaran. Jos yhtä raskaita tavaroita on useita, metodi voi palauttaa minkä tahansa niistä. Metodin tulee palauttaa olioviite. Jos laukku on tyhjä, palauta arvo <em>null</em>.
@@ -1330,26 +1895,21 @@ public class Main {
 
 Ohjelman tulostuksen tulisi olla seuraava:
 
-
 <sample-output>
 
 Raskain tavara: Tiiliskivi (4 kg)
 
 </sample-output>
 
-
 <h2>Lastiruuma-luokka</h2>
-
 
 Tee luokka `Lastiruuma`, johon liittyvät seuraavat metodit:
 
+- konstruktori, jolle annetaan maksimipaino
 
--  konstruktori, jolle annetaan maksimipaino
+- metodi `public void lisaaMatkalaukku(Matkalaukku laukku)`, joka lisää parametrina annetun matkalaukun lastiruumaan
 
--  metodi `public void lisaaMatkalaukku(Matkalaukku laukku)`, joka lisää parametrina annetun matkalaukun lastiruumaan
-
--  metodi `public String toString()`, joka palauttaa merkkijonon muotoa "x matkalaukkua (y kg)"
-
+- metodi `public String toString()`, joka palauttaa merkkijonon muotoa "x matkalaukkua (y kg)"
 
 Tallenna matkalaukut sopivaan `ArrayList`-rakenteeseen.
 
@@ -1387,7 +1947,6 @@ Ohjelman tulostuksen tulisi olla seuraava:
 2 matkalaukkua (7 kg)
 
 </sample-output>
-
 
 <h2>Lastiruuman sisältö</h2>
 
