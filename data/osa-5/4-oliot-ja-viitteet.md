@@ -1022,13 +1022,13 @@ Peter weight: 85 kilos
 
 <!-- <h2>Punnitusten laskeminen</h2> -->
 
-<h2>Counting weightings</h2>
+<h2>Counting weighings</h2>
 
 
 
 <!-- Tee kasvatuslaitokselle metodi `public int punnitukset()` joka kertoo kuinka monta punnitusta kasvatuslaitos on ylipäätään tehnyt. *Huom! Tarvitset uuden oliomuuttujan punnitusten lukumäärän laskemiseen!* Testipääohjelma: -->
 
-Create a new method called `public int weightings()` for the health station. It should tell how many weightings the health station has performed. *NB! You will need a new object variable for counting the number of weightings!*. Test main program:
+Create a new method called `public int weighings()` for the health station. It should tell how many weighings the health station has performed. *NB! You will need a new object variable for counting the number of weighings!*. Test main program:
 
 
 <!-- ```java
@@ -1064,19 +1064,19 @@ public static void main(String[] args) {
     Person ethan = new Person("Ethan", 1, 110, 7);
     Person peter = new Person("Peter", 33, 176, 85);
 
-    System.out.println("weightings performed: " + childrensHospital.weightings());
+    System.out.println("weighings performed: " + childrensHospital.weighings());
 
     childrensHospital.weigh(ethan);
     childrensHospital.weigh(peter);
 
-    System.out.println("weightings performed: " + childrensHospital.weightings());
+    System.out.println("weighings performed: " + childrensHospital.weighings());
 
     childrensHospital.weigh(ethan);
     childrensHospital.weigh(ethan);
     childrensHospital.weigh(ethan);
     childrensHospital.weigh(ethan);
 
-    System.out.println("weightings performed: " + childrensHospital.weightings());
+    System.out.println("weighings performed: " + childrensHospital.weighings());
 }
 ```
 
@@ -1094,9 +1094,9 @@ punnituksia tehty 6
 
 <sample-output>
 
-weightings performed: 0
-weightings performed: 2
-weightings performed: 6
+weighings performed: 0
+weighings performed: 2
+weighings performed: 6
 
 </sample-output>
 
