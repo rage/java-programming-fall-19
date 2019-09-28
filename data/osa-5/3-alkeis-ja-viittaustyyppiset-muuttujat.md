@@ -473,7 +473,7 @@ The execution of the program begins on the first line of the main method. On the
 *In the illustrations below, the call stack is on the left, and the memory of the program is on the right.
 
 
-<img src="../img/drawings/eka-1.png"/>
+<img src="../img/drawings/part5.3-first-1-tm.png"/>
 
 
 <!-- Main-metodin kolmannella rivillä tulostetaan muuttujan eka arvo. Metodikutsu System.out.println etsii sille parametrina annetulta viittaustyyppiseltä muuttujalta toString-metodia. Henkilo-luokalla on metodi toString, joten metodia kutsutaan eka-muuttujan osoittamalle oliolle. Oliossa olevan muuttujan nimi arvo on "Eka" ja syntymävuoden arvo on 1970. Tulostukseksi tulee "Eka (1970)". -->
@@ -486,14 +486,14 @@ On the third row of the main method we print the value of the variable first. Th
 On the fourth row the program calls the makeYounger method, and the variable first is passed as a parameter to it. When the method `makeYounger` is called, the value of the variable passed as the parameter is copied for the method `makeYounger` to use. The execution of the `main` method remains waiting in the call stack. As the variable first is reference type, the reference created earlier is copied for the method's use. At the end of the method execution the situation is the following -- the method increments by one the birth year of the object it receives as a parameter.
 
 
-<img src="../img/drawings/eka-2.png"/>
+<img src="../img/drawings/part5.3-first-2-tm.png"/>
 
 
 <!-- Kun metodin nuorenna suoritus loppuu, palataan takaisin main-metodiin. Nuorenna-metodin suoritukseen liittyvät tiedot katoavat kutsupinosta. -->
 
 When the execution of the method makeYounger ends, we return back to the main method. The information related to the execution of the makeYounger disappear from the call stack.
 
-<img src="../img/drawings/eka-3.png"/>
+<img src="../img/drawings/part5.3-first-3-tm.png"/>
 
 
 <!-- Metodikutsusta palaamisen jälkeen suoritetaan taas muuttujan eka arvon tulostaminen. Muuttujan eka osoittamaa oliota on muutettu metodikutsun `nuorenna` yhteydessä: olion `syntymavuosi`-muuttujaa kasvatettiin yhdellä. Tulostukseksi tulee lopulta "Eka (1971)". -->
@@ -505,14 +505,14 @@ After returning from the method call we again execute the printing of the variab
 Then the program introduces a new Person type variable called second. The value of the variable first is copied into the variable second: in other words, the value of the variable second is a reference to the already existing Person object.
 
 
-<img src="../img/drawings/eka-4.png"/>
+<img src="../img/drawings/part5.3-first-4-tm.png"/>
 
 
 <!-- Tämän jälkeen kutsutaan metodia nuorenna, jolle annetaan parametriksi muuttuja toka. Metodia kutsuttaessa parametriksi annetun muuttujan arvo kopioituu metodin arvoksi. Metodi saa siis käyttöönsä muuttujan toka sisältämän viitteen. Metodin suorituksen lopuksi metodin viittaaman olion syntymävuosi on kasvanut yhdellä. -->
 
 After this the program calls the method makeYounger, which is given the variable second as the parameter. The value of the given variable is copied as the value of a method variable when the method is called. At the end of the method execution there has been an increment of one in the object referenced by the method variable.
 
-<img src="../img/drawings/eka-5.png"/>
+<img src="../img/drawings/part5.3-first-5-tm.png"/>
 
 
 <!-- Lopulta metodin suoritus päättyy, ja ohjelman suoritus palaa takaisin main-metodiin. Main-metodissa tulostetaan vielä kerran muuttujan eka arvo. Tulostukseksi tulee lopulta "Eka (1972)". -->
