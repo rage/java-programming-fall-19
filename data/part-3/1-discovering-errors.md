@@ -1,7 +1,7 @@
 ---
-path: "/part-3/1-discovering-errors"
+path: '/part-3/1-discovering-errors'
 # title: 'Virheiden etsimisestä'
-title: "Discovering errors"
+title: 'Discovering errors'
 hidden: false
 ---
 

@@ -1,6 +1,6 @@
 ---
-path: "/osa-6/1-olioista-koostuvat-oliot"
-title: "Olioita listalla ja listan sisältävät oliot"
+path: '/osa-6/1-olioista-koostuvat-oliot'
+title: 'Olioita listalla ja listan sisältävät oliot'
 hidden: true
 ---
 
