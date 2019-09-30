@@ -1,10 +1,11 @@
 ---
-path: '/part-5/2-metodien-ja-konstruktorien-kuormittaminen'
-title: 'Decreasing repetitive code (overloading methods and constructors)'
-hidden: true
+#path: '/part-5/2-metodien-ja-konstruktorien-kuormittaminen'
+path: '/part-5/2-method-and-constructor-overloading'
+title: 'Removing repetitive code (overloading methods and constructors)'
+hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name='Learning objectives'>
 
 - Know the term overloading
 - Can create multiple constructors for a class.
@@ -98,7 +99,7 @@ public Person(String name) {
 
 
   <!-- Haluaisimme luoda henkilöitä myös siten, että konstruktorin parametrina annettaisiin ikä nimen lisäksi. Tämä onnistuu, sillä konstruktoreja voi olla useita. Tehdään vaihtoehtoinen konstruktori. Vanhaa konstruktoria ei tarvise poistaa. -->
-  We would like to also be able to create Persons so, that the constructor is given the age as well as the name as parameters. This is possible, because a class can have multiple constructors.
+  We would like to also be able to create Persons so that the constructor is given the age as well as the name as parameters. This is possible, because a class can have multiple constructors.
   Let's make an alternative constructor. You don't have to delete the old constructor.
 
 
@@ -150,7 +151,7 @@ We cannot for example now add a constructor `public Person(String name, int weig
 
 
 <!-- Mutta hetkinen, aiemmin todettiin että "copy-paste"-koodi ei ole hyvä idea. Kun tarkastellaan edellä tehtyjä kuormitettuja konstruktoreita, niissä on aika paljon samaa. Emme ole oikein tyytyväisiä tilanteeseen. -->
-But wait a second, previously you were told that "copy-paste"-code is never a good idea. When you look at the overloaded constructors above, they have a lot of the same code. We are not  happy with this.
+But wait a second, previously you were told that "copy-paste" code is never a good idea. When you look at the overloaded constructors above, they have a lot of the same code. We are not  happy with this.
 
 
 <!-- Konstruktoreista ylempi, eli nimen parametrinaan saava konstruktori, on oikeastaan alemman, eli nimen ja iän parametrinaan saavan konstruktorin, erikoistapaus. Entä jos ylempi konstruktori voisi "kutsua" alempaa konstruktoria? -->
@@ -206,7 +207,7 @@ Eve is 0 years old.
 
 <quiz id='07d6aee2-5f1c-5d11-b85e-7acc22c07fe2'></quiz>
 
-TODO: tänne tehtävä
+<!-- TODO: tänne tehtävä -->
 
 
 <programming-exercise name='Constructor overload' tmcname='part05-Part05_05.ConstructorOverload'>
@@ -320,14 +321,14 @@ public void growOlder(int years) {
 
 <quiz id='39c1cc72-f204-520e-9ad3-452ea6d841b6'></quiz>
 
-TODO: tarkasta että video oikealla kohdalla
+<!-- TODO: tarkasta että video oikealla kohdalla -->
 
 <youtube id='b6YmqoQopvs'></youtube>
 
 
 
 
-<programming-exercise name='Overloaded Counter (2 parts)' tmcname='osa05-Osa05_06.OverloadedCounter'>
+<programming-exercise name='Overloaded Counter (2 parts)' tmcname='part05-Part05_06.OverloadedCounter'>
 
 <h2>Multiple constructors</h2>
 
