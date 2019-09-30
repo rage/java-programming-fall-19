@@ -1,7 +1,9 @@
 ---
-path: '/part-5/1-katsaus-olio-ohjelmointiin'
-title: 'Katsaus olio-ohjelmointiin'
-hidden: true
+#path: '/part-5/1-katsaus-olio-ohjelmointiin'
+path: '/part-5/1-learning-object-oriented-programming'
+#title: 'Katsaus olio-ohjelmointiin'
+title: 'Learning object-oriented programming'
+hidden: false
 ---
 
 
@@ -30,7 +32,7 @@ Alla on kuvattuna kellon toteutus kokonaislukutyyppisillä muuttujilla (tulostam
 
 What is object-oriented programming all about? We'll rewind a little.
 
-Let's inspect how a digital clock works. The clock has three hands: hours, minutes and seconds. The second hand increments once every second, the minute hand once every sixty seconds, and the hour hand once in sixty minutes. When the value of the second hand is 60, its value is set to zero and the value of the minute hand is incremented by one. When the minute hand's value is 60, its value is set to zero and the hour hand value is incremented by one. When the hour hand value is 24, it is set to zero.
+Let's inspect how a clock works. The clock has three hands: hours, minutes and seconds. The second hand increments once every second, the minute hand once every sixty seconds, and the hour hand once in sixty minutes. When the value of the second hand is 60, its value is set to zero and the value of the minute hand is incremented by one. When the minute hand's value is 60, its value is set to zero and the hour hand value is incremented by one. When the hour hand value is 24, it is set to zero.
 
 Time is always printed in the form `hours: minutes: seconds`, where the hours are represented by two digits (eg. 01 or 12), minutes by two digits, and seconds also by two digits.
 
@@ -144,7 +146,7 @@ Koska viisari on oma selkeä käsitteensä, kannattaa ohjelman ymmärrettävyyde
 The aim is to make the program more comprehensible.
 
 
-Since a clock hand is a clear concept in and of itself, a good idea with regard to the program's understandability would be to turn it into its own class. Let's create a `ClockHand` class describing a clock hand, which contains information about its value, upper limit(i.e., the point at which the value of the hand returns to zero), and provides methods for advancing the hand, viewing its value and printing the value in string form.
+Since a clock hand is a clear concept in and of itself, a good idea with regard to the program's understandability would be to turn it into its own class. Let's create a `ClockHand` class describing a clock hand, which contains information about its value, upper limit (i.e. the point at which the value of the hand returns to zero), and provides methods for advancing the hand, viewing its value and printing the value in string form.
 
 
 <!--
@@ -184,7 +186,7 @@ public class Viisari {
 ```java
 public class ClockHand {
     private int value;
-    private int ylaraja;
+    private int limit;
 
     public ClockHand(int limit) {
         this.limit = limit;
@@ -214,7 +216,7 @@ public class ClockHand {
 ```
 
 <!-- Kun olemme luoneet luokan Viisari, muuttuu kellomme selkeämmäksi. Nyt kellon -- eli viisarien -- tulostaminen on suoraviivaista, jonka lisäksi viisarin eteneminen on piilotettu luokkaan Viisari. Koska viisarin palaaminen alkuun tapahtuu automaattisesti Viisari-luokkaan määritellyn yläraja-muuttujan avulla, on viisarien yhteistoiminta hieman erilaista kuin kokonaisluvuilla toteutetussa ohjelmassa. Kokonaisluvuilla toteutetussa ohjelmassa tarkasteltiin ylittääkö viisaria kuvaavan kokonaisluvun arvo ylärajan, jonka jälkeen arvo asetettiin nollaksi ja seuraavaa viisaria kuvaavan kokonaisluvun arvoa kasvatettiin. Viisari-olioita käytettäessä minuuttiviisarin eteneminen tapahtuu kun sekuntiviisarin arvo on nolla, ja tuntiviisarin eteneminen tapahtuu kun minuuttiviisarin arvo on nolla. -->
-Once we've created the ClockHand class, our clock becomes clearer. Now, printing the clock, i.e., the clock hand,  is straightforward, and the hand's progression is hidden away in the ClockHand class. Since the hand's return to the beginning happens automatically with the help of the upper-limit variable defined by the ClockHand class, the way the hands work together is slightly different than in the program implementation that uses integers. The program that used integers looked at whether the value of the integer that represented the clock hand exceeded the upper limit, after which its value was set to zero and the value of the integer representing the next clock hand was incremented. Using clock-hand objects, the minute hand advances when the second hand's value is zero, and the hour hand advances when the minute hand's value is zero.
+Once we've created the ClockHand class, our clock becomes clearer. Now, printing the clock, i.e. the clock hand,  is straightforward, and the hand's progression is hidden away in the ClockHand class. Since the hand's return to the beginning happens automatically with the help of the upper-limit variable defined by the ClockHand class, the way the hands work together is slightly different than in the program implementation that uses integers. The program that used integers looked at whether the value of the integer that represented the clock hand exceeded the upper limit, after which its value was set to zero and the value of the integer representing the next clock hand was incremented. Using clock-hand objects, the minute hand advances when the second hand's value is zero, and the hour hand advances when the minute hand's value is zero.
 
 <!-- ```java
 Viisari tunnit = new Viisari(24);
@@ -269,15 +271,14 @@ Käsitteen erottaminen omaksi luokaksi on monellakin tapaa hyvä idea. Ensinnäk
 
 
 Totesimme että kello sisältää kolme viisaria, eli koostuu kolmesta käsitteestä. Oikeastaan kello on itsekin käsite, eli voimme luoda sillekin oman luokkansa. Tehdään seuraavaksi luokka `Kello`, joka piilottaa viisarit sisäänsä. -->
-`` `
 
 
 **Object-oriented programming is mainly about isolating concepts into their own entities or, in other words, creating abstractions**. Despite the previous example, one might see it pointless to create an object containing only a number, since the same could be done directly with `int` variables. However, that is not always the case.
 
-Separating a concept into its own class is a good idea in many ways. Firstly, certain details (such as rotating the hand) can be hidden inside the class (ie **abstracted**). Instead of typing an if-statement and an assignment operation, it's enough for the user of the clock hand to call a clearly-named method `advance()`. The produced clock hand may be used as a building block for other programs as well - the class could be named `CounterLimitedFromTop` for instance. That is, a class created from a distinct concept can serve multiple purposes. Another massive advantage is that since the details of the implementation of the clock hand are not visible to its user, they can be changed if desired.
+Separating a concept into its own class is a good idea in many ways. Firstly, certain details (such as rotating the hand) can be hidden inside the class (i.e. **abstracted**). Instead of typing an if-statement and an assignment operation, it's enough for the user of the clock hand to call a clearly-named method `advance()`. The produced clock hand may be used as a building block for other programs as well - the class could be named `CounterLimitedFromTop` for instance. That is, a class created from a distinct concept can serve multiple purposes. Another massive advantage is that since the details of the implementation of the clock hand are not visible to its user, they can be changed if desired.
 
 
-We realized that the clock contains three hands, i.e., it consists of three concepts. In fact, the clock is a concept in and of itself. That is, we can create a class of it as well. Next, we create a class called "Clock" that hides the hands inside of it.
+We realized that the clock contains three hands, i.e. it consists of three concepts. In fact, the clock is a concept in and of itself. That is, we can create a class of it as well. Next, we create a class called "Clock" that hides the hands inside of it.
 
 
 
@@ -470,7 +471,7 @@ Java-ohjelmointikielellä Henkilö-olion, joka pitää kirjaa nimestä, iästä,
 
 ## Object
 
-An **Object** refers to an independent entity that has data (instance variables) and behavior (methods) attached to it. Objects can differ a lot in structure and function: some may describe concepts of a problem domain, and others coordinate the interaction between various objects. Object's interact with one another through method calls - method calls are used to both request information from objects and give instructions to them.
+An **Object** refers to an independent entity that has data (instance variables) and behavior (methods) attached to it. Objects can differ a lot in structure and function: some may describe concepts of a problem domain, and others coordinate the interaction between various objects. Objects interact with one another through method calls - method calls are used to both request information from objects and give instructions to them.
 In general, each object has clearly defined boundaries and behaviors, and each object knows only about the objects it needs to perform its task. In other words, the object hides its internal operations and provides access to behavior through clearly defined methods. Also, the object is independent of any objects that it doesn't need to accomplish its task.
 
 In the previous section, we dealt with objects depicting people whose structure was defined in a "Person" class. For review, it's a good idea to remember the purpose of a class: a **class** contains the blueprint needed to create objects, and also defines the objects' variables and methods. An object is instantiated based on the constructor in the class.
@@ -516,7 +517,7 @@ public class Henkilo {
 public class Person {
     private String name;
     private int age;
-    private double paino;
+    private double weight;
     private double height;
 
     public Person(String name, int age, double weight, double height) {
@@ -650,7 +651,7 @@ public class Rectangle {
 
     // instance variables
     private int width;
-    private int korkeus;
+    private int height;
 
     // constructor
     public Rectangle(int width, int height) {
@@ -723,7 +724,7 @@ System.out.println(first.surfaceArea());
 
 
 <!-- <programming-exercise name='Kirja' tmcname='osa05-Osa05_02.Kirja'> -->
-<programming-exercise name='Book' tmcname='part05-Part05_02.Kirja'>
+<programming-exercise name='Book' tmcname='part05-Part05_02.Book'>
 
 <!-- Luo kirjaa esittävä luokka `Kirja`. Jokaisella kirjalla on kirjailija, nimi ja sivujen lukumäärä.
 
@@ -819,7 +820,7 @@ The length of the edge is 2 and the volume 8
 
 
 <!-- <programming-exercise name='Harjoitusapuri' tmcname='osa05-Osa05_04.Harjoitusapuri'> -->
-<programming-exercise name='Fitbyte' tmcname='part05-Part05_04.Fitbyte'>
+<programming-exercise name='Fitbyte' tmcname='part05-Part05_04.FitByte'>
 
 
 <!-- <a href="https://fi.wikipedia.org/wiki/Karvosen_kaava" target="_blank" norel>Karvosen kaavan</a> avulla voidaan laskea tavoitesyke fyysistä harjoittelua varten. Tavoitesykkeen laskeminen perustuu kaavaan `(maksimisyke - leposyke) * (tavoitesykeprosentti) + leposyke`, missä tavoitesyke annetaan prosenttina maksimisykkeestä. -->

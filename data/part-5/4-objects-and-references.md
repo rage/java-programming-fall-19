@@ -1,8 +1,9 @@
 ---
-path: '/part-5/4-oliot-ja-viitteet'
+#path: '/part-5/4-oliot-ja-viitteet'
+path: '/part-5/4-objects-and-references'
 ## title: 'Oliot ja viitteet'
 title: 'Objects and references'
-hidden: true
+hidden: false
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
@@ -11,14 +12,23 @@ hidden: true
 
 
 <!-- - Kertaat luokkien ja olioiden toimintaa. -->
+
 - You will brush up on using classes and objects.
+
 <!-- - Tiedät mikä on `null`-viite ja tiedät mistä virhe NullPointerException johtuu. -->
+
 - You know what a `null` reference is, and what causes the NullPointerException error.
+
 <!-- - Osaat käyttää olioita oliomuuttujana ja metodin parametrina. -->
+
 - You can use an object as an object variable and a method parameter.
+
 <!-- - Osaat luoda metodin, joka palauttaa olion. -->
+
 - You can create a method that returns an object.
+
 <!-- - Osaat luoda equals-metodin, jolla voi tarkastaa onko kaksi samantyyppistä oliota sisällöllisesti samat. -->
+
 - You can create the method equals, which can be used to check if two objects of the same type have the same contents or state.
 
 </text-box>
@@ -463,7 +473,7 @@ The result:
 
 <sample-output>
 
-Joan Ball, ikä 0 vuotta
+Joan Ball, age 0 vuotta
 **Exception in thread "main" java.lang.NullPointerException
   at Main.main(Main.java:(rivi))
   Java Result: 1**
@@ -501,7 +511,7 @@ Implement a program that causes the NullPointerException error. The error should
 
 
 
-<!-- ##  Olio metodin parametrina -->
+<!-- ##  Olio metodin s to use a Date class. We could use the classname Date, but for the sake of avoiding confusion with the similarly named existing Java class, we will use SimpleDate here.parametrina -->
 
 ## Object as a method parameter
 
@@ -1756,7 +1766,7 @@ public String toString() {
 
 ```java
 public String toString() {
-    return this.name + ", born on " + this.syntymapaiva;
+    return this.name + ", born on " + this.birthday;
 }
 ```
 
@@ -1935,7 +1945,7 @@ public class Henkilo {
 public class Person {
 
     private String name;
-    private Paivays birthday;
+    private SimpleDate birthday;
     private int height;
     private int weight;
 
@@ -2787,14 +2797,12 @@ public class Person {
             return false;
         }
 
-        // muunnetaan olio Henkilo-olioksi
         // convert the object into a Person object
         Person comparedPerson = (Person) compared;
 
-        // jos olioiden oliomuuttujien arvot ovat samat, ovat oliot samat
         // if the values of the object variables are equal, the objects are equal
         if (this.name.equals(comparedPerson.name) &&
-            this.age == comparedPerson.ika &&
+            this.age == comparedPerson.age &&
             this.weight == comparedPerson.weight &&
             this.height == comparedPerson.height) {
             return true;
@@ -3156,7 +3164,6 @@ public class Bird {
             return false;
         }
 
-        // muunnetaan olio Lintu-olioksi
         // convert the object to a Bird object
         Bird comparedBird = (Bird) compared;
 
@@ -3553,7 +3560,6 @@ public Counter {
     }
 
     public Counter clone() {
-        // luodaan uusi laskuriolio, joka saa alkuarvokseen kloonattavan laskurin arvon
         // create a new counter object that receives the value of the cloned counter as its initial value
         Counter clone = new Counter(this.value);
 
@@ -3660,7 +3666,7 @@ public class Factory {
 
 <!-- <programming-exercise name='Päiväys (3 osaa)' tmcname='osa05-Osa05_16.Paivays'> -->
 
-<programming-exercise name='Dating app (3 parts)' tmcname='part05-Part05_16.Dating app'>
+<programming-exercise name='Dating app (3 parts)' tmcname='part05-Part05_16.DatingApp'>
 
 
 <!-- Tehtäväpohjan mukana tulee luokka `Paivays`, jossa päivämäärä talletetaan oliomuuttujien `vuosi`, `kuukausi`, ja `paiva` avulla: -->
@@ -3927,7 +3933,7 @@ This is because a normal assignment only copies the reference to the object. So 
 
 <!-- <programming-exercise name='Raha (3 osaa)' tmcname='osa05-Osa05_17.Raha'> -->
 
-<programming-exercise name='Money (3 parts)' tmcname='part05-Part05_17.Raha'>
+<programming-exercise name='Money (3 parts)' tmcname='part05-Part05_17.Money'>
 
 
 <!-- Maksukortti-tehtävässä käytimme rahamäärän tallettamiseen double-tyyppistä oliomuuttujaa. Todellisissa sovelluksissa näin ei kannata tehdä, sillä kuten jo olemme nähneet, doubleilla laskenta ei ole tarkkaa. Onkin järkevämpää toteuttaa rahamäärän käsittely oman luokkansa avulla. Seuraavassa on luokan runko: -->
