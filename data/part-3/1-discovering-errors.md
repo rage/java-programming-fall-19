@@ -20,30 +20,30 @@ We've so far been practicing the fundamentals of the language, such as variables
 
 <!-- ## Ohjelmoija sokeutuu koodilleen -->
 
-## A programmer becomes blind to their own code
+## A Programmer Blind to Their Own Code
 
 <!-- Ohjelmoija sokeutuu omalle koodilleen. Tutustutaan tähän efektiin alla olevan lyhyen videon avulla. Laske alla olevalta videolta kuinka monta kertaa valkopaitaiset pelaajat syöttävät palloa toisilleen. Videossa on mukana englanninkieliset ohjeistukset. -->
 
-A programmer develops blind spots in their code. Let's familiarize ourselves to the effect with the aid of the short video below. Count how many times the white-shirted players pass the ball between each other. The video contains instructions in English.
+A programmer often becomes blind to their code. Let's familiarize ourselves with this effect with the aid of the short video below. Count how many times the white-shirted players pass the ball between each other. The video contains instructions in English.
 
 <youtube id="Ahg6qcgoay4"></youtube>
 
 <!-- Videossa tapahtuu jotain muutakin, mutta tämä saattaa jäädä aluksi huomaamatta. Tätä efektiä kutsutaan tahattomaksi sokeudeksi (inattentional blindness). Tahaton sokeus selittyy sillä, että keskittyessämme tiettyyn tehtävään, aivomme pyrkivät suodattamaan tehtävän kannalta epäoleellista tietoa. Emme kuitenkaan aina tiedä -- esimerkiksi opiskellessamme -- mikä osa tiedosta on oleellista ja mikä osa epäoleellista, mutta keskittyminen tiettyyn osaan opiskelutehtävää voi silti johtaa tilanteeseen, missä osa relevantista osasta suodattuu pois. -->
 
-Something else also happens in the video that may pass by unnoticed at first. This effect is known as perceptual blindness, which is explained by the fact that as we focus on a specific task, our brains tend to filter out information that is irrelevant to the task. However, we don't always know what information is indeed essential and what is not - an example of this is when we're studying. Concentrating on a specific exercise part can, nonetheless, lead to some relevant information being filtered out.
+There's something else that also happens in the video that may go unnoticed at first. This effect is known as perceptual blindness, and is explained by the fact that as we focus on a specific task, our brains tend to filter out information that is irrelevant to that task. However, we don't always know what information is, in fact, essential and what is not - an example of this being when we study. Concentrating on a specific part of a study exercise can lead to relevant information being filtered out.
 
 <!-- Onneksi kuitenkin tehtävään harjaantuminen vähentää tahattoman sokeuden ilmentymistä -- toisin sanoen, harjoittelu kehittää oleellisten ja epäoleellisten asioiden erottelukykyä. -->
 
-Fortunately, however, applying oneself to a given task lessens the occurrence of perceptual blindness. In other words, practice develops one's ability to distinguish between relevant and irrelevant information.
+Fortunately, applying oneself to a given task lessens the occurrence of perceptual blindness. In other words, practice develops one's ability to distinguish between relevant and irrelevant information.
 
 <!-- Ohjelmoinnin harjoittelun kannalta tahaton sokeus näkyy muunmuassa siinä, että tiettyyn ohjelman osaan keskittyminen vie huomiota muista osista, jotka saattavat mielessä tällöin näyttää oikeellisilta vaikka niissä olisi virhe. Esimerkiksi ohjelman tulostuksen oikeellisuutta tarkasteltaessa ohjelmoija saattaa keskittyä tulostuslauseisiin ja vahingossa jättää osan logiikasta huomioimatta. -->
 
-One way in which perceptual blindness manifests itself in programming practice is when concentrating on a specific part of a program draws attention away from seemingly correct, yet erroneous parts. For instance, while inspecting the correctness of a program's output, a programmer may fixate on print statements, and mistakenly neglect aspects of the program's logic.
+One way in which perceptual blindness manifests itself in programming practice is when concentrating on a specific part of a program draws attention away from seemingly correct, yet erroneous parts. For instance, while inspecting the correctness of a program's output, a programmer may fixate on the print statements, and mistakenly neglect some aspects of the logic.
 
 <!--
 Vastaavasti toistolauseen sisältävässä ohjelmassa olevaa virhettä etsiessä ohjelmoija saattaa keskittyä monimutkaisimpaan asiaan ensin, vaikka virhe on täysin muualla. Esimerkkinä alla oleva käyttäjän syötteiden keskiarvon laskemiseen tarkoitettu ohjelma, jossa on virhe -- virheen etsinnässä tyypillisesti keskitytään ensin toistolauseeseen. -->
 
-Likewise, a programmer may focus on the most complicated aspect of a program featuring a loop, although the error lies somewhere else completely. An example of this is the program below used to calculate the average of user-inputted values. It contains an error, and focus is typically first placed on the loop when searching for it.
+Likewise, a programmer may focus on the most complicated aspect of a program featuring a loop, when in fact the error lies somewhere else completely. An example of this is the program below, which is used to calculate the average of user-inputted values. It contains an error, and when searching for it, the loop is typically the first target of focus.
 
 <!-- ```java
 Scanner lukija = new Scanner(System.in);
@@ -95,15 +95,15 @@ if (sum == 0) {
 
 <!-- Tahaton sokeus on asia, jota ei voi varsinaisesti kytkeä pois päältä. Ohjelmoija voi kuitenkin muutamien kikkojen avulla vähentää sen esiintymistä -- näistä ensimmäinen on taukojen pitäminen, joka luonnollisesti vaatii työn ajoissa aloittamisen. Lisäksi esimerkiksi koodin kommentointi, nimentä ja "debug"-tulosteet auttavat myös. -->
 
-Perceptual blindness is something that cannot be switched off completely. However, there are ways by which a programmer can lessen its effect - the first one being taking breaks. This, of course, requires that work is begun early. Additionally, commenting code, the naming of things, and "debugging" prints are examples of things that help too.
+Perceptual blindness is something that one cannot be eliminated completely. However, there are ways by which a programmer can lessen its effect - the first one being taking breaks, which requires that work is begun early. Code comments, proper naming of things, and "debugging" prints are additional examples of things that are also helpful.
 
 <!-- ## Lähdekoodin kommentointi -->
 
-## Commenting the source code
+## Commenting the Source Code
 
 <!-- Kommenteilla on useita käyttötarkoituksia, joista yksi on ohjelman toiminnallisuuden itselleen selittämiseen esimerkiksi virhettä etsittäessä. Alla melko yksinkertaisen ohjelman suoritus on kuvattu auki kommentein. -->
 
-Comments have many purposes, and one of them is explaining the working of the code to oneself when searching for bugs. Below, the execution of a relatively simple program is described using comments.
+Comments have many purposes, and one of them is explaining how the code works to oneself when searching for bugs. The execution of a relatively simple program is described below through the use of comments.
 
 <!-- ```java
 /*
@@ -160,12 +160,12 @@ Comments have no impact on the execution of the program, i.e., the program works
 
 <!-- Edellä käytetty ohjelmoinnin opetteluun tarkoitettu kommentointityyli on toistaalta ohjelmistokehityksene kelpaamaton hyvin raskas. Ohjelmistoja rakennettaessa pyritään siihen, että **lähdekoodi kommentoi itse itsensä**. Tämä tarkoittaa sitä, että ohjelman toiminnallisuus tulee ilmi luokkien, metodien ja muuttujien nimistä. -->
 
-The commenting style used above for learning programming is, however, quite burdensome in real development, where the goal instead is for the source code to be **self documenting**. This means that the functionality of the program should be evident from the way classes, methods, and variables are named.
+The comment style displayed above that is intended for learning purposes is, however, too elaborate for real development, where the goal is for the source code to be **self documenting**. This means that the functionality of the program should be evident from the way classes, methods, and variables are named.
 
 <!--
 Esimerkki voidaan "kommentoida" kapseloimalla ohjelmakoodi sopivasti nimettyn metodin sisään. Alla on kaksi esimerkkiä yllä olevan koodin kapseloivista metodeista -- toinen metodeista on hieman yleiskäyttöisempi kuin toinen. Toisaalta, jälkimmäisessä metodissa oletetaan, että käyttäjä tietää kumpaan parametreista asetetaan isompi ja kumpaan pienempi luku. -->
 
-The example can be "commented out" by encapsulating the code into an appropriately named method. Below are two examples of methods that do this - one of the methods is more general-purpose than the other. The more general method assumes, however, that the user knows which of the two parameters is assigned the higher value and which the lower.
+The example can be "commented out" by encapsulating the code into an appropriately named method. Below are two examples of methods that do this - one of the methods is more general in its purpose compared to the other. The more general method assumes, however, that the user knows which of the two parameters is assigned the higher value and which the lower.
 
 <!-- ```java
 public static void tulostaLuvutKymmenestaYhteen() {
@@ -207,11 +207,11 @@ public static void printValuesFromLargestToSmallest(int start, int end) {
 
 <!-- ## Virheiden etsintä print-debuggauksella -->
 
-## Searching for errors with print debugging
+## Searching for Errors with Print Debugging
 
 <!-- Eräs ohjelmoinnissa tarvittava taito on testaus- ja debuggaustaito, jota käytetään virheiden etsimisessä. Yksinkertaisin tapa ohjelmissa olevien virheiden etsimiseen on ns. print-debuggaus, joka käytännössä tarkoittaa rivikohtaista viestien lisäämistä. Viestejä käytetään ohjelman suorituksen seuraamiseen, ja viestit voivat sisältää myös ohjelmassa olevien muuttujien arvot. -->
 
-One required skill in programming is the ability to test and debug when searching for errors. The simplest way to search for errors is to use so-called print debugging, which in practice means adding messages to certain rows of code. These messages are used to follow the program-execution flow, and can also contain values of variables existing in the program.
+One required skill in programming is the ability to test and debug when searching for errors. The simplest way to search for errors is to use so-called print debugging, which in practice involves adding messages to certain lines of code. These messages are used to follow the flow of the program's execution, and can also contain values of variables that live in the program.
 
 <!-- Tarkastellaan alla olevaa edellisestä kyselystäkin tuttua ohjelmaa, jota käytetään ei-negatiivisten lukujen keskiarvon laskemiseen. -->
 
@@ -329,6 +329,6 @@ if (sum == 0) {
 
 <!-- Kun ohjelman suorittaa useampaan otteeseen sopivilla syötteillä, ohjelmasta löytynee siinä piilevä virhe. Sopivien syötteiden keksiminen on myös oma taitonsa -- tärkeää on pyrkiä tarkastelemaan ns. corner caseja, eli tilanteita, joissa ohjelman suoritus voisi olla poikkeava. Tällaisia tilanteita ovat esimerkiksi tilanne, missä käyttäjä ei syötä yhtään hyväksyttävää lukua, käyttäjä syöttää pelkkiä nollia, tai käyttäjä syöttää hyvin isoja lukuja. -->
 
-When a program is executed multiple times with the appropriate inputs, the hidden error is most likely found. Coming up with suitable inputs is a skill in its own right. It's essential to test the so-called corner cases, i.e., circumstances where the program execution could be exceptional. An example scenario is one where the user only inputs unacceptable numbers, or zeros, or very large numbers.
+When a program is executed multiple times with appropriate inputs the hidden error is often found. Coming up with relevant inputs is a skill in its own right. It's essential to test the so-called corner cases, i.e., circumstances where the program execution could be exceptional. An example scenario would be one where the user does not enter a single acceptable value or enters zeros or very large values.
 
 <quiz id="a09ef709-eabc-5832-91f3-c9d807f7b587"></quiz>
