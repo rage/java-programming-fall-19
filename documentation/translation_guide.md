@@ -1,6 +1,5 @@
 # Materiaalin kääntämisohje
 
-## Sisällysluettelo...?
 
 ## Esivalmistelut
 
@@ -30,7 +29,7 @@ Tiedostot löytyvät data-kansion alta, niin että jokaista osaa vastaa oma kans
 
 #### Partiaalit ovat tarkkoja omasta tilastaan
 
-Yritä huolehtia, että käännös säilyttää mahdollisimman uskollisesti rivinvaihdot. Osa partiaaleista tuntuu ainakin vaativan tyhjän rivin ennen niitä. Esimerkiksi `programming-exercise` on tällainen.
+Yritä huolehtia, että käännös säilyttää mahdollisimman uskollisesti rivinvaihdot. Osa partiaaleista tuntuu ainakin vaativan tyhjän rivin ennen niitä. Esimerkiksi `programming-exercise` on tällainen. (**Tässä vain esimerkkinä**. Tehtäviä ei tarvitse kääntää muun materiaalin yhteydessä, vaan tämä tehdään eri kerralla. Rivinvaihtoasia pätee kuitenkin yleisesti.)
 
 Alku oikein (tyhjä rivi ennen `<programming-exercise ...>`-alkutagia):
 ![alku oikein](programming_ex_start_correct.png)
@@ -67,9 +66,11 @@ Ainakin `<sample-output>...</sample-output` ja ` ```... ``` ` väleissä sijaits
 
 
 
-#### Tehtävien kääntäminen
+#### Tehtävien kääntäminen (PÄIVITETTY)
 
-Kun olet kääntänyt ohjelmointitehtävän(`<programming-exercise>...</programming-exercise>`), merkkaa Drivessä olevaan listaan valitsemasi englanninkielinen nimi.
+Kun käännät tekstin, **älä käännä** tehtäviä. Ne katsotaan erikseen ennen kuin itse tehtäväpohja käännetään.
+
+Jos käännät tehtävien nimiä (ei siis muun käännöksen ohessa): Kun olet kääntänyt ohjelmointitehtävän(`<programming-exercise>...</programming-exercise>`), merkkaa Drivessä olevaan listaan valitsemasi englanninkielinen nimi.
 
 #### Epäselvä nimestä / pitää nimetä jotain toistuvaa (tarkista / merkkaa driveen)
 
