@@ -979,13 +979,13 @@ Matti
 </sample-output>
 
 <!-- <programming-exercise name='Joukon tulostaminen' tmcname='osa06-Osa06_04.JoukonTulostaminen'> -->
-<programming-exercise name='Printing a Set' tmcname='part06-Part06_04.PrintingASet'>
+<programming-exercise name='Printing a Collection' tmcname='part06-Part06_04.PrintingACollection'>
 
 <!-- Tehtäväpohjassa on valmiina luokka `Joukko`, jota käytetään arvoja sisältävän joukon kuvaamiseen. Luokalta puuttuu tulostamiseen käytettävä `toString`-metodi.
 
 Toteuta luokalle `toString`-metodi, jonka avulla tulostus toimii seuraavien esimerkkien kuvaamalla tavalla. -->
 
-The exercise template has a predefined `SimpleSet` class, which is used to represent a group of values. The class is missing the `toString` method used for printing.
+The exercise template has a predefined `SimpleCollection` class, which is used to represent a group of values. The class is missing the `toString` method used for printing.
 
 Implement a `toString` method for the class that will perform as demonstrated in the following examples.
 
@@ -1010,7 +1010,7 @@ System.out.println(j);
 ``` -->
 
 ```java
-SimpleSet s = new SimpleSet("alphabet");
+SimpleCollection s = new SimpleCollection("alphabet");
 System.out.println(s);
 
 System.out.println();
@@ -1045,16 +1045,16 @@ a
 b
 c -->
 
-The set alphabet is empty.
+The collection alphabet is empty.
 
-The set alphabet has 1 elements:
+The collection alphabet has 1 element:
 a
 
-The set alphabet has 2 elements:
+The collection alphabet has 2 elements:
 a
 b
 
-The set alphabet has 3 elements:
+The collection alphabet has 3 elements:
 a
 b
 c
@@ -1082,22 +1082,22 @@ System.out.println(j);
 ``` -->
 
 ```java
-SimpleSet s = new SimpleSet("characters");
+SimpleCollection s = new SimpleCollection("characters");
 System.out.println(s);
 
 System.out.println();
 
-s.lisaa("magneto");
+s.add("magneto");
 System.out.println(s);
 
 System.out.println();
 
-s.lisaa("mystique");
+s.add("mystique");
 System.out.println(s);
 
 System.out.println();
 
-s.lisaa("phoenix");
+s.add("phoenix");
 System.out.println(s);
 ```
 
@@ -1117,16 +1117,16 @@ magneto
 mystique
 phoenix -->
 
-The set characters is empty.
+The collection characters is empty.
 
-The set characters has 1 elements:
+The collection characters has 1 element:
 magneto
 
-The set characters has 2 elements:
+The collection characters has 2 elements:
 magneto
 mystique
 
-The set characters has 3 elements:
+The collection characters has 3 elements:
 magneto
 mystique
 phoenix
@@ -1690,7 +1690,7 @@ Awak
 
 <!-- Tehtäväpohjassa on mukana aiemmasta tehtävästä tuttu luokka `Joukko`. Toteuta luokkaan metodi `public String pisin()`, joka palauttaa joukon pisimmän merkkijonon. Mikäli joukko on tyhjä, metodin tulee palauttaa `null`-viite. -->
 
-The exercise template comes with the class `SimpleSet` that's familiar from previous exercises. Implement the method `public String longest()` for the class, which returns the longest string of the set. If the set is empty, the method should retunr a `null` reference.
+The exercise template comes with the class `SimpleCollection` that's familiar from previous exercises. Implement the method `public String longest()` for the class, which returns the longest string of the set. If the set is empty, the method should retunr a `null` reference.
 
 <!-- ```java
 Joukko j = new Joukko("hahmot");
@@ -1704,7 +1704,7 @@ System.out.println("Pisin: " + j.pisin());
 ``` -->
 
 ```java
-SimpleSet j = new SimpleSet("characters");
+SimpleCollection j = new SimpleCollection("characters");
 System.out.println("Longest: " + j.longest());
 
 j.add("magneto");
