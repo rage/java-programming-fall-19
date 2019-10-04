@@ -531,12 +531,12 @@ Yllä kuvatussa laajemmassa esimerkissä noudatettiin seuraavia neuvoja.
 Ohjelmoijat noudattavat näitä käytänteitä sen takia että ohjelmointi olisi helpompaa. Käytänteiden noudattaminen tekee myös ohjelmien lukemisesta, ylläpitämisestä ja muokkaamisesta helpompaa muille.
 
 
-<programming-exercise name='Sanakirja (4 osaa)' tmcname='osa06-Osa06_09.Sanakirja'>
+<programming-exercise name='Dictionary(4 parts)' tmcname='part06-Part06_09.Dictionary'>
 
-Tehtäväpohjassa on valmiiksi annettuna luokka `Sanakirja`, joka tarjoaa toiminnallisuuden sanojen ja niiden käännösten tallentamiseen. Vaikka luokan sisäisessä totetuksessa on asioita, joita kurssilla ei ole käsitelty, on sen käyttö suoraviivaista:
+Tehtäväpohjassa on valmiiksi annettuna luokka `SimpleDictionary`, joka tarjoaa toiminnallisuuden sanojen ja niiden käännösten tallentamiseen. Vaikka luokan sisäisessä totetuksessa on asioita, joita kurssilla ei ole käsitelty, on sen käyttö suoraviivaista:
 
 ```java
-Sanakirja kirja = new Sanakirja();
+SimpleDictionary book = new SimpleDictionary();
 kirja.lisaa("yksi", "one");
 kirja.lisaa("kaksi", "two");
 
@@ -553,7 +553,7 @@ null
 
 </sample-output>
 
-Tässä tehtävässä toteutat luokkaa `Sanakirja` hyödyntävän tekstikäyttöliittymän.
+Tässä tehtävässä toteutat luokkaa `SimpleDictionary` hyödyntävän tekstikäyttöliittymän.
 
 
 <h2>Tekstikäyttöliittymän käynnistys ja lopetus</h2>
@@ -682,7 +682,7 @@ Hei hei!
 </programming-exercise>
 
 
-<programming-exercise name='Tehtavalista (2 osaa)' tmcname='osa06-Osa06_10.Tehtavalista'>
+<programming-exercise name='To do list (2 parts)' tmcname='part06-Part06_10.ToDoList'>
 
 Tässä tehtävässä tehdään sovellus tehtävälistan luomiseen ja käsittelyyn. Lopullinen sovellus tulee toimimaan seuraavalla tavalla.
 
@@ -1147,7 +1147,7 @@ public class Kayttoliittyma {
 ```
 
 
-<programming-exercise name='Keskiarvot (3 osaa)' tmcname='osa06-Osa06_11.Keskiarvot'>
+<programming-exercise name='Averages (3 parts)' tmcname='part06-Part06_11.Averages'>
 
 Tehtäväpohjassa on edellisessä esimerkissä rakennettu arvosanojen tallentamiseen tarkoitettu ohjelma. Tässä tehtävässä täydennät luokkaa `Arvosanarekisteri` siten, että se tarjoaa toiminnallisuuden arvosanojen ja koepisteiden keskiarvon laskemiseen.
 

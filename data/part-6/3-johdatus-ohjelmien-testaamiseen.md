@@ -320,7 +320,7 @@ Testivetoinen ohjelmistokehitys koostuu viidestä askeleesta, joita toistetaan k
 
 <br/>
 
-<programming-exercise name='Tehtavat (2 osaa)' tmcname='osa06-Osa06_13.Tehtavat'>
+<programming-exercise name='Exercises (2 parts)' tmcname='part06-Part06_13.Exercises'>
 
 Tehtäväpohjassa tulee edellisen esimerkin alkutilanne -- tehtäväpohjaan on jo lisätty yksikkötestaukseen tarvittava JUnit-kirjasto. Seuraa esimerkkiä ja luo Tehtavienhallinnalta haluttu toiminnallisuus testivetoista ohjelmistokehitystä noudattaen. Kun olet saanut edellisen esimerkin loppuun asti, lisää sovellukseen vielä testit tehtävien poistamiseen sekä testien vaatima toiminnallisuus.
 
