@@ -1788,10 +1788,20 @@ for (Person person : room.getPersons()) {
 }
 ```
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Huone tyhjä? true
-Huone tyhjä? false -->
+Huone tyhjä? true
+Huone tyhjä? false
+
+Lea (183 cm)
+Kenya (182 cm)
+Auli (186 cm)
+Nina (172 cm)
+Terhi (185 cm)
+
+</sample-output> -->
+
+<sample-output>
 
 Empty room? true
 Empty room? false
@@ -1805,11 +1815,12 @@ Terhi (185 cm)
 </sample-output>
 
 <!-- <h2>Lyhin henkilö</h2> -->
+
 <h2>Shortest person</h2>
 
 <!-- Lisää luokalle `Huone` metodi `public Henkilo lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, palauttaa `null`-viitteen. Metodin ei tule poistaa henkilöä huoneesta. -->
 
-Add a `public Person Shortest()` method to the `Room` class, which returns the shortest person added to the room. If the room is empty, a null reference is returned. The method should not remove a person from the room.
+Add a `public Person shortest()` method to the `Room` class, which returns the shortest person added to the room. If the room is empty, a null reference is returned. The method should not remove a person from the room.
 
 <!-- ```java
 Huone huone = new Huone();
@@ -1859,9 +1870,9 @@ for (Person person : room.getPersons()) {
 }
 ```
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Lyhin: null
+Lyhin: null
 Huone tyhjä? true
 Huone tyhjä? false
 
@@ -1877,7 +1888,11 @@ Lea (183 cm)
 Kenya (182 cm)
 Auli (186 cm)
 Nina (172 cm)
-Terhi (185 cm) -->
+Terhi (185 cm)
+
+</sample-output> -->
+
+<sample-output>
 
 Shortest: null
 Empty room? true
@@ -1900,11 +1915,12 @@ Terhi (185 cm)
 </sample-output>
 
 <!-- <h2>Huoneesta ottaminen</h2> -->
+
 <h2>Taking from a room</h2>
 
 <!-- Lisää luokalle `Huone` metodi `public Henkilo ota()`, ottaa huoneesta lyhimmän henkilön. Mikäli huone on tyhjä, metodi palauttaa `null`-viitteen. -->
 
-Add a `public Henkilo take()` method to the `Room` class, which takes the shortest person in the room. When a room is empty, it returns a `null` reference.
+Add a `public Person take()` method to the `Room` class, which takes the shortest person in the room. When a room is empty, it returns a `null` reference.
 
 <!-- ```java
 Huone huone = new Huone();
@@ -1948,7 +1964,7 @@ for (Person person : room.getPersons()) {
 }
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Lea (183 cm)
 Kenya (182 cm)
@@ -1956,7 +1972,22 @@ Auli (186 cm)
 Nina (172 cm)
 Terhi (185 cm)
 
-<!-- Lyhin: Nina (172 cm) -->
+Lyhin: Nina (172 cm)
+
+Lea (183 cm)
+Kenya (182 cm)
+Auli (186 cm)
+Terhi (185 cm)
+
+</sample-output> -->
+
+<sample-output>
+
+Lea (183 cm)
+Kenya (182 cm)
+Auli (186 cm)
+Nina (172 cm)
+Terhi (185 cm)
 
 Shortest: Nina (172 cm)
 
