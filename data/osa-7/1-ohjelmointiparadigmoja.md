@@ -4,40 +4,59 @@ title: 'Ohjelmointiparadigmoja'
 hidden: true
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
+<text-box variant='learningObjectives' name='Learning Objectives'>
 
-- Tunnet käsitteen ohjelmointiparadigma.
-- Tiedät mitä proseduraalisella ohjelmoinnilla ja olio-ohjelmoinnilla tarkoitetaan.
+<!-- - Tunnet käsitteen ohjelmointiparadigma.
+- Tiedät mitä proseduraalisella ohjelmoinnilla ja olio-ohjelmoinnilla tarkoitetaan. -->
+- You know the concept of a programming paradigm.
+- You know what is meant by procedural and object-oriented programming.
+
 
 </text-box>
 
 
-Ohjelmointiparadigmalla tarkoitetaan ohjelmointikielen taustalla olevaa tapaa ajatella ja jäsentää ohjelman toimintaa. Ohjelmointiparadigmat eroavat toisistaan mm. siinä, miten ohjelman suorituksen eteneminen ja kontrolli määritellään sekä minkälaisista osista ohjelmat rakentuvat.
+<!-- Ohjelmointiparadigmalla tarkoitetaan ohjelmointikielen taustalla olevaa tapaa ajatella ja jäsentää ohjelman toimintaa. Ohjelmointiparadigmat eroavat toisistaan mm. siinä, miten ohjelman suorituksen eteneminen ja kontrolli määritellään sekä minkälaisista osista ohjelmat rakentuvat.
 
 Suurin osa nykyään käytössä olevista ohjelmointikielistä tukee useampaa ohjelmointiparadigmaa. Ohjelmoijana kehittymiseen kuuluu kokemuksen kautta kehittyvä kyky sopivan ohjelmointikielen ja paradigman valintaan; yhtä kaikkialla toimivaa ohjelmointikieltä ja ohjelmointiparadigmaa ei toistaiseksi ole olemassa.
 
-Tämän hetken yleisimpiä ohjelmointiparadigmoja ovat olio-ohjelmointi, proseduraalinen ohjelmointi sekä funktionaalinen ohjelmointi. Seuraavaksi näistä kahta ensimmäistä käsitellään lyhyesti.
+Tämän hetken yleisimpiä ohjelmointiparadigmoja ovat olio-ohjelmointi, proseduraalinen ohjelmointi sekä funktionaalinen ohjelmointi. Seuraavaksi näistä kahta ensimmäistä käsitellään lyhyesti. -->
+A programming paradigm is a way of thinking about and structuring a program's functionality. Programming paradigms differ from one another, for example in how the program's execution and control are defined and what components the programs consist of.
+
+Most programming languages ​​that are currently in use support multiple programming paradigms. Part of a programmer's growth involves the ability, through experience, to choose the appropriate programming language and paradigm; there currently is no single ubiquitous programming language and programming paradigm.
+
+The most common programming paradigms today are object-oriented programming, procedural programming, and functional programming. The first two of these are briefly discussed in what follows.
 
 
-## Olio-ohjelmointi
 
-Olio-ohjelmoinnissa käsiteltävä tieto esitetään luokkina, jotka kuvaavat ongelma-alueen käsitteitä sekä sovelluksen toimintalogiikkaa. Luokkiin määritellään metodit, jotka määräävät miten tietoa käsitellään. Ohjelman suorituksen aikana luokista luodaan olioita, jotka sisältävät ajonaikaisen tiedon, ja jotka myös vaikuttavat ohjelman suoritukseen: ohjelman suoritus etenee tyypillisesti olioihin liittyvien metodikutsujen kautta. Kuten joitakin viikkoja sitten totesimme, "ohjelma rakennetaan pienistä selkeistä yhteistoiminnassa olevista olioista".
+<!-- ## Olio-ohjelmointi -->
+## Object-Oriented Programming
 
-Olio-ohjelmoinnin perusideat eli tiedon ja sen käsittelyyn liittyvien toimintojen esittäminen luokkien ja olioiden avulla esiintyivät ensimmäisiä kertoja simulaatioiden rakentamiseen tarkoitetussa <a href="https://en.wikipedia.org/wiki/Simula" target="_blank" norel>Simula 67</a>:ssä sekä <a href="https://en.wikipedia.org/wiki/Smalltalk" target="_blank" norel>Smalltalk</a>-ohjelmointikielessä. Sen läpimurto tapahtui 1980-luvulla <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" norel>C++</a>-ohjelmointikielen kautta ja siitä on muodostunut <a href="https://en.wikipedia.org/wiki/Java_(programming_language)" target="_blank" norel>Java</a>-ohjelmointikielen myötä yksi maailman eniten käytetty ohjelmointiparadigma.
+<!-- Olio-ohjelmoinnissa käsiteltävä tieto esitetään luokkina, jotka kuvaavat ongelma-alueen käsitteitä sekä sovelluksen toimintalogiikkaa. Luokkiin määritellään metodit, jotka määräävät miten tietoa käsitellään. Ohjelman suorituksen aikana luokista luodaan olioita, jotka sisältävät ajonaikaisen tiedon, ja jotka myös vaikuttavat ohjelman suoritukseen: ohjelman suoritus etenee tyypillisesti olioihin liittyvien metodikutsujen kautta. Kuten joitakin viikkoja sitten totesimme, "ohjelma rakennetaan pienistä selkeistä yhteistoiminnassa olevista olioista". -->
 
-Olio-ohjelmoinnin suurimpia etuja ovat ongelma-alueen käsitteiden mallintaminen luokkien ja olioiden kautta, mikä helpottaa ohjelman ymmärtämistä. Tämän lisäksi ongelma-alueen jäsentäminen luokiksi helpottaa ohjelmien rakentamista ja ylläpitoa. Olio-ohjelmointi ei kuitenkaan sovellu luontaisesti kaikkiin ongelmiin: esimerkiksi tieteellisessä laskennassa ja tilastotieteen sovelluksissa käytetään tyypillisemmin mm. <a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank">R</a>-kieltä.
+In object-oriented programming, information is represented as classes that describe the concepts of the problem domain and the logic of the application. Classes define the methods that determine how information is handled. During program execution, classes are instantiated from objects that contain runtime information and that also have an effect on program execution: program execution typically proceeds through a series of method calls related to the objects. As mentioned a few weeks ago, "the program is built from small, clear, and cooperative entities."
 
+<!-- Olio-ohjelmoinnin perusideat eli tiedon ja sen käsittelyyn liittyvien toimintojen esittäminen luokkien ja olioiden avulla esiintyivät ensimmäisiä kertoja simulaatioiden rakentamiseen tarkoitetussa <a href="https://en.wikipedia.org/wiki/Simula" target="_blank" norel>Simula 67</a>:ssä sekä <a href="https://en.wikipedia.org/wiki/Smalltalk" target="_blank" norel>Smalltalk</a>-ohjelmointikielessä. Sen läpimurto tapahtui 1980-luvulla <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" norel>C++</a>-ohjelmointikielen kautta ja siitä on muodostunut <a href="https://en.wikipedia.org/wiki/Java_(programming_language)" target="_blank" norel>Java</a>-ohjelmointikielen myötä yksi maailman eniten käytetty ohjelmointiparadigma. -->
+
+The basic ideas of object-oriented programming, i.e., the representation of information and its processing methods with he help of classes and objects, first appeared in <a href="https://en.wikipedia.org/wiki/Simula" target="_blank" norel> Simula 67 </a>, which was designed for developing simulations and the <a href="https://en.wikipedia.org/wiki/Smalltalk" target="_blank" norel> Smalltalk </a> programming language. Its breakthrough came in the 1980s through the <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" norel> C ++ </a> programming language and  <a href = "https://en.wikipedia.org/wiki/Java_(programming_language)" target = "_ blank" norel> Java </a> has made it one of the most widely used programming paradigms in the world.
+
+<!-- Olio-ohjelmoinnin suurimpia etuja ovat ongelma-alueen käsitteiden mallintaminen luokkien ja olioiden kautta, mikä helpottaa ohjelman ymmärtämistä. Tämän lisäksi ongelma-alueen jäsentäminen luokiksi helpottaa ohjelmien rakentamista ja ylläpitoa. Olio-ohjelmointi ei kuitenkaan sovellu luontaisesti kaikkiin ongelmiin: esimerkiksi tieteellisessä laskennassa ja tilastotieteen sovelluksissa käytetään tyypillisemmin mm. <a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank">R</a>-kieltä. -->
+One of the major benefits of object-oriented programming is how problem-domain concepts are modeled through classes and objects, which makes programs easier to understand. In addition, structuring the problem domain into classes facilitates the construction and maintenance of programs. However, object-oriented programming is not inherently suited to all problems: for example, scientific computing and statistics applications typically make use of languages, such as <a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank"> R </a>.
 <br/>
 
 
+<!-- ## Proseduraalinen ohjelmointi -->
 ## Proseduraalinen ohjelmointi
 
-Siinä missä olio-ohjelmoinnissa ohjelman rakenne muodostuu käsiteltävän tiedon kautta, proseduraalisessa ohjelmoinnissa ohjelman rakenne muodostuu ohjelmalta toivotun toiminnan kautta: ohjelma on askeleittainen ohje suoritettavalle toiminnalle. Ohjelmaa suoritetaa askel kerrallaan, tarvittaessa aliohjelmia (metodeja) kutsuen.
+<!-- Siinä missä olio-ohjelmoinnissa ohjelman rakenne muodostuu käsiteltävän tiedon kautta, proseduraalisessa ohjelmoinnissa ohjelman rakenne muodostuu ohjelmalta toivotun toiminnan kautta: ohjelma on askeleittainen ohje suoritettavalle toiminnalle. Ohjelmaa suoritetaa askel kerrallaan, tarvittaessa aliohjelmia (metodeja) kutsuen.
 
-Proseduraalisessa ohjelmoinnissa ohjelman tilaa pidetään yllä muuttujissa ja taulukoissa, ja mahdolliset metodit käsittelevät vain niille parametrina annettuja arvoja. Ohjelmassa koneelle kerrotaan mitä pitäisi tapahtua. Esimerkiksi alla on muuttujien a ja b arvojen vaihtaminen.
+Proseduraalisessa ohjelmoinnissa ohjelman tilaa pidetään yllä muuttujissa ja taulukoissa, ja mahdolliset metodit käsittelevät vain niille parametrina annettuja arvoja. Ohjelmassa koneelle kerrotaan mitä pitäisi tapahtua. Esimerkiksi alla on muuttujien a ja b arvojen vaihtaminen. -->
 
+Whereas in object-oriented programming, the structure of a program is formed by the data it processes, in procedural programming, the structure of the program is formed by functionality desired for the program: the program acts as a step-by-step guide for the functionality to be performed. The program is executed one step at a time, and subroutines (methods) are called whenever necessary.
 
-```java
+In procedural programming, the state of the program is maintained in variables and tables, and any methods handle only the values provided to them as parameters. The program tells the computer what should happen. As an example, the code below demonstrates the swapping of values for two variables a and b
+
+<!-- ```java
 int a = 10;
 int b = 15;
 
@@ -45,13 +64,26 @@ int b = 15;
 int c = b;
 b = a;
 a = c;
+``` -->
+```java
+int a = 10;
+int b = 15;
+
+// let's swap the values of variables a and b
+int c = b;
+b = a;
+a = c;
 ```
 
-Kun olio-ohjelmointia verrataan proseduraaliseen ohjelmointiin, muutamat oleelliset erot tulevat ilmi. Olio-ohjelmoinnissa olion tila voi periaatteessa muuttua mitä tahansa olion metodia käytettäessä, ja tuo tilan muutos voi vaikuttaa myös muiden olion metodien toimintaan; tätä kautta muutos voi vaikuttaa myös muihin ohjelman suorituksen osa-alueisiin, sillä olioita voidaan käyttää ohjelmassa useammassa paikassa.
+<!-- Kun olio-ohjelmointia verrataan proseduraaliseen ohjelmointiin, muutamat oleelliset erot tulevat ilmi. Olio-ohjelmoinnissa olion tila voi periaatteessa muuttua mitä tahansa olion metodia käytettäessä, ja tuo tilan muutos voi vaikuttaa myös muiden olion metodien toimintaan; tätä kautta muutos voi vaikuttaa myös muihin ohjelman suorituksen osa-alueisiin, sillä olioita voidaan käyttää ohjelmassa useammassa paikassa.
 
-Konkreettisesti olio-ohjelmoinnin ja proseduraalisen ohjelmoinnin erot näkyvät viidennen osan alussa esitetyssä kello-esimerkissä. Alla on kuvattuna proseduraalista ohjelmointityyliä kuvastava ratkaisu, missä ajan tulostaminen on siiretty metodiin.
+Konkreettisesti olio-ohjelmoinnin ja proseduraalisen ohjelmoinnin erot näkyvät viidennen osan alussa esitetyssä kello-esimerkissä. Alla on kuvattuna proseduraalista ohjelmointityyliä kuvastava ratkaisu, missä ajan tulostaminen on siiretty metodiin. -->
 
-```java
+When comparing object-oriented programming with procedural programming, a few essential differences emerge. In object-oriented programming, the state of an object can, in principle, change with any object method, and that change of state can also affect the working of the methods of other objects. As a consequence, other aspects of a program's execution may also be affected since objects can be used in multiple places within the program.
+
+The difference between object-oriented programming and procedural programming are shown concretely in the clock example presented at the beginning of Part Five. The solution below depicts a procedural style where the printing of the time is transferred to a method.
+
+<!-- ```java
 int tunnit = 0;
 int minuutit = 0;
 int sekunnit = 0;
@@ -94,12 +126,57 @@ public static void tulosta(int luku) {
     }
     System.out.print(luku);
 }
+``` -->
+```java
+int hours = 0;
+int minutes = 0;
+int seconds = 0;
+
+while (true) {
+    // 1. printing the time
+    print(hours, minutes, seconds);
+    System.out.println();
+
+    // 2. advancing the second hand
+    seconds = seconds + 1;
+
+    // 3. advancing the other hands when necessary
+    if (seconds > 59) {
+        minutes = minutes + 1;
+        seconds = 0;
+
+        if (minutes > 59) {
+            hours = hours + 1;
+            minutes = 0;
+
+            if (hours > 23) {
+                hours = 0;
+            }
+        }
+    }
+}
 ```
 
-Sama olio-ohjelmointia noudattaen:
-
-
 ```java
+public static void tulosta(int hours, int minutes, int seconds) {
+    tulosta(hours);
+    tulosta(minutes);
+    tulosta(seconds);
+}
+
+public static void print(int value) {
+    if (value < 10) {
+        System.out.print("0");
+
+    System.out.print(value);
+}
+```
+
+<!-- Sama olio-ohjelmointia noudattaen: -->
+The same implemented in an object-oriented way:
+
+
+<!-- ```java
 public class Viisari {
     private int arvo;
     private int ylaraja;
@@ -167,6 +244,76 @@ Kello kello = new Kello();
 while (true) {
     System.out.println(kello);
     kello.etene();
+}
+``` -->
+```java
+public class Hand {
+    private int value;
+    private int upperBound;
+
+    public Hand(int upperBound) {
+        this.upperBound = upperBound;
+        this.value = 0;
+    }
+
+    public void advance() {
+        this.value = this.value + 1;
+
+        if (this.value >= this.upperBound) {
+            this.value = 0;
+        }
+    }
+
+    public int value() {
+        return this.value;
+    }
+
+    public String toString() {
+        if (this.value < 10) {
+            return "0" + this.value;
+        }
+
+        return "" + this.value;
+    }
+}
+```
+
+```java
+public class Clock() {
+    private Hand hours;
+    private Hand minutes;
+    private Hand seconds;
+
+    public Clock() {
+        this.hours = new Hand(24);
+        this.minutes = new Hand(60);
+        this.hours = new Hand(60);
+    }
+
+    public void advance() {
+        this.seconds.advance();
+
+        if (this.seconds.arvo() == 0) {
+            this.minutes.advance();
+
+            if (this.minutes.arvo() == 0) {
+                this.hours.advance();
+            }
+        }
+    }
+
+    public String toString() {
+        return hours + ":" + minutes + ":" + seconds;
+    }
+}
+```
+
+```java
+Clock clock = new Clock();
+
+while (true) {
+    System.out.println(clock);
+    clock.etene();
 }
 ```
 
