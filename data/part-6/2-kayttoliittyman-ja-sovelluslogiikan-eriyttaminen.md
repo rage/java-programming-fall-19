@@ -531,11 +531,13 @@ Yllä kuvatussa laajemmassa esimerkissä noudatettiin seuraavia neuvoja.
 Ohjelmoijat noudattavat näitä käytänteitä sen takia että ohjelmointi olisi helpompaa. Käytänteiden noudattaminen tekee myös ohjelmien lukemisesta, ylläpitämisestä ja muokkaamisesta helpompaa muille.
 
 
-<programming-exercise name='Dictionary(4 parts)' tmcname='part06-Part06_09.Dictionary'>
+<programming-exercise name='Simple Dictionary (4 parts)' tmcname='part06-Part06_09.SimpleDictionary'>
 
-Tehtäväpohjassa on valmiiksi annettuna luokka `SimpleDictionary`, joka tarjoaa toiminnallisuuden sanojen ja niiden käännösten tallentamiseen. Vaikka luokan sisäisessä totetuksessa on asioita, joita kurssilla ei ole käsitelty, on sen käyttö suoraviivaista:
+<!-- Tehtäväpohjassa on valmiiksi annettuna luokka `SimpleDictionary`, joka tarjoaa toiminnallisuuden sanojen ja niiden käännösten tallentamiseen. Vaikka luokan sisäisessä totetuksessa on asioita, joita kurssilla ei ole käsitelty, on sen käyttö suoraviivaista: -->
 
-```java
+The exercise base contains a class `SimpleDictionary` that allows for storing words and their translations. The internal implementation of the class contains some techniques not (yet) covered on the course. Nevertheless, it's fairly simple to use it:
+
+<!-- ```java
 SimpleDictionary book = new SimpleDictionary();
 kirja.lisaa("yksi", "one");
 kirja.lisaa("kaksi", "two");
@@ -543,37 +545,70 @@ kirja.lisaa("kaksi", "two");
 System.out.println(kirja.kaanna("yksi"));
 System.out.println(kirja.kaanna("kaksi"));
 System.out.println(kirja.kaanna("kolme"));
+``` -->
+
+```java
+SimpleDictionary book = new SimpleDictionary();
+book.add("one", "yksi");
+book.add("two", "kaksi");
+
+System.out.println(book.translate("one"));
+System.out.println(book.translate("two"));
+System.out.println(book.translate("three"));
+
 ```
 
 <sample-output>
 
-one
-two
+yksi
+kaksi
 null
 
 </sample-output>
 
-Tässä tehtävässä toteutat luokkaa `SimpleDictionary` hyödyntävän tekstikäyttöliittymän.
+<!-- Tässä tehtävässä toteutat luokkaa `SimpleDictionary` hyödyntävän tekstikäyttöliittymän. -->
+
+In this exercise you will implement a text user interface that takes use of the `SimpleDictionary` class. And maybe pick up a few Finnish words while doing it!
 
 
-<h2>Tekstikäyttöliittymän käynnistys ja lopetus</h2>
+<!-- <h2>Tekstikäyttöliittymän käynnistys ja lopetus</h2> -->
 
-Toteuta luokka `Tekstikayttoliittyma`, joka saa konstruktorin parametrina `Scanner`-olion sekä `Sanakirja`-olion. Lisää tämän jälkeen luokalle metodi `public void kaynnista()`. Metodin tulee toimia seuraavalla tavalla:
+<h2>Stating and stopping the UI</h2>
 
-1. Metodi kysyy käyttäjältä komentoa.
-2. Mikäli komento on `lopeta`, tekstikäyttöliittymä tulostaa merkkijonon "Hei hei!" ja metodin `kaynnista` suoritus päättyy.
-3. Muulloin, tekstikäyttöliittymä tulostaa viestin "Tuntematon komento", jonka jälkeen metodi jatkaa kysymällä käyttäjältä komentoa eli kohdasta 1.
+<!-- Toteuta luokka `Tekstikayttoliittyma`, joka saa konstruktorin parametrina `Scanner`-olion sekä `Sanakirja`-olion. Lisää tämän jälkeen luokalle metodi `public void kaynnista()`. Metodin tulee toimia seuraavalla tavalla: -->
+
+Implement the class `TextUI` that receives as constructor parameters a `Scanner` and `SimpleDictionary` objects. Then give the class a method called `public void start()`. The method should work as follows:
+
+<!-- 1. Metodi kysyy käyttäjältä komentoa. -->
+
+1. The method asks the user for a command
+
+<!-- 2. Mikäli komento on `lopeta`, tekstikäyttöliittymä tulostaa merkkijonon "Hei hei!" ja metodin `kaynnista` suoritus päättyy. -->
+
+2. If the command is `end`, the UI prints the string "Bye bye!" and the execution of the `start` method ends.
+
+<!-- 3. Muulloin, tekstikäyttöliittymä tulostaa viestin "Tuntematon komento", jonka jälkeen metodi jatkaa kysymällä käyttäjältä komentoa eli kohdasta 1. -->
+
+3. Otherwise the text UI prints the message `Unknown command` and asks for a new command, so it loops back to step 1.
 
 
-```java
+<!-- ```java
 Scanner lukija = new Scanner(System.in);
 Sanakirja kirja = new Sanakirja();
 
 Tekstikayttoliittyma kayttoliittyma = new Tekstikayttoliittyma(lukija, kirja);
 kayttoliittyma.kaynnista();
+``` -->
+
+```java
+Scanner scanner = new Scanner(System.in);
+SimpleDictionary dictionary = new SimpleDictionary();
+
+TextUI ui = new TextUI(scanner, dictionary);
+ui.start();
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Komento: **jotain**
 Tuntematon komento
@@ -582,20 +617,46 @@ Tuntematon komento
 Komento: **lopeta**
 Hei hei!
 
+</sample-output> -->
+
+<sample-output>
+
+Command: **something**
+Unknown command
+Command: **add**
+Unknown command
+Command: **end**
+Bye bye!
+
 </sample-output>
 
 
-<h2>Käännösten lisääminen</h2>
+<!-- <h2>Käännösten lisääminen</h2> -->
 
-Muokkaa metodia `public void kaynnista()` siten, että se toimii seuraavalla tavalla:
+<h2>Adding a translation</h2>
 
-1. Metodi kysyy käyttäjältä komentoa.
-2. Mikäli komento on `lopeta`, tekstikäyttöliittymä tulostaa merkkijonon "Hei hei!" ja metodin `kaynnista` suoritus päättyy.
-3. Mikäli komento on `lisaa`, tekstikäyttöliittymä kysyy käyttäjältä sanaa ja käännöstä, kumpaakin omalla rivillään. Tämän jälkeen sanat lisätään sanakirjaan ja metodi jatkaa kysymällä käyttäjältä komentoa eli kohdasta 1.
-4. Muulloin, tekstikäyttöliittymä tulostaa viestin "Tuntematon komento", jonka jälkeen metodi jatkaa kysymällä käyttäjältä komentoa eli kohdasta 1.
+<!-- Muokkaa metodia `public void kaynnista()` siten, että se toimii seuraavalla tavalla: -->
+
+Modify the method `public void start()` so that it works in the following way:
 
 
-<sample-output>
+<!-- 1. Metodi kysyy käyttäjältä komentoa. -->
+
+1. The method asks the user for a command.
+
+<!-- 2. Mikäli komento on `lopeta`, tekstikäyttöliittymä tulostaa merkkijonon "Hei hei!" ja metodin `kaynnista` suoritus päättyy. -->
+
+2. If the command is `end`, the UI prints the string "Bye bye!" and the execution of the `start` method ends.
+
+<!-- 3. Mikäli komento on `lisaa`, tekstikäyttöliittymä kysyy käyttäjältä sanaa ja käännöstä, kumpaakin omalla rivillään. Tämän jälkeen sanat lisätään sanakirjaan ja metodi jatkaa kysymällä käyttäjältä komentoa eli kohdasta 1. -->
+
+3. If the command is `add`, the text UI asks the user for a word and a translation, each on its own line. After this the words are stored in the dictionary, and the method continues by asking for a new command (loops back to stage 1).
+
+<!-- 4. Muulloin, tekstikäyttöliittymä tulostaa viestin "Tuntematon komento", jonka jälkeen metodi jatkaa kysymällä käyttäjältä komentoa eli kohdasta 1. -->
+
+4. Otherwise the text UI prints the message `Unknown command` and asks for a new command, so it loops back to step 1.
+
+<!-- <sample-output>
 
 Komento: **jotain**
 Tuntematon komento
@@ -607,33 +668,73 @@ Tuntematon komento
 Komento: **lopeta**
 Hei hei!
 
+</sample-output> -->
+
+<sample-output>
+
+Command: **something**
+Unknown command
+Command: **add**
+Word: **pike**
+Translation: **hauki**
+Command: **change**
+Unknown command
+Command: **end**
+Bye bye!
+
 </sample-output>
 
-Yllä kuvatussa esimerkissä sanakirja-olioon lisätään sana "hauki" sekä sen käännös "pike". Sanakirjaa voisi tällöin käyttöliittymästä poistumisen jälkeen käyttää seuraavasti:
+<!-- Yllä kuvatussa esimerkissä sanakirja-olioon lisätään sana "hauki" sekä sen käännös "pike". Sanakirjaa voisi tällöin käyttöliittymästä poistumisen jälkeen käyttää seuraavasti: -->
 
-```java
+In the example above, we added the word "pike" and its translation "hauki" to the SimpleDictionary object. After exiting the text user interface the dictionary could be used in the following manner:
+
+<!-- ```java
 Scanner lukija = new Scanner(System.in);
 Sanakirja kirja = new Sanakirja();
 
 Tekstikayttoliittyma kayttoliittyma = new Tekstikayttoliittyma(lukija, kirja);
 kayttoliittyma.kaynnista();
 System.out.println(kirja.kaanna("hauki")); // tulostaa merkkijonon "pike"
+``` -->
+
+```java
+Scanner scanner = new Scanner(System.in);
+SimpleDictionary dictionary = new SimpleDictionary();
+
+TextUI textUI = new TextUI(scanner, dictionary);
+textUI.start();
+System.out.println(dictionary.translate("pike")); // prints the string "hauki"
 ```
 
+<!-- <h2>Sanan kääntäminen</h2> -->
 
-<h2>Sanan kääntäminen</h2>
+<h2>Translating a word</h2>
 
+<!-- Muokkaa metodia `public void kaynnista()` siten, että se toimii seuraavalla tavalla: -->
 
-Muokkaa metodia `public void kaynnista()` siten, että se toimii seuraavalla tavalla:
+Modify the method `public void start()` so that it works in the following:
 
-1. Metodi kysyy käyttäjältä komentoa.
-2. Mikäli komento on `lopeta`, tekstikäyttöliittymä tulostaa merkkijonon "Hei hei!" ja metodin `kaynnista` suoritus päättyy.
-3. Mikäli komento on `lisaa`, tekstikäyttöliittymä kysyy käyttäjältä sanaa ja käännöstä, kumpaakin omalla rivillään. Tämän jälkeen sanat lisätään sanakirjaan ja metodi jatkaa kysymällä käyttäjältä komentoa eli kohdasta 1.
-4. Mikäli komento on `hae`, tekstikäyttöliittymä kysyy käyttäjältä käännettävää sanaa. Tämän jälkeen tekstikäyttöliittymä tulostaa sanan käännöksen ja metodi jatkaa kysymällä käyttäjältä komentoa eli kohdasta 1.
-5. Muulloin, tekstikäyttöliittymä tulostaa viestin "Tuntematon komento", jonka jälkeen metodi jatkaa kysymällä käyttäjältä komentoa eli kohdasta 1.
+<!-- 1. Metodi kysyy käyttäjältä komentoa. -->
 
+1. The method asks the user for a command.
 
-<sample-output>
+<!-- 2. Mikäli komento on `lopeta`, tekstikäyttöliittymä tulostaa merkkijonon "Hei hei!" ja metodin `kaynnista` suoritus päättyy. -->
+
+2. If the command is `end`, the UI prints the string "Bye bye!" and the execution of the `start` method ends.
+
+<!-- 3. Mikäli komento on `lisaa`, tekstikäyttöliittymä kysyy käyttäjältä sanaa ja käännöstä, kumpaakin omalla rivillään. Tämän jälkeen sanat lisätään sanakirjaan ja metodi jatkaa kysymällä käyttäjältä komentoa eli kohdasta 1. -->
+
+3. If the command is `add`, the text UI asks the user for a word and a translation, each on its own line. After this the words are stored in the dictionary, and the method continues by asking for a new command (loops back to stage 1).
+
+<!-- 4. Mikäli komento on `hae`, tekstikäyttöliittymä kysyy käyttäjältä käännettävää sanaa. Tämän jälkeen tekstikäyttöliittymä tulostaa sanan käännöksen ja metodi jatkaa kysymällä käyttäjältä komentoa eli kohdasta 1. -->
+
+4. If the command is `search`, the text UI asks the user for the word to be translated. After this it prints the translation of the word, and the method continues by asking for a new command (loops back to stage 1).
+
+<!-- 5. Muulloin, tekstikäyttöliittymä tulostaa viestin "Tuntematon komento", jonka jälkeen metodi jatkaa kysymällä käyttäjältä komentoa eli kohdasta 1. -->
+
+5. Otherwise the text UI prints the message `Unknown command` and asks for a new command, so it loops back to step 1.
+
+<!-- <sample-output>
 
 Komento: **jotain**
 Tuntematon komento
@@ -651,14 +752,38 @@ Käännös: null
 Komento: **lopeta**
 Hei hei!
 
+</sample-output> -->
+
+<sample-output>
+
+Command: **something**
+Unknown command
+Command: **add**
+Word: **pike**
+Translation: **hauki**
+Command: **change**
+Unknown command
+Command: **search**
+To be translated: **pike**
+Translation: hauki
+Command: **search**
+To be translated: **carrot**
+Translation: null
+Command: **end**
+Bye bye!
+
 </sample-output>
 
 
-<h2>Käännöksen siistiminen</h2>
+<!-- <h2>Käännöksen siistiminen</h2> -->
 
-Muokkaa tekstikäyttöliittymän hakutoiminnallisuutta siten, että mikäli sanaa ei löydy (eli sanakirja palauttaa `null`-viitteen), tekstikäyttöliittymä tulostaa viestin "Sanaa (haettava) ei löydy".
+<h2>Cleaning up the translation</h2>
 
-<sample-output>
+<!-- Muokkaa tekstikäyttöliittymän hakutoiminnallisuutta siten, että mikäli sanaa ei löydy (eli sanakirja palauttaa `null`-viitteen), tekstikäyttöliittymä tulostaa viestin "Sanaa (haettava) ei löydy". -->
+
+Modify the searching functionality of the UI so that if the word isn't found (i.e. the dictionary returns `null`), the UI prints the message "Word (searched word) was not found".
+
+<!-- <sample-output>
 
 Komento: **jotain**
 Tuntematon komento
@@ -675,6 +800,26 @@ Haettava: **nauris**
 Sanaa nauris ei löydy
 Komento: **lopeta**
 Hei hei!
+
+</sample-output> -->
+
+<sample-output>
+
+Command: **something**
+Unknown command
+Command: **add**
+Word: **pike**
+Translation: **hauki**
+Command: **change**
+Unkown command
+Command: **search**
+To be translated: **pike**
+Translation: hauki
+Command: **search**
+To be translated: **carrot**
+Word carrot was not found
+Command: **end**
+Bye bye!
 
 </sample-output>
 
@@ -1151,14 +1296,22 @@ public class Kayttoliittyma {
 
 Tehtäväpohjassa on edellisessä esimerkissä rakennettu arvosanojen tallentamiseen tarkoitettu ohjelma. Tässä tehtävässä täydennät luokkaa `Arvosanarekisteri` siten, että se tarjoaa toiminnallisuuden arvosanojen ja koepisteiden keskiarvon laskemiseen.
 
+The exercise base includes the previously constructed program to store grades. In this exercise you will further develop the class `GradeRegister` so that it can calculate the average of grades and exam results.
 
-<h2>Arvosanojen keskiarvo</h2>
 
-Lisää luokalle `Arvosanarekisteri` metodi `public double arvosanojenKeskiarvo()`, joka palauttaa arvosanojen keskiarvon. Mikäli arvosanarekisterissä ei ole yhtäkään arvosanaa, tulee metodin palauttaa luku `-1`.  Laske arvosanojen keskiarvo `arvosanat`-listaa hyödyntäen.
+<!-- <h2>Arvosanojen keskiarvo</h2> -->
 
-Käyttöesimerkki:
+<h2>Average grade</h2>
 
-```java
+<!-- Lisää luokalle `Arvosanarekisteri` metodi `public double arvosanojenKeskiarvo()`, joka palauttaa arvosanojen keskiarvon. Mikäli arvosanarekisterissä ei ole yhtäkään arvosanaa, tulee metodin palauttaa luku `-1`.  Laske arvosanojen keskiarvo `arvosanat`-listaa hyödyntäen. -->
+
+Create the method `public double averageOfGrades()` for the class `GradeRegister`. It should return the average of the grades. If the register contains no grades, the method should return `-1`. Use the `grades` list to calculate the average.
+
+<!-- Käyttöesimerkki: -->
+
+Example:
+
+<!-- ```java
 Arvosanarekisteri rekisteri = new Arvosanarekisteri();
 rekisteri.lisaaArvosanaPisteidenPerusteella(93);
 rekisteri.lisaaArvosanaPisteidenPerusteella(91);
@@ -1166,6 +1319,16 @@ rekisteri.lisaaArvosanaPisteidenPerusteella(92);
 rekisteri.lisaaArvosanaPisteidenPerusteella(88);
 
 System.out.println(rekisteri.arvosanojenKeskiarvo());
+``` -->
+
+```java
+GradeRegister register = new GradeRegister();
+register.addGradeBasedOnPoints(93);
+register.addGradeBasedOnPoints(91);
+register.addGradeBasedOnPoints(92);
+register.addGradeBasedOnPoints(88);
+
+System.out.println(register.averageOfGrades());
 ```
 
 <sample-output>
@@ -1176,19 +1339,32 @@ System.out.println(rekisteri.arvosanojenKeskiarvo());
 
 
 
-<h2>Koepisteiden keskiarvo</h2>
+<!-- <h2>Koepisteiden keskiarvo</h2> -->
 
-Lisää luokalle `Arvosanarekisteri` uusi oliomuuttuja lista, johon lisäät koepisteitä aina kun luokkaa käyttävä ohjelma kutsuu metodia `lisaaArvosanaPisteidenPerusteella`. Lisää tämän jälkeen luokalle metodi `public double koepisteidenKeskiarvo()`, joka laskee ja palauttaa koepisteiden keskiarvon. Mikäli arvosanarekisteriin ei ole lisätty yhtäkään koepistettä, tulee metodin palauttaa luku `-1`.
+<h2>Average points</h2>
 
-Käyttöesimerkki:
+<!-- Lisää luokalle `Arvosanarekisteri` uusi oliomuuttuja lista, johon lisäät koepisteitä aina kun luokkaa käyttävä ohjelma kutsuu metodia `lisaaArvosanaPisteidenPerusteella`. Lisää tämän jälkeen luokalle metodi `public double koepisteidenKeskiarvo()`, joka laskee ja palauttaa koepisteiden keskiarvon. Mikäli arvosanarekisteriin ei ole lisätty yhtäkään koepistettä, tulee metodin palauttaa luku `-1`. -->
 
-```java
+Give the class `GradeRegister` a new object variable: a list where you will store the exam points every time that the method `addGradeBasedOnPoints` is called. After this addition, create a method `public double averageOfPoints()` that calculates and returns the average of the exam points. If there are no points added to the register, the method should return the number `-1`.
+
+Example:
+
+<!-- ```java
 Arvosanarekisteri rekisteri = new Arvosanarekisteri();
 rekisteri.lisaaArvosanaPisteidenPerusteella(93);
 rekisteri.lisaaArvosanaPisteidenPerusteella(91);
 rekisteri.lisaaArvosanaPisteidenPerusteella(92);
 
 System.out.println(rekisteri.koepisteidenKeskiarvo());
+``` -->
+
+```java
+GradeRegister register = new GradeRegister();
+register.addGradeBasedOnPoints(93);
+register.addGradeBasedOnPoints(91);
+register.addGradeBasedOnPoints(92);
+
+System.out.println(register.averageOfPoints());
 ```
 
 <sample-output>
@@ -1198,11 +1374,15 @@ System.out.println(rekisteri.koepisteidenKeskiarvo());
 </sample-output>
 
 
-<h2>Tulostukset käyttöliittymään</h2>
+<!-- <h2>Tulostukset käyttöliittymään</h2> -->
 
-Lisää lopulta edellä toteutetut metodit osaksi käyttöliittymää. Kun sovellus tulostaa arvosanajakauman, tulee sovelluksen tulostaa myös pisteiden ja arvosanojen keskiarvo.
+<h2>Prints in the user interface</h2>
 
-<sample-output>
+<!-- Lisää lopulta edellä toteutetut metodit osaksi käyttöliittymää. Kun sovellus tulostaa arvosanajakauman, tulee sovelluksen tulostaa myös pisteiden ja arvosanojen keskiarvo. -->
+
+As a final step, add the methods implemented above as parts of the user interface. When the program prints the grade distribution, it should also print the averages of the points and the grades.
+
+<!-- <sample-output>
 
 Syötä koepisteet: **82**
 Syötä koepisteet: **83**
@@ -1221,6 +1401,28 @@ Syötä koepisteet:
 0: \*
 Koepisteiden keskiarvo: 68.14285714285714
 Arvosanojen keskiarvo: 2.4285714285714284
+
+</sample-output> -->
+
+<sample-output>
+
+Points: **82**
+Points: **83**
+Points: **96**
+Points: **51**
+Points: **48**
+Points: **56**
+Points: **61**
+Points:
+
+5: \*
+4: \*\*
+3:
+2: \*
+1: \*\*
+0: \*
+The average of points: 68.14285714285714
+The average of grades: 2.4285714285714284
 
 </sample-output>
 
