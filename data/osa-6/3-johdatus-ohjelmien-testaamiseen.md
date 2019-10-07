@@ -4,12 +4,13 @@ title: 'Johdatus ohjelmien testaamiseen'
 hidden: true
 ---
 
+<!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-- Osaat kertoa joitakin ohjelmistovirheistä johtuvia ongelmia.
+<!-- - Osaat kertoa joitakin ohjelmistovirheistä johtuvia ongelmia.
 - Tiedät mikä on stack trace, tunnet askeleet virheiden selvittämiseen ja osaat antaa tekstimuotoista testisyötettä Scannerille.
 - Tiedät mistä yksikkötestauksessa on kyse ja osaat kirjoittaa yksikkötestejä.
-- Tiedät testivetoisen ohjelmistokehitysmenetelmän.
+- Tiedät testivetoisen ohjelmistokehitysmenetelmän. -->
 
 </text-box>
 

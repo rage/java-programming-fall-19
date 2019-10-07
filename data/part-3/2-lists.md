@@ -12,30 +12,29 @@ hidden: false
 
 <!-- - Tunnet listarakenteen ja osaat käyttää listaa osana ohjelmia. -->
 
-- You are familiar with the list structure and can use it in your programs
+- You are familiar with the list structure and know how to use a list in a program.
 
 <!-- - Tunnet käsitteen indeksi, osaat lisätä arvoja listalle ja osaat hakea tietoa listan indeksistä. -->
 
-- You are familiar with the concept of index, you can add values to a list, and you know how to retrieve information from a list's indices
+- You are familiar with the concept of an index, you can add values to a list, and you know how to retrieve information from a list's indices.
 
 <!-- - Osaat käydä listan läpi useammalla erilaisella toistolauseella. -->
 
-- You can use several kinds of looping statements to iterate over a list
+- You know how to iterate over a list with multiple different loop types.
 
 <!-- - Osaat tarkistaa onko arvo listalla ja osaat toisaalta poistaa arvoja listalta. -->
 
-- You know how to check if a value exists in a list, and you can remove values from a list
+- You know how to check if a value exists in a list, and also know how to remove values from a list.
 
 <!-- - Tiedät, että lista on viittaustyyppinen muuttuja ja tutustut listan käyttöön metodin parametrina. -->
 
-- You are aware that a list is a reference-type variable, and you will familiarize yourself with using lists as method parameters
+- You are aware of the list being a reference-type variable, and will become familiar with using lists as method parameters.
 
 </text-box>
 
-
 <!-- Ohjelmoidessa tulee vastaan tilanteita, joissa haluamme käsitellä useita arvoja. Epäkäytännöllinen mutta tähän mennessä käytännössä ainoa tapa on ollut määritellä jokaiselle arvolle oma muuttuja. -->
 
-We often encounter situations that call for handling of multiple values when programming. Before this,  the practically only means available to us has been to define a separate variable for storing each value. This method can easily become impractical.
+In programming, we often encounter situations where we want to handle many values. The only method we've used so far has been to define a separate variable for storing each value. This is impractical.
 
 
 <!-- ```java
@@ -56,24 +55,24 @@ String word10;
 
 <!-- Yllä esitetty ratkaisu on oikeastaan kelvoton -- ajattele ylläoleva esimerkki vaikkapa tuhannella sanalla. -->
 
-The solution presented above is frankly useless -- consider the situation when there are thousands of words to store.
+The solution presented above is useless in effect -- consider a situation in which there are thousands of words to store.
 
 <!-- Ohjelmointikielet tarjoavat apuvälineitä, joiden avulla on helppo säilyttää useita arvoja. Tutustumme seuraavaksi Java-ohjelmointikielen ehkäpä eniten käytettyyn apuvälineeseen [ArrayListiin](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html), joka on useamman samankaltaisen arvon säilömiseen tarkoitettu lista. -->
 
-Programming languages offer tools to assist in storing a number of values. We will next take a peek at perhaps the most used single tool the Java language, the [ArrayList](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html), which is used for storing many values of the same type.
+Programming languages offer tools to assist in storing a large quantity of values. We will next take a peek at perhaps the single most used tool in Java, the [ArrayList](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html), which is used for storing many values that are of the same type.
 
 <!-- ArrayList on Javan valmiiksi tarjoama työväline listojen käsittelyyn. Se tarjoaa metodit muunmuassa arvojen lisäämiseen listalle, arvojen poistamiseen listalta sekä arvojen hakemiseen tietystä listan kohdasta. Listan konkreettinen toiminta -- eli miten lista on oikeasti ohjelmoitu -- on abstrahoitu metodien taakse, jolloin listaa käyttävän ohjelmoijan ei tarvitse välittää listan sisäisestä toiminnallisuudesta. -->
 
-ArrayList is a premade tool to help in handling lists. It offers methods for, among others, adding values to the list, removing values from the list, and getting a value from a specific place in the list. The concrete operation -- how the list is concretely programmed -- has beed abstracted behind these methods, so a programmer who uses a list need not concern themselves with its inner workings.
+ArrayList is a pre-made tool in Java that helps dealing with lists. It offers various methods, including ones for adding values to the list, removing values from it, and also for the retrieval of a value from a specific place in the list. The concrete workings -- i.e., how the list is actually  programmed -- has beed abstracted behind the methods, so that a programmer using a list doesn't need to concern themselves with its inner workings.
 
 
 <!-- ## Listan käyttöönotto ja luominen -->
 
-## Beginning to use lists and creating them
+## Using and Creating Lists
 
 <!-- Jotta ArrayListiä voi käyttää, tulee se tuoda ohjelman käyttöön. Tämä onnistuu kirjoittamalla ohjelman ylälaitaan komento `import java.util.ArrayList;`. Alla on esimerkkiohjelma, missä ArrayList tuodaan ohjelman käyttöön. -->
 
-In order to use ArrayList it must be imported in the program. This happens by writing the command `import java.util.ArrayList;` to the top of the program. In the example below ArrayList is imported into the program.
+For an ArrayList to be used, it first needs be imported into the program. This is achieved by including the command `import java.util.ArrayList;` at the top of the program. Beneath is an example program where an ArrayList is imported into the program.
 
 <!-- ```java
 // tuodaan lista ohjelman käyttöön
@@ -138,24 +137,24 @@ public class Program {
 
 <!-- ArrayList-muuttujan tyyppi on `ArrayList`. Listamuuttujaa esiteltäessä muuttujan tyypin lisäksi listalle määritellään siihen säilöttävien arvojen tyyppi -- **kaikki samalle listalle lisättävät arvot ovat saman tyyppisiä**. Esimerkiksi merkkijonoja sisältävän ArrayListin tyyppi on `ArrayList<String>` ja kokonaislukuja sisältävän ArrayListin tyyppi on `ArrayList<Integer>`. Listan luominen tapahtuu  komennolla `new ArrayList<>();`. -->
 
-The type of the `list` variable is `ArrayList`. When introducing a list variable, it is important to define also the type of the values to be stored, and not only the type of the list variable itself. **All the variables stored in one list have the same type**. The type of an ArrayList that stores strings is therefore `ArrayList<String>`. A new list is created with the command `new ArrayList<>();`.
+The type of the ArrayList variable is `ArrayList`. When a list variable is initialized, the type of the values to be stored is also defined in addition to the variable type -- **all the variables stored in a given list have the same type**. The type of an ArrayList that stores strings is therefore `ArrayList<String>`. A new list is created with the command `new ArrayList<>();`.
 
 
 <!-- ##  Listan sisältämien arvojen tyypin määrittely -->
 
-## Defining the type of values that a list can store
+## Defining the Type of Values That a List Can Contain
 
 <!-- Listan sisältämien arvojen tyyppien määrittelyssä muuttujista tulee käyttää niiden "isolla kirjaimella kirjoitettuja" versioita. Esimerkiksi int-tyyppisiä muuttujia sisältävä lista tulee määritellä muodossa `ArrayList<Integer>` ja double-tyyppisiä muuttujia sisältävä lista tulee määritellä muodossa `ArrayList<Double>`. -->
 
-When defining the type of values that a list include, the "capitalized first letter" versions of types must be used. A list that includes int-type variables has to be defined in the form `ArrayList<Integer>`; a list that includes double-type variables similarly in the form `ArrayList<Double>`.
+When defining the type of values that a list can include, versions of the types where the first letter has been capitalized must be used. A list that includes int-type variables has to be defined in the form `ArrayList<Integer>`; and likeweise a list that includes double-type variables is defined in the form `ArrayList<Double>`.
 
 <!-- Tämä liittyy siihen, miten ArrayList on toteutettu. Javan muuttujat voidaan jakaa kahteen kategoriaan: alkeistyyppisiin muuttujiin ja viittaustyyppisiin muuttujiin. **Alkeistyyppiset** muuttujat kuten `int` ja `double` sisältävät niihin liittyvät arvot. **Viittaustyyppiset** muuttujat taas, kuten esimerkiksi `ArrayList` sisältävät viitteen paikkaan, joka sisältää muuttujaan liittyvät arvot. -->
 
-The reason for this practice relates to the implementation of ArrayList. The variables in Java can be divided into two categories: value type (primitive) and reference type (reference type) variables. **Value type** variables such as `int` or `double` contain their values directly. **Reference type** variables such as `ArrayList`, in contrast, contain a reference to the location that contains the value(s) relating to that variable.
+The reason for this relates how the ArrayList is implemented. Variables in Java can be divided into two categories: value type (primitive) and reference type (reference type) variables. **Value type** variables such as `int` or `double` hold their actual values. **Reference type** variables such as `ArrayList`, in contrast, contain a reference to the location that contains the value(s) relating to that variable.
 
 <!-- Alkeistyyppiset muuttujat pystyvät sisältämään vain rajatun määrän tietoa, kun taas viitteen taakse tietoa voi säilöä lähes rajattomasti. -->
 
-Value type variables can hold a very limited amount of information, whereas references can be used to store a near limitless amount.
+Value type variables can hold a very limited amount of information, whereas references can be used to store a near limitless amount of it.
 
 <!-- Alla on kuvattuna eri tyyppisiä arvoja sisältävien listojen luominen. -->
 
@@ -205,7 +204,7 @@ lista.add("String is a reference type variable");
 
 <!-- Kun lista on luotu, ArrayList olettaa, että sen sisältämät muuttujat ovat viittaustyyppisiä. Java muuntaa automaattisesti `int`-tyyppisen muuttujan `Integer`-tyyppiseksi kun se lisätään listalle, sama tapahtuu myös kun muuttuja haetaan listalta. Vastaava muunnos tapahtuu myös `double`-tyyppiselle muuttujalle, josta tulee `Double`-tyyppinen muuttuja. Tämä tarkoittaa sitä, että vaikka lista määritellään `Integer`-tyyppisiä arvoja sisältäväksi, voi siihen lisätä `int`-tyyppisiä arvoja. -->
 
-Once a list is created, ArrayList assumes that all the variables in it are reference type. Java automatically converts an `int` type variable into `Integer` type when it is being added to a list, and the same occurs when a variable is retrieved from a list. The same conversion occurs to `double` type variables, which are converted to `Double`. In practice the result is that even though a list is defined to contain variables of type `Integer`, `int` type variables can also be added to it.
+Once a list is created, ArrayList assumes that all the variables in it are reference types. Java automatically converts an `int` variable into `Integer` when it is being added to a list, and the same occurs when a variable is retrieved from a list. The same conversion occurs to `double` variables, which are converted to `Double`. This means that even though a list is defined to contain`Integer` type variables, variables of type `int` can also be added to it.
 
 
 <!-- ```java
@@ -230,17 +229,17 @@ doubles.add(d);
 
 <!-- Palaamme teemaan jatkossakin, sillä tämä jako alkeis- ja viittaustyyppisiin muuttujiin vaikuttaa ohjelmiimme myös muilla tavoin. -->
 
-We will return to discuss this matter of value and reference type variables, since the division has other effects on our programs, too.
+We will be returning to this theme as the division of variables to value and reference types affects our programs in other ways as well.
 
 
 <!-- ## Listalle lisääminen ja tietystä kohdasta hakeminen -->
 
-## Adding to a list and retrieving a value from a specific place
+## Adding to a List and Retrieving a Value from a Specific Place
 
 
 <!-- Seuraavassa esimerkissä esitellään merkkijonoja säilövä ArrayList, johon lisätään muutama merkkijono. Lisääminen tapahtuu listan metodilla `add`, jolle annetaan parametrina listalle lisättävä arvo. Tämän jälkeen tulostetaan listan nollannessa kohdassa oleva arvo. Listan tietystä kohdasta haetaan arvo listan metodilla `get`, jolle annetaan parametrina kokonaislukutyyppinen arvo, joka kertoo kohdan mistä arvo haetaan. -->
 
-The next example shows adding a few string into an ArrayList that contains string. Adding is done with the list method `add`, which takes the value to be added as a parameter. Then we print the value at position zero. To retrieve a value from a certain position, you use the list method `get`, which is given the place of retrieval as a parameter.
+The next example demonstrates the adding of a few strings into an ArrayList containing strings. Adding is done with the list method `add`, which takes the value to be added as a parameter. Then we print the value at position zero. To retrieve a value from a certain position, you use the list method `get`, which is given the place of retrieval as a parameter.
 
 <!-- Listan metodeja kutsutaan kirjoittamalla ensin listaa kuvaavaan muuttujan nimi, sitten piste, ja sitten metodin nimi. -->
 
