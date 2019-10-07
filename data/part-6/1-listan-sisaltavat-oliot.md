@@ -1686,11 +1686,11 @@ Awak
 </sample-output>
 
 <!-- <programming-exercise name='Joukon pisin' tmcname='osa06-Osa06_06.JoukonPisin'> -->
-<programming-exercise name='Longest in set' tmcname='part06-Part06_06.LongestInSet'>
+<programming-exercise name='Longest in collection' tmcname='part06-Part06_06.LongestInCollection'>
 
 <!-- Tehtäväpohjassa on mukana aiemmasta tehtävästä tuttu luokka `Joukko`. Toteuta luokkaan metodi `public String pisin()`, joka palauttaa joukon pisimmän merkkijonon. Mikäli joukko on tyhjä, metodin tulee palauttaa `null`-viite. -->
 
-The exercise template comes with the class `SimpleCollection` that's familiar from previous exercises. Implement the method `public String longest()` for the class, which returns the longest string of the set. If the set is empty, the method should retunr a `null` reference.
+The exercise template comes with the class `SimpleCollection` that's familiar from previous exercises. Implement the method `public String longest()` for the class, which returns the longest string of the collection. If the collection is empty, the method should return a `null` reference.
 
 <!-- ```java
 Joukko j = new Joukko("hahmot");
