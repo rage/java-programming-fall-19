@@ -1,6 +1,6 @@
 ---
-path: '/osa-6/2-kayttoliittyman-ja-sovelluslogiikan-eriyttaminen'
-title: 'Käyttöliittymän ja sovelluslogiikan eriyttäminen'
+path: "/osa-6/2-kayttoliittyman-ja-sovelluslogiikan-eriyttaminen"
+title: "Käyttöliittymän ja sovelluslogiikan eriyttäminen"
 hidden: true
 ---
 
@@ -8,7 +8,9 @@ hidden: true
 
 <!-- - Tutustut sovelluksen luomiseen siten, että käyttöliittymä ja sovelluslogiikka ovat erillään. -->
 <!-- - Osaat luoda tekstikäyttöliittymän, joka saa parametrinaan sovelluskohtaisen sovelluslogiikan sekä syötteen lukemiseen käytettävän Scanner-olion. -->
+
  - Understand creating programs so, that the user interface and the application logic are separated
+
  - Can create a textual user interface, which takes program specific application logic and a Scanner object as parameters
 
 
@@ -36,7 +38,6 @@ There is no one clear answer -- sometimes it is good to start from the problem d
 <!-- Käyttöliittymän hahmottelu voisi lähteä liikenteeseen luokasta Kayttoliittyma. Käyttöliittymä käyttää syötteen lukemiseen Scanner-oliota, joka annetaan sille käyttöliittymän luonnin yhteydessä. Tämän lisäksi käyttöliittymällä on käynnistämiseen tarkoitettu metodi. -->
 We could start implementing the user interface by creating a class UserInterface. The user interface uses a Scanner object for reading user input. This object is given to the User Interface
 
-
 ```java
 public class Kayttoliittyma {
     private Scanner lukija;
@@ -53,7 +54,6 @@ public class Kayttoliittyma {
 
 Käyttöliittymän luominen ja käynnistäminen onnistuu seuraavasti.
 
-
 ```java
 public static void main(String[] args) {
     Scanner lukija = new Scanner(System.in);
@@ -62,11 +62,9 @@ public static void main(String[] args) {
 }
 ```
 
-
 ## Toisto ja lopetus
 
 Ohjelmassa on (ainakin) kaksi "aliongelmaa". Ensimmäinen on sanojen toistuva lukeminen käyttäjältä kunnes tietty ehto toteutuu. Tämä voitaisiin hahmotella seuraavaan tapaan.
-
 
 ```java
 public class Kayttoliittyma {
@@ -152,7 +150,6 @@ Annoit saman sanan uudestaan!
 </sample-output>
 
 Ohjelma ei toimi vielä kokonaisuudessaan, mutta ensimmäinen osaongelma eli ohjelman pysäyttäminen kunnes tietty ehto toteutuu on saatu toimimaan.
-
 
 ## Oleellisten tietojen tallentaminen
 
@@ -248,11 +245,9 @@ public boolean onJoSyotetty(String sana) {
 
 Nyt sovellus toimii kutakuinkin halutusti.
 
-
 ## Oliot luonnollisena osana ongelmanratkaisua
 
 Rakensimme äsken ratkaisun ongelmaan, missä luetaan käyttäjältä sanoja, kunnes käyttäjä antaa saman sanan uudestaan. Syöte ohjelmalle oli esimerkiksi seuraavanlainen.
-
 
 <sample-output>
 
@@ -300,8 +295,7 @@ public class Kayttoliittyma {
 }
 ```
 
-Ohjelman käyttämä apumuuttuja lista `sanat` on yksityiskohta käyttöliittymän kannalta. Käyttöliittymän kannaltahan on oleellista, että muistetaan niiden *sanojen joukko* jotka on nähty jo aiemmin. Sanojen joukko on selkeä erillinen "käsite", tai abstraktio. Tälläiset selkeät käsitteet ovat potentiaalisia olioita; kun koodissa huomataan "käsite" voi sen eristämistä erilliseksi luokaksi harkita.
-
+Ohjelman käyttämä apumuuttuja lista `sanat` on yksityiskohta käyttöliittymän kannalta. Käyttöliittymän kannaltahan on oleellista, että muistetaan niiden _sanojen joukko_ jotka on nähty jo aiemmin. Sanojen joukko on selkeä erillinen "käsite", tai abstraktio. Tälläiset selkeät käsitteet ovat potentiaalisia olioita; kun koodissa huomataan "käsite" voi sen eristämistä erilliseksi luokaksi harkita.
 
 ### Sanajoukko
 
@@ -345,7 +339,6 @@ public class Sanajoukko {
     }
 }
 ```
-
 
 ### Toteutus aiemmasta ratkaisusta
 
@@ -421,7 +414,6 @@ Olemme päätyneet tilanteeseen missä `Sanajoukko` ainoastaan "kapseloi" ArrayL
 
 Oleellista on tässä se, että Sanajoukko-luokkaan tehdyt sisäiset muutokset eivät vaikuta luokkaan Käyttöliittymä. Tämä johtuu siitä, että käyttöliittymä käyttää sanajoukkoa sen tarjoamien metodien -- eli julkisten rajapintojen -- kautta.
 
-
 ## Uusien toiminnallisuuksien toteuttaminen: palindromit
 
 Voi olla, että jatkossa ohjelmaa halutaan laajentaa siten, että `Sanajoukko`-luokan olisi osattava uusia asiota. Jos ohjelmassa haluttaisiin esimerkiksi tietää kuinka moni syötetyistä sanoista oli palindromi, voidaan sanajoukkoa laajentaa metodilla `palindromeja`.
@@ -446,7 +438,6 @@ public void kaynnista() {
 ```
 
 Käyttöliittymä säilyy siistinä ja palindromien laskeminen jää `Sanajoukko`-olion huoleksi. Metodin toteutus voisi olla esimerkiksi seuraavanlainen.
-
 
 ```java
 import java.util.ArrayList;
@@ -499,32 +490,30 @@ public class Sanajoukko {
 
 Metodissa `palindromeja` käytetään apumetodia `onPalindromi`, joka tarkastaa onko sille parametrina annettu sana palindromi.
 
-
-
 <text-box variant='hint' name='Uusiokäyttö'>
 
 Kun ohjelmakoodin käsitteet on eriytetty omiksi luokikseen, voi niitä uusiokäyttää helposti muissa projekteissa. Esimerkiksi luokkaa `Sanajoukko` voisi käyttää yhtä hyvin graafisesta käyttöliittymästä, ja se voisi myös olla osa kännykässä olevaa sovellusta. Tämän lisäksi ohjelman toiminnan testaaminen on huomattavasti helpompaa silloin kun ohjelma on jaettu erillisiin käsitteisiin, joita kutakin voi käyttää myös omana itsenäisenä yksikkönään.
 
 </text-box>
 
-
 ## Neuvoja ohjelmointiin
 
 Yllä kuvatussa laajemmassa esimerkissä noudatettiin seuraavia neuvoja.
 
+- Etene pieni askel kerrallaan
 
--  Etene pieni askel kerrallaan
-    -  Yritä pilkkoa ongelma osaongelmiin ja **ratkaise vain yksi osaongelma kerrallaan**
-    -  Testaa aina että ohjelma on etenemässä oikeaan suuntaan eli että osaongelman ratkaisu meni oikein
-    -  Tunnista ehdot, minkä tapauksessa ohjelman tulee toimia eri tavalla. Esimerkiksi yllä tarkistus, jolla katsotaan onko sana jo syötetty, johtaa erilaiseen toiminnallisuuden.
+  - Yritä pilkkoa ongelma osaongelmiin ja **ratkaise vain yksi osaongelma kerrallaan**
+  - Testaa aina että ohjelma on etenemässä oikeaan suuntaan eli että osaongelman ratkaisu meni oikein
+  - Tunnista ehdot, minkä tapauksessa ohjelman tulee toimia eri tavalla. Esimerkiksi yllä tarkistus, jolla katsotaan onko sana jo syötetty, johtaa erilaiseen toiminnallisuuden.
 
--  Kirjoita mahdollisimman "siistiä" koodia
-    -  sisennä koodi
-    -  käytä kuvaavia muuttujien ja metodien nimiä
-    -  älä tee liian pitkiä metodeja, edes mainia
-    -  tee yhdessä metodissa vaan yksi asia
-    -  **poista koodistasi kaikki copy-paste**
-    -  korvaa koodisi "huonot" ja epäsiistit osat siistillä koodilla
+- Kirjoita mahdollisimman "siistiä" koodia
+
+  - sisennä koodi
+  - käytä kuvaavia muuttujien ja metodien nimiä
+  - älä tee liian pitkiä metodeja, edes mainia
+  - tee yhdessä metodissa vaan yksi asia
+  - **poista koodistasi kaikki copy-paste**
+  - korvaa koodisi "huonot" ja epäsiistit osat siistillä koodilla
 
 - Astu tarvittaessa askel taaksepäin ja mieti kokonaisuutta. Jos ohjelma ei toimi, voi olla hyvä idea palata aiemmin toimineeseen tilaan. Käänteisesti voidaan sanoa, että rikkinäinen ohjelma korjaantuu harvemmin lisäämällä siihen lisää koodia.
 
@@ -823,7 +812,6 @@ Bye bye!
 
 </sample-output>
 
-
 </programming-exercise>
 
 
@@ -831,7 +819,7 @@ Bye bye!
 
 Tässä tehtävässä tehdään sovellus tehtävälistan luomiseen ja käsittelyyn. Lopullinen sovellus tulee toimimaan seuraavalla tavalla.
 
-<sample-output>
+<!-- <sample-output>
 
 Komento: **lisaa**
 Tehtävä: **käy kaupassa**
@@ -852,19 +840,47 @@ Komento: **listaa**
 2: ohjelmoi
 Komento: **lopeta**
 
+</sample-output> -->
+<sample-output>
+
+Command: **add**
+Task: **go to the store**
+Command: **add**
+Task: **vacuum clean**
+Command: **list**
+1: go to the store
+2: vacuum clean
+Command: **completed**
+Which task was completed? **2**
+Task go to the store tehty
+Command: **list**
+1: go to the store
+Command: **add**
+Task: **program**
+Command: **list**
+1: go to the store
+2: program
+Command: **stop**
+
 </sample-output>
 
 Tehdään sovellus osissa.
 
 <h2>Tehtävälista</h2>
 
-Luo luokka `Tehtavalista`. Luokalla tulee olla parametriton konstruktori sekä seuraavat metodit:
+<!-- Luo luokka `Tehtavalista`. Luokalla tulee olla parametriton konstruktori sekä seuraavat metodit:
 
 - `public void lisaa(String tehtava)` - lisää tehtävälistalle parametrina annetun tehtävän.
 - `public void tulosta()` - tulostaa tehtävät. Tulostuksessa jokaiselle tehtävällä on myös numero -- käytä tässä tehtävän indeksiä (+1).
-- `public void poista(int numero)` - poistaa annettua numeroa vastaavan tehtävän; numero liittyy tulostuksessa nähtyyn tehtävän numeroon.
+- `public void poista(int numero)` - poistaa annettua numeroa vastaavan tehtävän; numero liittyy tulostuksessa nähtyyn tehtävän numeroon. -->
 
-```java
+Luo luokka `Tehtavalista`. Luokalla tulee olla parametriton konstruktori sekä seuraavat metodit:
+
+- `public void add(String task)` - add the task passed as a parameter to the todo list.
+- `public void print()` - prints the exercises. Each task has a number associated with it on the print statement -- use the task's index here (+1).
+- `public void remove(int number)` - removes the task associated with the given number; the number is the one seen associated with the task in the print.
+
+<!-- ```java
 Tehtavalista lista = new Tehtavalista();
 lista.lisaa("lue kurssimateriaalia");
 lista.lisaa("katso uusin fool us");
@@ -875,9 +891,22 @@ lista.poista(2);
 
 System.out.println();
 lista.tulosta();
+``` -->
+
+```java
+TodoList list = new TodoList();
+list.add("read the course material");
+list.add("watch the latest fool us");
+list.add("take it easy");
+
+list.print();
+list.remove(2);
+
+System.out.println();
+list.print();
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 1: lue kurssimateriaalia
 2: katso uusin fool us
@@ -886,13 +915,23 @@ lista.tulosta();
 1: lue kurssimateriaalia
 2: ota rennosti
 
+</sample-output> -->
+<sample-output>
+
+1: read the course material
+2: watch the latest fool us
+3: take it easy
+
+1: read the course material
+2: take it easy
+
 </sample-output>
 
 **Huom!** Voit olettaa, että metodille `poista` syötetään oikea tehtävää vastaava numero. Metodin tarvitsee toimia oikein vain kerran kunkin tulostuskutsun jälkeen.
 
 Toinen esimerkki:
 
-```java
+<!-- ```java
 Tehtavalista lista = new Tehtavalista();
 lista.lisaa("lue kurssimateriaalia");
 lista.lisaa("katso uusin fool us");
@@ -905,9 +944,24 @@ lista.tulosta();
 lista.poista(1);
 lista.poista(1);
 lista.tulosta();
+``` -->
+
+```java
+TodoList list = new TodoList();
+list.add("read the course material");
+list.add("watch the latest fool us");
+list.add("take it easy");
+list.pritn();
+list.remove(2);
+list.pritn();
+list.add("buy rasins");
+list.pritn();
+list.remove(1);
+list.remove(1);
+list.pritn();
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 1: lue kurssimateriaalia
 2: katso uusin fool us
@@ -919,21 +973,42 @@ lista.tulosta();
 3: osta rusinoita
 1: osta rusinoita
 
-</sample-output>
+</sample-output> -->
+<sample-output>
 
+1: read the course material
+2: watch the latest fool us
+3: take it easy
+1: read the course material
+2: take it easy
+1: read the course material
+2: take it easy
+3: buy rasins
+1: buy rasins
+
+</sample-output>
 
 <h2>Käyttöliittymä</h2>
 
-Toteuta seuraavaksi luokka `Kayttoliittyma`. Luokalla `Kayttoliittyma` tulee olla kaksiparametrinen konstruktori. Ensimmäisenä parametrina annetaan luokan `Tehtavalista` ilmentymä ja toisena parametrina luokan `Scanner` ilmentymä. Konstruktorin lisäksi luokalla tulee olla metodi `public void kaynnista()`, joka käynnistää tekstikäyttöliittymän. Tekstikäyttöliittymä toteutetaan ikuisen toistolauseen (`while-true`) avulla, ja sen tulee tarjota seuraavat komennot:
+<!-- Toteuta seuraavaksi luokka `Kayttoliittyma`. Luokalla `Kayttoliittyma` tulee olla kaksiparametrinen konstruktori. Ensimmäisenä parametrina annetaan luokan `Tehtavalista` ilmentymä ja toisena parametrina luokan `Scanner` ilmentymä. Konstruktorin lisäksi luokalla tulee olla metodi `public void kaynnista()`, joka käynnistää tekstikäyttöliittymän. Tekstikäyttöliittymä toteutetaan ikuisen toistolauseen (`while-true`) avulla, ja sen tulee tarjota seuraavat komennot:
 
 - Komento `lopeta` lopettaa toistolauseen suorituksen, jonka jälkeen ohjelman suoritus palaa `kaynnista`-metodista.
 - Komento `lisaa` kysyy käyttäjältä lisättävää tehtävää. Kun käyttäjä syöttää lisättävän tehtävän, tulee se lisätä tehtävälistalle.
 - Komento `listaa` tulostaa kaikki tehtävälistalla olevat tehtävät.
 - Komento `poista` kysyy käyttäjältä poistettavan tehtävän tunnusta ja poistaa käyttäjän syöttämää tunnusta vastaavan tehtävän tehtävälistalta.
 
+Alla on esimerkki sovelluksen toiminnasta. -->
+
+Toteuta seuraavaksi luokka `UserInterface`. Luokalla `UserInterface` tulee olla kaksiparametrinen konstruktori. Ensimmäisenä parametrina annetaan luokan `TodoList` ilmentymä ja toisena parametrina luokan `Scanner` ilmentymä. Konstruktorin lisäksi luokalla tulee olla metodi `public void start()`, joka käynnistää tekstikäyttöliittymän. Tekstikäyttöliittymä toteutetaan ikuisen toistolauseen (`while-true`) avulla, ja sen tulee tarjota seuraavat komennot:
+
+- Komento `stop` lopettaa toistolauseen suorituksen, jonka jälkeen ohjelman suoritus palaa `start`-metodista.
+- Komento `add` kysyy käyttäjältä lisättävää tehtävää. Kun käyttäjä syöttää lisättävän tehtävän, tulee se lisätä tehtävälistalle.
+- Komento `list` tulostaa kaikki tehtävälistalla olevat tehtävät.
+- Komento `remove` kysyy käyttäjältä poistettavan tehtävän tunnusta ja poistaa käyttäjän syöttämää tunnusta vastaavan tehtävän tehtävälistalta.
+
 Alla on esimerkki sovelluksen toiminnasta.
 
-<sample-output>
+<!-- <sample-output>
 
 Komento: **lisaa**
 Lisättävä: **kirjoita essee**
@@ -955,18 +1030,38 @@ Komento: **listaa**
 1: lopeta
 Komento: **lopeta**
 
+</sample-output> -->
+<sample-output>
+
+Command: **add**
+To add: **write an essay**
+Command: **add**
+To add: **read a book**
+Command: **list**
+1: write an essay
+2: read a book
+Command: **poista**
+Which one is removed? **1**
+Command: **list**
+1: read a book
+Command: **poista**
+Which one is removed? **1**
+Command: **list**
+Command: **add**
+To add: **lopeta**
+Command: **list**
+1: stop
+Command: **stop**
+
 </sample-output>
 
 Huom! Käyttöliittymän tulee käyttää sille parametrina annettua tehtävälistaa ja Scanneria.
 
 </programming-exercise>
 
-
 ## Sovelluksesta osakokonaisuuksiin
 
-
 Tarkastellaan ohjelmaa, joka kysyy käyttäjältä koepisteitä, muuntaa ne arvosanoiksi, ja lopulta tulostaa kurssin arvosanajakauman tähtinä. Ohjelma lopettaa lukemisen kun käyttäjä syöttää tyhjän merkkijonon. Ohjelman käyttö näyttää seuraavalta:
-
 
 <sample-output>
 
@@ -1064,7 +1159,6 @@ public class Ohjelma {
 ```
 
 Pilkotaan ohjelma pienempiin osiin. Ohjelman pilkkominen tapahtuu tunnistamalla ohjelmasta vastuualueita. Arvosanojen kirjanpito, mukaanlukien pisteiden muunnos arvosanoiksi, voisi olla erillisen luokan vastuulla. Tämän lisäksi käyttöliittymälle voidaan luoda oma luokkansa.
-
 
 ### Sovelluslogikkka
 
@@ -1177,7 +1271,6 @@ rekisteri.lisaaArvosanaPisteidenPerusteella(49);
 System.out.println("Arvosanan 0 saaneita (pitäisi olla 1): " + rekisteri.montakoSaanutArvosanan(0));
 System.out.println("Arvosanan 1 saaneita (pitäisi olla 2): " + rekisteri.montakoSaanutArvosanan(2));
 ```
-
 
 ### Käyttöliittymä
 
@@ -1428,12 +1521,12 @@ The average of grades: 2.4285714285714284
 
 </programming-exercise>
 
-
-<programming-exercise name='Sovellus osiin (2 osaa)' tmcname='osa06-Osa06_12.SovellusOsiin'>
+<!-- <programming-exercise name='Vitsipankki (2 osaa)' tmcname='osa06-Osa06_12.Vitsipankki'> -->
+<programming-exercise name='Joke Manager (2 parts)' tmcname='osa06-Osa06_12.JokeManager'>
 
 Tehtäväpohjassa on valmiina seuraava "mainiin" kirjoitettu sovellus.
 
-```java
+<!-- ```java
 Scanner lukija = new Scanner(System.in);
 ArrayList<String> vitsit = new ArrayList<>();
 System.out.println("Voihan vitsi!");
@@ -1473,21 +1566,71 @@ while (true) {
         }
     }
 }
+``` -->
+
+```java
+Scanner scanner = new Scanner(System.in);
+ArrayList<String> jokes = new ArrayList<>();
+System.out.println("What a joke!");
+
+while (true) {
+    System.out.println("Commands:");
+    System.out.println(" 1 - add a joke");
+    System.out.println(" 2 - draw a joke");
+    System.out.println(" 3 - list jokes");
+    System.out.println(" X - stop");
+
+    String command = scanner.nextLine();
+
+    if (command.equals("X")) {
+        break;
+    }
+
+    if (command.equals("1")) {
+        System.out.println("Write the joke to:");
+        String joke = scanner.nextLine();
+        jokes.add(joke);
+    } else if (command.equals("2")) {
+        System.out.println("Drawing a joke.");
+
+        if (jokes.isEmpty()) {
+            System.out.println("Jokes are in short supply.");
+        } else {
+            Random draw = new Random();
+            int index = draw.nextInt(jokes.size());
+            System.out.println(jokes.get(index));
+        }
+
+    } else if (command.equals("3")) {
+        System.out.println("Printing the jokes.");
+        for (String joke : jokes) {
+            System.out.println(joke);
+        }
+    }
+}
 ```
 
 Sovellus on käytännössä vitsipankki. Vitsipankkiin voi lisätä vitsejä, vitsipankista voi arpoa vitsejä, ja vitsipankissa olevat vitsit voidaan tulostaa. Tässä tehtävässä sovellus pilkotaan osiin ohjatusti.
 
 <h2>Vitsipankki</h2>
 
-Luo luokka `Vitsipankki` ja siirrä sinne vitsien hallinnointiin liittyvä toiminnallisuus. Luokalla tulee olla parametriton konstruktori sekä seuraavat metodit:
+<!-- Luo luokka `Vitsipankki` ja siirrä sinne vitsien hallinnointiin liittyvä toiminnallisuus. Luokalla tulee olla parametriton konstruktori sekä seuraavat metodit:
 
 - `public void lisaaVitsi(String vitsi)` - lisää vitsin vitsipankkiin.
 - `public String arvoVitsi()` - arpoo vitsipankin vitseistä yhden vitsin ja palauttaa sen. Mikäli vitsipankissa ei ole vitsejä, palauttaa merkkijonon "Vitsit vähissä.".
 - `public void tulostaVitsit()` - tulostaa vitsipankissa olevat vitsit.
 
+Esimerkki luokan käytöstä: -->
+
+Luo luokka `JokeManager` ja siirrä sinne vitsien hallinnointiin liittyvä toiminnallisuus. Luokalla tulee olla parametriton konstruktori sekä seuraavat metodit:
+
+- `public void addJoke(String vitsi)` - lisää vitsin vitsipankkiin.
+- `public String drawJoke()` - arpoo vitsipankin vitseistä yhden vitsin ja palauttaa sen. Mikäli vitsipankissa ei ole vitsejä, palauttaa merkkijonon "Vitsit vähissä.".
+- `public void printJokes()` - tulostaa vitsipankissa olevat vitsit.
+
 Esimerkki luokan käytöstä:
 
-```java
+<!-- ```java
 Vitsipankki pankki = new Vitsipankki();
 pankki.lisaaVitsi("Mikä on punaista ja tuoksuu siniselle maalille? - Punainen maali.");
 pankki.lisaaVitsi("Mikä on sinistä ja tuoksuu punaiselle maalille? - Sininen maali.");
@@ -1500,11 +1643,26 @@ for (int i = 0; i < 5; i++) {
 System.out.println("");
 System.out.println("Tulostetaan vitsit:");
 pankki.tulostaVitsit();
+``` -->
+
+```java
+JokeManager manager = new JokeManager();
+manager.addJoke("What is red and smells of blue paint? - Red paint.");
+manager.addJoke("What is blue and smells of red paint? - Blue paint.");
+
+System.out.println("Drawing jokes:");
+for (int i = 0; i < 5; i++) {
+    System.out.println(manager.drawJokes());
+}
+
+System.out.println("");
+System.out.println("Drawing jokes:");
+manager.printJokes();
 ```
 
 Alla ohjelman mahdollinen tulostus. Huomaa, että arvotut vitsit eivät todennäköisesti tulostu alla kuvatun esimerkin mukaisesti.
 
-<sample-output>
+<!-- <sample-output>
 
 Arvotaan vitsejä:
 Mikä on sinistä ja tuoksuu punaiselle maalille? - Sininen maali.
@@ -1517,12 +1675,25 @@ Tulostetaan vitsit:
 Mikä on punaista ja tuoksuu siniselle maalille? - Punainen maali.
 Mikä on sinistä ja tuoksuu punaiselle maalille? - Sininen maali.
 
-</sample-output>
+</sample-output> -->
+<sample-output>
 
+Drawing jokes:
+What is blue and smells of red paint? - Blue paint.
+What is red and smells of blue paint? - Red paint.
+What is blue and smells of red paint? - Blue paint.
+What is blue and smells of red paint? - Blue paint.
+What is blue and smells of red paint? - Blue paint.
+
+Printing jokes:
+What is red and smells of blue paint? - Red paint.
+What is blue and smells of red paint? - Blue paint.
+
+</sample-output>
 
 <h2>Käyttöliittymä</h2>
 
-Luo luokka `Kayttoliittyma` ja siirrä sinne sovelluksen käyttöliittymätoiminnallisuus. Luokalla tulee olla kaksiparametrinen konstruktori. Ensimmäisenä parametrina annetaan Vitsipankki-luokan ilmentymä, ja toisena parametrina Scanner-luokan ilmentymä. Tämän lisäksi luokalla tulee olla metodi `public void kaynnista()`, joka käynnistää käyttöliittymän.
+<!-- Luo luokka `Kayttoliittyma` ja siirrä sinne sovelluksen käyttöliittymätoiminnallisuus. Luokalla tulee olla kaksiparametrinen konstruktori. Ensimmäisenä parametrina annetaan Vitsipankki-luokan ilmentymä, ja toisena parametrina Scanner-luokan ilmentymä. Tämän lisäksi luokalla tulee olla metodi `public void kaynnista()`, joka käynnistää käyttöliittymän.
 
 Käyttöliittymän tulee tarjota seuraavat komennot:
 
@@ -1531,39 +1702,84 @@ Käyttöliittymän tulee tarjota seuraavat komennot:
 - `2` - arpominen: arpoo vitsipankista vitsin ja tulostaa sen. Mikäli vitsipankissa ei ole vitsejä, tulostaa merkkijonon "Vitsit vähissä.".
 - `3` - tulostaminen: tulostaa kaikki vitsipankissa olevat vitsit.
 
+Esimerkki käyttöliittymän käytöstä: -->
+
+Luo luokka `UserInterface` ja siirrä sinne sovelluksen käyttöliittymätoiminnallisuus. Luokalla tulee olla kaksiparametrinen konstruktori. Ensimmäisenä parametrina annetaan Vitsipankki-luokan ilmentymä, ja toisena parametrina Scanner-luokan ilmentymä. Tämän lisäksi luokalla tulee olla metodi `public void start()`, joka käynnistää käyttöliittymän.
+
+Käyttöliittymän tulee tarjota seuraavat komennot:
+
+- `X` - lopettaminen: poistuu metodista `start`.
+- `1` - lisääminen: kysyy käyttäjältä vitsipankkiin lisättävää vitsiä ja lisää käyttäjän syöttämän vitsin vitsipankkiin.
+- `2` - arpominen: arpoo vitsipankista vitsin ja tulostaa sen. Mikäli vitsipankissa ei ole vitsejä, tulostaa merkkijonon "Vitsit vähissä.".
+- `3` - tulostaminen: tulostaa kaikki vitsipankissa olevat vitsit.
+
 Esimerkki käyttöliittymän käytöstä:
 
-```java
+<!-- ```java
 Vitsipankki pankki = new Vitsipankki();
 Scanner lukija = new Scanner(System.in);
 
 Kayttoliittyma liittyma = new Kayttoliittyma(pankki, lukija);
 liittyma.kaynnista();
+``` -->
+
+```java
+JokeManager manager = new JokeManager();
+Scanner scanner = new Scanner(System.in);
+
+UserInterface interface = new UserInterface(manager, scanner);
+interface.start();
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Komennot:
- 1 - lisää vitsi
- 2 - arvo vitsi
- 3 - listaa vitsit
- X - lopeta
+1 - lisää vitsi
+2 - arvo vitsi
+3 - listaa vitsit
+X - lopeta
 **1**
 Kirjoita lisättävä vitsi:
 **Did you hear about the claustrophobic astronaut? -- He just needed a little space.**
 Komennot:
- 1 - lisää vitsi
- 2 - arvo vitsi
- 3 - listaa vitsit
- X - lopeta
+1 - lisää vitsi
+2 - arvo vitsi
+3 - listaa vitsit
+X - lopeta
 **3**
 Tulostetaan vitsit.
 Did you hear about the claustrophobic astronaut? -- He just needed a little space.
 Komennot:
- 1 - lisää vitsi
- 2 - arvo vitsi
- 3 - listaa vitsit
- X - lopeta
+1 - lisää vitsi
+2 - arvo vitsi
+3 - listaa vitsit
+X - lopeta
+**X**
+
+</sample-output> -->
+<sample-output>
+
+Commands:
+1 - add a joke
+2 - draw a joke
+3 - list jokes
+X - stop
+**1**
+Write the joke to be added:
+**Did you hear about the claustrophobic astronaut? -- He just needed a little space.**
+Commands:
+1 - add a joke
+2 - draw a joke
+3 - list jokes
+X - stop
+**3**
+Printing the jokes.
+Did you hear about the claustrophobic astronaut? -- He just needed a little space.
+Commands:
+1 - add a joke
+2 - draw a joke
+3 - list jokes
+X - stop
 **X**
 
 </sample-output>
