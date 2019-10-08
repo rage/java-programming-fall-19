@@ -4,7 +4,9 @@ title: 'Olioita listalla ja listan sisältävät oliot'
 hidden: true
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
+
+<text-box variant='learningObjectives' name='Learning Objectives'>
 
 <!-- - Kertaat listojen käyttöä.
 - Tiedät, että viittaustyyppisen muuttujan lisääminen listalle kopioi listalle muuttujan viitteen.
