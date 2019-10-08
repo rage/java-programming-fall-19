@@ -258,9 +258,9 @@ System.out.println(luvut);
 Valmiit järjestämisalgoritmit toimivat sekä alkeistyyppisille muuttujille, että joillekin Javan valmiille viittaustyyppisille muuttujille kuten String. Omien luokkiemme järjestämistä varten joudumme antamaan Javalle hieman lisävinkkejä, sillä luokat eivät sisällä tietoa siitä, miten niistä luodut oliot pitäisi järjestää. Palaamme omista luokista tehtyjen olioiden järjestämiseen ohjelmoinnin jatkokurssilla.
 
 
-<programming-exercise name='Valmiit järjestämisalgoritmit' tmcname='osa07-Osa07_04.ValmiitJarjestamisalgoritmit'>
+<programming-exercise name='Ready-made Sorting Algorithms' tmcname='part07-Part07_04.ReadymadeSortingAlgorithms'>
 
-Lisää luokkaan `Paaohjelma` seuraavat luokkametodit:
+<!--Lisää luokkaan `Paaohjelma` seuraavat luokkametodit:
 
 - `public static void jarjesta(int[] taulukko)` järjestää kokonaislukutaulukon.
 
@@ -270,7 +270,19 @@ Lisää luokkaan `Paaohjelma` seuraavat luokkametodit:
 
 - `public static void jarjestaMerkkijonot(ArrayList<String> merkkijonot)` järjestää merkkijonoja sisältävän listan.
 
-Hyödynnä metodien toteutuksessa Javan valmiita kirjastoja.
+Hyödynnä metodien toteutuksessa Javan valmiita kirjastoja.-->
+
+Add the following methods to the Main class:
+
+- `public static void sort(int[] array)` that sorts an array of integers.
+
+- `public static void sort(String[] array)` that sorts an array of strings.
+
+- `public static void sortIntegers(ArrayList<Integer> integers)` that sorts a list of integers.
+
+- `public static void sortStrings(ArrayList<String> strings)` that sorts a list of strings.
+
+Be sure to use the ready-made Java libraries in your implementation.
 
 </programming-exercise>
 
