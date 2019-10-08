@@ -22,9 +22,9 @@ hidden: true
 
 Alla olevassa esimerkissä käsitteelle soittolista on luotu luokka. Soittolista sisältää kappaleita: siihen voi lisätä kappaleita, siitä voi poistaa kappaleita, ja siinä olevat kappaleet voi tulostaa. -->
 
-We'll now be looking at objects that contain lists. These kinds of objects are, for instance, those that represent collections, such as playlists.
+ Next, let's have a look at objects that contain a list. Examples of objects like these include objects that describe sets, for example playlists.
 
-In the example below, a class for the playlist concept has been created . A playlist contains songs: you can add songs to it, remove them from it, and also print them.
+ In the following example, we have made a class for the concept of a playlist. The playlist contains songs: songs can be added, songs can be removed, and the songs that the playlist contains can be printed.
 
 <!-- ```java
 // importit
