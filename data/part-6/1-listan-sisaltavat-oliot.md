@@ -791,16 +791,20 @@ System.out.println(hurjakuru);
 
 The program's output is:
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Hurjakuru, pituusalaraja: 140, kävijöitä: 0
+Hurjakuru, pituusalaraja: 140, kävijöitä: 0
 kyydissä:
 
 Matti pääsee laitteeseen
 Juhana ei pääse laitteeseen
 Hurjakuru, pituusalaraja: 140, kävijöitä: 1
 kyydissä:
-Matti -->
+Matti
+
+</sample-output> -->
+
+<sample-output>
 
 Hurjakuru, minimum height requirement: 140, visitors: 0
 riding:
@@ -958,16 +962,22 @@ System.out.println(hurjakuru);
 <!-- Ohjelma tulostaa: -->
 
 The program's output is:
-<sample-output>
 
-<!-- Hurjakuru, pituusalaraja: 140, kävijöitä: 0
+<!-- <sample-output>
+
+Hurjakuru, pituusalaraja: 140, kävijöitä: 0
 ei ketään kyydissä.
 
 Matti pääsee laitteeseen
 Juhana ei pääse laitteeseen
 Hurjakuru, pituusalaraja: 140, kävijöitä: 1
 kyydissä:
-Matti -->
+Matti
+
+</sample-output> -->
+
+<sample-output>
+
 
 Hurjakuru, minimum height requirement: 140, visitors: 0
 no one is on the ride.
