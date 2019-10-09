@@ -1,11 +1,11 @@
 ---
-path: '/osa-6/3-johdatus-ohjelmien-testaamiseen'
-title: 'Johdatus ohjelmien testaamiseen'
+path: '/part-6/3-introduction-to-testing'
+title: 'Introduction to testing'
 hidden: true
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name='Learning Objectives'>
 
 <!-- - Osaat kertoa joitakin ohjelmistovirheistä johtuvia ongelmia.
 - Tiedät mikä on stack trace, tunnet askeleet virheiden selvittämiseen ja osaat antaa tekstimuotoista testisyötettä Scannerille.
