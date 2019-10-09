@@ -315,7 +315,7 @@ Testivetoinen ohjelmistokehitys koostuu viidestä askeleesta, joita toistetaan k
 
 <pdf-slideshow>
 
-[a](../slideshows/testivetoinen-ohjelmistokehitys.pdf)
+[a](../slideshows/test-driven-development.pdf)
 
 </pdf-slideshow>
 
