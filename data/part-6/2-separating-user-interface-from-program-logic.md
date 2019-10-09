@@ -1312,7 +1312,7 @@ Bye bye!
 </programming-exercise>
 
 
-<programming-exercise name='To do list (2 parts)' tmcname='part06-Part06_10.ToDoList'>
+<programming-exercise name='To do list (2 parts)' tmcname='part06-Part06_10.TodoList'>
 
 <!-- Tässä tehtävässä tehdään sovellus tehtävälistan luomiseen ja käsittelyyn. Lopullinen sovellus tulee toimimaan seuraavalla tavalla. -->
 
