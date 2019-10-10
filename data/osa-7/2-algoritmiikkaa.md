@@ -141,24 +141,44 @@ The smallest number in the array is 5, and its position in the array (i.e. index
 
 <h2>Index of the smallest value after a certain value</h2>
 
-Tee luokkaan Paaohjelma luokkametodi `pienimmanIndeksiAlkaen`, joka toimii samalla tavalla kuin edellisen tehtävän metodi, mutta ottaa huomioon vain taulukon loppuosan jostain indeksistä alkaen. Metodille annetaan parametrina taulukon lisäksi aloitusindeksi, josta lähtien pienintä lukua etsitään.
+<!-- Tee luokkaan Paaohjelma luokkametodi `pienimmanIndeksiAlkaen`, joka toimii samalla tavalla kuin edellisen tehtävän metodi, mutta ottaa huomioon vain taulukon loppuosan jostain indeksistä alkaen. Metodille annetaan parametrina taulukon lisäksi aloitusindeksi, josta lähtien pienintä lukua etsitään. -->
 
-Metodin runko on seuraava:
+Create in the class MainProgram a class method called `indexOfSmallestFrom`. It works similarly to the method in the previous section, but only considers the table values from a certain index forwards. In addition to the table, it receives this start index as a parameter.
 
-```java
+<!-- Metodin runko on seuraava: -->
+
+The structure of the method is the following:
+
+<!-- ```java
 public static int pienimmanIndeksiAlkaen(int[] taulukko, int aloitusIndeksi) {
     // kirjoita koodia tähän
 }
-```
-
-Seuraava koodi esittelee metodin toimintaa:
+``` -->
 
 ```java
+public static int indexOfSmallestFrom(int[] table, int startIndex) {
+    // write your code here
+}
+```
+
+<!-- Seuraava koodi esittelee metodin toimintaa: -->
+
+The following code illustrates how the method words:
+
+<!-- ```java
 // indeksit:    0  1  2  3   4
 int[] luvut = {-1, 6, 9, 8, 12};
 System.out.println(Paaohjelma.pienimmanIndeksiAlkaen(luvut, 0));
 System.out.println(Paaohjelma.pienimmanIndeksiAlkaen(luvut, 1));
 System.out.println(Paaohjelma.pienimmanIndeksiAlkaen(luvut, 2));
+``` -->
+
+```java
+// indices:       0  1  2  3   4
+int[] numbers = {-1, 6, 9, 8, 12};
+System.out.println(MainProgram.indexOfSmallestFrom(numbers, 0));
+System.out.println(MainProgram.indexOfSmallestFrom(numbers, 1));
+System.out.println(MainProgram.indexOfSmallestFrom(numbers, 2));
 ```
 
 <sample-output>
@@ -169,25 +189,41 @@ System.out.println(Paaohjelma.pienimmanIndeksiAlkaen(luvut, 2));
 
 </sample-output>
 
-Esimerkissä ensimmäinen metodikutsu etsii pienimmän luvun indeksin aloittaen indeksistä 0. Indeksistä 0 alkaen pienin luku on -1, ja sen indeksi on 0. Toinen metodikutsu etsii pienimmän luvun indeksiä indeksistä 1 aloittaen. Tällöin pienin luku on 6, ja sen indeksi on 1. Kolmas kutsu etsii pienimmän luvun indeksiä aloittaen indeksistä 2. Indeksistä 2 alkaen pienin luku on 8, ja sen indeksi on 3.
+<!-- Esimerkissä ensimmäinen metodikutsu etsii pienimmän luvun indeksin aloittaen indeksistä 0. Indeksistä 0 alkaen pienin luku on -1, ja sen indeksi on 0. Toinen metodikutsu etsii pienimmän luvun indeksiä indeksistä 1 aloittaen. Tällöin pienin luku on 6, ja sen indeksi on 1. Kolmas kutsu etsii pienimmän luvun indeksiä aloittaen indeksistä 2. Indeksistä 2 alkaen pienin luku on 8, ja sen indeksi on 3. -->
+
+In this example the first method call searches for the index of the smallest number, starting from index 0. Starting from index 0, the smallest number is -1 and its index is 0. The second method call searches for the index of the smallest value starting from index 1. In this case the smallest number is 6 and its index is 1. The third calls searches for the index of the smallest value starting at index 2. Then the smallest number is 8 and its index is 3.
 
 
-<h2>Lukujen vaihtaminen</h2>
+<!-- <h2>Lukujen vaihtaminen</h2> -->
 
-Tee luokkaan Paaohjelma luokkametodi `vaihda`, jolle annetaan taulukko ja kaksi sen indeksiä. Metodi vaihtaa indekseissä olevat luvut keskenään.
+<h2>Swapping numbers</h2>
 
-Metodin runko on seuraava:
+<!-- Tee luokkaan Paaohjelma luokkametodi `vaihda`, jolle annetaan taulukko ja kaksi sen indeksiä. Metodi vaihtaa indekseissä olevat luvut keskenään. -->
 
-```java
+Create a class method `swap` in the class MainProgram. It receives as its parameters an array and two indices inside it. The method swaps the numbers in these indices with each other.
+
+<!-- Metodin runko on seuraava: -->
+
+The basic structure of the method is:
+
+<!-- ```java
 public static void vaihda(int[] taulukko, int indeksi1, int indeksi2) {
     // kirjoita koodia tähän
 }
-```
-
-Seuraavassa estellään metodin toimintaa. Taulukon tulostamisessa käytetään apuna taulukon merkkijonoksi muotoilevaa `Arrays`-luokan `toString`-luokkametodia:
-
+``` -->
 
 ```java
+public static void swap(int[] array, int index1, int index2) {
+    // write your code here
+}
+```
+
+<!-- Seuraavassa estellään metodin toimintaa. Taulukon tulostamisessa käytetään apuna taulukon merkkijonoksi muotoilevaa `Arrays`-luokan `toString`-luokkametodia: -->
+
+The following illustrates how to use the method. To print an array we take use of the `toString` class method of the class `Arrays`. It formats an array into an easily readable string.
+
+
+<!-- ```java
 int[] luvut = {3, 2, 5, 4, 8};
 
 System.out.println(Arrays.toString(luvut));
@@ -197,6 +233,18 @@ System.out.println(Arrays.toString(luvut));
 
 Paaohjelma.vaihda(luvut, 0, 3);
 System.out.println(Arrays.toString(luvut));
+``` -->
+
+```java
+int[] numbers = {3, 2, 5, 4, 8};
+
+System.out.println(Arrays.toString(numbers));
+
+MainProgram.swap(numbers, 1, 0);
+System.out.println(Arrays.toString(numbers));
+
+MainProgram.swap(numbers, 0, 3);
+System.out.println(Arrays.toString(numbers));
 ```
 
 <sample-output>
@@ -206,44 +254,89 @@ System.out.println(Arrays.toString(luvut));
 </sample-output>
 
 
-<h2>Järjestäminen</h2>
+<!-- <h2>Järjestäminen</h2> -->
+
+<h2>Sorting</h2>
 
 
-Nyt koossa on joukko hyödyllisiä metodeja, joiden avulla voimme toteuttaa järjestämisalgoritmin nimeltä valintajärjestäminen.
+<!-- Nyt koossa on joukko hyödyllisiä metodeja, joiden avulla voimme toteuttaa järjestämisalgoritmin nimeltä valintajärjestäminen. -->
 
-Valintajärjestämisen idea on seuraava:
+We have now assembled a set of useful methods. With their help, we can implement a sorting algorithm known by the name of selection sort.
 
-- Siirretään taulukon pienin luku indeksiin 0.
-- Siirretään taulukon toiseksi pienin luku indeksiin 1.
-- Siirretään taulukon kolmanneksi pienin luku indeksiin 2.
-- Jne.
+<!-- Valintajärjestämisen idea on seuraava: -->
 
-Toisin sanoen:
+The idea of selection sort is:
 
-- Tarkastellaan taulukkoa indeksistä 0 alkaen. Vaihdetaan keskenään indeksissä 0 oleva luku sekä taulukon pienin luku indeksistä 0 alkaen.
+<!-- - Siirretään taulukon pienin luku indeksiin 0. -->
+
+- Move the smallest number in the array to index 0.
+
+<!-- - Siirretään taulukon toiseksi pienin luku indeksiin 1. -->
+
+- Move the second smallest number to index 1.
+
+
+<!-- - Siirretään taulukon kolmanneksi pienin luku indeksiin 2. -->
+
+- Move the third smalles number in the array to index 2.
+
+
+<!-- - Jne. -->
+
+- Etc.
+
+<!-- Toisin sanoen: -->
+
+In other words:
+
+<!-- - Tarkastellaan taulukkoa indeksistä 0 alkaen. Vaihdetaan keskenään indeksissä 0 oleva luku sekä taulukon pienin luku indeksistä 0 alkaen.
 - Tarkastellaan taulukkoa indeksistä 1 alkaen. Vaihdetaan keskenään indeksissä 1 oleva luku sekä taulukon pienin luku indeksistä 1 alkaen.
 - Tarkastellaan taulukkoa indeksistä 2 alkaen. Vaihdetaan keskenään indeksissä 2 oleva luku sekä taulukon pienin luku indeksistä 2 alkaen.
-- Jne.
+- Jne. -->
+
+- Examine the array starting from index 0. Swap the following two numbers with each other: the number at index 0, and the smallest number in the array starting from index 0.
+- Examine the array starting from index 1. Swap the following two numbers with each other: the number at index 1, and the smallest number in the array starting from index 1.
+- Examine the array starting from index 2. Swap the following two numbers with each other: the number at index 2, and the smallest number in the array starting from index 2.
+- Etc.
 
 
-Toteuta luokkaan Paaohjelma luokkametodi `jarjesta`, joka perustuu yllä olevaan ideaan. Metodissa on syytä olla silmukka, joka käy läpi taulukon indeksejä. Metodeista `pieninIndeksiAlkaen` ja `vaihda` on varmasti hyötyä. Tulosta myös taulukon sisältö ennen järjestämistä ja jokaisen kierroksen jälkeen, jotta voit varmistaa algoritmin toimivan oikein.
+<!-- Toteuta luokkaan Paaohjelma luokkametodi `jarjesta`, joka perustuu yllä olevaan ideaan. Metodissa on syytä olla silmukka, joka käy läpi taulukon indeksejä. Metodeista `pieninIndeksiAlkaen` ja `vaihda` on varmasti hyötyä. Tulosta myös taulukon sisältö ennen järjestämistä ja jokaisen kierroksen jälkeen, jotta voit varmistaa algoritmin toimivan oikein. -->
 
-Metodin runko on seuraava:
+Implement a class method called `sort` based on the idea above in the class MainProgram. It should include a loop that goes through the indices of the array. Certainly the method `indexOfSmallestFrom` and `swap` will come in handy. Additionally, print the contents of the arrya before sorting and after every iteration of the loop to ensure that the algorithm works as you expect it to.
+
+<!-- Metodin runko on seuraava: -->
+
+The definition of the method looks like this:
+
+<!-- ```java
+public static void jarjesta(int[] taulukko) {
+
+}
+``` -->
 
 ```java
-public static void jarjesta(int[] taulukko) {
+public static void sort(int[] array) {
 
 }
 ```
 
-Testaa metodin toimintaa ainakin seuraavalla esimerkillä:
+<!-- Testaa metodin toimintaa ainakin seuraavalla esimerkillä: -->
 
-```java
+Use at least the following example to test how the method functions:
+
+<!-- ```java
 int[] luvut = {8, 3, 7, 9, 1, 2, 4};
 Paaohjelma.jarjesta(luvut);
+``` -->
+
+```java
+int[] numbers = {8, 3, 7, 9, 1, 2, 4};
+MainProgram.sort(numbers);
 ```
 
-Ohjelman tulosteen tulisi olla seuraavanlainen. Huomaa että sinun tulee tulostaa taulukon sisältö jokaisen vaihtamisen jälkeen!
+<!-- Ohjelman tulosteen tulisi olla seuraavanlainen. Huomaa että sinun tulee tulostaa taulukon sisältö jokaisen vaihtamisen jälkeen! -->
+
+The output of the program should look like the print below. Observe that you must print the contents of the array after each swap!
 
 <sample-output>
 [8, 3, 7, 9, 1, 2, 4]
@@ -255,7 +348,9 @@ Ohjelman tulosteen tulisi olla seuraavanlainen. Huomaa että sinun tulee tulosta
 [1, 2, 3, 4, 7, 8, 9]
 </sample-output>
 
-Huomaat, miten taulukko tulee pikkuhiljaa järjestykseen alkaen alusta ja edeten loppua kohti.
+<!-- Huomaat, miten taulukko tulee pikkuhiljaa järjestykseen alkaen alusta ja edeten loppua kohti. -->
+
+Mark how the array becomes sorted little by little starting from the beginning and advancing towards the end of the array.
 
 </programming-exercise>
 
