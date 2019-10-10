@@ -1,5 +1,5 @@
 ---
-path: "/osa-6/2-separating-user-interface-from-program-logic"
+path: "/part-6/2-separating-user-interface-from-program-logic"
 title: "Separating the user interface from program logic"
 hidden: true
 ---

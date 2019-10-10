@@ -1,6 +1,6 @@
 ---
-path: '/osa-6/1-olioista-koostuvat-oliot'
-title: 'Olioita listalla ja listan sisältävät oliot'
+path: '/part-6/1-objects-within-objects'
+title: 'Objects on a list and a list as part of an object'
 hidden: true
 ---
 
@@ -311,7 +311,7 @@ Tomato and mozzarella salad
 </programming-exercise>
 
 <!-- <programming-exercise name='Pakka (2 osaa)' tmcname='osa06-Osa06_02.Pakka'> -->
-<programming-exercise name='Deque (2 parts)' tmcname='part06-Part06_02.Deque'>
+<programming-exercise name='Stack (2 parts)' tmcname='part06-Part06_02.Stack'>
 
 <!-- Pakka on tietorakenne, johon voi lisätä ja josta voi ottaa. Aina päälle tai päältä.
 
@@ -327,17 +327,17 @@ Luo luokka `Pakka`, jolla on oliomuuttujana merkkijonoja sisältävä listan. Li
 
 Voit kokeilla luokkaasi seuraavalla koodilla: -->
 
-A deque is a data structure that you can add to and take from. Always to the top of it or from the top.
+A stack is a data structure that you can add to and take from. Always to the top of it or from the top.
 
-<h2> Adding to the Deque and Checking Emptiness </h2>
+<h2> Adding to the Stack and Checking Emptiness </h2>
 
-Create a `Deque` class that has a list of strings as an instance variable. Add the following methods to the class:
+Create a `Stack` class that has a list of strings as an instance variable. Add the following methods to the class:
 
-- `public boolean isEmpty()` - returns a `boolean`-type value (true or false) that tells whether or not the deque is empty.
+- `public boolean isEmpty()` - returns a `boolean`-type value (true or false) that tells whether or not the stack is empty.
 
-- `public void add(String value)` - Adds the value given as a parameter to the top of the deque.
+- `public void add(String value)` - Adds the value given as a parameter to the top of the stack.
 
-- `public ArrayList<String> values()` - returns the values ​​contained in the deque as a list.
+- `public ArrayList<String> values()` - returns the values ​​contained in the stack as a list.
 
 You can test your class with the following code:
 
@@ -351,12 +351,12 @@ System.out.println(p.arvot());
 ``` -->
 
 ```java
-Deque d = new Deque();
-System.out.println(d.isEmpty());
-System.out.println(d.values());
-d.add("Value");
-System.out.println(d.isEmpty());
-System.out.println(d.values());
+Stack s = new Stack();
+System.out.println(s.isEmpty());
+System.out.println(s.values());
+s.add("Value");
+System.out.println(s.isEmpty());
+System.out.println(s.values());
 ```
 
 <sample-output>
@@ -376,9 +376,9 @@ false
 <!-- <h2>Pakasta ottaminen</h2>
 
 Lisää luokalle `Pakka` metodi `public String ota()`, joka palauttaa pakan päällimmäisenä olevan arvon (eli pakkaan viimeisenä lisätyn arvon) ja poistaa sen pakasta. -->
-<h2>Taking from the Deque</h2>
+<h2>Taking from the Stack</h2>
 
-Add to the `Deque` class a `public String take()` method, which returns the topmost value of the deque (i.e., the last value added to the deque) and removes it from the deque.
+Add to the `Stack` class a `public String take()` method, which returns the topmost value (i.e., the last value added to the deque) and removes it from the stack.
 
 <!-- ```java
 Pakka p = new Pakka();
@@ -394,16 +394,16 @@ System.out.println(otettu);
 ``` -->
 
 ```java
-Deque d = new Deque();
-System.out.println(d.isEmpty());
-System.out.println(d.values());
-d.add("Value");
-System.out.println(d.isEmpty());
-System.out.println(d.values());
-String taken = d.take();
-System.out.println(d.isEmpty());
-System.out.println(d.values());
-System.out.println(take);
+Stack s = new Stack();
+System.out.println(s.isEmpty());
+System.out.println(s.values());
+s.add("Value");
+System.out.println(s.isEmpty());
+System.out.println(s.values());
+String taken = s.take();
+System.out.println(s.isEmpty());
+System.out.println(s.values());
+System.out.println(taken);
 ```
 
 <sample-output>
@@ -440,15 +440,15 @@ while (!p.onTyhja()) {
 ``` -->
 
 ```java
-Deque d = new Deque();
-d.add("1");
-d.add("2");
-d.add("3");
-d.add("4");
-d.add("5");
+Stack s = new Stack();
+s.add("1");
+s.add("2");
+s.add("3");
+s.add("4");
+s.add("5");
 
-while (!d.isEmpty()) {
-    System.out.println(d.ota());
+while (!s.isEmpty()) {
+    System.out.println(s.take());
 }
 ```
 
