@@ -1,7 +1,7 @@
 ---
 path: '/part-6/1-objects-within-objects'
 title: 'Objects on a list and a list as part of an object'
-hidden: true
+hidden: false
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
@@ -2028,7 +2028,7 @@ while (!huone.onTyhja()) {
 ``` -->
 
 ```java
-Room huone = new Room();
+Room room = new Room();
 room.add(new Person("Lea", 183));
 room.add(new Person("Kenya", 182));
 room.add(new Person("Auli", 186));

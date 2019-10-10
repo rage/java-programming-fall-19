@@ -1,7 +1,7 @@
 ---
 path: '/part-6/4-complex-programs'
 title: 'Complex programs'
-hidden: true
+hidden: false
 ---
 
 
@@ -27,7 +27,9 @@ _[..in other words..] Gather together the things that change for the same reason
 Proper program structure and following good naming princibles leads to clean code. When you code a bit more, you'll learn that each program part can be given one clear area of responsibility.
 
 <!-- Vastaa vielä alla olevaan kyselyyn. -->
-Finish by answering to the quizz below.
+
+Finish by answering to the quiz below.
 
 
-<quiznator id='5c571494017ffc13eddca70b'></quiznator>
+
+<quiz id='2f7fdd45-d8c7-5ecf-a9a9-0cee4a3f4d63'></quiz>

@@ -1,7 +1,7 @@
 ---
 path: "/part-6/2-separating-user-interface-from-program-logic"
 title: "Separating the user interface from program logic"
-hidden: true
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Learning objectives'>
@@ -1458,14 +1458,14 @@ TodoList list = new TodoList();
 list.add("read the course material");
 list.add("watch the latest fool us");
 list.add("take it easy");
-list.pritn();
+list.print();
 list.remove(2);
-list.pritn();
+list.print();
 list.add("buy rasins");
-list.pritn();
+list.print();
 list.remove(1);
 list.remove(1);
-list.pritn();
+list.print();
 ```
 
 <!-- <sample-output>
