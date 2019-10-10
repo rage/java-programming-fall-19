@@ -196,13 +196,17 @@ Arvosanajakauma:
 </programming-exercise>
 
 
-<programming-exercise name='Reseptihaku (4 osaa)' tmcname='osa07-Osa07_07.Reseptihaku'>
+<programming-exercise name='Recipe search (4 parts)' tmcname='part07-Part07_07.RecipeSearch'>
 
-Tässä tehtävässä tehdään ohjelma, joka tarjoaa käyttäjälle mahdollisuuden reseptien hakuun reseptin nimen, keittoajan tai raaka-aineen nimen perusteella. Ohjelman tulee lukea reseptit käyttäjän antamasta tiedostosta. *Kannattaa kerrata tiedoston lukeminen materiaalin osasta 4 ennen tehtävän aloitusta.*
+<!-- Tässä tehtävässä tehdään ohjelma, joka tarjoaa käyttäjälle mahdollisuuden reseptien hakuun reseptin nimen, keittoajan tai raaka-aineen nimen perusteella. Ohjelman tulee lukea reseptit käyttäjän antamasta tiedostosta. *Kannattaa kerrata tiedoston lukeminen materiaalin osasta 4 ennen tehtävän aloitusta.* -->
 
-Jokainen resepti koostuu kolmesta tai useammasta rivistä reseptitiedostossa. Ensimmäisellä rivillä on reseptin nimi, toisella rivillä reseptin keittoaika (kokonaisluku), ja kolmas ja sitä seuraavat rivit kertovat reseptin raaka-aineet. Reseptin raaka-aineiden kuvaus päättyy tyhjään riviin. Tiedostossa voi olla useampia reseptejä. Alla kuvattuna esimerkkitiedosto.
+In this exercise we are going to create a program that allows for searching for recipes based on their name, cooking time, or the name of an ingredient. The program should read the recipes from a file that the user provides. *It might be a good idea to brush up on reading information from files (part 4) before beginning*
 
-<sample-output>
+<!-- Jokainen resepti koostuu kolmesta tai useammasta rivistä reseptitiedostossa. Ensimmäisellä rivillä on reseptin nimi, toisella rivillä reseptin keittoaika (kokonaisluku), ja kolmas ja sitä seuraavat rivit kertovat reseptin raaka-aineet. Reseptin raaka-aineiden kuvaus päättyy tyhjään riviin. Tiedostossa voi olla useampia reseptejä. Alla kuvattuna esimerkkitiedosto. -->
+
+Each recipe consists of three or more rows in a recipe file. The first row is for the name of the recipe, the second the cooking time (an integer), and the third and possibly following rows list the ingredients used in the recipe. An empty row follows the last ingredient row. There can be many recipes in a single file. Below, an example file containing recipes is described.
+
+<!-- <sample-output>
 
 Lettutaikina
 60
@@ -229,20 +233,58 @@ kurkku
 avokado
 wasabi
 
+</sample-output> -->
+
+<sample-output>
+
+Pancake dough
+60
+milk
+egg
+flour
+salt
+butter
+
+Meatballs
+20
+ground meat
+egg
+breadcrumbs
+
+Tofu rolls
+30
+tofu
+rice
+water
+carrot
+cucumber
+avocado
+wasabi
+
 </sample-output>
 
-Ohjelma toteutetaan osissa. Ensin ohjelmaan luodaan mahdollisuus reseptien lukemiseen sekä listaamiseen. Tämän jälkeen ohjelmaan lisätään mahdollisuus reseptien hakemiseen nimen perusteella, keittoajan perusteella ja lopulta raaka-aineen perusteella.
+<!-- Ohjelma toteutetaan osissa. Ensin ohjelmaan luodaan mahdollisuus reseptien lukemiseen sekä listaamiseen. Tämän jälkeen ohjelmaan lisätään mahdollisuus reseptien hakemiseen nimen perusteella, keittoajan perusteella ja lopulta raaka-aineen perusteella. -->
 
-Tehtäväpohjassa on mukana tiedosto `reseptit.txt`, jota voi käyttää sovelluksen testaamiseen. <em>Huomaa, että ohjelman ei tule listata reseptien raaka-aineita, mutta niitä käytetään hakutoiminnallisuudessa.</em> Tiedoston `reseptit.txt` voi myös ladata [tämän linkin takaa](/data/reseptit.txt).
+The program will be implemented in parts. First we'll create the possibility to read and list recipes. After that we'll add the functionality to search for recipes based on their name, cooking time, or the name of an ingredient.
+
+<!-- Tehtäväpohjassa on mukana tiedosto `reseptit.txt`, jota voi käyttää sovelluksen testaamiseen. <em>Huomaa, että ohjelman ei tule listata reseptien raaka-aineita, mutta niitä käytetään hakutoiminnallisuudessa.</em> Tiedoston `reseptit.txt` voi myös ladata [tämän linkin takaa](/data/reseptit.txt). -->
+
+There is a file called `recipes.txt` supplied with the exercise base. You can use it for testing purposes. <em>Notice that the program should not list the ingredients of the recipes, but they will be used in the search functionality.</em>
+
+ <!-- You can also download the file `recipes.txt` by clicking [here](/data/recipes.txt). -->
 
 <br/>
 
 
-<h2>Reseptien lukeminen ja listaaminen</h2>
+<!-- <h2>Reseptien lukeminen ja listaaminen</h2> -->
 
-Luo ohjelmaan ensin mahdollisuus reseptien lukemiseen sekä listaamiseen. Ohjelman käyttöliittymän tulee olla seuraavanlainen. Voit olettaa, että käyttäjä syöttää aina tiedoston, joka on olemassa. Alla oletetaan, että tehtävänannossa annetut esimerkkireseptit ovat tiedostossa `reseptit.txt`.
+<h2>Reading and listing recipes</h2>
 
-<sample-output>
+<!-- Luo ohjelmaan ensin mahdollisuus reseptien lukemiseen sekä listaamiseen. Ohjelman käyttöliittymän tulee olla seuraavanlainen. Voit olettaa, että käyttäjä syöttää aina tiedoston, joka on olemassa. Alla oletetaan, että tehtävänannossa annetut esimerkkireseptit ovat tiedostossa `reseptit.txt`. -->
+
+First create the functionality to read and list recipes. The user interface of the program is described below. You may assume that the user only enters files that exist. Below we assume that the example recipes given earlier in the exercise description are stored in the file `recipes.txt`.
+
+<!-- <sample-output>
 
 Mistä luetaan? **reseptit.txt**
 
@@ -259,14 +301,37 @@ Tofurullat, keittoaika: 30
 
 Syötä komento:  **lopeta**
 
+</sample-output> -->
+
+<sample-output>
+
+File to read: **recipes.txt**
+
+Commands:
+list - lists the recipes
+stop - stops the program
+
+Enter command: **list**
+
+Recipes:
+Pancake dough, cooking time: 60
+Meatballs, cooking time: 20
+Tofu rolls, cooking time: 30
+
+Enter command:  **stop**
+
 </sample-output>
 
 
-<h2>Reseptien hakeminen nimen perusteella</h2>
+<!-- <h2>Reseptien hakeminen nimen perusteella</h2> -->
 
-Lisää ohjelmaan mahdollisuus reseptien hakemiseen nimen perusteella. Nimen perusteella hakeminen tapahtuu komennolla `hae nimi`, jonka jälkeen käyttäjältä kysytään merkkijonoa, jota etsitään reseptin nimistä. Hakutoiminnallisuuden tulee toimia siten, että se tulostaa kaikki ne reseptit, joiden nimessä esiintyy käyttäjän kirjoittama merkkijono.
+<h2>Finding recipes by name</h2>
 
-<sample-output>
+<!-- Lisää ohjelmaan mahdollisuus reseptien hakemiseen nimen perusteella. Nimen perusteella hakeminen tapahtuu komennolla `hae nimi`, jonka jälkeen käyttäjältä kysytään merkkijonoa, jota etsitään reseptin nimistä. Hakutoiminnallisuuden tulee toimia siten, että se tulostaa kaikki ne reseptit, joiden nimessä esiintyy käyttäjän kirjoittama merkkijono. -->
+
+Make it possible to find recipes by their names. Finding by name is done with the command `find name`, after which the user is asked for the name that is used to search. The search should print all the recipes whose names contain the string given by the user.
+
+<!-- <sample-output>
 
 Mistä luetaan? **reseptit.txt**
 
@@ -290,14 +355,43 @@ Tofurullat, keittoaika: 30
 
 Syötä komento:  **lopeta**
 
-</sample-output>
-
-
-<h2>Reseptien hakeminen keittoajan perusteella</h2>
-
-Lisää seuraavaksi ohjelmaan mahdollisuus reseptien hakemiseen keittoajan perusteella. Keittoajan perusteella hakeminen tapahtuu komennolla `hae keittoaika`, jonka jälkeen käyttäjältä kysytään suurinta hyväksyttävää keittoaikaa. Hakutoiminnallisuuden tulee toimia siten, että se tulostaa kaikki ne reseptit, joiden keittoaika on pienempi tai yhtä suuri kuin käyttäjän syöttämä keittoaika.
+</sample-output> -->
 
 <sample-output>
+
+File to read: **recipes.txt**
+
+Commands:
+list - lists the recipes
+stop - stops the program
+find name - searches recipes by name
+
+Enter command: **list**
+
+Recipes:
+Pancake dough, cooking time: 60
+Meatballs, cooking time: 20
+Tofu rolls, cooking time: 30
+
+Enter command: **find name**
+Searched word: **roll**
+
+Recipes:
+Tofu rolls, cooking time: 30
+
+Enter command:  **stop**
+
+</sample-output>
+
+<!-- <h2>Reseptien hakeminen keittoajan perusteella</h2> -->
+
+<h2>Searching for recipes by cooking time</h2>
+
+<!-- Lisää seuraavaksi ohjelmaan mahdollisuus reseptien hakemiseen keittoajan perusteella. Keittoajan perusteella hakeminen tapahtuu komennolla `hae keittoaika`, jonka jälkeen käyttäjältä kysytään suurinta hyväksyttävää keittoaikaa. Hakutoiminnallisuuden tulee toimia siten, että se tulostaa kaikki ne reseptit, joiden keittoaika on pienempi tai yhtä suuri kuin käyttäjän syöttämä keittoaika. -->
+
+Next, implement the possibility to find recipes based on their cooking time. This is done with the command `find cooking time`, after which the user is asked for the longest acceptable cooking time. The program should react by printing all the recipes whose cooking times don't exceed the cooking time given by the user (so equal or less time).
+
+<!-- <sample-output>
 
 Mistä luetaan? **reseptit.txt**
 
@@ -327,16 +421,52 @@ Tofurullat, keittoaika: 30
 
 Syötä komento:  **lopeta**
 
+</sample-output> -->
+
+<sample-output>
+
+File to read: **recipes.txt**
+
+Commands:
+list - lists the recipes
+stop - stops the program
+find name - searches recipes by name
+find cooking time - searches recipes by cooking time
+
+Enter command: **find cooking time**
+Max cooking time: **30**
+
+Recipes:
+Meatballs, cooking time: 20
+Tofu rolls, cooking time: 30
+
+Enter command: **find cooking time**
+Max cooking time: **15**
+
+Recipes:
+
+Enter command: **find name**
+Searched word: **roll**
+
+Recipes:
+Tofu rolls, cooking time: 30
+
+Enter command:  **stop**
+
 </sample-output>
 
 
-<h2>Reseptien hakeminen raaka-aineen perusteella</h2>
+<!-- <h2>Reseptien hakeminen raaka-aineen perusteella</h2> -->
+
+<h2>Finding recipes based on their ingredients</h2>
 
 
-Lisää lopulta ohjelmaan mahdollisuus reseptien hakemiseen raaka-aineen perusteella. Raaka-aineen perusteella hakeminen tapahtuu komennolla `hae aine`, jonka jälkeen käyttäjältä kysytään merkkijonoa. Hakutoiminnallisuuden tulee toimia siten, että se tulostaa kaikki ne reseptit, joiden raaka-aineissa esiintyy käyttäjän antama merkkijono. Huomaa, että tässä annetun merkkijonon täytyy vastata täysin haettua raaka-ainetta (esim. "okeri" ei käy ole sama kuin "sokeri").
+<!-- Lisää lopulta ohjelmaan mahdollisuus reseptien hakemiseen raaka-aineen perusteella. Raaka-aineen perusteella hakeminen tapahtuu komennolla `hae aine`, jonka jälkeen käyttäjältä kysytään merkkijonoa. Hakutoiminnallisuuden tulee toimia siten, että se tulostaa kaikki ne reseptit, joiden raaka-aineissa esiintyy käyttäjän antama merkkijono. Huomaa, että tässä annetun merkkijonon täytyy vastata täysin haettua raaka-ainetta (esim. "okeri" ei käy ole sama kuin "sokeri"). -->
+
+Finally, add the functionality to search for recipes based on their ingredients. This is done by choosing the command `find ingredient`, after which the user is asked for a string. The program should then print all the recipes that contain the specified string. Notice that with this option the given string must match exactly the ingredient that is searched for (e.g. "ugar" will return different results than "sugar").
 
 
-<sample-output>
+<!-- <sample-output>
 
 Mistä luetaan? **reseptit.txt**
 
@@ -373,6 +503,48 @@ Mitä raaka-ainetta haetaan: **una**
 Reseptit:
 
 Syötä komento:  **lopeta**
+
+</sample-output>
+
+</programming-exercise> -->
+
+<sample-output>
+
+File to read: **recipes.txt**
+
+Commands:
+list - lists the recipes
+stop - stops the program
+find name - searches recipes by name
+find cooking time - searches recipes by cooking time
+find ingredient - find recipes by ingredient
+
+Enter command: **find cooking time**
+Max cooking time: **30**
+
+Recipes:
+Meatballs, cooking time: 20
+Tofu rolls, cooking time: 30
+
+Enter command: **find ingredient**
+Ingredient: **sugar**
+
+Recipes:
+Pancake dough, cooking time: 60
+
+Enter command: **find ingredient**
+Ingredient: **egg**
+
+Recipes:
+Pancake dough, cooking time: 60
+Meatballs, cooking time: 20
+
+Enter command: **find ingredient**
+Ingredient: **gg**
+
+Recipes:
+
+Enter command:  **stop**
 
 </sample-output>
 
