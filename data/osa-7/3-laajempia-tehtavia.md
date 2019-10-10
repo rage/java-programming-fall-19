@@ -517,7 +517,7 @@ list - lists the recipes
 stop - stops the program
 find name - searches recipes by name
 find cooking time - searches recipes by cooking time
-find ingredient - find recipes by ingredient
+find ingredient - searches recipes by ingredient
 
 Enter command: **find cooking time**
 Max cooking time: **30**
