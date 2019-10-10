@@ -29,64 +29,117 @@ Jos tieto ei noudata minkäänlaista järjestystä tai sääntöä, on tiedon ha
 Ohjelmoijan yleissivistykseen kuuluu ainakin yhden järjestämisalgoritmin (eli tavan järjestää taulukko) tuntemus. Tutustutaan erääseen "klassiseen" järjestämisalgoritmiin, valintajärjestämiseen. Tutustuminen tapahtuu harjoitustehtävien avulla.
 
 
-<programming-exercise name='Järjestäminen (5 osaa)' tmcname='osa07-Osa07_03.Jarjestaminen'>
+<programming-exercise name='Sorting (5 parts)' tmcname='part07-Part07_03.Sorting'>
 
-<h2>Pienimmän arvon etsiminen</h2>
+<h2>Finding the smallest value</h2>
 
-Tee luokkaan `Paaohjelma` luokkametodi `pienin`, joka palauttaa metodille parametrina annetun kokonaislukutaulukon pienimmän luvun.
+<!-- Tee luokkaan `Paaohjelma` luokkametodi `pienin`, joka palauttaa metodille parametrina annetun kokonaislukutaulukon pienimmän luvun. -->
 
-Metodin runko on seuraava:
+Create in the class `MainProgram` a class method `smallest` that takes an integer array as a parameter. It should return the smallest value in the array.
 
-```java
+<!-- Metodin runko on seuraava: -->
+
+Here is the structure of the method:
+
+<!-- ```java
 public static int pienin(int[] taulukko) {
     // kirjoita koodia tähän
 }
-```
-
-Seuraava esimerkki esittelee metodin toimintaa:
+``` -->
 
 ```java
-int[] luvut = {6, 5, 8, 7, 11};
-System.out.println("Pienin: " + Paaohjelma.pienin(luvut));
-```
-
-<sample-output>
-
-Pienin: 5
-
-</sample-output>
-
-
-<h2>Pienimmän arvon indeksi</h2>
-
-Tee luokkaan Paaohjelma luokkametodi `pienimmanIndeksi`, joka palauttaa sille parametrina annetun taulukon pienimmän luvun indeksin.
-
-Metodin runko on seuraava:
-
-```java
-public static int pienimmanIndeksi(int[] taulukko) {
-    // kirjoita koodia tähän
+public static int smallest(int[] array){
+    // write your code here
 }
 ```
 
-Seuraava koodi esittelee metodin toimintaa:
+<!-- Seuraava esimerkki esittelee metodin toimintaa: -->
+
+The next example illustrates how the method works:
+
+<!-- ```java
+int[] luvut = {6, 5, 8, 7, 11};
+System.out.println("Pienin: " + Paaohjelma.pienin(luvut));
+``` -->
 
 ```java
-// indeksit:   0  1  2  3  4
-int[] luvut = {6, 5, 8, 7, 11};
-System.out.println("Pienimmän indeksi: " + Paaohjelma.pienimmanIndeksi(luvut));
+int[] numbers = {6, 5, 8, 7, 11};
+System.out.println("Smallest: " + MainProgram.smallest(numbers));
 ```
+
+<!-- <sample-output>
+
+Pienin: 5
+
+</sample-output> -->
 
 <sample-output>
 
-Pienimmän indeksi: 1
+Smallest: 5
 
 </sample-output>
 
-Taulukon pienin luku on 5, ja sen indeksi eli sijaintipaikka taulukossa on 1. Muistathan, että taulukon numerointi alkaa 0:sta.
+
+<!-- <h2>Pienimmän arvon indeksi</h2> -->
+
+<h2>Index of the smallest value</h2>
+
+<!-- Tee luokkaan Paaohjelma luokkametodi `pienimmanIndeksi`, joka palauttaa sille parametrina annetun taulukon pienimmän luvun indeksin. -->
+
+Create a method called `indexOfSmallest` in the class MainProgram. It should return the index of the smallest number in the array that it receives as a parameter.
+
+<!-- Metodin runko on seuraava: -->
+
+Here is the structure of the method:
+
+<!-- ```java
+public static int pienimmanIndeksi(int[] taulukko) {
+    // kirjoita koodia tähän
+}
+``` -->
+
+```java
+public static int indexOfSmallest(int[] array){
+    // write your code here
+}
+```
+
+<!-- Seuraava koodi esittelee metodin toimintaa: -->
+
+The following code illustrates how to use the method:
+
+<!-- ```java
+// indeksit:   0  1  2  3  4
+int[] luvut = {6, 5, 8, 7, 11};
+System.out.println("Pienimmän indeksi: " + Paaohjelma.pienimmanIndeksi(luvut));
+``` -->
+
+```java
+// indices:      0  1  2  3  4
+int[] numbers = {6, 5, 8, 7, 11};
+System.out.println("Index of the smallest number: " + MainProgram.indexOfSmallest(numbers));
+```
+
+<!-- <sample-output>
+
+Pienimmän indeksi: 1
+
+</sample-output> -->
+
+<sample-output>
+
+Index of the smallest number: 1
+
+</sample-output>
+
+<!-- Taulukon pienin luku on 5, ja sen indeksi eli sijaintipaikka taulukossa on 1. Muistathan, että taulukon numerointi alkaa 0:sta. -->
+
+The smallest number in the array is 5, and its position in the array (i.e. index) is 1. Be sure to remember that indexing an array begins at 0.
 
 
-<h2>Pienimmän arvon indeksi taulukon loppuosassa</h2>
+<!-- <h2>Pienimmän arvon indeksi taulukon loppuosassa</h2> -->
+
+<h2>Index of the smallest value after a certain value</h2>
 
 Tee luokkaan Paaohjelma luokkametodi `pienimmanIndeksiAlkaen`, joka toimii samalla tavalla kuin edellisen tehtävän metodi, mutta ottaa huomioon vain taulukon loppuosan jostain indeksistä alkaen. Metodille annetaan parametrina taulukon lisäksi aloitusindeksi, josta lähtien pienintä lukua etsitään.
 
