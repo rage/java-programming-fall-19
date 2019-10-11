@@ -41,10 +41,11 @@ In object-oriented programming, information is represented as classes that descr
 
 <!-- Olio-ohjelmoinnin perusideat eli tiedon ja sen käsittelyyn liittyvien toimintojen esittäminen luokkien ja olioiden avulla esiintyivät ensimmäisiä kertoja simulaatioiden rakentamiseen tarkoitetussa <a href="https://en.wikipedia.org/wiki/Simula" target="_blank" norel>Simula 67</a>:ssä sekä <a href="https://en.wikipedia.org/wiki/Smalltalk" target="_blank" norel>Smalltalk</a>-ohjelmointikielessä. Sen läpimurto tapahtui 1980-luvulla <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" norel>C++</a>-ohjelmointikielen kautta ja siitä on muodostunut <a href="https://en.wikipedia.org/wiki/Java_(programming_language)" target="_blank" norel>Java</a>-ohjelmointikielen myötä yksi maailman eniten käytetty ohjelmointiparadigma. -->
 
-The basic ideas of object-oriented programming, i.e., the representation of information and its processing methods with he help of classes and objects, first appeared in <a href="https://en.wikipedia.org/wiki/Simula" target="_blank" norel> Simula 67 </a>, which was designed for developing simulations and the <a href="https://en.wikipedia.org/wiki/Smalltalk" target="_blank" norel> Smalltalk </a> programming language. Its breakthrough came in the 1980s through the <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" norel> C ++ </a> programming language and  <a href = "https://en.wikipedia.org/wiki/Java_(programming_language)" target = "_ blank" norel> Java </a> has made it one of the most widely used programming paradigms in the world.
+The basic ideas of object-oriented programming, i.e., the representation of information and its processing methods with he help of classes and objects, first appeared in [Simula 67](https://en.wikipedia.org/wiki/Simula), which was designed for developing simulations and the [Smalltalk](https://en.wikipedia.org/wiki/Smalltalk) programming language. Its breakthrough came in the 1980s through the [C++](https://en.wikipedia.org/wiki/C%2B%2B) programming language and [Java](https://en.wikipedia.org/wiki/Java_(programming_language)) has made it one of the most widely used programming paradigms in the world.
 
 <!-- Olio-ohjelmoinnin suurimpia etuja ovat ongelma-alueen käsitteiden mallintaminen luokkien ja olioiden kautta, mikä helpottaa ohjelman ymmärtämistä. Tämän lisäksi ongelma-alueen jäsentäminen luokiksi helpottaa ohjelmien rakentamista ja ylläpitoa. Olio-ohjelmointi ei kuitenkaan sovellu luontaisesti kaikkiin ongelmiin: esimerkiksi tieteellisessä laskennassa ja tilastotieteen sovelluksissa käytetään tyypillisemmin mm. <a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank">R</a>-kieltä. -->
-One of the major benefits of object-oriented programming is how problem-domain concepts are modeled through classes and objects, which makes programs easier to understand. In addition, structuring the problem domain into classes facilitates the construction and maintenance of programs. However, object-oriented programming is not inherently suited to all problems: for example, scientific computing and statistics applications typically make use of languages, such as <a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank"> R </a> and [Python](https://en.wikipedia.org/wiki/Python_(programming_language)).
+
+One of the major benefits of object-oriented programming is how problem-domain concepts are modeled through classes and objects, which makes programs easier to understand. In addition, structuring the problem domain into classes facilitates the construction and maintenance of programs. However, object-oriented programming is not inherently suited to all problems: for example, scientific computing and statistics applications typically make use of languages, such as [R](https://en.wikipedia.org/wiki/R_(programming_language)) and [Python](https://en.wikipedia.org/wiki/Python_(programming_language)).
 <br/>
 
 
@@ -68,6 +69,7 @@ int c = b;
 b = a;
 a = c;
 ``` -->
+
 ```java
 int a = 10;
 int b = 15;
@@ -130,6 +132,7 @@ public static void tulosta(int luku) {
     System.out.print(luku);
 }
 ``` -->
+
 ```java
 int hours = 0;
 int minutes = 0;
@@ -575,4 +578,4 @@ Toinen: 0/100
 </programming-exercise>
 
 
-<quiznator id="5c6548fec41ed4148d96de8f"></quiznator>
+<quiz id="2179fdc5-dab5-5b73-9476-9aaf84da67dd"></quiznator>
