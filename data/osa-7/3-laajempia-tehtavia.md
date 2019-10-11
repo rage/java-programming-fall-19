@@ -551,52 +551,62 @@ Enter command:  **stop**
 </programming-exercise>
 
 
-<programming-exercise name='Lintubongarin tietokanta (3 osaa)' tmcname='osa07-Osa07_08.LintubongarinTietokanta'>
+<programming-exercise name='Big year (3 parts)' tmcname='part07-Part07_08.BigYear'>
 
-**Tehtävä vastaa kolmea yksiosaista tehtävää.**
+**This exercise is worth three one part exercises**
 
-Tässä tehtävässä suunnittelet ja toteutat tietokannan lintubongareille. Tietokanta sisältää lintuja, joista jokaisella on nimi (merkkijono) ja latinankielinen nimi (merkkijono). Tämän lisäksi tietokanta laskee kunkin linnun havaintokertoja.
+<!-- Tässä tehtävässä suunnittelet ja toteutat tietokannan lintubongareille. Tietokanta sisältää lintuja, joista jokaisella on nimi (merkkijono) ja latinankielinen nimi (merkkijono). Tämän lisäksi tietokanta laskee kunkin linnun havaintokertoja. -->
+In this exercise you will design and implement a database for bird-watchers. The database contains birds, each of which has a name (string) and a name in latin (string). The database also counts the observations of each bird.
 
-Ohjelmasi täytyy toteuttaa seuraavat komennot:
+<!-- Ohjelmasi täytyy toteuttaa seuraavat komennot: -->
+The program must implement the following commands:
 
-- `Lisaa` - lisää linnun (**huom:** komennon nimessä ei ä-kirjainta!)
+<!-- - `Add` - lisää linnun  -->
+ -  `Add` - adds a bird
 
-- `Havainto` - lisää havainnon
+<!-- - `Observation` - lisää havainnon -->
+ -  `Observation` - adds an observation
 
-- `Tilasto` - tulostaa kaikki linnut
+<!-- - `Tilasto` - tulostaa kaikki linnut -->
+ -  `All` - prints all birds
 
-- `Nayta` - tulostaa yhden linnun (**huom:** komennon nimessä ei ä-kirjainta!)
+<!-- - `Nayta` - tulostaa yhden linnun (**huom:** komennon nimessä ei ä-kirjainta!) -->
+ -  `One` - prints one bird
 
-- `Lopeta` - lopettaa ohjelman
+<!-- - `Lopeta` - lopettaa ohjelman -->
+ - `Quit` - ends the program
 
-Lisäksi virheelliset syötteet pitää käsitellä. (Ks. `Simo` alla). Tässä vielä esimerkki ohjelman toiminnasta:
+<!-- Lisäksi virheelliset syötteet pitää käsitellä. (Ks. `Simo` alla). Tässä vielä esimerkki ohjelman toiminnasta: -->
+Incorrect input must also be handled.
+The following is an example of the program functionality:
 
 <sample-output>
 
-? **Lisaa**
-Nimi: **Korppi**
-Latinankielinen nimi: **Corvus Corvus**
-? **Lisaa**
-Nimi: **Haukka**
-Latinankielinen nimi: **Dorkus Dorkus**
-? **Havainto**
-Mikä havaittu? **Haukka**
-? **Havainto**
-Mikä havaittu? **Simo**
-Ei ole lintu!
-? **Havainto**
-Mikä havaittu? **Haukka**
-? **Tilasto**
-Haukka (Dorkus Dorkus): 2 havaintoa
-Korppi (Corvus Corvus): 0 havaintoa
-? **Nayta**
-Mikä? **Haukka**
-Haukka (Dorkus Dorkus): 2 havaintoa
+? **Add**
+Name: **Crow**
+Name in latin: **Corvus Corvus**
+? **Add**
+Name: **Hawk**
+Name in latin: **Dorkus Dorkus**
+? **Observation**
+Bird? **Hawk**
+? **Observation**
+Bird? **Lion**
+Not a bird!
+? **Observation**
+Bird? **Hawk**
+? **All**
+Hawk (Dorkus Dorkus): 2 observations
+Crow (Corvus Corvus): 0 observations
+? **One**
+Bird? **Hawk**
+Hawk (Dorkus Dorkus): 2 observations
 ? **Lopeta**
 
 </sample-output>
 
-**Huom!** Ohjelmasi rakenne on täysin vapaa. Testaamme vain että `Paaohjelma` luokan `main`-metodi toimii kuten tässä on kuvailtu. Hyödyt tehtävässä todennäköisesti ongelma-aluetta sopivasti kuvaavista luokista.
+<!-- **Huom!** Ohjelmasi rakenne on täysin vapaa. Testaamme vain että `Paaohjelma` luokan `main`-metodi toimii kuten tässä on kuvailtu. Hyödyt tehtävässä todennäköisesti ongelma-aluetta sopivasti kuvaavista luokista. -->
+**NB** the structure of your program is completely free. We only test that the `main` method of the `mainProgram` class works as shown above. You will propably find making your classes descriptive of the problem domain helpful.
 
 </programming-exercise>
 
