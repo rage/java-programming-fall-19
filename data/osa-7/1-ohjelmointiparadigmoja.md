@@ -331,16 +331,16 @@ Ohjelma tarjoaa toiminnallisuuden nesteen lisäämiseen, nesteen siirtämiseen, 
 
 Ohjelman komentojen tulee olla seuraavat:
 
-- `lisaa maara` lisää ensimmäiseen säiliöön parametrina annetun määrän nestettä. Annettu määrä kuvataan kokonaislukuna. Säiliössä ei voi olla yli sataa yksikköä nestettä ja liialliset lisäykset menevät hukkaan.
+- `add maara` lisää ensimmäiseen säiliöön parametrina annetun määrän nestettä. Annettu määrä kuvataan kokonaislukuna. Säiliössä ei voi olla yli sataa yksikköä nestettä ja liialliset lisäykset menevät hukkaan.
 
-- `siirra maara` siirtää ensimmäisestä säiliöstä toiseen parametrina annetun määrän nestettä. Annettu määrä kuvataan kokonaislukuna. Säiliössä ei voi olla yli sataa yksikköä nestettä. Mikäli ohjelmassa yritetään siirtää enemmän kuin ensimmäisessä säiliössä on, siirretään ensimmäisen säiliön koko sisältö. Mikäli ohjelmassa yritetään siirtää enemmän kuin toiseen säiliöön mahtuu, valuu toiseen säiliöön mahtumaton osa hukkaan.
+- `move maara` siirtää ensimmäisestä säiliöstä toiseen parametrina annetun määrän nestettä. Annettu määrä kuvataan kokonaislukuna. Säiliössä ei voi olla yli sataa yksikköä nestettä. Mikäli ohjelmassa yritetään siirtää enemmän kuin ensimmäisessä säiliössä on, siirretään ensimmäisen säiliön koko sisältö. Mikäli ohjelmassa yritetään siirtää enemmän kuin toiseen säiliöön mahtuu, valuu toiseen säiliöön mahtumaton osa hukkaan.
 
-- `poista maara` poistaa toisesta säiliöstä parametrina annetun määrän nestettä. Mikäli ohjelmaa pyydetään poistamaan enemmän kuin mitä säiliössä on, poistetaan säiliöstä vain säiliön sisältö.
+- `remove maara` poistaa toisesta säiliöstä parametrina annetun määrän nestettä. Mikäli ohjelmaa pyydetään poistamaan enemmän kuin mitä säiliössä on, poistetaan säiliöstä vain säiliön sisältö.
 
 
 Jokaisen komennon suorituksen jälkeen tulostetaan säiliöden sisältö. Negatiivisia määriä ei tule ottaa huomioon.
 
-Toteuta ohjelma proseduraalista ohjelmointityyliä noudattaen ilman omia luokkia. Kaikki toiminnallisuus tulee lisätä luokassa `Nestesailiot` olevaan metodiin `main` (älä siis tee omia metodeja). Tehtäväpohjassa on valmiina toistolause, mistä poistutaan kun käyttäjä kirjoittaa "lopeta".
+Toteuta ohjelma proseduraalista ohjelmointityyliä noudattaen ilman omia luokkia. Kaikki toiminnallisuus tulee lisätä luokassa `Nestesailiot` olevaan metodiin `main` (älä siis tee omia metodeja). Tehtäväpohjassa on valmiina toistolause, mistä poistutaan kun käyttäjä kirjoittaa "quit".
 
 Alla on muistutuksena merkkijonon pilkkominen osiin.
 
@@ -361,29 +361,29 @@ Toteuta toiminnallisuus nesteen lisäämiseen ensimmäiseen säiliöön. Ohjelma
 
 <sample-output>
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**lisaa 5**
+First: 0/100
+Second: 0/100
+**add 5**
 
-Ensimmäinen: 5/100
-Toinen: 0/100
-**lisaa 25**
+First: 5/100
+Second: 0/100
+**add 25**
 
-Ensimmäinen: 30/100
-Toinen: 0/100
-**lisaa 60**
+First: 30/100
+Second: 0/100
+**add 60**
 
-Ensimmäinen: 90/100
-Toinen: 0/100
-**lisaa 1000**
+First: 90/100
+Second: 0/100
+**add 1000**
 
-Ensimmäinen: 100/100
-Toinen: 0/100
-**lisaa -5**
+First: 100/100
+Second: 0/100
+**add -5**
 
-Ensimmäinen: 100/100
-Toinen: 0/100
-**lopeta**
+First: 100/100
+Second: 0/100
+**quit**
 
 </sample-output>
 
@@ -395,57 +395,57 @@ Toteuta toiminnallisuus nesteen siirtämiseen ensimmäisestä säiliöstä toise
 
 <sample-output>
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**lisaa 1000**
+First: 0/100
+Second: 0/100
+**add 1000**
 
-Ensimmäinen: 100/100
-Toinen: 0/100
-**siirra 50**
+First: 100/100
+Second: 0/100
+**move 50**
 
-Ensimmäinen: 50/100
-Toinen: 50/100
-**lisaa 100**
+First: 50/100
+Second: 50/100
+**add 100**
 
-Ensimmäinen: 100/100
-Toinen: 50/100
-**siirra 100**
+First: 100/100
+Second: 50/100
+**move 100**
 
-Ensimmäinen: 0/100
-Toinen: 100/100
-**lopeta**
+First: 0/100
+Second: 100/100
+**quit**
 
 </sample-output>
 
 
-Toinen esimerkki:
+Second esimerkki:
 
 
 <sample-output>
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**siirra 30**
+First: 0/100
+Second: 0/100
+**move 30**
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**lisaa 10**
+First: 0/100
+Second: 0/100
+**add 10**
 
-Ensimmäinen: 10/100
-Toinen: 0/100
-**siirra -5**
+First: 10/100
+Second: 0/100
+**move -5**
 
-Ensimmäinen: 10/100
-Toinen: 0/100
-**siirra 20**
+First: 10/100
+Second: 0/100
+**move 20**
 
-Ensimmäinen: 0/100
-Toinen: 10/100
-**siirra 10**
+First: 0/100
+Second: 10/100
+**move 10**
 
-Ensimmäinen: 0/100
-Toinen: 10/100
-**lopeta**
+First: 0/100
+Second: 10/100
+**quit**
 
 </sample-output>
 
@@ -456,33 +456,33 @@ Toteuta toiminnallisuus nesteen poistamiseen toisesta säiliöstä. Ohjelman toi
 
 <sample-output>
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**poista 10**
+First: 0/100
+Second: 0/100
+**remove 10**
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**lisaa 20**
+First: 0/100
+Second: 0/100
+**add 20**
 
-Ensimmäinen: 20/100
-Toinen: 0/100
-**poista 5**
+First: 20/100
+Second: 0/100
+**remove 5**
 
-Ensimmäinen: 20/100
-Toinen: 0/100
-**siirra 15**
+First: 20/100
+Second: 0/100
+**move 15**
 
-Ensimmäinen: 5/100
-Toinen: 15/100
-**poista 5**
+First: 5/100
+Second: 15/100
+**remove 5**
 
-Ensimmäinen: 5/100
-Toinen: 10/100
-**poista 20**
+First: 5/100
+Second: 10/100
+**remove 20**
 
-Ensimmäinen: 5/100
-Toinen: 0/100
-**lopeta**
+First: 5/100
+Second: 0/100
+**quit**
 
 </sample-output>
 
@@ -490,40 +490,46 @@ Toinen: 0/100
 </programming-exercise>
 
 
-<programming-exercise name='Nestesäiliöt olioilla (2 osaa)' tmcname='osa07-Osa07_02.NestesailiotOlioilla'>
+<programming-exercise name='Liquid Containers 2.0 (2 parts)' tmcname='part07-Part07_02.LiquidContainers2'>
 
-Toteutetaan edellä kuvattu interaktiivinen ohjelma kahden nestesäiliön käsittelyyn uudestaan. Tällä kertaa luodaan ohjelman toteutusta varten luokka "Sailio", jonka vastuulla on säiliön sisällön ylläpito.
-
-
-<h2>Sailio</h2>
-
-Toteuta luokka Sailio. Säiliöllä tulee olla parametriton konstruktori sekä seuraavat metodit:
-
-- `public int sisalto()` palauttaa säiliössä olevan nesteen määrän kokonaislukuna.
-
-- `public void lisaa(int maara)` lisää parametrina annetun määrän nestettä säiliöön. Mikäli parametrin arvo on negatiivinen, ei nestettä lisätä. Lisäyksen jälkeen säiliössä on korkeintaan 100 yksikköä nestettä.
-
-- `public void poista(int maara)` poistaa parametrina annetun määrän nestettä säiliöstä. Mikäli parametrin arvo on negatiivinen, ei nestettä poisteta. Poistaminen poistaa vain olemassaolevaa nestettä -- poiston takia säiliössä ei voi koskaan olla alle nollaa nesteyksikköä.
-
-- `public String toString()` palauttaa olion merkkijonoesityksen muodossa "<em>sisalto</em>/100", esim "32/100".
+<!-- Toteutetaan edellä kuvattu interaktiivinen ohjelma kahden nestesäiliön käsittelyyn uudestaan. Tällä kertaa luodaan ohjelman toteutusta varten luokka "Sailio", jonka vastuulla on säiliön sisällön ylläpito. -->
+Let's redo the previous program for handling two liquid containers. This time we'll create a class "Container", which is responsible for managing the contents of a container.
 
 
-Luokan käyttöesimerkki:
+<h2>Container</h2>
 
+<!-- Toteuta luokka Sailio. Säiliöllä tulee olla parametriton konstruktori sekä seuraavat metodit: -->
+Make a class called Container. The class must have a constructor which does not take any parameters, and the following methods:
+
+<!-- - `public int sisalto()` palauttaa säiliössä olevan nesteen määrän kokonaislukuna. -->
+ -  `public int contains()` which returns the amount of liquid in a container as an integer.
+
+<!-- - `public void add(int maara)` lisää parametrina annetun määrän nestettä säiliöön. Mikäli parametrin arvo on negatiivinen, ei nestettä lisätä. Lisäyksen jälkeen säiliössä on korkeintaan 100 yksikköä nestettä. -->
+ -  `public void add(int amount)` which adds the amount of liquid given as a parameter to the container. If the amount is negative, no liquid is added.
+ A container can hold maximum of 100 units of liquid.
+<!-- - `public void remove(int maara)` poistaa parametrina annetun määrän nestettä säiliöstä. Mikäli parametrin arvo on negatiivinen, ei nestettä poisteta. Poistaminen poistaa vain olemassaolevaa nestettä -- poiston takia säiliössä ei voi koskaan olla alle nollaa nesteyksikköä. -->
+ -  `public void remove(int amount)` which removes the amount of liquid given as a parameter from the container. If the amount is negative, no liquid is removed. A container can never hold less than 0 units of liquid.
+
+<!-- - `public String toString()` palauttaa olion merkkijonoesityksen muodossa "<em>sisalto</em>/100", esim "32/100". -->
+ -  `public string toString()` which returns the container as a string formatted "<em>amoun of liquid</em>100, for example "32/100".
+
+
+<!-- Luokan käyttöesimerkki: -->
+The class should work as follows:
 
 ```java
-Sailio sailio = new Sailio();
-System.out.println(sailio);
+Container container = new Container();
+System.out.println(container);
 
-sailio.lisaa(50);
-System.out.println(sailio);
-System.out.println(sailio.sisalto());
+container.add(50);
+System.out.println(container);
+System.out.println(container.contains());
 
-sailio.poista(60);
-System.out.println(sailio);
+container.remove(60);
+System.out.println(container);
 
-sailio.lisaa(200);
-System.out.println(sailio);
+container.add(200);
+System.out.println(container);
 ```
 
 <sample-output>
@@ -537,41 +543,44 @@ System.out.println(sailio);
 </sample-output>
 
 
-<h2>Toiminnallisuus</h2>
+<h2>Functionality</h2>
 
-Kopioi ensimmäisessä osassa toteuttamasi käyttöliittymä ja muokkaa sitä siten, että ohjelmassa käytetään juuri toteuttamiasi säiliöitä. Luokassa `NestesailiotOlioilla` olevan main-metodin suorituksen tulee käynnistää ohjelma.
+<!-- Kopioi ensimmäisessä osassa toteuttamasi käyttöliittymä ja muokkaa sitä siten, että ohjelmassa käytetään juuri toteuttamiasi säiliöitä. Luokassa `NestesailiotOlioilla` olevan main-metodin suorituksen tulee käynnistää ohjelma. -->
+Copy the user interface you implemented for the previous example, and modify it to use the new Container class.
+The main method in the class `LiquidContainers2` must start the program.
 
-Alla on esimerkkitulostus. Ohjelman tekstikäyttöliittymän toiminnan tulee olla seuraavanlainen:
+<!-- Alla on esimerkkitulostus. Ohjelman tekstikäyttöliittymän toiminnan tulee olla seuraavanlainen: -->
+Below is some sample output. The user interface should work as follows:
 
 <sample-output>
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**poista 10**
+First: 0/100
+Second: 0/100
+**remove 10**
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**lisaa 20**
+First: 0/100
+Second: 0/100
+**add 20**
 
-Ensimmäinen: 20/100
-Toinen: 0/100
-**poista 5**
+First: 20/100
+Second: 0/100
+**remove 5**
 
-Ensimmäinen: 20/100
-Toinen: 0/100
-**siirra 15**
+First: 20/100
+Second: 0/100
+**move 15**
 
-Ensimmäinen: 5/100
-Toinen: 15/100
-**poista 5**
+First: 5/100
+Second: 15/100
+**remove 5**
 
-Ensimmäinen: 5/100
-Toinen: 10/100
-**poista 20**
+First: 5/100
+Second: 10/100
+**remove 20**
 
-Ensimmäinen: 5/100
-Toinen: 0/100
-**lopeta**
+First: 5/100
+Second: 0/100
+**quit**
 
 </sample-output>
 
