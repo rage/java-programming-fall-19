@@ -1,22 +1,26 @@
 ---
-path: '/part-4/3-tiedon-lukeminen-ja-tiedostot'
+path: '/part-4/3-files-and-reading-data'
 title: 'Files and reading data'
-hidden: true
+hidden: false
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
 <text-box variant='learningObjectives' name='Learning objectives'>
 
 <!-- - Kertaat tiedon lukemista näppäimistöltä. -->
+
 - You will review reading data from the keyboard
+
 <!-- - Tiedät mitä ovat tiedosto ja tiedostojärjestelmä, ja osaat luoda tyhjän tekstitiedoston tiedostojärjestelmään. -->
+
 - You know what a file and a filesystem are, and are able to create an empty text file to the filesystem.
+
 <!-- - Osaat kirjoittaa ohjelman, joka lukee tietoa tiedostosta. -->
+
 - You can write a program that reads data from a file.
 
 </text-box>
 
-<quiz id="716bb458-0ca9-5e79-af45-dc1002959d63"></quiz>
 
 
 <!-- Merkittävä osa ohjelmistoista perustuu tavalla tai toisella tiedon käsittelyyn. Musiikin toistoon tarkoitetut ohjelmistot käsittelevät musiikkitiedostoja, kuvankäsittelyohjelmat käsittelevät kuvatiedostoja. Verkossa ja mobiililaitteissa toimivat sovellukset kuten Facebook, WhatsApp ja Telegram taas käsittelevät tiedostoihin perustuviin tietokantoihin tallennettuja henkilötietoja. Kaikissa näistä sovelluksista on yhteistä tiedon lukeminen, tiedon käsitteleminen tavalla tai toisella sekä se, että käsiteltävä tieto on loppujenlopulta tallennettu jonkinlaisessa muodossa yhteen tai useampaan tiedostoon. -->
@@ -74,10 +78,9 @@ Above, we give the system input (`System.in`) as a parameter to the constructor 
 
 Write a program that reads strings from the user until the user inputs the string "end". At that point the program should print how many strings were read. The string "end" should not be considered when counting the number strings read. Below you can find some examples of the program's operation.
 
+<!-- <sample-output>
 
-<sample-output>
-
-<!-- **minulla**
+**minulla**
 **on**
 **sellainen**
 **olo**
@@ -89,7 +92,12 @@ Write a program that reads strings from the user until the user inputs the strin
 **väärin**
 **aiemminkin**
 **loppu**
-11 -->
+11
+
+</sample-output> -->
+
+<sample-output>
+
 **I**
 **have**
 **a**
@@ -106,10 +114,14 @@ Write a program that reads strings from the user until the user inputs the strin
 
 </sample-output>
 
+<!-- <sample-output>
+
+**loppu**
+
+</sample-output> -->
 
 <sample-output>
 
-<!-- **loppu** -->
 **end**
 0
 
@@ -123,7 +135,7 @@ Write a program that reads strings from the user until the user inputs the strin
 The user input is read as strings. If we want to handle the user input as integers we need to do a conversion. Below is an example program that reads input from the user until the user inputs "end". As long as the user input is not "end" the inputs are handled as integers -- and in this case are only printed.
 
 
-```java
+<!-- ```java
 Scanner lukija = new Scanner(System.in);
 
 while (true) {
@@ -136,6 +148,21 @@ while (true) {
     int luku = Integer.valueOf(rivi);
     System.out.println(luku);
 }
+``` -->
+
+```java
+Scanner scanner = new Scanner(System.in);
+
+while (true) {
+    String row = scanner.nextLine();
+
+    if (row.equals("end")) {
+        break;
+    }
+
+    int number = Integer.valueOf(row);
+    System.out.println(row);
+}
 ```
 
 
@@ -146,15 +173,20 @@ while (true) {
 
 Write a program that reads strings from the user until the user inputs the string "end". As long as the input is not "end" the program should handle the input as an integer and print the cube of the integer (meaning number * number * number). Below are some sample outputs
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- **3**
+**3**
 27
 **-1**
 -1
 **11**
 1331
-**loppu** -->
+**loppu**
+
+</sample-output> -->
+
+<sample-output>
+
 **3**
 27
 **-1**
@@ -165,9 +197,14 @@ Write a program that reads strings from the user until the user inputs the strin
 
 </sample-output>
 
+<!-- <sample-output>
+
+**loppu**
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- **loppu** -->
 **end**
 
 </sample-output>
@@ -181,7 +218,7 @@ Write a program that reads strings from the user until the user inputs the strin
 
 <!-- **Tiedostot** ovat tietokoneella sijaitsevia tietokokoelmia, jotka voivat sisältää vaikkapa tekstiä, kuvia, musiikkia tai niiden yhdistelmiä. Tiedoston tallennusmuoto määrittelee tiedoston sisällön sekä tallennusmuodon lukemiseen tarvittavan ohjelman. Esimerkiksi PDF-tiedostoja luetaan PDF-tiedostojen lukemiseen soveltuvalla ohjelmalla ja musiikkitiedostoja luetaan musiikkitiedostojen lukemiseen soveltuvalla ohjelmalla. Jokainen näistä ohjelmista on ihmisen luoma, ja ohjelman luoja tai luojat -- eli ohjelmoijat -- ovat osana työtään myös määritelleet tiedoston tallennusmuodon. -->
 
-**Files** are collections of data that can be found in computers, and may contain e.g. text, images, music or combinations of these. The file format determines the content of the file as well as the program needed to read the file. For example, PDF-files are read with a program suited for reading PDF-files, and music files are read with a program suited for reading music files. Each of these programs was made by a human, and the creator or creators -- i.e. the programmers -- have, as part of their work, defined the format for the file.
+**Files** are collections of data that can be found in computers, and may contain e.g. text, images, music or combinations of these. The file format determines the content of the file as well as the program needed to read the file. For example, PDF files are read with a program suited for reading PDF files, and music files are read with a program suited for reading music files. Each of these programs was made by a human, and the creator or creators -- i.e. the programmers -- have, as part of their work, defined the format for the file.
 
 <!-- Tietokoneissa on useampia ohjelmia tiedostojen selaamiseen ja nämä ohjelmistot ovat käyttöjärjestelmäkohtaisia. Kaikki tiedostojen selaamiseen käytettävistä ohjelmista käyttävät tavalla tai toisella tietokoneen tiedostojärjestelmää. -->
 
@@ -189,7 +226,7 @@ Computers have several different programs for browsing files. These programs are
 
 <!-- Käyttämämme ohjelmointiympäristö tarjoaa mahdollisuuden projektien sisältämien tiedostojen selaamiseen. Voit käydä tarkastelemassa NetBeansissa kaikkia projektiin liittyviä tiedostoja valitsemalla `Files`-välilehden, joka löytyy `Projects`-välilehden kanssa samasta paikasta. Mikäli `Files`-välilehteä ei löydy, saa sen auki myös `Window`-valikosta. Klikkaamalla projektin auki, näet kaikki siihen liittyvät tiedostot. -->
 
-Our development environment provides the ability to browse the files of a project. In NetBeans you can take a look at all the files related to a project by selecting the `Files`-tab, which is found in the same place as the `Projects`-tab. If the tab is nowhere to be found it can be opened from the `Window`-menu. By clicking the project to open it you will see all the files related to it.
+Our development environment provides the ability to browse the files of a project. In NetBeans you can take a look at all the files related to a project by selecting the `Files` tab, which is found in the same place as the `Projects` tab. If the tab is nowhere to be found it can be opened from the `Window` menu. By clicking the project to open it you will see all the files related to it.
 
 <!-- <programming-exercise name='Uuden tiedoston luominen' tmcname='osa04-Osa04_23.UudenTiedostonLuominen'> -->
 <programming-exercise name='Creating a new file' tmcname='part04-Part04_23.CreatingANewFile'>
@@ -286,10 +323,16 @@ Write a program that prints the contents of a file called "data.txt", such that 
 <!-- Mikäli tiedoston sisältö on seuraava: -->
 In case the content looks like this:
 
+<!-- <sample-data>
+
+Olipa kerran
+maailma
+
+</sample-data> -->
+
 <sample-data>
 
-<!-- Olipa kerran -->
-<!-- maailma -->
+
 In a
 world
 
@@ -298,10 +341,15 @@ world
 <!-- Niin ohjelman tulostuksen tulee olla seuraava: -->
 Then the program should print the following:
 
+<!-- <sample-output>
+
+ Olipa kerran
+ maailma
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Olipa kerran -->
-<!-- maailma -->
 In a
 world
 
@@ -321,9 +369,29 @@ Write a program that asks the user for a string, and then prints the content of 
 
 The exercise template contains the files "data.txt" and "song.txt", which you may use when testing the functionality of your program. Below is the output of the program when a user has entered the string "song.txt". The content that is printed out comes from the file "song.txt". Naturally, the program should also work with other filenames, assuming the file can be found.
 
+<!-- <sample-output>
+
+Minkä tiedoston sisältö tulostetaan?
+**song.txt**
+No option for duality
+The old is where we come
+Clockspeed is fast, but we'll survive
+The new will overcome
+We are challengers, not followers
+We take the ball to build
+Easy safe services
+Are here to stay
+
+Value for society
+Value for life
+For you and me
+Tieto is here allright!
+
+</sample-output> -->
+
+
 <sample-output>
 
-<!-- Minkä tiedoston sisältö tulostetaan? -->
 Which file should have its contents printed?
 **song.txt**
 No option for duality
@@ -395,29 +463,38 @@ The exercise template already has some functionality for the guest list applicat
 
 However, the program is missing the functionality for reading the guest list. Modify the program so that the names on the guest list are read from the file.
 
+<!-- <sample-output>
+
+- Minkä niminen tiedosto luetaan?
+ **vieraslista.txt**
+
+ Syötä nimiä, tyhjä rivi lopettaa.
+
+ Nimi ei ole listalla.
+ Nimi ei ole listalla.
+Nimi on listalla.
+Nimi on listalla.
+
+ Kiitos!
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Minkä niminen tiedosto luetaan? -->
+
 Name of the file:
-<!-- **vieraslista.txt** -->
 **guestlist.txt**
 
-<!-- Syötä nimiä, tyhjä rivi lopettaa. -->
 Enter names, an empty line quits.
 **Chuck Norris**
-<!-- Nimi ei ole listalla. -->
 The name is not on the list.
 **Jack Baluer**
-<!-- Nimi ei ole listalla. -->
 The name is not on the list.
 **Jack Bauer**
-<!-- Nimi on listalla. -->
 The name is on the list.
 **Jack Bower**
-<!-- Nimi on listalla. -->
 The name is on the list.
 
-<!-- Kiitos! -->
 Thank you!
 
 </sample-output>
@@ -431,10 +508,6 @@ names.txt:
 
 <sample-data>
 
-<!-- ada -->
-<!-- arto -->
-<!-- leena -->
-<!-- testi -->
 ada
 arto
 leena
@@ -467,45 +540,62 @@ The exercise template comes with two files, `names.txt` and `other-names.txt`. W
 
 If the string is found the program should print "Found!", and if not the program should print "Not found.". If the reading of the file fails (the reading ends in an error) the program should print the message "Failed to read the file.".
 
+<!-- <sample-output>
+
+Minkä niminen tiedosto luetaan?
+**nimet.txt**
+Mitä etsitään?
+Ei löytynyt.
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Minkä niminen tiedosto luetaan? -->
+
 Name of the file:
-<!-- **nimet.txt** -->
 **names.txt**
-<!-- Mitä etsitään? -->
 Search for:
 **Antti**
-<!-- Ei löytynyt. -->
 Not found.
 
 </sample-output>
 
+<!-- <sample-output>
+
+Minkä niminen tiedosto luetaan?
+**nimet.txt**
+Mitä etsitään?
+Löytyi!
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Minkä niminen tiedosto luetaan? -->
+
 Name of the file:
-<!-- **nimet.txt** -->
 **names.txt**
-<!-- Mitä etsitään? -->
 Search for:
 **ada**
-<!-- Löytyi! -->
 Found!
 
 </sample-output>
 
+<!-- <sample-output>
+
+Minkä niminen tiedosto luetaan?
+**olematon.txt**
+Mitä etsitään?
+**testi**
+Tiedoston olematon.txt lukeminen epäonnistui.
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Minkä niminen tiedosto luetaan? -->
 Name of the file:
-<!-- **olematon.txt** -->
 **nonexistent.txt**
-<!-- Mitä etsitään? -->
 Search for:
-<!-- **testi** -->
 **test**
-<!-- Tiedoston olematon.txt lukeminen epäonnistui. -->
 Failed to read the file nonexistent.txt.
 
 </sample-output>
@@ -515,7 +605,7 @@ Failed to read the file nonexistent.txt.
 
 
 <!-- <programming-exercise name='Mittaukset tiedostosta' tmcname='osa04-Osa04_08.MittauksetTiedostosta'> -->
-<programming-exercise name='Numbers from a file' tmcname='part04-Part04_08.NumbersFromAFile'>
+<programming-exercise name='Numbers from a file' tmcname='part04-Part04_28.NumbersFromAFile'>
 
 <!-- Toteuta ohjelma, joka lukee käyttäjältä tiedoston nimen sekä hyväksyttävien lukujen ala- ja ylärajan. Tämän jälkeen ohjelma lukee tiedoston sisältämät luvut (jokainen luku on omalla rivillään) ja ottaa huomioon vain ne luvut, jotka ovat annetulla lukuvälillä. Lopulta ohjelma tulostaa annetulla lukuvälillä olleiden lukujen lukumäärän. -->
 
@@ -525,12 +615,18 @@ Write a program that prompt the user for a filename as well as the bounds for th
 
 You can convert a string formatted integer read from a file to a proper integer using the command `Integer.valueOf` (just like when handling input from a user).
 
+<!-- <sample-output>
+
+Tiedosto? **mittaukset-1.txt**
+Alaraja? **15**
+Yläraja? **20**
+Lukuja: 2
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Tiedosto? **mittaukset-1.txt** -->
-<!-- Alaraja? **15** -->
-<!-- Yläraja? **20** -->
-<!-- Lukuja: 2 -->
+
 File? **numbers-1.txt**
 Lower bound? **15**
 Upper bound? **20**
@@ -538,12 +634,18 @@ Numbers: 2
 
 </sample-output>
 
+<!-- <sample-output>
+
+Tiedosto? **mittaukset-1.txt**
+Alaraja? **0**
+Yläraja? **300**
+Lukuja: 4
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Tiedosto? **mittaukset-1.txt** -->
-<!-- Alaraja? **0** -->
-<!-- Yläraja? **300** -->
-<!-- Lukuja: 4 -->
+
 File? **numbers-1.txt**
 Lower bound? **0**
 Upper bound? **300**
@@ -699,17 +801,22 @@ while (true) {
 <!-- Ohjelman toiminta on seuraava: -->
 The program works as follows:
 
+<!-- <sample-output>
+
+ **virpi,19**
+ Nimi: virpi
+ Ikä: 19
+ **jenna,21**
+ Nimi: jenna
+ Ikä: 21
+ **ada,20**
+ Nimi: ada
+ Ikä: 20
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- **virpi,19** -->
-<!-- Nimi: virpi -->
-<!-- Ikä: 19 -->
-<!-- **jenna,21** -->
-<!-- Nimi: jenna -->
-<!-- Ikä: 21 -->
-<!-- **ada,20** -->
-<!-- Nimi: ada -->
-<!-- Ikä: 20 -->
 
 Enter name and age separated by a comma:
 **virpi,19**
@@ -781,15 +888,23 @@ amy,1
 
 Your task is to write a program that first prompts the user for the filename of the file they want to read. Then the program prints the content of the file in the following way (below we assume the output is from the file mentioned above):
 
+<!--
 <sample-output>
 
-<!-- Mikä tiedosto luetaan? -->
+ Mikä tiedosto luetaan?
+**data.txt**
+ lilja, ikä: 3 vuotta
+ anton, ikä: 5 vuotta
+ leevi, ikä: 4 vuotta
+ aamu, ikä: 1 vuosi
+
+</sample-output> -->
+
+<sample-output>
+
+
 Name of the file:
 **data.txt**
-<!-- lilja, ikä: 3 vuotta -->
-<!-- anton, ikä: 5 vuotta -->
-<!-- leevi, ikä: 4 vuotta -->
-<!-- aamu, ikä: 1 vuosi -->
 lily, age: 3 years
 anton, age: 5 years
 levi, age: 4 years
@@ -855,7 +970,7 @@ System.out.println("Total amount of people read: " + people.size());
 Reading objects from a file is clearly own thing, which should probably be separated as its a method. This is what we will do in the next exercise.
 
 <!-- <programming-exercise name='Henkilot tiedostosta' tmcname='osa04-Osa04_30.HenkilotTiedostosta'> -->
-<programming-exercise name='Storing records' tmcname='osa04-Osa04_30.StoringRecords'From>
+<programming-exercise name='Storing records' tmcname='part04-Part04_30.StoringRecords'>
 
 <!-- Tehtävässä käsitellään CSV-muodossa tallennettuja tiedostoja, jotka sisältävät riveittän pilkuilla eroteltuna nimiä ja ikiä. Tiedoston muoto on esimerkiksi seuraava: -->
 
@@ -915,29 +1030,43 @@ Write a program that prompts the user for a filename, after which it reads the m
 
 Implement the ability to print the amount of games played for a given team. Below we are using the aforementioned **data.csv** file.
 
+<!-- <sample-output>
+
+Minkä niminen tiedosto luetaan?
+**data.csv**
+Minkä nimisen joukkueen tiedot tulostetaan?
+**FURIA**
+Otteluita: 2
+
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Minkä niminen tiedosto luetaan? -->
 File:
 **data.csv**
-<!-- Minkä nimisen joukkueen tiedot tulostetaan? -->
 Team:
 **FURIA**
-<!-- Otteluita: 2 -->
 Games: 2
 
 </sample-output>
 
+<!-- <sample-output>
+
+Minkä niminen tiedosto luetaan?
+**data.csv**
+Minkä nimisen joukkueen tiedot tulostetaan?
+**ENCE**
+Otteluita: 6
+
+</sample-output> -->
 
 <sample-output>
 
-<!-- Minkä niminen tiedosto luetaan? -->
 File:
 **data.csv**
-<!-- Minkä nimisen joukkueen tiedot tulostetaan? -->
 Team:
 **ENCE**
-<!-- Otteluita: 6 -->
 Games: 6
 
 </sample-output>
@@ -952,41 +1081,54 @@ Extend the program to have the ability to print the number of wins and losses of
 <!-- Voit olettaa, ettei pelit pääty koskaan tasapeliin. Alla olevassa esimerkissä käytetään edellä kuvattua **data.csv**-tiedostoa. -->
 You may assume that the games never end in a tie. Below we are using the aforementioned **data.csv** file.
 
+<!-- <sample-output>
+
+Minkä niminen tiedosto luetaan?
+**data.csv**
+Minkä nimisen joukkueen tiedot tulostetaan?
+**FURIA**
+Otteluita: 2
+Voittoja: 1>
+Tappioita: 1
+
+
+</sample-output> -->
+
 <sample-output>
 
-<!-- Minkä niminen tiedosto luetaan? -->
 File:
 **data.csv**
-<!-- Minkä nimisen joukkueen tiedot tulostetaan? -->
 Team:
 **FURIA**
-<!-- Otteluita: 2 -->
 Games: 2
-<!-- Voittoja: 1 -->
 Wins: 1
-<!-- Tappioita: 1 -->
 Losses: 1
 
 </sample-output>
 
+<!-- <sample-output>
+
+Minkä niminen tiedosto luetaan?
+**data.csv**
+Minkä nimisen joukkueen tiedot tulostetaan?
+**ENCE**
+Otteluita: 6
+Voittoja: 3
+Tappioita: 3
+
+
+</sample-output> -->
 
 <sample-output>
 
-<!-- Minkä niminen tiedosto luetaan? -->
 File:
 **data.csv**
-<!-- Minkä nimisen joukkueen tiedot tulostetaan? -->
 Name:
 **ENCE**
-<!-- Otteluita: 6 -->
 Games: 6
-<!-- Voittoja: 3 -->
 Wins: 3
-<!-- Tappioita: 3 -->
 Losses: 3
 
 </sample-output>
-
-
 
 </programming-exercise>

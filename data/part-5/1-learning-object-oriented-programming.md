@@ -1,7 +1,9 @@
 ---
-path: '/part-5/1-katsaus-olio-ohjelmointiin'
-title: 'Katsaus olio-ohjelmointiin'
-hidden: true
+#path: '/part-5/1-katsaus-olio-ohjelmointiin'
+path: '/part-5/1-learning-object-oriented-programming'
+#title: 'Katsaus olio-ohjelmointiin'
+title: 'Learning object-oriented programming'
+hidden: false
 ---
 
 
@@ -30,7 +32,7 @@ Alla on kuvattuna kellon toteutus kokonaislukutyyppisillä muuttujilla (tulostam
 
 What is object-oriented programming all about? We'll rewind a little.
 
-Let's inspect how a digital clock works. The clock has three hands: hours, minutes and seconds. The second hand increments once every second, the minute hand once every sixty seconds, and the hour hand once in sixty minutes. When the value of the second hand is 60, its value is set to zero and the value of the minute hand is incremented by one. When the minute hand's value is 60, its value is set to zero and the hour hand value is incremented by one. When the hour hand value is 24, it is set to zero.
+Let's inspect how a clock works. The clock has three hands: hours, minutes and seconds. The second hand increments once every second, the minute hand once every sixty seconds, and the hour hand once in sixty minutes. When the value of the second hand is 60, its value is set to zero and the value of the minute hand is incremented by one. When the minute hand's value is 60, its value is set to zero and the hour hand value is incremented by one. When the hour hand value is 24, it is set to zero.
 
 Time is always printed in the form `hours: minutes: seconds`, where the hours are represented by two digits (eg. 01 or 12), minutes by two digits, and seconds also by two digits.
 
@@ -144,7 +146,7 @@ Koska viisari on oma selkeä käsitteensä, kannattaa ohjelman ymmärrettävyyde
 The aim is to make the program more comprehensible.
 
 
-Since a clock hand is a clear concept in and of itself, a good idea with regard to the program's understandability would be to turn it into its own class. Let's create a `ClockHand` class describing a clock hand, which contains information about its value, upper limit(i.e., the point at which the value of the hand returns to zero), and provides methods for advancing the hand, viewing its value and printing the value in string form.
+Since a clock hand is a clear concept in and of itself, a good idea with regard to the program's understandability would be to turn it into its own class. Let's create a `ClockHand` class describing a clock hand, which contains information about its value, upper limit (i.e. the point at which the value of the hand returns to zero), and provides methods for advancing the hand, viewing its value and printing the value in string form.
 
 
 <!--
@@ -184,7 +186,7 @@ public class Viisari {
 ```java
 public class ClockHand {
     private int value;
-    private int ylaraja;
+    private int limit;
 
     public ClockHand(int limit) {
         this.limit = limit;
@@ -214,7 +216,7 @@ public class ClockHand {
 ```
 
 <!-- Kun olemme luoneet luokan Viisari, muuttuu kellomme selkeämmäksi. Nyt kellon -- eli viisarien -- tulostaminen on suoraviivaista, jonka lisäksi viisarin eteneminen on piilotettu luokkaan Viisari. Koska viisarin palaaminen alkuun tapahtuu automaattisesti Viisari-luokkaan määritellyn yläraja-muuttujan avulla, on viisarien yhteistoiminta hieman erilaista kuin kokonaisluvuilla toteutetussa ohjelmassa. Kokonaisluvuilla toteutetussa ohjelmassa tarkasteltiin ylittääkö viisaria kuvaavan kokonaisluvun arvo ylärajan, jonka jälkeen arvo asetettiin nollaksi ja seuraavaa viisaria kuvaavan kokonaisluvun arvoa kasvatettiin. Viisari-olioita käytettäessä minuuttiviisarin eteneminen tapahtuu kun sekuntiviisarin arvo on nolla, ja tuntiviisarin eteneminen tapahtuu kun minuuttiviisarin arvo on nolla. -->
-Once we've created the ClockHand class, our clock becomes clearer. Now, printing the clock, i.e., the clock hand,  is straightforward, and the hand's progression is hidden away in the ClockHand class. Since the hand's return to the beginning happens automatically with the help of the upper-limit variable defined by the ClockHand class, the way the hands work together is slightly different than in the program implementation that uses integers. The program that used integers looked at whether the value of the integer that represented the clock hand exceeded the upper limit, after which its value was set to zero and the value of the integer representing the next clock hand was incremented. Using clock-hand objects, the minute hand advances when the second hand's value is zero, and the hour hand advances when the minute hand's value is zero.
+Once we've created the ClockHand class, our clock becomes clearer. Now, printing the clock, i.e. the clock hand,  is straightforward, and the hand's progression is hidden away in the ClockHand class. Since the hand's return to the beginning happens automatically with the help of the upper-limit variable defined by the ClockHand class, the way the hands work together is slightly different than in the program implementation that uses integers. The program that used integers looked at whether the value of the integer that represented the clock hand exceeded the upper limit, after which its value was set to zero and the value of the integer representing the next clock hand was incremented. Using clock-hand objects, the minute hand advances when the second hand's value is zero, and the hour hand advances when the minute hand's value is zero.
 
 <!-- ```java
 Viisari tunnit = new Viisari(24);
@@ -269,15 +271,14 @@ Käsitteen erottaminen omaksi luokaksi on monellakin tapaa hyvä idea. Ensinnäk
 
 
 Totesimme että kello sisältää kolme viisaria, eli koostuu kolmesta käsitteestä. Oikeastaan kello on itsekin käsite, eli voimme luoda sillekin oman luokkansa. Tehdään seuraavaksi luokka `Kello`, joka piilottaa viisarit sisäänsä. -->
-`` `
 
 
 **Object-oriented programming is mainly about isolating concepts into their own entities or, in other words, creating abstractions**. Despite the previous example, one might see it pointless to create an object containing only a number, since the same could be done directly with `int` variables. However, that is not always the case.
 
-Separating a concept into its own class is a good idea in many ways. Firstly, certain details (such as rotating the hand) can be hidden inside the class (ie **abstracted**). Instead of typing an if-statement and an assignment operation, it's enough for the user of the clock hand to call a clearly-named method `advance()`. The produced clock hand may be used as a building block for other programs as well - the class could be named `CounterLimitedFromTop` for instance. That is, a class created from a distinct concept can serve multiple purposes. Another massive advantage is that since the details of the implementation of the clock hand are not visible to its user, they can be changed if desired.
+Separating a concept into its own class is a good idea in many ways. Firstly, certain details (such as rotating the hand) can be hidden inside the class (i.e. **abstracted**). Instead of typing an if-statement and an assignment operation, it's enough for the user of the clock hand to call a clearly-named method `advance()`. The produced clock hand may be used as a building block for other programs as well - the class could be named `CounterLimitedFromTop` for instance. That is, a class created from a distinct concept can serve multiple purposes. Another massive advantage is that since the details of the implementation of the clock hand are not visible to its user, they can be changed if desired.
 
 
-We realized that the clock contains three hands, i.e., it consists of three concepts. In fact, the clock is a concept in and of itself. That is, we can create a class of it as well. Next, we create a class called "Clock" that hides the hands inside of it.
+We realized that the clock contains three hands, i.e. it consists of three concepts. In fact, the clock is a concept in and of itself. That is, we can create a class of it as well. Next, we create a class called "Clock" that hides the hands inside of it.
 
 
 
@@ -370,7 +371,7 @@ The clock we implemented above is an object whose functionality is based on "sim
 
 
 <!-- <programming-exercise name='Sekuntikello' tmcname='osa05-Osa05_01.Sekuntikello'> -->
-<programming-exercise name='Stopwatch' tmcname='osa05-Osa05_01.Sekuntikello'>
+<programming-exercise name='One minute' tmcname='part05-Part05_01.OneMinute'>
 
 
 <!-- Tehtäväpohjassa tulee edellä kuvattu luokka `Viisari`. Toteuta materiaalin `Kello`-luokkaa mukaillen luokka `Sekuntikello`.
@@ -378,9 +379,9 @@ The clock we implemented above is an object whose functionality is based on "sim
 
 Sekuntikellossa on kaksi viisaria. Yksi sadasosasekunneille ja yksi sekunneille. Sekuntikellon edetessä sadasosasekuntien määrä kasvaa yhdellä. Kun sadasosasekunteja vastaava viisari saavuttaa arvon sata, viisarin arvo nollaantuu ja sekuntien määrä kasvaa yhdellä. Vastaavasti, kun sekunteja vastaava viisari saavuttaa arvon kuusikymmentä, viisarin arvo nollaantuu. -->
 
-The exercise template comes with the "ClockHand" class described above. Implement a `Stopwatch` class based on the material's `Clock` class.
+The exercise template comes with the "ClockHand" class described above. Implement a `Timer` class based on the material's `Clock` class.
 
-The stopwatch has two hands, one for hundredths of a second and one for seconds. As the stopwatch progresses, the number of hundredths of a second grows by one. When the hand corresponding to hundredths of a second reaches a value of 100, its value is set to zero, and the number of seconds grows by one. In the same way, when the value of the hand corresponding to seconds reaches the value of sixty, its value is set to zero.
+The timer has two hands, one for hundredths of a second and one for seconds. As it progresses, the number of hundredths of a second grows by one. When the hand corresponding to hundredths of a second reaches a value of 100, its value is set to zero, and the number of seconds grows by one. In the same way, when the value of the hand corresponding to seconds reaches the value of sixty, its value is set to zero.
 
 
 <!-- - `public Sekuntikello()` luo uuden sekuntikellon.
@@ -393,15 +394,15 @@ Kun olet saanut tehtävän tehtyä, palauta se palvelimelle.
 
 Voit halutessasi kokeilla kellon toimintaa pääohjelmassa. Alla olevalla esimerkkikoodilla saat aikaan ohjelman, missä kello tulostetaan ja kello etenee kerran sadasosasekunnissa. -->
 
-- `public Stopwatch()` creates a new stopwatch.
-- `public String toString()` returns a string representation of the stopwatch. The string representation should be in the form "seconds: hundredths of a second", where both the seconds and the hundredths of a second are represented by two numbers. For example, "19:83" would represent the time 19 seconds, 83 hundredths of a second.
-- `public void advance()` moves the clock forward by a hundredth of a second.
+- `public Timer()` creates a new timer.
+- `public String toString()` returns a string representation of the timer. The string representation should be in the form "seconds: hundredths of a second", where both the seconds and the hundredths of a second are represented by two numbers. For example, "19:83" would represent the time 19 seconds, 83 hundredths of a second.
+- `public void advance()` moves the timer forward by a hundredth of a second.
 
 
 Once you've completed the task, return it to the server.
 
 
-You can test out the clock's functionality in the main program whenever you like. The example code below provides you with a program where the clock is printed and the clock advances once every hundredth of a second.
+You can test out the timer's functionality in the main program whenever you like. The example code below provides you with a program where the timer is printed and it advances once every hundredth of a second.
 
 
 <!-- ```java
@@ -419,11 +420,11 @@ while (true) {
 }
 ``` -->
 ```java
-Stopwatch stopwatch = new Stopwatch();
+Stopwatch timer = new Timer();
 
 while (true) {
-    System.out.println(stopwatch);
-    stopwatch.advance();
+    System.out.println(timer);
+    timer.advance();
 
     try {
         Thread.sleep(10);
@@ -470,7 +471,7 @@ Java-ohjelmointikielellä Henkilö-olion, joka pitää kirjaa nimestä, iästä,
 
 ## Object
 
-An **Object** refers to an independent entity that has data (instance variables) and behavior (methods) attached to it. Objects can differ a lot in structure and function: some may describe concepts of a problem domain, and others coordinate the interaction between various objects. Object's interact with one another through method calls - method calls are used to both request information from objects and give instructions to them.
+An **Object** refers to an independent entity that has data (instance variables) and behavior (methods) attached to it. Objects can differ a lot in structure and function: some may describe concepts of a problem domain, and others coordinate the interaction between various objects. Objects interact with one another through method calls - method calls are used to both request information from objects and give instructions to them.
 In general, each object has clearly defined boundaries and behaviors, and each object knows only about the objects it needs to perform its task. In other words, the object hides its internal operations and provides access to behavior through clearly defined methods. Also, the object is independent of any objects that it doesn't need to accomplish its task.
 
 In the previous section, we dealt with objects depicting people whose structure was defined in a "Person" class. For review, it's a good idea to remember the purpose of a class: a **class** contains the blueprint needed to create objects, and also defines the objects' variables and methods. An object is instantiated based on the constructor in the class.
@@ -516,7 +517,7 @@ public class Henkilo {
 public class Person {
     private String name;
     private int age;
-    private double paino;
+    private double weight;
     private double height;
 
     public Person(String name, int age, double weight, double height) {
@@ -650,7 +651,7 @@ public class Rectangle {
 
     // instance variables
     private int width;
-    private int korkeus;
+    private int height;
 
     // constructor
     public Rectangle(int width, int height) {
@@ -723,7 +724,7 @@ System.out.println(first.surfaceArea());
 
 
 <!-- <programming-exercise name='Kirja' tmcname='osa05-Osa05_02.Kirja'> -->
-<programming-exercise name='Book' tmcname='osa05-Osa05_02.Kirja'>
+<programming-exercise name='Book' tmcname='part05-Part05_02.Book'>
 
 <!-- Luo kirjaa esittävä luokka `Kirja`. Jokaisella kirjalla on kirjailija, nimi ja sivujen lukumäärä.
 
@@ -741,7 +742,7 @@ Create a "Book" class which describes a book. Each book has an author, title, an
 Make the class a:
 
 - Constructor `public Book(String author, String name, int pages)`
-- Method `public String getWriter()` which returns the book's author's name.
+- Method `public String getAuthor()` which returns the book's author's name.
 - Method `public String getName()` which returns the name of the book.
 - Method `public int getPages()` which returns the number of pages in the book.
 
@@ -758,7 +759,7 @@ J. K. Rowling, Harry Potter and the Sorcerer's Stone, 223 sivua
 
 
 <!-- <programming-exercise name='Kuutio' tmcname='osa05-Osa05_03.Kuutio'> -->
-<programming-exercise name='Cube' tmcname='osa05-Osa05_03.Kuutio'>
+<programming-exercise name='Cube' tmcname='part05-Part05_03.Cube'>
 
 <!-- Luo kuutiota (eli säännöllistä kuusitahokasta) esittävä luokka `Kuutio`. Luo luokalle konstruktori `public Kuutio(int sarmanPituus)`, joka saa parametrinaan kuution särmän pituuden.
 
@@ -771,7 +772,7 @@ Alla esimerkkejä -->
 Create a `Cube` class that represents a cube (i.e., a standard hexahedron). Create a `public Cube (int edgeLength)` constructor for the class, that takes the length of the cube's edge as its parameter.
 
 
-Make a `public int volume()` method for the cube, which calculates and returns the cube's volume. The volume of the cube is calculated with the formula `edgeLength * edgeLength * edgeLength`. Moreover, make a `public String toString()` method for the cube, which returns a string representation of it. The string representation should take the form "`The length of the cube edge is l, its volume v`", where `l` is the length and `v` the volume - both the length and volume must be represented as integers.
+Make a `public int volume()` method for the cube, which calculates and returns the cube's volume. The volume of the cube is calculated with the formula `edgeLength * edgeLength * edgeLength`. Moreover, make a `public String toString()` method for the cube, which returns a string representation of it. The string representation should take the form "`The length of the edge is l and the volume v`", where `l` is the length and `v` the volume - both the length and volume must be represented as integers.
 
 Examples are provided beneath
 
@@ -808,10 +809,10 @@ Kuution särmän pituus on 4, tilavuus on 64
 Kuution särmän pituus on 2, tilavuus on 8 -->
 
 64
-The cube edge has a lenght of 4 and a volume of 64
+The length of the edge is 4 and the volume 64
 
 8
-The cube edge has a lenght of 2 and a volume of 8
+The length of the edge is 2 and the volume 8
 
 </sample-output>
 
@@ -819,19 +820,19 @@ The cube edge has a lenght of 2 and a volume of 8
 
 
 <!-- <programming-exercise name='Harjoitusapuri' tmcname='osa05-Osa05_04.Harjoitusapuri'> -->
-<programming-exercise name='Exercise Assistant' tmcname='osa05-Osa05_04.Harjoitusapuri'>
+<programming-exercise name='Fitbyte' tmcname='part05-Part05_04.FitByte'>
 
 
 <!-- <a href="https://fi.wikipedia.org/wiki/Karvosen_kaava" target="_blank" norel>Karvosen kaavan</a> avulla voidaan laskea tavoitesyke fyysistä harjoittelua varten. Tavoitesykkeen laskeminen perustuu kaavaan `(maksimisyke - leposyke) * (tavoitesykeprosentti) + leposyke`, missä tavoitesyke annetaan prosenttina maksimisykkeestä. -->
 
-<a href="https://fi.wikipedia.org/wiki/Karvosen_kaava" target="_blank" norel>The Karvonen method </a> allows you to calculate your target heart rate for physical exercise. The calculation of the target heart rate is based on the formula `(maximum heart rate - resting heart rate) * (target heart rate percentage) + resting heart rate`, where the target heart rate is given as a percentage of the maximum heart rate.
+<a href="https://en.wikipedia.org/wiki/Heart_rate#Karvonen_method" target="_blank" norel>The Karvonen method </a> allows you to calculate your target heart rate for physical exercise. The calculation of the target heart rate is based on the formula `(maximum heart rate - resting heart rate) * (target heart rate percentage) + resting heart rate`, where the target heart rate is given as a percentage of the maximum heart rate.
 
 <!-- Esimerkiksi, jos henkilön maksimisyke on `200`, leposyke `50`, ja tavoitesyke `75%` maksimisykkeestä, on tavoiteltava sydämen syke noin `((200-50) * (0.75) + 50)` eli `162.5` lyöntiä minuutissa. -->
 For example, if a person has a maximum heart rate of `200`, a resting heart rate of `50`, and a target heart rate of `75%` of the maximum heart rate, the target heart rate should be about `((200-50) * (0.75) + 50)`, i.e., `162.5` beats per minute.
 
 
 <!-- Luo luokka `Harjoitusapuri`, jolle annetaan konstruktorin parametrina ikä ja leposyke. Harjoitusapurin tulee tarjota metodi tavoitesyke, jolle annetaan parametrina prosentuaalista maksimisykkeen osuutta kuvaava double-tyyppinen luku. Osuus annetaan lukuna nollan ja yhden välillä. Luokalla tulee olla: -->
-Create a class called `ExerciseAssistant`, whose constructor takes age and resting heart rate as its parameters. The exercise assistant should provide a method targetHeartRate, which is given a double-type number as a parameter representing a percentual portion of the maximum heart rate. The proportion is given as a number between zero and one. The class should have:
+Create a class called `Fitbyte`, whose constructor takes age and resting heart rate as its parameters. The exercise assistant should provide a method targetHeartRate, which is given a double-type number as a parameter representing a percentual portion of the maximum heart rate. The proportion is given as a number between zero and one. The class should have:
 <!--
 - Konstruktori `public Harjoitusapuri(int ika, int leposyke)`
 - Metodi `public double tavoitesyke(double prosenttiaMaksimista)`, joka laskee ja palauttaa tavoiteltavan sykkeen.
@@ -843,7 +844,7 @@ Käyttöesimerkki:
 
 -->
 
-- A constructor `public ExerciseAssistant(int age, int restingHeartRate)`
+- A constructor `public Fitbyte(int age, int restingHeartRate)`
 - A method `public double targetHeartRate(double percentageOfMaximum)` that calculates and returns the target heart rate.
 
 
@@ -864,14 +865,14 @@ while (prosenttiosuus < 1.0) {
 }
 ``` -->
 ```java
-ExerciseAssistant assistant = new ExerciseAssistant(30, 60);
+Fitbyte assistant = new Fitbyte(30, 60);
 
-double prosenttiosuus = 0.5;
+double percentage = 0.5;
 
-while (prosenttiosuus < 1.0) {
-    double tavoite = assistant.tavoitesyke(prosenttiosuus);
-    System.out.println("Tavoite " + (prosenttiosuus * 100) + "% maksimista: " + tavoite);
-    prosenttiosuus = prosenttiosuus + 0.1;
+while (percentage < 1.0) {
+    double target = assistant.targetHeartRate(percentage);
+    System.out.println("Target " + (percentage * 100) + "% of maximum: " + target);
+    percentage = percentage + 0.1;
 }
 ```
 

@@ -2,6 +2,9 @@
 path: "/osa-6/3-johdatus-ohjelmien-testaamiseen"
 title: "Johdatus ohjelmien testaamiseen"
 hidden: true
+path: '/part-6/3-introduction-to-testing'
+title: 'Introduction to testing'
+hidden: false
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
@@ -569,7 +572,7 @@ Test-driven software development consists of five steps that are repeated until 
 
 <pdf-slideshow>
 
-[a](../slideshows/testivetoinen-ohjelmistokehitys.pdf)
+[a](../slideshows/test-driven-development.pdf)
 
 </pdf-slideshow>
 
@@ -577,25 +580,45 @@ Test-driven software development consists of five steps that are repeated until 
 
 <!-- <programming-exercise name='Tehtavat (2 osaa)' tmcname='osa06-Osa06_13.Tehtavat'> -->
 <programming-exercise name='Tehtavat (2 osaa)' tmcname='osa06-Osa06_13.Tehtavat'>
+<programming-exercise name='Exercises (2 parts)' tmcname='part06-Part06_13.Exercises'>
 
-Tehtäväpohjassa tulee edellisen esimerkin alkutilanne -- tehtäväpohjaan on jo lisätty yksikkötestaukseen tarvittava JUnit-kirjasto. Seuraa esimerkkiä ja luo Tehtavienhallinnalta haluttu toiminnallisuus testivetoista ohjelmistokehitystä noudattaen. Kun olet saanut edellisen esimerkin loppuun asti, lisää sovellukseen vielä testit tehtävien poistamiseen sekä testien vaatima toiminnallisuus.
+<!-- Tehtäväpohjassa tulee edellisen esimerkin alkutilanne -- tehtäväpohjaan on jo lisätty yksikkötestaukseen tarvittava JUnit-kirjasto. Seuraa esimerkkiä ja luo Tehtavienhallinnalta haluttu toiminnallisuus testivetoista ohjelmistokehitystä noudattaen. Kun olet saanut edellisen esimerkin loppuun asti, lisää sovellukseen vielä testit tehtävien poistamiseen sekä testien vaatima toiminnallisuus. -->
 
-Tehtävä on jaettu kahteen osaan. Osat ovat seuraavat:
+The exercise base contains the initial state of the previous example -- it already includes the JUnit unit testing library. Follow the steps of the example, and use the principles of test-driven software development to give the wanted functionality for the exercise management program.
 
-1. Noudata esimerkkiä kunnes esimerkissä refaktoroidaan ohjelma ja luodaan luokka Tehtava. Luo luokat `TehtavienhallintaTest` ja `Tehtavienhallinta` sekä niihin esimerkissä lisätty toiminnallisuus.
+<!-- Tehtävä on jaettu kahteen osaan. Osat ovat seuraavat: -->
 
-2. Noudata esimerkkiä loppuun asti, eli tee myös esimerkissä kuvattu refaktorointi.
+The exercise is in two parts:
 
-Päivitä luokan Ohjelma luokkametodia `osiaToteutettu` palauttamaan valmiiksi saamasi osan numero. Voit palauttaa tehtävän vaikket tekisikään kumpaakin osaa, jolloin saat pisteitä tehtävän niistä osista, jotka olet tehnyt.
+<!-- 1. Noudata esimerkkiä kunnes esimerkissä refaktoroidaan ohjelma ja luodaan luokka Tehtava. Luo luokat `TehtavienhallintaTest` ja `Tehtavienhallinta` sekä niihin esimerkissä lisätty toiminnallisuus. -->
 
-Esimerkiksi, kun olet saanut ensimmäisen osan tehtyä eli noudattanut esimerkkiä refaktorointiin asti, olet vaiheessa 1, jolloin metodin `osiaToteutettu` tulisi palautta arvo `1`.
+1. Follow the steps of the example up until it's time to refactor the program and to create the class 'Exercise'. Create the classes `ExerciseManagementTest` and `ExerciseManagement`, and complete them with what the example instructs.
+
+<!-- 2. Noudata esimerkkiä loppuun asti, eli tee myös esimerkissä kuvattu refaktorointi. -->
+
+2. Follow the example all the way to the end. In other words, refactor the program as instructed.
+
+<!-- Päivitä luokan Ohjelma luokkametodia `osiaToteutettu` palauttamaan valmiiksi saamasi osan numero. Voit palauttaa tehtävän vaikket tekisikään kumpaakin osaa, jolloin saat pisteitä tehtävän niistä osista, jotka olet tehnyt. -->
+
+Update the `partsCompleted` class method of the MainProgram to return the highest part that you have completed. You can return the exercise even if you don't complete the second part, in which case you will receive the point for the first one. Returning 2 means you have completed both.
+
+<!-- Esimerkiksi, kun olet saanut ensimmäisen osan tehtyä eli noudattanut esimerkkiä refaktorointiin asti, olet vaiheessa 1, jolloin metodin `osiaToteutettu` tulisi palautta arvo `1`. -->
+
+If you crave to develop the program further (not awarded with points), you can try using test-driven development to first write a test (or a few) for removing exercises, and then implement that feature in your program. This is purely for your own amusement and is not reflected in the points in any manner!
 
 </programming-exercise>
 
-<text-box variant='hint' name='Lisää ohjelmistojen testaamisesta'>
+<!-- <text-box variant='hint' name='Lisää ohjelmistojen testaamisesta'>
 
 Yksikkötestaus on vain osa ohjelmiston testaamista. Yksikkötestaamisen lisäksi ohjelmiston toteuttaja toteuttaa myös integraatiotestejä, joissa tarkastellaan komponenttien kuten luokkien yhteistoiminnallisuutta, sekä käyttöliittymätestejä, joissa testataan sovelluksen käyttöliittymää käyttöliittymän tarjoamien elementtien kuten nappien kautta.
 
 Näitä testaamiseen liittyviä menetelmiä tarkastellaan tarkemmin muunmuassa kursseilla ohjelmistotekniikka sekä ohjelmistotuotanto.
+
+</text-box> -->
+<text-box variant='hint' name='Lisää ohjelmistojen testaamisesta'>
+
+Unit testing is only a part of software testing. On top of unit testing, a developer also performs integration tests that examine the interoperability of components, such as classes, and interface tests that test the application's interface through elements provided by the interface, such as buttons.
+
+These testing methods are covered in more detail in the more advanced courses.
 
 </text-box>

@@ -1,5 +1,5 @@
 ---
-path: '/part-7/1-ohjelmointiparadigmoja'
+path: '/osa-7/1-ohjelmointiparadigmoja'
 title: 'Ohjelmointiparadigmoja'
 hidden: true
 ---
@@ -9,7 +9,9 @@ hidden: true
 
 <!-- - Tunnet käsitteen ohjelmointiparadigma.
 - Tiedät mitä proseduraalisella ohjelmoinnilla ja olio-ohjelmoinnilla tarkoitetaan. -->
+
 - You know the concept of a programming paradigm.
+
 - You know what is meant by procedural and object-oriented programming.
 
 
@@ -21,6 +23,7 @@ hidden: true
 Suurin osa nykyään käytössä olevista ohjelmointikielistä tukee useampaa ohjelmointiparadigmaa. Ohjelmoijana kehittymiseen kuuluu kokemuksen kautta kehittyvä kyky sopivan ohjelmointikielen ja paradigman valintaan; yhtä kaikkialla toimivaa ohjelmointikieltä ja ohjelmointiparadigmaa ei toistaiseksi ole olemassa.
 
 Tämän hetken yleisimpiä ohjelmointiparadigmoja ovat olio-ohjelmointi, proseduraalinen ohjelmointi sekä funktionaalinen ohjelmointi. Seuraavaksi näistä kahta ensimmäistä käsitellään lyhyesti. -->
+
 A programming paradigm is a way of thinking about and structuring a program's functionality. Programming paradigms differ from one another, for example in how the program's execution and control are defined and what components the programs consist of.
 
 Most programming languages ​​that are currently in use support multiple programming paradigms. Part of a programmer's growth involves the ability, through experience, to choose the appropriate programming language and paradigm; there currently is no single ubiquitous programming language and programming paradigm.
@@ -38,10 +41,11 @@ In object-oriented programming, information is represented as classes that descr
 
 <!-- Olio-ohjelmoinnin perusideat eli tiedon ja sen käsittelyyn liittyvien toimintojen esittäminen luokkien ja olioiden avulla esiintyivät ensimmäisiä kertoja simulaatioiden rakentamiseen tarkoitetussa <a href="https://en.wikipedia.org/wiki/Simula" target="_blank" norel>Simula 67</a>:ssä sekä <a href="https://en.wikipedia.org/wiki/Smalltalk" target="_blank" norel>Smalltalk</a>-ohjelmointikielessä. Sen läpimurto tapahtui 1980-luvulla <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" norel>C++</a>-ohjelmointikielen kautta ja siitä on muodostunut <a href="https://en.wikipedia.org/wiki/Java_(programming_language)" target="_blank" norel>Java</a>-ohjelmointikielen myötä yksi maailman eniten käytetty ohjelmointiparadigma. -->
 
-The basic ideas of object-oriented programming, i.e., the representation of information and its processing methods with he help of classes and objects, first appeared in <a href="https://en.wikipedia.org/wiki/Simula" target="_blank" norel> Simula 67 </a>, which was designed for developing simulations and the <a href="https://en.wikipedia.org/wiki/Smalltalk" target="_blank" norel> Smalltalk </a> programming language. Its breakthrough came in the 1980s through the <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" norel> C ++ </a> programming language and  <a href = "https://en.wikipedia.org/wiki/Java_(programming_language)" target = "_ blank" norel> Java </a> has made it one of the most widely used programming paradigms in the world.
+The basic ideas of object-oriented programming, i.e., the representation of information and its processing methods with he help of classes and objects, first appeared in [Simula 67](https://en.wikipedia.org/wiki/Simula), which was designed for developing simulations and the [Smalltalk](https://en.wikipedia.org/wiki/Smalltalk) programming language. Its breakthrough came in the 1980s through the [C++](https://en.wikipedia.org/wiki/C%2B%2B) programming language and [Java](https://en.wikipedia.org/wiki/Java_(programming_language)) has made it one of the most widely used programming paradigms in the world.
 
 <!-- Olio-ohjelmoinnin suurimpia etuja ovat ongelma-alueen käsitteiden mallintaminen luokkien ja olioiden kautta, mikä helpottaa ohjelman ymmärtämistä. Tämän lisäksi ongelma-alueen jäsentäminen luokiksi helpottaa ohjelmien rakentamista ja ylläpitoa. Olio-ohjelmointi ei kuitenkaan sovellu luontaisesti kaikkiin ongelmiin: esimerkiksi tieteellisessä laskennassa ja tilastotieteen sovelluksissa käytetään tyypillisemmin mm. <a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank">R</a>-kieltä. -->
-One of the major benefits of object-oriented programming is how problem-domain concepts are modeled through classes and objects, which makes programs easier to understand. In addition, structuring the problem domain into classes facilitates the construction and maintenance of programs. However, object-oriented programming is not inherently suited to all problems: for example, scientific computing and statistics applications typically make use of languages, such as <a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank"> R </a>.
+
+One of the major benefits of object-oriented programming is how problem-domain concepts are modeled through classes and objects, which makes programs easier to understand. In addition, structuring the problem domain into classes facilitates the construction and maintenance of programs. However, object-oriented programming is not inherently suited to all problems: for example, scientific computing and statistics applications typically make use of languages, such as [R](https://en.wikipedia.org/wiki/R_(programming_language)) and [Python](https://en.wikipedia.org/wiki/Python_(programming_language)).
 <br/>
 
 
@@ -65,6 +69,7 @@ int c = b;
 b = a;
 a = c;
 ``` -->
+
 ```java
 int a = 10;
 int b = 15;
@@ -127,6 +132,7 @@ public static void tulosta(int luku) {
     System.out.print(luku);
 }
 ``` -->
+
 ```java
 int hours = 0;
 int minutes = 0;
@@ -325,16 +331,16 @@ Ohjelma tarjoaa toiminnallisuuden nesteen lisäämiseen, nesteen siirtämiseen, 
 
 Ohjelman komentojen tulee olla seuraavat:
 
-- `lisaa maara` lisää ensimmäiseen säiliöön parametrina annetun määrän nestettä. Annettu määrä kuvataan kokonaislukuna. Säiliössä ei voi olla yli sataa yksikköä nestettä ja liialliset lisäykset menevät hukkaan.
+- `add maara` lisää ensimmäiseen säiliöön parametrina annetun määrän nestettä. Annettu määrä kuvataan kokonaislukuna. Säiliössä ei voi olla yli sataa yksikköä nestettä ja liialliset lisäykset menevät hukkaan.
 
-- `siirra maara` siirtää ensimmäisestä säiliöstä toiseen parametrina annetun määrän nestettä. Annettu määrä kuvataan kokonaislukuna. Säiliössä ei voi olla yli sataa yksikköä nestettä. Mikäli ohjelmassa yritetään siirtää enemmän kuin ensimmäisessä säiliössä on, siirretään ensimmäisen säiliön koko sisältö. Mikäli ohjelmassa yritetään siirtää enemmän kuin toiseen säiliöön mahtuu, valuu toiseen säiliöön mahtumaton osa hukkaan.
+- `move maara` siirtää ensimmäisestä säiliöstä toiseen parametrina annetun määrän nestettä. Annettu määrä kuvataan kokonaislukuna. Säiliössä ei voi olla yli sataa yksikköä nestettä. Mikäli ohjelmassa yritetään siirtää enemmän kuin ensimmäisessä säiliössä on, siirretään ensimmäisen säiliön koko sisältö. Mikäli ohjelmassa yritetään siirtää enemmän kuin toiseen säiliöön mahtuu, valuu toiseen säiliöön mahtumaton osa hukkaan.
 
-- `poista maara` poistaa toisesta säiliöstä parametrina annetun määrän nestettä. Mikäli ohjelmaa pyydetään poistamaan enemmän kuin mitä säiliössä on, poistetaan säiliöstä vain säiliön sisältö.
+- `remove maara` poistaa toisesta säiliöstä parametrina annetun määrän nestettä. Mikäli ohjelmaa pyydetään poistamaan enemmän kuin mitä säiliössä on, poistetaan säiliöstä vain säiliön sisältö.
 
 
 Jokaisen komennon suorituksen jälkeen tulostetaan säiliöden sisältö. Negatiivisia määriä ei tule ottaa huomioon.
 
-Toteuta ohjelma proseduraalista ohjelmointityyliä noudattaen ilman omia luokkia. Kaikki toiminnallisuus tulee lisätä luokassa `Nestesailiot` olevaan metodiin `main` (älä siis tee omia metodeja). Tehtäväpohjassa on valmiina toistolause, mistä poistutaan kun käyttäjä kirjoittaa "lopeta".
+Toteuta ohjelma proseduraalista ohjelmointityyliä noudattaen ilman omia luokkia. Kaikki toiminnallisuus tulee lisätä luokassa `Nestesailiot` olevaan metodiin `main` (älä siis tee omia metodeja). Tehtäväpohjassa on valmiina toistolause, mistä poistutaan kun käyttäjä kirjoittaa "quit".
 
 Alla on muistutuksena merkkijonon pilkkominen osiin.
 
@@ -355,29 +361,29 @@ Toteuta toiminnallisuus nesteen lisäämiseen ensimmäiseen säiliöön. Ohjelma
 
 <sample-output>
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**lisaa 5**
+First: 0/100
+Second: 0/100
+**add 5**
 
-Ensimmäinen: 5/100
-Toinen: 0/100
-**lisaa 25**
+First: 5/100
+Second: 0/100
+**add 25**
 
-Ensimmäinen: 30/100
-Toinen: 0/100
-**lisaa 60**
+First: 30/100
+Second: 0/100
+**add 60**
 
-Ensimmäinen: 90/100
-Toinen: 0/100
-**lisaa 1000**
+First: 90/100
+Second: 0/100
+**add 1000**
 
-Ensimmäinen: 100/100
-Toinen: 0/100
-**lisaa -5**
+First: 100/100
+Second: 0/100
+**add -5**
 
-Ensimmäinen: 100/100
-Toinen: 0/100
-**lopeta**
+First: 100/100
+Second: 0/100
+**quit**
 
 </sample-output>
 
@@ -389,57 +395,57 @@ Toteuta toiminnallisuus nesteen siirtämiseen ensimmäisestä säiliöstä toise
 
 <sample-output>
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**lisaa 1000**
+First: 0/100
+Second: 0/100
+**add 1000**
 
-Ensimmäinen: 100/100
-Toinen: 0/100
-**siirra 50**
+First: 100/100
+Second: 0/100
+**move 50**
 
-Ensimmäinen: 50/100
-Toinen: 50/100
-**lisaa 100**
+First: 50/100
+Second: 50/100
+**add 100**
 
-Ensimmäinen: 100/100
-Toinen: 50/100
-**siirra 100**
+First: 100/100
+Second: 50/100
+**move 100**
 
-Ensimmäinen: 0/100
-Toinen: 100/100
-**lopeta**
+First: 0/100
+Second: 100/100
+**quit**
 
 </sample-output>
 
 
-Toinen esimerkki:
+Second esimerkki:
 
 
 <sample-output>
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**siirra 30**
+First: 0/100
+Second: 0/100
+**move 30**
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**lisaa 10**
+First: 0/100
+Second: 0/100
+**add 10**
 
-Ensimmäinen: 10/100
-Toinen: 0/100
-**siirra -5**
+First: 10/100
+Second: 0/100
+**move -5**
 
-Ensimmäinen: 10/100
-Toinen: 0/100
-**siirra 20**
+First: 10/100
+Second: 0/100
+**move 20**
 
-Ensimmäinen: 0/100
-Toinen: 10/100
-**siirra 10**
+First: 0/100
+Second: 10/100
+**move 10**
 
-Ensimmäinen: 0/100
-Toinen: 10/100
-**lopeta**
+First: 0/100
+Second: 10/100
+**quit**
 
 </sample-output>
 
@@ -450,33 +456,33 @@ Toteuta toiminnallisuus nesteen poistamiseen toisesta säiliöstä. Ohjelman toi
 
 <sample-output>
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**poista 10**
+First: 0/100
+Second: 0/100
+**remove 10**
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**lisaa 20**
+First: 0/100
+Second: 0/100
+**add 20**
 
-Ensimmäinen: 20/100
-Toinen: 0/100
-**poista 5**
+First: 20/100
+Second: 0/100
+**remove 5**
 
-Ensimmäinen: 20/100
-Toinen: 0/100
-**siirra 15**
+First: 20/100
+Second: 0/100
+**move 15**
 
-Ensimmäinen: 5/100
-Toinen: 15/100
-**poista 5**
+First: 5/100
+Second: 15/100
+**remove 5**
 
-Ensimmäinen: 5/100
-Toinen: 10/100
-**poista 20**
+First: 5/100
+Second: 10/100
+**remove 20**
 
-Ensimmäinen: 5/100
-Toinen: 0/100
-**lopeta**
+First: 5/100
+Second: 0/100
+**quit**
 
 </sample-output>
 
@@ -484,40 +490,46 @@ Toinen: 0/100
 </programming-exercise>
 
 
-<programming-exercise name='Nestesäiliöt olioilla (2 osaa)' tmcname='osa07-Osa07_02.NestesailiotOlioilla'>
+<programming-exercise name='Liquid Containers 2.0 (2 parts)' tmcname='part07-Part07_02.LiquidContainers2'>
 
-Toteutetaan edellä kuvattu interaktiivinen ohjelma kahden nestesäiliön käsittelyyn uudestaan. Tällä kertaa luodaan ohjelman toteutusta varten luokka "Sailio", jonka vastuulla on säiliön sisällön ylläpito.
-
-
-<h2>Sailio</h2>
-
-Toteuta luokka Sailio. Säiliöllä tulee olla parametriton konstruktori sekä seuraavat metodit:
-
-- `public int sisalto()` palauttaa säiliössä olevan nesteen määrän kokonaislukuna.
-
-- `public void lisaa(int maara)` lisää parametrina annetun määrän nestettä säiliöön. Mikäli parametrin arvo on negatiivinen, ei nestettä lisätä. Lisäyksen jälkeen säiliössä on korkeintaan 100 yksikköä nestettä.
-
-- `public void poista(int maara)` poistaa parametrina annetun määrän nestettä säiliöstä. Mikäli parametrin arvo on negatiivinen, ei nestettä poisteta. Poistaminen poistaa vain olemassaolevaa nestettä -- poiston takia säiliössä ei voi koskaan olla alle nollaa nesteyksikköä.
-
-- `public String toString()` palauttaa olion merkkijonoesityksen muodossa "<em>sisalto</em>/100", esim "32/100".
+<!-- Toteutetaan edellä kuvattu interaktiivinen ohjelma kahden nestesäiliön käsittelyyn uudestaan. Tällä kertaa luodaan ohjelman toteutusta varten luokka "Sailio", jonka vastuulla on säiliön sisällön ylläpito. -->
+Let's redo the previous program for handling two liquid containers. This time we'll create a class "Container", which is responsible for managing the contents of a container.
 
 
-Luokan käyttöesimerkki:
+<h2>Container</h2>
 
+<!-- Toteuta luokka Sailio. Säiliöllä tulee olla parametriton konstruktori sekä seuraavat metodit: -->
+Make a class called Container. The class must have a constructor which does not take any parameters, and the following methods:
+
+<!-- - `public int sisalto()` palauttaa säiliössä olevan nesteen määrän kokonaislukuna. -->
+ -  `public int contains()` which returns the amount of liquid in a container as an integer.
+
+<!-- - `public void add(int maara)` lisää parametrina annetun määrän nestettä säiliöön. Mikäli parametrin arvo on negatiivinen, ei nestettä lisätä. Lisäyksen jälkeen säiliössä on korkeintaan 100 yksikköä nestettä. -->
+ -  `public void add(int amount)` which adds the amount of liquid given as a parameter to the container. If the amount is negative, no liquid is added.
+ A container can hold maximum of 100 units of liquid.
+<!-- - `public void remove(int maara)` poistaa parametrina annetun määrän nestettä säiliöstä. Mikäli parametrin arvo on negatiivinen, ei nestettä poisteta. Poistaminen poistaa vain olemassaolevaa nestettä -- poiston takia säiliössä ei voi koskaan olla alle nollaa nesteyksikköä. -->
+ -  `public void remove(int amount)` which removes the amount of liquid given as a parameter from the container. If the amount is negative, no liquid is removed. A container can never hold less than 0 units of liquid.
+
+<!-- - `public String toString()` palauttaa olion merkkijonoesityksen muodossa "<em>sisalto</em>/100", esim "32/100". -->
+ -  `public string toString()` which returns the container as a string formatted "<em>amoun of liquid</em>100, for example "32/100".
+
+
+<!-- Luokan käyttöesimerkki: -->
+The class should work as follows:
 
 ```java
-Sailio sailio = new Sailio();
-System.out.println(sailio);
+Container container = new Container();
+System.out.println(container);
 
-sailio.lisaa(50);
-System.out.println(sailio);
-System.out.println(sailio.sisalto());
+container.add(50);
+System.out.println(container);
+System.out.println(container.contains());
 
-sailio.poista(60);
-System.out.println(sailio);
+container.remove(60);
+System.out.println(container);
 
-sailio.lisaa(200);
-System.out.println(sailio);
+container.add(200);
+System.out.println(container);
 ```
 
 <sample-output>
@@ -531,348 +543,48 @@ System.out.println(sailio);
 </sample-output>
 
 
-<h2>Toiminnallisuus</h2>
+<h2>Functionality</h2>
 
-Kopioi ensimmäisessä osassa toteuttamasi käyttöliittymä ja muokkaa sitä siten, että ohjelmassa käytetään juuri toteuttamiasi säiliöitä. Luokassa `NestesailiotOlioilla` olevan main-metodin suorituksen tulee käynnistää ohjelma.
+<!-- Kopioi ensimmäisessä osassa toteuttamasi käyttöliittymä ja muokkaa sitä siten, että ohjelmassa käytetään juuri toteuttamiasi säiliöitä. Luokassa `NestesailiotOlioilla` olevan main-metodin suorituksen tulee käynnistää ohjelma. -->
+Copy the user interface you implemented for the previous example, and modify it to use the new Container class.
+The main method in the class `LiquidContainers2` must start the program.
 
-Alla on esimerkkitulostus. Ohjelman tekstikäyttöliittymän toiminnan tulee olla seuraavanlainen:
+<!-- Alla on esimerkkitulostus. Ohjelman tekstikäyttöliittymän toiminnan tulee olla seuraavanlainen: -->
+Below is some sample output. The user interface should work as follows:
 
 <sample-output>
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**poista 10**
+First: 0/100
+Second: 0/100
+**remove 10**
 
-Ensimmäinen: 0/100
-Toinen: 0/100
-**lisaa 20**
+First: 0/100
+Second: 0/100
+**add 20**
 
-Ensimmäinen: 20/100
-Toinen: 0/100
-**poista 5**
+First: 20/100
+Second: 0/100
+**remove 5**
 
-Ensimmäinen: 20/100
-Toinen: 0/100
-**siirra 15**
+First: 20/100
+Second: 0/100
+**move 15**
 
-Ensimmäinen: 5/100
-Toinen: 15/100
-**poista 5**
+First: 5/100
+Second: 15/100
+**remove 5**
 
-Ensimmäinen: 5/100
-Toinen: 10/100
-**poista 20**
+First: 5/100
+Second: 10/100
+**remove 20**
 
-Ensimmäinen: 5/100
-Toinen: 0/100
-**lopeta**
+First: 5/100
+Second: 0/100
+**quit**
 
 </sample-output>
 
 </programming-exercise>
 
 
-<quiz id="2179fdc5-dab5-5b73-9476-9aaf84da67dd"></quiz>
-
-Kerrataan seuraavaksi olio-ohjelmointia laajemman olioita olioiden sisällä käsittelevän tehtävän kautta.
-
-
-<programming-exercise name='Tavara, Matkalaukku ja Lastiruuma (7 osaa)' tmcname='osa07-Osa07_03.TavaraMatkalaukkuJaLastiruuma' nocoins='true'>
-
-Tässä tehtäväsarjassa tehdään luokat `Tavara`, `Matkalaukku` ja `Lastiruuma`, joiden avulla harjoitellaan lisää olioita, jotka sisältävät toisia olioita.
-
-
-<h2>Tavara-luokka</h2>
-
-
-Tee luokka `Tavara`, josta muodostetut oliot vastaavat erilaisia tavaroita. Tallennettavat tiedot ovat tavaran nimi ja paino (kg).
-
-Lisää luokkaan seuraavat metodit:
-
-- Konstruktori, jolle annetaan parametrina tavaran nimi ja paino
-
-- Metodi `public String getNimi()`, joka palauttaa tavaran nimen
-
-- Metodi `public int getPaino()`, joka palauttaa tavaran painon
-
-- Metodi `public String toString()`, joka palauttaa merkkijonon muotoa "nimi (paino kg)"
-
-Seuraavassa on luokan käyttöesimerkki:
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        Tavara kirja = new Tavara("Aapiskukko", 2);
-        Tavara puhelin = new Tavara("Nokia 3210", 1);
-
-        System.out.println("Kirjan nimi: " + kirja.getNimi());
-        System.out.println("Kirjan paino: " + kirja.getPaino());
-
-        System.out.println("Kirja: " + kirja);
-        System.out.println("Puhelin: " + puhelin);
-    }
-}
-```
-
-Ohjelman tulostuksen tulisi olla seuraava:
-
-
-<sample-output>
-
-Kirjan nimi: Aapiskukko
-Kirjan paino: 2
-Kirja: Aapiskukko (2 kg)
-Puhelin: Nokia 3210 (1 kg)
-
-</sample-output>
-
-
-<h2>Matkalaukku-luokka</h2>
-
-Tee luokka `Matkalaukku`. Matkalaukkuun liittyy tavaroita ja maksimipaino, joka määrittelee tavaroiden suurimman mahdollisen yhteispainon.
-
-Lisää luokkaan seuraavat metodit:
-
--  Konstruktori, jolle annetaan maksimipaino
-
--  Metodi `public void lisaaTavara(Tavara tavara)`, joka lisää parametrina annettavan tavaran matkalaukkuun. Metodi ei palauta mitään arvoa.
-
--  Metodi `public String toString()`, joka palauttaa merkkijonon muotoa "x tavaraa (y kg)"
-
-
-Tavarat kannattaa tallentaa `ArrayList`-olioon:
-
-
-```java
-ArrayList<Tavara> tavarat = new ArrayList<>();
-```
-
-Luokan `Matkalaukku` tulee valvoa, että sen sisältämien tavaroiden yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi lisättävän tavaran vuoksi, metodi `lisaaTavara` ei saa lisätä uutta tavaraa laukkuun.
-
-Seuraavassa on luokan käyttöesimerkki:
-
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        Tavara kirja = new Tavara("Aapiskukko", 2);
-        Tavara puhelin = new Tavara("Nokia 3210", 1);
-        Tavara tiiliskivi = new Tavara("tiiliskivi", 4);
-
-        Matkalaukku matkalaukku = new Matkalaukku(5);
-        System.out.println(matkalaukku);
-
-        matkalaukku.lisaaTavara(kirja);
-        System.out.println(matkalaukku);
-
-        matkalaukku.lisaaTavara(puhelin);
-        System.out.println(matkalaukku);
-
-        matkalaukku.lisaaTavara(tiiliskivi);
-        System.out.println(matkalaukku);
-    }
-}
-```
-
-Ohjelman tulostuksen tulisi olla seuraava:
-
-<sample-output>
-
-0 tavaraa (0 kg)
-1 tavaraa (2 kg)
-2 tavaraa (3 kg)
-2 tavaraa (3 kg)
-
-</sample-output>
-
-
-<h2>Kielenhuoltoa</h2>
-
-Ilmoitukset "0 tavaraa" ja "1 tavaraa" eivät ole kovin hyvää suomea -- paremmat muodot olisivat "ei tavaroita" ja "1 tavara". Tee tämä muutos luokassa `Matkalaukku` sijaitsevaan toString-metodiin.
-
-Nyt edellisen ohjelman tulostuksen tulisi olla seuraava:
-
-<sample-output>
-
-ei tavaroita (0 kg)
-1 tavara (2 kg)
-2 tavaraa (3 kg)
-2 tavaraa (3 kg)
-
-</sample-output>
-
-
-<h2>Kaikki tavarat</h2>
-
-
-Lisää luokkaan `Matkalaukku` seuraavat metodit:
-
--  metodi `tulostaTavarat`, joka tulostaa kaikki matkalaukussa olevat tavarat
-
--  metodi `yhteispaino`, joka palauttaa tavaroiden yhteispainon
-
-
-Seuraavassa on luokan käyttöesimerkki:
-
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        Tavara kirja = new Tavara("Aapiskukko", 2);
-        Tavara puhelin = new Tavara("Nokia 3210", 1);
-        Tavara tiiliskivi = new Tavara("tiiliskivi", 4);
-
-        Matkalaukku matkalaukku = new Matkalaukku(10);
-        matkalaukku.lisaaTavara(kirja);
-        matkalaukku.lisaaTavara(puhelin);
-        matkalaukku.lisaaTavara(tiiliskivi);
-
-        System.out.println("Matkalaukussa on seuraavat tavarat:");
-        matkalaukku.tulostaTavarat();
-        System.out.println("Yhteispaino: " + matkalaukku.yhteispaino() + " kg");
-    }
-}
-```
-
-Ohjelman tulostuksen tulisi olla seuraava:
-
-<sample-output>
-
-Matkalaukussa on seuraavat tavarat:
-Aapiskukko (2 kg)
-Nokia 3210 (1 kg)
-Tiiliskivi (4 kg)
-Yhteispaino: 7 kg
-
-</sample-output>
-
-Muokkaa myös luokkaasi siten, että käytät vain kahta oliomuuttujaa. Toinen sisältää maksimipainon, toinen on lista laukussa olevista tavaroista.
-
-
-<h2>Raskain tavara</h2>
-
-Lisää vielä luokkaan `Matkalaukku` metodi `raskainTavara`, joka palauttaa painoltaan suurimman tavaran. Jos yhtä raskaita tavaroita on useita, metodi voi palauttaa minkä tahansa niistä. Metodin tulee palauttaa olioviite. Jos laukku on tyhjä, palauta arvo <em>null</em>.
-
-Seuraavassa on luokan käyttöesimerkki:
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        Tavara kirja = new Tavara("Aapiskukko", 2);
-        Tavara puhelin = new Tavara("Nokia 3210", 1);
-        Tavara tiiliskivi = new Tavara("Tiiliskivi", 4);
-
-        Matkalaukku matkalaukku = new Matkalaukku(10);
-        matkalaukku.lisaaTavara(kirja);
-        matkalaukku.lisaaTavara(puhelin);
-        matkalaukku.lisaaTavara(tiiliskivi);
-
-        Tavara raskain = matkalaukku.raskainTavara();
-        System.out.println("Raskain tavara: " + raskain);
-    }
-}
-```
-
-Ohjelman tulostuksen tulisi olla seuraava:
-
-
-<sample-output>
-
-Raskain tavara: Tiiliskivi (4 kg)
-
-</sample-output>
-
-
-<h2>Lastiruuma-luokka</h2>
-
-
-Tee luokka `Lastiruuma`, johon liittyvät seuraavat metodit:
-
-
--  konstruktori, jolle annetaan maksimipaino
-
--  metodi `public void lisaaMatkalaukku(Matkalaukku laukku)`, joka lisää parametrina annetun matkalaukun lastiruumaan
-
--  metodi `public String toString()`, joka palauttaa merkkijonon muotoa "x matkalaukkua (y kg)"
-
-
-Tallenna matkalaukut sopivaan `ArrayList`-rakenteeseen.
-
-Luokan `Lastiruuma` tulee valvoa, että sen sisältämien matkalaukkujen yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi uuden matkalaukun vuoksi, metodi `lisaaMatkalaukku` ei saa lisätä uutta matkalaukkua.
-
-Seuraavassa on luokan käyttöesimerkki:
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        Tavara kirja = new Tavara("Aapiskukko", 2);
-        Tavara puhelin = new Tavara("Nokia 3210", 1);
-        Tavara tiiliskivi = new Tavara("tiiliskivi", 4);
-
-        Matkalaukku adanLaukku = new Matkalaukku(10);
-        adanLaukku.lisaaTavara(kirja);
-        adanLaukku.lisaaTavara(puhelin);
-
-        Matkalaukku pekanLaukku = new Matkalaukku(10);
-        pekanLaukku.lisaaTavara(tiiliskivi);
-
-        Lastiruuma lastiruuma = new Lastiruuma(1000);
-        lastiruuma.lisaaMatkalaukku(adanLaukku);
-        lastiruuma.lisaaMatkalaukku(pekanLaukku);
-
-        System.out.println(lastiruuma);
-    }
-}
-```
-
-Ohjelman tulostuksen tulisi olla seuraava:
-
-<sample-output>
-
-2 matkalaukkua (7 kg)
-
-</sample-output>
-
-
-<h2>Lastiruuman sisältö</h2>
-
-Lisää luokkaan `Lastiruuma` metodi `public void tulostaTavarat()`, joka tulostaa kaikki lastiruuman matkalaukuissa olevat tavarat.
-
-Seuraavassa on luokan käyttöesimerkki:
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        Tavara kirja = new Tavara("Aapiskukko", 2);
-        Tavara puhelin = new Tavara("Nokia 3210", 1);
-        Tavara tiiliskivi = new Tavara("tiiliskivi", 4);
-
-        Matkalaukku adanLaukku = new Matkalaukku(10);
-        adanLaukku.lisaaTavara(kirja);
-        adanLaukku.lisaaTavara(puhelin);
-
-        Matkalaukku pekanLaukku = new Matkalaukku(10);
-        pekanLaukku.lisaaTavara(tiiliskivi);
-
-        Lastiruuma lastiruuma = new Lastiruuma(1000);
-        lastiruuma.lisaaMatkalaukku(adanLaukku);
-        lastiruuma.lisaaMatkalaukku(pekanLaukku);
-
-        System.out.println("Ruuman matkalaukuissa on seuraavat tavarat:");
-        lastiruuma.tulostaTavarat();
-    }
-}
-```
-
-Ohjelman tulostuksen tulisi olla seuraava:
-
-<sample-output>
-
-Ruuman matkalaukuissa on seuraavat tavarat:
-Aapiskukko (2 kg)
-Nokia 3210 (1 kg)
-tiiliskivi (4 kg)
-
-</sample-output>
-
-</programming-exercise>
+<quiz id="2179fdc5-dab5-5b73-9476-9aaf84da67dd"></quiznator>

@@ -1,10 +1,12 @@
 ---
-path: '/osa-6/1-olioista-koostuvat-oliot'
-title: 'Olioita listalla ja listan sisältävät oliot'
-hidden: true
+path: '/part-6/1-objects-within-objects'
+title: 'Objects on a list and a list as part of an object'
+hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
+
+<text-box variant='learningObjectives' name='Learning Objectives'>
 
 <!-- - Kertaat listojen käyttöä.
 - Tiedät, että viittaustyyppisen muuttujan lisääminen listalle kopioi listalle muuttujan viitteen.
@@ -20,9 +22,9 @@ hidden: true
 
 Alla olevassa esimerkissä käsitteelle soittolista on luotu luokka. Soittolista sisältää kappaleita: siihen voi lisätä kappaleita, siitä voi poistaa kappaleita, ja siinä olevat kappaleet voi tulostaa. -->
 
-We'll now be looking at objects that contain lists. These kinds of objects are, for instance, those that represent collections, such as playlists.
+ Next, let's have a look at objects that contain a list. Examples of objects like these include objects that describe sets, for example playlists.
 
-In the example below, a class for the playlist concept has been created . A playlist contains songs: you can add songs to it, remove them from it, and also print them.
+ In the following example, we have made a class for the concept of a playlist. The playlist contains songs: songs can be added, songs can be removed, and the songs that the playlist contains can be printed.
 
 <!-- ```java
 // importit
@@ -102,15 +104,15 @@ Teuvo, maanteiden kuningas
 </sample-output>
 
 <!-- <programming-exercise name='Ruokalis (3 osaa)' tmcname='osa06-Osa06_01.Ruokalis'> -->
-<programming-exercise name='Menu (3 osaa)' tmcname='osa06-Osa06_01.Menu'>
+<programming-exercise name='Menu (3 parts)' tmcname='part06-Part06_01.Menu'>
 
 <!-- Kumpulan kampuksella Helsingissä toimivaan Unicafe-nimiseen gourmet-ravintolaan tarvitaan uusi ruokalista. Keittiömestari tietää ohjelmoinnista, ja haluaa listan hallinnointiin tietokonejärjestelmän. Toteutetaan tässä tehtävässä järjestelmän sydän, luokka Ruokalista.
 
 Tehtäväpohjan mukana tulee `Main`-luokka, jossa voit testata ruokalistan toimintaa. Ruokalistan toteuttamista varten saat seuraavanlaisen tehtäväpohjan: -->
 
-The gourmet 'Unicafe' restaurant on Helsinki's Kumpula campus needs a new menu. The chef knows about programming and wants a computer system to manage the list. In this assignment, we'll implement the heart of the system, the Menu class.
+The gourmet restaurant 'Unicafe' on the Kumpula campus of the University of Helsinki needs a new menu. The chef knows about programming and wants a computer system to manage the menu. In this assignment, we'll implement the heart of the system, the Menu class.
 
-The exercise base comes with a `Main` class that you can use to test the menu. For the implementation of the menu, you'll have the following template:
+The exercise template comes with a `Main` class that you can use to test the menu. For the implementation of the menu, you'll have the following boilerplate code:
 
 <!-- ```java
 import java.util.ArrayList;
@@ -309,7 +311,7 @@ Tomato and mozzarella salad
 </programming-exercise>
 
 <!-- <programming-exercise name='Pakka (2 osaa)' tmcname='osa06-Osa06_02.Pakka'> -->
-<programming-exercise name='Deque (2 parts)' tmcname='osa06-Osa06_02.Deque'>
+<programming-exercise name='Stack (2 parts)' tmcname='part06-Part06_02.Stack'>
 
 <!-- Pakka on tietorakenne, johon voi lisätä ja josta voi ottaa. Aina päälle tai päältä.
 
@@ -325,17 +327,17 @@ Luo luokka `Pakka`, jolla on oliomuuttujana merkkijonoja sisältävä listan. Li
 
 Voit kokeilla luokkaasi seuraavalla koodilla: -->
 
-A deque is a data structure that you can add to and take from. Always to the top of it or from the top.
+A stack is a data structure that you can add to and take from. Always to the top of it or from the top.
 
-<h2> Adding to the Deque and Checking Emptiness </h2>
+<h2> Adding to the Stack and Checking Emptiness </h2>
 
-Create a `Deque` class that has a list of strings as an instance variable. Add the following methods to the class:
+Create a `Stack` class that has a list of strings as an instance variable. Add the following methods to the class:
 
-- `public boolean isEmpty()` - returns a `boolean`-type value (true or false) that tells whether or not the deque is empty.
+- `public boolean isEmpty()` - returns a `boolean`-type value (true or false) that tells whether or not the stack is empty.
 
-- `public void add(String value)` - Adds the value given as a parameter to the top of the deque.
+- `public void add(String value)` - Adds the value given as a parameter to the top of the stack.
 
-- `public ArrayList<String> values()` - returns the values ​​contained in the deque as a list.
+- `public ArrayList<String> values()` - returns the values ​​contained in the stack as a list.
 
 You can test your class with the following code:
 
@@ -349,12 +351,12 @@ System.out.println(p.arvot());
 ``` -->
 
 ```java
-Deque d = new Deque();
-System.out.println(d.isEmpty());
-System.out.println(d.values());
-d.add("Value");
-System.out.println(d.isEmpty());
-System.out.println(d.values());
+Stack s = new Stack();
+System.out.println(s.isEmpty());
+System.out.println(s.values());
+s.add("Value");
+System.out.println(s.isEmpty());
+System.out.println(s.values());
 ```
 
 <sample-output>
@@ -374,9 +376,9 @@ false
 <!-- <h2>Pakasta ottaminen</h2>
 
 Lisää luokalle `Pakka` metodi `public String ota()`, joka palauttaa pakan päällimmäisenä olevan arvon (eli pakkaan viimeisenä lisätyn arvon) ja poistaa sen pakasta. -->
-<h2>Taking from the Deque</h2>
+<h2>Taking from the Stack</h2>
 
-Add to the `Deque` class a `public String take()` method, which returns the topmost value of the deque (i.e., the last value added to the deque) and removes it from the deque.
+Add to the `Stack` class a `public String take()` method, which returns the topmost value (i.e., the last value added to the deque) and removes it from the stack.
 
 <!-- ```java
 Pakka p = new Pakka();
@@ -392,16 +394,16 @@ System.out.println(otettu);
 ``` -->
 
 ```java
-Deque d = new Deque();
-System.out.println(d.isEmpty());
-System.out.println(d.values());
-d.add("Value");
-System.out.println(d.isEmpty());
-System.out.println(d.values());
-String taken = d.take();
-System.out.println(d.isEmpty());
-System.out.println(d.values());
-System.out.println(take);
+Stack s = new Stack();
+System.out.println(s.isEmpty());
+System.out.println(s.values());
+s.add("Value");
+System.out.println(s.isEmpty());
+System.out.println(s.values());
+String taken = s.take();
+System.out.println(s.isEmpty());
+System.out.println(s.values());
+System.out.println(taken);
 ```
 
 <sample-output>
@@ -438,15 +440,15 @@ while (!p.onTyhja()) {
 ``` -->
 
 ```java
-Deque d = new Deque();
-d.add("1");
-d.add("2");
-d.add("3");
-d.add("4");
-d.add("5");
+Stack s = new Stack();
+s.add("1");
+s.add("2");
+s.add("3");
+s.add("4");
+s.add("5");
 
-while (!d.isEmpty()) {
-    System.out.println(d.ota());
+while (!s.isEmpty()) {
+    System.out.println(s.take());
 }
 ```
 
@@ -641,7 +643,7 @@ public class AmusementParkRide {
 ```
 
 <!-- <programming-exercise name='Viestipalvelu' tmcname='osa06-Osa06_03.Viestipalvelu'> -->
-<programming-exercise name='MessagingService' tmcname='osa06-Osa06_03.MessagingService'>
+<programming-exercise name='MessagingService' tmcname='part06-Part06_03.MessagingService'>
 
 <!-- Tehtäväpohjassa on valmiina luokka `Viesti`, jonka avulla voidaan luoda viestejä kuvaavia olioita. Jokaisella viestillä on lähettäjä ja sisältö.
 
@@ -657,7 +659,7 @@ The exercise template comes with a pre-defined `Message` class that can be used 
 
 Implement the `MessagingService` class. The class must have a parameterless constructor and contain a list of `Message` objects. After that, add the following two methods to the class:
 
-- `public void Add(Message message)` - adds a message passed as a parameter to the messaging service as long as the message content is at most 280 characters long.
+- `public void add(Message message)` - adds a message passed as a parameter to the messaging service as long as the message content is at most 280 characters long.
 
 - `public ArrayList<Message> getMessages()` - returns the messages added to the messaging service.
 
@@ -789,16 +791,20 @@ System.out.println(hurjakuru);
 
 The program's output is:
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Hurjakuru, pituusalaraja: 140, kävijöitä: 0
+Hurjakuru, pituusalaraja: 140, kävijöitä: 0
 kyydissä:
 
 Matti pääsee laitteeseen
 Juhana ei pääse laitteeseen
 Hurjakuru, pituusalaraja: 140, kävijöitä: 1
 kyydissä:
-Matti -->
+Matti
+
+</sample-output> -->
+
+<sample-output>
 
 Hurjakuru, minimum height requirement: 140, visitors: 0
 riding:
@@ -956,16 +962,22 @@ System.out.println(hurjakuru);
 <!-- Ohjelma tulostaa: -->
 
 The program's output is:
-<sample-output>
 
-<!-- Hurjakuru, pituusalaraja: 140, kävijöitä: 0
+<!-- <sample-output>
+
+Hurjakuru, pituusalaraja: 140, kävijöitä: 0
 ei ketään kyydissä.
 
 Matti pääsee laitteeseen
 Juhana ei pääse laitteeseen
 Hurjakuru, pituusalaraja: 140, kävijöitä: 1
 kyydissä:
-Matti -->
+Matti
+
+</sample-output> -->
+
+<sample-output>
+
 
 Hurjakuru, minimum height requirement: 140, visitors: 0
 no one is on the ride.
@@ -979,13 +991,13 @@ Matti
 </sample-output>
 
 <!-- <programming-exercise name='Joukon tulostaminen' tmcname='osa06-Osa06_04.JoukonTulostaminen'> -->
-<programming-exercise name='Printing a Set' tmcname='osa06-Osa06_04.PrintingASet'>
+<programming-exercise name='Printing a Collection' tmcname='part06-Part06_04.PrintingACollection'>
 
 <!-- Tehtäväpohjassa on valmiina luokka `Joukko`, jota käytetään arvoja sisältävän joukon kuvaamiseen. Luokalta puuttuu tulostamiseen käytettävä `toString`-metodi.
 
 Toteuta luokalle `toString`-metodi, jonka avulla tulostus toimii seuraavien esimerkkien kuvaamalla tavalla. -->
 
-The exercise template has a predefined `Set` class, which is used to represent a group of values. The class is missing the `toString` method used for printing.
+The exercise template has a predefined `SimpleCollection` class, which is used to represent a group of values. The class is missing the `toString` method used for printing.
 
 Implement a `toString` method for the class that will perform as demonstrated in the following examples.
 
@@ -1010,7 +1022,7 @@ System.out.println(j);
 ``` -->
 
 ```java
-Set s = new Set("alphabet");
+SimpleCollection s = new SimpleCollection("alphabet");
 System.out.println(s);
 
 System.out.println();
@@ -1045,16 +1057,16 @@ a
 b
 c -->
 
-The set alphabet is empty.
+The collection alphabet is empty.
 
-The set alphabet has 1 element:
+The collection alphabet has 1 element:
 a
 
-The set alphabet has 2 elements:
+The collection alphabet has 2 elements:
 a
 b
 
-The set alphabet on 3 elements:
+The collection alphabet has 3 elements:
 a
 b
 c
@@ -1082,22 +1094,22 @@ System.out.println(j);
 ``` -->
 
 ```java
-Set s = new Set("characters");
+SimpleCollection s = new SimpleCollection("characters");
 System.out.println(s);
 
 System.out.println();
 
-s.lisaa("magneto");
+s.add("magneto");
 System.out.println(s);
 
 System.out.println();
 
-s.lisaa("mystique");
+s.add("mystique");
 System.out.println(s);
 
 System.out.println();
 
-s.lisaa("phoenix");
+s.add("phoenix");
 System.out.println(s);
 ```
 
@@ -1117,16 +1129,16 @@ magneto
 mystique
 phoenix -->
 
-The set characters is empty.
+The collection characters is empty.
 
-The set characters has 1 element:
+The collection characters has 1 element:
 magneto
 
-The set characters has 2 elements:
+The collection characters has 2 elements:
 magneto
 mystique
 
-The set characters has 3 elements:
+The collection characters has 3 elements:
 magneto
 mystique
 phoenix
@@ -1392,11 +1404,11 @@ Awak
 </sample-output>
 
 <!-- <programming-exercise name='Lahjapakkaamo (2 osaa)' tmcname='osa06-Osa06_05.Lahjapakkaamo'> -->
-<programming-exercise name='GiftPlant (2 parts)' tmcname='osa06-Osa06_05.GiftPlant'>
+<programming-exercise name="Santa's Workshop (2 parts)" tmcname='part06-Part06_05.SantasWorkshop'>
 
 <!-- Tässä tehtävässä harjoitellaan lahjojen pakkaamista. Tehdään luokat `Lahja` ja `Pakkaus`. Lahjalla on nimi ja paino, ja Pakkaus sisältää lahjoja. -->
 
-We'll practise gift packaging in this exercise. Let's create the classes `Gift` and `Package`. The gift has a name and weight, and the package contains gifts.
+We'll practise wrapping gifts in this exercise. Let's create the classes `Gift` and `Package`. The gift has a name and weight, and the package contains gifts.
 
 <!-- <h2>Lahja-luokka</h2> -->
 <h2>Gift-class</h2>
@@ -1444,7 +1456,7 @@ public class Main {
 ```java
 public class Main {
     public static void main(String[] args) {
-        Gift book = new Gift("Aapiskukko", 2);
+        Gift book = new Gift("Harry Potter and the philosoper's stone", 2);
 
         System.out.println("Gift's name: " + book.getName());
         System.out.println("Gift's weight: " + book.getWeight());
@@ -1464,9 +1476,9 @@ The program's print output should be as follows:
 Lahjan paino: 2
 Lahja: Aapiskukko (2 kg) -->
 
-Gift's name: Aapiskukko
+Gift's name: AHarry Potter and the philosoper's stone
 Gift's weight: 2
-Gift: Aapiskukko (2 kg)
+Gift: Harry Potter and the philosoper's stone (2 kg)
 
 </sample-output>
 
@@ -1520,7 +1532,7 @@ public class Main {
 ```java
 public class Main {
     public static void main(String[] args) {
-        Gift book = new Gift("Aapiskukko", 2);
+        Gift book = new Gift("Harry Potter and the philosoper's stone", 2);
 
         Package package = new Package();
         package.addGift(book);
@@ -1686,11 +1698,11 @@ Awak
 </sample-output>
 
 <!-- <programming-exercise name='Joukon pisin' tmcname='osa06-Osa06_06.JoukonPisin'> -->
-<programming-exercise name='TallestOne' tmcname='osa06-Osa06_06.TallestOne'>
+<programming-exercise name='Longest in collection' tmcname='part06-Part06_06.LongestInCollection'>
 
 <!-- Tehtäväpohjassa on mukana aiemmasta tehtävästä tuttu luokka `Joukko`. Toteuta luokkaan metodi `public String pisin()`, joka palauttaa joukon pisimmän merkkijonon. Mikäli joukko on tyhjä, metodin tulee palauttaa `null`-viite. -->
 
-The exercise template comes with the class `Group` that's familiar from previous exercises. Implement the method `public String tallest()` for the class, which returns the longest string of the group. If the group is empty, the method should retunr a `null` reference.
+The exercise template comes with the class `SimpleCollection` that's familiar from previous exercises. Implement the method `public String longest()` for the class, which returns the longest string of the collection. If the collection is empty, the method should return a `null` reference.
 
 <!-- ```java
 Joukko j = new Joukko("hahmot");
@@ -1704,14 +1716,14 @@ System.out.println("Pisin: " + j.pisin());
 ``` -->
 
 ```java
-Group j = new Group("characters");
-System.out.println("Tallest: " + j.tallest());
+SimpleCollection j = new SimpleCollection("characters");
+System.out.println("Longest: " + j.longest());
 
 j.add("magneto");
 j.add("mystique");
 j.add("phoenix");
 
-System.out.println("Tallest: " + j.tallest());
+System.out.println("Longest: " + j.longest());
 ```
 
 <sample-output>
@@ -1719,21 +1731,21 @@ System.out.println("Tallest: " + j.tallest());
 <!-- Pisin: null
 Pisin: mystique -->
 
-Tallest: null
-Tallest: mystique
+Longest: null
+Longest: mystique
 
 </sample-output>
 
 </programming-exercise>
 
 <!-- <programming-exercise name='Pituusjärjestys (3 osaa)' tmcname='osa06-Osa06_07.Pituusjarjestys'> -->
-<programming-exercise name='HeightOrder (3 parts)' tmcname='osa06-Osa06_07.HeightOrder'>
+<programming-exercise name='Height Order (3 parts)' tmcname='part06-Part06_07.HeightOrder'>
 
 <!-- Tehtäväpohjassa on valmiina luokka `Henkilo`. Henkilöllä on nimi ja pituus. Toteutetaan tässä tehtävässä luokka `Huone`, jonne voi lisätä henkilöitä, ja jota voi käyttää henkilöiden pituusjärjestykseen asettamiseen -- henkilön ottaminen huoneesta palauttaa aina lyhyimmän henkilön.
 
 Luokka tulee lopulta toimimaan seuraavalla tavalla. -->
 
-A `Person` class is included in the exercise template. The person has a name and a height. In this exercise, we'll implement the `Room` class, which can be used to add people and order them according to their height -- taking a person out of the room always returns the shortest person.
+A `Person` class is included in the exercise template. A person has a name and a height. In this exercise, we'll implement a `Room` class, which can be used to add people and order them according to their height -- taking a person out of the room always returns the shortest person.
 
 The class should eventually work in the following way.
 
@@ -1775,11 +1787,11 @@ for (Henkilo henkilo : huone.getHenkilot()) {
 ```java
 Room room = new Room();
 System.out.println("Empty room? " + room.isEmpty());
-room.add(new Henkilo("Lea", 183));
-room.add(new Henkilo("Kenya", 182));
-room.add(new Henkilo("Auli", 186));
-room.add(new Henkilo("Nina", 172));
-room.add(new Henkilo("Terhi", 185));
+room.add(new Person("Lea", 183));
+room.add(new Person("Kenya", 182));
+room.add(new Person("Auli", 186));
+room.add(new Person("Nina", 172));
+room.add(new Person("Terhi", 185));
 System.out.println("Empty room? " + room.isEmpty());
 
 System.out.println("");
@@ -1788,10 +1800,20 @@ for (Person person : room.getPersons()) {
 }
 ```
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Huone tyhjä? true
-Huone tyhjä? false -->
+Huone tyhjä? true
+Huone tyhjä? false
+
+Lea (183 cm)
+Kenya (182 cm)
+Auli (186 cm)
+Nina (172 cm)
+Terhi (185 cm)
+
+</sample-output> -->
+
+<sample-output>
 
 Empty room? true
 Empty room? false
@@ -1805,11 +1827,12 @@ Terhi (185 cm)
 </sample-output>
 
 <!-- <h2>Lyhin henkilö</h2> -->
+
 <h2>Shortest person</h2>
 
 <!-- Lisää luokalle `Huone` metodi `public Henkilo lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, palauttaa `null`-viitteen. Metodin ei tule poistaa henkilöä huoneesta. -->
 
-Add a `public Person Shortest()` method to the `Room` class, which returns the shortest person added to the room. If the room is empty, a null reference is returned. The method should not remove a person from the room.
+Add a `public Person shortest()` method to the `Room` class, which returns the shortest person added to the room. If the room is empty, a null reference is returned. The method should not remove a person from the room.
 
 <!-- ```java
 Huone huone = new Huone();
@@ -1859,9 +1882,9 @@ for (Person person : room.getPersons()) {
 }
 ```
 
-<sample-output>
+<!-- <sample-output>
 
-<!-- Lyhin: null
+Lyhin: null
 Huone tyhjä? true
 Huone tyhjä? false
 
@@ -1877,7 +1900,11 @@ Lea (183 cm)
 Kenya (182 cm)
 Auli (186 cm)
 Nina (172 cm)
-Terhi (185 cm) -->
+Terhi (185 cm)
+
+</sample-output> -->
+
+<sample-output>
 
 Shortest: null
 Empty room? true
@@ -1900,11 +1927,12 @@ Terhi (185 cm)
 </sample-output>
 
 <!-- <h2>Huoneesta ottaminen</h2> -->
+
 <h2>Taking from a room</h2>
 
 <!-- Lisää luokalle `Huone` metodi `public Henkilo ota()`, ottaa huoneesta lyhimmän henkilön. Mikäli huone on tyhjä, metodi palauttaa `null`-viitteen. -->
 
-Add a `public Henkilo take()` method to the `Room` class, which takes the shortest person in the room. When a room is empty, it returns a `null` reference.
+Add a `public Person take()` method to the `Room` class, which takes the shortest person in the room. When a room is empty, it returns a `null` reference.
 
 <!-- ```java
 Huone huone = new Huone();
@@ -1948,7 +1976,7 @@ for (Person person : room.getPersons()) {
 }
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Lea (183 cm)
 Kenya (182 cm)
@@ -1956,7 +1984,22 @@ Auli (186 cm)
 Nina (172 cm)
 Terhi (185 cm)
 
-<!-- Lyhin: Nina (172 cm) -->
+Lyhin: Nina (172 cm)
+
+Lea (183 cm)
+Kenya (182 cm)
+Auli (186 cm)
+Terhi (185 cm)
+
+</sample-output> -->
+
+<sample-output>
+
+Lea (183 cm)
+Kenya (182 cm)
+Auli (186 cm)
+Nina (172 cm)
+Terhi (185 cm)
 
 Shortest: Nina (172 cm)
 
@@ -1985,7 +2028,7 @@ while (!huone.onTyhja()) {
 ``` -->
 
 ```java
-Room huone = new Room();
+Room room = new Room();
 room.add(new Person("Lea", 183));
 room.add(new Person("Kenya", 182));
 room.add(new Person("Auli", 186));
@@ -2010,7 +2053,7 @@ Auli (186 cm)
 </programming-exercise>
 
 <!-- <programming-exercise name='Tavara, Matkalaukku ja Lastiruuma (7 osaa)' tmcname='osa06-Osa06_08.TavaraMatkalaukkuJaLastiruuma' nocoins='true'> -->
-<programming-exercise name='ItemSuitcaseAndHold (7 parts)' tmcname='osa06-Osa06_08.ItemSuitcaseAndHold' nocoins='true'>
+<programming-exercise name='Cargo hold (7 parts)' tmcname='part06-Part06_08.CargoHold' nocoins='true'>
 
 <!-- Tässä tehtäväsarjassa tehdään luokat `Tavara`, `Matkalaukku` ja `Lastiruuma`, joiden avulla harjoitellaan lisää olioita, jotka sisältävät toisia olioita. -->
 
@@ -2065,7 +2108,7 @@ public class Main {
 ```java
 public class Main {
     public static void main(String[] args) {
-        Item book = new Item("Aapiskukko", 2);
+        Item book = new Item("The lord of the rings", 2);
         Item phone = new Item("Nokia 3210", 1);
 
         System.out.println("The book's name: " + book.getName());
@@ -2092,9 +2135,9 @@ Puhelin: Nokia 3210 (1 kg)
 
 <sample-output>
 
-The book's name: Aapiskukko
+The book's name: Lord of the rings
 The book's weight: 2
-Book: Aapiskukko (2 kg)
+Book: Lord of the rings (2 kg)
 Phone: Nokia 3210 (1 kg)
 
 </sample-output>
@@ -2167,7 +2210,7 @@ public class Main {
 ```java
 public class Main {
     public static void main(String[] args) {
-        Item book = new Item("Aapiskukko", 2);
+        Item book = new Item("Lord of the rings", 2);
         Item phone = new Item("Nokia 3210", 1);
         Item brick = new Item("brick", 4);
 
@@ -2278,7 +2321,7 @@ public class Main {
 ```java
 public class Main {
     public static void main(String[] args) {
-        Item book = new Item("Aapiskukko", 2);
+        Item book = new Item("Lord of the rings", 2);
         Item phone = new Item("Nokia 3210", 1);
         Item brick = new Item("brick", 4);
 
@@ -2310,7 +2353,7 @@ Yhteispaino: 7 kg
 <sample-output>
 
 The suitcase contains the following items:
-Aapiskukko (2 kg)
+Lord of the rings (2 kg)
 Nokia 3210 (1 kg)
 Brick (4 kg)
 Total Weight: 7 kg
@@ -2353,7 +2396,7 @@ public class Main {
 ```java
 public class Main {
     public static void main(String[] args) {
-        Item book = new Item("Aapiskukko", 2);
+        Item book = new Item("Lord of the rings", 2);
         Item phone = new Item("Nokia 3210", 1);
         Item brick = new Item("Brick", 4);
 
@@ -2440,7 +2483,7 @@ public class Main {
 ```java
 public class Main {
     public static void main(String[] args) {
-        Item book = new Item("Aapiskukko", 2);
+        Item book = new Item("Lord of the rings", 2);
         Item phone = new Item("Nokia 3210", 1);
         Item brick = new Item("brick", 4);
 
@@ -2513,7 +2556,7 @@ public class Main {
 ```java
 public class Main {
     public static void main(String[] args) {
-        Item book = new Item("Aapiskukko", 2);
+        Item book = new Item("Lord of the rings", 2);
         Item phone = new Item("Nokia 3210", 1);
         Item brick = new Item("brick", 4);
 
@@ -2549,7 +2592,7 @@ tiiliskivi (4 kg)
 <sample-output>
 
 The suitcases in the hold contain the following items:
-Aapiskukko (2 kg)
+Lord of the rings (2 kg)
 Nokia 3210 (1 kg)
 brick (4 kg)
 
