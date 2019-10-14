@@ -417,12 +417,12 @@ Mary
 
 <!-- Ohjelmaan on toteutettu valmiina pohja, joka lukee käyttäjältä kokonaistyyppisiä lukuja ja lisää niitä listalle. Lukeminen lopetetaan kun käyttäjä syöttää luvun 0. Ohjelma tulostaa tämän jälkeen listan ensimmäisen arvon. -->
 
-In the exercise template there is a program that reads integers from the user and adds them to a list. The user entering the number 0 ends this. The program then prints the first value on the list.
+In the exercise template there is a program that reads integers from the user and adds them to a list. This ends when the user enters 0. The program then prints the first value on the list.
 
 
 <!-- Muokkaa ohjelmaa siten, että listan ensimmäisen arvon sijaan ohjelma tulostaa listan toisen ja kolmannen arvon summan. Ohjelma saa rikkoutua mikäli listalla ei ole vähintään kolmea arvoa, eli tällaiseen tilanteeseen ei tarvitse varautua millään tavalla. -->
 
-Modify the program so that instead of the first value the program prints the sum of the second and third numbers. The program is allowed to malfunction if there are fewer than three entries on the list, so you don't need to prepare for such an event at all.
+Modify the program so that instead of the first value, the program prints the sum of the second and third numbers. The program is allowed to malfunction if there are fewer than three entries on the list, so you don't need to prepare for such an event at all.
 
 <sample-output>
 
@@ -450,11 +450,11 @@ Modify the program so that instead of the first value the program prints the sum
 
 <!-- ### Tiedon hakeminen "olemattomasta" kohdasta -->
 
-## Retrieving information from a "nonexistent" place
+## Retrieving Information From a "non-existent" Place
 
 <!-- Jos ArrayListiltä haetaan arvoa kohdasta, jota listalla ei ole, tulostaa ohjelma virheen `IndexOutOfBoundsException`. Alla olevassa esimerkissä on ohjelma, missä listalle lisätään kaksi arvoa, jonka jälkeen yritetään tulostaa arvoa listan kohdasta kaksi. -->
 
-If you try to retrieve information from a place that the list doesn't have, the program prints the error `IndexOutOfBoundsException`. In the example below two values are added to a list, after which there is an attempt to print the value at place two on the list.
+If you try to retrieve information from a place that the list doesn't have, the program prints the error `IndexOutOfBoundsException`. In the example below, two values are added to a list, after which there is an attempt to print the value at place two on the list.
 
 
 <!-- ```java
@@ -491,14 +491,23 @@ public class Example {
 
 <!-- Koska listalla olevien arvojen numerointi eli **indeksöinti** alkaa nollasta, ei ohjelma löydä arvoa kohdasta kaksi ja ohjelman suoritus päättyy virhetilanteeseen. Alla on kuvattuna yllä olevan ohjelman suorituksen aiheuttama virheviesti. -->
 
-Since zero is the first value used in numbering the places (i.e. **indexing**), the program doesn't find anything at place two and its execution ends with an error. Below is captioned the error message caused by the program.
+Since zero is the first value used in numbering the places (i.e., **indexing**), the program doesn't find anything at place two and its execution ends with an error. Below is captioned the error message caused by the program.
 
-<sample-output>
+<!-- <sample-output>
 
 **Exception in thread "main" java.lang.IndexOutOfBoundsException: Index: 2, Size: 2
   at java.util.ArrayList.rangeCheck(ArrayList.java:653)
   at java.util.ArrayList.get(ArrayList.java:429)
   at Esimerkki.main(Esimerkki.java:(rivi))
+  Java Result: 1**
+
+</sample-output> -->
+<sample-output>
+
+**Exception in thread "main" java.lang.IndexOutOfBoundsException: Index: 2, Size: 2
+  at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+  at java.util.ArrayList.get(ArrayList.java:429)
+  at Example.main(Example.java:(line))
   Java Result: 1**
 
 </sample-output>

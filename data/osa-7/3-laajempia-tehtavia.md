@@ -5,7 +5,8 @@ hidden: true
 ---
 
 
-Seitsemännen osan lopuksi teet muutamia laajempia tehtäviä. Tehtävissä ei ole ennalta määriteltyä rakennetta -- mieti tehtävää tehdessäsi minkälaiset luokat ja oliot auttavat tehtävien ratkaisemisessa.
+<!-- Seitsemännen osan lopuksi teet muutamia laajempia tehtäviä. Tehtävissä ei ole ennalta määriteltyä rakennetta -- mieti tehtävää tehdessäsi minkälaiset luokat ja oliot auttavat tehtävien ratkaisemisessa. -->
+To conclude the seventh part, you'll do a few more extensive exercises. There is no predefined structure for these tasks -- think about the classes and objects that will help you complete the task while you're completing it.
 
 <!-- <programming-exercise name='Arvosanatilastot (4 osaa)' tmcname='osa07-Osa07_06.Arvosanatilastot'> -->
 <programming-exercise name='Grade statistics (4 parts)' tmcname='part07-Part07_06.GradeStatistics'>
@@ -741,7 +742,7 @@ Hawk (Dorkus Dorkus): 2 observations
 </sample-output>
 
 <!-- **Huom!** Ohjelmasi rakenne on täysin vapaa. Testaamme vain että `Paaohjelma` luokan `main`-metodi toimii kuten tässä on kuvailtu. Hyödyt tehtävässä todennäköisesti ongelma-aluetta sopivasti kuvaavista luokista. -->
-**NB** the structure of your program is completely free. We only test that the `main` method of the `mainProgram` class works as shown above. You will propably find making your classes descriptive of the problem domain helpful.
+**NB** You're free to structure your program the way you want. We only test that the `main` method of the `mainProgram` class works as shown above. You will most likely find it useful to use classes that are descriptive of the problem domain.
 
 </programming-exercise>
 
