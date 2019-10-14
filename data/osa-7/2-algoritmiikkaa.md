@@ -381,20 +381,29 @@ THe idea behind Binary Search is to start looking for the searched value in the 
 <br/>
 
 
-<programming-exercise name='Hakemista' tmcname='osa07-Osa07_05.Hakemista'>
+<programming-exercise name='Searching' tmcname='part07-Part07_05.Searching'>
 
-Tehtäväpohjassa on valmiina luokka `Kirja`, joka kuvaa numeerisen tunnuksen `id` ja nimen `nimi` sisältäviä olioita.
+<!-- Tehtäväpohjassa on valmiina luokka `Kirja`, joka kuvaa numeerisen tunnuksen `id` ja nimen `nimi` sisältäviä olioita.
 
-Tässä tehtävässä toteutetaan peräkkäishaku- ja binäärihakualgoritmi kirjojen hakemiseen niiden numeerisen tunnuksen perusteella. Tehtäväpohjassa on valmiina toteutettavien metodien nimet -- tällä hetkellä kumpikin metodeista palauttaa arvon `-1` -- sekä pääohjelma, jota voi käyttää metodien testaamiseen.
+Tässä tehtävässä toteutetaan peräkkäishaku- ja binäärihakualgoritmi kirjojen hakemiseen niiden numeerisen tunnuksen perusteella. Tehtäväpohjassa on valmiina toteutettavien metodien nimet -- tällä hetkellä kumpikin metodeista palauttaa arvon `-1` -- sekä pääohjelma, jota voi käyttää metodien testaamiseen. -->
+In the exercise template you'll find the class `Book`, ready for use. The class describes objects with an numeric id `id` and a name `name`.
 
-<h2>Peräkkäishaku</h2>
+In this exercise you will implement linear search and binary search algorithms for searching for books by their numeric id. In the exercise template you'll find the names of the of methods to be implemented ready for you -- at the moment these method always return -1 -- you'll also find the Main-method ready to be used for testing your methods.
+
+<!-- <h2>Peräkkäishaku</h2>
 
 Peräkkäishakualgoritmi toimii siten, että se tarkastelee kutakin listassa tai taulukossa olevaa arvoa yksi kerrallaan, nollannesta indeksistä lähtien.
 
-Toteuta luokkaan `Paaohjelma` metodi `public static int perakkaishaku(ArrayList<Kirja> kirjat, int haettavaId)`, joka hakee parametrina annetusta listasta kirjaa, jonka `id`-muuttujan arvo on sama kuin metodille parametrina annetun `haettavaId`-muuttujan arvo. Mikäli kirja löytyy, tulee metodin palauttaa kyseisen kirjan indeksi parametrina annetussa listassa. Mikäli kirjaa ei löydy, tulee metodin palauttaa arvo `-1`.
+Toteuta luokkaan `Paaohjelma` metodi `public static int perakkaishaku(ArrayList<Kirja> kirjat, int haettavaId)`, joka hakee parametrina annetusta listasta kirjaa, jonka `id`-muuttujan arvo on sama kuin metodille parametrina annetun `haettavaId`-muuttujan arvo. Mikäli kirja löytyy, tulee metodin palauttaa kyseisen kirjan indeksi parametrina annetussa listassa. Mikäli kirjaa ei löydy, tulee metodin palauttaa arvo `-1`. -->
+
+<h2>Linear search</h2>
+
+The linear search algorithm works by checking every value in a list or an array one at a time, starting from index 0.
+
+In the `Main`-class, implement a method `public static int linearSearch(ArrayList<Book> books, int searchedId)`, which searches the list it received as a parameter, for a book with an `id` variable that matches the value of `searchedId` variable it received as a parameter. If that book is found, the method, should return the index it's located at in the list it received as a parameter. If the book isn't found, the method should return the value `-1`.
 
 
-<h2>Binäärihaku</h2>
+<!-- <h2>Binäärihaku</h2>
 
 Toteuta luokkaan `Paaohjelma` metodi `public static int binaarihaku(ArrayList<Kirja> kirjat, int haettavaId)`, joka hakee parametrina annetusta listasta kirjaa, jonka `id`-muuttujan arvo on sama kuin metodille parametrina annetun `haettavaId`-muuttujan arvo. Mikäli kirja löytyy, tulee metodin palauttaa kyseisen kirjan indeksi parametrina annetussa listassa. Mikäli kirjaa ei löydy, tulee metodin palauttaa arvo `-1`.
 
@@ -410,9 +419,26 @@ Edellisessä esityksessä binäärihaun idea kuvattiin seuraavasti:
 - Mikäli tarkasteltavan keskikohdan arvo on haettu arvo, palautetaan tarkasteltavan keskikohdan indeksi.
 - Mikäli tarkasteltavaa aluetta ei ole enää jäljellä (koko alue rajattu pois), palautetaan arvo -1, joka kuvaa ettei haettavaa arvoa löydy
 
-Binäärihaun pseudokoodi on seuraavanlainen.
+Binäärihaun pseudokoodi on seuraavanlainen. -->
+<h2>Binary search</h2>
 
-```code
+In the `Main`-class, implement a method `public static int binarySearch(ArrayList<Book> books, long searchedId)`, which searches the list it received as a parameter, for a book with an `id` variable that matches the value of `searchedId` variable it received as a parameter. If that book is found the method, should return the index it's located at, in the list it received as a parameter. If the book isn't found, the method should return the value `-1`.
+
+The method must be implemented as a binary search, which assumes the list is ordered. You should also assume, that the `id`s towards the beginning of the list, are always smaller than the `id`s towards the end of the list.
+
+To help you, you have the idea of the binary search shown in the slideshow above, as well as the *pseudocode* for binary search. Pseudocode is a description of a programs/methods function written in a programming-language like way.
+
+In the slideshow above, the idea of a binary search was described as follows:
+
+-The array or list searched must be sorted
+-The search begins in the middle of the array or list
+-If the value in the middle-point being examined isn't the searched value, eliminate half of the searched area, and move on to examine the middle-point of the remaining half.
+-If the value in the middle-point being examined is the searched value, return the index of the middle-point being examined.
+-If there is nowhere left to search (the entire area has been eliminated), return the value -1, indicating that the searched value was not found (i.e, it wasn't in the list or array searched).
+
+The pseudocode for binary search looks like this:
+
+<!-- ```code
 // oletetaan, että käytössä on muuttuja haettava
 // oletetaan, että käytössä on muuttuja lista
 alku = 0 // listan nollas indeksi
@@ -430,10 +456,32 @@ toista kunnes alku on suurempi kuin loppu:
     jos arvo kohdassa lista[keski] on suurempi kuin haettava
         loppu = keski - 1
 
-palauta arvo -1
+palauta arvo -1s
+``` -->
+```code
+// assuming the variable searched exits
+// assuming the variable list exits
+begin = 0 // the 0th index of the list (i.e, the first index of the list)
+end = size(list) - 1 // the last index in the list
+
+repeat until begin is larger than end:
+    middle = (end + begin) / 2
+
+    if the value at list[middle] is searched
+        return the value of the variable middle
+
+    if the value at list[middle] is smaller than searched
+        begin = middle + 1
+
+    if the value at list[keski] is larger than searched
+        end = middle - 1
+
+return value -1
 ```
 
-Huomaa, että kirjojen tapauksessa tarkastelet kirjojen `id`-muuttujien arvoja. Tämä tarkoittaa sitä, että sen sijaan, että käsittelet vain listan tietyssä indeksissä olevaa arvoa, tulee tehtävässä käsitellä tietyssä indeksissä olevan arvon `id`-muuttujaa.
+<!-- Huomaa, että kirjojen tapauksessa tarkastelet kirjojen `id`-muuttujien arvoja. Tämä tarkoittaa sitä, että sen sijaan, että käsittelet vain listan tietyssä indeksissä olevaa arvoa, tulee tehtävässä käsitellä tietyssä indeksissä olevan arvon `id`-muuttujaa. -->
+
+Note that in the case of books, you are examining the values the books `id`-variables.  Meaning that in this exercise, instead of examining the value at an index, you should examine the value of the `id`-variable of the value found at the index.
 
 </programming-exercise>
 
