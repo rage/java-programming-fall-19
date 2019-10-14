@@ -1,7 +1,4 @@
 ---
-path: "/osa-6/3-johdatus-ohjelmien-testaamiseen"
-title: "Johdatus ohjelmien testaamiseen"
-hidden: true
 path: '/part-6/3-introduction-to-testing'
 title: 'Introduction to testing'
 hidden: false

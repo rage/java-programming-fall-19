@@ -513,21 +513,20 @@ Since zero is the first value used in numbering the places (i.e., **indexing**),
 </sample-output>
 
 
-<!-- Virheviesti antaa myös pientä vinkkiä ArrayList-olion kapseloimasta toteutuksesta. Se kertoo metodit, joita kutsuttaessa virhe tapahtui. Ensin ohjelmassa on kutsuttu ?`main`-metodia. Tämän jälkeen main-metodissa on kutsuttu ArrayListin `get`-metodia. Tämän jälkeen ArrayListin `get`-metodissa on kutsuttu ArrayListin `rangeCheck`-metodia, jossa virhe tapahtuu. Tässä on myös hyvä esimerkki metodien nimennästä. Vaikka emme olekaan ennen kuulleet metodista `rangeCheck`, voimme arvata, että se tarkastaa onko haettu kohta jollain halutulla alueella. Virhe johtunee siitä, että näin ei ollut. -->
+<!-- Virheviesti antaa myös pientä **vinkkiä** ArrayList-olion kapseloimasta toteutuksesta. Se kertoo metodit, joita kutsuttaessa virhe tapahtui. Ensin ohjelmassa on kutsuttu ?`main`-metodia. Tämän jälkeen main-metodissa on kutsuttu ArrayListin `get`-metodia. Tämän jälkeen ArrayListin `get`-metodissa on kutsuttu ArrayListin `rangeCheck`-metodia, jossa virhe tapahtuu. Tässä on myös hyvä esimerkki metodien nimennästä. Vaikka emme olekaan ennen kuulleet metodista `rangeCheck`, voimme arvata, että se tarkastaa onko haettu kohta jollain halutulla alueella. Virhe johtunee siitä, että näin ei ollut. -->
 
-The error message also hints at the capsulated implementation of an ArrayList object. It lists the methods that were called when the error occured. First the program called the `main` method. Then the main method called the `get` method of ArrayList. After this the `get` method in ArrayList called the `rangeCheck` method, in which the error occurred. This is also an instance of good naming of methods. Despite never hearing of the method `rangeCheck`, we can with good reason guess that it checks if a place is contained in the wanted range. The error likely occurred because this was not the case.
-
+The error message also hints at the capsulated implementation of an ArrayList object. It lists the methods that were called as the error occurred. First, the `main` method was called in the program. Then the `get` method of ArrayList was called in the main method. After this, the `get` method of ArrayList called the `rangeCheck` method, in which the error occurred. This is also a good example of proper method naming. Even if we've never heard of the method `rangeCheck`, we can with good reason guess that it checks if a searched place is contained within a given desired range. The error likely occurred because this was not the case.
 
 <programming-exercise name='IndexOutOfBoundsException' tmcname='part03-Part03_03.IndexOutOfBoundsException'>
 
 
 <!-- Lista on erittäin hyödyllinen kun halutaan säilöä muuttujien arvoja myöhempää käsittelyä varten. Sillä on myös helpohko tehdä virheitä. -->
 
-A list is very useful for storing variables for later use. Making mistakes is also easy with lists.
+A list is extremely useful for storing the values of variables for later use. That said, making mistakes is also relatively easy with a list.
 
 <!-- Tehtäväpohjassa on listaa käyttävä ohjelma. Muokkaa ohjelmaa siten, että sen suorittaminen tuottaa aina virheen `IndexOutOfBoundsException`. Ohjelman tulee olla sellainen, että käyttäjän ei tarvitse antaa koneelle syötettä (esim. näppäimistöltä). -->
 
-There is a program that uses a list in the exercise template. Modify it so that its execution always produces the error `IndexOutOfBounds`. The user should not have to give any inputs to the program (e.g. write something on the keyboard).
+There is a program that uses a list in the exercise template. Modify it so that its execution always produces the error `IndexOutOfBounds`. The user should not have to give any inputs to the program (e.g. write something on the keyboard)
 
 
 <!-- Ohjelmassa näkyy myös tapa listan läpikäyntiin -- palaamme tähän tapaan myöhemmin. -->
