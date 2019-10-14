@@ -374,7 +374,7 @@ THe idea behind Binary Search is to start looking for the searched value in the 
 
 <pdf-slideshow>
 
-[a](../slideshows/binaarihaku.pdf)
+[a](../slideshows/binary_search.pdf)
 
 </pdf-slideshow>
 
