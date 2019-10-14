@@ -7,18 +7,23 @@ hidden: true
 
 Seitsemännen osan lopuksi teet muutamia laajempia tehtäviä. Tehtävissä ei ole ennalta määriteltyä rakennetta -- mieti tehtävää tehdessäsi minkälaiset luokat ja oliot auttavat tehtävien ratkaisemisessa.
 
-<programming-exercise name='Arvosanatilastot (4 osaa)' tmcname='osa07-Osa07_06.Arvosanatilastot'>
+<!-- <programming-exercise name='Arvosanatilastot (4 osaa)' tmcname='osa07-Osa07_06.Arvosanatilastot'> -->
+<programming-exercise name='Grade statistics (4 parts)' tmcname='part07-Part07_06.GradeStatistics'>
 
-Tässä tehtävässä toteutetaan ohjelma kurssipistetilastojen tulostamiseen. Ohjelmalle syötetään pisteitä (kokonaislukuja nollasta sataan), ja ohjelma tulostaa niiden perusteella arvosanoihin liittyviä tilastoja. Syötteiden lukeminen lopetetaan kun käyttäjä syöttää luvun -1. Lukuja, jotka eivät ole välillä [0-100] ei tule ottaa huomioon tilastojen laskemisessa.
+<!-- Tässä tehtävässä toteutetaan ohjelma kurssipistetilastojen tulostamiseen. Ohjelmalle syötetään pisteitä (kokonaislukuja nollasta sataan), ja ohjelma tulostaa niiden perusteella arvosanoihin liittyviä tilastoja. Syötteiden lukeminen lopetetaan kun käyttäjä syöttää luvun -1. Lukuja, jotka eivät ole välillä [0-100] ei tule ottaa huomioon tilastojen laskemisessa. -->
 
-Muistathan, että käyttäjältä luetun merkkijonon saa muunnettua kokonaisluvuksi `Integer`-luokan metodilla `valueOf`. Tämä toimii seuraavasti:
+In this exercise we create a program for printing statistics for points in course. The program receives points (integers from zero to one hundred) as input, based on which it prints statistics about grades. Reading of input stops when the user enters the number -1. Numbers that are not within the interval [0-100] should not be taken into account when calculating the statistics.
+
+<!-- Muistathan, että käyttäjältä luetun merkkijonon saa muunnettua kokonaisluvuksi `Integer`-luokan metodilla `valueOf`. Tämä toimii seuraavasti: -->
+
+A string read from the user can be converted to an integer using the `Integer` class' method `valueOf`. It works as follows:
 
 ```java
-String lukuMerkkijonona = "3";
-int luku = Integer.valueOf(lukuMerkkijonona);
+String numberAsString = "3";
+int number = Integer.valueOf(numberAsString);
 
-System.out.println(lukuMerkkijonona + 7);
-System.out.println(luku + 7);
+System.out.println(numberAsString + 7);
+System.out.println(number + 7);
 ```
 
 <sample-output>
@@ -29,12 +34,15 @@ System.out.println(luku + 7);
 </sample-output>
 
 
-<h2>Pisteiden keskiarvot</h2>
+<!-- <h2>Pisteiden keskiarvot</h2> -->
+<h2>Point averages</h2>
 
 
-Kirjoita ohjelma, joka lukee käyttäjältä kurssin yhteispisteitä kuvaavia kokonaislukuja. Luvut väliltä [0-100] ovat hyväksyttäviä ja luku -1 lopettaa syötteen. Muut luvut ovat virhesyötteitä, jotka tulee jättää huomiotta. Kun käyttäjä syöttää luvun -1, tulostetaan syötettyjen yhteispisteiden keskiarvo.
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä kurssin yhteispisteitä kuvaavia kokonaislukuja. Luvut väliltä [0-100] ovat hyväksyttäviä ja luku -1 lopettaa syötteen. Muut luvut ovat virhesyötteitä, jotka tulee jättää huomiotta. Kun käyttäjä syöttää luvun -1, tulostetaan syötettyjen yhteispisteiden keskiarvo. -->
 
-<sample-output>
+Write a program that reads integers representing course point totals from the user. Numbers between [0-100] are acceptable and the number -1 ends the reading of input. Other numbers are erroneous input, which should be ignored. When the user enters the number -1, the program should print the average of the point totals that were input.
+
+<!-- <sample-output>
 
 Syötä yhteispisteet, -1 lopettaa:
 **-42**
@@ -46,9 +54,23 @@ Syötä yhteispisteet, -1 lopettaa:
 **-1**
 Pisteiden keskiarvo (kaikki): 54.0
 
-</sample-output>
+</sample-output> -->
 
 <sample-output>
+
+Enter point totals, -1 stops:
+**-42**
+**24**
+**42**
+**72**
+**80**
+**52**
+**-1**
+Point average (all): 54.0
+
+</sample-output>
+
+<!-- <sample-output>
 
 Syötä yhteispisteet, -1 lopettaa:
 **50**
@@ -57,16 +79,32 @@ Syötä yhteispisteet, -1 lopettaa:
 **-1**
 Pisteiden keskiarvo (kaikki): 51.0
 
+</sample-output> -->
+
+<sample-output>
+
+Enter point totals, -1 stops:
+**50**
+**51**
+**52**
+**-1**
+Point average (all): 51.0
+
 </sample-output>
 
 
-<h2>Hyväksyttyyn arvosanaan liittyvien pisteiden keskiarvot</h2>
+<!-- <h2>Hyväksyttyyn arvosanaan liittyvien pisteiden keskiarvot</h2> -->
+<h2>Point average for points giving a passing grade</h2>
 
-Täydennä ohjelmaa siten, että se laskee kaikkien pisteiden keskiarvon lisäksi myös hyväksyttyyn arvosanaan liittyvien pisteiden keskiarvot.
+<!-- Täydennä ohjelmaa siten, että se laskee kaikkien pisteiden keskiarvon lisäksi myös hyväksyttyyn arvosanaan liittyvien pisteiden keskiarvot. -->
 
-Hyväksytyn arvosanan saa vähintään 50 kurssipisteellä. Voit olettaa, että käyttäjä kirjoittaa aina vähintään yhden välillä [0-100] olevan kokonaisluvun. Jos hyväksyttyyn arvosanaan osuvia lukuja ei ole lainkaan, tulostetaan viiva hyväksyttyjen keskiarvon kohdalle "-".
+Extend the program, such that it in addition to giving the point average of all totals also provides the point average for points giving a passing grade.
 
-<sample-output>
+<!-- Hyväksytyn arvosanan saa vähintään 50 kurssipisteellä. Voit olettaa, että käyttäjä kirjoittaa aina vähintään yhden välillä [0-100] olevan kokonaisluvun. Jos hyväksyttyyn arvosanaan osuvia lukuja ei ole lainkaan, tulostetaan viiva hyväksyttyjen keskiarvon kohdalle "-". -->
+
+A passing grade is achieved by getting a minimum of 50 course points. You may assume that the user always provides at least one integer between [0-100]. If there are no numbers giving a passing grade, the program should print a line "-" where the average would be.
+
+<!-- <sample-output>
 
 Syötä yhteispisteet, -1 lopettaa:
 **-42**
@@ -79,9 +117,24 @@ Syötä yhteispisteet, -1 lopettaa:
 Pisteiden keskiarvo (kaikki): 54.0
 Pisteiden keskiarvo (hyväksytyt): 68.0
 
-</sample-output>
+</sample-output> -->
 
 <sample-output>
+
+Enter point totals, -1 stops:
+**-42**
+**24**
+**42**
+**72**
+**80**
+**52**
+**-1**
+Point average (all): 54.0
+Point average (passing): 68.0
+
+</sample-output>
+
+<!-- <sample-output>
 
 Syötä yhteispisteet, -1 lopettaa:
 **49**
@@ -91,14 +144,29 @@ Syötä yhteispisteet, -1 lopettaa:
 Pisteiden keskiarvo (kaikki): 48.0
 Pisteiden keskiarvo (hyväksytyt): -
 
+</sample-output> -->
+
+<sample-output>
+
+Enter point totals, -1 stops:
+**49**
+**48**
+**47**
+**-1**
+Point average (all): 48.0
+Point average (passing): -
+
 </sample-output>
 
 
-<h2>Hyväksyttyjen prosenttiosuus</h2>
+<!-- <h2>Hyväksyttyjen prosenttiosuus</h2> -->
+<h2>Pass percentage</h2>
 
-Täydennä edellisessä osassa toteuttamaasi ohjelmaa siten, että ohjelma tulostaa myös hyväksymisprosentin. Hyväksymisprosentti lasketaan kaavalla <em>100 * hyväksytyt / osallistujat</em>.
+<!-- Täydennä edellisessä osassa toteuttamaasi ohjelmaa siten, että ohjelma tulostaa myös hyväksymisprosentin. Hyväksymisprosentti lasketaan kaavalla <em>100 * hyväksytyt / osallistujat</em>. -->
 
-<sample-output>
+<p>Extend the program from the previous part, such that it also print the pass percentage. The pass percentage is calculated using the formula <em>100 * passing / participants</em>.</p>
+
+<!-- <sample-output>
 
 Syötä yhteispisteet, -1 lopettaa:
 **49**
@@ -109,9 +177,22 @@ Pisteiden keskiarvo (kaikki): 48.0
 Pisteiden keskiarvo (hyväksytyt): -
 Hyväksymisprosentti: 0.0
 
-</sample-output>
+</sample-output> -->
 
 <sample-output>
+
+Enter point totals, -1 stops:
+**49**
+**48**
+**47**
+**-1**
+Point average (all): 48.0
+Point average (passing): -
+Pass percentage: 0.0
+
+</sample-output>
+
+<!-- <sample-output>
 
 Syötä yhteispisteet, -1 lopettaa:
 **102**
@@ -125,14 +206,33 @@ Pisteiden keskiarvo (kaikki): 52.5
 Pisteiden keskiarvo (hyväksytyt): 88.0
 Hyväksymisprosentti: 50.0
 
+</sample-output> -->
+
+<sample-output>
+
+Enter point totals, -1 stops:
+**102**
+**-4**
+**33**
+**77**
+**99**
+**1**
+**-1**
+Point average (all): 52.5
+Point average (passing): 88.0
+Pass percentage: 50.0
+
 </sample-output>
 
 
-<h2>Arvosanajakauma</h2>
+<!-- <h2>Arvosanajakauma</h2> -->
+<h2>Grade distribution</h2>
 
-Täydennä ohjelmaa siten, että ohjelma tulostaa myös arvosanajakauman. Arvosananajakauma muodostetaan seuraavasti.
+<!-- Täydennä ohjelmaa siten, että ohjelma tulostaa myös arvosanajakauman. Arvosananajakauma muodostetaan seuraavasti. -->
 
-<table class="table">
+Extend the program, such that it also prints the grade distribution. The grade distribution is as follows:
+
+<!-- <table class="table">
   <tr>
     <th>pistemäärä</th>
     <th>arvosana</th>
@@ -161,18 +261,53 @@ Täydennä ohjelmaa siten, että ohjelma tulostaa myös arvosanajakauman. Arvosa
     <td>>= 90</td>
     <td>5</td>
   </tr>
+</table> -->
+
+<table class="table">
+  <tr>
+    <th>points</th>
+    <th>grade</th>
+  </tr>
+  <tr>
+    <td>< 50</td>
+    <td>failed, i.e. 0</td>
+  </tr>
+  <tr>
+    <td>< 60</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>< 70</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>< 80</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>< 90</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>>= 90</td>
+    <td>5</td>
+  </tr>
 </table>
 
 
-Jokainen koepistemäärä muutetaan arvosanaksi yllä olevan taulukon perusteella. Jos syötetty pistemäärä ei ole välillä [0-100], jätetään se huomiotta.
+<!-- Jokainen koepistemäärä muutetaan arvosanaksi yllä olevan taulukon perusteella. Jos syötetty pistemäärä ei ole välillä [0-100], jätetään se huomiotta. -->
 
-Arvosanajakauma tulostetaan tähtinä. Esim jos arvosanaan 5 oikeuttavia koepistemääriä on 1 kappale, tulostuu rivi <em>5: *</em>. Jos johonkin arvosanaan oikeuttavia pistemääriä ei ole, ei yhtään tähteä tulostu, alla olevassa esimerkissä näin on mm. nelosten kohdalla.</em>
+Each point total is converted to a grade based on the above table. If a point total isn't within [0-100], it should be ignored.
+
+<!-- Arvosanajakauma tulostetaan tähtinä. Esim jos arvosanaan 5 oikeuttavia koepistemääriä on 1 kappale, tulostuu rivi <em>5: *</em>. Jos johonkin arvosanaan oikeuttavia pistemääriä ei ole, ei yhtään tähteä tulostu, alla olevassa esimerkissä näin on mm. nelosten kohdalla.</em> -->
+
+<p>The grade distribution is printed out as stars. E.g. if there is one point total giving the grade 5, then it should print the row <em>5: *</em>. If there are no point totals giving a particular grade, then no stars should be printed for it. In the sample below this is true for e.g. the grade 4.</p>
 
 <br/>
 
 <sample-output>
 
-Syötä yhteispisteet, -1 lopettaa:
+Enter point totals, -1 stops:
 **102**
 **-2**
 **1**
@@ -180,10 +315,10 @@ Syötä yhteispisteet, -1 lopettaa:
 **77**
 **99**
 **-1**
-Pisteiden keskiarvo (kaikki): 52.5
-Pisteiden keskiarvo (hyväksytyt): 88.0
-Hyväksymisprosentti: 50.0
-Arvosanajakauma:
+Point average (all): 52.5
+Point average (passing): 88.0
+Pass percentage: 50.0
+Grade distribution:
 5: *
 4:
 3: *
@@ -551,52 +686,62 @@ Enter command:  **stop**
 </programming-exercise>
 
 
-<programming-exercise name='Lintubongarin tietokanta (3 osaa)' tmcname='osa07-Osa07_08.LintubongarinTietokanta'>
+<programming-exercise name='Big year (3 parts)' tmcname='part07-Part07_08.BigYear'>
 
-**Tehtävä vastaa kolmea yksiosaista tehtävää.**
+**This exercise is worth three one part exercises**
 
-Tässä tehtävässä suunnittelet ja toteutat tietokannan lintubongareille. Tietokanta sisältää lintuja, joista jokaisella on nimi (merkkijono) ja latinankielinen nimi (merkkijono). Tämän lisäksi tietokanta laskee kunkin linnun havaintokertoja.
+<!-- Tässä tehtävässä suunnittelet ja toteutat tietokannan lintubongareille. Tietokanta sisältää lintuja, joista jokaisella on nimi (merkkijono) ja latinankielinen nimi (merkkijono). Tämän lisäksi tietokanta laskee kunkin linnun havaintokertoja. -->
+In this exercise you will design and implement a database for bird-watchers. The database contains birds, each of which has a name (string) and a name in latin (string). The database also counts the observations of each bird.
 
-Ohjelmasi täytyy toteuttaa seuraavat komennot:
+<!-- Ohjelmasi täytyy toteuttaa seuraavat komennot: -->
+The program must implement the following commands:
 
-- `Lisaa` - lisää linnun (**huom:** komennon nimessä ei ä-kirjainta!)
+<!-- - `Add` - lisää linnun  -->
+ -  `Add` - adds a bird
 
-- `Havainto` - lisää havainnon
+<!-- - `Observation` - lisää havainnon -->
+ -  `Observation` - adds an observation
 
-- `Tilasto` - tulostaa kaikki linnut
+<!-- - `Tilasto` - tulostaa kaikki linnut -->
+ -  `All` - prints all birds
 
-- `Nayta` - tulostaa yhden linnun (**huom:** komennon nimessä ei ä-kirjainta!)
+<!-- - `Nayta` - tulostaa yhden linnun (**huom:** komennon nimessä ei ä-kirjainta!) -->
+ -  `One` - prints one bird
 
-- `Lopeta` - lopettaa ohjelman
+<!-- - `Lopeta` - lopettaa ohjelman -->
+ - `Quit` - ends the program
 
-Lisäksi virheelliset syötteet pitää käsitellä. (Ks. `Simo` alla). Tässä vielä esimerkki ohjelman toiminnasta:
+<!-- Lisäksi virheelliset syötteet pitää käsitellä. (Ks. `Simo` alla). Tässä vielä esimerkki ohjelman toiminnasta: -->
+Incorrect input must also be handled.
+The following is an example of the program functionality:
 
 <sample-output>
 
-? **Lisaa**
-Nimi: **Korppi**
-Latinankielinen nimi: **Corvus Corvus**
-? **Lisaa**
-Nimi: **Haukka**
-Latinankielinen nimi: **Dorkus Dorkus**
-? **Havainto**
-Mikä havaittu? **Haukka**
-? **Havainto**
-Mikä havaittu? **Simo**
-Ei ole lintu!
-? **Havainto**
-Mikä havaittu? **Haukka**
-? **Tilasto**
-Haukka (Dorkus Dorkus): 2 havaintoa
-Korppi (Corvus Corvus): 0 havaintoa
-? **Nayta**
-Mikä? **Haukka**
-Haukka (Dorkus Dorkus): 2 havaintoa
+? **Add**
+Name: **Crow**
+Name in latin: **Corvus Corvus**
+? **Add**
+Name: **Hawk**
+Name in latin: **Dorkus Dorkus**
+? **Observation**
+Bird? **Hawk**
+? **Observation**
+Bird? **Lion**
+Not a bird!
+? **Observation**
+Bird? **Hawk**
+? **All**
+Hawk (Dorkus Dorkus): 2 observations
+Crow (Corvus Corvus): 0 observations
+? **One**
+Bird? **Hawk**
+Hawk (Dorkus Dorkus): 2 observations
 ? **Lopeta**
 
 </sample-output>
 
-**Huom!** Ohjelmasi rakenne on täysin vapaa. Testaamme vain että `Paaohjelma` luokan `main`-metodi toimii kuten tässä on kuvailtu. Hyödyt tehtävässä todennäköisesti ongelma-aluetta sopivasti kuvaavista luokista.
+<!-- **Huom!** Ohjelmasi rakenne on täysin vapaa. Testaamme vain että `Paaohjelma` luokan `main`-metodi toimii kuten tässä on kuvailtu. Hyödyt tehtävässä todennäköisesti ongelma-aluetta sopivasti kuvaavista luokista. -->
+**NB** the structure of your program is completely free. We only test that the `main` method of the `mainProgram` class works as shown above. You will propably find making your classes descriptive of the problem domain helpful.
 
 </programming-exercise>
 
