@@ -245,76 +245,134 @@ x: 19; y: 107
 </programming-exercise>
 
 
-<programming-exercise name='Eläimiä (4 osaa)' tmcname='osa08-Osa08_12.Elaimia'>
+<programming-exercise name='Animals (4 parts)' tmcname='part08-Part08_12.Animals'>
 
-Tässä tehtävässä demonstroit perinnän ja rajapintojen käyttöä.
+<!-- Tässä tehtävässä demonstroit perinnän ja rajapintojen käyttöä. -->
 
-<h2>Eläin</h2>
+In this exercise you'll demonstrate how to use inheritance and interfaces.
 
-Toteuta ensin abstrakti luokka `Elain`. Luokalla Elain on konstruktori, jolle annetaan parametrina eläimen nimi. Luokalla Elain on lisäksi parametrittomat metodit syo ja nuku, jotka eivät palauta arvoa (void), sekä parametriton metodi getNimi, joka palauttaa eläimen nimen.
+<!-- <h2>Eläin</h2> -->
 
-Metodin nuku tulee tulostaa "(nimi) nukkuu" ja metodin syo tulee tulostaa "(nimi) syo". Tässä (nimi) on eläimelle annettu nimi.
+<h2>Animal</h2>
+
+<!-- Toteuta ensin abstrakti luokka `Elain`. Luokalla Elain on konstruktori, jolle annetaan parametrina eläimen nimi. Luokalla Elain on lisäksi parametrittomat metodit syo ja nuku, jotka eivät palauta arvoa (void), sekä parametriton metodi getNimi, joka palauttaa eläimen nimen. -->
+
+First implement an abstract class called `Animal`. The class should have a constructor that takes the animal's name as a parameter. The Animal class also has non-parameterized methods eat and sleep that return nothing (void), and a non-parameterized method getName that returns the name of the animal.
+
+<!-- Metodin nuku tulee tulostaa "(nimi) nukkuu" ja metodin syo tulee tulostaa "(nimi) syo". Tässä (nimi) on eläimelle annettu nimi. -->
+
+The sleep method should print "(name) sleeps", and the eat method should print "(name) eats". Here (name) is the name of the animal in question.
 
 
-<h2>Koira</h2>
+<!-- <h2>Koira</h2> -->
 
-Toteuta luokan Elain perivä luokka `Koira`. Luokalla Koira tulee olla parametrillinen konstruktori, jolla luotavalle koiraoliolle voi antaa nimen. Tämän lisäksi koiralla tulee olla parametriton konstruktori, jolla koiran nimeksi tulee "Koira" sekä parametriton metodi hauku, joka ei palauta arvoa (void). Koiralla tulee olla myös metodit syo ja nuku kuten eläimillä yleensä ottaen.
+<h2>Dog</h2>
 
-Alla on esimerkki luokan Koira odotetusta toiminnasta:
+<!-- Toteuta luokan Elain perivä luokka `Koira`. Luokalla Koira tulee olla parametrillinen konstruktori, jolla luotavalle koiraoliolle voi antaa nimen. Tämän lisäksi koiralla tulee olla parametriton konstruktori, jolla koiran nimeksi tulee "Koira" sekä parametriton metodi hauku, joka ei palauta arvoa (void). Koiralla tulee olla myös metodit syo ja nuku kuten eläimillä yleensä ottaen. -->
+
+Implement a class called `Dog` that inherits from Animal. Dog should have a parameterized constructor that can be used to name it. The class should also have a non-parameterized constructor, which gives the dog the name "Dog". Another method that Dog must have is the non-parameterized bark, and it should not return any value (void). Like all animals, Dog needs to have the methods eat and sleep.
+
+<!-- Alla on esimerkki luokan Koira odotetusta toiminnasta: -->
+
+Below is an example of how the class Dog is expected to work.
 
 
-```java
+<!-- ```java
 Koira koira = new Koira();
 koira.hauku();
 koira.syo();
 
 Koira vuffe = new Koira("Vuffe");
 vuffe.hauku();
+``` -->
+
+```java
+Dog dog = new Dog();
+dog.bark();
+dog.eat();
+
+Dog fido = new Dog("Fido");
+fido.bark();
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Koira haukkuu
 Koira syo
 Vuffe haukkuu
 
+</sample-output> -->
+
+<sample-output>
+
+Dog barks
+Dog eats
+Fido barks
+
 </sample-output>
 
 
-<h2>Kissa</h2>
+<!-- <h2>Kissa</h2> -->
+
+<h2>Cat</h2>
 
 
-Toteuta seuraavaksi luokka `Kissa`, joka perii luokan Elain. Luokalla Kissa tulee olla parametrillinen konstruktori, jolla luotavalle kissaoliolle voi antaa nimen. Tämän lisäksi kissalla tulee olla parametriton konstruktori, jolla kissan nimeksi tulee "Kissa" sekä parametriton metodi mourua, joka ei palauta arvoa (void). Kissalla tulee olla myös metodit syo ja nuku kuten ensimmäisessä osassa.
+<!-- Toteuta seuraavaksi luokka `Kissa`, joka perii luokan Elain. Luokalla Kissa tulee olla parametrillinen konstruktori, jolla luotavalle kissaoliolle voi antaa nimen. Tämän lisäksi kissalla tulee olla parametriton konstruktori, jolla kissan nimeksi tulee "Kissa" sekä parametriton metodi mourua, joka ei palauta arvoa (void). Kissalla tulee olla myös metodit syo ja nuku kuten ensimmäisessä osassa. -->
 
-Alla on esimerkki luokan Kissa odotetusta toiminnasta:
+Next to implement is the class `Cat`, that also inherits from the Animal class. Cat should have two constructors: one with a parameter, used to name the cat according to the parameter, and one without parameters, in which case the name is simply "Cat". Another methd for Cat is a non-parameterized method called purr that returns no value (void). Cats should be able to eat and sleep like in the first part.
+
+<!-- Alla on esimerkki luokan Kissa odotetusta toiminnasta: -->
+
+Here's an example of how the class Cat is expected to function:
 
 
-```java
+<!-- ```java
 Kissa kissa = new Kissa();
 kissa.mourua();
 kissa.syo();
 
 Kissa karvinen = new Kissa("Karvinen");
 karvinen.mourua();
+``` -->
+
+```java
+Cat cat = new Cat();
+cat.purr();
+cat.eat();
+
+Cat garfield = new Cat("Garfield");
+garfield.purr();
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Kissa mouruaa
 Kissa syo
 Karvinen mouruaa
 
+</sample-output> -->
+
+<sample-output>
+
+Cat purrs
+Cat eats
+Garfield purrs
+
 </sample-output>
 
 
-<h2>Ääntelevä</h2>
+<!-- <h2>Ääntelevä</h2> -->
+
+<h2>NoiseCapable</h2>
 
 
-Luo lopulta rajapinta `Aanteleva`, joka maarittelee parametrittoman metodin aantele, joka ei palauta arvoa (void). Toteuta rajapinta luokissa Koira että Kissa. Rajapinnan tulee hyödyntää aiemmin määriteltyjä hauku ja mourua -metodeja.
+<!-- Luo lopulta rajapinta `Aanteleva`, joka maarittelee parametrittoman metodin aantele, joka ei palauta arvoa (void). Toteuta rajapinta luokissa Koira että Kissa. Rajapinnan tulee hyödyntää aiemmin määriteltyjä hauku ja mourua -metodeja. -->
+
+Finally, create an interface called `NoiseCapable`. It should define a non-parameterized method makeNoise that returns no value (void). Implement the interface in the classes Dog and Cat. The interface should take use of the bark and purr methods you've defined earlier.
 
 Alla on esimerkki odotetusta toiminnasta:
 
-```java
+<!-- ```java
 Aanteleva koira = new Koira();
 koira.aantele();
 
@@ -322,15 +380,32 @@ Aanteleva kissa = new Kissa("Karvinen");
 kissa.aantele();
 Kissa k = (Kissa) kissa;
 k.mourua();
+``` -->
+
+```java
+NoiseCapable dog = new Dog();
+dog.makeSound();
+
+NoiseCapable cat = new Cat("Garfield");
+cat.makeSound();
+Cat c = (Cat) cat;
+c.purr();
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Koira haukkuu
 Karvinen mouruaa
 Karvinen mouruaa
 
-</sample-output>
+</sample-output> -->
 
+<sample-output>
+
+Dog barks
+Garfield purrs
+Garfield purrs
+
+</sample-output>
 
 </programming-exercise>
