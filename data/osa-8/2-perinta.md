@@ -163,19 +163,28 @@ volkswagen
 Kuten huomaat, luokalla `Moottori` on käytössä luokassa `Osa` määritellyt metodit.
 
 
-<programming-exercise name='ABC (2 osaa)' tmcname='osa08-Osa08_01.ABC'>
+<programming-exercise name='ABC (2 parts)' tmcname='part08-Part08_01.ABC'>
 
-Harjoitellaan tässä luokkien luomista ja perintää.
+<!--Harjoitellaan tässä luokkien luomista ja perintää.-->
+Let's practice creating and inheriting classes.
 
+<!--<h2>Luokkien luominen</h2>-->
+<h2>Creating classes</h2>
 
-<h2>Luokkien luominen</h2>
-
-Luo tehtäväpohjaan seuraavat kolme luokkaa:
+<!--Luo tehtäväpohjaan seuraavat kolme luokkaa:
 
 
 - Luokka `A`. Luokalla ei ole oliomuuttujia eikä erikseen määriteltyä konstruktoria. Luokalla on vain metodi `public void a()`, joka tulostaa merkkijonon "A".
 - Luokka `B`. Luokalla ei ole oliomuuttujia eikä erikseen määriteltyä konstruktoria. Luokalla on vain metodi `public void b()`, joka tulostaa merkkijonon "B".
 - Luokka `C`. Luokalla ei ole oliomuuttujia eikä erikseen määriteltyä konstruktoria. Luokalla on vain metodi `public void c()`, joka tulostaa merkkijonon "C".
+-->
+
+Create the following three classes:
+
+- Class `A`. Class should have no object variables nor should you specify a constructor for it. It only has the method `public void a()`, which prints a string "A".
+- Class `B`. Class should have no object variables nor should you specify a constructor for it. It only has the method `public void b()`, which prints a string "B".
+- Class `C`. Class should have no object variables nor should you specify a constructor for it. It only has the method `public void c()`, which prints a string "C".
+
 
 ```java
 A a = new A();
@@ -197,9 +206,11 @@ C
 
 
 
-<h2>Luokkien periminen</h2>
+<!--<h2>Luokkien periminen</h2>-->
+<h2>Class inheritance</h2>
 
-Muokkaa luokkia siten, että luokka B perii luokan A ja luokka C perii luokan B. Luokasta A tulee siis luokan B yliluokka, ja luokasta B luokan C yliluokka.
+<!--Muokkaa luokkia siten, että luokka B perii luokan A ja luokka C perii luokan B. Luokasta A tulee siis luokan B yliluokka, ja luokasta B luokan C yliluokka.-->
+Modify the classes so that class B inherits class A, and class C inherits class B. In other words, class A will be a superclass for class B, and class B will be a superclass for class C.
 
 
 ```java
