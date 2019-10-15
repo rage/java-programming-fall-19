@@ -2,7 +2,7 @@
 path: '/part-7'
 title: 'Part 7'
 overview: true
-hidden: true
+hidden: false
 ---
 
 <only-for-course-variant variant="dl">
@@ -38,13 +38,13 @@ hidden: true
 In the seventh part of the course we'll focus on general programming paradigms and algorithms. The course Introduction to programming (TKT-10002) ends after the seventh week, and the Advanced course in programming (TKT-10003) begins with the eight part.
 
 
-<text-box variant="hint" name="Kurssin kokeesta">
+<!-- <text-box variant="hint" name="Kurssin kokeesta">
 
 **Huom!** Ohjelmoinnin MOOCin Helsingin yliopiston Ohjelmoinnin perusteet -kurssin kattava alkuosa eli osat 1-7 päättyy tämän osan suorittamiseen. Osan 7 tekemisen jälkeen tehdään kurssikoe, josta voi saada 5 opintopistettä. Katso tarkempia tietoja kohdasta [Arvostelu ja kokeet](/arvostelu-ja-kokeet). Mikäli et ole Helsingin yliopiston läsnäoleva opiskelija ja et ole ilmoittautunut kurssille Helsingin yliopiston Avoimen yliopiston kautta, tee ilmoittautuminen nyt.
 
 Tarkemmat ohjeet koeilmoittatumiseen löydät sivulta [Koe ja Moodle-ilmoittautuminen](/koe-ja-moodle-ilmoittautuminen).
 
-</text-box>
+</text-box> -->
 
 <please-login></please-login>
 

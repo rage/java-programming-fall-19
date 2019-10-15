@@ -1,7 +1,7 @@
 ---
 path: '/part-7/1-programming-paradigms'
 title: 'Programming paradigms'
-hidden: true
+hidden: false
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
