@@ -1,6 +1,6 @@
 ---
-path: '/osa-7/1-ohjelmointiparadigmoja'
-title: 'Ohjelmointiparadigmoja'
+path: '/part-7/1-programming-paradigms'
+title: 'Programming paradigms'
 hidden: true
 ---
 
@@ -50,7 +50,7 @@ One of the major benefits of object-oriented programming is how problem-domain c
 
 
 <!-- ## Proseduraalinen ohjelmointi -->
-## Proseduraalinen ohjelmointi
+## Procedural programming
 
 <!-- Siinä missä olio-ohjelmoinnissa ohjelman rakenne muodostuu käsiteltävän tiedon kautta, proseduraalisessa ohjelmoinnissa ohjelman rakenne muodostuu ohjelmalta toivotun toiminnan kautta: ohjelma on askeleittainen ohje suoritettavalle toiminnalle. Ohjelmaa suoritetaa askel kerrallaan, tarvittaessa aliohjelmia (metodeja) kutsuen.
 
@@ -164,10 +164,10 @@ while (true) {
 ```
 
 ```java
-public static void tulosta(int hours, int minutes, int seconds) {
-    tulosta(hours);
-    tulosta(minutes);
-    tulosta(seconds);
+public static void print(int hours, int minutes, int seconds) {
+    print(hours);
+    print(minutes);
+    print(seconds);
 }
 
 public static void print(int value) {
@@ -299,10 +299,10 @@ public class Clock() {
     public void advance() {
         this.seconds.advance();
 
-        if (this.seconds.arvo() == 0) {
+        if (this.seconds.value() == 0) {
             this.minutes.advance();
 
-            if (this.minutes.arvo() == 0) {
+            if (this.minutes.value() == 0) {
                 this.hours.advance();
             }
         }
@@ -319,7 +319,7 @@ Clock clock = new Clock();
 
 while (true) {
     System.out.println(clock);
-    clock.etene();
+    clock.advance();
 }
 ```
 
@@ -493,6 +493,7 @@ Second: 0/100
 <programming-exercise name='Liquid Containers 2.0 (2 parts)' tmcname='part07-Part07_02.LiquidContainers2'>
 
 <!-- Toteutetaan edellä kuvattu interaktiivinen ohjelma kahden nestesäiliön käsittelyyn uudestaan. Tällä kertaa luodaan ohjelman toteutusta varten luokka "Sailio", jonka vastuulla on säiliön sisällön ylläpito. -->
+
 Let's redo the previous program for handling two liquid containers. This time we'll create a class "Container", which is responsible for managing the contents of a container.
 
 
@@ -587,4 +588,4 @@ Second: 0/100
 </programming-exercise>
 
 
-<quiz id="2179fdc5-dab5-5b73-9476-9aaf84da67dd"></quiznator>
+<quiz id="2179fdc5-dab5-5b73-9476-9aaf84da67dd"></quiz>

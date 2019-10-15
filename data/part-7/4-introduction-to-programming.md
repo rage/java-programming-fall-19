@@ -1,6 +1,6 @@
 ---
-path: '/osa-7/4-ohjelmoinnin-perusteet'
-title: 'Yhteenveto ja koeasiaa'
+path: '/part-7/4-introduction-to-programming'
+title: 'Summary and exercise information'
 hidden: true
 ---
 
