@@ -1198,12 +1198,13 @@ Valinta: **0**
 Rajapintojen ja abstraktien luokkien suurin ero on siinä, että abstrakteissa luokissa voidaan määritellä metodien lisäksi myös oliomuuttujia sekä konstruktoreja. Koska abstrakteihin luokkiin voidaan määritellä toiminnallisuutta, voidaan niitä käyttää esimerkiksi oletustoiminnallisuuden määrittelyyn. Yllä käyttöliittymä käytti abstraktissa luokassa määriteltyä toiminnan nimen tallentamista.
 
 
-<programming-exercise name='Erilaisia laatikoita (3 osaa)' tmcname='osa08-Osa08_04.ErilaisiaLaatikoita'>
+<programming-exercise name='DifferentKindsOfBoxes (3 parts)' tmcname='part08-Part08_04.DifferentKindsOfBoxes'>
 
-Tehtäväpohjan mukana tulee luokat `Tavara` ja `Laatikko`. Luokka `Laatikko` on abstrakti luokka, jossa useamman tavaran lisääminen on toteutettu siten, että kutsutaan aina `lisaa`-metodia. Yhden tavaran lisäämiseen tarkoitettu metodi `lisaa` on abstrakti, joten jokaisen `Laatikko`-luokan perivän laatikon tulee toteuttaa se. Tehtävänäsi on muokata luokkaa `Tavara` ja toteuttaa muutamia erilaisia laatikoita luokan `Laatikko` pohjalta.
+<!-- Tehtäväpohjan mukana tulee luokat `Tavara` ja `Laatikko`. Luokka `Laatikko` on abstrakti luokka, jossa useamman tavaran lisääminen on toteutettu siten, että kutsutaan aina `lisaa`-metodia. Yhden tavaran lisäämiseen tarkoitettu metodi `lisaa` on abstrakti, joten jokaisen `Laatikko`-luokan perivän laatikon tulee toteuttaa se. Tehtävänäsi on muokata luokkaa `Tavara` ja toteuttaa muutamia erilaisia laatikoita luokan `Laatikko` pohjalta. -->
+In the exercise template you'll find the classes `Item` and `Box`. `Box` is an abstract class, where adding multiple items is implemented by repeatedly calling the `add`-method. The `add`-method, meant for adding a single item, is abstract, so every class that inherits it, must implement it. Your assignment is to edit the `Box`-class and to implement different kinds of boxes based on the `Box` class.
 
 
-```java
+<!-- ```java
 import java.util.Collection;
 
 public abstract class Laatikko {
@@ -1218,10 +1219,26 @@ public abstract class Laatikko {
 
     public abstract boolean onkoLaatikossa(Tavara tavara);
 }
+``` -->
+```java
+import java.util.ArrayList;
+
+public abstract class Box {
+
+    public abstract void add(Item item);
+
+    public void add(ArrayList<Item> items) {
+        for (Item item : items) {
+            Box.this.add(item);
+        }
+    }
+
+    public abstract boolean isInBox(Item item);
+}
 ```
 
 
-<h2>Tavaran muokkaus</h2>
+<!-- <h2>Tavaran muokkaus</h2>
 
 
 Toteuta `Tavara`-luokalle metodit `equals` ja `hashCode`, joiden avulla  pääset hyödyntämään erilaisten listojen ja kokoelmien `contains`-metodia. Toteuta metodit siten, että Tavara-luokan oliomuuttujan `paino` arvolla ei ole väliä. *Kannattanee hyödyntää NetBeansin tarjoamaa toiminnallisuutta equalsin ja hashCoden toteuttamiseen.*
@@ -1230,10 +1247,17 @@ Toteuta `Tavara`-luokalle metodit `equals` ja `hashCode`, joiden avulla  pääse
 <h2>Maksimipainollinen laatikko</h2>
 
 
-Toteuta luokka `MaksimipainollinenLaatikko`, joka perii luokan `Laatikko`. Maksimipainollisella laatikolla on konstruktori `public MaksimipainollinenLaatikko(int maksimipaino)`, joka määrittelee laatikon maksimipainon. Maksimipainolliseen laatikkoon voi lisätä tavaraa jos ja vain jos tavaran lisääminen ei ylitä laatikon maksimipainoa.
+Toteuta luokka `MaksimipainollinenLaatikko`, joka perii luokan `Laatikko`. Maksimipainollisella laatikolla on konstruktori `public MaksimipainollinenLaatikko(int maksimipaino)`, joka määrittelee laatikon maksimipainon. Maksimipainolliseen laatikkoon voi lisätä tavaraa jos ja vain jos tavaran lisääminen ei ylitä laatikon maksimipainoa. -->
 
+<h2>Editing the Item class</h2>
 
-```java
+Implement the `equals` and `hashCode` methods for the `Item`-class. They are needed, so that you can use the `contains`-methods of different lists and collections. Implement the methods in such a way that value of the `weight` instance variable of the `Item`-class isn't considered. *It's probably a good idea to make use a certain netbeans functionality to implement the `equals` and `hashCode` methods*
+
+<h2>Box with a max weight</h2>
+
+Implement the class `BoxWithMaxWeight`, that inherits the `Box` class. BoxWithMaxWeight has a constructor `public BoxWithMaxWeight(int capacity)`, that defines the max weight allowed for that box. You can add an item to a BoxWithMaxWeight when and only when, adding the item won't cause the boxes max weight capacity to be exceeded.
+
+<!-- ```java
 MaksimipainollinenLaatikko kahviLaatikko = new MaksimipainollinenLaatikko(10);
 kahviLaatikko.lisaa(new Tavara("Saludo", 5));
 kahviLaatikko.lisaa(new Tavara("Pirkka", 5));
@@ -1242,6 +1266,16 @@ kahviLaatikko.lisaa(new Tavara("Kopi Luwak", 5));
 System.out.println(kahviLaatikko.onkoLaatikossa(new Tavara("Saludo")));
 System.out.println(kahviLaatikko.onkoLaatikossa(new Tavara("Pirkka")));
 System.out.println(kahviLaatikko.onkoLaatikossa(new Tavara("Kopi Luwak")));
+``` -->
+```java
+BoxWithMaxWeight coffeeBox = new BoxWithMaxWeight(10);
+coffeeBox.add(new Item("Saludo", 5));
+coffeeBox.add(new Item("Pirkka", 5));
+coffeeBox.add(new Item("Kopi Luwak", 5));
+
+System.out.println(coffeeBox.isInBox(new Item("Saludo")));
+System.out.println(coffeeBox.isInBox(new Item("Pirkka")));
+System.out.println(coffeeBox.isInBox(new Item("Kopi Luwak")));
 ```
 
 
@@ -1254,21 +1288,33 @@ false
 </sample-output>
 
 
-<h2>Yhden tavaran laatikko ja Hukkaava laatikko</h2>
+<!-- <h2>Yhden tavaran laatikko ja Hukkaava laatikko</h2>
 
 
-Toteuta seuraavaksi luokka `YhdenTavaranLaatikko`, joka perii luokan `Laatikko`. Yhden tavaran laatikolla on konstruktori `public YhdenTavaranLaatikko()`, ja siihen mahtuu tasan yksi tavara. Jos tavara on jo laatikossa sitä ei tule vaihtaa. Laatikkoon lisättävän tavaran painolla ei ole väliä.
+Toteuta seuraavaksi luokka `YhdenTavaranLaatikko`, joka perii luokan `Laatikko`. Yhden tavaran laatikolla on konstruktori `public YhdenTavaranLaatikko()`, ja siihen mahtuu tasan yksi tavara. Jos tavara on jo laatikossa sitä ei tule vaihtaa. Laatikkoon lisättävän tavaran painolla ei ole väliä. -->
+
+<h2>One item box and the misplacing box</h2>
+
+Next implement the class `OneItemBox`, that inherits the `Box` class. `OneItemBox` has constructor the `public OneItemBox()`, and it has the capacity of exactly one item. If there is already an item in the box, it must not be switched. The weight of the item added to the box is irrelevant.
 
 
-```java
+
+<!-- ```java
 YhdenTavaranLaatikko laatikko = new YhdenTavaranLaatikko();
 laatikko.lisaa(new Tavara("Saludo", 5));
 laatikko.lisaa(new Tavara("Pirkka", 5));
 
 System.out.println(laatikko.onkoLaatikossa(new Tavara("Saludo")));
 System.out.println(laatikko.onkoLaatikossa(new Tavara("Pirkka")));
-```
+``` -->
+```java
+OneItemBox box = new OneItemBox();
+box.add(new Item("Saludo", 5));
+box.add(new Item("Pirkka", 5));
 
+System.out.println(box.isInBox(new Tavara("Saludo")));
+System.out.println(box.isInBox(new Tavara("Pirkka")));
+```
 <sample-output>
 
 true
@@ -1277,16 +1323,25 @@ false
 </sample-output>
 
 
-Toteuta seuraavaksi luokka `HukkaavaLaatikko`, joka perii luokan `Laatikko`. Hukkaavalla laatikolla on konstruktori `public HukkaavaLaatikko()`. Hukkaavaan laatikkoon voi lisätä kaikki tavarat, mutta tavaroita ei löydy niitä etsittäessä. Laatikkoon lisäämisen tulee siis aina onnistua, mutta metodin `onkoLaatikossa` kutsumisen tulee aina palauttaa false.
+<!-- Toteuta seuraavaksi luokka `HukkaavaLaatikko`, joka perii luokan `Laatikko`. Hukkaavalla laatikolla on konstruktori `public HukkaavaLaatikko()`. Hukkaavaan laatikkoon voi lisätä kaikki tavarat, mutta tavaroita ei löydy niitä etsittäessä. Laatikkoon lisäämisen tulee siis aina onnistua, mutta metodin `onkoLaatikossa` kutsumisen tulee aina palauttaa false. -->
+Next implement the class `MisplacingBox`, that inherits the `Box`-class. MisplacingBox has a constructor `public MisplacingBox()`. You can add any items to misplacing box, but items can never be found when looked for. In other words adding to the box must always succeed, but calling the method `isInbox` must always return false.
 
 
-```java
+<!-- ```java
 HukkaavaLaatikko laatikko = new HukkaavaLaatikko();
 laatikko.lisaa(new Tavara("Saludo", 5));
 laatikko.lisaa(new Tavara("Pirkka", 5));
 
 System.out.println(laatikko.onkoLaatikossa(new Tavara("Saludo")));
 System.out.println(laatikko.onkoLaatikossa(new Tavara("Pirkka")));
+``` -->
+```java
+MisplacingBox box = new MisplacingBox();
+box.add(new Item("Saludo", 5));
+box.add(new Item("Pirkka", 5));
+
+System.out.println(box.isInBox(new Item("Saludo")));
+System.out.println(box.insInBox(new Item("Pirkka")));
 ```
 
 <sample-output>
