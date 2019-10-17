@@ -146,25 +146,35 @@ Harjoittelu tekee mestarin. Keksi ja tee omia kokeiluja ja projekteja.
 </sample-output>
 
 
-<programming-exercise name='Palvelusvelvollinen (2 osaa)' tmcname='osa08-Osa08_05.Palvelusvelvollinen'>
+<programming-exercise name='TacoBoxes (2 parts)' tmcname='Part08_05.TacoBoxes'>
 
 
-Tehtäväpohjassa on valmiina rajapinta `Palvelusvelvollinen`, jossa on seuraavat toiminnot:
+<!-- Tehtäväpohjassa on valmiina rajapinta `Palvelusvelvollinen`, jossa on seuraavat toiminnot:
 
 
 -  metodi `int paiviaJaljella()` palauttaa jäljellä olevien palveluspäivien määrän
--  metodi `void palvele()` vähentää yhden palveluspäivän. Palveluspäivien määrä ei saa mennä negatiiviseksi.
+-  metodi `void palvele()` vähentää yhden palveluspäivän. Palveluspäivien määrä ei saa mennä negatiiviseksi. -->
+
+In the exercise template you'll find Interface `TacoBox` ready for your use. It has the following methods:
 
 
-```java
+- the method `int tacosRemaining()` return the number of tacos remaining in the box.
+- the method `void eat()` reduces the number of tacos remaining by one. The number of tacos remaining can't become negative.
+<!-- ```java
 public interface Palvelusvelvollinen {
     int paiviaJaljella();
     void palvele();
 }
+``` -->
+```java
+public interface TacoBox {
+    int tacosRemaining();
+    void eat();
+}
 ```
 
 
-<h2>Sivari</h2>
+<!-- <h2>Sivari</h2>
 
 
 Tee `Palvelusvelvollinen`-rajapinnan toteuttava luokka `Sivari`, jolla parametriton konstruktori. Luokalla on oliomuuttuja paivia, joka alustetaan konstruktorikutsun yhteydessä arvoon 362.
@@ -173,8 +183,17 @@ Tee `Palvelusvelvollinen`-rajapinnan toteuttava luokka `Sivari`, jolla parametri
 <h2>Asevelvollinen</h2>
 
 
-Tee `Palvelusvelvollinen`-rajapinnan toteuttava luokka `Asevelvollinen`, jolla on parametrillinen konstruktori, jolla määritellään palvelusaika (`int paivia`).
+Tee `Palvelusvelvollinen`-rajapinnan toteuttava luokka `Asevelvollinen`, jolla on parametrillinen konstruktori, jolla määritellään palvelusaika (`int paivia`). -->
+<h2>Triple taco box</h2>
 
+
+Implement the class `TripleTacoBox`, that implements the `TacoBox` interface. `TripleTacobox` has a constructor with no parameters. `TripleTacobox` has an object variable `tacos` which is initialized at 3 when the constructor is called.
+
+
+<h2>Custom taco box</h2>
+
+
+Implement the class `CustomTacoBox`, that implements the `TacoBox` interface. `CustomTacoBox` has a constructor with one parameter defining the initial number of tacos in the box(`int tacos`).
 
 </programming-exercise>
 
