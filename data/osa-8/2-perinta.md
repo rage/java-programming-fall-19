@@ -380,7 +380,7 @@ System.out.println("opintopisteitä "+ olli.opintopisteita());
 -->
 
 ```java
-Student ollie = new Student("Ollie", "Ida Albergintie 1 00400 Helsinki");
+Student ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
 System.out.println(ollie);
 System.out.println("Study credits " + ollie.credits());
 olli.study();
