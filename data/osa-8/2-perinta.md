@@ -831,7 +831,7 @@ Nyt asiakkaan muuttaessa tarvitsee muuttaa vain asiakkaan tietoja, tilauksiin ei
 
 
 <!-- <programming-exercise name='Varastointia (7 osaa)' tmcname='osa08-Osa08_03.Varastointia'> -->
-<programming-exercise name='Warehousing (7 parts)' tmcname='osa08-Osa08_03.Varastointia'>
+<programming-exercise name='Warehousing (7 parts)' tmcname='part08-Part08_03.Warehousing'>
 
 
 <!-- Tehtäväpohjassa tulee mukana luokka `Varasto`, jonka tarjoamat konstruktorit ja metodit ovat seuraavat: -->
