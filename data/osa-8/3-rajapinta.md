@@ -60,7 +60,7 @@ Koska luokka `Tekstiviesti` toteuttaa rajapinnan `Luettava` (`public class Tekst
 
 Kun luokka toteuttaa rajapinnan, se allekirjoittaa sopimuksen. Sopimuksessa luvataan, että luokka toteuttaa rajapinnan määrittelemät metodit. Jos metodeja ei ole luokassa toteutettu, ei ohjelma toimi.
 
-Rajapinta määrittelee vain vaadittujen metodien nimet, parametrit, ja paluuarvot. Rajapinta ei kuitenkaan ota kantaa metodien sisäiseen toteutukseen. Ohjelmoijan vastuulla on määritellä metodien sisäinen toiminnallisuus.
+Rajapinta määrittelee vain vaadittujen metodien names, parametrit, ja paluuarvot. Rajapinta ei kuitenkaan ota kantaa metodien sisäiseen toteutukseen. Ohjelmoijan vastuulla on määritellä metodien sisäinen toiminnallisuus.
 
 </text-box>
 
@@ -702,22 +702,24 @@ Isoilla listoille voimme nähdä huomattaviakin suorituskykyeroja. Linkitetyn li
 Tällä ohjelmointikurssilla eteen tulevissa tilanteissa kannattanee käytännössä valita aina ArrayList. "Rajapintoihin ohjelmointi" kuitenkin kannattaa: toteuta ohjelmasi siten, että käytät tietorakenteita rajapintojen kautta.
 
 
-<programming-exercise name='List metodin parametrina' tmcname='osa08-Osa08_07.ListMetodinParametrina'>
+<programming-exercise name='List as a method parameter' tmcname='part08-Part08_07.ListAsAMethodParameter'>
 
 
-Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina List-olion ja palauttaa sen koon kokonaislukuna.
+<!-- Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina List-olion ja palauttaa sen koon kokonaislukuna. -->
+In the main class, implement a class method `returnSize`, which is given a List-object as a parameter, and returns the size of the list as an integer.
 
 
-Metodin tulee toimia esimerkiksi seuraavasti:
+<!-- Metodin tulee toimia esimerkiksi seuraavasti: -->
+The method should work as follows:
 
 
 ```java
-List<String> nimet = new ArrayList<>();
-nimet.add("eka");
-nimet.add("toka");
-nimet.add("kolmas");
+List<String> names = new ArrayList<>();
+names.add("First");
+names.add("Second");
+names.add("Third");
 
-System.out.println(palautaKoko(nimet));
+System.out.println(palautaKoko(names));
 ```
 
 <sample-output>
@@ -774,11 +776,11 @@ Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina Ma
 Metodin tulee toimia esimerkiksi seuraavasti:
 
 ```java
-Map<String, String> nimet = new HashMap<>();
-nimet.put("eka", "first");
-nimet.put("toka", "second");
+Map<String, String> names = new HashMap<>();
+names.put("eka", "first");
+names.put("toka", "second");
 
-System.out.println(palautaKoko(nimet));
+System.out.println(palautaKoko(names));
 ```
 
 <sample-output>
@@ -827,14 +829,14 @@ Metodin tulee toimia esimerkiksi seuraavasti:
 
 
 ```java
-Set<String> nimet = new HashSet<>();
-nimet.add("eka");
-nimet.add("eka");
-nimet.add("toka");
-nimet.add("toka");
-nimet.add("toka");
+Set<String> names = new HashSet<>();
+names.add("eka");
+names.add("eka");
+names.add("toka");
+names.add("toka");
+names.add("toka");
 
-System.out.println(palautaKoko(nimet));
+System.out.println(palautaKoko(names));
 ```
 
 Tulostaa:
@@ -998,7 +1000,7 @@ sokeri: 0
 Listätään varastolle vielä yksi metodi:
 
 
-- `public Set<String> tuotteet()` palauttaa *joukkona* varastossa olevien tuotteiden nimet.
+- `public Set<String> tuotteet()` palauttaa *joukkona* varastossa olevien tuotteiden names.
 
 
 Metodi on helppo toteuttaa HashMapin avulla. Saat tietoon varastossa olevat tuotteet kysymällä ne joko hinnat tai saldot muistavalta Map:iltä metodin `keySet` avulla.
