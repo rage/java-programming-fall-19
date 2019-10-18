@@ -314,38 +314,62 @@ public String toString() {
 ```
 
 
-<programming-exercise name='Henkilö ja perilliset (5 osaa)' tmcname='osa08-Osa08_02.HenkiloJaPerilliset' nocoins='true'>
+<programming-exercise name='Person and subclasses (5 parts)' tmcname='part08-Part08_02.PersonAndSubclasses' nocoins='true'>
 
 
-<h2>Henkilo</h2>
+<!--<h2>Henkilo</h2>-->
+<h2>Person</h2>
 
-Luo luokka `Henkilo`. Luokan tulee toimia seuraavan esimerkin mukaisesti.
+<!--Luo luokka `Henkilo`. Luokan tulee toimia seuraavan esimerkin mukaisesti.-->
+Create a class `Person`. The class must act as follows:
 
-
+<!--
 ```java
 Henkilo ada = new Henkilo("Ada Lovelace", "Korsontie 1 03100 Vantaa");
 Henkilo esko = new Henkilo("Esko Ukkonen", "Mannerheimintie 15 00100 Helsinki");
 System.out.println(ada);
 System.out.println(esko);
 ```
+-->
 
+```java
+Person ada = new Henkilo("Ada Lovelace", "24 Maddox St. London W1S 2QN");
+Person esko = new Henkilo("Esko Ukkonen", "Mannerheimintie 15 00100 Helsinki");
+System.out.println(ada);
+System.out.println(esko);
+```
+
+<!--
 <sample-output>
 Ada Lovelace
   Korsontie 1 03100 Vantaa
 Esko Ukkonen
   Mannerheimintie 15 00100 Helsinki
 </sample-output>
+-->
 
+<sample-output>
+Ada Lovelace
+  24 Maddox St. London W1S 2QN
+Esko Ukkonen
+  Mannerheimintie 15 00100 Helsinki
+</sample-output>
 
-<h2>Opiskelija</h2>
+<!--<h2>Opiskelija</h2>-->
+<h2>Student</h2>
 
-
+<!--
 Luo luokka `Opiskelija` joka perii luokan `Henkilo`.
 
 
 Opiskelijalla on aluksi 0 opintopistettä. Aina kun opiskelija opiskelee, opintopistemäärä kasvaa. Luokan tulee toimia seuraavan esimerkin mukaisesti.
+-->
+Create a class `Student`, which inherits the class `Person`.
 
 
+At creation, student has 0 study credits. Every time a student studies, amount of study credits goes up. Class must act as follows:
+
+<!--
 ```java
 Opiskelija olli = new Opiskelija("Olli", "Ida Albergintie 1 00400 Helsinki");
 System.out.println(olli);
@@ -353,27 +377,56 @@ System.out.println("opintopisteitä " + olli.opintopisteita());
 olli.opiskele();
 System.out.println("opintopisteitä "+ olli.opintopisteita());
 ```
+-->
 
+```java
+Student ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
+System.out.println(ollie);
+System.out.println("Study credits " + ollie.credits());
+olli.study();
+System.out.println("Study credits "+ ollie.credits());
+```
+
+<!--
 <sample-output>
 Olli
   Ida Albergintie 1 00400 Helsinki
 opintopisteitä 0
 opintopisteitä 1
 </sample-output>
+-->
+
+<sample-output>
+Ollie
+  6381 Hollywood Blvd. Los Angeles 90028
+Study credits 0
+Study credits 1
+</sample-output>
 
 
-<h2>Opiskelijalle toString</h2>
+<!--<h2>Opiskelijalle toString</h2>-->
+<h2>Student's toString</h2>
 
-Edellisessä tehtävässä `Opiskelija` perii toString-metodin luokalta `Henkilo`. Perityn metodin voi myös ylikirjoittaa, eli korvata omalla versiolla. Tee luokalle Opiskelija oma versio toString-metodista. Metodin tulee toimia seuraavan esimerkin mukaisesti.
+<!--Edellisessä tehtävässä `Opiskelija` perii toString-metodin luokalta `Henkilo`. Perityn metodin voi myös ylikirjoittaa, eli korvata omalla versiolla. Tee luokalle Opiskelija oma versio toString-metodista. Metodin tulee toimia seuraavan esimerkin mukaisesti.-->
+In the previous task, `Student`inherits the toString method from the class `Person`. However, you can also overwrite an inherited method, replacing it with your own version. Write a version of toString method specifically for the `Student` class. Method must act as follows:
 
-
+<!--
 ```java
 Opiskelija olli = new Opiskelija("Olli", "Ida Albergintie 1 00400 Helsinki");
 System.out.println(olli);
 olli.opiskele();
 System.out.println(olli);
 ```
+-->
 
+```java
+Student ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
+System.out.println(ollie);
+olli.study();
+System.out.println(ollie);
+```
+
+<!--
 <sample-output>
 Olli
   Ida Albergintie 1 00400 Helsinki
@@ -382,16 +435,31 @@ Olli
   Ida Albergintie 1 00400 Helsinki
   opintopisteitä 1
 </sample-output>
+-->
+
+<sample-output>
+Ollie
+  6381 Hollywood Blvd. Los Angeles 90028
+  Study credits 0
+Ollie
+  6381 Hollywood Blvd. Los Angeles 90028
+  Study credits 1
+</sample-output>
 
 
-<h2>Opettaja</h2>
+<!--<h2>Opettaja</h2>-->
+<h2>Teacher</h2>
+
+<!--Luo luokan Henkilo perivä luokka Opettaja. Opettajalla on palkka joka tulostuu opettajan merkkijonoesityksessä.
 
 
-Luo luokan Henkilo perivä luokka Opettaja. Opettajalla on palkka joka tulostuu opettajan merkkijonoesityksessä.
+Luokan tulee toimia seuraavan esimerkin mukaisesti.-->
 
+Create a class `Teacher`, which inherits the class `Person`.
 
-Luokan tulee toimia seuraavan esimerkin mukaisesti.
+The class must act as follows:
 
+<!--
 ```java
 Opettaja ada = new Opettaja("Ada Lovelace", "Korsontie 1 03100 Vantaa", 1200);
 Opettaja esko = new Opettaja("Esko Ukkonen", "Mannerheimintie 15 00100 Helsinki", 5400);
@@ -407,7 +475,25 @@ while (i < 25) {
 }
 System.out.println(olli);
 ```
+-->
 
+```java
+Teacher ada = new Teacher("Ada Lovelace", "24 Maddox St. London W1S 2QN", 1200);
+Teacher esko = new Teacher("Esko Ukkonen", "Mannerheimintie 15 00100 Helsinki", 5400);
+System.out.println(ada);
+System.out.println(esko);
+
+Student ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
+
+int i = 0;
+while (i < 25) {
+  ollie.study();
+  i = i + 1;
+}
+System.out.println(ollie);
+```
+
+<!--
 <sample-output>
 Ada Lovelace
   Korsontie 1 03100 Vantaa
@@ -419,14 +505,28 @@ Olli
   Ida Albergintie 1 00400 Helsinki
   opintopisteitä 25
 </sample-output>
+-->
+
+<sample-output>
+Ada Lovelace
+  24 Maddox St. London W1S 2QN
+  salary 1200 euro/month
+Esko Ukkonen
+  Mannerheimintie 15 00100 Helsinki
+  salary 5400 euro/month
+Ollie
+  6381 Hollywood Blvd. Los Angeles 90028
+  Study credits 25
+</sample-output>
+
+<!--<h2>Kaikki Henkilot listalle</h2>-->
+<h2>List all Persons</h2>
 
 
-<h2>Kaikki Henkilot listalle</h2>
+<!--Toteuta pääohjelmaluokkaan `Main` luokkametodi `public static void tulostaHenkilot(ArrayList<Henkilo> henkilot)`, joka tulostaa kaikki metodille parametrina annetussa listassa olevat henkilöt. Metodin tulee toimia seuraavasti `main`-metodista kutsuttaessa.-->
+Write a method `public static void printPersons(ArrayList<Person> persons)` in the Main class. The method prints all the persons on the list given as the parameter. Method must act as follows when invoked from the `main` method:
 
-
-Toteuta pääohjelmaluokkaan `Main` luokkametodi `public static void tulostaHenkilot(ArrayList<Henkilo> henkilot)`, joka tulostaa kaikki metodille parametrina annetussa listassa olevat henkilöt. Metodin tulee toimia seuraavasti `main`-metodista kutsuttaessa.
-
-
+<!--
 ```java
 public static void main(String[] args) {
     ArrayList<Henkilo> henkilot = new ArrayList<Henkilo>();
@@ -436,7 +536,19 @@ public static void main(String[] args) {
     tulostaHenkilot(henkilot);
 }
 ```
+-->
 
+```java
+public static void main(String[] args) {
+    ArrayList<Person> persons = new ArrayList<Person>();
+    persons.add(new Teacher("Ada Lovelace", "24 Maddox St. London W1S 2QN", 1200));
+    persons.add(new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028"));
+
+    printPersons(persons);
+}
+```
+
+<!--
 <sample-output>
 Ada Lovelace
   Korsontie 1 03100 Vantaa
@@ -445,6 +557,17 @@ Olli
   Ida Albergintie 1 00400 Helsinki
   opintopisteitä 0
 </sample-output>
+-->
+
+<sample-output>
+Ada Lovelace
+  24 Maddox St. London W1S 2QN
+  salary 1200 euro/month
+Ollie
+  6381 Hollywood Blvd. Los Angeles 90028
+  Study credits 0
+</sample-output>
+
 
 </programming-exercise>
 
