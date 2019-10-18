@@ -170,36 +170,59 @@ i
 </sample-output>
 
 
-<programming-exercise name='Joukkoja (2 osaa)' tmcname='osa08-Osa08_11.Joukkoja' nocoins='true'>
+<programming-exercise name='Herds (2 osaa)' tmcname='part08-Part08_11.Herds' nocoins='true'>
 
-Tässä tehtävässä teemme eliöita ja eliöistä koostuvia laumoja jotka liikkuvat ympäriinsä. Eliöiden sijaintien ilmoittamiseen käytetään *kaksiulotteista koordinaatistoa*. Jokaiseen sijaintiin liittyy kaksi lukua, `x`- ja `y`-koordinaatti. Koordinaatti `x` kertoo, kuinka pitkällä "nollapisteestä" mitattuna sijainti on vaakasuunnassa, ja koordinaatti `y` vastaavasti kuinka pitkällä sijainti on pystysuunnassa. Jos koordinaatiston käsite ei ole tuttu, voit lukea siitä lisää esimerkiksi <a href="http://fi.wikipedia.org/wiki/Koordinaatisto">wikipediasta</a>.
+<!-- Tässä tehtävässä teemme eliöita ja eliöistä koostuvia laumoja jotka liikkuvat ympäriinsä. Eliöiden sijaintien ilmoittamiseen käytetään *kaksiulotteista koordinaatistoa*. Jokaiseen sijaintiin liittyy kaksi lukua, `x`- ja `y`-koordinaatti. Koordinaatti `x` kertoo, kuinka pitkällä "nollapisteestä" mitattuna sijainti on vaakasuunnassa, ja koordinaatti `y` vastaavasti kuinka pitkällä sijainti on pystysuunnassa. Jos koordinaatiston käsite ei ole tuttu, voit lukea siitä lisää esimerkiksi <a href="http://fi.wikipedia.org/wiki/Koordinaatisto">wikipediasta</a>. -->
+
+In this exercise we are going to create organisms and herds of organisms that can move around. To represent the locations of the organisms we'll use a **two-dimensional coordinate system**. Each position involves two numbers: `x` and `y` coordinates. The `x` coordinate indicates how far from the (i.e. point zero, where x = 0, y = 0) that position is horizontally. The `y` coordinate indicates the distance from the origin vertically. If you are not familiar with using a coordinate system, you can study the basics from e.g.  [Wikipedia](https://en.wikipedia.org/wiki/Cartesian_coordinate_system).
 
 <br/>
 
-Tehtävän mukana tulee rajapinta `Siirrettava`, joka kuvaa asiaa jota voidaan siirtää paikasta toiseen. Rajapinta sisältää metodin `void siirra(int dx, int dy)`. Parametri `dx` kertoo, paljonko asia siirtyy x-akselilla ja `dy` y-akselilla.
+<!-- Tehtävän mukana tulee rajapinta `Siirrettava`, joka kuvaa asiaa jota voidaan siirtää paikasta toiseen. Rajapinta sisältää metodin `void siirra(int dx, int dy)`. Parametri `dx` kertoo, paljonko asia siirtyy x-akselilla ja `dy` y-akselilla. -->
+
+The exercise base includes the interface `Movable`, which represents something that can be moved from one position to another. The interface includes the method `void move(int dx, int dy)`. The parameter `dx` tells how much the object moves on the x axis, and dy tells the distance on the y axis.
+
+<!-- Tehtävässä toteutat luokat `Elio` ja `Lauma`, jotka molemmat ovat siirrettäviä. -->
+
+This exercise consists of you implementing the classes `Organism` and `Herd`, both of which are movable.
 
 
-Tehtävässä toteutat luokat `Elio` ja `Lauma`, jotka molemmat ovat siirrettäviä.
+<!-- <h2>Elio-luokan toteuttaminen</h2> -->
 
 
-<h2>Elio-luokan toteuttaminen</h2>
+<h2>Implementing the Organism Class</h2>
 
+<!-- Luo luokka `Elio`, joka toteuttaa rajapinnan `Siirrettava`. Eliön tulee tietää oma sijaintinsa (x, y -koordinaatteina). Luokan `Elio` APIn tulee olla seuraava: -->
 
-Luo luokka `Elio`, joka toteuttaa rajapinnan `Siirrettava`. Eliön tulee tietää oma sijaintinsa (x, y -koordinaatteina). Luokan `Elio` APIn tulee olla seuraava:
+Create a class called `Organism` that implements the interface `Movable`. An organism should know its own location (as x, y coordinates). The API for the class `Organism` is to be as follows:
 
-- **public Elio(int x, int y)**<br/>Luokan konstruktori, joka saa olion aloitussijainnin x- ja y-koordinaatit parametrina
-- **public String toString()**<br/> Luo ja palauttaa oliosta merkkijonoesityksen. Eliön merkkijonoesityksen tulee olla seuraavanlainen `"x: 3; y: 6"`. Huomaa että koordinaatit on erotettu puolipisteellä (`;`)
-- **public void siirra(int dx, int dy)**<br/> Siirtää oliota parametrina saatujen arvojen verran. Muuttuja `dx` sisältää muutoksen koordinaattiin `x`, muuttuja `dy` sisältää muutoksen koordinaattiin `y`. Esimerkiksi jos muuttujan `dx` arvo on 5, tulee oliomuuttujan `x` arvoa kasvattaa viidellä
+<!-- - **public Elio(int x, int y)**<br/>Luokan konstruktori, joka saa olion aloitussijainnin x- ja y-koordinaatit parametrina -->
+- **public Organism(int x, int y)**<br />The class constructor that receives the x and y coordinates of the initial position as its parameters.
+<!-- - **public String toString()**<br/> Luo ja palauttaa oliosta merkkijonoesityksen. Eliön merkkijonoesityksen tulee olla seuraavanlainen `"x: 3; y: 6"`. Huomaa että koordinaatit on erotettu puolipisteellä (`;`) -->
+- **public String toString()**<br/>Creates and returns a string representation of the organism. That representation should remind the following: `"x: 3; y: 6"`. Notice that a semicolon is used to separate the coordinates.
+<!-- - **public void siirra(int dx, int dy)**<br/> Siirtää oliota parametrina saatujen arvojen verran. Muuttuja `dx` sisältää muutoksen koordinaattiin `x`, muuttuja `dy` sisältää muutoksen koordinaattiin `y`. Esimerkiksi jos muuttujan `dx` arvo on 5, tulee oliomuuttujan `x` arvoa kasvattaa viidellä -->
+- **public void move(int dx, int dy)**<br/> Moves the object by the values it receives as parameters. The `dx` variable contains the change to coordinate `x`, and the `dy` variable ontains the change to the coordinate `y`. For example, if the value of `dx` is 5, the value of the object variable `x` should be incremented by five.
 
-Kokeile luokan `Elio` toimintaa seuraavalla esimerkkikoodilla.
+<!-- Kokeile luokan `Elio` toimintaa seuraavalla esimerkkikoodilla. -->
 
-```java
+Use the following code snippet to test the `Organism` class.
+
+<!-- ```java
 Elio elio = new Elio(20, 30);
 System.out.println(elio);
 elio.siirra(-10, 5);
 System.out.println(elio);
 elio.siirra(50, 20);
 System.out.println(elio);
+``` -->
+
+```java
+Organism organism = new Organism(20, 30);
+System.out.println(organism);
+organism.move(-10, 5);
+System.out.println(organism);
+organism.move(50, 20);
+System.out.println(organism);
 ```
 
 <sample-output>
@@ -211,25 +234,45 @@ x: 60; y: 55
 </sample-output>
 
 
-<h2>Lauman toteutus</h2>
+<!-- <h2>Lauman toteutus</h2> -->
 
-Luo luokka `Lauma`, joka toteuttaa rajapinnan `Siirrettava`. Lauma koostuu useasta `Siirrettava`-rajapinnan toteutavasta oliosta, jotka tulee tallettaa esimerkiksi listarakenteeseen.
+<h2>Implementing the Herd</h2>
 
-Luokalla `Lauma` tulee olla seuraavanlainen API.
+<!-- Luo luokka `Lauma`, joka toteuttaa rajapinnan `Siirrettava`. Lauma koostuu useasta `Siirrettava`-rajapinnan toteutavasta oliosta, jotka tulee tallettaa esimerkiksi listarakenteeseen. -->
 
-- **public String toString()**<br/> Palauttaa merkkijonoesityksen lauman jäsenten sijainnista rivin vaihdolla erotettuna.
-- **public void lisaaLaumaan(Siirrettava siirrettava)**<br/> Lisää laumaan uuden `Siirrettava`-rajapinnan toteuttavan olion
-- **public void siirra(int dx, int dy)**<br/> Siirtää laumaa parametrina saatujen arvojen verran. Huomaa että tässä sinun tulee siirtää jokaista lauman jäsentä.
+Create a class called `Herd` that implements the interface `Movable`. A herd consists of multiple objects that implement the Movable interface. They must be stored in e.g. a list data structure.
 
-Kokeile ohjelmasi toimintaa alla olevalla esimerkkikoodilla.
+<!-- Luokalla `Lauma` tulee olla seuraavanlainen API. -->
 
-```java
+The `Herd` class must have the following API.
+
+<!-- - **public String toString()**<br/> Palauttaa merkkijonoesityksen lauman jäsenten sijainnista rivin vaihdolla erotettuna. -->
+- **public String toString()**<br/> Returns a string representation of the positions of the members of the herd, each on its own line.
+<!-- - **public void lisaaLaumaan(Siirrettava siirrettava)**<br/> Lisää laumaan uuden `Siirrettava`-rajapinnan toteuttavan olion -->
+- **public void addToHerd(Movable movable)**<br/> Adds an object that implements the `Movable` interface to the herd.
+<!-- - **public void siirra(int dx, int dy)**<br/> Siirtää laumaa parametrina saatujen arvojen verran. Huomaa että tässä sinun tulee siirtää jokaista lauman jäsentä. -->
+- **public void move(int dx, int dy)**<br/> Moves the herd with by the amount specified by the parameters. Notice that here you have to move each member of the herd.
+
+<!-- Kokeile ohjelmasi toimintaa alla olevalla esimerkkikoodilla. -->
+
+Test out your program with the sample code below:
+
+<!-- ```java
 Lauma lauma = new Lauma();
 lauma.lisaaLaumaan(new Elio(73, 56));
 lauma.lisaaLaumaan(new Elio(57, 66));
 lauma.lisaaLaumaan(new Elio(46, 52));
 lauma.lisaaLaumaan(new Elio(19, 107));
 System.out.println(lauma);
+``` -->
+
+```java
+Herd herd = new Herd();
+herd.lisaaLaumaan(new Organism(57, 66));
+herd.lisaaLaumaan(new Organism(73, 56));
+herd.lisaaLaumaan(new Organism(46, 52));
+herd.lisaaLaumaan(new Organism(19, 107));
+System.out.println(herd);
 ```
 
 <sample-output>
