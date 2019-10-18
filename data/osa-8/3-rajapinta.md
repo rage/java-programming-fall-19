@@ -706,7 +706,7 @@ Tällä ohjelmointikurssilla eteen tulevissa tilanteissa kannattanee käytännö
 
 
 <!-- Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina List-olion ja palauttaa sen koon kokonaislukuna. -->
-In the main class, implement a class method `returnSize`, which is given a List-object as a parameter, and returns the size of the list as an integer.
+In the mainProgram class, implement a class method `returnSize`, which is given a List-object as a parameter, and returns the size of the list as an integer.
 
 
 <!-- Metodin tulee toimia esimerkiksi seuraavasti: -->
@@ -768,17 +768,19 @@ Metodi `keySet` palauttaa `Set`-rajapinnan toteuttavan joukon alkioita. `Set`-ra
 
 
 
-<programming-exercise name='Map metodin parametrina' tmcname='osa08-Osa08_08.MapMetodinParametrina'>
+<programming-exercise name='Map as a method parameter' tmcname='part08-Part08_08.MapAsAMethodParameter'>
 
 
-Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina Map-olion ja palauttaa sen koon kokonaislukuna.
+<!-- Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina Map-olion ja palauttaa sen koon kokonaislukuna. -->
+In the class MainProgram implement a class method `returnSize` which gets a Map-object as a parameter, and returns its size as an integer.
 
-Metodin tulee toimia esimerkiksi seuraavasti:
+<!-- Metodin tulee toimia esimerkiksi seuraavasti: -->
+The method should work as follows:
 
 ```java
 Map<String, String> names = new HashMap<>();
-names.put("eka", "first");
-names.put("toka", "second");
+names.put("1", "first");
+names.put("2", "second");
 
 System.out.println(palautaKoko(names));
 ```
