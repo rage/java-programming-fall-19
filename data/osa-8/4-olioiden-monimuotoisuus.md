@@ -203,15 +203,26 @@ Create a class called `Organism` that implements the interface `Movable`. An org
 <!-- - **public void siirra(int dx, int dy)**<br/> Siirtää oliota parametrina saatujen arvojen verran. Muuttuja `dx` sisältää muutoksen koordinaattiin `x`, muuttuja `dy` sisältää muutoksen koordinaattiin `y`. Esimerkiksi jos muuttujan `dx` arvo on 5, tulee oliomuuttujan `x` arvoa kasvattaa viidellä -->
 - **public void move(int dx, int dy)**<br/> Moves the object by the values it receives as parameters. The `dx` variable contains the change to coordinate `x`, and the `dy` variable ontains the change to the coordinate `y`. For example, if the value of `dx` is 5, the value of the object variable `x` should be incremented by five.
 
-Kokeile luokan `Elio` toimintaa seuraavalla esimerkkikoodilla.
+<!-- Kokeile luokan `Elio` toimintaa seuraavalla esimerkkikoodilla. -->
 
-```java
+Use the following code snippet to test the `Organism` class.
+
+<!-- ```java
 Elio elio = new Elio(20, 30);
 System.out.println(elio);
 elio.siirra(-10, 5);
 System.out.println(elio);
 elio.siirra(50, 20);
 System.out.println(elio);
+``` -->
+
+```java
+Organism organism = new Organism(20, 30);
+System.out.println(organism);
+organism.move(-10, 5);
+System.out.println(organism);
+organism.move(50, 20);
+System.out.println(organism);
 ```
 
 <sample-output>
@@ -223,25 +234,45 @@ x: 60; y: 55
 </sample-output>
 
 
-<h2>Lauman toteutus</h2>
+<!-- <h2>Lauman toteutus</h2> -->
 
-Luo luokka `Lauma`, joka toteuttaa rajapinnan `Siirrettava`. Lauma koostuu useasta `Siirrettava`-rajapinnan toteutavasta oliosta, jotka tulee tallettaa esimerkiksi listarakenteeseen.
+<h2>Implementing the Herd</h2>
 
-Luokalla `Lauma` tulee olla seuraavanlainen API.
+<!-- Luo luokka `Lauma`, joka toteuttaa rajapinnan `Siirrettava`. Lauma koostuu useasta `Siirrettava`-rajapinnan toteutavasta oliosta, jotka tulee tallettaa esimerkiksi listarakenteeseen. -->
 
-- **public String toString()**<br/> Palauttaa merkkijonoesityksen lauman jäsenten sijainnista rivin vaihdolla erotettuna.
-- **public void lisaaLaumaan(Siirrettava siirrettava)**<br/> Lisää laumaan uuden `Siirrettava`-rajapinnan toteuttavan olion
-- **public void siirra(int dx, int dy)**<br/> Siirtää laumaa parametrina saatujen arvojen verran. Huomaa että tässä sinun tulee siirtää jokaista lauman jäsentä.
+Create a class called `Herd` that implements the interface `Movable`. A herd consists of multiple objects that implement the Movable interface. They must be stored in e.g. a list data structure.
 
-Kokeile ohjelmasi toimintaa alla olevalla esimerkkikoodilla.
+<!-- Luokalla `Lauma` tulee olla seuraavanlainen API. -->
 
-```java
+The `Herd` class must have the following API.
+
+<!-- - **public String toString()**<br/> Palauttaa merkkijonoesityksen lauman jäsenten sijainnista rivin vaihdolla erotettuna. -->
+- **public String toString()**<br/> Returns a string representation of the positions of the members of the herd, each on its own line.
+<!-- - **public void lisaaLaumaan(Siirrettava siirrettava)**<br/> Lisää laumaan uuden `Siirrettava`-rajapinnan toteuttavan olion -->
+- **public void addToHerd(Movable movable)**<br/> Adds an object that implements the `Movable` interface to the herd.
+<!-- - **public void siirra(int dx, int dy)**<br/> Siirtää laumaa parametrina saatujen arvojen verran. Huomaa että tässä sinun tulee siirtää jokaista lauman jäsentä. -->
+- **public void move(int dx, int dy)**<br/> Moves the herd with by the amount specified by the parameters. Notice that here you have to move each member of the herd.
+
+<!-- Kokeile ohjelmasi toimintaa alla olevalla esimerkkikoodilla. -->
+
+Test out your program with the sample code below:
+
+<!-- ```java
 Lauma lauma = new Lauma();
 lauma.lisaaLaumaan(new Elio(73, 56));
 lauma.lisaaLaumaan(new Elio(57, 66));
 lauma.lisaaLaumaan(new Elio(46, 52));
 lauma.lisaaLaumaan(new Elio(19, 107));
 System.out.println(lauma);
+``` -->
+
+```java
+Herd herd = new Herd();
+herd.lisaaLaumaan(new Organism(57, 66));
+herd.lisaaLaumaan(new Organism(73, 56));
+herd.lisaaLaumaan(new Organism(46, 52));
+herd.lisaaLaumaan(new Organism(19, 107));
+System.out.println(herd);
 ```
 
 <sample-output>
