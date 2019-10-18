@@ -827,14 +827,16 @@ kaksi
 Huomaa että HashSet ei ota millään tavalla kantaa joukon alkioiden järjestykseen. Mikäli HashSet-olioon lisätään omista luokista tehtyjä olioita, tulee niille olla määriteltynä metodit `equals` ja `hashCode`.
 
 
-<programming-exercise name='Set metodin parametrina' tmcname='osa08-Osa08_09.SetMetodinParametrina'>
+<programming-exercise name='Set as a method parameter' tmcname='Part08_09.SetAsAMethodParameter'>
 
-Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina Set-olion ja palauttaa sen koon kokonaislukuna.
+<!-- Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina Set-olion ja palauttaa sen koon kokonaislukuna.
 
-Metodin tulee toimia esimerkiksi seuraavasti:
+Metodin tulee toimia esimerkiksi seuraavasti: -->
+In the Main-class, implement the static method `returnSize`, which receives a Set object as a parameter and returns its size.
 
+The method should work e.g. like this:
 
-```java
+<!-- ```java
 Set<String> nimet = new HashSet<>();
 nimet.add("eka");
 nimet.add("eka");
@@ -843,9 +845,20 @@ nimet.add("toka");
 nimet.add("toka");
 
 System.out.println(palautaKoko(nimet));
+``` -->
+```java
+Set<String> names = new HashSet<>();
+name.add("first");
+names.add("first");
+names.add("second");
+names.add("second");
+names.add("second");
+
+System.out.println(returnSize(names));
 ```
 
-Tulostaa:
+<!-- Tulostaa: -->
+Prints:
 
 <sample-output>
 
