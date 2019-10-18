@@ -65,16 +65,16 @@ Rajapinta määrittelee vain vaadittujen metodien nimet, parametrit, ja paluuarv
 </text-box>
 
 
-Toteutetaan luokan `Tekstiviesti` lisäksi toinen `Luettava` rajapinnan toteuttava luokka. Luokka `Sahkokirja` on sähköinen toteutus kirjasta, joka sisältää kirjan nimen ja sivut. Sähkökirjaa luetaan sivu kerrallaan, metodin `public String lue()` kutsuminen palauttaa aina seuraavan sivun merkkijonona.
+Toteutetaan luokan `Tekstiviesti` lisäksi toinen `Luettava` rajapinnan toteuttava luokka. Luokka `Sahkobook` on sähköinen toteutus booksta, joka sisältää bookn nimen ja sivut. Sähköbooka luetaan sivu kerrallaan, metodin `public String lue()` kutsuminen palauttaa aina seuraavan sivun merkkijonona.
 
 
 ```java
-public class Sahkokirja implements Luettava {
+public class Sahkobook implements Luettava {
     private String nimi;
     private ArrayList<String> sivut;
     private int sivunumero;
 
-    public Sahkokirja(String nimi, ArrayList<String> sivut) {
+    public Sahkobook(String nimi, ArrayList<String> sivut) {
         this.nimi = nimi;
         this.sivut = sivut;
         this.sivunumero = 0;
@@ -127,11 +127,11 @@ sivut.add("Erota käyttöliittymälogiikka sovelluksen logiikasta.");
 sivut.add("Ohjelmoi aina ensin pieni osa, jolla ratkaiset osan ongelmasta.");
 sivut.add("Harjoittelu tekee mestarin. Keksi ja tee omia kokeiluja ja projekteja.");
 
-Sahkokirja kirja = new Sahkokirja("Vinkkejä ohjelmointiin.", sivut);
+Sahkobook book = new Sahkobook("Vinkkejä ohjelmointiin.", sivut);
 
 int sivu = 0;
-while (sivu < kirja.sivuja()) {
-    System.out.println(kirja.lue());
+while (sivu < book.sivuja()) {
+    System.out.println(book.lue());
     sivu = sivu + 1;
 }
 ```
@@ -191,7 +191,7 @@ Tekstiviesti viesti = new Tekstiviesti("ope", "samalla oliolla monta tyyppiä");
 ```
 
 
-Olion tyyppi voi olla muutakin kuin sen luokka. Esimerkiksi rajapinnan `Luettava` toteuttavan luokan `Sahkokirja` tyyppi on sekä `Sahkokirja` että `Luettava`. Samalla tavalla myös tekstiviestillä on monta tyyppiä. Koska luokka `Tekstiviesti` toteuttaa rajapinnan `Luettava`, on sillä tyypin `Tekstiviesti` lisäksi myös tyyppi `Luettava`.
+Olion tyyppi voi olla muutakin kuin sen luokka. Esimerkiksi rajapinnan `Luettava` toteuttavan luokan `Sahkobook` tyyppi on sekä `Sahkobook` että `Luettava`. Samalla tavalla myös tekstiviestillä on monta tyyppiä. Koska luokka `Tekstiviesti` toteuttaa rajapinnan `Luettava`, on sillä tyypin `Tekstiviesti` lisäksi myös tyyppi `Luettava`.
 
 
 ```java
@@ -203,11 +203,11 @@ Luettava luettava = new Tekstiviesti("ope", "Tekstiviesti on Luettava!");
 ArrayList<String> sivut = new ArrayList<>();
 sivut.add("Metodi voi kutsua itse itseään.");
 
-Luettava kirja = new Sahkokirja("Rekursion alkeet.", sivut);
+Luettava book = new Sahkobook("Rekursion alkeet.", sivut);
 
 int sivu = 0;
-while (sivu < kirja.sivuja()) {
-    System.out.println(kirja.lue());
+while (sivu < book.sivuja()) {
+    System.out.println(book.lue());
     sivu = sivu + 1;
 }
 ```
@@ -228,7 +228,7 @@ lukulista.add(new Tekstiviesti("ope", "up here we send several messages each day
 ArrayList<String> sivut = new ArrayList<>();
 sivut.add("Metodi voi kutsua itse itseään.");
 
-lukulista.add(new Sahkokirja("Rekursion alkeet.", sivut));
+lukulista.add(new Sahkobook("Rekursion alkeet.", sivut));
 
 for (Luettava luettava: lukulista) {
     System.out.println(luettava.lue());
@@ -236,7 +236,7 @@ for (Luettava luettava: lukulista) {
 ```
 
 
-Huomaa että vaikka rajapinnan `Luettava` toteuttava luokka `Sahkokirja` on aina rajapinnan tyyppinen, eivät kaikki `Luettava`-rajapinnan toteuttavat luokat ole tyyppiä `Sahkokirja`. Luokasta `Sahkokirja` tehdyn olion asettaminen `Luettava`-tyyppiseen muuttujaan onnistuu, mutta toiseen suuntaan asetus ei ole sallittua ilman erillistä tyyppimuunnosta.
+Huomaa että vaikka rajapinnan `Luettava` toteuttava luokka `Sahkobook` on aina rajapinnan tyyppinen, eivät kaikki `Luettava`-rajapinnan toteuttavat luokat ole tyyppiä `Sahkobook`. Luokasta `Sahkobook` tehdyn olion asettaminen `Luettava`-tyyppiseen muuttujaan onnistuu, mutta toiseen suuntaan asetus ei ole sallittua ilman erillistä tyyppimuunnosta.
 
 
 ```java
@@ -273,11 +273,11 @@ Tekstiviesti viesti = new Tekstiviesti("ope", "Huhhuh, tää tulostinkin osaa tu
 
 ArrayList<String> sivut = new ArrayList<>();
 sivut.add("Lukujen {1, 3, 5} ja {2, 3, 4, 5} yhteisiä lukuja ovat {3, 5}.");
-Sahkokirja kirja = new Sahkokirja("Yliopistomatematiikan perusteet.", sivut);
+Sahkobook book = new Sahkobook("Yliopistomatematiikan perusteet.", sivut);
 
 Tulostin tulostin = new Tulostin();
 tulostin.tulosta(viesti);
-tulostin.tulosta(kirja);
+tulostin.tulosta(book);
 ```
 
 <sample-output>
@@ -287,7 +287,7 @@ Lukujen {1, 3, 5} ja {2, 3, 4, 5} yhteisiä lukuja ovat {3, 5}.
 
 </sample-output>
 
-Toteutetaan toinen luokka `Lukulista`, johon voidaan lisätä mielenkiintoisia luettavia asioita. Luokalla on oliomuuttujana `ArrayList`-luokan ilmentymä, johon luettavia asioita tallennetaan. Lukulistaan lisääminen tapahtuu `lisaa`-metodilla, joka saa parametrikseen `Luettava`-tyyppisen olion.
+Toteutetaan toinen luokka `Lukulista`, johon voidaan lisätä mielenkiintoisia luettavia asioita. Luokalla on oliomuuttujana `ArrayList`-luokan ilmentymä, johon luettavia asioita tallennetaan. Lukulistaan lisääminen tapahtuu `add`-metodilla, joka saa parametrikseen `Luettava`-tyyppisen olion.
 
 
 ```java
@@ -298,7 +298,7 @@ public class Lukulista {
         this.luettavat = new ArrayList<>();
     }
 
-    public void lisaa(Luettava luettava) {
+    public void add(Luettava luettava) {
         this.luettavat.add(luettava);
     }
 
@@ -320,7 +320,7 @@ public class Lukulista implements Luettava {
         this.luettavat = new ArrayList<>();
     }
 
-    public void lisaa(Luettava luettava) {
+    public void add(Luettava luettava) {
         this.luettavat.add(luettava);
     }
 
@@ -345,8 +345,8 @@ public class Lukulista implements Luettava {
 
 ```java
 Lukulista joninLista = new Lukulista();
-joninLista.lisaa(new Tekstiviesti("arto", "teitkö jo testit?"));
-joninLista.lisaa(new Tekstiviesti("arto", "katsoitko jo palautukset?"));
+joninLista.add(new Tekstiviesti("arto", "teitkö jo testit?"));
+joninLista.add(new Tekstiviesti("arto", "katsoitko jo palautukset?"));
 
 System.out.println("Jonilla luettavia: " + joninLista.luettavia());
 ```
@@ -365,7 +365,7 @@ Koska `Lukulista` on tyyppiä `Luettava`, voi lukulistalle lisätä `Lukulista`-
 Lukulista joninLista = new Lukulista();
 int i = 0;
 while (i < 1000) {
-    joninLista.lisaa(new Tekstiviesti("arto", "teitkö jo testit?"));
+    joninLista.add(new Tekstiviesti("arto", "teitkö jo testit?"));
     i = i + 1;
 }
 
@@ -373,7 +373,7 @@ System.out.println("Jonilla luettavia: " + joninLista.luettavia());
 System.out.println("Delegoidaan lukeminen Vernalle");
 
 Lukulista vernanLista = new Lukulista();
-vernanLista.lisaa(joninLista);
+vernanLista.add(joninLista);
 vernanLista.lue();
 
 System.out.println();
@@ -396,44 +396,47 @@ Ohjelmassa Vernan listalle kutsuttu `lue`-metodi käy kaikki sen sisältämät `
 Kuten huomaat, ohjelmassa on jo hyvin paljon viitteitä. Kannattaa piirtää ohjelman tilaa askeleittain paperille, ja hahmotella miten `vernanLista`-oliolle tapahtuva metodikutsu `lue` etenee!
 
 
-<programming-exercise name='Tavaroita ja laatikoita (4 osaa)' tmcname='osa08-Osa08_06.TavaroitaJaLaatikoita' nocoins='true'>
+<programming-exercise name='API In A Box (4 parts)' tmcname='part08-Part08_06.APIInABox' nocoins='true'>
 
 
-<h2>Talletettavia</h2>
+<h2>Packables</h2>
 
 
-Muuton yhteydessa tarvitaan muuttolaatikoita. Laatikoihin talletetaan erilaisia esineitä. Kaikkien laatikoihin talletettavien esineiden on toteutettava seuraava rajapinta:
+<!-- Muuton yhteydessa tarvitaan muuttolaatikoita. Laatikoihin talletetaan erilaisia esineitä. Kaikkien laatikoihin talletettavien esineiden on toteutettava seuraava rajapinta: -->
+Moving houses requires packing all your belongings into boxes. Let's imitate that with a program. The program will have boxes, and items to pack into those boxes. All items must implement the following API:
 
 
 ```java
-public interface Talletettava {
-    double paino();
+public interface Packable {
+    double weight();
 }
 ```
 
 
-Lisää rajapinta ohjelmaasi. Rajapinta lisätään melkein samalla tavalla kuin luokka, <i>new Java class</i> sijaan valitaan <i>new Java interface</i>.
+<!-- Lisää rajapinta ohjelmaasi. Rajapinta lisätään melkein samalla tavalla kuin luokka, <i>new Java class</i> sijaan valitaan <i>new Java interface</i>. -->
+Add the API to your program. Adding a new API is quite similar to adding a new class. Instead of selecting <i>new Java class</i> just select <i>new Java interface</i>.
+
+<!-- Tee rajapinnan toteuttavat luokat `Book` ja `CD`. Book saa konstruktorin parametreina bookn kirjoittajan (String), bookn nimen (String), ja bookn painon (double). CD-Levyn konstruktorin parametreina annetaan artisti (String), levyn nimi (String), ja julkaisuvuosi (int). Kaikkien CD-levyjen weight on 0.1 kg. -->
+Create classes `Book` and `CD`, which implement the API. Book has a constructor which  is given the author (String), name of the book (String), and the weight of the book (double) as parameters. CD has a constructor which is given the artist (String), name of the CD (String), and the publication year (int). The weight of all CDs is 0.1 kg.
 
 
-Tee rajapinnan toteuttavat luokat `Kirja` ja `CDLevy`. Kirja saa konstruktorin parametreina kirjan kirjoittajan (String), kirjan nimen (String), ja kirjan painon (double). CD-Levyn konstruktorin parametreina annetaan artisti (String), levyn nimi (String), ja julkaisuvuosi (int). Kaikkien CD-levyjen paino on 0.1 kg.
-
-
-Muista toteuttaa luokilla myös rajapinta `Talletettava`. Luokkien tulee toimia seuraavasti:
+<!-- Muista toteuttaa luokilla myös rajapinta `Packable`. Luokkien tulee toimia seuraavasti: -->
+Remember to implement the API `Packable` in both of the classes. The classes must work as follows:
 
 
 ```java
 public static void main(String[] args) {
-    Kirja kirja1 = new Kirja("Fedor Dostojevski", "Rikos ja Rangaistus", 2);
-    Kirja kirja2 = new Kirja("Robert Martin", "Clean Code", 1);
-    Kirja kirja3 = new Kirja("Kent Beck", "Test Driven Development", 0.5);
+    Book book1 = new Book("Fedor Dostojevski", "Crime and Punishment", 2);
+    Book book2 = new Book("Robert Martin", "Clean Code", 1);
+    Book book3 = new Book("Kent Beck", "Test Driven Development", 0.5);
 
-    CDLevy cd1 = new CDLevy("Pink Floyd", "Dark Side of the Moon", 1973);
-    CDLevy cd2 = new CDLevy("Wigwam", "Nuclear Nightclub", 1975);
-    CDLevy cd3 = new CDLevy("Rendezvous Park", "Closer to Being Here", 2012);
+    CD cd1 = new CD("Pink Floyd", "Dark Side of the Moon", 1973);
+    CD cd2 = new CD("Wigwam", "Nuclear Nightclub", 1975);
+    CD cd3 = new CD("Rendezvous Park", "Closer to Being Here", 2012);
 
-    System.out.println(kirja1);
-    System.out.println(kirja2);
-    System.out.println(kirja3);
+    System.out.println(book1);
+    System.out.println(book2);
+    System.out.println(book3);
     System.out.println(cd1);
     System.out.println(cd2);
     System.out.println(cd3);
@@ -441,12 +444,13 @@ public static void main(String[] args) {
 ```
 
 
-Tulostus:
+<!-- Tulostus: -->
+Prints:
 
 
 <sample-output>
 
-Fedor Dostojevski: Rikos ja Rangaistus
+Fedor Dostojevski: Crime and Punishment
 Robert Martin: Clean Code
 Kent Beck: Test Driven Development
 Pink Floyd: Dark Side of the Moon (1973)
@@ -456,82 +460,89 @@ Rendezvous Park: Closer to Being Here (2012)
 </sample-output>
 
 
-Huom! Painoa ei ilmoiteta tulostuksessa.
+<!-- Huom! Painoa ei ilmoiteta tulostuksessa. -->
+NB: The weight is not printed
+
+<h2>Box</h2>
 
 
-<h2>Laatikko</h2>
+<!-- Tee luokka box, jonka sisälle voidaan tallettaa `able`-rajapinnan toteuttavia tavaroita. Box saa konstruktorissaan parametrina laatikon maksimikapasiteetin kiloina. Boxon ei saa lisätä enempää tavaraa kuin sen maksimikapasiteetti määrää. Laatikon sisältämien tavaroiden weight ei siis koskaan saa olla yli laatikon maksimikapasiteetin. -->
+Make a class called Box. Items implementing the `Packable` interface can be packed into a box. The Box constructor takes the maximum capacity of the box in kilograms as a parameter. The combined weight of all items in a box cannot be more than the maximum capacity of the box.
 
 
-Tee luokka laatikko, jonka sisälle voidaan tallettaa `Talletettava`-rajapinnan toteuttavia tavaroita. Laatikko saa konstruktorissaan parametrina laatikon maksimikapasiteetin kiloina. Laatikkoon ei saa lisätä enempää tavaraa kuin sen maksimikapasiteetti määrää. Laatikon sisältämien tavaroiden paino ei siis koskaan saa olla yli laatikon maksimikapasiteetin.
-
-
-Seuraavassa esimerkki laatikon käytöstä:
+<!-- Seuraavassa esimerkki laatikon käytöstä: -->
+Below is an example of using a box:
 
 
 ```java
 public static void main(String[] args) {
-    Laatikko laatikko = new Laatikko(10);
+    Box box = new Box(10);
 
-    laatikko.lisaa(new Kirja("Fedor Dostojevski", "Rikos ja Rangaistus", 2)) ;
-    laatikko.lisaa(new Kirja("Robert Martin", "Clean Code", 1));
-    laatikko.lisaa(new Kirja("Kent Beck", "Test Driven Development", 0.7));
+    box.add(new Book("Fedor Dostojevski", "Crime and Punishment", 2)) ;
+    box.add(new Book("Robert Martin", "Clean Code", 1));
+    box.add(new Book("Kent Beck", "Test Driven Development", 0.7));
 
-    laatikko.lisaa(new CDLevy("Pink Floyd", "Dark Side of the Moon", 1973));
-    laatikko.lisaa(new CDLevy("Wigwam", "Nuclear Nightclub", 1975));
-    laatikko.lisaa(new CDLevy("Rendezvous Park", "Closer to Being Here", 2012));
+    box.add(new CD("Pink Floyd", "Dark Side of the Moon", 1973));
+    box.add(new CD("Wigwam", "Nuclear Nightclub", 1975));
+    box.add(new CD("Rendezvous Park", "Closer to Being Here", 2012));
 
-    System.out.println(laatikko);
+    System.out.println(box);
 }
 ```
 
 
-Tulostuu
+<!-- Tulostuu -->
+Prints
 
 
 <sample-output>
 
-Laatikko: 6 esinettä, paino yhteensä 4.0 kiloa
+<!-- Box: 6 esinettä, weight yhteensä 4.0 kiloa -->
+Box: 6 items, total weight 4.0 kg.
 
 </sample-output>
 
 
-Huom: koska painot esitetään doubleina, saattaa laskutoimituksissa tulla pieniä pyöristysvirheitä. Tehtävässä ei tarvitse välittää niistä.
+<!-- Huom: koska painot esitetään doubleina, saattaa laskutoimituksissa tulla pieniä pyöristysvirheitä. Tehtävässä ei tarvitse välittää niistä. -->
+NB: As the weights are saved as a double, the calculations might have some small rounding errors. You do not have to mind about them.
 
+<h2>Box weight</h2>
 
-<h2>Laatikon paino</h2>
-
-Jos teit laatikon sisälle oliomuuttujan `double paino`, joka muistaa laatikossa olevien esineiden painon, korvaa se metodilla, joka laskee painon:
-
+<!-- Jos teit laatikon sisälle oliomuuttujan `double weight`, joka muistaa laatikossa olevien esineiden painon, korvaa se metodilla, joka laskee painon: -->
+If you made an class variable `double weight` in the Box class, replace it with a method which calculates the weight of the box:
 
 ```java
-public class Laatikko {
+public class Box {
     //...
 
-    public double paino() {
-        double paino = 0;
-        // laske laatikkoon talletettujen tavaroiden yhteispaino
-        return paino;
+    public double weight() {
+        double weight = 0;
+        // calculate the total weight of the items in the box
+        return weight;
     }
 }
 ```
 
 
-Kun tarvitset laatikon sisällä painoa esim. uuden tavaran lisäyksen yhteydessä, riittää siis kutsua laatikon painon laskevaa metodia.
+<!-- Kun tarvitset laatikon sisällä painoa esim. uuden tavaran lisäyksen yhteydessä, riittää siis kutsua laatikon painon laskevaa metodia. -->
+When you need the weight of the box, for example when adding a new item to the box, you can just call the weight method.
+
+<!-- Metodi voisi palauttaa myös oliomuuttujan arvon. Harjoittelemme tässä kuitenkin tilannetta, jossa oliomuuttujaa ei tarvitse eksplisiittisesti ylläpitää vaan se voidaan tarpeentullen laskea. Seuraavan tehtävän jälkeen laatikossa olevaan oliomuuttujaan talletettu painotieto ei kuitenkaan välttämättä enää toimisi. Pohdi tehtävän tekemisen jälkeen miksi näin on. -->
+The method could also return the value of an object variable. However here we are practicing a situation, where we do not have to maintain an object variable explicitly, but can calculate its value as needed. After the next exercise storing the weight as an object variable would not necessary work anyway. After completing the exercise have a moment to think why that is.
+
+<h2>A Box is packable too!</h2>
 
 
-Metodi voisi palauttaa myös oliomuuttujan arvon. Harjoittelemme tässä kuitenkin tilannetta, jossa oliomuuttujaa ei tarvitse eksplisiittisesti ylläpitää vaan se voidaan tarpeentullen laskea. Seuraavan tehtävän jälkeen laatikossa olevaan oliomuuttujaan talletettu painotieto ei kuitenkaan välttämättä enää toimisi. Pohdi tehtävän tekemisen jälkeen miksi näin on.
+<!-- Rajapinnan `able` toteuttaminen siis edellyttää että luokalla on metodi `double weight()`. Laatikollehan lisättiin juuri tämä metodi. Laatikosta voidaan siis tehdä talletettava! -->
+Implementing the `Packable` API requires a class to have the method `double weight()`. We just added this method to the Box class. This means we can make the Box packable as well!
 
 
-<h2>Laatikkokin on talletettava!</h2>
+<!-- Laatikot ovat olioita joihin voidaan laittaa `able`-rajapinnan toteuttavia olioita. Laatikot toteuttavat itsekin rajapinnan. Eli **laatikon sisällä voi olla myös laatikoita!** -->
+Boxes are objects, which can contain objects implementing the `packable` API. Boxes implement this API as well. So **a box can contain other boxes!**
 
 
-Rajapinnan `Talletettava` toteuttaminen siis edellyttää että luokalla on metodi `double paino()`. Laatikollehan lisättiin juuri tämä metodi. Laatikosta voidaan siis tehdä talletettava!
-
-
-Laatikot ovat olioita joihin voidaan laittaa `Talletettava`-rajapinnan toteuttavia olioita. Laatikot toteuttavat itsekin rajapinnan. Eli **laatikon sisällä voi olla myös laatikoita!**
-
-
-Kokeile että näin varmasti on, eli tee ohjelmassasi muutama laatikko, laita laatikoihin tavaroita ja laita pienempiä laatikoita isompien laatikoiden sisään. Kokeile myös mitä tapahtuu kun laitat laatikon itsensä sisälle. Miksi näin käy?
+<!-- Kokeile että näin varmasti on, eli tee ohjelmassasi muutama box, laita laatikoihin tavaroita ja laita pienempiä laatikoita isompien laatikoiden sisään. Kokeile myös mitä tapahtuu kun laitat laatikon itsensä sisälle. Miksi näin käy? -->
+Try this out. Make some boxes containing some items, and add some smaller boxes to a bigger box. Try what happens, when you put a box in itself. Why does this happen?
 
 
 </programming-exercise>
@@ -541,7 +552,7 @@ Kokeile että näin varmasti on, eli tee ohjelmassasi muutama laatikko, laita la
 ## Rajapinta metodin paluuarvona
 
 
-Kuten mitä tahansa muuttujan tyyppiä, myös rajapintaa voi käyttää metodin paluuarvona. Seuraavassa `Tehdas`, jota voi pyytää valmistamaan erilaisia `Talletettava`-rajapinnan toteuttavia oliota. Tehdas valmistaa aluksi satunnaisesti kirjoja ja levyjä.
+Kuten mitä tahansa muuttujan tyyppiä, myös rajapintaa voi käyttää metodin paluuarvona. Seuraavassa `Tehdas`, jota voi pyytää valmistamaan erilaisia `able`-rajapinnan toteuttavia oliota. Tehdas valmistaa aluksi satunnaisesti kirjoja ja levyjä.
 
 
 ```java
@@ -556,27 +567,27 @@ public class Tehdas {
         // eli parametrittoman tyhjän konstruktorin
     }
 
-    public Talletettava valmistaUusi() {
+    public able valmistaUusi() {
         // Tässä käytettyä Random-oliota voi käyttää satunnaisten lukujen arpomiseen
         Random arpa = new Random();
         // arpoo luvun väliltä [0, 4[. Luvuksi tulee 0, 1, 2 tai 3.
         int luku = arpa.nextInt(4);
 
         if (luku == 0) {
-            return new CDLevy("Pink Floyd", "Dark Side of the Moon", 1973);
+            return new CD("Pink Floyd", "Dark Side of the Moon", 1973);
         } else if (luku == 1) {
-            return new CDLevy("Wigwam", "Nuclear Nightclub", 1975);
+            return new CD("Wigwam", "Nuclear Nightclub", 1975);
         } else if (luku == 2) {
-            return new Kirja("Robert Martin", "Clean Code", 1);
+            return new Book("Robert Martin", "Clean Code", 1);
         } else {
-            return new Kirja("Kent Beck", "Test Driven Development", 0.7);
+            return new Book("Kent Beck", "Test Driven Development", 0.7);
         }
     }
 }
 ```
 
 
-Tehdasta on mahdollista käyttää tuntematta tarkalleen mitä erityyppisiä Talletettava-rajapinnan luokkia on olemassa. Seuraavassa luokka Pakkaaja, jolta voi pyytää laatikollisen esineitä. Pakkaaja tuntee tehtaan, jota se pyytää luomaan esineet:
+Tehdasta on mahdollista käyttää tuntematta tarkalleen mitä erityyppisiä able-rajapinnan luokkia on olemassa. Seuraavassa luokka Pakkaaja, jolta voi pyytää laatikollisen esineitä. Pakkaaja tuntee tehtaan, jota se pyytää luomaan esineet:
 
 
 ```java
@@ -587,30 +598,30 @@ public class Pakkaaja {
         this.tehdas = new Tehdas();
     }
 
-    public Laatikko annaLaatikollinen() {
-         Laatikko laatikko = new Laatikko(100);
+    public Box annaLaatikollinen() {
+         Box box = new Box(100);
 
          int i = 0;
          while (i < 10) {
-             Talletettava uusiTavara = tehdas.valmistaUusi();
-             laatikko.lisaa(uusiTavara);
+             able uusiTavara = tehdas.valmistaUusi();
+             box.add(uusiTavara);
 
              i = i + 1;
          }
 
-         return laatikko;
+         return box;
     }
 }
 ```
 
-Koska pakkaaja ei tunne rajapinnan `Talletettava` toteuttavia luokkia, on ohjelmaan mahdollisuus lisätä uusia luokkia jotka toteuttavat rajapinnan ilman tarvetta muuttaa pakkaajaa. Seuraavassa on luotu uusi Talletettava-rajapinnan toteuttava luokka, `Suklaalevy`. Tehdasta on muutettu siten, että se luo kirjojen ja cd-levyjen lisäksi suklaalevyjä. Luokka `Pakkaaja` toimii muuttamatta tehtaan laajennetun version kanssa.
+Koska pakkaaja ei tunne rajapinnan `able` toteuttavia luokkia, on ohjelmaan mahdollisuus lisätä uusia luokkia jotka toteuttavat rajapinnan ilman tarvetta muuttaa pakkaajaa. Seuraavassa on luotu uusi able-rajapinnan toteuttava luokka, `Suklaalevy`. Tehdasta on muutettu siten, että se luo kirjojen ja cd-levyjen lisäksi suklaalevyjä. Luokka `Pakkaaja` toimii muuttamatta tehtaan laajennetun version kanssa.
 
 
 ```java
-public class Suklaalevy implements Talletettava {
+public class Suklaalevy implements able {
     // koska Javan generoima oletuskonstruktori riittää, emme tarvitse konstruktoria!
 
-    public double paino() {
+    public double weight() {
         return 0.2;
     }
 }
@@ -622,19 +633,19 @@ import java.util.Random;
 public class Tehdas {
     // koska Javan generoima oletuskonstruktori riittää, emme tarvitse konstruktoria!
 
-    public Talletettava valmistaUusi() {
+    public able valmistaUusi() {
 
         Random arpa = new Random();
         int luku = arpa.nextInt(5);
 
         if (luku == 0) {
-            return new CDLevy("Pink Floyd", "Dark Side of the Moon", 1973);
+            return new CD("Pink Floyd", "Dark Side of the Moon", 1973);
         } else if (luku == 1) {
-            return new CDLevy("Wigwam", "Nuclear Nightclub", 1975);
+            return new CD("Wigwam", "Nuclear Nightclub", 1975);
         } else if (luku == 2) {
-            return new Kirja("Robert Martin", "Clean Code", 1 );
+            return new Book("Robert Martin", "Clean Code", 1 );
         } else if (luku == 3) {
-            return new Kirja("Kent Beck", "Test Driven Development", 0.7);
+            return new Book("Kent Beck", "Test Driven Development", 0.7);
         } else {
             return new Suklaalevy();
         }
@@ -647,7 +658,7 @@ public class Tehdas {
 
 <text-box variant='hint' name='Luokkien välisten riippuvuuksien vähentäminen'>
 
-Rajapintojen käyttö ohjelmoinnissa mahdollistaa luokkien välisten riippuvaisuuksien vähentämisen. Esimerkissämme Pakkaaja ei ole riippuvainen rajapinnan Talletettava-toteuttavista luokista vaan ainoastaan rajapinnasta. Tämä mahdollistaa rajapinnan toteuttavien luokkien lisäämisen ohjelmaan ilman tarvetta muuttaa luokkaa Pakkaaja. Myöskään pakkaaja-luokkaa käyttäviin luokkiin uusien Talletettava-rajapinnan toteuttavien luokkien lisääminen ei vaikuta.
+Rajapintojen käyttö ohjelmoinnissa mahdollistaa luokkien välisten riippuvaisuuksien vähentämisen. Esimerkissämme Pakkaaja ei ole riippuvainen rajapinnan able-toteuttavista luokista vaan ainoastaan rajapinnasta. Tämä mahdollistaa rajapinnan toteuttavien luokkien lisäämisen ohjelmaan ilman tarvetta muuttaa luokkaa Pakkaaja. Myöskään pakkaaja-luokkaa käyttäviin luokkiin uusien able-rajapinnan toteuttavien luokkien lisääminen ei vaikuta.
 
 Vähäisemmät riippuvuudet helpottavat ohjelman laajennettavuutta.
 
@@ -898,7 +909,7 @@ Teemme tehtävässä muutamia verkkokaupan hallinnointiin soveltuvia ohjelmakomp
 
 Tee luokka Varasto jolla on seuraavat metodit:
 
-- `public void lisaaTuote(String tuote, int hinta, int saldo)` lisää varastoon tuotteen jonka hinta ja varastosaldo ovat parametrina annetut luvut
+- `public void addTuote(String tuote, int hinta, int saldo)` lisää varastoon tuotteen jonka hinta ja varastosaldo ovat parametrina annetut luvut
 - `public int hinta(String tuote)` palauttaa parametrina olevan tuotteen hinnan, jos tuotetta ei ole varastossa, palauttaa metodi arvon `-99`.
 
 
@@ -910,8 +921,8 @@ Seuraavassa esimerkki varaston käytöstä:
 
 ```java
 Varasto varasto = new Varasto();
-varasto.lisaaTuote("maito", 3, 10);
-varasto.lisaaTuote("kahvi", 5, 7);
+varasto.addTuote("maito", 3, 10);
+varasto.addTuote("kahvi", 5, 7);
 
 System.out.println("hinnat:");
 System.out.println("maito: " + varasto.hinta("maito"));
@@ -947,7 +958,7 @@ Esimerkki varaston käytöstä:
 
 ```java
 Varasto varasto = new Varasto();
-varasto.lisaaTuote("kahvi", 5, 1);
+varasto.addTuote("kahvi", 5, 1);
 
 System.out.println("saldot:");
 System.out.println("kahvi:  " + varasto.saldo("kahvi"));
@@ -998,10 +1009,10 @@ Esimerkki varaston käytöstä:
 
 ```java
 Varasto varasto = new Varasto();
-varasto.lisaaTuote("maito", 3, 10);
-varasto.lisaaTuote("kahvi", 5, 6);
-varasto.lisaaTuote("piima", 2, 20);
-varasto.lisaaTuote("jugurtti", 2, 20);
+varasto.addTuote("maito", 3, 10);
+varasto.addTuote("kahvi", 5, 6);
+varasto.addTuote("piima", 2, 20);
+varasto.addTuote("jugurtti", 2, 20);
 
 System.out.println("tuotteet:");
 
@@ -1074,7 +1085,7 @@ Huom: jos talletat Ostos-oliot Map-tyyppiseen apumuuttujaan, on tässä ja seura
 Tehdään aluksi ostoskorille parametriton konstruktori ja metodit:
 
 
-- `public void lisaa(String tuote, int hinta)` lisää ostoskoriin ostoksen joka vastaa parametrina olevaa tuotetta ja jolla on parametrina annettu hinta.
+- `public void add(String tuote, int hinta)` lisää ostoskoriin ostoksen joka vastaa parametrina olevaa tuotetta ja jolla on parametrina annettu hinta.
 - `public int hinta()` palauttaa ostoskorin kokonaishinnan
 
 
@@ -1083,11 +1094,11 @@ Esimerkki ostoskorin käytöstä:
 
 ```java
 Ostoskori kori = new Ostoskori();
-kori.lisaa("maito", 3);
-kori.lisaa("piima", 2);
-kori.lisaa("juusto", 5);
+kori.add("maito", 3);
+kori.add("piima", 2);
+kori.add("juusto", 5);
 System.out.println("korin hinta: " + kori.hinta());
-kori.lisaa("tietokone", 899);
+kori.add("tietokone", 899);
 System.out.println("korin hinta: " + kori.hinta());
 ```
 
@@ -1129,19 +1140,19 @@ Esimerkki:
 
 ```java
 Ostoskori kori = new Ostoskori();
-kori.lisaa("maito", 3);
+kori.add("maito", 3);
 kori.tulosta();
 System.out.println("korin hinta: " + kori.hinta() + "\n");
 
-kori.lisaa("piima", 2);
+kori.add("piima", 2);
 kori.tulosta();
 System.out.println("korin hinta: " + kori.hinta() + "\n");
 
-kori.lisaa("maito", 3);
+kori.add("maito", 3);
 kori.tulosta();
 System.out.println("korin hinta: " + kori.hinta() + "\n");
 
-kori.lisaa("maito", 3);
+kori.add("maito", 3);
 kori.tulosta();
 System.out.println("korin hinta: " + kori.hinta() + "\n");
 ```
@@ -1225,10 +1236,10 @@ Seuraavassa pääohjelma joka täyttää kaupan varaston ja laittaa Pekan asioim
 
 ```java
 Varasto varasto = new Varasto();
-varasto.lisaaTuote("kahvi", 5, 10);
-varasto.lisaaTuote("maito", 3, 20);
-varasto.lisaaTuote("piima", 2, 55);
-varasto.lisaaTuote("leipa", 7, 8);
+varasto.addTuote("kahvi", 5, 10);
+varasto.addTuote("maito", 3, 20);
+varasto.addTuote("piima", 2, 55);
+varasto.addTuote("leipa", 7, 8);
 
 Kauppa kauppa = new Kauppa(varasto, new Scanner(System.in));
 kauppa.asioi("Pekka");
