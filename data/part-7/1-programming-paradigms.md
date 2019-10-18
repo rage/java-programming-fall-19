@@ -1,7 +1,7 @@
 ---
-path: '/osa-7/1-ohjelmointiparadigmoja'
-title: 'Ohjelmointiparadigmoja'
-hidden: true
+path: '/part-7/1-programming-paradigms'
+title: 'Programming paradigms'
+hidden: false
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
@@ -50,7 +50,7 @@ One of the major benefits of object-oriented programming is how problem-domain c
 
 
 <!-- ## Proseduraalinen ohjelmointi -->
-## Proseduraalinen ohjelmointi
+## Procedural programming
 
 <!-- Siinä missä olio-ohjelmoinnissa ohjelman rakenne muodostuu käsiteltävän tiedon kautta, proseduraalisessa ohjelmoinnissa ohjelman rakenne muodostuu ohjelmalta toivotun toiminnan kautta: ohjelma on askeleittainen ohje suoritettavalle toiminnalle. Ohjelmaa suoritetaa askel kerrallaan, tarvittaessa aliohjelmia (metodeja) kutsuen.
 
@@ -164,10 +164,10 @@ while (true) {
 ```
 
 ```java
-public static void tulosta(int hours, int minutes, int seconds) {
-    tulosta(hours);
-    tulosta(minutes);
-    tulosta(seconds);
+public static void print(int hours, int minutes, int seconds) {
+    print(hours);
+    print(minutes);
+    print(seconds);
 }
 
 public static void print(int value) {
@@ -299,10 +299,10 @@ public class Clock() {
     public void advance() {
         this.seconds.advance();
 
-        if (this.seconds.arvo() == 0) {
+        if (this.seconds.value() == 0) {
             this.minutes.advance();
 
-            if (this.minutes.arvo() == 0) {
+            if (this.minutes.value() == 0) {
                 this.hours.advance();
             }
         }
@@ -319,45 +319,46 @@ Clock clock = new Clock();
 
 while (true) {
     System.out.println(clock);
-    clock.etene();
+    clock.advance();
 }
 ```
 
-<programming-exercise name='Nestesäiliöt (3 osaa)' tmcname='osa07-Osa07_01.Nestesailiot'>
-
-Toteutetaan interaktiivinen ohjelma kahden nestesäiliön käsittelyyn. Säiliöt ovat nimeltään "ensimmäinen" ja "toinen". Kumpikin voi sisältää korkeintaan sata yksikköä nestettä.
-
-Ohjelma tarjoaa toiminnallisuuden nesteen lisäämiseen, nesteen siirtämiseen, ja nesteen poistamiseen. Nesteen lisääminen lisää nestettä ensimmäiseen säiliöön, nesteen siirtäminen siirtää nestettä ensimmäisestä säiliöstä toiseen ja nesteen poistaminen poistaa nestettä toisesta säiliöstä.
-
-Ohjelman komentojen tulee olla seuraavat:
-
-- `add maara` lisää ensimmäiseen säiliöön parametrina annetun määrän nestettä. Annettu määrä kuvataan kokonaislukuna. Säiliössä ei voi olla yli sataa yksikköä nestettä ja liialliset lisäykset menevät hukkaan.
-
-- `move maara` siirtää ensimmäisestä säiliöstä toiseen parametrina annetun määrän nestettä. Annettu määrä kuvataan kokonaislukuna. Säiliössä ei voi olla yli sataa yksikköä nestettä. Mikäli ohjelmassa yritetään siirtää enemmän kuin ensimmäisessä säiliössä on, siirretään ensimmäisen säiliön koko sisältö. Mikäli ohjelmassa yritetään siirtää enemmän kuin toiseen säiliöön mahtuu, valuu toiseen säiliöön mahtumaton osa hukkaan.
-
-- `remove maara` poistaa toisesta säiliöstä parametrina annetun määrän nestettä. Mikäli ohjelmaa pyydetään poistamaan enemmän kuin mitä säiliössä on, poistetaan säiliöstä vain säiliön sisältö.
+<programming-exercise name='Liquid containers (3 parts)' tmcname='part07-Part07_01.LiquidContainers'>
 
 
-Jokaisen komennon suorituksen jälkeen tulostetaan säiliöden sisältö. Negatiivisia määriä ei tule ottaa huomioon.
+Let's create an interactive program to control two liquid containers. The containers are named "first" and "second". Each are capable of containing 100 liters of liquid at a time.
 
-Toteuta ohjelma proseduraalista ohjelmointityyliä noudattaen ilman omia luokkia. Kaikki toiminnallisuus tulee lisätä luokassa `Nestesailiot` olevaan metodiin `main` (älä siis tee omia metodeja). Tehtäväpohjassa on valmiina toistolause, mistä poistutaan kun käyttäjä kirjoittaa "quit".
+The program offers the functionality to add, move and remove liquid. Using the "add" command will add liquid to the first container, "move" will move liquid from the first container to the second container and "remove" will remove liquid from the second container.
 
-Alla on muistutuksena merkkijonon pilkkominen osiin.
+The commands must be defined as following:
+
+- `add amount` adds the amount of liquid specified by the parameter to the first container. The inserted amount must be specified as an integer. The container can't hold more than a hundred liters and everything added past that will go to waste.
+
+- `move amount` moves the amount of liquid specified by the parameter from the first container to the second container. The given amount must be specified as an integer. If the program is requested to move more liquid than than the first container currently holds, move all the remaining liquid. The second container can't hold more than one hundred liters of liquid and everything past that will go to waste.
+
+
+- `remove amount` removes the amount of liquid specified by the parameter from the second container. If the program is requested to remove more liquid than the container currently holds, remove all the remaining liquid.
+
+
+After every command the program will print the contents of both containers. You don't have to take negative values into consideration.
+
+All the functionality must be added to the method `main` in the class `LiquidContainers` (do not create new methods). The template already contains a loop which exits the program with the command "quit".
+
+A reminder of how to split a string below.
 
 
 ```java
-String luettu = lukija.nextLine();
-String[] osat = luettu.split(" ");
+String input = scan.nextLine();
+String[] parts = input.split(" ");
 
-String komento = osat[0];
-int maara = Integer.valueOf(osat[1]);
+String command = parts[0];
+int amount = Integer.valueOf(parts[1]);
 ```
 
 
-<h2>Lisääminen</h2>
+<h2>Adding</h2>
 
-Toteuta toiminnallisuus nesteen lisäämiseen ensimmäiseen säiliöön. Ohjelman toiminnan tulee olla seuraavanlainen:
-
+Implement the functionality to add liquid to the first container. The user interface should work as follows:
 
 <sample-output>
 
@@ -388,10 +389,9 @@ Second: 0/100
 </sample-output>
 
 
-<h2>Siirtäminen</h2>
+<h2>Moving</h2>
 
-Toteuta toiminnallisuus nesteen siirtämiseen ensimmäisestä säiliöstä toiseen.  Ohjelman toiminnan tulee olla seuraavanlainen:
-
+Implement the functionality to move liquid from the first container to the second. The user interface should work as follows:
 
 <sample-output>
 
@@ -418,7 +418,7 @@ Second: 100/100
 </sample-output>
 
 
-Second esimerkki:
+Second example:
 
 
 <sample-output>
@@ -450,9 +450,9 @@ Second: 10/100
 </sample-output>
 
 
-<h2>Poistaminen</h2>
+<h2>Removing</h2>
 
-Toteuta toiminnallisuus nesteen poistamiseen toisesta säiliöstä. Ohjelman toiminnan tulee olla seuraavanlainen:
+Implement the functionality to remove liquid from the second container. The user interface should work as follows:
 
 <sample-output>
 
@@ -493,6 +493,7 @@ Second: 0/100
 <programming-exercise name='Liquid Containers 2.0 (2 parts)' tmcname='part07-Part07_02.LiquidContainers2'>
 
 <!-- Toteutetaan edellä kuvattu interaktiivinen ohjelma kahden nestesäiliön käsittelyyn uudestaan. Tällä kertaa luodaan ohjelman toteutusta varten luokka "Sailio", jonka vastuulla on säiliön sisällön ylläpito. -->
+
 Let's redo the previous program for handling two liquid containers. This time we'll create a class "Container", which is responsible for managing the contents of a container.
 
 
@@ -587,4 +588,4 @@ Second: 0/100
 </programming-exercise>
 
 
-<quiz id="2179fdc5-dab5-5b73-9476-9aaf84da67dd"></quiznator>
+<quiz id="2179fdc5-dab5-5b73-9476-9aaf84da67dd"></quiz>

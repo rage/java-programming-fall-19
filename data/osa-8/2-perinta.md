@@ -163,19 +163,28 @@ volkswagen
 Kuten huomaat, luokalla `Moottori` on käytössä luokassa `Osa` määritellyt metodit.
 
 
-<programming-exercise name='ABC (2 osaa)' tmcname='osa08-Osa08_01.ABC'>
+<programming-exercise name='ABC (2 parts)' tmcname='part08-Part08_01.ABC'>
 
-Harjoitellaan tässä luokkien luomista ja perintää.
+<!--Harjoitellaan tässä luokkien luomista ja perintää.-->
+Let's practice creating and inheriting classes.
 
+<!--<h2>Luokkien luominen</h2>-->
+<h2>Creating classes</h2>
 
-<h2>Luokkien luominen</h2>
-
-Luo tehtäväpohjaan seuraavat kolme luokkaa:
+<!--Luo tehtäväpohjaan seuraavat kolme luokkaa:
 
 
 - Luokka `A`. Luokalla ei ole oliomuuttujia eikä erikseen määriteltyä konstruktoria. Luokalla on vain metodi `public void a()`, joka tulostaa merkkijonon "A".
 - Luokka `B`. Luokalla ei ole oliomuuttujia eikä erikseen määriteltyä konstruktoria. Luokalla on vain metodi `public void b()`, joka tulostaa merkkijonon "B".
 - Luokka `C`. Luokalla ei ole oliomuuttujia eikä erikseen määriteltyä konstruktoria. Luokalla on vain metodi `public void c()`, joka tulostaa merkkijonon "C".
+-->
+
+Create the following three classes:
+
+- Class `A`. Class should have no object variables nor should you specify a constructor for it. It only has the method `public void a()`, which prints a string "A".
+- Class `B`. Class should have no object variables nor should you specify a constructor for it. It only has the method `public void b()`, which prints a string "B".
+- Class `C`. Class should have no object variables nor should you specify a constructor for it. It only has the method `public void c()`, which prints a string "C".
+
 
 ```java
 A a = new A();
@@ -197,9 +206,11 @@ C
 
 
 
-<h2>Luokkien periminen</h2>
+<!--<h2>Luokkien periminen</h2>-->
+<h2>Class inheritance</h2>
 
-Muokkaa luokkia siten, että luokka B perii luokan A ja luokka C perii luokan B. Luokasta A tulee siis luokan B yliluokka, ja luokasta B luokan C yliluokka.
+<!--Muokkaa luokkia siten, että luokka B perii luokan A ja luokka C perii luokan B. Luokasta A tulee siis luokan B yliluokka, ja luokasta B luokan C yliluokka.-->
+Modify the classes so that class B inherits class A, and class C inherits class B. In other words, class A will be a superclass for class B, and class B will be a superclass for class C.
 
 
 ```java
@@ -303,38 +314,62 @@ public String toString() {
 ```
 
 
-<programming-exercise name='Henkilö ja perilliset (5 osaa)' tmcname='osa08-Osa08_02.HenkiloJaPerilliset' nocoins='true'>
+<programming-exercise name='Person and subclasses (5 parts)' tmcname='part08-Part08_02.PersonAndSubclasses' nocoins='true'>
 
 
-<h2>Henkilo</h2>
+<!--<h2>Henkilo</h2>-->
+<h2>Person</h2>
 
-Luo luokka `Henkilo`. Luokan tulee toimia seuraavan esimerkin mukaisesti.
+<!--Luo luokka `Henkilo`. Luokan tulee toimia seuraavan esimerkin mukaisesti.-->
+Create a class `Person`. The class must act as follows:
 
-
+<!--
 ```java
 Henkilo ada = new Henkilo("Ada Lovelace", "Korsontie 1 03100 Vantaa");
 Henkilo esko = new Henkilo("Esko Ukkonen", "Mannerheimintie 15 00100 Helsinki");
 System.out.println(ada);
 System.out.println(esko);
 ```
+-->
 
+```java
+Person ada = new Henkilo("Ada Lovelace", "24 Maddox St. London W1S 2QN");
+Person esko = new Henkilo("Esko Ukkonen", "Mannerheimintie 15 00100 Helsinki");
+System.out.println(ada);
+System.out.println(esko);
+```
+
+<!--
 <sample-output>
 Ada Lovelace
   Korsontie 1 03100 Vantaa
 Esko Ukkonen
   Mannerheimintie 15 00100 Helsinki
 </sample-output>
+-->
 
+<sample-output>
+Ada Lovelace
+  24 Maddox St. London W1S 2QN
+Esko Ukkonen
+  Mannerheimintie 15 00100 Helsinki
+</sample-output>
 
-<h2>Opiskelija</h2>
+<!--<h2>Opiskelija</h2>-->
+<h2>Student</h2>
 
-
+<!--
 Luo luokka `Opiskelija` joka perii luokan `Henkilo`.
 
 
 Opiskelijalla on aluksi 0 opintopistettä. Aina kun opiskelija opiskelee, opintopistemäärä kasvaa. Luokan tulee toimia seuraavan esimerkin mukaisesti.
+-->
+Create a class `Student`, which inherits the class `Person`.
 
 
+At creation, student has 0 study credits. Every time a student studies, amount of study credits goes up. Class must act as follows:
+
+<!--
 ```java
 Opiskelija olli = new Opiskelija("Olli", "Ida Albergintie 1 00400 Helsinki");
 System.out.println(olli);
@@ -342,27 +377,56 @@ System.out.println("opintopisteitä " + olli.opintopisteita());
 olli.opiskele();
 System.out.println("opintopisteitä "+ olli.opintopisteita());
 ```
+-->
 
+```java
+Student ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
+System.out.println(ollie);
+System.out.println("Study credits " + ollie.credits());
+olli.study();
+System.out.println("Study credits "+ ollie.credits());
+```
+
+<!--
 <sample-output>
 Olli
   Ida Albergintie 1 00400 Helsinki
 opintopisteitä 0
 opintopisteitä 1
 </sample-output>
+-->
+
+<sample-output>
+Ollie
+  6381 Hollywood Blvd. Los Angeles 90028
+Study credits 0
+Study credits 1
+</sample-output>
 
 
-<h2>Opiskelijalle toString</h2>
+<!--<h2>Opiskelijalle toString</h2>-->
+<h2>Student's toString</h2>
 
-Edellisessä tehtävässä `Opiskelija` perii toString-metodin luokalta `Henkilo`. Perityn metodin voi myös ylikirjoittaa, eli korvata omalla versiolla. Tee luokalle Opiskelija oma versio toString-metodista. Metodin tulee toimia seuraavan esimerkin mukaisesti.
+<!--Edellisessä tehtävässä `Opiskelija` perii toString-metodin luokalta `Henkilo`. Perityn metodin voi myös ylikirjoittaa, eli korvata omalla versiolla. Tee luokalle Opiskelija oma versio toString-metodista. Metodin tulee toimia seuraavan esimerkin mukaisesti.-->
+In the previous task, `Student`inherits the toString method from the class `Person`. However, you can also overwrite an inherited method, replacing it with your own version. Write a version of toString method specifically for the `Student` class. Method must act as follows:
 
-
+<!--
 ```java
 Opiskelija olli = new Opiskelija("Olli", "Ida Albergintie 1 00400 Helsinki");
 System.out.println(olli);
 olli.opiskele();
 System.out.println(olli);
 ```
+-->
 
+```java
+Student ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
+System.out.println(ollie);
+olli.study();
+System.out.println(ollie);
+```
+
+<!--
 <sample-output>
 Olli
   Ida Albergintie 1 00400 Helsinki
@@ -371,16 +435,31 @@ Olli
   Ida Albergintie 1 00400 Helsinki
   opintopisteitä 1
 </sample-output>
+-->
+
+<sample-output>
+Ollie
+  6381 Hollywood Blvd. Los Angeles 90028
+  Study credits 0
+Ollie
+  6381 Hollywood Blvd. Los Angeles 90028
+  Study credits 1
+</sample-output>
 
 
-<h2>Opettaja</h2>
+<!--<h2>Opettaja</h2>-->
+<h2>Teacher</h2>
+
+<!--Luo luokan Henkilo perivä luokka Opettaja. Opettajalla on palkka joka tulostuu opettajan merkkijonoesityksessä.
 
 
-Luo luokan Henkilo perivä luokka Opettaja. Opettajalla on palkka joka tulostuu opettajan merkkijonoesityksessä.
+Luokan tulee toimia seuraavan esimerkin mukaisesti.-->
 
+Create a class `Teacher`, which inherits the class `Person`.
 
-Luokan tulee toimia seuraavan esimerkin mukaisesti.
+The class must act as follows:
 
+<!--
 ```java
 Opettaja ada = new Opettaja("Ada Lovelace", "Korsontie 1 03100 Vantaa", 1200);
 Opettaja esko = new Opettaja("Esko Ukkonen", "Mannerheimintie 15 00100 Helsinki", 5400);
@@ -396,7 +475,25 @@ while (i < 25) {
 }
 System.out.println(olli);
 ```
+-->
 
+```java
+Teacher ada = new Teacher("Ada Lovelace", "24 Maddox St. London W1S 2QN", 1200);
+Teacher esko = new Teacher("Esko Ukkonen", "Mannerheimintie 15 00100 Helsinki", 5400);
+System.out.println(ada);
+System.out.println(esko);
+
+Student ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
+
+int i = 0;
+while (i < 25) {
+  ollie.study();
+  i = i + 1;
+}
+System.out.println(ollie);
+```
+
+<!--
 <sample-output>
 Ada Lovelace
   Korsontie 1 03100 Vantaa
@@ -408,14 +505,28 @@ Olli
   Ida Albergintie 1 00400 Helsinki
   opintopisteitä 25
 </sample-output>
+-->
+
+<sample-output>
+Ada Lovelace
+  24 Maddox St. London W1S 2QN
+  salary 1200 euro/month
+Esko Ukkonen
+  Mannerheimintie 15 00100 Helsinki
+  salary 5400 euro/month
+Ollie
+  6381 Hollywood Blvd. Los Angeles 90028
+  Study credits 25
+</sample-output>
+
+<!--<h2>Kaikki Henkilot listalle</h2>-->
+<h2>List all Persons</h2>
 
 
-<h2>Kaikki Henkilot listalle</h2>
+<!--Toteuta pääohjelmaluokkaan `Main` luokkametodi `public static void tulostaHenkilot(ArrayList<Henkilo> henkilot)`, joka tulostaa kaikki metodille parametrina annetussa listassa olevat henkilöt. Metodin tulee toimia seuraavasti `main`-metodista kutsuttaessa.-->
+Write a method `public static void printPersons(ArrayList<Person> persons)` in the Main class. The method prints all the persons on the list given as the parameter. Method must act as follows when invoked from the `main` method:
 
-
-Toteuta pääohjelmaluokkaan `Main` luokkametodi `public static void tulostaHenkilot(ArrayList<Henkilo> henkilot)`, joka tulostaa kaikki metodille parametrina annetussa listassa olevat henkilöt. Metodin tulee toimia seuraavasti `main`-metodista kutsuttaessa.
-
-
+<!--
 ```java
 public static void main(String[] args) {
     ArrayList<Henkilo> henkilot = new ArrayList<Henkilo>();
@@ -425,7 +536,19 @@ public static void main(String[] args) {
     tulostaHenkilot(henkilot);
 }
 ```
+-->
 
+```java
+public static void main(String[] args) {
+    ArrayList<Person> persons = new ArrayList<Person>();
+    persons.add(new Teacher("Ada Lovelace", "24 Maddox St. London W1S 2QN", 1200));
+    persons.add(new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028"));
+
+    printPersons(persons);
+}
+```
+
+<!--
 <sample-output>
 Ada Lovelace
   Korsontie 1 03100 Vantaa
@@ -434,6 +557,17 @@ Olli
   Ida Albergintie 1 00400 Helsinki
   opintopisteitä 0
 </sample-output>
+-->
+
+<sample-output>
+Ada Lovelace
+  24 Maddox St. London W1S 2QN
+  salary 1200 euro/month
+Ollie
+  6381 Hollywood Blvd. Los Angeles 90028
+  Study credits 0
+</sample-output>
+
 
 </programming-exercise>
 
@@ -819,155 +953,237 @@ Yllä oleva luokka `Tilaus` on nyt parempi. Metodi `postitusosoite` käyttää *
 Nyt asiakkaan muuttaessa tarvitsee muuttaa vain asiakkaan tietoja, tilauksiin ei tarvitse tehdä muutoksia.
 
 
-<programming-exercise name='Varastointia (7 osaa)' tmcname='osa08-Osa08_03.Varastointia'>
+<!-- <programming-exercise name='Varastointia (7 osaa)' tmcname='osa08-Osa08_03.Varastointia'> -->
+<programming-exercise name='Warehousing (7 parts)' tmcname='part08-Part08_03.Warehousing'>
 
 
-Tehtäväpohjassa tulee mukana luokka `Varasto`, jonka tarjoamat konstruktorit ja metodit ovat seuraavat:
+<!-- Tehtäväpohjassa tulee mukana luokka `Varasto`, jonka tarjoamat konstruktorit ja metodit ovat seuraavat: -->
+The exercise template contains a class `Warehouse`, which has the following constructors and methods:
 
 
 
-- **public Varasto(double tilavuus)** - Luo tyhjän varaston, jonka vetoisuus eli tilavuus annetaan parametrina; sopimaton tilavuus (<=0) luo käyttökelvottoman varaston, jonka tilavuus on 0.
+<!-- - **public Varasto(double tilavuus)** - Luo tyhjän varaston, jonka vetoisuus eli tilavuus annetaan parametrina; sopimaton tilavuus (<=0) luo käyttökelvottoman varaston, jonka tilavuus on 0. -->
+- **public Warehouse(double capacity)** - Creates an empty warehouse, which has the capacity provided as a parameter; an invalid capacity (<=0) creates a useless warehouse, with the the capacity 0.
 
-- **public double getSaldo()** - Palauttaa arvonaan varaston saldon, eli varastossa olevan tavaran tilavuuden.
+<!-- - **public double getSaldo()** - Palauttaa arvonaan varaston saldon, eli varastossa olevan tavaran tilavuuden. -->
+- **public double getBalance()** - Returns the balance of the warehouse, i.e. the capacity which is taken up by the items in the warehouse.
 
-- **public double getTilavuus()** - Palauttaa arvonaan varaston kokonaistilavuuden (eli sen, joka annettiin konstruktorille).
+<!-- - **public double getTilavuus()** - Palauttaa arvonaan varaston kokonaistilavuuden (eli sen, joka annettiin konstruktorille). -->
+- **public double getCapacity()** - Returns the total capacity of the warehouse (i.e. the one that was provided in the constructor).
 
-- **public double paljonkoMahtuu()** - Palauttaa arvonaan tiedon, paljonko varastoon vielä mahtuu.
+<!-- - **public double paljonkoMahtuu()** - Palauttaa arvonaan tiedon, paljonko varastoon vielä mahtuu. -->
+- **public double howMuchSpaceLeft()** - Returns a value telling how much space is left in the warehouse.
 
-- **public void lisaaVarastoon(double maara)** - Lisää varastoon pyydetyn määrän; jos määrä on negatiivinen, mikään ei muutu, jos kaikki pyydetty ei enää mahdu, varasto laitetaan täydeksi ja loput määrästä "heitetään menemään", "vuotaa yli".
+<!-- - **public void lisaaVarastoon(double maara)** - Lisää varastoon pyydetyn määrän; jos määrä on negatiivinen, mikään ei muutu, jos kaikki pyydetty ei enää mahdu, varasto laitetaan täydeksi ja loput määrästä "heitetään menemään", "vuotaa yli". -->
+- **public void addToWarehouse(double amount)** - Adds the desired amount to the warehouse; if the amount is negative, nothing changes, and if everything doesn't fit, then the warehouse is filled up and the rest is "thrown away" / "overflows".
 
-- **public double otaVarastosta(double maara)** - Otetaan varastosta pyydetty määrä, metodi palauttaa paljonko **saadaan**. Jos pyydetty määrä on negatiivinen, mikään ei muutu ja palautetaan nolla. Jos pyydetään enemmän kuin varastossa on, annetaan mitä voidaan ja varasto tyhjenee.
+<!-- - **public double otaVarastosta(double maara)** - Otetaan varastosta pyydetty määrä, metodi palauttaa paljonko **saadaan**. Jos pyydetty määrä on negatiivinen, mikään ei muutu ja palautetaan nolla. Jos pyydetään enemmän kuin varastossa on, annetaan mitä voidaan ja varasto tyhjenee. -->
+- **public double takeFromWarehouse(double amount)** - Take the desired amount from the warehouse. The method returns much we actually **get**. If the desired amount is negative, nothing changes and we return 0. If the desired amount is greater than the amount the warehouse contains, we get all there is to take and the warehouse is emptied.
 
-- **public String toString()** - Palauttaa olion tilan merkkijonoesityksenä tyyliin `saldo = 64.5, tilaa 123.5`
-
-
-Tehtävässä rakennetaan `Varasto`-luokasta useampia erilaisia varastoja.
-
-
-<h2>Tuotevarasto, vaihe 1</h2>
-
-Luokka `Varasto` hallitsee tuotteen määrään liittyvät toiminnot. Nyt tuotteelle halutaan lisäksi tuotenimi ja nimen käsittelyvälineet. **Ohjelmoidaan Tuotevarasto Varaston aliluokaksi!** Toteutetaan ensin pelkkä yksityinen oliomuuttuja tuotenimelle, konstruktori ja getteri nimikentälle:
-
-- **public Tuotevarasto(String tuotenimi, double tilavuus)** - Luo tyhjän tuotevaraston. Tuotteen nimi ja varaston tilavuus annetaan parametrina.
-
-- **public String getNimi()** - Palauttaa arvonaan tuotteen nimen.
+<!-- - **public String toString()** - Palauttaa olion tilan merkkijonoesityksenä tyyliin `saldo = 64.5, tilaa 123.5` -->
+- **public String toString()** - Returns the state of the object represented as a string like this `balance = 64.5, space left 123.5`
 
 
-*Muista millä tavoin konstruktori voi ensi toimenaan suorittaa yliluokan konstruktorin!*
+<!-- Tehtävässä rakennetaan `Varasto`-luokasta useampia erilaisia varastoja. -->
+In this exercise we build variations of a warehouse based on the `Warehouse` class.
 
 
-Käyttöesimerkki:
+<!-- <h2>Tuotevarasto, vaihe 1</h2> -->
+<h2>Product warehouse, step 1</h2>
+
+<!-- Luokka `Varasto` hallitsee tuotteen määrään liittyvät toiminnot. Nyt tuotteelle halutaan lisäksi tuotenimi ja nimen käsittelyvälineet. **Ohjelmoidaan Tuotevarasto Varaston aliluokaksi!** Toteutetaan ensin pelkkä yksityinen oliomuuttuja tuotenimelle, konstruktori ja getteri nimikentälle: -->
+
+The class `Warehouse` handles the functions related to the amount of a product. Now we want product name for the product and a way to handle the name. **Let's write ProductWarehouse as a subclass of Warehouse!** First, we'll just create a private object variable for the product name, a constructor, and a getter for the name field:
+
+<!-- - **public Tuotevarasto(String tuotenimi, double tilavuus)** - Luo tyhjän tuotevaraston. Tuotteen nimi ja varaston tilavuus annetaan parametrina. -->
+- **public ProductWarehouse(String productName, double capacity)** - Creates an empty product warehouse. The name of the product and the capacity of the warehouse are provided as parameters.
+
+<!-- - **public String getNimi()** - Palauttaa arvonaan tuotteen nimen. -->
+- **public String getName()** - Returns the name of the product.
 
 
-```java
+<!-- *Muista millä tavoin konstruktori voi ensi toimenaan suorittaa yliluokan konstruktorin!* -->
+*Remind yourself of how a constructor can run the constructor of the superclass as its first action!*
+
+
+<!-- Käyttöesimerkki: -->
+Example usage:
+
+<!-- ```java
 Tuotevarasto mehu = new Tuotevarasto("Juice", 1000.0);
 mehu.lisaaVarastoon(1000.0);
 mehu.otaVarastosta(11.3);
 System.out.println(mehu.getNimi()); // Juice
 System.out.println(mehu);           // saldo = 988.7, tilaa 11.3
+``` -->
+
+```java
+ProductWarehouse juice = new ProductWarehouse("Juice", 1000.0);
+juice.addToWarehouse(1000.0);
+juice.otaVarastosta(11.3);
+System.out.println(juice.getName()); // Juice
+System.out.println(juice);           // balance = 988.7, space left 11.3
 ```
 
-<sample-output>
+<!-- <sample-output>
 Juice
 saldo = 988.7, vielä tilaa 11.3
+</sample-output> -->
+
+
+<sample-output>
+
+Juice
+balance = 988.7, space left 11.3
+
 </sample-output>
 
 
-<h2>Tuotevarasto, vaihe 2</h2>
+<!-- <h2>Tuotevarasto, vaihe 2</h2> -->
+<h2>Product warehouse, step 2</h2>
 
 
-Kuten edellisestä esimerkistä näkee, Tuotevarasto-olion perimä `toString()` ei tiedä (tietenkään!) mitään tuotteen nimestä. *Asialle on tehtävä jotain!* Lisätään samalla myös setteri tuotenimelle:
+<!-- Kuten edellisestä esimerkistä näkee, Tuotevarasto-olion perimä `toString()` ei tiedä (tietenkään!) mitään tuotteen nimestä. *Asialle on tehtävä jotain!* Lisätään samalla myös setteri tuotenimelle: -->
+
+As we can see from the previous example, the `toString()` inherited by the ProductWarehouse object doesn't (obviously!) know anything about the product name. *Something must be done!* Let's also add a setter for the product name while we're at it:
+
+<!-- - **public void setNimi(String uusiNimi)** - asettaa tuotteelle uuden nimen. -->
+- **public void setName(String newName)** - sets a new name for the product.
+
+<!-- - **public String toString()** - palauttaa olion tilan merkkijonoesityksenä tyyliin `Juice: saldo = 64.5, tilaa 123.5` -->
+- **public String toString()** -  Returns the state of the object represented as a string like this `Juice: balance = 64.5, space left 123.5`
 
 
-- **public void setNimi(String uusiNimi)** - asettaa tuotteelle uuden nimen.
+<!-- Uuden `toString()`-metodin voisi toki ohjelmoida käyttäen yliluokalta perittyjä gettereitä, joilla perittyjen, mutta piilossa pidettyjen kenttien arvoja saa käyttöönsä. Koska yliluokkaan on kuitenkin jo ohjelmoitu tarvittava taito varastotilanteen merkkiesityksen tuottamiseen, miksi nähdä vaivaa sen uudelleen ohjelmointiin. Käytä siis hyväksesi perittyä `toString`iä. -->
 
-- **public String toString()** - palauttaa olion tilan merkkijonoesityksenä tyyliin `Juice: saldo = 64.5, tilaa 123.5`
-
-
-Uuden `toString()`-metodin voisi toki ohjelmoida käyttäen yliluokalta perittyjä gettereitä, joilla perittyjen, mutta piilossa pidettyjen kenttien arvoja saa käyttöönsä. Koska yliluokkaan on kuitenkin jo ohjelmoitu tarvittava taito varastotilanteen merkkiesityksen tuottamiseen, miksi nähdä vaivaa sen uudelleen ohjelmointiin. Käytä siis hyväksesi perittyä `toString`iä.
+The new `toString()` method could be written using the getters inherited from the superclass, which would give access to values of inherited, but still hidden fields. However, the superclass already has the desired functionality to provide a string representation of the warehouse state, so why bother recreating that functionality? Just take advantage of the inherited `toString()`.
 
 
-*Muista miten korvattua metodia voi kutsua aliluokassa!*
+<!-- *Muista miten korvattua metodia voi kutsua aliluokassa!* -->
+*Remind yourself of how to call an overridden method in a subclass!*
 
 
-Käyttöesimerkki:
+<!-- Käyttöesimerkki: -->
+Usage example:
 
 
-```java
+<!-- ```java
 Tuotevarasto mehu = new Tuotevarasto("Juice", 1000.0);
 mehu.lisaaVarastoon(1000.0);
 mehu.otaVarastosta(11.3);
 System.out.println(mehu.getNimi()); // Juice
 mehu.lisaaVarastoon(1.0);
 System.out.println(mehu);           // Juice: saldo = 989.7, tilaa 10.299999999999955
+``` -->
+
+```java
+ProductWarehouse juice = new ProductWarehouse("Juice", 1000.0);
+juice.addToWarehouse(1000.0);
+juice.takeFromWarehouse(11.3);
+System.out.println(juice.getName()); // Juice
+juice.addToWarehouse(1.0);
+System.out.println(juice);           // Juice: balance = 989.7, space left 10.299999999999955
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Juice
 Juice: saldo = 989.7, tilaa 10.299999999999955
 
+</sample-output> -->
+
+
+<sample-output>
+
+Juice
+Juice: balance = 989.7, space left 10.299999999999955
+
 </sample-output>
 
 
-<h2>Muutoshistoria</h2>
+<!-- <h2>Muutoshistoria</h2> -->
+<h2>Change History, step 1</h2>
 
 
-Toisinaan saattaa olla kiinnostavaa tietää, millä tavoin jonkin tuotteen varastotilanne muuttuu: onko varasto usein hyvin vajaa, ollaanko usein ylärajalla, onko vaihelu suurta vai pientä, jne. Varustetaan siksi `Tuotevarasto`-luokka taidolla muistaa tuotteen määrän muutoshistoriaa.
+<!-- Toisinaan saattaa olla kiinnostavaa tietää, millä tavoin jonkin tuotteen varastotilanne muuttuu: onko varasto usein hyvin vajaa, ollaanko usein ylärajalla, onko vaihelu suurta vai pientä, jne. Varustetaan siksi `Tuotevarasto`-luokka taidolla muistaa tuotteen määrän muutoshistoriaa. -->
+
+Sometimes it might be useful to know how the inventory of a product changes over time: Is the inventory often low? Are we usually at the limit? Are the changes in inventory big or small? Etc. Thus we should give the `ProducWarehouse` class the ability to remember the changes in the amount of a product.
+
+<!-- Aloitetaan apuvälineen laadinnalla. -->
+Let's begin by creating the tool aiding the functionality.
 
 
-Aloitetaan apuvälineen laadinnalla.
+<!-- Muutoshistorian muistamisen voisi toki toteuttaa suoraankin `ArrayList<Double>`-oliona luokassa *Tuotevarasto*, mutta nyt laaditaan kuitenkin oma *erikoistettu väline* tähän tarkoitukseen. Väline tulee toteuttaa kapseloimalla `ArrayList<Double>`-olio. -->
+
+The storing of the change history could of course have been done using an `ArrayList<Double>` object in the class *ProductWarehouse*, however, we want our own *specialized tool* for this purpose. The tool should be implemented by encapsulating the `ArrayList<Double>` object.
+
+<!-- `Muutoshistoria`-luokan julkiset konstruktorit ja metodit: -->
+Public constructors and methods of the `ChangeHistory` class:
 
 
-Muutoshistorian muistamisen voisi toki toteuttaa suoraankin `ArrayList<Double>`-oliona luokassa *Tuotevarasto*, mutta nyt laaditaan kuitenkin oma *erikoistettu väline* tähän tarkoitukseen. Väline tulee toteuttaa kapseloimalla `ArrayList<Double>`-olio.
+<!-- - **public Muutoshistoria()** luo tyhjän `Muutoshistoria`-olion. -->
+- **public ChangeHistory()** creates an empty `ChangeHistory` object.
+
+<!-- - **public void lisaa(double tilanne)** lisää muutoshistorian viimeisimmäksi muistettavaksi määräksi parametrina annetun tilanteen. -->
+- **public void add(double status)** adds provided status as the latest amount to remember in the change history.
+
+<!-- - **public void nollaa()** tyhjää muistin. -->
+- **public void clear()** empties the history.
+
+<!-- - **public String toString()** palauttaa muutoshistorian merkkijonoesityksen. *ArrayList-luokan antama merkkijonoesitys kelpaa sellaisenaan.* -->
+- **public String toString()** returns the string representation of the change history. *The string representation provided by the ArrayList class is sufficient.*
 
 
-`Muutoshistoria`-luokan julkiset konstruktorit ja metodit:
+<!-- <h2>Muutoshistoria, vaihe 2</h2> -->
+<h2>Change History, step 2</h2>
+
+<!-- Täydennä `Muutoshistoria`-luokkaa analyysimetodein: -->
+Build on the `ChangeHistory` class by adding analysis methods:
 
 
-- **public Muutoshistoria()** luo tyhjän `Muutoshistoria`-olion.
+<!-- - **public double maxArvo()** palauttaa muutoshistorian suurimman arvon. Jos historia on tyhjä, metodi palauttaa nollan. -->
+- **public double maxValue()** returns the largest value in the change history. If the history is empty, the method should return zero.
 
-- **public void lisaa(double tilanne)** lisää muutoshistorian viimeisimmäksi muistettavaksi määräksi parametrina annetun tilanteen.
+<!-- - **public double minArvo()** palauttaa muutoshistorian pienimmän arvon. Jos historia on tyhjä, metodi palauttaa nollan. -->
+- **public double minValue()** returns the smallest value in the change history. If the history is empty, the method should return zero.
 
-- **public void nollaa()** tyhjää muistin.
-
-- **public String toString()** palauttaa muutoshistorian merkkijonoesityksen. *ArrayList-luokan antama merkkijonoesitys kelpaa sellaisenaan.*
-
-
-<h2>Muutoshistoria, vaihe 2</h2>
-
-Täydennä `Muutoshistoria`-luokkaa analyysimetodein:
+<!-- - **public double keskiarvo()** palauttaa muutoshistorian arvojen keskiarvon. Jos historia on tyhjä, metodi palauttaa nollan. -->
+- **public double avarage()** returns the average of the values in the change history. If the history is empty, the method should return zero.
 
 
-- **public double maxArvo()** palauttaa muutoshistorian suurimman arvon. Jos historia on tyhjä, metodi palauttaa nollan.
-
-- **public double minArvo()** palauttaa muutoshistorian pienimmän arvon. Jos historia on tyhjä, metodi palauttaa nollan.
-
-- **public double keskiarvo()** palauttaa muutoshistorian arvojen keskiarvon. Jos historia on tyhjä, metodi palauttaa nollan.
+<!-- Metodien ei tule muokata sisäisen listan järjestystä. -->
+The methods should not modify the order of the encapsulated list.
 
 
-Metodien ei tule muokata sisäisen listan järjestystä.
+<!-- <h2>Muistava tuotevarasto, vaihe 1</h2> -->
+<h2>Product warehouse with history, step 1</h2>
+
+<!-- Toteuta luokan `Tuotevarasto` aliluokkana `MuistavaTuotevarasto`. Uusi versio tarjoaa vanhojen lisäksi varastotilanteen muutoshistoriaan liittyviä palveluita. Historiaa hallitaan `Muutoshistoria`-oliolla. -->
+
+Implement `ProductWarehouseWithHistory` as a subclass of `ProductWarehouse`. In addition to all the previous features this new warehouse also provides services related to the change history of the warehouse inventory. The history is managed using the `ChangeHistory` object.
+
+<!-- Julkiset konstruktorit ja metodit: -->
+Public constructors and methods:
+
+<!-- - **public MuistavaTuotevarasto(String tuotenimi, double tilavuus, double alkuSaldo)**	luo tuotevaraston. Tuotenimi, vetoisuus ja alkusaldo annetaan parametrina. -->
+<!-- Aseta alkusaldo sekä varaston alkusaldoksi että muutoshistorian ensimmäiseksi arvoksi. -->
+
+- **public ProductWarehouseWithHistory(String productName, double capacity, double initialBalance)** creates a product warehouse. The product name, capacity, and initial balance are provided as parameters.
+Set the initial balance as the initial balance of the warehouse, as well as the first value of the change history.
+
+<!-- - **public String historia()** palauttaa tuotehistorian tyyliin `[0.0, 119.2, 21.2]`.  Käytä Muutoshistoria-olion merkkiesitystä sellaisenaan. -->
+- **public String history()** returns the product history like this `[0.0, 119.2, 21.2]`. Use the string representation of the ChangeHistory object as is.
 
 
-<h2>Muistava tuotevarasto, vaihe 1</h2>
-
-Toteuta luokan `Tuotevarasto` aliluokkana `MuistavaTuotevarasto`. Uusi versio tarjoaa vanhojen lisäksi varastotilanteen muutoshistoriaan liittyviä palveluita. Historiaa hallitaan `Muutoshistoria`-oliolla.
-
-Julkiset konstruktorit ja metodit:
-
-- **public MuistavaTuotevarasto(String tuotenimi, double tilavuus, double alkuSaldo)**	luo tuotevaraston. Tuotenimi, vetoisuus ja alkusaldo annetaan parametrina.
-Aseta alkusaldo sekä varaston alkusaldoksi että muutoshistorian ensimmäiseksi arvoksi.
-
-- **public String historia()** palauttaa tuotehistorian tyyliin `[0.0, 119.2, 21.2]`.  Käytä Muutoshistoria-olion merkkiesitystä sellaisenaan.
+<!-- **Huomaa** että tässä esiversiossa historia ei vielä toimi kunnolla; nyt vasta vain aloitussaldo muistetaan. -->
+**NB** in this initial version the history is not yet working properly; currently it only remembers the initial balance.
 
 
-**Huomaa** että tässä esiversiossa historia ei vielä toimi kunnolla; nyt vasta vain aloitussaldo muistetaan.
+<!-- Käyttöesimerkki: -->
+Usage example:
 
 
-Käyttöesimerkki:
-
-
-```java
+<!-- ```java
 // tuttuun tapaan:
 MuistavaTuotevarasto mehu = new MuistavaTuotevarasto("Juice", 1000.0, 1000.0);
 mehu.otaVarastosta(11.3);
@@ -980,30 +1196,57 @@ System.out.println(mehu);           // Juice: saldo = 989.7, vielä tilaa 10.3
 // mutta vielä historia() ei toimi kunnolla:
 System.out.println(mehu.historia()); // [1000.0]
 // saadaan siis vasta konstruktorin asettama historian alkupiste...
+``` -->
+
+```java
+// the usual:
+ProductWarehouseWithHistory juice = new ProductWarehouseWithHistory("Juice", 1000.0, 1000.0);
+juice.takeFromWarehouse(11.3);
+System.out.println(juice.getName()); // Juice
+juice.addToWarehouse(1.0);
+System.out.println(juice);           // Juice: balance = 989.7, space left 10.3
+
+// etc
+
+// however, history() still doesn't work properly:
+System.out.println(juice.history()); // [1000.0]
+// so we only get the initial state of the history set by the constructor...
 ```
+
+<!-- <sample-output>
+Juice
+Juice: saldo = 989.7, vielä tilaa 10.299999999999955
+[1000.0]
+</sample-output> -->
+
 
 <sample-output>
 Juice
-Juice: saldo = 989.7, vielä tilaa 10.299999999999955
+Juice: balance = 989.7, space left 10.299999999999955
 [1000.0]
 </sample-output>
 
 
-<h2>Muistava tuotevarasto, vaihe 2</h2>
+<!-- <h2>Muistava tuotevarasto, vaihe 2</h2> -->
+<h2>Product warehouse with history, step 2</h2>
 
 
-*On aika aloittaa historia!* Ensimmäinen versio ei historiasta tiennyt kuin alkupisteen. Täydennä luokkaa metodein
+<!-- *On aika aloittaa historia!* Ensimmäinen versio ei historiasta tiennyt kuin alkupisteen. Täydennä luokkaa metodein -->
+*It's time to write history!* The first version didn't know anything but the initial state of the history. Expand the class with the following methods
 
 
-- **public void lisaaVarastoon(double maara)** toimii kuin *Varasto*-luokan metodi, mutta muuttunut tilanne kirjataan historiaan.**Huom:** historiaan tulee kirjata lisäyksen jälkeinen varastosaldo, ei lisättävää määrää!
+<!-- - **public void lisaaVarastoon(double maara)** toimii kuin *Varasto*-luokan metodi, mutta muuttunut tilanne kirjataan historiaan.**Huom:** historiaan tulee kirjata lisäyksen jälkeinen varastosaldo, ei lisättävää määrää! -->
+- **public void addToWarehouse(double amount)** works just like the method in the `Warehouse` class, but we also record the changed state to the history. **NB:** the value recorded in the history should be the warehouse's balance after adding, not the amount added!
 
-- **public double otaVarastosta(double maara)** toimii kuin `Varasto`-luokan metodi, mutta muuttunut tilanne kirjataan historiaan. **Huom:** historiaan tulee kirjata poiston jälkeinen varastosaldo, ei poistettavaa määrää!
+<!-- - **public double otaVarastosta(double maara)** toimii kuin `Varasto`-luokan metodi, mutta muuttunut tilanne kirjataan historiaan. **Huom:** historiaan tulee kirjata poiston jälkeinen varastosaldo, ei poistettavaa määrää! -->
+- **public double takeFromWarehouse(double amount)** works just like the method in the `Warehouse` class, but we also record the changed state to the history. **NB:** the value recorded in the history should be the warehouse's balance after removing, not the amount removed!
 
 
-Käyttöesimerkki:
+<!-- Käyttöesimerkki: -->
+Usage example:
 
 
-```java
+<!-- ```java
 // tuttuun tapaan:
 MuistavaTuotevarasto mehu = new MuistavaTuotevarasto("Juice", 1000.0, 1000.0);
 mehu.otaVarastosta(11.3);
@@ -1015,47 +1258,93 @@ System.out.println(mehu);           // Juice: saldo = 989.7, vielä tilaa 10.3
 
 // mutta nyt on historiaakin:
 System.out.println(mehu.historia()); // [1000.0, 988.7, 989.7]
+``` -->
+
+```java
+// the usual:
+ProductWarehouseWithHistory juice = new ProductWarehouseWithHistory("Juice", 1000.0, 1000.0);
+juice.takeFromWarehouse(11.3);
+System.out.println(juice.getName()); // Juice
+juice.takeFromWarehouse(1.0);
+System.out.println(juice);           // Juice: balance = 989.7, space left 10.3
+
+// etc
+
+// and now we have the history:
+System.out.println(juice.history()); // [1000.0, 988.7, 989.7]
 ```
+
+<!-- <sample-output>
+Juice
+Juice: saldo = 989.7, vielä tilaa 10.299999999999955
+[1000.0, 988.7, 989.7]
+</sample-output> -->
+
 
 <sample-output>
 Juice
-Juice: saldo = 989.7, vielä tilaa 10.299999999999955
+Juice: balance = 989.7, space left 10.299999999999955
 [1000.0, 988.7, 989.7]
 </sample-output>
 
 
-*Muista miten korvaava metodi voi käyttää hyväkseen korvattua metodia!*
+<!-- *Muista miten korvaava metodi voi käyttää hyväkseen korvattua metodia!* -->
+*Remember how an overriding method can take advantage of the overridden method!*
 
 
 
-<h2>Muistava tuotevarasto, vaihe 3</h2>
+<!-- <h2>Muistava tuotevarasto, vaihe 3</h2> -->
+<h2>Product warehouse with history, step 3</h2>
 
 
-Täydennä luokkaa metodilla
+<!-- Täydennä luokkaa metodilla -->
+Expand the class with the method
 
 
-- **public void tulostaAnalyysi()**, joka tulostaa tuotteeseen liittyviä historiatietoja esimerkin esittämään tapaan.
+<!-- - **public void tulostaAnalyysi()**, joka tulostaa tuotteeseen liittyviä historiatietoja esimerkin esittämään tapaan. -->
+- **public void printAnalysis()**, which prints history related information for the product in the way presented in the example.
 
 
-Käyttöesimerkki:
+<!-- Käyttöesimerkki: -->
+Usage example:
 
 
-```java
+<!-- ```java
 MuistavaTuotevarasto mehu = new MuistavaTuotevarasto("Juice", 1000.0, 1000.0);
 mehu.otaVarastosta(11.3);
 mehu.lisaaVarastoon(1.0);
 //System.out.println(mehu.historia()); // [1000.0, 988.7, 989.7]
 
 mehu.tulostaAnalyysi();
+``` -->
+
+```java
+ProductWarehouseWithHistory juice = new ProductWarehouseWithHistory("Juice", 1000.0, 1000.0);
+juice.takeFromWarehouse(11.3);
+juice.addToWarehouse(1.0);
+//System.out.println(juice.history()); // [1000.0, 988.7, 989.7]
+
+juice.printAnalysis();
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Tuote: Juice
 Historia: [1000.0, 988.7, 989.7]
 Suurin tuotemäärä: 1000.0
 Pienin tuotemäärä: 988.7
 Keskiarvo: 992.8
+
+</sample-output> -->
+
+
+<sample-output>
+
+Product: Juice
+History: [1000.0, 988.7, 989.7]
+Largest amount of product: 1000.0
+Smallest amount of product: 988.7
+Average: 992.8
 
 </sample-output>
 
