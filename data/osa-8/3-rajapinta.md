@@ -415,14 +415,14 @@ Ohjelmassa Vernan listalle kutsuttu `lue`-metodi käy kaikki sen sisältämät `
 Kuten huomaat, ohjelmassa on jo hyvin paljon viitteitä. Kannattaa piirtää ohjelman tilaa askeleittain paperille, ja hahmotella miten `vernanLista`-oliolle tapahtuva metodikutsu `lue` etenee!
 
 
-<programming-exercise name='API In A Box (4 parts)' tmcname='part08-Part08_06.APIInABox' nocoins='true'>
+<programming-exercise name='Interface In A Box (4 parts)' tmcname='part08-Part08_06.InterfaceInABox' nocoins='true'>
 
 
 <h2>Packables</h2>
 
 
 <!-- Muuton yhteydessa tarvitaan muuttolaatikoita. Laatikoihin talletetaan erilaisia esineitä. Kaikkien laatikoihin talletettavien esineiden on toteutettava seuraava rajapinta: -->
-Moving houses requires packing all your belongings into boxes. Let's imitate that with a program. The program will have boxes, and items to pack into those boxes. All items must implement the following API:
+Moving houses requires packing all your belongings into boxes. Let's imitate that with a program. The program will have boxes, and items to pack into those boxes. All items must implement the following Interface:
 
 
 ```java
@@ -433,14 +433,14 @@ public interface Packable {
 
 
 <!-- Lisää rajapinta ohjelmaasi. Rajapinta lisätään melkein samalla tavalla kuin luokka, <i>new Java class</i> sijaan valitaan <i>new Java interface</i>. -->
-Add the API to your program. Adding a new API is quite similar to adding a new class. Instead of selecting <i>new Java class</i> just select <i>new Java interface</i>.
+Add the Interface to your program. Adding a new Interface is quite similar to adding a new class. Instead of selecting <i>new Java class</i> just select <i>new Java interface</i>.
 
 <!-- Tee rajapinnan toteuttavat luokat `Book` ja `CD`. Book saa konstruktorin parametreina bookn kirjoittajan (String), bookn nimen (String), ja bookn painon (double). CD-Levyn konstruktorin parametreina annetaan artisti (String), levyn nimi (String), ja julkaisuvuosi (int). Kaikkien CD-levyjen weight on 0.1 kg. -->
-Create classes `Book` and `CD`, which implement the API. Book has a constructor which  is given the author (String), name of the book (String), and the weight of the book (double) as parameters. CD has a constructor which is given the artist (String), name of the CD (String), and the publication year (int). The weight of all CDs is 0.1 kg.
+Create classes `Book` and `CD`, which implement the Interface. Book has a constructor which  is given the author (String), name of the book (String), and the weight of the book (double) as parameters. CD has a constructor which is given the artist (String), name of the CD (String), and the publication year (int). The weight of all CDs is 0.1 kg.
 
 
 <!-- Muista toteuttaa luokilla myös rajapinta `Packable`. Luokkien tulee toimia seuraavasti: -->
-Remember to implement the API `Packable` in both of the classes. The classes must work as follows:
+Remember to implement the Interface `Packable` in both of the classes. The classes must work as follows:
 
 
 ```java
@@ -553,11 +553,11 @@ The method could also return the value of an object variable. However here we ar
 
 
 <!-- Rajapinnan `able` toteuttaminen siis edellyttää että luokalla on metodi `double weight()`. Laatikollehan lisättiin juuri tämä metodi. Laatikosta voidaan siis tehdä talletettava! -->
-Implementing the `Packable` API requires a class to have the method `double weight()`. We just added this method to the Box class. This means we can make the Box packable as well!
+Implementing the `Packable` Interface requires a class to have the method `double weight()`. We just added this method to the Box class. This means we can make the Box packable as well!
 
 
 <!-- Laatikot ovat olioita joihin voidaan laittaa `able`-rajapinnan toteuttavia olioita. Laatikot toteuttavat itsekin rajapinnan. Eli **laatikon sisällä voi olla myös laatikoita!** -->
-Boxes are objects, which can contain objects implementing the `packable` API. Boxes implement this API as well. So **a box can contain other boxes!**
+Boxes are objects, which can contain objects implementing the `packable` Interface. Boxes implement this Interface as well. So **a box can contain other boxes!**
 
 
 <!-- Kokeile että näin varmasti on, eli tee ohjelmassasi muutama box, laita laatikoihin tavaroita ja laita pienempiä laatikoita isompien laatikoiden sisään. Kokeile myös mitä tapahtuu kun laitat laatikon itsensä sisälle. Miksi näin käy? -->
@@ -687,7 +687,7 @@ Vähäisemmät riippuvuudet helpottavat ohjelman laajennettavuutta.
 ## Valmiit rajapinnat
 
 
-Javan API tarjoaa huomattavan määrän valmiita rajapintoja. Tutustutaan tässä neljään usein käytettyyn rajapintaan: <a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank">List</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" target="_blank">Map</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html" target="_blank">Set</a> ja <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" target="_blank">Collection</a>.
+Javan Interface tarjoaa huomattavan määrän valmiita rajapintoja. Tutustutaan tässä neljään usein käytettyyn rajapintaan: <a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank">List</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" target="_blank">Map</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html" target="_blank">Set</a> ja <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" target="_blank">Collection</a>.
 
 <br/>
 
@@ -703,7 +703,7 @@ List<String> merkkijonot = new ArrayList<>();
 merkkijonot.add("merkkijono-olio arraylist-oliossa!");
 ```
 
-Kuten huomaamme <a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank">List-rajapinnan Java API</a>:sta, rajapinnan `List` toteuttavia luokkia on useita. Eräs tietojenkäsittelijöille tuttu listarakenne on linkitetty lista (<a href="http://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html" target="_blank">linked list</a>). Linkitettyä listaa voi käyttää rajapinnan List-kautta täysin samoin kuin ArrayLististä luotua oliota.
+Kuten huomaamme <a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank">List-rajapinnan Java Interface</a>:sta, rajapinnan `List` toteuttavia luokkia on useita. Eräs tietojenkäsittelijöille tuttu listarakenne on linkitetty lista (<a href="http://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html" target="_blank">linked list</a>). Linkitettyä listaa voi käyttää rajapinnan List-kautta täysin samoin kuin ArrayLististä luotua oliota.
 
 <br/>
 
