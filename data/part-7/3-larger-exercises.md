@@ -1,7 +1,7 @@
 ---
-path: '/osa-7/3-laajempia-tehtavia'
-title: 'Laajempia ohjelmointitehtäviä'
-hidden: true
+path: '/part-7/3-larger-exercises'
+title: 'Larger programming exercises'
+hidden: false
 ---
 
 
@@ -689,10 +689,10 @@ Enter command:  **stop**
 
 <programming-exercise name='Big year (3 parts)' tmcname='part07-Part07_08.BigYear'>
 
-**This exercise is worth three one part exercises**
+**This exercise is worth three one-part exercises**
 
 <!-- Tässä tehtävässä suunnittelet ja toteutat tietokannan lintubongareille. Tietokanta sisältää lintuja, joista jokaisella on nimi (merkkijono) ja latinankielinen nimi (merkkijono). Tämän lisäksi tietokanta laskee kunkin linnun havaintokertoja. -->
-In this exercise you will design and implement a database for bird-watchers. The database contains birds, each of which has a name (string) and a name in latin (string). The database also counts the observations of each bird.
+In this exercise you will design and implement a database for bird-watchers. The database contains birds, each of which has a name (string) and a name in Latin (string). The database also counts the observations of each bird.
 
 <!-- Ohjelmasi täytyy toteuttaa seuraavat komennot: -->
 The program must implement the following commands:
@@ -720,10 +720,10 @@ The following is an example of the program functionality:
 
 ? **Add**
 Name: **Crow**
-Name in latin: **Corvus Corvus**
+Name in Latin: **Corvus Corvus**
 ? **Add**
 Name: **Hawk**
-Name in latin: **Dorkus Dorkus**
+Name in Latin: **Dorkus Dorkus**
 ? **Observation**
 Bird? **Hawk**
 ? **Observation**
