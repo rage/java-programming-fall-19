@@ -936,10 +936,10 @@ tsemppiä
 Seuraavassa tehtävässä rakennetaan verkkokauppaan liittyvää toiminnallisuutta ja harjoitellaan luokkien käyttämistä niiden tarjoamien rajapintojen kautta.
 
 
-<programming-exercise name='Verkkokauppa (8 osaa)' tmcname='osa08-Osa08_10.Verkkokauppa' nocoins='true'>
+<programming-exercise name='Online store (8 parts)' tmcname='Part08_10.OnlineStore' nocoins='true'>
 
 
-Teemme tehtävässä muutamia verkkokaupan hallinnointiin soveltuvia ohjelmakomponentteja.
+<!-- Teemme tehtävässä muutamia verkkokaupan hallinnointiin soveltuvia ohjelmakomponentteja.
 
 
 <h2>Varasto</h2>
@@ -953,10 +953,21 @@ Tee luokka Varasto jolla on seuraavat metodit:
 Varaston sisällä tuotteiden hinnat (ja seuraavassa kohdassa saldot) tulee tallettaa `Map<String, Integer>`-tyyppiseksi määriteltyyn muuttujaan! Luotava olio voi olla tyypiltään `HashMap`, muuttujan tyyppinä on käytettävä `Map`-rajapintaa.
 
 
-Seuraavassa esimerkki varaston käytöstä:
+Seuraavassa esimerkki varaston käytöstä: -->
+
+In this exercise we'll create program components, that can used to run an online store.
+
+<h2>Warehouse</h2>
+
+Create the class Warehouse with the following methods:
+
+- `public void addProduct(String product, int price, int stock)`, which adds a product to the warehouse with the price and stock balance given as parameters.
+- `public int price(String product)`, which returns the price of the product it received as a parameter. If the product hasn't been added to the warehouse, the method must return -99.
+
+The products in the warehouse (and in the next part their stock) must be stored in a variable of the type `Map<String, Integer>`! The object created can be a HashMap, but its type must be the Map-interface, rather than any implementation of that interface.
 
 
-```java
+<!-- ```java
 Varasto varasto = new Varasto();
 varasto.addTuote("maito", 3, 10);
 varasto.addTuote("kahvi", 5, 7);
@@ -965,22 +976,40 @@ System.out.println("hinnat:");
 System.out.println("maito: " + varasto.hinta("maito"));
 System.out.println("kahvi: " + varasto.hinta("kahvi"));
 System.out.println("sokeri: " + varasto.hinta("sokeri"));
+``` -->
+```java
+Warehouse warehouse = new Warehouse();
+warehouse.addProduct("milk", 3, 10);
+warehouse.addProduct("coffee", 5, 7);
+
+System.out.println("prices:");
+System.out.println("milk: " + warehouse.price("milk"));
+System.out.println("coffee: " + warehouse.price("coffee"));
+System.out.println("sugar: " + warehouse.price("sugar"));
 ```
 
-Tulostuu:
-
-
-<sample-output>
+<!-- Tulostuu: -->
+Prints:
+<!-- <sample-output>
 
 hinnat:
 maito: 3
 kahvi: 5
 sokeri: -99
 
+</sample-output> -->
+
+<sample-output>
+
+prices:
+milk: 3
+coffee: 5
+sugar: -99
+
 </sample-output>
 
 
-<h2>Tuotteen varastosaldo</h2>
+<!-- <h2>Tuotteen varastosaldo</h2>
 
 
 Aseta tuotteiden varastosaldot samaan tapaan `Map<String, Integer>`-tyyppiseen muuttujaan kuin hinnat. Täydennä varastoa seuraavilla metodeilla:
@@ -990,10 +1019,16 @@ Aseta tuotteiden varastosaldot samaan tapaan `Map<String, Integer>`-tyyppiseen m
 - `public boolean ota(String tuote)` vähentää parametrina olevan tuotteen saldoa yhdellä ja palauttaa *true* jos tuotetta oli varastossa. Jos tuotetta ei ole varastossa, palauttaa metodi *false*, tuotteen saldo ei saa laskea alle nollan.
 
 
-Esimerkki varaston käytöstä:
+Esimerkki varaston käytöstä: -->
+<h2>Products stock balance</h2>
 
+Save the stock balance of products in variable with the `Map<String, Integer>` type, in the same way the prices were stored. Supplement the warehouse with the following methods:
 
-```java
+- `public int stock(String product)` returns the current remaining stock of the product in the warehouse. If the product hasn't been added to the warehouse, the method must return 0.
+- `public boolean take(String product)` reduces the stock ramaining for the product it received as a parameter by one, and returns true if there was stock remaining. If the product was not available in the warehouse the method returns false. A products stock can't go below zero.
+
+An example of the warehouse in use:
+<!-- ```java
 Varasto varasto = new Varasto();
 varasto.addTuote("kahvi", 5, 1);
 
@@ -1008,13 +1043,27 @@ System.out.println("otetaan sokeri " + varasto.ota("sokeri"));
 System.out.println("saldot:");
 System.out.println("kahvi:  " + varasto.saldo("kahvi"));
 System.out.println("sokeri: " + varasto.saldo("sokeri"));
+``` -->
+```java
+Warehouse warehouse = new Warehouse();
+warehouse.addProduct("coffee", 5, 1);
+
+System.out.println("stock:");
+System.out.println("coffee:  " + warehouse.saldo("coffee"));
+System.out.println("sugar: " + warehouse.saldo("sugar"));
+
+System.out.println("taking coffee " + warehouse.ota("coffee"));
+System.out.println("taking coffee " + warehouse.ota("coffee"));
+System.out.println("taking sugar " + warehouse.ota("sugar"));
+
+System.out.println("stock:");
+System.out.println("coffee:  " + warehouse.saldo("coffee"));
+System.out.println("sugar: " + warehouse.saldo("sugar"));
 ```
 
-
-Tulostuu:
-
-
-<sample-output>
+<!-- Tulostuu: -->
+Prints:
+<!-- <sample-output>
 
 saldot:
 kahvi:  1
@@ -1026,10 +1075,24 @@ saldot:
 kahvi:  0
 sokeri: 0
 
+</sample-output> -->
+
+<sample-output>
+
+stock:
+coffee:  1
+sugar: 0
+taking coffee true
+taking coffee false
+taking sugar false
+stock:
+coffee:  0
+sugar: 0
+
 </sample-output>
 
 
-<h2>Tuotteiden listaus</h2>
+<!-- <h2>Tuotteiden listaus</h2>
 
 
 Listätään varastolle vielä yksi metodi:
@@ -1041,10 +1104,17 @@ Listätään varastolle vielä yksi metodi:
 Metodi on helppo toteuttaa HashMapin avulla. Saat tietoon varastossa olevat tuotteet kysymällä ne joko hinnat tai saldot muistavalta Map:iltä metodin `keySet` avulla.
 
 
-Esimerkki varaston käytöstä:
+Esimerkki varaston käytöstä: -->
+<h2>Listing the products</h2>
 
+Let's add one more method to the warehouse:
 
-```java
+- `public Set<String> products()` returns the names of the products in the warehouse as a *Set*
+
+This method is easy to implement with HashMap. You can get the products in the warehouse from either the Map storing the prices or the one storing current stock, by using the method `keySet()`
+
+An example use case:
+<!-- ```java
 Varasto varasto = new Varasto();
 varasto.addTuote("maito", 3, 10);
 varasto.addTuote("kahvi", 5, 6);
@@ -1056,9 +1126,22 @@ System.out.println("tuotteet:");
 for (String tuote: varasto.tuotteet()) {
     System.out.println(tuote);
 }
+``` -->
+```java
+Warehouse warehouse = new Warehouse();
+warehouse.addProduct("milk", 3, 10);
+warehouse.addProduct("coffee", 5, 6);
+warehouse.addProduct("buttermilk", 2, 20);
+warehouse.addProduct("yogurt", 2, 20);
+
+System.out.println("products:");
+
+for (String product: warehouse.products()) {
+    System.out.println(product);
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 tuotteet:
 piima
@@ -1066,10 +1149,20 @@ jugurtti
 kahvi
 maito
 
+</sample-output> -->
+
+<sample-output>
+
+products:
+buttermilk
+yogurt
+coffee
+milk
+
 </sample-output>
 
 
-<h2>Ostos</h2>
+<!-- <h2>Ostos</h2>
 
 
 Ostoskoriin lisätään *ostoksia*. Ostoksella tarkoitetaan tiettyä määrää tiettyjä tuotteita. Koriin voidaan laittaa esim. ostos joka vastaa yhtä leipää tai ostos joka vastaa 24:ää kahvia.
@@ -1084,30 +1177,57 @@ Tee luokka `Ostos` jolla on seuraavat toiminnot:
 - `public String toString()` palauttaa ostoksen merkkijonomuodossa, joka on alla olevan esimerkin mukainen
 
 
-Esimerkki ostos-luokan käytöstä:
+Esimerkki ostos-luokan käytöstä: -->
+<h2>Item</h2>
 
+*Items* can be added to the shopping cart (which we'll add soon). An item is a product with a quantity. You for example add an item representing one bread to the cart, or add an item representing 24 coffees.
 
-```java
+Create the class `Item` with the following methods:
+
+- `public Item(String product, int qty, int unitPrice)`; a constructor that creates an item corresponding to the product given as a parameter. *qty* tells us how many of the product are in the item, while *unitPrice* is the price of a single product.
+- `public int price()` return the price of the item. You get the items price by multiplying its unit price by its quantity(qty).
+- `public void increaseQuantity` increases the quantity by one.
+- `public String toString()` returns the string representation of the item. which must match the format shown in the example below.
+
+An example of the Item class being used:
+<!-- ```java
 Ostos ostos = new Ostos("maito", 4, 2);
 System.out.println("ostoksen joka sisältää 4 maitoa yhteishinta on " + ostos.hinta());
 System.out.println(ostos);
 ostos.kasvataMaaraa();
 System.out.println(ostos);
+``` -->
+
+```java
+Item item = new Item("milk", 4, 2);
+System.out.println("an item that contains 4 milks has the total price of " + item.price());
+System.out.println(item);
+item.increaseQuantity();
+System.out.println(item);
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 ostoksen joka sisältää 4 maitoa yhteishinta on 8
 maito: 4
 maito: 5
 
+</sample-output> -->
+
+<sample-output>
+
+an item that contains 4 milks has the total price of 8
+milk: 4
+milk: 5
+
 </sample-output>
 
 
-Huom: *toString* on siis muotoa *tuote: kpl* -- hintaa ei merkkijonoesitykseen tule!
+<!-- Huom: *toString* on siis muotoa *tuote: kpl* -- hintaa ei merkkijonoesitykseen tule! -->
+NB: The *toString* is formatted like this: *product: qty* -- price is not included in the string representation.
 
 
-<h2>Ostoskori</h2>
+<!-- <h2>Ostoskori</h2>
 
 
 Vihdoin pääsemme toteuttamaan luokan ostoskori!
@@ -1126,10 +1246,22 @@ Tehdään aluksi ostoskorille parametriton konstruktori ja metodit:
 - `public int hinta()` palauttaa ostoskorin kokonaishinnan
 
 
-Esimerkki ostoskorin käytöstä:
+Esimerkki ostoskorin käytöstä: -->
 
+<h2>Shopping cart</h2>
 
-```java
+We finally get to implement the shopping cart -class!
+
+internally, ShoppingCart stores products added there as *Item-objects*. ShoppingCart must have an instance variable with either the `Map<String, Item>` type, or the `List<Item>` type. Don't add any other instance variable to the ShoppingCart class, besides the List or Map used to store the items.
+
+NB: If of save the items in a Map type variable, you'll finds its `values()` method to be quite useful for going though all the items objects stored in it. Both in this part of the exercise and the next.
+
+First let's give ShoppingCart a constructor with no parameters and these methods:
+
+- `public void add(String product, int price)` adds an item to the cart that matches the product given as a parameter, with the price given as a parameter.
+- `public int price()` returns the total price of the shopping cart.
+
+<!-- ```java
 Ostoskori kori = new Ostoskori();
 kori.add("maito", 3);
 kori.add("piima", 2);
@@ -1137,45 +1269,77 @@ kori.add("juusto", 5);
 System.out.println("korin hinta: " + kori.hinta());
 kori.add("tietokone", 899);
 System.out.println("korin hinta: " + kori.hinta());
+``` -->
+```java
+ShoppingCart cart = new ShoppingCart();
+cart.add("milk", 3);
+cart.add("buttermilk", 2);
+cart.add("cheese", 5);
+System.out.println("cart price: " + cart.price());
+cart.add("computer", 899);
+System.out.println("cart price: " + cart.price());
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 korin hinta: 10
 korin hinta: 909
 
+</sample-output> -->
+
+<sample-output>
+
+cart price: 10
+cart price: 909
+
 </sample-output>
 
 
-<h2>Ostoskorin tulostus</h2>
+<!-- <h2>Ostoskorin tulostus</h2>
 
 
 Tehdään ostoskorille metodi `public void tulosta()` joka tulostaa korin sisältämät *Ostos*-oliot. Tulostusjärjestyksessä ei ole merkitystä. Edellisen esimerkin ostoskori tulostetuna olisi:
+ -->
 
+ <h2>Printing the cart</h2>
 
-<sample-output>
+ Implement the method `public void print()` for the shopping cart. The method prints the *Item-objects* in the cart. The order they are printed in is irrelevant. E.g the print of the cart in the previous example would be:
+
+<!-- <sample-output>
 
 piima: 1
 juusto: 1
 tietokone: 1
 maito: 1
 
+</sample-output> -->
+<sample-output>
+
+buttermilk: 1
+cheese: 1
+computer: 1
+milk: 1
+
 </sample-output>
 
 
-Huomaa, että tulostuva numero on siis tuotteen korissa oleva kappalemäärä, ei hinta!
+<!-- Huomaa, että tulostuva numero on siis tuotteen korissa oleva kappalemäärä, ei hinta! -->
+NB: the number printed is the quantity in the cart, not the price!
 
 
-<h2>Yksi ostos tuotetta kohti</h2>
+<!-- <h2>Yksi ostos tuotetta kohti</h2>
 
 
 Täydennetään Ostoskoria siten, että jos korissa on jo tuote joka sinne lisätään, ei koriin luoda uutta Ostos-olioa vaan päivitetään jo korissa olevaa tuotetta vastaavaa ostosolioa kutsumalla sen metodia *kasvataMaaraa()*.
 
 
-Esimerkki:
+Esimerkki: -->
+<h2>One item per product</h2>
 
+Let's change our cart so that if a product is being added thats already in the cart, we don't add a new item, but instead update item already in the cart by calling its *increaseQuantity()* method.
 
-```java
+E.g:
+<!-- ```java
 Ostoskori kori = new Ostoskori();
 kori.add("maito", 3);
 kori.tulosta();
@@ -1192,9 +1356,27 @@ System.out.println("korin hinta: " + kori.hinta() + "\n");
 kori.add("maito", 3);
 kori.tulosta();
 System.out.println("korin hinta: " + kori.hinta() + "\n");
+``` -->
+```java
+ShoppingCart cart = new ShoppingCart();
+cart.add("milk", 3);
+cart.print();
+System.out.println("cart price: " + cart.price() + "\n");
+
+cart.add("buttermilk", 2);
+cart.print();
+System.out.println("cart price: " + cart.price() + "\n");
+
+cart.add("milk", 3);
+cart.print();
+System.out.println("cart price: " + cart.price() + "\n");
+
+cart.add("milk", 3);
+cart.print();
+System.out.println("cart price: " + cart.price() + "\n");
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 maito: 1
 korin hinta: 3
@@ -1211,21 +1393,45 @@ piima: 1
 maito: 3
 korin hinta: 11
 
+</sample-output> -->
+<sample-output>
+
+milk: 1
+cart price: 3
+
+buttermilk: 1
+milk: 1
+cart price: 5
+
+buttermilk: 1
+milk: 2
+cart price: 8
+
+buttermilk: 1
+maito: 3
+cart price: 11
+
 </sample-output>
 
 
-Eli ensin koriin lisätään maito ja piimä ja niille omat ostos-oliot. Kun koriin lisätään lisää maitoa, ei luoda uusille maidoille omaa ostosolioa, vaan päivitetään jo korissa olevan maitoa kuvaavan ostosolion kappalemäärää.
+<!-- Eli ensin koriin lisätään maito ja piimä ja niille omat ostos-oliot. Kun koriin lisätään lisää maitoa, ei luoda uusille maidoille omaa ostosolioa, vaan päivitetään jo korissa olevan maitoa kuvaavan ostosolion kappalemäärää. -->
+So in the example above, we first added milk and buttermilk  and they get their own Item-objects. When more milk is added to to cart, instead of adding new items we increase the quantity in the item representing milk.
 
 
-<h2>Kauppa</h2>
+<!-- <h2>Kauppa</h2>
 
 
 Nyt meillä on valmiina kaikki osat "verkkokauppaa" varten. Verkkokaupassa on varasto joka sisältää kaikki tuotteet. Jokaista asiakkaan asiointia varten on oma ostoskori. Aina kun asiakas valitsee ostoksen, lisätään se asiakkaan ostoskoriin jos tuotetta on varastossa. Samalla varastosaldoa pienennetään yhdellä.
 
-Seuraavassa on valmiina verkkokaupan tekstikäyttöliittymän runko. Tee projektiin luokka `Kauppa` ja kopioi alla oleva koodi luokkaan.
+Seuraavassa on valmiina verkkokaupan tekstikäyttöliittymän runko. Tee projektiin luokka `Kauppa` ja kopioi alla oleva koodi luokkaan. -->
 
+<h2>Store</h2>
 
-```java
+We now have all the parts we need for our "online store", except the store itself. Let's make that next. Our store has a warehouse that includes all our products. For each 'visit' we have a shopping cart. Every time the customer chooses a product its added to their cart if its available in the warehouse. At the same time, the stock in the warehouse is reduced by one.
+
+Below you'll find a template for a text-based user interface for our store. Create a Store-class for your project and copy-paste the code below there.
+
+<!-- ```java
 import java.util.Scanner;
 
 public class Kauppa {
@@ -1266,12 +1472,55 @@ public class Kauppa {
         System.out.println("korin hinta: " + kori.hinta());
     }
 }
+``` -->
+```java
+
+import java.util.Scanner;
+
+public class Store {
+
+    private Warehouse warehouse;
+    private Scanner scanner;
+
+    public Store(Warehouse warehouse, Scanner scanner) {
+        this.warehouse = warehouse;
+        this.scanner = scanner;
+    }
+
+    // the method that handles the customers visit to the store.
+    public void shop(String customer) {
+        ShoppingCart cart = new ShoppingCart();
+        System.out.println("Welcome to the store " + customer);
+        System.out.println("our selection:");
+
+        for (String product : this.warehouse.products()) {
+            System.out.println(product);
+        }
+
+        while (true) {
+            System.out.print("What to put in the cart (press enter to go to the register): ");
+            String product = scanner.nextLine();
+            if (product.isEmpty()) {
+                break;
+            }
+
+            // Add code here that adds the product to the cart,
+            // IF there is any in the warehouse, and reduces the stock in the warehouse
+            // Dont't do touch any of the other code!
+        }
+
+        System.out.println("your shoppingcart contents:");
+        cart.print();
+        System.out.println("total: " + cart.price());
+    }
+}
 ```
 
-Seuraavassa pääohjelma joka täyttää kaupan varaston ja laittaa Pekan asioimaan kaupassa:
+<!-- Seuraavassa pääohjelma joka täyttää kaupan varaston ja laittaa Pekan asioimaan kaupassa: -->
+The following is a main method that stocks the stores warehouse and sends John to shop in the store.
 
 
-```java
+<!-- ```java
 Varasto varasto = new Varasto();
 varasto.addTuote("kahvi", 5, 10);
 varasto.addTuote("maito", 3, 20);
@@ -1280,12 +1529,27 @@ varasto.addTuote("leipa", 7, 8);
 
 Kauppa kauppa = new Kauppa(varasto, new Scanner(System.in));
 kauppa.asioi("Pekka");
+``` -->
+```java
+Warehouse warehouse = new Warehouse();
+    warehouse.addProduct("coffee", 5, 10);
+    warehouse.addProduct("milk", 3, 20);
+    warehouse.addProduct("cream", 2, 55);
+    warehouse.addProduct("bread", 7, 8);
+
+    Scanner scanner = new Scanner(System.in);
+
+    Store store = new Store(warehouse, scanner);
+    store.shop("John");
 ```
 
+<!-- Kauppa on melkein valmiina. Yhden asiakkaan asioinnin hoitavan metodin `public void asioi(String asiakas)` on kommenteilla merkitty kohta jonka joudut täydentämään. Lisää kohtaan koodi joka tarkastaa onko asiakkaan haluamaa tuotetta varastossa. Jos on, vähennä tuotteen varastosaldoa ja lisää tuote ostoskoriin.
 
-Kauppa on melkein valmiina. Yhden asiakkaan asioinnin hoitavan metodin `public void asioi(String asiakas)` on kommenteilla merkitty kohta jonka joudut täydentämään. Lisää kohtaan koodi joka tarkastaa onko asiakkaan haluamaa tuotetta varastossa. Jos on, vähennä tuotteen varastosaldoa ja lisää tuote ostoskoriin.
 
+*Todellisuudessa verkkokauppa toteutettaisiin hieman eri tavalla. Verkkosovelluksia tehtäessä käyttöliittymä toteutetaan HTML-sivuna, ja sivuilla tapahtuvat klikkaukset ohjataan palvelinohjelmistolle. Teemaan liittyen löytyy useampia kursseja Helsingin yliopistolta.* -->
 
-*Todellisuudessa verkkokauppa toteutettaisiin hieman eri tavalla. Verkkosovelluksia tehtäessä käyttöliittymä toteutetaan HTML-sivuna, ja sivuilla tapahtuvat klikkaukset ohjataan palvelinohjelmistolle. Teemaan liittyen löytyy useampia kursseja Helsingin yliopistolta.*
+The store is almost done. The method `public void shop(String customer)` has a part you need to complete, marked with comments. In the marked part, add code that checks if the product requested by the customer is available and has stock in the warehouse. If so, reduce the products stock in the warehouse and add the product to the shopping cart.
+
+*In reality an online store would be implemented a little differently. Web-apps have an HTML-page as a user interface, and clicks there are send to the server application. There are several courses related to web development available at the University Of Helsinki*
 
 </programming-exercise>
