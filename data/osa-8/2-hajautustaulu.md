@@ -1,5 +1,5 @@
 ---
-path: '/osa-8/2-hajautustaulu'
+path: '/part-8/2-hajautustaulu'
 title: 'Hajautustaulu'
 hidden: true
 ---
@@ -68,22 +68,28 @@ null
 
 Hajautustaulun käyttöönotto vaatii luokan alkuun rivin `import java.util.HashMap;`.
 
-Hajautustaulua luodessa tarvitaan kaksi tyyppiparametria, avainmuuttujan tyyppi ja lisättävän arvon tyyppi. Mikäli hajautustaulussa on avaimena merkkijono (String) ja arvona luku (Integer) luodaan hajautustaulu komennolla `HashMap<String, Integer> taulu = new HashMap<>();`
+Hajautustaulua luodessa tarvitaan kaksi tyyppiparametria, avainmuuttujan tyyppi ja lisättävän arvon tyyppi. Mikäli hajautustaulussa on avaimena merkkijono (String) ja arvona luku (Integer) luodaan hajautustaulu komennolla `HashMap<String, Integer> hashmap = new HashMap<>();`
 
 Hajautustauluun lisääminen tapahtuu kaksiparametrisella metodilla `put(*avain*, *arvo*)`, joka saa parametrinaan avaimen ja arvon. Hajautustaulusta hakeminen onnistuu metodilla `get(*avain*)`, joka saa parametrinaan avaimen ja palauttaa arvon.
 
 
-<programming-exercise name='Lempinimet' tmcname='osa08-Osa08_06.Lempinimet'>
+<programming-exercise name='Nicknames' tmcname='part08-Part08_06.Nicknames'>
 
-Luo `main`-metodissa uusi `HashMap<String,String>`-olio. Tallenna luomaasi olioon seuraavien henkilöiden nimet ja lempinimet niin, että nimi on avain ja lempinimi on arvo. Käytä pelkkiä pieniä kirjaimia.
+<!-- Luo `main`-metodissa uusi `HashMap<String,String>`-olio. Tallenna luomaasi olioon seuraavien henkilöiden nimet ja lempinimet niin, että nimi on avain ja lempinimi on arvo. Käytä pelkkiä pieniä kirjaimia. -->
+In the `main`-method create a new `HashMap<String,String>` object. Store the names and nicknames of the following people in this hashmap so, that the name is the key and the nickname is the value. Use only lower case letters.
 
-- matin lempinimi on mage
-- mikaelin lempinimi on mixu
-- arton lempinimi on arppa
+<!-- - matin lempinimi on mage -->
+<!-- - mikaelin lempinimi on mixu -->
+<!-- - arton lempinimi on arppa -->
+ -  matthew's nickname is matt
+ -  michael's nickname is mix
+ - arthur's nickname is artie
 
-Tämän jälkeen hae HashMapistä mikaelin lempinimi ja tulosta se.
+<!-- Tämän jälkeen hae HashMapistä mikaelin lempinimi ja tulosta se. -->
+Then get Matthew's nickname from the hashmap, and print it.
 
-Tehtävässä ei ole automaattisia testejä. Palauta tehtävä kun se toimii mielestäsi oikein.
+<!-- Tehtävässä ei ole automaattisia testejä. Palauta tehtävä kun se toimii mielestäsi oikein. -->
+There is no automated tests for this exercise. Just submit the exercise when you think it works as it should.
 
 </programming-exercise>
 
@@ -376,9 +382,9 @@ Edellä käsitellyn kirjojen tallentamiseen liittyvän esimerkin ongelma on se, 
 Hyödynnämme hakemisessa String-luokan tarjoamia välineitä merkkijonojen käsittelyyn. Metodi `toLowerCase()` luo merkkijonosta uuden merkkijonon, jonka kaikki kirjaimet on muunnettu pieniksi. Metodi `trim()` taas luo merkkijonosta uuden merkkijonon, jonka alusta ja lopusta on poistettu tyhjät merkit kuten välilyönnit.
 
 ```java
-String teksti = "Ylpeys ja ennakkoluulo ";
-teksti = teksti.toLowerCase(); // teksti nyt "ylpeys ja ennakkoluulo "
-teksti = teksti.trim(); // teksti nyt "ylpeys ja ennakkoluulo"
+String text = "Ylpeys ja ennakkoluulo ";
+text = text.toLowerCase(); // text nyt "ylpeys ja ennakkoluulo "
+text = text.trim(); // text nyt "ylpeys ja ennakkoluulo"
 ```
 
 Edellä kuvatun merkkijonon muunnoksen johdosta kirja löytyy, vaikka käyttäjä kirjoittaisi kirjan nimen pienillä kirjaimilla.
@@ -508,30 +514,31 @@ null
 Edeltävässä esimerkissä noudatimme ns. DRY-periaatetta (Don't Repeat Yourself), jonka tarkoituksena on saman koodin toistumisen välttäminen. Merkkijonon siistiminen eli pienellä kirjoitetuksi muuttaminen sekä *trimmaus*, eli tyhjien merkkien poisto alusta ja lopusta, olisi toistunut useasti kirjastoluokassamme ilman metodia `siistiMerkkijono`. Toistuvaa koodia ei usein huomaa ennen kuin sitä on jo kirjoittanut, jolloin sitä päätyy koodiin lähes pakosti. Tässä ei ole mitään pahaa -- tärkeintä on että koodia siistitään sitä mukaa siistimistä vaativia tilanteita huomataan.
 
 
-<programming-exercise name='Lyhenteet' tmcname='osa08-Osa08_07.Lyhenteet'>
+<programming-exercise name='Abbreviations' tmcname='part08-Part08_07.Abbreviations'>
 
-Luo lyhenteiden ylläpitoon käytettävä luokka `Lyhenteet`. Luokalla tulee olla parametriton konstruktori, ja sen tulee tarjota seuraavat metodit:
+<!-- Luo lyhenteiden ylläpitoon käytettävä luokka `Abbreviations`. Luokalla tulee olla parametriton konstruktori, ja sen tulee tarjota seuraavat metodit: -->
+Create a class `Abbreviations` for managing common abbreviations. The class must have a constructor, which does not take any parameters. The class must also provide the following methods:
 
-- `public void lisaaLyhenne(String lyhenne, String selite)` lisää lyhenteen sekä siihen liittyvän selitteen.
-- `public boolean onkoLyhennetta(String lyhenne)` tarkastaa onko lyhennettä lisätty; palauttaa `true` mikäli kyllä, `false` mikäli ei.
-- `public String haeLyhenne(String lyhenne)` hakee lyhenteeseen liittyvän selitteen; palauttaa `null` mikäli lyhennettä ei ole lisätty.
+- `public void addAbbreviation(String abbreviation, String explanation)` adds a new abbreviation and its explanation.
+- `public boolean hasAbbreviation(String abbreviation)` checks if an abbreviation has already been added; returns `true` if it has and `false` if it has not.
+- `public String findExplanationFor(String abbreviation)` finds the explanation for an abbreviation; returns `null` if the abbreviation has not been added yet.
 
-Käyttöesimerkki:
+Example:
 
 ```java
-Lyhenteet lyhenteet = new Lyhenteet();
-lyhenteet.lisaaLyhenne("esim.", "esimerkiksi");
-lyhenteet.lisaaLyhenne("jne.", "ja niin edelleen");
-lyhenteet.lisaaLyhenne("yms.", "ynnä muuta sellaista");
+Abbreviations abbreviations = new Abbreviations();
+abbreviations.addAbbreviation("e.g", "for example");
+abbreviations.addAbbreviation("etc.", "and so on");
+abbreviations.addAbbreviation("i.e", "more precisely");
 
-String teksti = "esim. jne. yms. lol.";
+String text = "e.g i.e etc. lol";
 
-for (String osa: teksti.split(" ")) {
-    if(lyhenteet.onkoLyhennetta(osa)) {
-        osa = lyhenteet.haeLyhenne(osa);
+for (String part: text.split(" ")) {
+    if(abbreviations.hasAbbreviation(part)) {
+        part = abbreviations.findExplanationFor(part);
     }
 
-    System.out.print(osa);
+    System.out.print(part);
     System.out.print(" ");
 }
 
@@ -540,7 +547,8 @@ System.out.println();
 
 <sample-output>
 
-esimerkiksi ja niin edelleen ynnä muuta sellaista lol.
+<!-- esimerkiksi ja niin edelleen ynnä muuta sellaista lol. -->
+for example more precisely and so on `null`
 
 </sample-output>
 
@@ -579,43 +587,49 @@ public ArrayList<Kirja> haeKirjaNimenOsalla(String nimenOsa) {
 Tällä tavalla etsiessä menetämme kuitenkin hajautustauluun liittyvän nopeusedun. Hajautustaulu on toteutettu siten, että yksittäisen avaimen perusteella hakeminen on erittäin nopeaa. Yllä olevassa esimerkissä käydään kaikkien kirjojen nimet läpi, kun tietyllä avaimella etsittäessä tarkasteltaisiin tasan yhden kirjan olemassaoloa.
 
 
-<programming-exercise name='Hajautustaulun tulostelua' tmcname='osa08-Osa08_08.HajautustaulunTulostelua'>
+<programming-exercise name='Print me my hashmap' tmcname='part08-Part08_08.PrintMeMyHashmap'>
 
-Tehtäväpohjassa tulee luokka `Ohjelma`. Luo luokkaan seuraavat kolme luokkametodia:
+<!-- Tehtäväpohjassa tulee luokka `Ohjelma`. Luo luokkaan seuraavat kolme luokkametodia: -->
+Exercise template contains a class `Program`. Implement the following class methods in the clas:
 
-- `public static void tulostaAvaimet(HashMap<String, String> hajautustaulu)`, joka tulostaa parametrina annetun hajautustaulun avaimet.
+<!-- - `public static void printKeys(HashMap<String, String> hajautustaulu)`, joka tulostaa parametrina annetun hajautustaulun avaimet. -->
 
-- `public static void tulostaAvaimetJoissa(HashMap<String, String> hajautustaulu, String merkkijono)`, joka tulostaa parametrina annetun hajautustaulun avaimista ne, jotka sisältävät parametrina annetun merkkijonon.
+<!-- - `public static void tulostaAvaimetJoissa(HashMap<String, String> hajautustaulu, String merkkijono)`, joka tulostaa parametrina annetun hajautustaulun avaimista ne, jotka sisältävät parametrina annetun merkkijonon. -->
 
-- `public static void tulostaArvotJosAvaimessa(HashMap<String, String> hajautustaulu, String merkkijono)`, joka tulostaa parametrina annetun hajautustaulun ne arvot, joihin liittyvät avaimet sisältävät parametrina annetun merkkijonon.
+<!-- - `public static void tulostaArvotJosAvaimessa(HashMap<String, String> hajautustaulu, String merkkijono)`, joka tulostaa parametrina annetun hajautustaulun ne arvot, joihin liittyvät avaimet sisältävät parametrina annetun merkkijonon. -->
+ -  `public static void printKeys(HashMap<String,String> hashmap)`, prints all the keys in the hashmap given as a parameter.
+ -  `public static void printKeysWhere(HashMap<String,String> hashmap, String text)` prints the keys in the hashmap given as a parameter, which contain the string given as a parameter.
+ - `public static void printValuesOfKeysWhere(HashMap<String,String> hashmap, String text)`, prints the values in the given hashmap whichs keys contain the given string.
 
-Esimerkki luokkametodien käytöstä:
+<!-- Esimerkki luokkametodien käytöstä: -->
+Example of using the class methods:
 
 ```java
-HashMap<String, String> taulu = new HashMap<>();
-taulu.put("esim.", "esimerkiksi");
-taulu.put("jne.", "ja niin edelleen");
-taulu.put("yms.", "ynnä muuta sellaista");
+HashMap<String, String> hashmap = new HashMap<>();
+hashmap.put("f.e", "for example");
+hashmap.put("etc.", "and so on");
+hashmap.put("i.e", "more precisely");
 
-tulostaAvaimet(taulu);
+printKeys(hashmap);
 System.out.println("---");
-tulostaAvaimetJoissa(taulu, "m");
+printKeysWhere(hashmap, "i");
 System.out.println("---");
-tulostaArvotJosAvaimessa(taulu, "ne");
+printValuesOfKeysWhere(hashmap, ".e");
 ```
 
 <sample-output>
-esim.
-jne.
-yms.
+f.e
+etc.
+i.e
 ---
-esim.
-yms.
+i.e
 ---
-ja niin edelleen
+for example
+more precisely
 </sample-output>
 
-Huom! Tulostusjärjestys voi poiketa yllä esitetystä, sillä hajautustaulun sisäinen toteutus ei takaa olioiden järjestystä.
+<!-- Huom! Tulostusjärjestys voi poiketa yllä esitetystä, sillä hajautustaulun sisäinen toteutus ei takaa olioiden järjestystä. -->
+NB! The order of the output can vary, because the implementation of hashmaps does not guarantee the order of the objects in it.
 
 </programming-exercise>
 
@@ -656,13 +670,13 @@ Tehtäväpohjassa tulee materiaalista tuttu luokka `Kirja` sekä luokka `Ohjelma
 Esimerkki luokkametodien käytöstä:
 
 ```java
-HashMap<String, Kirja> taulu = new HashMap<>();
-taulu.put("tunteet", new Kirja("Järki ja tunteet", 1811, "..."));
-taulu.put("luulot", new Kirja("Ylpeys ja ennakkoluulo", 1813, "...."));
+HashMap<String, Kirja> hashmap = new HashMap<>();
+hashmap.put("tunteet", new Kirja("Järki ja tunteet", 1811, "..."));
+hashmap.put("luulot", new Kirja("Ylpeys ja ennakkoluulo", 1813, "...."));
 
-tulostaArvot(taulu);
+tulostaArvot(hashmap);
 System.out.println("---");
-tulostaArvoJosNimessa(taulu, "ennakko");
+tulostaArvoJosNimessa(hashmap, "ennakko");
 ```
 
 <sample-output>
@@ -685,8 +699,8 @@ Huom! Tulostusjärjestys voi poiketa yllä esitetystä, sillä hajautustaulun si
 Hajautustaulu olettaa, että siihen lisätään viittaustyyppisiä muuttujia (samoin kuin `ArrayList`). Java muuntaa alkeistyyppiset muuttujat viittaustyyppisiksi käytännössä kaikkia Javan valmiita tietorakenteita (kuten ArrayList ja HashMap) käytettäessä. Vaikka luku `1` voidaan esittää alkeistyyppisen muuttujan `int` arvona, tulee sen tyypiksi määritellä `Integer` ArrayListissä ja HashMapissa.
 
 ```java
-HashMap<Integer, String> taulu = new HashMap<>(); // toimii
-taulu.put(1, "Ole!");
+HashMap<Integer, String> hashmap = new HashMap<>(); // toimii
+hashmap.put(1, "Ole!");
 HashMap<int, String> taulu2 = new HashMap<>(); // ei toimi
 ```
 
@@ -721,9 +735,9 @@ Java muuntaa alkeistyyppiset muuttujat automaattisesti viittaustyyppisiksi kun n
 
 ```java
 int avain = 2;
-HashMap<Integer, Integer> taulu = new HashMap<>();
-taulu.put(avain, 10);
-int arvo = taulu.get(avain);
+HashMap<Integer, Integer> hashmap = new HashMap<>();
+hashmap.put(avain, 10);
+int arvo = hashmap.get(avain);
 System.out.println(arvo);
 ```
 
