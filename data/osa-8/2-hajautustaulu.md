@@ -124,16 +124,16 @@ Ein
 
 ## Viittaustyyppinen muuttuja hajautustaulun arvona
 
-Tutkitaan hajautustaulun toimintaa kirjastoesimerkin avulla. Kirjastosta voi hakea kirjoja kirjan nimen perusteella. Jos haetulla nimellä löytyy kirja, palauttaa kirjasto kirjan viitteen. Luodaan ensin esimerkkiluokka `Kirja`, jolla on oliomuuttujina nimi, kirjaan liittyvä sisältö sekä kirjan julkaisuvuosi.
+Tutkitaan hajautustaulun toimintaa kirjastoesimerkin avulla. Bookstosta voi hakea kirjoja kirjan nimen perusteella. Jos haetulla nimellä löytyy kirja, palauttaa kirjasto kirjan viitteen. Luodaan ensin esimerkkiluokka `Book`, jolla on oliomuuttujina nimi, kirjaan liittyvä sisältö sekä kirjan julkaisuvuosi.
 
 
 ```java
-public class Kirja {
+public class Book {
     private String nimi;
     private String sisalto;
     private int julkaisuvuosi;
 
-    public Kirja(String nimi, int julkaisuvuosi, String sisalto) {
+    public Book(String nimi, int julkaisuvuosi, String sisalto) {
         this.nimi = nimi;
         this.julkaisuvuosi = julkaisuvuosi;
         this.sisalto = sisalto;
@@ -173,24 +173,24 @@ public class Kirja {
 Luodaan seuraavaksi hajautustaulu, joka käyttää avaimena kirjan nimeä eli String-tyyppistä oliota, ja arvona edellä luomaamme kirjaa.
 
 ```java
-HashMap<String, Kirja> hakemisto = new HashMap<>();
+HashMap<String, Book> hakemisto = new HashMap<>();
 ```
 
 Yllä oleva hajautustaulu käyttää avaimena `String`-oliota. Laajennetaan esimerkkiä siten, että hakemistoon lisätään kaksi kirjaa, `"Järki ja tunteet"` ja `"Ylpeys ja ennakkoluulo"`.
 
 ```java
-Kirja jarkiJaTunteet = new Kirja("Järki ja tunteet", 1811, "...");
-Kirja ylpeysJaEnnakkoluulo = new Kirja("Ylpeys ja ennakkoluulo", 1813, "....");
+Book jarkiJaTunteet = new Book("Järki ja tunteet", 1811, "...");
+Book ylpeysJaEnnakkoluulo = new Book("Ylpeys ja ennakkoluulo", 1813, "....");
 
-HashMap<String, Kirja> hakemisto = new HashMap<>();
+HashMap<String, Book> hakemisto = new HashMap<>();
 hakemisto.put(jarkiJaTunteet.getNimi(), jarkiJaTunteet);
 hakemisto.put(ylpeysJaEnnakkoluulo.getNimi(), ylpeysJaEnnakkoluulo);
 ```
 
-Hakemistosta voi hakea kirjoja kirjan nimellä. Haku kirjalla `"Viisasteleva sydän"` ei tuota osumaa, jolloin hajautustaulu palauttaa `null`-viitteen. Kirja "Ylpeys ja ennakkoluulo" kuitenkin löytyy.
+Hakemistosta voi hakea kirjoja kirjan nimellä. Haku kirjalla `"Viisasteleva sydän"` ei tuota osumaa, jolloin hajautustaulu palauttaa `null`-viitteen. Book "Ylpeys ja ennakkoluulo" kuitenkin löytyy.
 
 ```java
-Kirja kirja = hakemisto.get("Viisasteleva sydän");
+Book kirja = hakemisto.get("Viisasteleva sydän");
 System.out.println(kirja);
 System.out.println();
 kirja = hakemisto.get("Ylpeys ja ennakkoluulo");
@@ -223,15 +223,15 @@ Alla olevassa esimerkissä kirjat on tallennettu listaan ja niiden etsiminen tap
 
 
 ```java
-ArrayList<Kirja> kirjat = new ArrayList<>();
-Kirja jarkiJaTunteet = new Kirja("Järki ja tunteet", 1811, "...");
-Kirja ylpeysJaEnnakkoluulo = new Kirja("Ylpeys ja ennakkoluulo", 1813, "....");
+ArrayList<Book> kirjat = new ArrayList<>();
+Book jarkiJaTunteet = new Book("Järki ja tunteet", 1811, "...");
+Book ylpeysJaEnnakkoluulo = new Book("Ylpeys ja ennakkoluulo", 1813, "....");
 kirjat.add(jarkiJaTunteet);
 kirjat.add(ylpeysJaEnnakkoluulo);
 
 // etsitään kirja nimeltä Järki ja tunteet
-Kirja haettava = null;
-for (Kirja kirja: kirjat) {
+Book haettava = null;
+for (Book kirja: kirjat) {
     if (kirja.getNimi().equals("Järki ja tunteet")) {
         haettava = kirja;
         break;
@@ -243,7 +243,7 @@ System.out.println();
 
 // etsitään kirja nimeltä Viisasteleva sydän
 haettava = null;
-for (Kirja kirja: kirjat) {
+for (Book kirja: kirjat) {
     if (kirja.getNimi().equals("Viisasteleva sydän")) {
         haettava = kirja;
         break;
@@ -265,9 +265,9 @@ null
 Yllä olevaa ohjelmaa varten voisi luoda erillisen luokkametodin `hae`, jolle annetaan parametrina lista sekä haettavan kirjan nimi. Metodi palauttaa nimen perusteella löytyvän kirjan mikäli sellainen on olemassa, muulloin metodi palauttaa `null`-viitteen.
 
 ```java
-public static Kirja hae(ArrayList<Kirja> kirjat, String nimi) {
+public static Book hae(ArrayList<Book> kirjat, String nimi) {
 
-    for (Kirja kirja: kirjat) {
+    for (Book kirja: kirjat) {
         if (kirja.getNimi().equals(nimi)) {
             return kirja;
         }
@@ -280,9 +280,9 @@ public static Kirja hae(ArrayList<Kirja> kirjat, String nimi) {
 Nyt ohjelma on hieman selkeämpi.
 
 ```java
-ArrayList<Kirja> kirjat = new ArrayList<>();
-Kirja jarkiJaTunteet = new Kirja("Järki ja tunteet", 1811, "...");
-Kirja ylpeysJaEnnakkoluulo = new Kirja("Ylpeys ja ennakkoluulo", 1813, "....");
+ArrayList<Book> kirjat = new ArrayList<>();
+Book jarkiJaTunteet = new Book("Järki ja tunteet", 1811, "...");
+Book ylpeysJaEnnakkoluulo = new Book("Ylpeys ja ennakkoluulo", 1813, "....");
 kirjat.add(jarkiJaTunteet);
 kirjat.add(ylpeysJaEnnakkoluulo);
 
@@ -307,7 +307,7 @@ Ohjelma toimisi nyt täysin samoin kuin hajautustaululla toteutettu ohjelma, eik
 Toiminnallisuuden näkökulmasta kyllä. Tarkastellaan ohjelma vielä tehokkuuden kannalta. Javan valmis metodi `System.nanoTime()` palauttaa tietokoneen ajan nanosekunteina. Lisätään edellä tarkasteltuun ohjelmaan toiminnallisuus, jonka perusteella voidaan laskea kuinka paljon aikaa kirjojen hakemiseen meni.
 
 ```java
-ArrayList<Kirja> kirjat = new ArrayList<>();
+ArrayList<Book> kirjat = new ArrayList<>();
 
 // lisätään kirjalistalle kymmenen miljoonaa kirjaa
 
@@ -338,7 +338,7 @@ Kun kirjoja on kymmenen miljoonaa, kestää kokeilumme mukaan kahden kirjan etsi
 Tarkastellaan samaa ohjelmaa hajautustaulua käyttäen.
 
 ```java
-HashMap<String, Kirja> hakemisto = new HashMap<>();
+HashMap<String, Book> hakemisto = new HashMap<>();
 
 // lisätään hajautustauluun kymmenen miljoonaa kirjaa
 
@@ -389,19 +389,19 @@ text = text.trim(); // text nyt "ylpeys ja ennakkoluulo"
 
 Edellä kuvatun merkkijonon muunnoksen johdosta kirja löytyy, vaikka käyttäjä kirjoittaisi kirjan nimen pienillä kirjaimilla.
 
-Luodaan luokka `Kirjasto`, joka kapseloi kirjat sisältävän hajautustaulun ja mahdollistaa kirjoitusasusta riippumattoman kirjojen haun. Lisätään luokalle `Kirjasto` metodit lisäämiseen, hakemiseen ja poistamiseen. Jokainen näistä tapahtuu siistityn nimen perusteella -- siistiminen sisältää nimen muuntamisen pienellä kirjoitetuksi sekä ylimääräisten alussa ja lopussa olevien välilyöntien poistamisen.
+Luodaan luokka `Booksto`, joka kapseloi kirjat sisältävän hajautustaulun ja mahdollistaa kirjoitusasusta riippumattoman kirjojen haun. Lisätään luokalle `Booksto` metodit lisäämiseen, hakemiseen ja poistamiseen. Jokainen näistä tapahtuu siistityn nimen perusteella -- siistiminen sisältää nimen muuntamisen pienellä kirjoitetuksi sekä ylimääräisten alussa ja lopussa olevien välilyöntien poistamisen.
 
-Hahmotellaan ensin lisäämismetodia. Kirja lisätään hajautustauluun siten, että kirjan nimi on avaimena ja kirja arvona. Koska haluamme, että pienet kirjoitusvirheet kuten isot tai pienet merkkijonot tai alussa ja lopussa olevat välilyönnit sallitaan, avain -- eli kirjan nimi -- muunnetaan pienellä kirjoitetuksi ja sen alusta ja lopusta poistetaan välilyönnit.
+Hahmotellaan ensin lisäämismetodia. Book lisätään hajautustauluun siten, että kirjan nimi on avaimena ja kirja arvona. Koska haluamme, että pienet kirjoitusvirheet kuten isot tai pienet merkkijonot tai alussa ja lopussa olevat välilyönnit sallitaan, avain -- eli kirjan nimi -- muunnetaan pienellä kirjoitetuksi ja sen alusta ja lopusta poistetaan välilyönnit.
 
 ```java
-public class Kirjasto {
-    private HashMap<String, Kirja> hakemisto;
+public class Booksto {
+    private HashMap<String, Book> hakemisto;
 
-    public Kirjasto() {
+    public Booksto() {
         this.hakemisto = new HashMap<>();
     }
 
-    public void lisaaKirja(Kirja kirja) {
+    public void lisaaBook(Book kirja) {
         String nimi = kirja.getNimi();
         if (nimi == null) {
             nimi = "";
@@ -411,7 +411,7 @@ public class Kirjasto {
         nimi = nimi.trim();
 
         if (this.hakemisto.containsKey(nimi)) {
-            System.out.println("Kirja on jo kirjastossa!");
+            System.out.println("Book on jo kirjastossa!");
         } else {
             hakemisto.put(nimi, kirja);
         }
@@ -437,35 +437,35 @@ public static String siistiMerkkijono(String merkkijono) {
 Toteutus on apumetodia käyttäen paljon siistimpi kuin ilman apumetodia.
 
 ```java
-public class Kirjasto {
-    private HashMap<String, Kirja> hakemisto;
+public class Booksto {
+    private HashMap<String, Book> hakemisto;
 
-    public Kirjasto() {
+    public Booksto() {
         this.hakemisto = new HashMap<>();
     }
 
-    public void lisaaKirja(Kirja kirja) {
+    public void lisaaBook(Book kirja) {
         String nimi = siistiMerkkijono(kirja.getNimi());
 
         if (this.hakemisto.containsKey(nimi)) {
-            System.out.println("Kirja on jo kirjastossa!");
+            System.out.println("Book on jo kirjastossa!");
         } else {
             hakemisto.put(nimi, kirja);
         }
     }
 
-    public Kirja haeKirja(String kirjanNimi) {
+    public Book haeBook(String kirjanNimi) {
         kirjanNimi = siistiMerkkijono(kirjanNimi);
         return this.hakemisto.get(kirjanNimi);
     }
 
-    public void poistaKirja(String kirjanNimi) {
+    public void poistaBook(String kirjanNimi) {
         kirjanNimi = siistiMerkkijono(kirjanNimi);
 
         if (this.hakemisto.containsKey(kirjanNimi)) {
             this.hakemisto.remove(kirjanNimi);
         } else {
-            System.out.println("Kirjaa ei löydy, ei voida poistaa!");
+            System.out.println("Booka ei löydy, ei voida poistaa!");
         }
     }
 
@@ -483,20 +483,20 @@ public class Kirjasto {
 Tarkastellaan vielä luokan käyttöä.
 
 ```java
-Kirja jarkiJaTunteet = new Kirja("Järki ja tunteet", 1811, "...");
-Kirja ylpeysJaEnnakkoluulo = new Kirja("Ylpeys ja ennakkoluulo", 1813, "....");
+Book jarkiJaTunteet = new Book("Järki ja tunteet", 1811, "...");
+Book ylpeysJaEnnakkoluulo = new Book("Ylpeys ja ennakkoluulo", 1813, "....");
 
-Kirjasto kirjasto = new Kirjasto();
-kirjasto.lisaaKirja(jarkiJaTunteet);
-kirjasto.lisaaKirja(ylpeysJaEnnakkoluulo);
+Booksto kirjasto = new Booksto();
+kirjasto.lisaaBook(jarkiJaTunteet);
+kirjasto.lisaaBook(ylpeysJaEnnakkoluulo);
 
-System.out.println(kirjasto.haeKirja("ylpeys ja ennakkoluulo");
+System.out.println(kirjasto.haeBook("ylpeys ja ennakkoluulo");
 System.out.println();
 
-System.out.println(kirjasto.haeKirja("YLPEYS JA ENNAKKOLUULO");
+System.out.println(kirjasto.haeBook("YLPEYS JA ENNAKKOLUULO");
 System.out.println();
 
-System.out.println(kirjasto.haeKirja("JÄRKI"));
+System.out.println(kirjasto.haeBook("JÄRKI"));
 ```
 
 <sample-output>
@@ -557,7 +557,7 @@ for example more precisely and so on `null`
 
 ## Hajautustaulun avainten läpikäynti
 
-Haluamme joskus etsiä kirjaa nimen osan perusteella. Hajautustaulun metodi `get` ei tähän sovellu, sillä sitä käytetään tietyllä avaimella etsimiseen. Kirjan nimen osan perusteella etsiminen ei sillä onnistu.
+Haluamme joskus etsiä kirjaa nimen osan perusteella. Hajautustaulun metodi `get` ei tähän sovellu, sillä sitä käytetään tietyllä avaimella etsimiseen. Bookn nimen osan perusteella etsiminen ei sillä onnistu.
 
 Hajautustaulun arvojen läpikäynti onnistuu hajautustaulun metodin `keySet()` palauttaman joukon sekä for-each -lauseen avulla.
 
@@ -565,10 +565,10 @@ Alla haetaan kaikki ne kirjat, joiden nimessä esiintyy annettu merkkijono.
 
 
 ```java
-public ArrayList<Kirja> haeKirjaNimenOsalla(String nimenOsa) {
+public ArrayList<Book> haeBookNimenOsalla(String nimenOsa) {
     nimenOsa = siistiMerkkijono(nimenOsa);
 
-    ArrayList<Kirja> kirjat = new ArrayList<>();
+    ArrayList<Book> kirjat = new ArrayList<>();
 
     for(String kirjanNimi : this.hakemisto.keySet()) {
         if(!kirjanNimi.contains(nimenOsa)) {
@@ -639,12 +639,12 @@ NB! The order of the output can vary, because the implementation of hashmaps doe
 Edellä kuvatun toiminnallisuuden voisi toteuttaa myös hajautustaulun arvojen läpikäynnillä. Hajautustaulu arvojoukon saa hajautustaulun metodilla `values()`. Myös tämän arvojoukon voi käydä läpi for-each -lauseella.
 
 ```java
-public ArrayList<Kirja> haeKirjaNimenOsalla(String nimenOsa) {
+public ArrayList<Book> haeBookNimenOsalla(String nimenOsa) {
     nimenOsa = siistiMerkkijono(nimenOsa);
 
-    ArrayList<Kirja> kirjat = new ArrayList<>();
+    ArrayList<Book> kirjat = new ArrayList<>();
 
-    for(Kirja kirja : this.hakemisto.values()) {
+    for(Book kirja : this.hakemisto.values()) {
         if(!kirja.getNimi().contains(nimenOsa)) {
             continue;
         }
@@ -659,37 +659,53 @@ public ArrayList<Kirja> haeKirjaNimenOsalla(String nimenOsa) {
 Kuten edellisessä esimerkissä, myös tällä tavalla etsiessä menetetään hajautustauluun liittyvä nopeusedun.
 
 
-<programming-exercise name='Hajautustaulun tulostelua 2' tmcname='osa08-Osa08_09.HajautustaulunTulostelua2'>
+<programming-exercise name='Print me another hashmap' tmcname='part08-Part08_09.PrintMeAnotherHashmap'>
 
-Tehtäväpohjassa tulee materiaalista tuttu luokka `Kirja` sekä luokka `Ohjelma`. Luo luokkaan `Ohjelma` seuraavat kaksi luokkametodia:
+<!-- Tehtäväpohjassa tulee materiaalista tuttu luokka `Book` sekä luokka `Ohjelma`. Luo luokkaan `Ohjelma` seuraavat kaksi luokkametodia: -->
+The exercise template contains the already familiar classes `Book` and `Program`.
+In the class `Program` implement the following class methods:
 
-- `public static void tulostaArvot(HashMap<String, Kirja> hajautustaulu)`, joka tulostaa parametrina annetun hajautustaulun arvot niiden toString-metodia käyttäen.
+<!-- - `public static void tulostaArvot(HashMap<String, Book> hajautustaulu)`, joka tulostaa parametrina annetun hajautustaulun arvot niiden toString-metodia käyttäen. -->
+ - `public static void printValues(HashMap<String,Book> hashmap)`, which prints all the values in the hashmap given as a parameter using
+ the toString method of the Book objects.
 
-- `public static void tulostaArvoJosNimessa(HashMap<String, Kirja> hajautustaulu, String merkkijono)`, joka tulostaa parametrina annetun hajautustaulun arvoista ne, joiden nimessä on parametrina annettu merkkijono. Nimen saa selville kirjan metodilla `getNimi`.
+<!-- - `public static void tulostaArvoJosNimessa(HashMap<String, Book> hajautustaulu, String merkkijono)`, joka tulostaa parametrina annetun hajautustaulun arvoista ne, joiden nimessä on parametrina annettu merkkijono. Nimen saa selville kirjan metodilla `getNimi`. -->
+`public static void printValueIfNameContains(HashMap<String,Book> hashmap, String text)`, which prints only the Books in the given hashmap whichs name contains the given string. You can find out the name of a Book with the method `getName`.
 
-Esimerkki luokkametodien käytöstä:
+<!-- Esimerkki luokkametodien käytöstä: -->
+An example of using the class methods:
 
 ```java
-HashMap<String, Kirja> hashmap = new HashMap<>();
-hashmap.put("tunteet", new Kirja("Järki ja tunteet", 1811, "..."));
-hashmap.put("luulot", new Kirja("Ylpeys ja ennakkoluulo", 1813, "...."));
+HashMap<String, Book> hashmap = new HashMap<>();
+hashmap.put("sense", new Book("Sense and Sensibility", 1811, "..."));
+hashmap.put("prejudice", new Book("Pride and prejudice", 1813, "...."));
 
-tulostaArvot(hashmap);
+printValues(hashmap);
 System.out.println("---");
-tulostaArvoJosNimessa(hashmap, "ennakko");
+printValueIfNameContains(hashmap, "prejud");
 ```
 
+<!-- <sample-output> -->
+<!-- Nimi: Ylpeys ja ennakkoluulo (1813) -->
+<!-- Sisältö: ... -->
+<!-- Nimi: Järki ja tunteet (1811) -->
+<!-- Sisältö: ... -->
+<!-- --- -->
+<!-- Nimi: Ylpeys ja ennakkoluulo (1813) -->
+<!-- Sisältö: ... -->
+<!-- </sample-output> -->
 <sample-output>
-Nimi: Ylpeys ja ennakkoluulo (1813)
-Sisältö: ...
-Nimi: Järki ja tunteet (1811)
-Sisältö: ...
+Name: Pride and prejudice (1813)
+Contents: ...
+Name: Sense and Sensibility (1811)
+Contents: ...
 ---
-Nimi: Ylpeys ja ennakkoluulo (1813)
-Sisältö: ...
+Name: Pride and prejudice (1813)
+Contents: ...
 </sample-output>
 
-Huom! Tulostusjärjestys voi poiketa yllä esitetystä, sillä hajautustaulun sisäinen toteutus ei takaa olioiden järjestystä.
+<!-- Huom! Tulostusjärjestys voi poiketa yllä esitetystä, sillä hajautustaulun sisäinen toteutus ei takaa olioiden järjestystä. -->
+NB! The order of the output may vary. The implementation of a hashmap does not guarantee the order of the objects in it.
 
 </programming-exercise>
 
@@ -818,30 +834,37 @@ public class Rekisteribongauslaskuri {
 ```
 
 
-<programming-exercise name='Velkakirja' tmcname='osa08-Osa08_10.Velkakirja'>
+<programming-exercise name='I owe you' tmcname='part08-Part08_10.IOweYou'>
 
-Luo luokka `Velkakirja`, jolla on seuraavat toiminnot:
-
-
-- konstruktori `public Velkakirja()` luo uuden velkakirjan
-
-- metodi `public void asetaLaina(String kenelle, double maara)` tallettaa velkakirjaan merkinnän lainasta tietylle henkilölle.
-
-- metodi `public double paljonkoVelkaa(String kuka)` palauttaa velan määrän annetun henkilön nimen perusteella. Jos henkilöä ei löydy, palautetaan 0.
+<!-- Luo luokka `IOU`, jolla on seuraavat toiminnot: -->
+Create a class called `IOU` which has the following methods:
 
 
-Luokkaa käytetään seuraavalla tavalla:
+<!-- - konstruktori `public IOU()` luo uuden velkakirjan -->
+ - constructor `public IOU()` creates a new IOU
+
+<!-- - metodi `public void setSum(String kenelle, double maara)` tallettaa velkakirjaan merkinnän lainasta tietylle henkilölle. -->
+ - `public void setSum(String toWhom, double amount)` saves the amount owed and the person owed to to the IOU.
+
+<!-- - metodi `public double howMuchDoIOweTo(String kuka)` palauttaa velan määrän annetun henkilön nimen perusteella. Jos henkilöä ei löydy, palautetaan 0. -->
+ - `public double howMuchDoIOweTo(String toWhom)` returns the amount owed to the person whose name is given as a parameter. If the person
+ cannot be found, it returns 0.
+
+
+<!-- Luokkaa käytetään seuraavalla tavalla: -->
+The class can be used like this:
 
 ```java
-Velkakirja matinVelkakirja = new Velkakirja();
-matinVelkakirja.asetaLaina("Arto", 51.5);
-matinVelkakirja.asetaLaina("Mikael", 30);
+IOU mattsIOU = new IOU();
+mattsIOU.setSum("Arthur", 51.5);
+mattsIOU.setSum("Michael", 30);
 
-System.out.println(matinVelkakirja.paljonkoVelkaa("Arto"));
-System.out.println(matinVelkakirja.paljonkoVelkaa("Joel"));
+System.out.println(mattsIOU.howMuchDoIOweTo("Arthur"));
+System.out.println(mattsIOU.howMuchDoIOweTo("Michael"));
 ```
 
-Yllä oleva esimerkki tulostaisi:
+<!-- Yllä oleva esimerkki tulostaisi: -->
+The code above prints:
 
 <sample-output>
 
@@ -850,16 +873,18 @@ Yllä oleva esimerkki tulostaisi:
 
 </sample-output>
 
-Ole tarkkana tilanteessa, jossa kysytään velattoman ihmisen velkaa.
+<!-- Ole tarkkana tilanteessa, jossa kysytään velattoman ihmisen velkaa. -->
+Be careful in situations, when a person does not owe anything to anyone.
 
-Huom! Velkakirjan ei tarvitse huomioida vanhoja lainoja. Kun asetat uuden velan henkilölle jolla on vanha velka, vanha velka unohtuu.
+<!-- Huom! IOUn ei tarvitse huomioida vanhoja lainoja. Kun asetat uuden velan henkilölle jolla on vanha velka, vanha velka unohtuu. -->
+NB! The IOU does not care about old debt. When you set a new sum owed to a person when there is some money already owed to the same person, the old debt is forgotten.
 
 ```java
-Velkakirja matinVelkakirja = new Velkakirja();
-matinVelkakirja.asetaLaina("Arto", 51.5);
-matinVelkakirja.asetaLaina("Arto", 10.5);
+IOU mattsIOU = new IOU();
+mattsIOU.setSum("Arthur", 51.5);
+mattsIOU.setSum("Arthur", 10.5);
 
-System.out.println(matinVelkakirja.paljonkoVelkaa("Arto"));
+System.out.println(mattsIOU.howMuchDoIOweTo("Arthur"));
 ```
 
 <sample-output>
