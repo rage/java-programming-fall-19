@@ -204,12 +204,12 @@ System.out.println(kellari.sisalto("f156"));
 
 ```java
 StorageFacility facility = new StorageFacility();
-facility.add("a14", "luistimet");
-facility.add("a14", "maila");
-facility.add("a14", "luistimet");
+facility.add("a14", "ice skates");
+facility.add("a14", "ice hockey stick");
+facility.add("a14", "ice skates");
 
-facility.add("f156", "rullaluistimet");
-facility.add("f156", "rullaluistimet");
+facility.add("f156", "rollerblades");
+facility.add("f156", "rollerblades");
 
 facility.add("g63", "six");
 facility.add("g63", "pi");
@@ -218,10 +218,17 @@ System.out.println(facility.contents("a14"));
 System.out.println(facility.contents("f156"));
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 [luistimet, maila, luistimet]
 [rullaluistimet, rullaluistimet]
+
+</sample-output> -->
+
+<sample-output>
+
+[ice skates, ice hockey stick, ice skates]
+[rollerblades, rollerblades]
 
 </sample-output>
 
@@ -269,28 +276,35 @@ System.out.println(kellari.komerot());
 
 ```java
 StorageFacility facility = new StorageFacility();
-facility.add("a14", "luistimet");
-facility.add("a14", "maila");
-facility.add("a14", "luistimet");
+facility.add("a14", "ice skates");
+facility.add("a14", "ice hockey stick");
+facility.add("a14", "ice skates");
 
-facility.add("f156", "rullaluistimet");
-facility.add("f156", "rullaluistimet");
+facility.add("f156", "rollerblades");
+facility.add("f156", "rollerblades");
 
 facility.add("g63", "six");
 facility.add("g63", "pi");
 
-facility.remove("f156", "rullaluistimet");
+facility.remove("f156", "rollerblades");
 
 System.out.println(kellari.contents("f156"));
 
-facility.remove("f156", "rullaluistimet");
+facility.remove("f156", "rollerblades");
 
 System.out.println(facility.storageUnits());
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 [rullaluistimet]
+[a14, g63]
+
+</sample-output> -->
+
+<sample-output>
+
+[rollerblades]
 [a14, g63]
 
 </sample-output>
