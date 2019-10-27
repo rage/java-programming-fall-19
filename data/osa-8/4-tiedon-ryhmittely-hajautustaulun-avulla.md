@@ -163,20 +163,30 @@ System.out.println(sanakirja.kaanna("pii"));
 </programming-exercise>
 
 
-<programming-exercise name='Kellari (2 osaa)' tmcname='osa08-Osa08_15.Kellari'>
+<programming-exercise name='Storage facility (2 parts)' tmcname='part08-Part08_15.StorageFacility'>
 
 
-<h2>Lisääminen ja sisällön tarkastelu</h2>
+<!-- <h2>Lisääminen ja sisällön tarkastelu</h2> -->
 
-Tehtävänäsi on toteuttaa luokka `Kellari`, jonka avulla pidetään kirjaa kellarikomeroista sekä niiden sisällöistä. Luokan tulee toteuttaa seuraavat metodit:
+<h2>Adding items and examining contents</h2>
 
-- `public void lisaa(String komero, String tavara)` lisää parametrina annettuun komeroon parametrina annetun tavaran.
+<!-- Tehtävänäsi on toteuttaa luokka `Kellari`, jonka avulla pidetään kirjaa kellarikomeroista sekä niiden sisällöistä. Luokan tulee toteuttaa seuraavat metodit: -->
 
-- `public ArrayList<String> sisalto(String komero)` palauttaa listan, joka sisältää parametrina annetun komeron sisältämät tavarat. Mikäli komeroa ei ole tai komerossa ei ole yhtäkään tavaraa, metodin tulee palauttaa tyhjä lista.
+Your task is creating a class called `StorageFacility` that can be used to keep track of storage units and their contents. The class is to implement the following methods:
 
-Esimerkki:
+<!-- - `public void lisaa(String komero, String tavara)` lisää parametrina annettuun komeroon parametrina annetun tavaran. -->
 
-```java
+- `public void add(String unit, String item)` adds the parameter item to the storage unit that is also given as a parameter.
+
+<!-- - `public ArrayList<String> sisalto(String komero)` palauttaa listan, joka sisältää parametrina annetun komeron sisältämät tavarat. Mikäli komeroa ei ole tai komerossa ei ole yhtäkään tavaraa, metodin tulee palauttaa tyhjä lista. -->
+
+- `public ArrayList<String> contents(String storageUnit)` returns a list that contains all the items in the storage unit indicated by the parameter. If there is no such storage unit or it contains no items, the method should return an empty list.
+
+<!-- Esimerkki: -->
+
+Here's an example:
+
+<!-- ```java
 Kellari kellari = new Kellari();
 kellari.lisaa("a14", "luistimet");
 kellari.lisaa("a14", "maila");
@@ -190,6 +200,22 @@ kellari.lisaa("g63", "pi");
 
 System.out.println(kellari.sisalto("a14"));
 System.out.println(kellari.sisalto("f156"));
+``` -->
+
+```java
+StorageFacility facility = new StorageFacility();
+facility.add("a14", "luistimet");
+facility.add("a14", "maila");
+facility.add("a14", "luistimet");
+
+facility.add("f156", "rullaluistimet");
+facility.add("f156", "rullaluistimet");
+
+facility.add("g63", "six");
+facility.add("g63", "pi");
+
+System.out.println(facility.contents("a14"));
+System.out.println(facility.contents("f156"));
 ```
 
 <sample-output>
@@ -200,17 +226,27 @@ System.out.println(kellari.sisalto("f156"));
 </sample-output>
 
 
-<h2>Komeroiden listaus ja komerosta poistaminen</h2>
+<!-- <h2>Komeroiden listaus ja komerosta poistaminen</h2> -->
 
-Kun luokassa `Kellari` on toiminnallisuus tavaran komeroon lisäämiseen sekä komeron sisällöin listaamiseen, lisää sinne toiminnallisuus tavaran poistamiseen komerosta sekä komeroiden listaamiseen.
+<h2>Listing the units and removing from unit</h2>
 
-- `public void poista(String komero, String tavara)` poistaa parametrina annetusta komerosta parametrina annetun tavaran. Huom! Poistaa vain yhden kappaleen -- mikäli samannimisiä tavaroita on useita, loput jäävät vielä jäljelle. Mikäli komero jäisi poiston jälkeen tyhjäksi, metodi poistaa myös komeron.
+<!-- Kun luokassa `Kellari` on toiminnallisuus tavaran komeroon lisäämiseen sekä komeron sisällöin listaamiseen, lisää sinne toiminnallisuus tavaran poistamiseen komerosta sekä komeroiden listaamiseen. -->
 
-- `public ArrayList<String> komerot()` palauttaa listana kellarikomeroiden nimet. Huom! Listassa vain ne komerot, joissa on tavaraa.
+- Now the class `StorageFacility` contains the functionality to add an item to a storage unit and to list the contents of a unit. Next add the possibilities to remove an item from a storage unit and to list all the units.
 
-Esimerkki:
+<!-- - `public void poista(String komero, String tavara)` poistaa parametrina annetusta komerosta parametrina annetun tavaran. Huom! Poistaa vain yhden kappaleen -- mikäli samannimisiä tavaroita on useita, loput jäävät vielä jäljelle. Mikäli komero jäisi poiston jälkeen tyhjäksi, metodi poistaa myös komeron. -->
 
-```java
+- `public void remove(String storageUnit, String item)` removes the given item from the given storage unit. NB! Only removes one item -- if there are several items with the same name, the rest still remain. If the storage unit would be empty after the removal, the method also removes the unit.
+
+<!-- - `public ArrayList<String> komerot()` palauttaa listana kellarikomeroiden nimet. Huom! Listassa vain ne komerot, joissa on tavaraa. -->
+
+- `public ArrayList<String> storageUnits()` returns the names of the storage units as a list. NB! Only the units that contain items are listed.
+
+<!-- Esimerkki: -->
+
+An example:
+
+<!-- ```java
 Kellari kellari = new Kellari();
 kellari.lisaa("a14", "luistimet");
 kellari.lisaa("a14", "maila");
@@ -229,6 +265,27 @@ System.out.println(kellari.sisalto("f156"));
 kellari.poista("f156", "rullaluistimet");
 
 System.out.println(kellari.komerot());
+``` -->
+
+```java
+StorageFacility facility = new StorageFacility();
+facility.add("a14", "luistimet");
+facility.add("a14", "maila");
+facility.add("a14", "luistimet");
+
+facility.add("f156", "rullaluistimet");
+facility.add("f156", "rullaluistimet");
+
+facility.add("g63", "six");
+facility.add("g63", "pi");
+
+facility.remove("f156", "rullaluistimet");
+
+System.out.println(kellari.contents("f156"));
+
+facility.remove("f156", "rullaluistimet");
+
+System.out.println(facility.storageUnits());
 ```
 
 <sample-output>
@@ -238,6 +295,8 @@ System.out.println(kellari.komerot());
 
 </sample-output>
 
-Tulostuksessa näkyvä komeroiden järjestys voi poiketa esimerkistä.
+<!-- Tulostuksessa näkyvä komeroiden järjestys voi poiketa esimerkistä. -->
+
+The order of the storage units in the output may be different from this example.
 
 </programming-exercise>
