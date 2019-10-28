@@ -209,16 +209,23 @@ The average of the numbers: 0.6666666666666666
 </programming-exercise>
 
 
-<programming-exercise name='Tiettyjen lukujen keskiarvo' tmcname='osa09-Osa09_02.TiettyjenLukujenKeskiarvo'>
+<!-- <programming-exercise name='Tiettyjen lukujen keskiarvo' tmcname='osa09-Osa09_02.TiettyjenLukujenKeskiarvo'> -->
 
-Toteuta ohjelma, joka lukee käyttäjältä syötteitä. Jos käyttäjä syöttää merkkijonon "loppu", lukeminen lopetetaan. Muut syötteet ovat lukuja. Kun käyttäjä syöttää merkkijonon "loppu", syötteiden lukeminen lopetetaan.
+<programming-exercise name='Average of selected numbers' tmcname='part09-Part09_02.AverageOfSelectedNumbers'>
 
-Tämän jälkeen käyttäjältä kysytään tulostetaanko negatiivisten vai positiivisten lukujen keskiarvo (n vai p). Jos käyttäjä syöttää merkkijonon "n", tulostetaan negatiivisten lukujen keskiarvo, muulloin tulostetaan positiivisten lukujen keskiarvo.
+<!-- Toteuta ohjelma, joka lukee käyttäjältä syötteitä. Jos käyttäjä syöttää merkkijonon "loppu", lukeminen lopetetaan. Muut syötteet ovat lukuja. Kun käyttäjä syöttää merkkijonon "loppu", syötteiden lukeminen lopetetaan. -->
 
-Toteuta keskiarvon laskeminen sekä rajaus virran avulla!
+Write a program that reads user input. If the user types the string "end", the input reading will be stopped. Inputs will be otherwise numbers.
 
+<!-- Tämän jälkeen käyttäjältä kysytään tulostetaanko negatiivisten vai positiivisten lukujen keskiarvo (n vai p). Jos käyttäjä syöttää merkkijonon "n", tulostetaan negatiivisten lukujen keskiarvo, muulloin tulostetaan positiivisten lukujen keskiarvo. -->
 
-<sample-output>
+After the user has given the string "end" as input and the input reading has been stopped, the user is asked if they want to print the average of the negative numbers they have given, or the positive numbers they have given (n or p). If the user types the string "n" as input, the average of all negative numbers is printed, otherwise the average of all the positive numbers is printed.
+
+<!-- Toteuta keskiarvon laskeminen sekä rajaus virran avulla! -->
+
+Implement calculation of the average and cropping the right numbers using streams!
+
+<!-- <sample-output>
 
 Kirjoita syötteitä, "loppu" lopettaa.
 **-1**
@@ -230,9 +237,23 @@ Tulostetaanko negatiivisten vai positiivisten lukujen keskiarvo? (n/p)
 **n**
 Negatiivisten lukujen keskiarvo: -1.0
 
-</sample-output>
+</sample-output> -->
 
 <sample-output>
+
+Input numbers, type "end" to stop.
+**-1**
+**1**
+**2**
+**end**
+
+Print the average of the negative numbers or the positive numbers? (n/p)
+**n**
+Average of the negative numbers: -1.0
+
+</sample-output>
+
+<!-- <sample-output>
 
 Kirjoita syötteitä, "loppu" lopettaa.
 **-1**
@@ -243,6 +264,20 @@ Kirjoita syötteitä, "loppu" lopettaa.
 Tulostetaanko negatiivisten vai positiivisten lukujen keskiarvo? (n/p)
 **p**
 Positiivisten lukujen keskiarvo: 1.5
+
+</sample-output> -->
+
+<sample-output>
+
+Input numbers, type "end" to stop.
+**-1**
+**1**
+**2**
+**end**
+
+Print the average of the negative numbers or the positive numbers? (n/p)
+**p**
+Average of the positive numbers: 1.5
 
 </sample-output>
 
