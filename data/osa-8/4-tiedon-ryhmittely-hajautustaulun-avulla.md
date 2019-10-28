@@ -125,11 +125,11 @@ Ada: [3, 4, 3, 3]
 
 </sample-output>
 
-<programming-exercise name='Dictionary of multiple translations' tmcname='part08Part08_14.DictionaryOfMultipleTranslations'>
+<programming-exercise name='Dictionary of many translations' tmcname='part08Part08_14.DictionaryOfManyTranslations'>
 
 <!-- Tehtävänäsi on toteuttaa luokka `UseanKaannoksenSanakirja`, johon voidaan lisätä yksi tai useampi käännös jokaiselle sanalle. Luokan tulee toteuttaa seuraavat metodit: -->
 
-Your assignment is to create the class `DictionaryOfMultipleTranslations". In it can be stored one or more translations for each word. The class is to implement the following methods:
+Your assignment is to create the class `DictionaryOfManyTranslations". In it can be stored one or more translations for each word. The class is to implement the following methods:
 
 <!-- - `public void lisaa(String sana, String kaannos)` lisää käännöksen sanalle säilyttäen vanhat käännökset -->
 
@@ -165,7 +165,7 @@ System.out.println(sanakirja.kaanna("pii"));
 ``` -->
 
 ```java
-DictionaryOfMultipleTranslations dictionary = new UseanKaannoksenSanakirja();
+DictionaryOfManyTranslations dictionary = new DictionaryOfManyTranslations();
 dictionary.add("lie", "maata");
 dictionary.add("lie", "valehdella");
 
@@ -173,7 +173,7 @@ dictionary.add("bow", "jousi");
 dictionary.add("bow", "kumartaa");
 
 System.out.println(dictionary.translate("lie"));
-sanakirja.poista("bow");
+dictionary.remove("bow");
 System.out.println(dictionary.translate("bow"));
 ```
 
