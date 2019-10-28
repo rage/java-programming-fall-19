@@ -125,22 +125,33 @@ Ada: [3, 4, 3, 3]
 
 </sample-output>
 
-<programming-exercise name='Usean käännöksen sanakirja' tmcname='osa08-Osa08_14.UseanKaannoksenSanakirja'>
+<programming-exercise name='Dictionary of many translations' tmcname='part08Part08_14.DictionaryOfManyTranslations'>
 
-Tehtävänäsi on toteuttaa luokka `UseanKaannoksenSanakirja`, johon voidaan lisätä yksi tai useampi käännös jokaiselle sanalle. Luokan tulee toteuttaa seuraavat metodit:
+<!-- Tehtävänäsi on toteuttaa luokka `UseanKaannoksenSanakirja`, johon voidaan lisätä yksi tai useampi käännös jokaiselle sanalle. Luokan tulee toteuttaa seuraavat metodit: -->
 
-- `public void lisaa(String sana, String kaannos)` lisää käännöksen sanalle säilyttäen vanhat käännökset
+Your assignment is to create the class `DictionaryOfManyTranslations". In it can be stored one or more translations for each word. The class is to implement the following methods:
 
-- `public ArrayList<String> kaanna(String sana)` palauttaa listan, joka sisältää sanojen käännökset. Jos sanalle ei ole yhtäkään käännöstä, metodin tulee palauttaa tyhjä lista.
+<!-- - `public void lisaa(String sana, String kaannos)` lisää käännöksen sanalle säilyttäen vanhat käännökset -->
 
-- `public void poista(String sana)` poistaa sanan ja sen kaikki käännökset sanakirjasta.
+- `public void add(String word, String translation)` adds the translation for the word and preserves the old translations.
 
+<!-- - `public ArrayList<String> kaanna(String sana)` palauttaa listan, joka sisältää sanojen käännökset. Jos sanalle ei ole yhtäkään käännöstä, metodin tulee palauttaa tyhjä lista. -->
 
-Käännökset kannattanee lisätä `HashMap<String, ArrayList<String>>`-tyyppiseen oliomuuttujaan.
+- `public ArrayList<String> translate(String word)` returns a list of the translations added for the word. If the word has no translations, the method should return an empty list.
 
-Esimerkki:
+<!-- - `public void poista(String sana)` poistaa sanan ja sen kaikki käännökset sanakirjasta. -->
 
-```java
+- `public void remove(String word)` removes the word and all its translations from the dictionary.
+
+<!-- Käännökset kannattanee lisätä `HashMap<String, ArrayList<String>>`-tyyppiseen oliomuuttujaan. -->
+
+It's probably best to add the translations to an object variable that is of the type `HashMap<String, ArrayList<String>>`
+
+<!-- Esimerkki: -->
+
+An example:
+
+<!-- ```java
 UseanKaannoksenSanakirja sanakirja = new UseanKaannoksenSanakirja();
 sanakirja.lisaa("kuusi", "six");
 sanakirja.lisaa("kuusi", "spruce");
@@ -151,11 +162,31 @@ sanakirja.lisaa("pii", "pi");
 System.out.println(sanakirja.kaanna("kuusi"));
 sanakirja.poista("pii");
 System.out.println(sanakirja.kaanna("pii"));
+``` -->
+
+```java
+DictionaryOfManyTranslations dictionary = new DictionaryOfManyTranslations();
+dictionary.add("lie", "maata");
+dictionary.add("lie", "valehdella");
+
+dictionary.add("bow", "jousi");
+dictionary.add("bow", "kumartaa");
+
+System.out.println(dictionary.translate("lie"));
+dictionary.remove("bow");
+System.out.println(dictionary.translate("bow"));
 ```
+
+<!-- <sample-output>
+
+[six, spruce]
+[]
+
+</sample-output> -->
 
 <sample-output>
 
-[six, spruce]
+[maata, valehdella]
 []
 
 </sample-output>
