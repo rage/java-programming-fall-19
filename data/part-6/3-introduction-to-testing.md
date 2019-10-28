@@ -179,7 +179,7 @@ if (read.contains("six")) {
 
 <!-- Ohjelma tulostus näyttää vain ohjelman antaman tulostuksen, ei käyttäjän tekemiä komentoja. -->
 
-The program's output only shows the one provided by the porgram, and no user commands.
+The program's output only shows the one provided by the program, and no user commands.
 
 <!-- <sample-output>
 
@@ -236,7 +236,7 @@ Ready-made unit test libraries are commonly used in writing tests, which provide
 
 <!-- Tarkastellaan yksikkötestien kirjoittamista esimerkin kautta. Oletetaan, että käytössämme on seuraava luokka Laskin, ja haluamme kirjoittaa sitä varten automaattisia testejä. -->
 
-Let's take a look at writing unit tests with the help of an example. Let's assume that we have the following Calculator class for use, and wantto write automated tests for it.
+Let's take a look at writing unit tests with the help of an example. Let's assume that we have the following Calculator class at our use, and want to write automated tests for it.
 
 <!-- ```java
 public class Laskin {
@@ -290,9 +290,9 @@ Yksikkötestien kirjoittaminen aloitetaan testiluokan luomisella. Testiluokka lu
 
 Testiluokka `LaskinTest` on aluksi tyhjä. -->
 
-The calculator works by always remembering the result produced by the preceding calculation operation. All subsequent calculations are always added to the previous result. A minor error resulting from copying and pasting has been left in the calculator above. The method's substract should deduct from the value, but it currently adds to it.
+The calculator works by always remembering the result produced by the preceding calculation. All subsequent calculations are always added to the previous result. A minor error resulting from copying and pasting has been left in the calculator above. The method substract should deduct from the value, but it currently adds to it.
 
-Unit test writing begins by creating a test class, which is created under the Test Packages folder. When testing the `Calculator` class, the test class is to be called `CalculatorTest`. The string `Test` at the end of the name tells the programming environment that this is a test class. Without the string Test, tests in the class would not be executed. (Note: Tests are created in NetBeans under the Test Packages folder.)
+Unit test writing begins by creating a test class, which is created under the Test-Packages folder. When testing the `Calculator` class, the test class is to be called `CalculatorTest`. The string `Test` at the end of the name tells the programming environment that this is a test class. Without the string Test, tests in the class would not be executed. (Note: Tests are created in NetBeans under the Test Packages folder.)
 
 The test class `CalculatorTest` is initially empty.
 
@@ -310,7 +310,7 @@ public class CalculatorTest {
 
 <!-- Testit ovat testiluokassa olevia metodeja ja jokainen testi testaa yksittäistä asiaa. Aloitetaan luokan Laskin testaaminen -- luodaan ensin testimetodi, jossa varmistetaan, että juuri luodun laskimen sisältämä arvo on 0. -->
 
-Tests are methods of the test class where each test tests an individual unit. Let's begin testing the class -- we start off by creating a test method that confirms that the newly created calculator's value is 0.
+Tests are methods of the test class where each test tests an individual unit. Let's begin testing the class -- we start off by creating a test method that confirms that the newly created calculator's value is intially 0.
 
 <!-- ```java
 import static org.junit.Assert.assertEquals;
@@ -456,13 +456,13 @@ BUILD SUCCESSFUL (total time: 0 seconds)
 </sample-output> -->
 <sample-output>
 
-Testsuite: LaskinTest
+Testsuite: CalculatorTest
 Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.059 sec
 
 Testcase: valueMinusTwoWhenTwoSubstracted(CalculatorTest): FAILED
 expected:<-2> but was:<2>
 junit.framework.AssertionFailedError: expected:<-2> but was:<2>
-at CalculatorTest.arvoMiinusKaksiKunErotetaanKaksi(CalculatorTest.java:25)
+at CalculatorTest.valueMinusTwoWhenTwoSubstracted(CalculatorTest.java:25)
 
 Test CalculatorTest FAILED
 test-report:
