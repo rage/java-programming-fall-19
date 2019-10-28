@@ -126,11 +126,17 @@ public class Henkilo {
 <img src="../img/diagrams/luokkakaavio-henkilo-ika-ja-nimi-ja-konstruktori-ja-tulosta-ja-getnimi.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void;+getNimi():String]">
 
 
-<programming-exercise name='Asiakas' tmcname='osa10-Osa10_01.Asiakas'>
+<!-- <programming-exercise name='Asiakas' tmcname='osa10-Osa10_01.Asiakas'> -->
 
-Alla olevassa luokkakaaviossa on kuvattuna luokka Asiakas. Toteuta luokka tehtäväpohjaan.
+<programming-exercise name='Customer' tmcname='part10-Part10_01.Customer'>
 
-<img src="../img/exercises/luokkakaavio-asiakas.png" alt="[Asiakas|-nimi:String;-osoite:String;-email:String]">
+<!-- Alla olevassa luokkakaaviossa on kuvattuna luokka Asiakas. Toteuta luokka tehtäväpohjaan. -->
+
+The class Customer is depicted in the image below. Implement the class to the Exercise template.
+
+<!-- <img src="../img/exercises/luokkakaavio-asiakas.png" alt="[Asiakas|-nimi:String;-osoite:String;-email:String]"> -->
+
+<img src="../img/exercises/luokkakaavio-asiakas.png" alt="[Customer|-name:String;-address:String;-email:String]">
 
 </programming-exercise>
 
