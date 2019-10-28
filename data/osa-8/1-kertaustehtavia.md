@@ -1,17 +1,25 @@
 ---
 path: '/osa-8/1-kertausta'
-title: 'Lyhyt kertaus'
+#title: 'Lyhyt kertaus'
+title: 'Short recap'
 hidden: true
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
 - Kertaat materiaalin osien 1-7 sisältöä.
 
+</text-box> -->
+
+<text-box variant='learningObjectives' name='Learning objectives'>
+
+- You will brush up on the contents of the parts 1-7
+
 </text-box>
 
-Alla on annettuna kurssimateriaalin osien 1-7 sisältöä kertaavia tehtäviä. Tehtävänannot ovat samoja kuin mitä materiaalissa on aiemmin esiintynyt. Vaikka olisit tehnyt osan tehtävistä aiemmin, tee ne nyt uudestaan ilman omaan aiempaan ratkaisuun turvautumista.
+<!-- Alla on annettuna kurssimateriaalin osien 1-7 sisältöä kertaavia tehtäviä. Tehtävänannot ovat samoja kuin mitä materiaalissa on aiemmin esiintynyt. Vaikka olisit tehnyt osan tehtävistä aiemmin, tee ne nyt uudestaan ilman omaan aiempaan ratkaisuun turvautumista. -->
 
+Below there are a few exercises that go over the material introduced in the parts 1-7. The assignments are identical to some exercises that have appeared earlier in the material. If you have completed some of the exercises before, please solve them again without looking at your earlier solution.
 
 <programming-exercise name='Cubes' tmcname='part08-Part08_01.Cubes'>
 

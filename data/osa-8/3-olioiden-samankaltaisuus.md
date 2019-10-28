@@ -305,19 +305,32 @@ Käytä NetBeansin avustettua equals- ja hashCode-metodien luomista kunnes tied�
 </text-box>
 
 
-<programming-exercise name='Sama päiväys' tmcname='osa08-Osa08_11.SamaPaivays'>
+<!-- <programming-exercise name='Sama päiväys' tmcname='osa08-Osa08_11.SamaPaivays'> -->
+<programming-exercise name='Same date' tmcname='part08-Part08_11.SameDate'>
 
-Tehtäväpohjan mukana tulee luokka `Paivays`, joka määrittelee päivästä, kuukaudesta ja vuodesta koostuvan olion. Tässä tehtävässä täydennät Paivays-luokkaa siten, että sen equals-metodi osaa kertoa ovatko päivämäärät täsmälleen samat.
+<!-- Tehtäväpohjan mukana tulee luokka `Paivays`, joka määrittelee päivästä, kuukaudesta ja vuodesta koostuvan olion. Tässä tehtävässä täydennät Paivays-luokkaa siten, että sen equals-metodi osaa kertoa ovatko päivämäärät täsmälleen samat. -->
 
-Lisää `Paivays`-luokkaan metodi `public boolean equals(Object object)`, joka kertoo onko metodille parametrina annetun olion päiväys sama kuin käytetyn olion päiväys.
+The exercise template contains a class `SimpleDate`, which defines a date object based on a given day, month, and year. In this exercise you will expand the SimpleDate class with an equals method, which can tell if the dates are exactly the same.
 
-Metodin tulee toimia seuraavasti:
+<!-- Lisää `Paivays`-luokkaan metodi `public boolean equals(Object object)`, joka kertoo onko metodille parametrina annetun olion päiväys sama kuin käytetyn olion päiväys. -->
 
-```java
+Create a method `public boolean equals(Object object)` for the `SimpleDate` class, which returns true if the date of the object passed to the method as a parameter is the same as the date of the object used to call the method.
+
+<!-- Metodin tulee toimia seuraavasti: -->
+The method should work as follows:
+
+<!-- ```java
 Paivays p = new Paivays(1, 2, 2000);
 System.out.println(p.equals("heh"));
 System.out.println(p.equals(new Paivays(5, 2, 2012)));
 System.out.println(p.equals(new Paivays(1, 2, 2000)));
+``` -->
+
+```java
+SimpleDate d = new SimpleDate(1, 2, 2000);
+System.out.println(d.equals("heh"));
+System.out.println(d.equals(new SimpleDate(5, 2, 2012)));
+System.out.println(d.equals(new SimpleDate(1, 2, 2000)));
 ```
 
 <sample-output>
@@ -331,11 +344,15 @@ true
 </programming-exercise>
 
 
-<programming-exercise name='Hajautusarvo päiväykselle' tmcname='osa08-Osa08_12.HajautusarvoPaivaykselle'>
+<!-- <programming-exercise name='Hajautusarvo päiväykselle' tmcname='osa08-Osa08_12.HajautusarvoPaivaykselle'> -->
+<programming-exercise name='Hash for date' tmcname='part08-Part08_12.HashedDate'>
 
-Laajennetaan edellisessä tehtävässä nähtyä `Paivays`-luokkaa siten, että sillä on myös oma `hashCode`-metodi.
+<!-- Laajennetaan edellisessä tehtävässä nähtyä `Paivays`-luokkaa siten, että sillä on myös oma `hashCode`-metodi. -->
+Let's expand the `SimpleDate` class from the previous exercise to also have its own `hashCode` method.
 
-Lisää `Paivays`-luokkaan metodi `public int hashCode()`, joka laskee päiväys-oliolle hajautusarvon. Toteuta hajautusarvon laskeminen siten, että vuosien 1900 ja 2100 välillä löytyy mahdollisimman vähän samankaltaisia hajautusarvoja.
+<!-- Lisää `Paivays`-luokkaan metodi `public int hashCode()`, joka laskee päiväys-oliolle hajautusarvon. Toteuta hajautusarvon laskeminen siten, että vuosien 1900 ja 2100 välillä löytyy mahdollisimman vähän samankaltaisia hajautusarvoja. -->
+
+Create a method `public int hashCode()` for the `SimpleDate` class, which calculates a hash for the the SimpleDate object. Implement the calculation of the hash in way that there are as few similar hashes as possible between the years 1900 and 2100.
 
 </programming-exercise>
 
