@@ -132,7 +132,7 @@ public class Henkilo {
 
 <!-- Alla olevassa luokkakaaviossa on kuvattuna luokka Asiakas. Toteuta luokka tehtäväpohjaan. -->
 
-The class Customer is depicted in the image below. Implement the class to the Exercise template.
+The class Customer is depicted in the image below. Implement the class in the Exercise template.
 
 <!-- <img src="../img/exercises/luokkakaavio-asiakas.png" alt="[Asiakas|-nimi:String;-osoite:String;-email:String]"> -->
 
@@ -140,12 +140,19 @@ The class Customer is depicted in the image below. Implement the class to the Ex
 
 </programming-exercise>
 
-<programming-exercise name='Kirja ja lentokone' tmcname='osa10-Osa10_02.KirjaJaLentokone'>
+<!-- <programming-exercise name='Kirja ja lentokone' tmcname='osa10-Osa10_02.KirjaJaLentokone'> -->
 
-Alla olevassa luokkakaaviossa on kuvattuna luokat Kirja ja Lentokone. Toteuta luokat tehtäväpohjaan.
+<programming-exercise name='A book and a plane' tmcname='part10-Part10_02.ABookAndAPlane'>
 
-<img src="../img/exercises/luokkakaavio-kirja-ja-lentokone.png" alt="[Kirja|-nimi:String;-kirjoittaja:String;-sivuja:int]
-    [Lentokone|-tunnus:String;-malli:String;-kayttoonottovuosi:int]">
+<!-- Alla olevassa luokkakaaviossa on kuvattuna luokat Kirja ja Lentokone. Toteuta luokat tehtäväpohjaan. -->
+
+The classes Book and Plane are depicted on the image below, Implement the classes in the Exercise template.
+
+<!-- <img src="../img/exercises/luokkakaavio-kirja-ja-lentokone.png" alt="[Kirja|-nimi:String;-kirjoittaja:String;-sivuja:int]
+    [Lentokone|-tunnus:String;-malli:String;-kayttoonottovuosi:int]"> -->
+
+<img src="../img/exercises/luokkakaavio-kirja-ja-lentokone.png" alt="[Book|-name:String;-author:String;-pageCount:int]
+    [Plane|-ID:String;-model:String;-yearOfIntroduction:int]">
 
 </programming-exercise>
 
