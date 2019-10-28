@@ -15,10 +15,9 @@ information.
 
 **Workshop schedule: (Exactum BK107)**
 
-* Mon 12-18
 * Tue 12-18
 * Wed 12-16
-* Thurs 14-16
+* Thurs 14-18
 * Fri 12-14
 
 Note that these times may change according to demand.
