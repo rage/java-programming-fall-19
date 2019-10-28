@@ -1,7 +1,7 @@
 ---
-path: '/osa-8/4-tiedon-ryhmittely-hajautustaulun-avulla'
-title: 'Tiedon ryhmittely hajautustaulun avulla'
-hidden: true
+path: '/part-8/4-grouping-data-using-hash-maps'
+title: 'Grouping data using hash maps'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

@@ -1,7 +1,7 @@
 ---
-path: '/osa-8/3-olioiden-samankaltaisuus'
-title: 'Olioiden samankaltaisuus'
-hidden: true
+path: '/part-8/3-similarity-of-objects'
+title: 'Similarity of objects'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

@@ -1,7 +1,7 @@
 ---
-path: '/part-8/2-hajautustaulu'
-title: 'Hajautustaulu'
-hidden: true
+path: '/part-8/2-hash-map'
+title: 'Hash map'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
