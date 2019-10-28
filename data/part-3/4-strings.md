@@ -4,13 +4,13 @@ title: 'Using strings'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Learning objectives'>
+<text-box variant='learningObjectives' name='Learning Objectives'>
 
 <!-- - Kertaat merkkijonojen lukemista, tulostamista sekä vertailua.
 - Osaat pilkkoa merkkijonon useampaan osaan. -->
 
-- You revise reading, printing and comparing Strings
-- You can split a string into several pieces
+- Revising reading, printing and comparing Strings
+- Knowing how to split a string into several pieces
 
 </text-box>
 
@@ -29,7 +29,7 @@ String magicWord = "abracadabra";
 
 <!-- Merkkijonomuuttujan antaminen tulostuskomennolle (tai oikeastaan mille tahansa merkkijonon parametrina ottavalle metodille) parametrina onnistuu tutulla tavalla. Alla määritellään merkkijono, joka tulostetaan. -->
 
-Passing a String as a parameter to a printing command (or actually to any method that takes a String parameter) should look quite familiar by now:
+Passing a String as a parameter to a print command (or, for that matter, any method that takes a String parameter) happens in the familiar way:
 
 <!-- ```java
 String taikasana = "abrakadabra";
@@ -50,10 +50,10 @@ abracadabra
 
 
 <!-- ## Merkkijonojen lukeminen ja tulostaminen -->
-## Reading and printing strings
+## Reading and Printing Strings
 
 <!-- Merkkijonon lukeminen onnistuu Scannerin tarjoamalla nextLine-metodilla. Alla oleva ohjelma lukee käyttäjän nimen ja tulostaa sen seuraavalla rivillä: -->
-You can read a string with the nextLine-method of Scanner- Here we read the name of the user and print it:
+You can read a string using the nextLine-method offered by Scanner. The program below reads the name of the user and prints it:
 
 <!-- ```java
 Scanner lukija = new Scanner(System.in);
@@ -69,7 +69,7 @@ System.out.println(nimi);
 Scanner reader = new Scanner(System.in);
 
 System.out.print("What's your name? ");
-// reading one line of user input and assigning it to the name variable
+// reading a line from the user and assigning it to the name variable
 String name = reader.nextLine();
 
 System.out.println(name);
@@ -85,7 +85,7 @@ Vicky
 </sample-output>
 
 <!-- Merkkijonoja voi myös yhdistellä. Jos plus-operaatiota `+` sovelletaan kahden merkkijonon välille, syntyy uusi merkkijono, jossa kaksi merkkijonoa on yhdistetty. Huomaa nokkela välilyönnin käyttö lauseen "muuttujien" osana! -->
-You can also concatenate strings. If you apply a `+`-operation between two strings, you get a new string made of the two strings. Note the white spaces in the variables!
+Strings can also be concatenated. If you place a `+`-operator between two strings, you get a new string that's a combination of those two strings. Be mindful of any white spaces in your variables!
 
 <!-- ```java
 String tervehdys = "Hei ";
@@ -100,7 +100,7 @@ System.out.println(lause);
 ```java
 String greeting = "Hi ";
 String name = "Lily";
-String goodbye = " and bye!";
+String goodbye = " and see you later!";
 
 String phrase = greeting + name + goodbye;
 
@@ -110,7 +110,7 @@ System.out.println(phrase);
 <sample-output>
 
 <!-- Hei Lilja ja näkemiin! -->
-Hi Lily and bye!
+Hi Lily and see you later!
 
 </sample-output>
 
@@ -143,10 +143,10 @@ NB! The program should ask for only one string. Don't use a loop here.
 
 <!-- ## Merkkijonojen vertailu ja equals -->
 
-## Comparing strings and "equals"
+## String Comparisons And "Equals"
 
 <!-- Merkkijonoja ei voi vertailla yhtäsuuri kuin operaatiolla `==`.  Merkkijonojen vertailuun käytetään erillistä `equals`-komentoa, joka liittyy aina verrattavaan merkkijonoon. -->
-You can't compare Strings with `==`-operator. There's a separate `equals`-command which is always attached to the string to compare.
+Strings can't be compared with with the equals operator - `==`. For strings, there exists a separate `equals`-command, which is always appended to the end of the string that we want to compare.
 
 <!-- ```java
 String teksti = "kurssi";
@@ -162,13 +162,13 @@ if (teksti.equals("marsipaani")) {
 String text = "course";
 
 if (text.equals("marzipan")) {
-    System.out.println("there's marzipan assigned to the text variable.");
+    System.out.println("The text variable contains the text marzipan.");
 } else {
-    System.out.println("there isn't marzipan assigned to the text variable.");
+    System.out.println("The text variable does not contain the text marzipan.");
 }
 ```
 
-<!-- Komento `equals` liitetään aina siihen verrattavaan tekstimuuttujaan, "tekstimuuttuja piste equals teksti". Tekstimuuttujaa voidaan myös verrata toiseen tekstimuuttujaan. --> The `equals` command is always attached to string variable that is compared, "variable dot equals string-to-compare". You can also compare a string variable to another string variable.
+<!-- Komento `equals` liitetään aina siihen verrattavaan tekstimuuttujaan, "tekstimuuttuja piste equals teksti". Tekstimuuttujaa voidaan myös verrata toiseen tekstimuuttujaan. --> The `equals` command is always appended to the end of the string that we want to compare, "string variable dot equals some text". You can also compare a string variable to another string variable.
 
 <!-- ```java
 String teksti = "kurssi";
@@ -188,15 +188,15 @@ String anotherText = "horse";
 if (text.equals(anotherText)) {
     System.out.println("The two texts are equal!");
 } else {
-    System.out.println("The two texts are the same!");
+    System.out.println("The two texts are not equal!");
 }
 ```
 
 <!-- Merkkijonoja vertailtaessa on syytä varmistaa että verrattavalla tekstimuuttujalla on arvo. Jos muuttujalla ei ole arvoa, ohjelma tuottaa virheen _NullPointerException_, joka tarkoittaa ettei muuttujan arvoa ole asetettu tai se on tyhjä (_null_). -->
-When you compare Strings, you should make sure the string variable has a value assigned. If it doesn't have a value, the program will produce a _NullPointerException_, which means no value has been assigned to the variable, or that it is empty (_null_).
+When comparing strings, you should make sure the string variable has some value assigned to ti. If it doesn't have a value, the program will produce a _NullPointerException_ error, which means that no value has been assigned to the variable, or that it is empty (_null_).
 
 <!-- Kuten aiemmin, negaation avulla arvon voi kääntää päinvastaiseksi. -->
-The comparison produces a boolean, which can be switched to the opposite with negation `!`.
+As we've come to know, a boolean value can be inverted through negation - `!`.
 
 <!-- ```java
 System.out.println("Eihän merkkijono ole 'maito'");
@@ -259,17 +259,17 @@ Try again!
 
 <!-- Tee ohjelma, joka tunnistaa seuraavat käyttäjät:
 
-| tunnus  | salasana  |
-|---------|-----------|
-| aleksi  | tappara   |
-| elina   | kissa     | -->
+| tunnus | salasana |
+| ------ | -------- |
+| aleksi | tappara  |
+| elina  | kissa    | --> |
 
 write a program that recognizes the following users:
 
-| username | password  |
-|----------|-----------|
-| alex     | sunshine  |
-| emma     | haskell   |
+| username | password |
+| -------- | -------- |
+| alex     | sunshine |
+| emma     | haskell  |
 
 
 <!-- Ohjelma näyttää käyttäjälle henkilökohtaisen viestin tai ilmoittaa, jos tunnus tai salasana on väärin. -->
@@ -323,10 +323,10 @@ Incorrect username or password!
 
 
 <!-- ## Merkkijonon jakaminen osiin -->
-## Splitting a string
+## Splitting a String
 
 <!-- Merkkijonon jakaminen useampaan osaan tapahtuu merkkijonoihin liittyvällä metodilla `split`, jolle annetaan parametrina merkkijono, jonka kohdalta käsiteltävä merkkijono jaetaan osiin. Metodi `split` palauttaa merkkijonoista koostuvan taulukon. Allaolevassa esimerkissä merkkijono jaetaan osiin välilyönnin kohdalta. -->
-You can split a string to multiple pieces with the `split`-method of a string. As a parameter it takes a string to split it by. `split` returns an array of the parts. In the example below we split a string by the spaces:
+You can split a string to multiple pieces with the `split`-method of the String class. The method takes as a parameter a string denoting the place around which the string should be split. The `split` method returns an array of the resulting sub-parts. In the example below, the string has been split around a space.
 
 
 <!-- ```java
@@ -494,11 +494,11 @@ tin wasn't found
 </programming-exercise>
 
 <!-- ## Määrämuotoinen tieto -->
-## Data of fixed format
+## Data of Fixed Format
 
 <!-- Merkkijonojen pilkkomista käytetään erityisesti silloin, kun käsitellään määrämuotoista tietoa. Määrämuotoisella tiedolla tarkoitetaan tietoa, joka noudattaa jotain tiettyä säännönmukaista muotoa. Tällainen muoto on esimerkiksi comma separated format (`csv`), missä arvot on eritelty toisistaan pilkuilla. Alla on esimerkki csv-muotoisesta nimiä ja ikiä sisältävästä tiedosta. Ensimmäinen sarake sisältää nimen ja toinen iän. Sarakkeet on eroteltu toisistaan pilkuilla. -->
 
-Splitting strings is used especially for data of fixed format -- data that is given in some predefined, regularly shaped format. One of these is Comma-separated values (`csv`), which commas to separate the values. Below is an example of csv data containing names and ages. First column contains names, the second one ages. The columns are separed by a comma.
+Splitting strings is used particularly when the data is of a fixed format. This refers to data that adheres to some predefined format. An example of this of this is the comma-separated values (`csv`) format, where commas are used to separate values. Belowm you'll find an example of data in csv form containing names and ages. The first column contains names and the second one ages. The columns are separed by a comma.
 
 <sample-data>
 
@@ -516,7 +516,7 @@ lily,1
 Let's assume the user enters the data above row by row, ending with an empty line.
 
 <!-- Ohjelma, joka tulostaa nimet ja iät toteutetaan seuraavasti. -->
-A program to print the names and ages looks like this:
+A program to print the names and ages looks like the following:
 
 <!-- ```java
 Scanner lukija = new Scanner(System.in);
@@ -632,7 +632,7 @@ Number of parts: 3
 <text-box type="info" name="Secret messages">
 
 <!-- Yllä olevissa tehtävissä on oikeastaan toteutettu hyvin yksinkertaisten piiloviestien purkumenetelmä. Eräs tällaisten piiloviestien variantti koostuu kunkin rivin ensimmäisestä merkistä. Esimerkiksi seuraavaan (hieman sekavaan) tekstiin on piilotettu viesti "ohjelmointi". -->
-In the excercises above we were actually decrypting some very simple secret messages. One kind of hihidden message consists of the first character of each line. For example the (very cryptic) text below contains a secret message "program".
+In the exercises above, we actually implemented a very simple decrypting method for secret messages. One variant of these hidden messages consists of the first character of each line. For example, the secret message "program" is hidden in the (somewhat cryptic) text below.
 
 <sample-data>
 
@@ -657,7 +657,7 @@ Many microcomputers letter.
 </sample-data>
 
 <!-- Mikäli haluat jatkaa teeman parissa, yksittäisen merkkijonon merkin saa tietystä indeksistä merkkijonon metodilla `charAt`. -->
-Let's continue with the same theme! You can get a character at a specified index of the string with the `charAt` method.
+Let's continue along the same theme! You can get a character at a specified index of a string with the `charAt` method.
 
 <!-- ```java
 String text = "Hei maailma!";
@@ -679,11 +679,11 @@ H
 
 </text-box>
 
-### Using diverse text
+### Using Diverse Text
 
 <!-- Edellä olevissa esimerkeissä tulostimme merkkijonoja. Osa määrämuotoisesta merkkijonosta voi olla numeromuotoista. Aiemmin käyttämässämme nimiä ja ikiä sisältävässä aineistossa ikä on kokonaisluku. -->
 
-In the examples above we've printed strings. Some of the data contained in a fixed format string can be numbers. In the previous data of names and ages, the ages are integers.
+We've printed strings in the examples above. Some of the data contained in a fixed-format string can be numerical. In the previous data we used that contained names and ages, the ages were integers.
 
 <sample-data>
 
@@ -698,7 +698,7 @@ lily,1
 
 <!-- Merkkijonon pilkkominen osiin tuottaa merkkijonoista koostuvan taulukon. Mikäli teksti on määrämuotoista, voimme olettaa, että tietyssä indeksissä oleva tieto on aina tietyn muotoista -- esimerkiksi yllä indeksissä yksi oleva ikä on luku. -->
 
-Splitting a string creates always an array of strings. If the text is of fixet format, we can assume the data in a specific index to always be of the same kind -- e.g. above the age in the index 1 is an integer.
+Splitting a string always produces an array of strings. If the text is of fixed format, we can assume the data in a specific index to always be of the a specific type -- e.g., in the example above, age at index 1 is an integer.
 
 <!-- Alla olevassa esimerkissä ohjelma laskee yllä kuvattua syötemuotoa noudattavan tiedon ikien summan. Jotta summa voidaan laskea, ikä muunnetaan luvuksi (tuttu komento `Integer.valueOf()`) -->
 
@@ -753,7 +753,7 @@ Sum of the ages is 5
 </sample-output>
 
 <!-- Vastaavalla tavalla voisi toteuttaa ohjelman, joka laskee henkilöiden keski-iän. -->
-Likewise we can write a program to compute the average of the ages:
+We can write a program to compute the average of the ages in the same way:
 
 <!-- ```java
 Scanner lukija = new Scanner(System.in);
@@ -795,7 +795,7 @@ while (true) {
 }
 
 if (count > 0) {
-    System.out.println("Average of the ages: " + (1.0 * sum / count));
+    System.out.println("Age average: " + (1.0 * sum / count));
 } else {
     System.out.println("No input.");
 }
@@ -811,7 +811,7 @@ Ikien keskiarvo: 1.5 -->
 **lucas,2**
 **lily,1**
 
-Average of the ages: 1.666
+Age average: 1.666
 
 </sample-output>
 
