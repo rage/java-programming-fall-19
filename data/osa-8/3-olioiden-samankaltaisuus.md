@@ -357,75 +357,96 @@ Create a method `public int hashCode()` for the `SimpleDate` class, which calcul
 </programming-exercise>
 
 
-<programming-exercise name='Autorekisterikeskus (3 osaa)' tmcname='osa08-Osa08_13.Autorekisterikeskus'>
+<programming-exercise name='Vehicle Registry (3 parts)' tmcname='osa08-Osa08_13.VehicleRegistry'>
 
-<h2>Rekisterinumeron equals ja hashCode</h2>
+<!-- <h2>Rekisterinumeron equals ja hashCode</h2>
 
-Eurooppalaiset rekisteritunnukset koostuvat kahdesta osasta: yksi tai kaksikirjaimisesta maatunnuksesta ja maakohtaisesti määrittyvästä rekisterinumerosta, joka taas koostuu numeroista ja merkeistä. Rekisterinumeroita esitetään seuraavanlaisen luokan avulla:
+Eurooppalaiset rekisteritunnukset koostuvat kahdesta osasta: yksi tai kaksikirjaimisesta maatunnuksesta ja maakohtaisesti määrittyvästä rekisterinumerosta, joka taas koostuu numeroista ja merkeistä. Rekisterinumeroita esitetään seuraavanlaisen luokan avulla: -->
+
+<h2>Equals and hashCode for the LicensePlate class</h2>
+
+European license plates have to parts, a two letter country code and a nationally unique license number. The license number is made up of numbers and characters. License plates are represented by the following class:
 
 ```java
-public class Rekisterinumero {
-    // tässä määre final tarkoittaa sitä, että arvoa ei voi muuttaa asetuksen jälkeen
-    private final String rekNro;
-    private final String maa;
+public class LicensePlate {
 
-    public Rekisterinumero(String maa, String rekNro) {
-       this.rekNro = rekNro;
-       this.maa = maa;
+    // these instance variables have been defined as final, meaning
+    // that once set, their value can't be changed
+    private final String liNumber;
+    private final String country;
+
+    public LicensePlate(String country, String liNumber) {
+        this.liNumber = liNumber;
+        this.country = country;
     }
 
-    public String toString(){
-        return maa+ " "+rekNro;
+    @Override
+    public String toString() {
+        return country + " " + liNumber;
     }
-}
 ```
 
-Rekisterinumeroja halutaan tallettaa esim. ArrayList:eille ja käyttää HashMap:in avaimina, eli kuten yllä mainittu, tulee niille toteuttaa metodit `equals` ja `hashCode`, muuten ne eivät toimi halutulla tavalla. Toteuta luokalle rekisterinumero metodit `equals` ja `hashCode`.
+<!-- Rekisterinumeroja halutaan tallettaa esim. ArrayList:eille ja käyttää HashMap:in avaimina, eli kuten yllä mainittu, tulee niille toteuttaa metodit `equals` ja `hashCode`, muuten ne eivät toimi halutulla tavalla. Toteuta luokalle rekisterinumero metodit `equals` ja `hashCode`. -->
 
-Esimerkkiohjelma:
+We want to be able to save the license plates in e.g ArrayLists and to use them as keys in a HashMap. Which, as explained above, means that the `equals` and `hashcode` methods need to be overwritten, or they won't work as intended. Implement the methods `equals` and `hashCode` for the LicensePlate class.
+
+<!-- Esimerkkiohjelma: -->
+Example program:
 
 ```java
 public static void main(String[] args) {
-    Rekisterinumero rek1 = new Rekisterinumero("FI", "ABC-123");
-    Rekisterinumero rek2 = new Rekisterinumero("FI", "UXE-465");
-    Rekisterinumero rek3 = new Rekisterinumero("D", "B WQ-431");
+    // the following is the same sample program shown in ex 8.13 description
 
-    ArrayList<Rekisterinumero> suomalaiset = new ArrayList<>();
-    suomalaiset.add(rek1);
-    suomalaiset.add(rek2);
+        LicensePlate li1 = new LicensePlate("FI", "ABC-123");
+        LicensePlate li2 = new LicensePlate("FI", "UXE-465");
+        LicensePlate li3 = new LicensePlate("D", "B WQ-431");
 
-    Rekisterinumero uusi = new Rekisterinumero("FI", "ABC-123");
-    if (!suomalaiset.contains(uusi)) {
-        suomalaiset.add(uusi);
-    }
-    System.out.println("suomalaiset: " + suomalaiset);
-    // jos equals-metodia ei ole ylikirjoitettu, menee sama rekisterinumero toistamiseen listalle
+        ArrayList<LicensePlate> finnishPlates = new ArrayList<>();
+        finnishPlates.add(li1);
+        finnishPlates.add(li2);
 
-    HashMap<Rekisterinumero, String> omistajat = new HashMap<>();
-    omistajat.put(rek1, "Arto");
-    omistajat.put(rek3, "Jürgen");
+        LicensePlate newLi = new LicensePlate("FI", "ABC-123");
+        if (!finnishPlates.contains(newLi)) {
+            finnishPlates.add(newLi);
+        }
+        System.out.println("finnish: " + finnishPlates);
+        // if the equals-method hasn't been overwritten, the same license number will be added to the list againg
 
-    System.out.println("omistajat:");
-    System.out.println(omistajat.get(new Rekisterinumero("FI", "ABC-123")));
-    System.out.println(omistajat.get(new Rekisterinumero("D", "B WQ-431")));
-    // jos hashCode ei ole ylikirjoitettu, eivät omistajat löydy
+        HashMap<LicensePlate, String> owners = new HashMap<>();
+        owners.put(li1, "Arto");
+        owners.put(li3, "Jürgen");
+
+        System.out.println("omistajat:");
+        System.out.println(owners.get(new LicensePlate("FI", "ABC-123")));
+        System.out.println(owners.get(new LicensePlate("D", "B WQ-431")));
+        // if the hasCode-method hasn't been overwritten, the owners won't be found
 }
 ```
 
-Toteuta metodit equals ja hashCode. Kun metodit equals ja hashCode on toteutettu oikein, ylläolevan esimerkin tulostus on seuraavanlainen.
+<!-- Toteuta metodit equals ja hashCode. Kun metodit equals ja hashCode on toteutettu oikein, ylläolevan esimerkin tulostus on seuraavanlainen. -->
+Implement the methods `equals` and `hashCode`. When they are implemented correctly the example program above will print:
 
 
-<sample-output>
+<!-- <sample-output>
 
 suomalaiset: [FI ABC-123, FI UXE-465]
 omistajat:
 Arto
 Jürgen
 
+</sample-output> -->
+
+<sample-output>
+
+Finnish: [FI ABC-123, FI UXE-465]
+owners:
+Arto
+Jürgen
+
 </sample-output>
 
 
-<h2>Omistaja rekisterinumeron perusteella</h2>
+<!-- <h2>Omistaja rekisterinumeron perusteella</h2>
 
 Toteuta luokka `Ajoneuvorekisteri` jolla on seuraavat metodit:
 
@@ -436,9 +457,19 @@ Toteuta luokka `Ajoneuvorekisteri` jolla on seuraavat metodit:
 - `public boolean poista(Rekisterinumero rekkari)` poistaa parametrina olevaa rekisterinumeroa vastaavat tiedot, metodi palauttaa true jos tiedot poistetiin, ja false jos parametria vastaavia tietoja ei ollut rekisterissä
 
 
-**Huom:** Ajoneuvorekisterin täytyy tallettaa omistajatiedot `HashMap<Rekisterinumero, String> omistajat` -tyyppiseen oliomuuttujaan!
+**Huom:** Ajoneuvorekisterin täytyy tallettaa omistajatiedot `HashMap<Rekisterinumero, String> omistajat` -tyyppiseen oliomuuttujaan! -->
 
-<h2>Ajoneuvorekisteri laajenee</h2>
+<h2>Pairing plates with owners</h2>
+
+Implement the class `VehicleRegistry`, which has the following methods:
+
+- `public boolean add(LicensePlate licensePlate, String owner)` assigns the owner it received as a parameter to car corresponding with the license plate received as a parameter. If the license plate didn't have an owner returns true. If the license already had an owner attached, the method returns false and does nothing.
+
+- `public String get(LicensePlate licensePlate)` returns the owner of the car corresponding to the license plate received as a parameter. If the car isn't in the registry, returns null.
+
+- `public boolean remove(LicensePlate licensePlate)` removes the license plate and attached data from the registry. Returns true if removed successfully and false if the license plate wasn't in the registry.
+
+<!-- <h2>Ajoneuvorekisteri laajenee</h2>
 
 Lisää Ajoneuvorekisteriin vielä seuraavat metodit:
 
@@ -446,7 +477,17 @@ Lisää Ajoneuvorekisteriin vielä seuraavat metodit:
 
 - `public void tulostaOmistajat()` tulostaa rekisterissä olevien autojen omistajat. Kukin nimi tulee tulostaa vain kertaalleen vaikka omistajalla olisikin useampi auto.
 
-Vinkki! Voit luoda metodiin `tulostaOmistajat` listan, jota käytät jo tulostettujen omistajien muistamiseen. Mikäli omistaja ei ole listalla, hänet voi tulostaa ja lisätä listalle-- mikäli omistajaa taas on listalla, häntä ei tule tulostaa.
+Vinkki! Voit luoda metodiin `tulostaOmistajat` listan, jota käytät jo tulostettujen omistajien muistamiseen. Mikäli omistaja ei ole listalla, hänet voi tulostaa ja lisätä listalle-- mikäli omistajaa taas on listalla, häntä ei tule tulostaa. -->
+
+<h2>Expanded vehicle registry</h2>
+
+Add the following methods to the VehicleRegistry:
+
+- `public void printLicensePlates()`prints the license plates in the registry.
+
+- `public void printOwners()` prints the owners of the cars in the registry. Each name should only be printed once, even if a particular person owns more than one car.
+
+Useful tip! In the printOwners method, you can create a list used for remembering the owners that were already printed. If an owner is not on the their name is printed and they are added to the list -- if an owner is on the list their name isn't printed.
 
 
 </programming-exercise>
