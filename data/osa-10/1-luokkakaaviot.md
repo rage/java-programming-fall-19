@@ -238,13 +238,21 @@ public class Kirja {
 Ylläolevaan kaavioon voisi lisätä vielä ArrayListin sisältämien arvojen tyypin `ArrayList<Henkilo>` sekä yhteyttä tarkentavan määreen "kirjoittajat".
 
 
-<programming-exercise name='Naytos ja lippu' tmcname='osa10-Osa10_03.NaytosJaLippu'>
+<!-- <programming-exercise name='Naytos ja lippu' tmcname='osa10-Osa10_03.NaytosJaLippu'> -->
 
-Alla on kuvattu kaksi luokkaa, Naytos ja Lippu, sekä niiden välinen yhteys. Alla olevassa kuvassa tähti on luokan Lippu-päädyssä -- tässä tapauksessa tähti antaa lisätietoa yhteydestä; vaikkei näytös tiedä näytökseen myydyistä lipuista, voi lippuja silti myydä näytökseen monia.
+<programming-exercise name='Show and Ticket' tmcname='part10-Part10_03.ShowAndTicket'>
 
-Toteuta kuvatut luokat tehtäväpohjaan.
+<!-- Alla on kuvattu kaksi luokkaa, Naytos ja Lippu, sekä niiden välinen yhteys. Alla olevassa kuvassa tähti on luokan Lippu-päädyssä -- tässä tapauksessa tähti antaa lisätietoa yhteydestä; vaikkei näytös tiedä näytökseen myydyistä lipuista, voi lippuja silti myydä näytökseen monia. -->
 
-<img src="../img/exercises/luokkakaavio-naytos-ja-lippu.png" alt="[Naytos|-elokuva:String;-aika:String]<-*[Lippu|-paikka:int;-koodi:int]">
+There is an image below depicting two classes: Show and Ticket, and the relation between them. In the image the asterisk is on the side of the Ticket-class -- In this case the asterisk gives us information on the connection between the classes; Even if the Show doesn't know about the tickets sold for it, it is possible to purchase many tickets for it.
+
+<!-- Toteuta kuvatut luokat tehtäväpohjaan. -->
+
+Implement the depicted classes in the Exercise template.
+
+<!-- <img src="../img/exercises/luokkakaavio-naytos-ja-lippu.png" alt="[Naytos|-elokuva:String;-aika:String]<-*[Lippu|-paikka:int;-koodi:int]"> -->
+
+<img src="../img/exercises/luokkakaavio-naytos-ja-lippu.png" alt="[Show|-movie:String;-time:String]<-*[Ticket|-seat:int;-code:int]">
 
 </programming-exercise>
 
