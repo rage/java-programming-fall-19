@@ -147,14 +147,20 @@ Lyhyt yhteenveto tähän mennessä tutuiksi tulleista virtaan liittyvistä metod
 </table>
 
 
-<programming-exercise name='Lukujen keskiarvo' tmcname='osa09-Osa09_01.LukujenKeskiarvo'>
+<!-- <programming-exercise name='Lukujen keskiarvo' tmcname='osa09-Osa09_01.LukujenKeskiarvo'> -->
 
-Toteuta ohjelma, joka lukee käyttäjältä syötteitä. Jos käyttäjä syöttää merkkijonon "loppu", lukeminen lopetetaan. Muut syötteet ovat lukuja. Kun käyttäjä syöttää merkkijonon "loppu", ohjelman tulee tulostaa syötettyjen lukujen keskiarvo.
+<programming-exercise name='Average of numbers' tmcname='part09-Part09_01.AverageOfNumbers'>
 
-Toteuta keskiarvon laskeminen virran avulla!
+<!-- Toteuta ohjelma, joka lukee käyttäjältä syötteitä. Jos käyttäjä syöttää merkkijonon "loppu", lukeminen lopetetaan. Muut syötteet ovat lukuja. Kun käyttäjä syöttää merkkijonon "loppu", ohjelman tulee tulostaa syötettyjen lukujen keskiarvo. -->
+
+Write a program that reads user input. If the user types the string "end", the input reading will be stopped. Inputs will be otherwise numbers. When the user types the string "end", the program should print the average of all previously given numbers.
+
+<!-- Toteuta keskiarvon laskeminen virran avulla! -->
+
+Implement the calculation of the average using a stream!
 
 
-<sample-output>
+<!-- <sample-output>
 
 Kirjoita syötteitä, "loppu" lopettaa.
 **2**
@@ -174,6 +180,29 @@ Kirjoita syötteitä, "loppu" lopettaa.
 **2**
 **loppu**
 Lukujen keskiarvo: 0.6666666666666666
+
+</sample-output> -->
+
+<sample-output>
+
+Input numbers, type "end" to stop.
+**2**
+**4**
+**6**
+**end**
+The average of the numbers: 4.0
+
+</sample-output>
+
+
+<sample-output>
+
+Input numbers, type "end" to stop.
+**-1**
+**1**
+**2**
+**end**
+The average of the numbers: 0.6666666666666666
 
 </sample-output>
 
