@@ -357,7 +357,7 @@ Create a method `public int hashCode()` for the `SimpleDate` class, which calcul
 </programming-exercise>
 
 
-<programming-exercise name='Vehicle Registry (3 parts)' tmcname='osa08-Osa08_13.VehicleRegistry'>
+<programming-exercise name='Vehicle Registry (3 parts)' tmcname='part08-Part08_13.VehicleRegistry'>
 
 <!-- <h2>Rekisterinumeron equals ja hashCode</h2>
 
