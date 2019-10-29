@@ -307,11 +307,17 @@ public class Henkilo {
 ```
 
 
-<programming-exercise name='Opiskelija ja korkeakoulu' tmcname='osa10-Osa10_04.OpiskelijaJaKorkeakoulu'>
+<!-- <programming-exercise name='Opiskelija ja korkeakoulu' tmcname='osa10-Osa10_04.OpiskelijaJaKorkeakoulu'> -->
 
-Alla on kuvattu kaksi luokkaa, Opiskelija ja Korkeakoulu, sekä niiden välinen yhteys. Toteuta kuvatut luokat tehtäväpohjaan.
+<programming-exercise name='Student and University' tmcname='part10-Part10_04.StudentAndUniversity'>
 
-<img src="../img/exercises/luokkakaavio-opiskelija-ja-korkeakoulu.png" alt="[Opiskelija|-opiskelijanumero:int;-nimi:String]*-[Korkeakoulu|-nimi:String]">
+<!-- Alla on kuvattu kaksi luokkaa, Opiskelija ja Korkeakoulu, sekä niiden välinen yhteys. Toteuta kuvatut luokat tehtäväpohjaan. -->
+
+There are two classes depicted below: Student and University, and the connection between them. Implement the class diagram to the exercise template.
+
+<!-- <img src="../img/exercises/luokkakaavio-opiskelija-ja-korkeakoulu.png" alt="[Opiskelija|-opiskelijanumero:int;-nimi:String]*-[Korkeakoulu|-nimi:String]"> -->
+
+<img src="../img/exercises/luokkakaavio-opiskelija-ja-korkeakoulu.png" alt="[Student|-studentID:int;-name:String]*-[University|-name:String]">
 
 </programming-exercise>
 
