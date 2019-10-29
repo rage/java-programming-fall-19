@@ -403,9 +403,14 @@ Materiaalissa käytetyt luokkakaaviot on piirretty <a href="https://yuml.me/" ta
 </text-box>
 
 
-<programming-exercise name='Isompi luokkakaavio' tmcname='osa10-Osa10_07.IsompiLuokkakaavio'>
+<!-- <programming-exercise name='Isompi luokkakaavio' tmcname='osa10-Osa10_07.IsompiLuokkakaavio'> -->
 
-Alla on kuvattuna isompi luokkakaavio, jossa on luokat A, B, C, D ja E, sekä rajapinnat IA, IB ja IC. Toteuta luokkakaavion kuvaama sisältö tehtäväpohjaan.
+<programming-exercise name='Bigger class diagram' tmcname='part10-Part10_07.BiggerClassDiagram'>
+
+<!-- Alla on kuvattuna isompi luokkakaavio, jossa on luokat A, B, C, D ja E, sekä rajapinnat IA, IB ja IC. Toteuta luokkakaavion kuvaama sisältö tehtäväpohjaan. -->
+
+The bigger class diagram below depicts classes A, B, C, D and E, and interfaces IA, IB and IC.
+Implement the contents of the class diagram to the exercise template.
 
 <img  src="../img/exercises/luokkakaavio-iso-abstrakti.png" alt="[<<interface>>;IA][<<interface>>;IB][<<interface>>;IC][A]-.-^[<<interface>>;IA][B]-.-^[<<interface>>;IB][C]-.-^[<<interface>>;IC][D]->[<<interface>>;IA][E]*-*[C][C]-^[B][B]-^[A]">
 
