@@ -202,13 +202,13 @@ Kirjat olivat samat
 
 </sample-output>
 
-<quiznator id="5c78294899236814c5bbddb0"></quiznator>
+<quiznator id="381b3c27-a73c-5e73-bed7-d79306bed8f5"></quiznator>
 
 
 Monet Javan valmiit tietorakenteet tukeutuvat `equals`-metodiin osana sisäistä toimintaansa. Esimerkiksi luokan `ArrayList` `contains` ja `remove`-metodit hyödyntävät olioiden yhtäsuuruutta olion etsimisessä. Vastaavasti luokan `HashMap` toiminnallisuus perustuu equalsiin -- equalsin lisäksi metodi hashCode on oleellinen.
 
 
-<quiznator id="5c78298b3972a914741081a8"></quiznator>
+<quiznator id="53c818f7-3253-5b4d-82bc-4b78cd1e755d"></quiznator>
 
 
 ## Hajautusarvo "hashCode"

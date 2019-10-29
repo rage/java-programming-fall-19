@@ -3,7 +3,8 @@ const courseSettings = {
   name: "Java Programming Fall 2019",
   subtitle: "Learn how to program",
   slug: "java-programming-fall-19",
-  tmcCourse: "introduction-to-programming-fall-19",
+  // tmcCourse: "introduction-to-programming-fall-19",
+  tmcCourse: "hy-acp-fall-19",
   tmcOrganization: "hy",
   bannerPath: "banner.svg",
   sidebarEntries: [
@@ -28,7 +29,6 @@ const courseSettings = {
   ],
   sidebarFuturePages: [
     { separator: true, title: "Advanced course in programming" },
-    { title: "Part 8", tba: "TBA" },
     { title: "Part 9", tba: "TBA" },
     { title: "Part 10", tba: "TBA" },
     { title: "Part 11", tba: "TBA" },

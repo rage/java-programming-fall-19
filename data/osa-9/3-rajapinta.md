@@ -643,7 +643,7 @@ public class Tehdas {
 ```
 
 
-<quiznator id="5c78ff60c41ed4148d97065d"></quiznator>
+<quiznator id="9b6d7848-f27f-5e6f-8c83-fbd37d75fefe"></quiznator>
 
 <text-box variant='hint' name='Luokkien välisten riippuvuuksien vähentäminen'>
 
