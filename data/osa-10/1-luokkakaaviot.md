@@ -334,13 +334,21 @@ Abstraktien luokkien perintä toimii lähes samalla tavalla. Abstraktit luokat k
 <img src="../img/diagrams/luokkakaavio-abstraktit.png" />
 
 
-<programming-exercise name='Pelaaja ja tekoäly' nocoins='true' tmcname='osa10-Osa10_05.PelaajaJaTekoaly'>
+<!-- <programming-exercise name='Pelaaja ja tekoäly' nocoins='true' tmcname='osa10-Osa10_05.PelaajaJaTekoaly'> -->
 
-Alla on kuvattu kaksi luokkaa, Pelaaja ja Tekoaly, sekä niiden välinen yhteys. Toteuta kuvatut luokat tehtäväpohjaan.
+<programming-exercise name='the Player and the Bot' nocoins='true' tmcname='part10-Part10_05.PlayerAndBot'>
 
-<img src="../img/exercises/luokkakaavio-pelaaja-ja-tekoaly.png" alt="[Pelaaja|-nimi:String|+pelaa():void;+tulostaNimi():void]^-[Tekoaly||+pelaa():void;+lisaaSiirto(siirto:String):void]">
+<!-- Alla on kuvattu kaksi luokkaa, Pelaaja ja Tekoaly, sekä niiden välinen yhteys. Toteuta kuvatut luokat tehtäväpohjaan. -->
 
-Tähän tehtävään ei ole erillistä mallivastausta.
+There are two classes depicted below: Player and Bot, with their connection. Implement the classes to the exercise template.
+
+<!-- <img src="../img/exercises/luokkakaavio-pelaaja-ja-tekoaly.png" alt="[Pelaaja|-nimi:String|+pelaa():void;+tulostaNimi():void]^-[Tekoaly||+pelaa():void;+lisaaSiirto(siirto:String):void]"> -->
+
+<img src="../img/exercises/luokkakaavio-pelaaja-ja-tekoaly.png" alt="[Player|-name:String|+play():void;+printName():void]^-[Bot||+play():void;+addMove(move:String):void]">
+
+<!-- Tähän tehtävään ei ole erillistä mallivastausta. -->
+
+This exercise does not have a specified example answer.
 
 </programming-exercise>
 
