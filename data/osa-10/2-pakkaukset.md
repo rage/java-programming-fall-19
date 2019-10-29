@@ -114,7 +114,7 @@ Create the package `mooc.logic`, and add a class in it called `applicationLogic`
 
 <!-- - `public Sovelluslogiikka(Kayttoliittyma kayttoliittyma)`<br/>Sovelluslogiikka-luokan konstruktori. Saa parametrina Kayttoliittyma-rajapinnan toteuttavan luokan. Huom: jotta sovelluslogiikka näkisi rajapinnan, on sen "importoitava" se, eli tarvitset tiedoston alkuun rivin `import mooc.ui.Kayttoliittyma;` -->
 
-- `public applicationLogic(userInterface ui)`<br/>applicationLogic-classes constructor, gets a class implementing the `userIntrface`-interface. WARNING: In order for the applicationLogic to "see" the interface, it must import it, ie you have to add the row `import mooc.ui.userInterface;` to the top of the file.
+- `public applicationLogic(userInterface ui)`<br/>applicationLogic-classes constructor, gets a class implementing the `userInterface`-interface. WARNING: In order for the applicationLogic to "see" the interface, it must import it, ie. you have to add the row `import mooc.ui.userInterface;` to the top of the file.
 
 
 <!-- - `public void suorita(int montaKertaa)`<br/>Tulostaa `montaKertaa`-muuttujan määrittelemän määrän merkkijonoa "Sovelluslogiikka toimii". Jokaisen "Sovelluslogiikka toimii"-tulostuksen jälkeen tulee kutsua konstruktorin parametrina saadun rajapinnan `Kayttoliittyma`-toteuttaman olion määrittelemää `paivita()`-metodia. -->
