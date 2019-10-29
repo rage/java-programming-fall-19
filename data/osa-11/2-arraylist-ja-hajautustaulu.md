@@ -77,7 +77,7 @@ Taulukossa on 4 alkiota.
 </sample-output>
 
 
-<quiz id='96696460-8111-5be7-9c4f-b0b998630add'></quiz>
+<quiz id='fd66bcc3-962b-5970-936f-47c6d2d56d18'></quiz>
 
 
 <programming-exercise name='Rajatut taulukossa' tmcname='osa11-Osa11_03.RajatutTaulukossa'>
@@ -720,7 +720,7 @@ private void kopioi(Lista<Pari<K, V>>[] uusi, int indeksista) {
 }
 ```
 
-<quiz id='079d35ee-f543-5a17-ac74-14d65be2d4fb'></quiz>
+<quiz id='7fa6ce58-158d-51be-a1c1-f5df803443b5'></quiz>
 
 Nyt kopioi-metodia voidaan kutsua kasvata-metodista.
 
