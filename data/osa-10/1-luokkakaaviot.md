@@ -365,11 +365,17 @@ Rajapinnan toteuttaminen merkitään katkoviivalla ja kolmiolla. Alla on kuvattu
 <img src="../img/diagrams/luokkakaavio-kirja-toteuttaa-luettavan.png" alt="[<<interface>> Luettava][Kirja]-.-^[<<interface>> Luettava]">
 
 
-<programming-exercise name='Tallennettava henkilo' tmcname='osa10-Osa10_06.TallennettavaHenkilo'>
+<!-- <programming-exercise name='Tallennettava henkilo' tmcname='osa10-Osa10_06.TallennettavaHenkilo'> -->
 
-Alla on kuvattuna rajapinta Tallennettava sekä luokka Henkilo. Toteuta luokkakaaviossa kuvattu sisältö tehtäväpohjaan.
+<programming-exercise name='Saveable Person' tmcname='part10-Part10_06.SaveablePerson'>
 
-<img  src="../img/exercises/luokkakaavio-tallennettava-henkilo.png" alt="[<<interface>> Tallennettava||+tallenna():void;+poista():void;+lataa(osoite:String):void]^-.-[Henkilo|-nimi:String;-osoite:String]">
+<!-- Alla on kuvattuna rajapinta Tallennettava sekä luokka Henkilo. Toteuta luokkakaaviossa kuvattu sisältö tehtäväpohjaan. -->
+
+The interface Saveable and the class Person are depicted in the image below. Implement the content depicted in the class diagram to the exercise template.
+
+<!-- <img  src="../img/exercises/luokkakaavio-tallennettava-henkilo.png" alt="[<<interface>> Tallennettava||+tallenna():void;+poista():void;+lataa(osoite:String):void]^-.-[Henkilo|-nimi:String;-osoite:String]"> -->
+
+<img  src="../img/exercises/luokkakaavio-tallennettava-henkilo.png" alt="[<<interface>> Saveable||+save():void;+delete():void;+load(address:String):void]^-.-[Person|-name:String;-address:String]">
 
 
 </programming-exercise>
