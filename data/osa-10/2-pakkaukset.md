@@ -181,9 +181,13 @@ Updating UI
 </programming-exercise>
 
 
-<programming-exercise name='Kolme pakkausta' tmcname='osa10-Osa10_09.KolmePakkausta'>
+<!-- <programming-exercise name='Kolme pakkausta' tmcname='osa10-Osa10_09.KolmePakkausta'> -->
 
-Luo tehtäväpohjaan kolme pakkausta `a`, `b` ja `c`. Luo pakkauksen `a` sisälle luokka `A`, pakkauksen `b` sisälle luokka `B`, ja pakkauksen `c` sisälle luokka `C`. Luokissa ei tarvita oliomuuttujia, konstruktoreja tai metodeja.
+<programming-exercise name='The Three Packages' tmcname='part10-Part10_09.ThreePackages'>
+
+<!-- Luo tehtäväpohjaan kolme pakkausta `a`, `b` ja `c`. Luo pakkauksen `a` sisälle luokka `A`, pakkauksen `b` sisälle luokka `B`, ja pakkauksen `c` sisälle luokka `C`. Luokissa ei tarvita oliomuuttujia, konstruktoreja tai metodeja. -->
+
+Create three packages in the exercise template; `a`, `b` and `c`. Inside the package `a` create the class `A`, inside th package `b` the class `B`, and inside the package `c` the class `C`. The classes don't need to have any variables, constructors or methods inside them.
 
 </programming-exercise>
 
