@@ -109,7 +109,7 @@ Create a new class `textInterface` in the same package, which implements the int
 
 <!-- Luo tämän jälkeen pakkaus `mooc.logiikka`, ja lisää sinne luokka `Sovelluslogiikka`. Sovelluslogiikan tarjoaman toiminnallisuuden tulee olla seuraavanlainen. -->
 
-Create the package `mooc.logic`, and add a class in it called `applicationLogic`. The functionality of the class should be alike the following.
+Create the package `mooc.logic`, and add a class in it called `applicationLogic`. The functionality of the class should be alike the following:
 
 
 <!-- - `public Sovelluslogiikka(Kayttoliittyma kayttoliittyma)`<br/>Sovelluslogiikka-luokan konstruktori. Saa parametrina Kayttoliittyma-rajapinnan toteuttavan luokan. Huom: jotta sovelluslogiikka näkisi rajapinnan, on sen "importoitava" se, eli tarvitset tiedoston alkuun rivin `import mooc.ui.Kayttoliittyma;` -->
