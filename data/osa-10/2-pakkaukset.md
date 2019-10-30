@@ -914,9 +914,13 @@ Choose an action:
 </sample-output>
 
 
-**Huom1:** Testien kannalta on oleellista että *käyttöliittymä* toimii **täsmälleen** kuten yllä kuvattu. Ohjelman tulostamat vaihtoehdot kannattanee copypasteta tästä ohjelmakoodiin. Testit eivät oleta, että ohjelmasi on varautunut epäkelpoihin syötteisiin.
+<!-- **Huom1:** Testien kannalta on oleellista että *käyttöliittymä* toimii **täsmälleen** kuten yllä kuvattu. Ohjelman tulostamat vaihtoehdot kannattanee copypasteta tästä ohjelmakoodiin. Testit eivät oleta, että ohjelmasi on varautunut epäkelpoihin syötteisiin. -->
 
-**Huom2:** älä käytä luokkien nimissä skandeja, ne saattavat aiheuttaa ongelmia testeihin!
+**Note1:** It is important for the automated tests that the ui fuctions **exactly** like depicted above. It would propbably be a good idea to copypaste the outputs from here to the code. The tests do not assume for your program to be ready for invalid inputs.
+
+<!-- **Huom2:** älä käytä luokkien nimissä skandeja, ne saattavat aiheuttaa ongelmia testeihin! -->
+
+**Note:** Do not use skands for the class names (ö, å, etc), as they might lead to additional problems in the automated tests!
 
 
 
