@@ -827,51 +827,51 @@ Valitse toiminto:
 
 <sample-output>
 
-Asset Control
+Airport Airport Asset Control
 --------------------
 
 Choose an action:
 [1] Add an airplane
 [2] Add a flight
-[x] Exit Asset Control
+[x] Exit Airport Asset Control
 &gt; **1**
 Give the airplane id: **HA-LOL**
 Give the airplane capacity: **42**
 Choose an action:
 [1] Add an airplane
 [2] Add a flight
-[x] Exit Asset Control
+[x] Exit Airport Asset Control
 &gt; **1**
 Give the airplane id: **G-OWAC**
 Give the airplane capacity: **101**
 Choose an action:
 [1] Add an airplane
 [2] Add a flight
-[x] Exit Asset Control
+[x] Exit Airport Asset Control
 &gt; **2**
 Give the airplane id: **HA-LOL**
 Give the departure airport id: **HEL**
-Anna the target airport id: **BAL**
+Give the target airport id: **BAL**
 Choose an action:
 [1] Add an airplane
 [2] Add a flight
-[x] Exit Asset Control
+[x] Exit Airport Asset Control
 &gt; **2**
 Give the airplane id: ***G-OWAC**
 Give the departure airport id: **JFK**
-Anna the target airport id: **BAL**
+Give the target airport id: **BAL**
 Choose an action:
 [1] Add an airplane
 [2] Add a flight
-[x] Exit Asset Control
+[x] Exit Airport Asset Control
 &gt; **2**
 Give the airplane id: **HA-LOL**
 Give the departure airport id: **BAL**
-Anna the target airport id: **HEL**
+Give the target airport id: **HEL**
 Choose an action:
 [1] Add an airplane
 [2] Add a flight
-[x] Exit Asset Control
+[x] Exit Airport Asset Control
 &gt; **x**
 
 Flight Control
