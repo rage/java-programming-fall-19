@@ -412,14 +412,20 @@ Stack tracen lukeminen tapahtuu alhaalta ylöspäin. Alimpana on ensimmäinen ku
 <quiz id="7fa97df0-9e2d-5442-91e9-dfb2379f254c"></quiz>
 
 
-<programming-exercise name='Sensorit ja lämpötila (4 osaa)' tmcname='osa10-Osa10_12.SensoritJaLampotila'>
+<!-- <programming-exercise name='Sensorit ja lämpötila (4 osaa)' tmcname='osa10-Osa10_12.SensoritJaLampotila'> -->
+
+<programming-exercise name='Sensors and Temperature (4 parts)' tmcname='part10-Part10_12.SensorsAndTemperature'>
 
 
-Kaikki luotavat luokat tulee sijoittaa pakkaukseen `sovellus`.
+<!-- Kaikki luotavat luokat tulee sijoittaa pakkaukseen `sovellus`. -->
 
-Käytössämme on seuraava rajapinta:
+All classes in this excercise should be created inside the package `application`.
 
-```java
+<!-- Käytössämme on seuraava rajapinta: -->
+
+We are going to be working with this interface:
+
+<!-- ```java
 public interface Sensori {
     boolean onPaalla();  // palauttaa true jos sensori on päällä
     void paalle();       // käynnistä sensorin
@@ -428,11 +434,26 @@ public interface Sensori {
                          // jos sensori ei ole päällä heittää poikkeuksen
                          // IllegalStateException
 }
+``` -->
+
+```java
+public interface Sensor {
+    boolean isOn();     // returns true if the sensor is on
+    void setOn();       // sets the sensor on
+    void setOff();      // sets the sensor off
+    int read();         // returns the value of the sensor if it's on
+                        // if the sensor is not on throw a
+                        // IllegalStateException
+}
 ```
 
-<h2>Vakiosensori</h2>
+<!-- <h2>Vakiosensori</h2> -->
 
-Tee luokka `Vakiosensori` joka toteuttaa rajapinnan `Sensori`.
+<h2>StandardSensor</h2>
+
+<!-- Tee luokka `Vakiosensori` joka toteuttaa rajapinnan `Sensori`. -->
+
+Write a class `StandardSensor` which implements the interface `Sensor`.
 
 Vakiosensori on koko ajan päällä. Metodien paalle ja poisPaalta kutsuminen ei tee mitään. Vakiosensorilla tulee olla konstruktori, jonka parametrina on kokonaisluku. Metodikutsu `mittaa` palauttaa aina konstruktorille parametrina annetun luvun.
 
