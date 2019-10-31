@@ -15,7 +15,7 @@ Please change the course in NetBeans as well by selecting TMC -> Settings -> cur
 
 <please-login></please-login>
 
-<text-box variant="hint" name="Jos tulet kurssille tässä vaiheessa mukaan">
+<text-box variant="hint" name="If you are joining the course now">
 
 In this course the programming exercises are done using the Test My Code (TMC) system. Guide for using TMC can be found from the following link:[Java and NetBeans installation guide](/netbeans-installation-guide).
 
