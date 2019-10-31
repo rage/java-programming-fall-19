@@ -302,23 +302,31 @@ Jos poikkeus on esimerkiksi tyyppiä IllegalArgumentException, tai yleisemmin aj
 
 <!-- <programming-exercise name='Parametrien validointi (2 osaa)' tmcname='osa10-Osa10_11.ParametrienValidointi'> -->
 
-<programming-exercise name='Validating Parameters (2 osaa)' tmcname='part10-Part10_11.ValidatingParameters'>
+<programming-exercise name='Validating Parameters (2 parts)' tmcname='part10-Part10_11.ValidatingParameters'>
 
 <!-- Harjoitellaan hieman parametrien validointia `IllegalArgumentException`-poikkeuksen avulla. Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Laskin`. Muuta luokkia seuraavasti: -->
 
-Harjoitellaan hieman parametrien validointia `IllegalArgumentException`-poikkeuksen avulla. Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Laskin`. Muuta luokkia seuraavasti:
+Let's practice parameter validation using the `IllegalArgumentException`-exception. The excercise template contains two classes; `Person` and `Calculator`. Change the classes followingly:
 
-<h2>Henkilön validointi</h2>
+<!-- <h2>Henkilön validointi</h2> -->
 
-
-Luokan `Henkilo` konstruktorin tulee varmistaa että parametrina annettu nimi ei ole null, tyhjä tai yli 40 merkkiä pitkä. Myös iän tulee olla väliltä 0-120. Jos joku edelläolevista ehdoista ei päde, tulee konstruktorin heittää `IllegalArgumentException`-poikkeus.
-
-
-<h2>Laskimen validointi</h2>
+<h2>Person Validation</h2>
 
 
-Luokan `Laskin` metodeja tulee muuttaa seuraavasti: Metodin `kertoma` tulee toimia vain jos parametrina annetaan ei-negatiivinen luku (0 tai suurempi). Metodin `binomikerroin` tulee toimia vain jos parametrit ovat ei-negatiivisia ja osajoukon koko on pienempi kuin joukon koko. Jos jompikumpi metodeista saa epäkelpoja arvoja metodikutsujen yhteydessä, tulee metodien heittää poikkeus `IllegalArgumentException`.
+<!-- Luokan `Henkilo` konstruktorin tulee varmistaa että parametrina annettu nimi ei ole null, tyhjä tai yli 40 merkkiä pitkä. Myös iän tulee olla väliltä 0-120. Jos joku edelläolevista ehdoista ei päde, tulee konstruktorin heittää `IllegalArgumentException`-poikkeus. -->
 
+The constructor of the `Person`-class should check that the parameter name is not null, empty or more than 40 characters in length. The age should also be between 0-120. If any of the conditions above do not apply, the constructor should throw a `IllegalArgumentException`-exception.
+
+
+<!-- <h2>Laskimen validointi</h2> -->
+
+<h2>Calculator Validation</h2>
+
+
+<!-- Luokan `Laskin` metodeja tulee muuttaa seuraavasti: Metodin `kertoma` tulee toimia vain jos parametrina annetaan ei-negatiivinen luku (0 tai suurempi). Metodin `binomikerroin` tulee toimia vain jos parametrit ovat ei-negatiivisia ja osajoukon koko on pienempi kuin joukon koko. Jos jompikumpi metodeista saa epäkelpoja arvoja metodikutsujen yhteydessä, tulee metodien heittää poikkeus `IllegalArgumentException`. -->
+
+The methods on the class `Calculator` should be changed as well: The method `factorial` should only work if the parameter is positive (0 or higher), and the method `binomialCoefficent` should only work if the parameters are positive and the subsetSize is smaller than the setSize.
+If the methods get parameters witch break their conditions, they should throw the `IllegalArgumentException`-exception.
 
 </programming-exercise>
 
