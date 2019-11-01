@@ -33,31 +33,31 @@ for the lecture course at University of Helsinki, fall 2019
   </th>
   <tbody>
     <tr>
-      <td>Osa 8</td>
+      <td>Part 8</td>
       <td>7.11.2019</td>
     </tr>
     <tr>
-      <td>Osa 9</td>
+      <td>Part 9</td>
       <td>14.9.2019</td>
     </tr>
     <tr>
-      <td>Osa 10</td>
+      <td>Part 10</td>
       <td>21.11.2019</td>
     </tr>
     <tr>
-      <td>Osa 11</td>
+      <td>Part 11</td>
       <td>28.11.2019</td>
     </tr>
     <tr>
-      <td>Osa 12</td>
+      <td>Part 12</td>
       <td>5.12.2019</td>
     </tr>
     <tr>
-      <td>Osa 13</td>
+      <td>Part 13</td>
       <td>12.12.2019</td>
     </tr>
     <tr>
-      <td>Osa 14</td>
+      <td>Part 14</td>
       <td>19.12.2019</td>
     </tr>
   </tbody>
