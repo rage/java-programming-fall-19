@@ -613,13 +613,17 @@ Average temperature in the Helsinki metropolitan area 8 degrees
 </sample-output>
 
 
-<h2>Kaikki mittaukset</h2>
+<!-- <h2>Kaikki mittaukset</h2> -->
+
+<h2>Keeping track</h2>
 
 
-Lisää luokalle Keskiarvosensori metodi `public List<Integer> mittaukset()`, joka palauttaa listana kaikkien keskiarvosensorin avulla suoritettujen mittausten tulokset. Seuraavassa esimerkki metodin toiminnasta:
+<!-- Lisää luokalle Keskiarvosensori metodi `public List<Integer> mittaukset()`, joka palauttaa listana kaikkien keskiarvosensorin avulla suoritettujen mittausten tulokset. Seuraavassa esimerkki metodin toiminnasta: -->
+
+Add the class AverageSensor the method `public List<Integer> readings()`, which will return a list of all the average readings of the sensors in the past. Example of the function of the method:
 
 
-```java
+<!-- ```java
 public static void main(String[] args) {
     Sensori kumpula = new Lampomittari();
     Sensori kaisaniemi = new Lampomittari();
@@ -637,18 +641,50 @@ public static void main(String[] args) {
 
     System.out.println("mittaukset: " + paakaupunki.mittaukset());
 }
+``` -->
+
+```java
+public static void main(String[] args) {
+    Sensor kumpula = new TemperatureSensor();
+    Sensor kaisaniemi = new TemperatureSensor();
+    Sensor helsinkiVantaa = new TemperatureSensor();
+
+    AverageSensor metropolitanArea = new AverageSensor();
+    metropolitanArea.addSensor(kumpula);
+    metropolitanArea.addSensor(kaisaniemi);
+    metropolitanArea.addSensor(helsinkiVantaa);
+
+    metropolitanArea.setOn();
+    System.out.println("Average temperature in the Helsinki metropolitan area " + metropolitanArea.read() + " degrees");
+    System.out.println("Average temperature in the Helsinki metropolitan area " + metropolitanArea.read() + " degrees");
+    System.out.println("Average temperature in the Helsinki metropolitan area " + metropolitanArea.read() + " degrees");
+
+    System.out.println("Past readings: " + metropolitanArea.readings());
+}
 ```
 
-Alla olevan esimerkin tulostukset riippuvat jälleen arvotuista lämpötiloista:
+<!-- Alla olevan esimerkin tulostukset riippuvat jälleen arvotuista lämpötiloista: -->
+
+Again, the example outputs below depend on the random values given by java:
 
 
-<sample-output>
+<!-- <sample-output>
 
 lämpötila Pääkaupunkiseudulla -10 astetta
 lämpötila Pääkaupunkiseudulla -4 astetta
 lämpötila Pääkaupunkiseudulla 5 astetta
 
 mittaukset: [-10, -4, 5]
+
+</sample-output> -->
+
+<sample-output>
+
+Average temperature in the Helsinki metropolitan area -10 degrees
+Average temperature in the Helsinki metropolitan area -4 degrees
+Average temperature in the Helsinki metropolitan area 5 degrees
+
+Past readings: [-10, -4, 5]
 
 </sample-output>
 
