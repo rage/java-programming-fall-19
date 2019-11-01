@@ -28,7 +28,7 @@ const courseSettings = {
     { separator: true, title: "Introduction to programming" },
   ],
   sidebarFuturePages: [
-    { separator: true, title: "Advanced course in programming" },
+    //{ separator: true, title: "Advanced course in programming" },
     { title: "Part 9", tba: "TBA" },
     { title: "Part 10", tba: "TBA" },
     { title: "Part 11", tba: "TBA" },
@@ -36,7 +36,7 @@ const courseSettings = {
     { title: "Part 13", tba: "TBA" },
     { title: "Part 14", tba: "TBA" },
   ],
-  splitCourses: false,
+  splitCourses: true,
 }
 
 module.exports = {
