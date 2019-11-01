@@ -25,12 +25,6 @@ before the first programming exercise.
 for the lecture course at University of Helsinki, fall 2019
 
 <table>
-  <thead>
-    <tr>
-      <td>Part</td>
-      <td>Deadline</td>
-    </tr>
-  </th>
   <tbody>
     <tr>
       <td>Part 8</td>
