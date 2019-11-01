@@ -455,11 +455,15 @@ public interface Sensor {
 
 Write a class `StandardSensor` which implements the interface `Sensor`.
 
-Vakiosensori on koko ajan päällä. Metodien paalle ja poisPaalta kutsuminen ei tee mitään. Vakiosensorilla tulee olla konstruktori, jonka parametrina on kokonaisluku. Metodikutsu `mittaa` palauttaa aina konstruktorille parametrina annetun luvun.
+<!-- Vakiosensori on koko ajan päällä. Metodien paalle ja poisPaalta kutsuminen ei tee mitään. Vakiosensorilla tulee olla konstruktori, jonka parametrina on kokonaisluku. Metodikutsu `mittaa` palauttaa aina konstruktorille parametrina annetun luvun. -->
 
-Esimerkki:
+The StandardSensor is allways on; the methods setOn and setOff shouldn't do anything. The class should have the constructor which has a Integer as the only parameter. The method `read` should allways return the Integer given as the parameter.
 
-```java
+<!-- Esimerkki: -->
+
+Example:
+
+<!-- ```java
 public static void main(String[] args) {
     Vakiosensori kymppi = new Vakiosensori(10);
     Vakiosensori miinusViis = new Vakiosensori(-5);
@@ -471,7 +475,30 @@ public static void main(String[] args) {
     kymppi.poisPaalta();
     System.out.println(kymppi.onPaalla());
 }
+``` -->
+
+```java
+public static void main(String[] args) {
+    StandardSensor ten = new StandardSensor(10);
+    StandardSensor negativeFive = new StandardSensor(-5);
+
+    System.out.println(ten.read());
+    System.out.println(negativeFive.read());
+
+    System.out.println(ten.isOn());
+    kymppi.setOff();
+    System.out.println(ten.isOn());
+}
 ```
+
+<!-- <sample-output>
+
+10
+-5
+true
+true
+
+</sample-output> -->
 
 <sample-output>
 
@@ -483,32 +510,52 @@ true
 </sample-output>
 
 
-<h2>Lampomittari</h2>
+<!-- <h2>Lampomittari</h2> -->
 
-Tee luokka `Lampomittari`, joka toteuttaa rajapinnan `Sensori`.
+<h2>TemperatureSensor</h2>
 
-Aluksi lämpömittari on poissa päältä. Kutsuttaessa metodia `mittaa` kun mittari on päällä mittari arpoo luvun väliltä -30...30 ja palauttaa sen kutsujalle. Jos mittari ei ole päällä, heitetään poikkeus `IllegalStateException`.
+<!-- Tee luokka `Lampomittari`, joka toteuttaa rajapinnan `Sensori`. -->
 
-Käytä Javan valmista luokkaa <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html" target="_blank" rel="noopener">Random</a> satunnaisen luvun arpomiseen. Saat luvun väliltä 0...60 kutsulla `new Random().nextInt(61);` -- väliltä -30...30 arvotun luvun saa vähentämällä väliltä 0...60 olevasta luvusta sopiva luku.
+Create the class `TemperatureSensor`, which implements the interface `Sensor`.
+
+<!-- Aluksi lämpömittari on poissa päältä. Kutsuttaessa metodia `mittaa` kun mittari on päällä mittari arpoo luvun väliltä -30...30 ja palauttaa sen kutsujalle. Jos mittari ei ole päällä, heitetään poikkeus `IllegalStateException`. -->
+
+The default state of the TemperatureSensor is off. When the method `read` is called while it is on, a random value between -30 and 30 is returned. However, if the state is off, the `IllegalStateException`-exception should be thrown.
+
+<!-- Käytä Javan valmista luokkaa <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html" target="_blank" rel="noopener">Random</a> satunnaisen luvun arpomiseen. Saat luvun väliltä 0...60 kutsulla `new Random().nextInt(61);` -- väliltä -30...30 arvotun luvun saa vähentämällä väliltä 0...60 olevasta luvusta sopiva luku. -->
+
+When getting the random number, you should use the native Random class of java: <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html" target="_blank" rel="noopener">Random</a> You can get a number between 0...60 by calling the method `new Random.nextInt(61);` -- getting a number between -30...30 is simply a matter of subtracting the appropriate number.
 
 <br/>
 
 
-<h2>Keskiarvosensori</h2>
+<!-- <h2>Keskiarvosensori</h2> -->
 
-Tee luokka `Keskiarvosensori`, joka toteuttaa rajapinnan `Sensori`.
+<h2>AverageSensor</h2>
 
-Keskiarvosensori sisältää useita sensoreita. Rajapinnan `Sensori` määrittelemien metodien lisäksi keskiarvosensorilla on metodi `public void lisaaSensori(Sensori lisattava)` jonka avulla keskiarvosensorin hallintaan lisätään uusi sensori.
+<!-- Tee luokka `Keskiarvosensori`, joka toteuttaa rajapinnan `Sensori`. -->
 
-Keskiarvosensori on päällä silloin kuin *kaikki* sen sisältävät sensorit ovat päällä. Kun keskiarvosensori käynnistetään, täytyy kaikkien sen sisä
-ltävien sensorien käynnistyä jos ne eivät ole käynnissä. Kun keskiarvosensori suljetaan, täytyy ainakin yhden sen sisältävän sensorin mennä pois päältä. Saa myös käydä niin että kaikki sen sisältävät sensorit menevät pois päältä.
+Create the class `AverageSensor`, which implements the interface `Sensor`.
 
-Keskiarvosensorin metodi `mittaa` palauttaa sen sisältämien sensoreiden lukemien keskiarvon (koska paluuarvo on `int`, pyöristyy lukema alaspäin kuten kokonaisluvuilla tehdyissä jakolaskuissa). Jos keskiarvosensorin metodia `mittaa` kutsutaan sensorin ollessa poissa päältä, tai jos keskiarvosensorille ei vielä ole lisätty yhtään sensoria heitetään poikkeus `IllegalStateException`.
+<!-- Keskiarvosensori sisältää useita sensoreita. Rajapinnan `Sensori` määrittelemien metodien lisäksi keskiarvosensorilla on metodi `public void lisaaSensori(Sensori lisattava)` jonka avulla keskiarvosensorin hallintaan lisätään uusi sensori. -->
 
-Seuraavassa sensoreja käyttävä esimerkkiohjelma (huomaa, että sekä Lämpömittarin että Keskiarvosensorin konstruktorit ovat parametrittomia):
+The job of the AverageSensor is to contain and control group of sensors. In addition to the methods of the interface `Sensor`, the AverageSensor should also have the method `public void addSensor(Sensor toAdd)` which will add a new sensor under the control of the AverageSensor.
+
+<!-- Keskiarvosensori on päällä silloin kuin *kaikki* sen sisältävät sensorit ovat päällä. Kun keskiarvosensori käynnistetään, täytyy kaikkien sen sisä
+ltävien sensorien käynnistyä jos ne eivät ole käynnissä. Kun keskiarvosensori suljetaan, täytyy ainakin yhden sen sisältävän sensorin mennä pois päältä. Saa myös käydä niin että kaikki sen sisältävät sensorit menevät pois päältä. -->
+
+The AverageSensor is on when *all* of the sensors it controls are on. When the AverageSensor is set on, all the sensors it contains should be set on if they are not already. Similarly when the AverageSensor is set off, at least one of the sensors it controls should be also shut off. Shutting down all the controllable sensors is also OK.
+
+<!-- Keskiarvosensorin metodi `mittaa` palauttaa sen sisältämien sensoreiden lukemien keskiarvon (koska paluuarvo on `int`, pyöristyy lukema alaspäin kuten kokonaisluvuilla tehdyissä jakolaskuissa). Jos keskiarvosensorin metodia `mittaa` kutsutaan sensorin ollessa poissa päältä, tai jos keskiarvosensorille ei vielä ole lisätty yhtään sensoria heitetään poikkeus `IllegalStateException`. -->
+
+The `read`-method of the AverageSensor should return the average of the sensors under it's control (Becouse the return type is `int`, the average will be rounded downwards). If the `read`-method is called while the AverageSensor is off or it has no sensors added yet, the `IllegalStateException`-exception should be thrown.
+
+<!-- Seuraavassa sensoreja käyttävä esimerkkiohjelma (huomaa, että sekä Lämpömittarin että Keskiarvosensorin konstruktorit ovat parametrittomia): -->
+
+An example program using the classes (note, that the constructors of both the TemperatureSensor and the AverageSensor do not require any parameters):
 
 
-```java
+<!-- ```java
 public static void main(String[] args) {
     Sensori kumpula = new Lampomittari();
     kumpula.paalle();
@@ -525,15 +572,43 @@ public static void main(String[] args) {
     paakaupunki.paalle();
     System.out.println("lämpötila Pääkaupunkiseudulla " + paakaupunki.mittaa() + " astetta");
 }
+``` -->
+
+```java
+public static void main(String[] args) {
+    Sensor kumpula = new TemperatureSensor();
+    kumpula.setOn();
+    System.out.println("Temperature in Kumpula " + kumpula.read() + " degrees");
+
+    Sensor kaisaniemi = new TemperatureSensor();
+    Sensor helsinkiVantaa = new TemperatureSensor();
+
+    AverageSensor metropolitanArea = new AverageSensor();
+    metropolitanArea.addSensor(kumpula);
+    metropolitanArea.addSensor(kaisaniemi);
+    metropolitanArea.addSensor(helsinkiVantaa);
+
+    metropolitanArea.setOn();
+    System.out.println("Average temperature in the Helsinki metropolitan area " + metropolitanArea.read() + " degrees");
+}
 ```
 
-Alla olevan esimerkin tulostukset riippuvat arvotuista lämpötiloista:
+<!-- Alla olevan esimerkin tulostukset riippuvat arvotuista lämpötiloista: -->
+
+The example output below depends on the random values given by java:
 
 
-<sample-output>
+<!-- <sample-output>
 
 lämpötila Kumpulassa 11 astetta
 lämpötila Pääkaupunkiseudulla 8 astetta
+
+</sample-output> -->
+
+<sample-output>
+
+Temperature in Kumpula 11 degrees
+Average temperature in the Helsinki metropolitan area 8 degrees
 
 </sample-output>
 
