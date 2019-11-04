@@ -1,6 +1,6 @@
 ---
-path: '/osa-9/3-rajapinta'
-title: 'Rajapinta'
+path: '/osa-9/3-interface'
+title: 'Interfaces'
 hidden: true
 ---
 
@@ -145,26 +145,35 @@ Harjoittelu tekee mestarin. Keksi ja tee omia kokeiluja ja projekteja.
 
 </sample-output>
 
+<programming-exercise name='TacoBoxes (2 parts)' tmcname='part09-Part09_05.TacoBoxes'>
 
-<programming-exercise name='Palvelusvelvollinen (2 osaa)' tmcname='osa08-Osa08_05.Palvelusvelvollinen'>
 
-
-Tehtäväpohjassa on valmiina rajapinta `Palvelusvelvollinen`, jossa on seuraavat toiminnot:
+<!-- Tehtäväpohjassa on valmiina rajapinta `Palvelusvelvollinen`, jossa on seuraavat toiminnot:
 
 
 -  metodi `int paiviaJaljella()` palauttaa jäljellä olevien palveluspäivien määrän
--  metodi `void palvele()` vähentää yhden palveluspäivän. Palveluspäivien määrä ei saa mennä negatiiviseksi.
+-  metodi `void palvele()` vähentää yhden palveluspäivän. Palveluspäivien määrä ei saa mennä negatiiviseksi. -->
+
+In the exercise template you'll find Interface `TacoBox` ready for your use. It has the following methods:
 
 
-```java
+- the method `int tacosRemaining()` return the number of tacos remaining in the box.
+- the method `void eat()` reduces the number of tacos remaining by one. The number of tacos remaining can't become negative.
+<!-- ```java
 public interface Palvelusvelvollinen {
     int paiviaJaljella();
     void palvele();
 }
+``` -->
+```java
+public interface TacoBox {
+    int tacosRemaining();
+    void eat();
+}
 ```
 
 
-<h2>Sivari</h2>
+<!-- <h2>Sivari</h2>
 
 
 Tee `Palvelusvelvollinen`-rajapinnan toteuttava luokka `Sivari`, jolla parametriton konstruktori. Luokalla on oliomuuttuja paivia, joka alustetaan konstruktorikutsun yhteydessä arvoon 362.
@@ -173,10 +182,20 @@ Tee `Palvelusvelvollinen`-rajapinnan toteuttava luokka `Sivari`, jolla parametri
 <h2>Asevelvollinen</h2>
 
 
-Tee `Palvelusvelvollinen`-rajapinnan toteuttava luokka `Asevelvollinen`, jolla on parametrillinen konstruktori, jolla määritellään palvelusaika (`int paivia`).
+Tee `Palvelusvelvollinen`-rajapinnan toteuttava luokka `Asevelvollinen`, jolla on parametrillinen konstruktori, jolla määritellään palvelusaika (`int paivia`). -->
+<h2>Triple taco box</h2>
 
+
+Implement the class `TripleTacoBox`, that implements the `TacoBox` interface. `TripleTacobox` has a constructor with no parameters. `TripleTacobox` has an object variable `tacos` which is initialized at 3 when the constructor is called.
+
+
+<h2>Custom taco box</h2>
+
+
+Implement the class `CustomTacoBox`, that implements the `TacoBox` interface. `CustomTacoBox` has a constructor with one parameter defining the initial number of tacos in the box(`int tacos`).
 
 </programming-exercise>
+
 
 
 ## Rajapinta muuttujan tyyppinä
@@ -395,45 +414,47 @@ Ohjelmassa Vernan listalle kutsuttu `lue`-metodi käy kaikki sen sisältämät `
 
 Kuten huomaat, ohjelmassa on jo hyvin paljon viitteitä. Kannattaa piirtää ohjelman tilaa askeleittain paperille, ja hahmotella miten `vernanLista`-oliolle tapahtuva metodikutsu `lue` etenee!
 
-
-<programming-exercise name='Tavaroita ja laatikoita (4 osaa)' tmcname='osa08-Osa08_06.TavaroitaJaLaatikoita' nocoins='true'>
-
-
-<h2>Talletettavia</h2>
+<programming-exercise name='Interface In A Box (4 parts)' tmcname='part09-Part09_06.InterfaceInABox' nocoins='true'>
 
 
-Muuton yhteydessa tarvitaan muuttolaatikoita. Laatikoihin talletetaan erilaisia esineitä. Kaikkien laatikoihin talletettavien esineiden on toteutettava seuraava rajapinta:
+<h2>Packables</h2>
+
+
+<!-- Muuton yhteydessa tarvitaan muuttolaatikoita. Laatikoihin talletetaan erilaisia esineitä. Kaikkien laatikoihin talletettavien esineiden on toteutettava seuraava rajapinta: -->
+Moving houses requires packing all your belongings into boxes. Let's imitate that with a program. The program will have boxes, and items to pack into those boxes. All items must implement the following Interface:
 
 
 ```java
-public interface Talletettava {
-    double paino();
+public interface Packable {
+    double weight();
 }
 ```
 
 
-Lisää rajapinta ohjelmaasi. Rajapinta lisätään melkein samalla tavalla kuin luokka, <i>new Java class</i> sijaan valitaan <i>new Java interface</i>.
+<!-- Lisää rajapinta ohjelmaasi. Rajapinta lisätään melkein samalla tavalla kuin luokka, <i>new Java class</i> sijaan valitaan <i>new Java interface</i>. -->
+Add the Interface to your program. Adding a new Interface is quite similar to adding a new class. Instead of selecting <i>new Java class</i> just select <i>new Java interface</i>.
+
+<!-- Tee rajapinnan toteuttavat luokat `Book` ja `CD`. Book saa konstruktorin parametreina bookn kirjoittajan (String), bookn nimen (String), ja bookn painon (double). CD-Levyn konstruktorin parametreina annetaan artisti (String), levyn nimi (String), ja julkaisuvuosi (int). Kaikkien CD-levyjen weight on 0.1 kg. -->
+Create classes `Book` and `CD`, which implement the Interface. Book has a constructor which  is given the author (String), name of the book (String), and the weight of the book (double) as parameters. CD has a constructor which is given the artist (String), name of the CD (String), and the publication year (int). The weight of all CDs is 0.1 kg.
 
 
-Tee rajapinnan toteuttavat luokat `Kirja` ja `CDLevy`. Kirja saa konstruktorin parametreina kirjan kirjoittajan (String), kirjan nimen (String), ja kirjan painon (double). CD-Levyn konstruktorin parametreina annetaan artisti (String), levyn nimi (String), ja julkaisuvuosi (int). Kaikkien CD-levyjen paino on 0.1 kg.
-
-
-Muista toteuttaa luokilla myös rajapinta `Talletettava`. Luokkien tulee toimia seuraavasti:
+<!-- Muista toteuttaa luokilla myös rajapinta `Packable`. Luokkien tulee toimia seuraavasti: -->
+Remember to implement the Interface `Packable` in both of the classes. The classes must work as follows:
 
 
 ```java
 public static void main(String[] args) {
-    Kirja kirja1 = new Kirja("Fedor Dostojevski", "Rikos ja Rangaistus", 2);
-    Kirja kirja2 = new Kirja("Robert Martin", "Clean Code", 1);
-    Kirja kirja3 = new Kirja("Kent Beck", "Test Driven Development", 0.5);
+    Book book1 = new Book("Fedor Dostojevski", "Crime and Punishment", 2);
+    Book book2 = new Book("Robert Martin", "Clean Code", 1);
+    Book book3 = new Book("Kent Beck", "Test Driven Development", 0.5);
 
-    CDLevy cd1 = new CDLevy("Pink Floyd", "Dark Side of the Moon", 1973);
-    CDLevy cd2 = new CDLevy("Wigwam", "Nuclear Nightclub", 1975);
-    CDLevy cd3 = new CDLevy("Rendezvous Park", "Closer to Being Here", 2012);
+    CD cd1 = new CD("Pink Floyd", "Dark Side of the Moon", 1973);
+    CD cd2 = new CD("Wigwam", "Nuclear Nightclub", 1975);
+    CD cd3 = new CD("Rendezvous Park", "Closer to Being Here", 2012);
 
-    System.out.println(kirja1);
-    System.out.println(kirja2);
-    System.out.println(kirja3);
+    System.out.println(book1);
+    System.out.println(book2);
+    System.out.println(book3);
     System.out.println(cd1);
     System.out.println(cd2);
     System.out.println(cd3);
@@ -441,12 +462,13 @@ public static void main(String[] args) {
 ```
 
 
-Tulostus:
+<!-- Tulostus: -->
+Prints:
 
 
 <sample-output>
 
-Fedor Dostojevski: Rikos ja Rangaistus
+Fedor Dostojevski: Crime and Punishment
 Robert Martin: Clean Code
 Kent Beck: Test Driven Development
 Pink Floyd: Dark Side of the Moon (1973)
@@ -456,85 +478,93 @@ Rendezvous Park: Closer to Being Here (2012)
 </sample-output>
 
 
-Huom! Painoa ei ilmoiteta tulostuksessa.
+<!-- Huom! Painoa ei ilmoiteta tulostuksessa. -->
+NB: The weight is not printed
+
+<h2>Box</h2>
 
 
-<h2>Laatikko</h2>
+<!-- Tee luokka box, jonka sisälle voidaan tallettaa `able`-rajapinnan toteuttavia tavaroita. Box saa konstruktorissaan parametrina laatikon maksimikapasiteetin kiloina. Boxon ei saa lisätä enempää tavaraa kuin sen maksimikapasiteetti määrää. Laatikon sisältämien tavaroiden weight ei siis koskaan saa olla yli laatikon maksimikapasiteetin. -->
+Make a class called Box. Items implementing the `Packable` interface can be packed into a box. The Box constructor takes the maximum capacity of the box in kilograms as a parameter. The combined weight of all items in a box cannot be more than the maximum capacity of the box.
 
 
-Tee luokka laatikko, jonka sisälle voidaan tallettaa `Talletettava`-rajapinnan toteuttavia tavaroita. Laatikko saa konstruktorissaan parametrina laatikon maksimikapasiteetin kiloina. Laatikkoon ei saa lisätä enempää tavaraa kuin sen maksimikapasiteetti määrää. Laatikon sisältämien tavaroiden paino ei siis koskaan saa olla yli laatikon maksimikapasiteetin.
-
-
-Seuraavassa esimerkki laatikon käytöstä:
+<!-- Seuraavassa esimerkki laatikon käytöstä: -->
+Below is an example of using a box:
 
 
 ```java
 public static void main(String[] args) {
-    Laatikko laatikko = new Laatikko(10);
+    Box box = new Box(10);
 
-    laatikko.lisaa(new Kirja("Fedor Dostojevski", "Rikos ja Rangaistus", 2)) ;
-    laatikko.lisaa(new Kirja("Robert Martin", "Clean Code", 1));
-    laatikko.lisaa(new Kirja("Kent Beck", "Test Driven Development", 0.7));
+    box.add(new Book("Fedor Dostojevski", "Crime and Punishment", 2)) ;
+    box.add(new Book("Robert Martin", "Clean Code", 1));
+    box.add(new Book("Kent Beck", "Test Driven Development", 0.7));
 
-    laatikko.lisaa(new CDLevy("Pink Floyd", "Dark Side of the Moon", 1973));
-    laatikko.lisaa(new CDLevy("Wigwam", "Nuclear Nightclub", 1975));
-    laatikko.lisaa(new CDLevy("Rendezvous Park", "Closer to Being Here", 2012));
+    box.add(new CD("Pink Floyd", "Dark Side of the Moon", 1973));
+    box.add(new CD("Wigwam", "Nuclear Nightclub", 1975));
+    box.add(new CD("Rendezvous Park", "Closer to Being Here", 2012));
 
-    System.out.println(laatikko);
+    System.out.println(box);
 }
 ```
 
 
-Tulostuu
+<!-- Tulostuu -->
+Prints
 
 
 <sample-output>
 
-Laatikko: 6 esinettä, paino yhteensä 4.0 kiloa
+<!-- Box: 6 esinettä, weight yhteensä 4.0 kiloa -->
+Box: 6 items, total weight 4.0 kg.
 
 </sample-output>
 
 
-Huom: koska painot esitetään doubleina, saattaa laskutoimituksissa tulla pieniä pyöristysvirheitä. Tehtävässä ei tarvitse välittää niistä.
+<!-- Huom: koska painot esitetään doubleina, saattaa laskutoimituksissa tulla pieniä pyöristysvirheitä. Tehtävässä ei tarvitse välittää niistä. -->
+NB: As the weights are saved as a double, the calculations might have some small rounding errors. You do not have to mind about them.
 
+<h2>Box weight</h2>
 
-<h2>Laatikon paino</h2>
-
-Jos teit laatikon sisälle oliomuuttujan `double paino`, joka muistaa laatikossa olevien esineiden painon, korvaa se metodilla, joka laskee painon:
-
+<!-- Jos teit laatikon sisälle oliomuuttujan `double weight`, joka muistaa laatikossa olevien esineiden painon, korvaa se metodilla, joka laskee painon: -->
+If you made an class variable `double weight` in the Box class, replace it with a method which calculates the weight of the box:
 
 ```java
-public class Laatikko {
+public class Box {
     //...
 
-    public double paino() {
-        double paino = 0;
-        // laske laatikkoon talletettujen tavaroiden yhteispaino
-        return paino;
+    public double weight() {
+        double weight = 0;
+        // calculate the total weight of the items in the box
+        return weight;
     }
 }
 ```
 
 
-Kun tarvitset laatikon sisällä painoa esim. uuden tavaran lisäyksen yhteydessä, riittää siis kutsua laatikon painon laskevaa metodia.
+<!-- Kun tarvitset laatikon sisällä painoa esim. uuden tavaran lisäyksen yhteydessä, riittää siis kutsua laatikon painon laskevaa metodia. -->
+When you need the weight of the box, for example when adding a new item to the box, you can just call the weight method.
+
+<!-- Metodi voisi palauttaa myös oliomuuttujan arvon. Harjoittelemme tässä kuitenkin tilannetta, jossa oliomuuttujaa ei tarvitse eksplisiittisesti ylläpitää vaan se voidaan tarpeentullen laskea. Seuraavan tehtävän jälkeen laatikossa olevaan oliomuuttujaan talletettu painotieto ei kuitenkaan välttämättä enää toimisi. Pohdi tehtävän tekemisen jälkeen miksi näin on. -->
+The method could also return the value of an object variable. However here we are practicing a situation, where we do not have to maintain an object variable explicitly, but can calculate its value as needed. After the next exercise storing the weight as an object variable would not necessary work anyway. After completing the exercise have a moment to think why that is.
+
+<h2>A Box is packable too!</h2>
 
 
-Metodi voisi palauttaa myös oliomuuttujan arvon. Harjoittelemme tässä kuitenkin tilannetta, jossa oliomuuttujaa ei tarvitse eksplisiittisesti ylläpitää vaan se voidaan tarpeentullen laskea. Seuraavan tehtävän jälkeen laatikossa olevaan oliomuuttujaan talletettu painotieto ei kuitenkaan välttämättä enää toimisi. Pohdi tehtävän tekemisen jälkeen miksi näin on.
+<!-- Rajapinnan `able` toteuttaminen siis edellyttää että luokalla on metodi `double weight()`. Laatikollehan lisättiin juuri tämä metodi. Laatikosta voidaan siis tehdä talletettava! -->
+Implementing the `Packable` Interface requires a class to have the method `double weight()`. We just added this method to the Box class. This means we can make the Box packable as well!
 
 
-<h2>Laatikkokin on talletettava!</h2>
+<!-- Laatikot ovat olioita joihin voidaan laittaa `able`-rajapinnan toteuttavia olioita. Laatikot toteuttavat itsekin rajapinnan. Eli **laatikon sisällä voi olla myös laatikoita!** -->
+Boxes are objects, which can contain objects implementing the `packable` Interface. Boxes implement this Interface as well. So **a box can contain other boxes!**
 
 
-Rajapinnan `Talletettava` toteuttaminen siis edellyttää että luokalla on metodi `double paino()`. Laatikollehan lisättiin juuri tämä metodi. Laatikosta voidaan siis tehdä talletettava!
-
-
-Laatikot ovat olioita joihin voidaan laittaa `Talletettava`-rajapinnan toteuttavia olioita. Laatikot toteuttavat itsekin rajapinnan. Eli **laatikon sisällä voi olla myös laatikoita!**
-
-
-Kokeile että näin varmasti on, eli tee ohjelmassasi muutama laatikko, laita laatikoihin tavaroita ja laita pienempiä laatikoita isompien laatikoiden sisään. Kokeile myös mitä tapahtuu kun laitat laatikon itsensä sisälle. Miksi näin käy?
+<!-- Kokeile että näin varmasti on, eli tee ohjelmassasi muutama box, laita laatikoihin tavaroita ja laita pienempiä laatikoita isompien laatikoiden sisään. Kokeile myös mitä tapahtuu kun laitat laatikon itsensä sisälle. Miksi näin käy? -->
+Try this out. Make some boxes containing some items, and add some smaller boxes to a bigger box. Try what happens, when you put a box in itself. Why does this happen?
 
 
 </programming-exercise>
+
 
 
 
@@ -691,22 +721,24 @@ Isoilla listoille voimme nähdä huomattaviakin suorituskykyeroja. Linkitetyn li
 Tällä ohjelmointikurssilla eteen tulevissa tilanteissa kannattanee käytännössä valita aina ArrayList. "Rajapintoihin ohjelmointi" kuitenkin kannattaa: toteuta ohjelmasi siten, että käytät tietorakenteita rajapintojen kautta.
 
 
-<programming-exercise name='List metodin parametrina' tmcname='osa08-Osa08_07.ListMetodinParametrina'>
+<programming-exercise name='List as a method parameter' tmcname='part09-Part09_07.ListAsAMethodParameter'>
 
 
-Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina List-olion ja palauttaa sen koon kokonaislukuna.
+<!-- Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina List-olion ja palauttaa sen koon kokonaislukuna. -->
+In the mainProgram class, implement a class method `returnSize`, which is given a List-object as a parameter, and returns the size of the list as an integer.
 
 
-Metodin tulee toimia esimerkiksi seuraavasti:
+<!-- Metodin tulee toimia esimerkiksi seuraavasti: -->
+The method should work as follows:
 
 
 ```java
-List<String> nimet = new ArrayList<>();
-nimet.add("eka");
-nimet.add("toka");
-nimet.add("kolmas");
+List<String> names = new ArrayList<>();
+names.add("First");
+names.add("Second");
+names.add("Third");
 
-System.out.println(palautaKoko(nimet));
+System.out.println(palautaKoko(names));
 ```
 
 <sample-output>
@@ -716,6 +748,7 @@ System.out.println(palautaKoko(nimet));
 </sample-output>
 
 </programming-exercise>
+
 
 
 ### Map-rajapinta
@@ -753,21 +786,21 @@ hai: kyllä
 
 Metodi `keySet` palauttaa `Set`-rajapinnan toteuttavan joukon alkioita. `Set`-rajapinnan toteuttavan joukon voi käydä läpi `for-each`-lauseella. Hajautustaulusta saa talletetut arvot metodin `values`-avulla. Metodi `values` palauttaa `Collection` rajapinnan toteuttavan joukon alkioita. Tutustutaan vielä pikaisesti Set- ja Collection-rajapintoihin.
 
+<programming-exercise name='Map as a method parameter' tmcname='part09-Part09_08.MapAsAMethodParameter'>
 
 
-<programming-exercise name='Map metodin parametrina' tmcname='osa08-Osa08_08.MapMetodinParametrina'>
+<!-- Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina Map-olion ja palauttaa sen koon kokonaislukuna. -->
+In the class MainProgram implement a class method `returnSize` which gets a Map-object as a parameter, and returns its size as an integer.
 
-
-Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina Map-olion ja palauttaa sen koon kokonaislukuna.
-
-Metodin tulee toimia esimerkiksi seuraavasti:
+<!-- Metodin tulee toimia esimerkiksi seuraavasti: -->
+The method should work as follows:
 
 ```java
-Map<String, String> nimet = new HashMap<>();
-nimet.put("eka", "first");
-nimet.put("toka", "second");
+Map<String, String> names = new HashMap<>();
+names.put("1", "first");
+names.put("2", "second");
 
-System.out.println(palautaKoko(nimet));
+System.out.println(palautaKoko(names));
 ```
 
 <sample-output>
@@ -808,14 +841,16 @@ kaksi
 Huomaa että HashSet ei ota millään tavalla kantaa joukon alkioiden järjestykseen. Mikäli HashSet-olioon lisätään omista luokista tehtyjä olioita, tulee niille olla määriteltynä metodit `equals` ja `hashCode`.
 
 
-<programming-exercise name='Set metodin parametrina' tmcname='osa08-Osa08_09.SetMetodinParametrina'>
+<programming-exercise name='Set as a method parameter' tmcname='part09-Part09_09.SetAsAMethodParameter'>
 
-Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina Set-olion ja palauttaa sen koon kokonaislukuna.
+<!-- Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina Set-olion ja palauttaa sen koon kokonaislukuna.
 
-Metodin tulee toimia esimerkiksi seuraavasti:
+Metodin tulee toimia esimerkiksi seuraavasti: -->
+In the Main-class, implement the static method `returnSize`, which receives a Set object as a parameter and returns its size.
 
+The method should work e.g. like this:
 
-```java
+<!-- ```java
 Set<String> nimet = new HashSet<>();
 nimet.add("eka");
 nimet.add("eka");
@@ -824,9 +859,21 @@ nimet.add("toka");
 nimet.add("toka");
 
 System.out.println(palautaKoko(nimet));
+``` -->
+```java
+Set<String> names = new HashSet<>();
+name.add("first");
+names.add("first");
+names.add("second");
+names.add("second");
+names.add("second");
+
+System.out.println(returnSize(names));
+
 ```
 
-Tulostaa:
+<!-- Tulostaa: -->
+Prints:
 
 <sample-output>
 
@@ -835,6 +882,7 @@ Tulostaa:
 </sample-output>
 
 </programming-exercise>
+
 
 
 ### Collection-rajapinta
@@ -887,52 +935,80 @@ tsemppiä
 
 Seuraavassa tehtävässä rakennetaan verkkokauppaan liittyvää toiminnallisuutta ja harjoitellaan luokkien käyttämistä niiden tarjoamien rajapintojen kautta.
 
+<programming-exercise name='Online store (8 parts)' tmcname='part09-Part09_10.OnlineStore' nocoins='true'>
 
-<programming-exercise name='Verkkokauppa (8 osaa)' tmcname='osa08-Osa08_10.Verkkokauppa' nocoins='true'>
 
-
-Teemme tehtävässä muutamia verkkokaupan hallinnointiin soveltuvia ohjelmakomponentteja.
+<!-- Teemme tehtävässä muutamia verkkokaupan hallinnointiin soveltuvia ohjelmakomponentteja.
 
 
 <h2>Varasto</h2>
 
 Tee luokka Varasto jolla on seuraavat metodit:
 
-- `public void lisaaTuote(String tuote, int hinta, int saldo)` lisää varastoon tuotteen jonka hinta ja varastosaldo ovat parametrina annetut luvut
+- `public void addTuote(String tuote, int hinta, int saldo)` lisää varastoon tuotteen jonka hinta ja varastosaldo ovat parametrina annetut luvut
 - `public int hinta(String tuote)` palauttaa parametrina olevan tuotteen hinnan, jos tuotetta ei ole varastossa, palauttaa metodi arvon `-99`.
 
 
 Varaston sisällä tuotteiden hinnat (ja seuraavassa kohdassa saldot) tulee tallettaa `Map<String, Integer>`-tyyppiseksi määriteltyyn muuttujaan! Luotava olio voi olla tyypiltään `HashMap`, muuttujan tyyppinä on käytettävä `Map`-rajapintaa.
 
 
-Seuraavassa esimerkki varaston käytöstä:
+Seuraavassa esimerkki varaston käytöstä: -->
+
+In this exercise we'll create program components, that can used to run an online store.
+
+<h2>Warehouse</h2>
+
+Create the class Warehouse with the following methods:
+
+- `public void addProduct(String product, int price, int stock)`, which adds a product to the warehouse with the price and stock balance given as parameters.
+- `public int price(String product)`, which returns the price of the product it received as a parameter. If the product hasn't been added to the warehouse, the method must return -99.
+
+The products in the warehouse (and in the next part their stock) must be stored in a variable of the type `Map<String, Integer>`! The object created can be a HashMap, but its type must be the Map-interface, rather than any implementation of that interface.
 
 
-```java
+<!-- ```java
 Varasto varasto = new Varasto();
-varasto.lisaaTuote("maito", 3, 10);
-varasto.lisaaTuote("kahvi", 5, 7);
+varasto.addTuote("maito", 3, 10);
+varasto.addTuote("kahvi", 5, 7);
 
 System.out.println("hinnat:");
 System.out.println("maito: " + varasto.hinta("maito"));
 System.out.println("kahvi: " + varasto.hinta("kahvi"));
 System.out.println("sokeri: " + varasto.hinta("sokeri"));
+``` -->
+```java
+Warehouse warehouse = new Warehouse();
+warehouse.addProduct("milk", 3, 10);
+warehouse.addProduct("coffee", 5, 7);
+
+System.out.println("prices:");
+System.out.println("milk: " + warehouse.price("milk"));
+System.out.println("coffee: " + warehouse.price("coffee"));
+System.out.println("sugar: " + warehouse.price("sugar"));
 ```
 
-Tulostuu:
-
-
-<sample-output>
+<!-- Tulostuu: -->
+Prints:
+<!-- <sample-output>
 
 hinnat:
 maito: 3
 kahvi: 5
 sokeri: -99
 
+</sample-output> -->
+
+<sample-output>
+
+prices:
+milk: 3
+coffee: 5
+sugar: -99
+
 </sample-output>
 
 
-<h2>Tuotteen varastosaldo</h2>
+<!-- <h2>Tuotteen varastosaldo</h2>
 
 
 Aseta tuotteiden varastosaldot samaan tapaan `Map<String, Integer>`-tyyppiseen muuttujaan kuin hinnat. Täydennä varastoa seuraavilla metodeilla:
@@ -942,12 +1018,18 @@ Aseta tuotteiden varastosaldot samaan tapaan `Map<String, Integer>`-tyyppiseen m
 - `public boolean ota(String tuote)` vähentää parametrina olevan tuotteen saldoa yhdellä ja palauttaa *true* jos tuotetta oli varastossa. Jos tuotetta ei ole varastossa, palauttaa metodi *false*, tuotteen saldo ei saa laskea alle nollan.
 
 
-Esimerkki varaston käytöstä:
+Esimerkki varaston käytöstä: -->
+<h2>Products stock balance</h2>
 
+Save the stock balance of products in variable with the `Map<String, Integer>` type, in the same way the prices were stored. Supplement the warehouse with the following methods:
 
-```java
+- `public int stock(String product)` returns the current remaining stock of the product in the warehouse. If the product hasn't been added to the warehouse, the method must return 0.
+- `public boolean take(String product)` reduces the stock ramaining for the product it received as a parameter by one, and returns true if there was stock remaining. If the product was not available in the warehouse the method returns false. A products stock can't go below zero.
+
+An example of the warehouse in use:
+<!-- ```java
 Varasto varasto = new Varasto();
-varasto.lisaaTuote("kahvi", 5, 1);
+varasto.addTuote("kahvi", 5, 1);
 
 System.out.println("saldot:");
 System.out.println("kahvi:  " + varasto.saldo("kahvi"));
@@ -960,13 +1042,27 @@ System.out.println("otetaan sokeri " + varasto.ota("sokeri"));
 System.out.println("saldot:");
 System.out.println("kahvi:  " + varasto.saldo("kahvi"));
 System.out.println("sokeri: " + varasto.saldo("sokeri"));
+``` -->
+```java
+Warehouse warehouse = new Warehouse();
+warehouse.addProduct("coffee", 5, 1);
+
+System.out.println("stock:");
+System.out.println("coffee:  " + warehouse.saldo("coffee"));
+System.out.println("sugar: " + warehouse.saldo("sugar"));
+
+System.out.println("taking coffee " + warehouse.ota("coffee"));
+System.out.println("taking coffee " + warehouse.ota("coffee"));
+System.out.println("taking sugar " + warehouse.ota("sugar"));
+
+System.out.println("stock:");
+System.out.println("coffee:  " + warehouse.saldo("coffee"));
+System.out.println("sugar: " + warehouse.saldo("sugar"));
 ```
 
-
-Tulostuu:
-
-
-<sample-output>
+<!-- Tulostuu: -->
+Prints:
+<!-- <sample-output>
 
 saldot:
 kahvi:  1
@@ -978,39 +1074,73 @@ saldot:
 kahvi:  0
 sokeri: 0
 
+</sample-output> -->
+
+<sample-output>
+
+stock:
+coffee:  1
+sugar: 0
+taking coffee true
+taking coffee false
+taking sugar false
+stock:
+coffee:  0
+sugar: 0
+
 </sample-output>
 
 
-<h2>Tuotteiden listaus</h2>
+<!-- <h2>Tuotteiden listaus</h2>
 
 
 Listätään varastolle vielä yksi metodi:
 
 
-- `public Set<String> tuotteet()` palauttaa *joukkona* varastossa olevien tuotteiden nimet.
+- `public Set<String> tuotteet()` palauttaa *joukkona* varastossa olevien tuotteiden names.
 
 
 Metodi on helppo toteuttaa HashMapin avulla. Saat tietoon varastossa olevat tuotteet kysymällä ne joko hinnat tai saldot muistavalta Map:iltä metodin `keySet` avulla.
 
 
-Esimerkki varaston käytöstä:
+Esimerkki varaston käytöstä: -->
+<h2>Listing the products</h2>
 
+Let's add one more method to the warehouse:
 
-```java
+- `public Set<String> products()` returns the names of the products in the warehouse as a *Set*
+
+This method is easy to implement with HashMap. You can get the products in the warehouse from either the Map storing the prices or the one storing current stock, by using the method `keySet()`
+
+An example use case:
+<!-- ```java
 Varasto varasto = new Varasto();
-varasto.lisaaTuote("maito", 3, 10);
-varasto.lisaaTuote("kahvi", 5, 6);
-varasto.lisaaTuote("piima", 2, 20);
-varasto.lisaaTuote("jugurtti", 2, 20);
+varasto.addTuote("maito", 3, 10);
+varasto.addTuote("kahvi", 5, 6);
+varasto.addTuote("piima", 2, 20);
+varasto.addTuote("jugurtti", 2, 20);
 
 System.out.println("tuotteet:");
 
 for (String tuote: varasto.tuotteet()) {
     System.out.println(tuote);
 }
+``` -->
+```java
+Warehouse warehouse = new Warehouse();
+warehouse.addProduct("milk", 3, 10);
+warehouse.addProduct("coffee", 5, 6);
+warehouse.addProduct("buttermilk", 2, 20);
+warehouse.addProduct("yogurt", 2, 20);
+
+System.out.println("products:");
+
+for (String product: warehouse.products()) {
+    System.out.println(product);
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 tuotteet:
 piima
@@ -1018,10 +1148,20 @@ jugurtti
 kahvi
 maito
 
+</sample-output> -->
+
+<sample-output>
+
+products:
+buttermilk
+yogurt
+coffee
+milk
+
 </sample-output>
 
 
-<h2>Ostos</h2>
+<!-- <h2>Ostos</h2>
 
 
 Ostoskoriin lisätään *ostoksia*. Ostoksella tarkoitetaan tiettyä määrää tiettyjä tuotteita. Koriin voidaan laittaa esim. ostos joka vastaa yhtä leipää tai ostos joka vastaa 24:ää kahvia.
@@ -1036,30 +1176,57 @@ Tee luokka `Ostos` jolla on seuraavat toiminnot:
 - `public String toString()` palauttaa ostoksen merkkijonomuodossa, joka on alla olevan esimerkin mukainen
 
 
-Esimerkki ostos-luokan käytöstä:
+Esimerkki ostos-luokan käytöstä: -->
+<h2>Item</h2>
 
+*Items* can be added to the shopping cart (which we'll add soon). An item is a product with a quantity. You for example add an item representing one bread to the cart, or add an item representing 24 coffees.
 
-```java
+Create the class `Item` with the following methods:
+
+- `public Item(String product, int qty, int unitPrice)`; a constructor that creates an item corresponding to the product given as a parameter. *qty* tells us how many of the product are in the item, while *unitPrice* is the price of a single product.
+- `public int price()` return the price of the item. You get the items price by multiplying its unit price by its quantity(qty).
+- `public void increaseQuantity` increases the quantity by one.
+- `public String toString()` returns the string representation of the item. which must match the format shown in the example below.
+
+An example of the Item class being used:
+<!-- ```java
 Ostos ostos = new Ostos("maito", 4, 2);
 System.out.println("ostoksen joka sisältää 4 maitoa yhteishinta on " + ostos.hinta());
 System.out.println(ostos);
 ostos.kasvataMaaraa();
 System.out.println(ostos);
+``` -->
+
+```java
+Item item = new Item("milk", 4, 2);
+System.out.println("an item that contains 4 milks has the total price of " + item.price());
+System.out.println(item);
+item.increaseQuantity();
+System.out.println(item);
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 ostoksen joka sisältää 4 maitoa yhteishinta on 8
 maito: 4
 maito: 5
 
+</sample-output> -->
+
+<sample-output>
+
+an item that contains 4 milks has the total price of 8
+milk: 4
+milk: 5
+
 </sample-output>
 
 
-Huom: *toString* on siis muotoa *tuote: kpl* -- hintaa ei merkkijonoesitykseen tule!
+<!-- Huom: *toString* on siis muotoa *tuote: kpl* -- hintaa ei merkkijonoesitykseen tule! -->
+NB: The *toString* is formatted like this: *product: qty* -- price is not included in the string representation.
 
 
-<h2>Ostoskori</h2>
+<!-- <h2>Ostoskori</h2>
 
 
 Vihdoin pääsemme toteuttamaan luokan ostoskori!
@@ -1074,79 +1241,141 @@ Huom: jos talletat Ostos-oliot Map-tyyppiseen apumuuttujaan, on tässä ja seura
 Tehdään aluksi ostoskorille parametriton konstruktori ja metodit:
 
 
-- `public void lisaa(String tuote, int hinta)` lisää ostoskoriin ostoksen joka vastaa parametrina olevaa tuotetta ja jolla on parametrina annettu hinta.
+- `public void add(String tuote, int hinta)` lisää ostoskoriin ostoksen joka vastaa parametrina olevaa tuotetta ja jolla on parametrina annettu hinta.
 - `public int hinta()` palauttaa ostoskorin kokonaishinnan
 
 
-Esimerkki ostoskorin käytöstä:
+Esimerkki ostoskorin käytöstä: -->
 
+<h2>Shopping cart</h2>
 
-```java
+We finally get to implement the shopping cart -class!
+
+internally, ShoppingCart stores products added there as *Item-objects*. ShoppingCart must have an instance variable with either the `Map<String, Item>` type, or the `List<Item>` type. Don't add any other instance variable to the ShoppingCart class, besides the List or Map used to store the items.
+
+NB: If of save the items in a Map type variable, you'll finds its `values()` method to be quite useful for going though all the items objects stored in it. Both in this part of the exercise and the next.
+
+First let's give ShoppingCart a constructor with no parameters and these methods:
+
+- `public void add(String product, int price)` adds an item to the cart that matches the product given as a parameter, with the price given as a parameter.
+- `public int price()` returns the total price of the shopping cart.
+
+<!-- ```java
 Ostoskori kori = new Ostoskori();
-kori.lisaa("maito", 3);
-kori.lisaa("piima", 2);
-kori.lisaa("juusto", 5);
+kori.add("maito", 3);
+kori.add("piima", 2);
+kori.add("juusto", 5);
 System.out.println("korin hinta: " + kori.hinta());
-kori.lisaa("tietokone", 899);
+kori.add("tietokone", 899);
 System.out.println("korin hinta: " + kori.hinta());
+``` -->
+```java
+ShoppingCart cart = new ShoppingCart();
+cart.add("milk", 3);
+cart.add("buttermilk", 2);
+cart.add("cheese", 5);
+System.out.println("cart price: " + cart.price());
+cart.add("computer", 899);
+System.out.println("cart price: " + cart.price());
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 korin hinta: 10
 korin hinta: 909
 
+</sample-output> -->
+
+<sample-output>
+
+cart price: 10
+cart price: 909
+
 </sample-output>
 
 
-<h2>Ostoskorin tulostus</h2>
+<!-- <h2>Ostoskorin tulostus</h2>
 
 
 Tehdään ostoskorille metodi `public void tulosta()` joka tulostaa korin sisältämät *Ostos*-oliot. Tulostusjärjestyksessä ei ole merkitystä. Edellisen esimerkin ostoskori tulostetuna olisi:
+ -->
 
+ <h2>Printing the cart</h2>
 
-<sample-output>
+ Implement the method `public void print()` for the shopping cart. The method prints the *Item-objects* in the cart. The order they are printed in is irrelevant. E.g the print of the cart in the previous example would be:
+
+<!-- <sample-output>
 
 piima: 1
 juusto: 1
 tietokone: 1
 maito: 1
 
+</sample-output> -->
+<sample-output>
+
+buttermilk: 1
+cheese: 1
+computer: 1
+milk: 1
+
 </sample-output>
 
 
-Huomaa, että tulostuva numero on siis tuotteen korissa oleva kappalemäärä, ei hinta!
+<!-- Huomaa, että tulostuva numero on siis tuotteen korissa oleva kappalemäärä, ei hinta! -->
+NB: the number printed is the quantity in the cart, not the price!
 
 
-<h2>Yksi ostos tuotetta kohti</h2>
+<!-- <h2>Yksi ostos tuotetta kohti</h2>
 
 
 Täydennetään Ostoskoria siten, että jos korissa on jo tuote joka sinne lisätään, ei koriin luoda uutta Ostos-olioa vaan päivitetään jo korissa olevaa tuotetta vastaavaa ostosolioa kutsumalla sen metodia *kasvataMaaraa()*.
 
 
-Esimerkki:
+Esimerkki: -->
+<h2>One item per product</h2>
 
+Let's change our cart so that if a product is being added thats already in the cart, we don't add a new item, but instead update item already in the cart by calling its *increaseQuantity()* method.
 
-```java
+E.g:
+<!-- ```java
 Ostoskori kori = new Ostoskori();
-kori.lisaa("maito", 3);
+kori.add("maito", 3);
 kori.tulosta();
 System.out.println("korin hinta: " + kori.hinta() + "\n");
 
-kori.lisaa("piima", 2);
+kori.add("piima", 2);
 kori.tulosta();
 System.out.println("korin hinta: " + kori.hinta() + "\n");
 
-kori.lisaa("maito", 3);
+kori.add("maito", 3);
 kori.tulosta();
 System.out.println("korin hinta: " + kori.hinta() + "\n");
 
-kori.lisaa("maito", 3);
+kori.add("maito", 3);
 kori.tulosta();
 System.out.println("korin hinta: " + kori.hinta() + "\n");
+``` -->
+```java
+ShoppingCart cart = new ShoppingCart();
+cart.add("milk", 3);
+cart.print();
+System.out.println("cart price: " + cart.price() + "\n");
+
+cart.add("buttermilk", 2);
+cart.print();
+System.out.println("cart price: " + cart.price() + "\n");
+
+cart.add("milk", 3);
+cart.print();
+System.out.println("cart price: " + cart.price() + "\n");
+
+cart.add("milk", 3);
+cart.print();
+System.out.println("cart price: " + cart.price() + "\n");
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 maito: 1
 korin hinta: 3
@@ -1163,21 +1392,45 @@ piima: 1
 maito: 3
 korin hinta: 11
 
+</sample-output> -->
+<sample-output>
+
+milk: 1
+cart price: 3
+
+buttermilk: 1
+milk: 1
+cart price: 5
+
+buttermilk: 1
+milk: 2
+cart price: 8
+
+buttermilk: 1
+maito: 3
+cart price: 11
+
 </sample-output>
 
 
-Eli ensin koriin lisätään maito ja piimä ja niille omat ostos-oliot. Kun koriin lisätään lisää maitoa, ei luoda uusille maidoille omaa ostosolioa, vaan päivitetään jo korissa olevan maitoa kuvaavan ostosolion kappalemäärää.
+<!-- Eli ensin koriin lisätään maito ja piimä ja niille omat ostos-oliot. Kun koriin lisätään lisää maitoa, ei luoda uusille maidoille omaa ostosolioa, vaan päivitetään jo korissa olevan maitoa kuvaavan ostosolion kappalemäärää. -->
+So in the example above, we first added milk and buttermilk  and they get their own Item-objects. When more milk is added to to cart, instead of adding new items we increase the quantity in the item representing milk.
 
 
-<h2>Kauppa</h2>
+<!-- <h2>Kauppa</h2>
 
 
 Nyt meillä on valmiina kaikki osat "verkkokauppaa" varten. Verkkokaupassa on varasto joka sisältää kaikki tuotteet. Jokaista asiakkaan asiointia varten on oma ostoskori. Aina kun asiakas valitsee ostoksen, lisätään se asiakkaan ostoskoriin jos tuotetta on varastossa. Samalla varastosaldoa pienennetään yhdellä.
 
-Seuraavassa on valmiina verkkokaupan tekstikäyttöliittymän runko. Tee projektiin luokka `Kauppa` ja kopioi alla oleva koodi luokkaan.
+Seuraavassa on valmiina verkkokaupan tekstikäyttöliittymän runko. Tee projektiin luokka `Kauppa` ja kopioi alla oleva koodi luokkaan. -->
 
+<h2>Store</h2>
 
-```java
+We now have all the parts we need for our "online store", except the store itself. Let's make that next. Our store has a warehouse that includes all our products. For each 'visit' we have a shopping cart. Every time the customer chooses a product its added to their cart if its available in the warehouse. At the same time, the stock in the warehouse is reduced by one.
+
+Below you'll find a template for a text-based user interface for our store. Create a Store-class for your project and copy-paste the code below there.
+
+<!-- ```java
 import java.util.Scanner;
 
 public class Kauppa {
@@ -1218,26 +1471,85 @@ public class Kauppa {
         System.out.println("korin hinta: " + kori.hinta());
     }
 }
+``` -->
+```java
+
+import java.util.Scanner;
+
+public class Store {
+
+    private Warehouse warehouse;
+    private Scanner scanner;
+
+    public Store(Warehouse warehouse, Scanner scanner) {
+        this.warehouse = warehouse;
+        this.scanner = scanner;
+    }
+
+    // the method that handles the customers visit to the store.
+    public void shop(String customer) {
+        ShoppingCart cart = new ShoppingCart();
+        System.out.println("Welcome to the store " + customer);
+        System.out.println("our selection:");
+
+        for (String product : this.warehouse.products()) {
+            System.out.println(product);
+        }
+
+        while (true) {
+            System.out.print("What to put in the cart (press enter to go to the register): ");
+            String product = scanner.nextLine();
+            if (product.isEmpty()) {
+                break;
+            }
+
+            // Add code here that adds the product to the cart,
+            // IF there is any in the warehouse, and reduces the stock in the warehouse
+            // Dont't do touch any of the other code!
+        }
+
+        System.out.println("your shoppingcart contents:");
+        cart.print();
+        System.out.println("total: " + cart.price());
+    }
+}
 ```
 
-Seuraavassa pääohjelma joka täyttää kaupan varaston ja laittaa Pekan asioimaan kaupassa:
+<!-- Seuraavassa pääohjelma joka täyttää kaupan varaston ja laittaa Pekan asioimaan kaupassa: -->
+The following is a main method that stocks the stores warehouse and sends John to shop in the store.
 
 
-```java
+<!-- ```java
 Varasto varasto = new Varasto();
-varasto.lisaaTuote("kahvi", 5, 10);
-varasto.lisaaTuote("maito", 3, 20);
-varasto.lisaaTuote("piima", 2, 55);
-varasto.lisaaTuote("leipa", 7, 8);
+varasto.addTuote("kahvi", 5, 10);
+varasto.addTuote("maito", 3, 20);
+varasto.addTuote("piima", 2, 55);
+varasto.addTuote("leipa", 7, 8);
 
 Kauppa kauppa = new Kauppa(varasto, new Scanner(System.in));
 kauppa.asioi("Pekka");
+``` -->
+```java
+Warehouse warehouse = new Warehouse();
+    warehouse.addProduct("coffee", 5, 10);
+    warehouse.addProduct("milk", 3, 20);
+    warehouse.addProduct("cream", 2, 55);
+    warehouse.addProduct("bread", 7, 8);
+
+    Scanner scanner = new Scanner(System.in);
+
+    Store store = new Store(warehouse, scanner);
+    store.shop("John");
 ```
 
+<!-- Kauppa on melkein valmiina. Yhden asiakkaan asioinnin hoitavan metodin `public void asioi(String asiakas)` on kommenteilla merkitty kohta jonka joudut täydentämään. Lisää kohtaan koodi joka tarkastaa onko asiakkaan haluamaa tuotetta varastossa. Jos on, vähennä tuotteen varastosaldoa ja lisää tuote ostoskoriin.
 
-Kauppa on melkein valmiina. Yhden asiakkaan asioinnin hoitavan metodin `public void asioi(String asiakas)` on kommenteilla merkitty kohta jonka joudut täydentämään. Lisää kohtaan koodi joka tarkastaa onko asiakkaan haluamaa tuotetta varastossa. Jos on, vähennä tuotteen varastosaldoa ja lisää tuote ostoskoriin.
 
+*Todellisuudessa verkkokauppa toteutettaisiin hieman eri tavalla. Verkkosovelluksia tehtäessä käyttöliittymä toteutetaan HTML-sivuna, ja sivuilla tapahtuvat klikkaukset ohjataan palvelinohjelmistolle. Teemaan liittyen löytyy useampia kursseja Helsingin yliopistolta.* -->
 
-*Todellisuudessa verkkokauppa toteutettaisiin hieman eri tavalla. Verkkosovelluksia tehtäessä käyttöliittymä toteutetaan HTML-sivuna, ja sivuilla tapahtuvat klikkaukset ohjataan palvelinohjelmistolle. Teemaan liittyen löytyy useampia kursseja Helsingin yliopistolta.*
+The store is almost done. The method `public void shop(String customer)` has a part you need to complete, marked with comments. In the marked part, add code that checks if the product requested by the customer is available and has stock in the warehouse. If so, reduce the products stock in the warehouse and add the product to the shopping cart.
+
+*In reality an online store would be implemented a little differently. Web-apps have an HTML-page as a user interface, and clicks there are send to the server application. There are several courses related to web development available at the University Of Helsinki*
 
 </programming-exercise>
+
