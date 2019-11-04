@@ -109,12 +109,12 @@ Create a new class `textInterface` in the same package, which implements the int
 
 <!-- Luo tämän jälkeen pakkaus `mooc.logiikka`, ja lisää sinne luokka `Sovelluslogiikka`. Sovelluslogiikan tarjoaman toiminnallisuuden tulee olla seuraavanlainen. -->
 
-Create the package `mooc.logic`, and add a class in it called `applicationLogic`. The functionality of the class should be alike the following.
+Create the package `mooc.logic`, and add a class in it called `applicationLogic`. The functionality of the class should be alike the following:
 
 
 <!-- - `public Sovelluslogiikka(Kayttoliittyma kayttoliittyma)`<br/>Sovelluslogiikka-luokan konstruktori. Saa parametrina Kayttoliittyma-rajapinnan toteuttavan luokan. Huom: jotta sovelluslogiikka näkisi rajapinnan, on sen "importoitava" se, eli tarvitset tiedoston alkuun rivin `import mooc.ui.Kayttoliittyma;` -->
 
-- `public applicationLogic(userInterface ui)`<br/>applicationLogic-classes constructor, gets a class implementing the `userIntrface`-interface. WARNING: In order for the applicationLogic to "see" the interface, it must import it, ie you have to add the row `import mooc.ui.userInterface;` to the top of the file.
+- `public applicationLogic(userInterface ui)`<br/>applicationLogic-classes constructor, gets a class implementing the `userInterface`-interface. WARNING: In order for the applicationLogic to "see" the interface, it must import it, ie. you have to add the row `import mooc.ui.userInterface;` to the top of the file.
 
 
 <!-- - `public void suorita(int montaKertaa)`<br/>Tulostaa `montaKertaa`-muuttujan määrittelemän määrän merkkijonoa "Sovelluslogiikka toimii". Jokaisen "Sovelluslogiikka toimii"-tulostuksen jälkeen tulee kutsua konstruktorin parametrina saadun rajapinnan `Kayttoliittyma`-toteuttaman olion määrittelemää `paivita()`-metodia. -->
@@ -181,9 +181,13 @@ Updating UI
 </programming-exercise>
 
 
-<programming-exercise name='Kolme pakkausta' tmcname='osa10-Osa10_09.KolmePakkausta'>
+<!-- <programming-exercise name='Kolme pakkausta' tmcname='osa10-Osa10_09.KolmePakkausta'> -->
 
-Luo tehtäväpohjaan kolme pakkausta `a`, `b` ja `c`. Luo pakkauksen `a` sisälle luokka `A`, pakkauksen `b` sisälle luokka `B`, ja pakkauksen `c` sisälle luokka `C`. Luokissa ei tarvita oliomuuttujia, konstruktoreja tai metodeja.
+<programming-exercise name='The Three Packages' tmcname='part10-Part10_09.ThreePackages'>
+
+<!-- Luo tehtäväpohjaan kolme pakkausta `a`, `b` ja `c`. Luo pakkauksen `a` sisälle luokka `A`, pakkauksen `b` sisälle luokka `B`, ja pakkauksen `c` sisälle luokka `C`. Luokissa ei tarvita oliomuuttujia, konstruktoreja tai metodeja. -->
+
+Create three packages in the exercise template; `a`, `b` and `c`. Inside the package `a` create the class `A`, inside the package `b` the class `B`, and inside the package `c` the class `C`. The classes don't need to have any variables, constructors or methods inside them.
 
 </programming-exercise>
 
@@ -692,26 +696,48 @@ public class Tekstikayttoliittyma {
 ```
 
 
-<programming-exercise name='Lentokenttä (2 osaa)' tmcname='osa10-Osa10_10.Lentokentta'>
+<!-- <programming-exercise name='Lentokenttä (2 osaa)' tmcname='osa10-Osa10_10.Lentokentta'> -->
 
-Tässä tehtävässä toteutat edellä kuvatun sovelluksen. Saat suunnitella rakenteen vapaasti, tai voit noudattaa edellä kuvattua rakennetta. Käyttöliittymän ulkomuoto sekä vaaditut komennot on määritelty ennalta. Tehtävä on kahden yksittäisen tehtäväpisteen arvoinen.
+<programming-exercise name='FlightControl (2 parts)' tmcname='part10-Part10_10.FlightControl'>
 
-**Huom: jotta testit toimisivat, saat luoda ohjelmassasi vain yhden Scanner-olion käyttäjän syötteen lukemiseen.**
+<!-- Tässä tehtävässä toteutat edellä kuvatun sovelluksen. Saat suunnitella rakenteen vapaasti, tai voit noudattaa edellä kuvattua rakennetta. Käyttöliittymän ulkomuoto sekä vaaditut komennot on määritelty ennalta. Tehtävä on kahden yksittäisen tehtäväpisteen arvoinen. -->
 
-Lentokenttä-tehtävässä toteutetaan lentokentän hallintasovellus. Lentokentän hallintasovelluksessa hallinnoidaan lentokoneita ja lentoja. Lentokoneista tiedetään aina tunnus ja kapasiteetti. Lennoista tiedetään lennon lentokone, lähtöpaikan tunnus (esim. <a href="http://en.wikipedia.org/wiki/Helsinki_Airport" target="_blank" rel="noopener">HEL</a>) ja kohdepaikan tunnus (esim. <a href="http://en.wikipedia.org/wiki/Batman_Airport" target="_blank" rel="noopener">BAL</a>).
+In this exercise, you will be implementing the program depicted just above (and below). You may design the construct of the program freely or stick to the model above, but the the user interface and the commands are predefined for you.
+This exercise gives you double the normal exercise points.
+
+<!-- **Huom: jotta testit toimisivat, saat luoda ohjelmassasi vain yhden Scanner-olion käyttäjän syötteen lukemiseen.** -->
+
+**Note: In order for the automated tests to work, you may only create ONE scanner-object for reading userinput.**
+
+<!-- Lentokenttä-tehtävässä toteutetaan lentokentän hallintasovellus. Lentokentän hallintasovelluksessa hallinnoidaan lentokoneita ja lentoja. Lentokoneista tiedetään aina tunnus ja kapasiteetti. Lennoista tiedetään lennon lentokone, lähtöpaikan tunnus (esim. <a href="http://en.wikipedia.org/wiki/Helsinki_Airport" target="_blank" rel="noopener">HEL</a>) ja kohdepaikan tunnus (esim. <a href="http://en.wikipedia.org/wiki/Batman_Airport" target="_blank" rel="noopener">BAL</a>). -->
+
+In the FlightControl-exercise you will implement a 'airport control application', in which you can control airplanes and flights. Variables known of the airplanes are the id and the capacity of the airplane. Variables known about the flights are the flights airplane, the id of the departure airport (for example: <a href="http://en.wikipedia.org/wiki/Helsinki_Airport" target="_blank" rel="noopener">HEL</a>) and the id of the target airport (for example: <a href="http://en.wikipedia.org/wiki/Batman_Airport" target="_blank" rel="noopener">BAL</a>).
 
 <br/>
 
-Sekä lentokoneita että lentoja voi olla useita. Samalla lentokoneella voidaan myös lentää useita eri lentoja.
+<!-- Sekä lentokoneita että lentoja voi olla useita. Samalla lentokoneella voidaan myös lentää useita eri lentoja. -->
 
-Sovelluksen tulee toimia kahdessa vaiheessa: ensin syötetään lentokoneiden ja lentojen tietoja hallintakäyttöliittymässä, jonka jälkeen siirrytään lentopalvelun käyttöön. Lentopalvelussa on kolme toimintoa; lentokoneiden tulostaminen, lentojen tulostaminen, ja lentokoneen tietojen tulostaminen. Tämän lisäksi käyttäjä voi poistua ohjelmasta valitsemalla vaihtoehdon `x`. Jos käyttäjä syöttää epäkelvon komennon, kysytään komentoa uudestaan.
+There can be multiple airplanes and flights, and one airplane can fly on multiple flights.
 
 
-**Ohjelman tulee käynnistyä kun pakkauksessa `lentokentta` olevan luokan Main metodi main suoritetaan.**
+<!-- Sovelluksen tulee toimia kahdessa vaiheessa: ensin syötetään lentokoneiden ja lentojen tietoja hallintakäyttöliittymässä, jonka jälkeen siirrytään lentopalvelun käyttöön. Lentopalvelussa on kolme toimintoa; lentokoneiden tulostaminen, lentojen tulostaminen, ja lentokoneen tietojen tulostaminen. Tämän lisäksi käyttäjä voi poistua ohjelmasta valitsemalla vaihtoehdon `x`. Jos käyttäjä syöttää epäkelvon komennon, kysytään komentoa uudestaan. -->
 
-Ohjelman esimerkkitulostus alla:
+The application should operate in two steps: first the airplane and flight information are typed in, followed by starting of the flighservice.
+It has three functions; printing all the airplanes, printing all the flights and printing the details of a specific airplane.
+The user can also quit the program by choosing the option `x`.
 
-<sample-output>
+If the user types an invalid command, the input will be reprompted.
+
+
+<!-- **Ohjelman tulee käynnistyä kun pakkauksessa `lentokentta` olevan luokan Main metodi main suoritetaan.** -->
+
+**The program must be started by calling the Main-method of the class `Main` in the package `FlightControl`.
+
+<!-- Ohjelman esimerkkitulostus alla: -->
+
+Example output:
+
+<!-- <sample-output>
 
 Lentokentän hallinta
 --------------------
@@ -797,12 +823,104 @@ Valitse toiminto:
 [x] Lopeta
 &gt; **x**
 
+</sample-output> -->
+
+<sample-output>
+
+Airport Airport Asset Control
+--------------------
+
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **1**
+Give the airplane id: **HA-LOL**
+Give the airplane capacity: **42**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **1**
+Give the airplane id: **G-OWAC**
+Give the airplane capacity: **101**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **2**
+Give the airplane id: **HA-LOL**
+Give the departure airport id: **HEL**
+Give the target airport id: **BAL**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **2**
+Give the airplane id: ***G-OWAC**
+Give the departure airport id: **JFK**
+Give the target airport id: **BAL**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **2**
+Give the airplane id: **HA-LOL**
+Give the departure airport id: **BAL**
+Give the target airport id: **HEL**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **x**
+
+Flight Control
+------------
+
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **1**
+G-OWAC (101 capacity)
+HA-LOL (42 capacity)
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **2**
+HA-LOL (42 capacity) (HEL-BAL)
+HA-LOL (42 capacity) (BAL-HEL)
+G-OWAC (101 capacity) (JFK-BAL)
+
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **3**
+Plane id: **G-OWAC**
+G-OWAC (101 capacity)
+
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **x**
+
 </sample-output>
 
 
-**Huom1:** Testien kannalta on oleellista että *käyttöliittymä* toimii **täsmälleen** kuten yllä kuvattu. Ohjelman tulostamat vaihtoehdot kannattanee copypasteta tästä ohjelmakoodiin. Testit eivät oleta, että ohjelmasi on varautunut epäkelpoihin syötteisiin.
+<!-- **Huom1:** Testien kannalta on oleellista että *käyttöliittymä* toimii **täsmälleen** kuten yllä kuvattu. Ohjelman tulostamat vaihtoehdot kannattanee copypasteta tästä ohjelmakoodiin. Testit eivät oleta, että ohjelmasi on varautunut epäkelpoihin syötteisiin. -->
 
-**Huom2:** älä käytä luokkien nimissä skandeja, ne saattavat aiheuttaa ongelmia testeihin!
+**Note1:** It is important for the automated tests that the ui fuctions **exactly** like depicted above. It would propbably be a good idea to copypaste the outputs from here to the code. The tests do not assume for your program to be ready for invalid inputs.
+
+<!-- **Huom2:** älä käytä luokkien nimissä skandeja, ne saattavat aiheuttaa ongelmia testeihin! -->
+
+**Note:** Do not use skands for the class names (ö, å, etc), as they might lead to additional problems in the automated tests!
 
 
 
