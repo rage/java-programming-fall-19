@@ -79,36 +79,56 @@ Hello packageworld: pakkausten ABC!
 Jatkossa *lähes kaikissa* tehtävissämme käytetään pakkauksia. Luodaan seuraavaksi ensimmäiset pakkaukset itse.
 
 
-<programming-exercise name='Ensimmäisiä pakkauksia (3 osaa)' tmcname='osa10-Osa10_08.EnsimmaisiaPakkauksia'>
+<!-- <programming-exercise name='Ensimmäisiä pakkauksia (3 osaa)' tmcname='osa10-Osa10_08.EnsimmaisiaPakkauksia'> -->
+
+<programming-exercise name='First Packages (3 parts)' tmcname='part10-Part10_08.FirstPackages'>
+
+<!-- <h2>Käyttöliittymä-rajapinta</h2> -->
+
+<h2>User interface-interface</h2>
+
+<!-- Tehtäväpohjassa on valmiina pakkaus `mooc`. Rakennetaan tämän pakkauksen sisälle sovelluksen toiminta. Lisää pakkaukseen mooc pakkaus `ui` (tämän jälkeen käytössä pitäisi olla pakkaus `mooc.ui`), ja lisää sinne rajapinta `Kayttoliittyma`. -->
+
+The exercise template includes a package `mooc` out of the box. We will build the functioning of the application inside this package. Add a new package inside the mooc package named `ui` (After this the package in use should be `mooc.ui`), and create a new interface inside it called `userInterface`.
+
+<!-- Rajapinnan `Kayttoliittyma` tulee määritellä metodi `void paivita()`. -->
+
+The interface `userInterface` should define a method `public void update()`.
+
+<!-- <h2>Tekstikäyttöliittymä</h2> -->
+
+<h2>Text interface</h2>
+
+<!-- Luo samaan pakkaukseen luokka `Tekstikayttoliittyma`, joka toteuttaa rajapinnan `Kayttoliittyma`. Toteuta luokassa `Tekstikayttoliittyma` rajapinnan `Kayttoliittyma` vaatima metodi `public void paivita()` siten, että sen ainut tehtävä on merkkijonon "`Päivitetään käyttöliittymää`"-tulostaminen `System.out.println`-metodikutsulla. -->
+
+Create a new class `textInterface` in the same package, which implements the interface `userInterface`. Also implement the method `public void update` required by the implementation of `userInterface` in a way, that it simply prints the String "`Updating UI`" using the method call `System.out.println`.
+
+<!-- <h2>Sovelluslogiikka</h2> -->
+
+<h2>Application logic</h2>
+
+<!-- Luo tämän jälkeen pakkaus `mooc.logiikka`, ja lisää sinne luokka `Sovelluslogiikka`. Sovelluslogiikan tarjoaman toiminnallisuuden tulee olla seuraavanlainen. -->
+
+Create the package `mooc.logic`, and add a class in it called `applicationLogic`. The functionality of the class should be alike the following.
 
 
-<h2>Käyttöliittymä-rajapinta</h2>
+<!-- - `public Sovelluslogiikka(Kayttoliittyma kayttoliittyma)`<br/>Sovelluslogiikka-luokan konstruktori. Saa parametrina Kayttoliittyma-rajapinnan toteuttavan luokan. Huom: jotta sovelluslogiikka näkisi rajapinnan, on sen "importoitava" se, eli tarvitset tiedoston alkuun rivin `import mooc.ui.Kayttoliittyma;` -->
 
-Tehtäväpohjassa on valmiina pakkaus `mooc`. Rakennetaan tämän pakkauksen sisälle sovelluksen toiminta. Lisää pakkaukseen mooc pakkaus `ui` (tämän jälkeen käytössä pitäisi olla pakkaus `mooc.ui`), ja lisää sinne rajapinta `Kayttoliittyma`.
-
-Rajapinnan `Kayttoliittyma` tulee määritellä metodi `void paivita()`.
+- `public applicationLogic(userInterface ui)`<br/>applicationLogic-classes constructor, gets a class implementing the `userIntrface`-interface. WARNING: In order for the applicationLogic to "see" the interface, it must import it, ie you have to add the row `import mooc.ui.userInterface;` to the top of the file.
 
 
-<h2>Tekstikäyttöliittymä</h2>
+<!-- - `public void suorita(int montaKertaa)`<br/>Tulostaa `montaKertaa`-muuttujan määrittelemän määrän merkkijonoa "Sovelluslogiikka toimii". Jokaisen "Sovelluslogiikka toimii"-tulostuksen jälkeen tulee kutsua konstruktorin parametrina saadun rajapinnan `Kayttoliittyma`-toteuttaman olion määrittelemää `paivita()`-metodia. -->
 
-Luo samaan pakkaukseen luokka `Tekstikayttoliittyma`, joka toteuttaa rajapinnan `Kayttoliittyma`. Toteuta luokassa `Tekstikayttoliittyma` rajapinnan `Kayttoliittyma` vaatima metodi `public void paivita()` siten, että sen ainut tehtävä on merkkijonon "`Päivitetään käyttöliittymää`"-tulostaminen `System.out.println`-metodikutsulla.
-
-
-<h2>Sovelluslogiikka</h2>
-
-Luo tämän jälkeen pakkaus `mooc.logiikka`, ja lisää sinne luokka `Sovelluslogiikka`. Sovelluslogiikan tarjoaman toiminnallisuuden tulee olla seuraavanlainen.
+- `public void execute(int times)`<br/>Prints the string "application logic is working" as many times as defined by the variable `times`.
+The method `update()` extended from the interface `userInterface` should be called after each time the string is printed.
 
 
-- `public Sovelluslogiikka(Kayttoliittyma kayttoliittyma)`<br/>Sovelluslogiikka-luokan konstruktori. Saa parametrina Kayttoliittyma-rajapinnan toteuttavan luokan. Huom: jotta sovelluslogiikka näkisi rajapinnan, on sen "importoitava" se, eli tarvitset tiedoston alkuun rivin `import mooc.ui.Kayttoliittyma;`
+<!-- Voit testata sovelluksen toimintaa seuraavalla pääohjelmaluokalla. -->
+
+You can test the functioning of the program using the main class provided below.
 
 
-- `public void suorita(int montaKertaa)`<br/>Tulostaa `montaKertaa`-muuttujan määrittelemän määrän merkkijonoa "Sovelluslogiikka toimii". Jokaisen "Sovelluslogiikka toimii"-tulostuksen jälkeen tulee kutsua konstruktorin parametrina saadun rajapinnan `Kayttoliittyma`-toteuttaman olion määrittelemää `paivita()`-metodia.
-
-
-Voit testata sovelluksen toimintaa seuraavalla pääohjelmaluokalla.
-
-
-```java
+<!-- ```java
 import mooc.logiikka.Sovelluslogiikka;
 import mooc.ui.Kayttoliittyma;
 import mooc.ui.Tekstikayttoliittyma;
@@ -120,16 +140,41 @@ public class Main {
         new Sovelluslogiikka(kayttoliittyma).suorita(3);
     }
 }
+``` -->
+
+```java
+import mooc.logic.applicationLogic;
+import mooc.ui.userInterface;
+import mooc.ui.textInterface;
+
+public class Main {
+
+    public static void main(String[] args) {
+        userInterface ui = new textInterface();
+        new applicationLogic(ui).execute(3);
+    }
+}
 ```
+
+<!-- <sample-output>
+
+Sovelluslogiikka toimii
+Päivitetään käyttöliittymää
+Sovelluslogiikka toimii
+Päivitetään käyttöliittymää
+Sovelluslogiikka toimii
+Päivitetään käyttöliittymää
+
+</sample-output> -->
 
 <sample-output>
 
-Sovelluslogiikka toimii
-Päivitetään käyttöliittymää
-Sovelluslogiikka toimii
-Päivitetään käyttöliittymää
-Sovelluslogiikka toimii
-Päivitetään käyttöliittymää
+Application logic is working
+Updating UI
+Application logic is working
+Updating UI
+Application logic is working
+Updating UI
 
 </sample-output>
 
