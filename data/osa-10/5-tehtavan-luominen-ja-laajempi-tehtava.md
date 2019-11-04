@@ -78,24 +78,38 @@ Kirjoita tehtäväsi alla olevaan ikkunaan.
 Kun olet saanut ohjelmointitehtävän luotua, aloita seuraavan hieman laajemman tehtävän toteutus.
 
 
-<programming-exercise name='Maatilasimulaattori (5 osaa)' tmcname='osa10-Osa10_14.Maatilasimulaattori'>
+<!-- <programming-exercise name='Maatilasimulaattori (5 osaa)' tmcname='osa10-Osa10_14.Maatilasimulaattori'> -->
 
-Maatiloilla on lypsäviä eläimiä, jotka tuottavat maitoa.  Maatilat eivät itse käsittele maitoa, vaan se kuljetetaan Maitoautoilla meijereille.  Meijerit ovat yleisiä maitotuotteita tuottavia rakennuksia.  Jokainen meijeri erikoistuu yhteen tuotetyyppiin, esimerkiksi Juustomeijeri tuottaa Juustoa, Voimeijeri tuottaa voita ja Maitomeijeri tuottaa maitoa.
+<programming-exercise name='Farm simulator (5 parts)' tmcname='part10-Part10_14.FarmSimulator'>
 
-Rakennetaan maidon elämää kuvaava simulaattori, joskin meijerit jäävät toteutuksestamme toistaiseksi pois.
+<!-- Maatiloilla on lypsäviä eläimiä, jotka tuottavat maitoa.  Maatilat eivät itse käsittele maitoa, vaan se kuljetetaan Maitoautoilla meijereille.  Meijerit ovat yleisiä maitotuotteita tuottavia rakennuksia.  Jokainen meijeri erikoistuu yhteen tuotetyyppiin, esimerkiksi Juustomeijeri tuottaa Juustoa, Voimeijeri tuottaa voita ja Maitomeijeri tuottaa maitoa. -->
 
-Simulaattorin lopullinen rakenne kutakuinkin noudattaa seuraavaa luokkakaaviota.
+Farms have dairy cows, which produce milk. The farms don't process the milk themselves, but transfer it to dairies by dairy trucks. Dairies are buildings producing common milk products from the farms' milk. They have usually specialized on making one type of milk products; cheese dairy makes cheese products, milk dairy makes the milk you (may) drink every day.
+
+<!-- Rakennetaan maidon elämää kuvaava simulaattori, joskin meijerit jäävät toteutuksestamme toistaiseksi pois. -->
+
+Let's build a simulator on milk's life. For simplicity, we will not include the dairies for now.
+
+<!-- Simulaattorin lopullinen rakenne kutakuinkin noudattaa seuraavaa luokkakaaviota. -->
+
+The final form of the simulator should resemble the class diagram below.
 
 
-<img src="../img/diagrams/luokkakaavio-maatilasimulaattori.png" alt="[Maitosailio|-tilavuus:double;-saldo:double][Lehma][&lt;&lt;interface&gt;&gt; Eleleva][&lt;&lt;interface&gt;&gt; Lypsava][Lypsyrobotti][Maatila|-omistaja:String][Navetta][Navetta]-&gt;[Maitosailio][Navetta]-&gt;[Lypsyrobotti][Maatila]-&gt;[Navetta][Maatila]-&gt;*[Lehma][Maatila]-.-^[&lt;&lt;interface&gt;&gt; Eleleva][Lehma]-.-^[&lt;&lt;interface&gt;&gt; Eleleva][Lehma]-.-^[&lt;&lt;interface&gt;&gt; Lypsava]">
+<!-- <img src="../img/diagrams/luokkakaavio-maatilasimulaattori.png" alt="[Maitosailio|-tilavuus:double;-saldo:double][Lehma][&lt;&lt;interface&gt;&gt; Eleleva][&lt;&lt;interface&gt;&gt; Lypsava][Lypsyrobotti][Maatila|-omistaja:String][Navetta][Navetta]-&gt;[Maitosailio][Navetta]-&gt;[Lypsyrobotti][Maatila]-&gt;[Navetta][Maatila]-&gt;*[Lehma][Maatila]-.-^[&lt;&lt;interface&gt;&gt; Eleleva][Lehma]-.-^[&lt;&lt;interface&gt;&gt; Eleleva][Lehma]-.-^[&lt;&lt;interface&gt;&gt; Lypsava]"> -->
+
+<img src="../img/diagrams/luokkakaavio-maatilasimulaattori.png" alt="[MilkContainer|-capacity:double;-saldo:double][Cow][&lt;&lt;interface&gt;&gt; Living][&lt;&lt;interface&gt;&gt; Milkable][MilkingRobot][Farm|-owner:String][Barn][Barn]-&gt;[MilkContainer][Barn]-&gt;[MilkingRobot][Barn]-&gt;[Barn][Farm]-&gt;*[Cow][Farm]-.-^[&lt;&lt;interface&gt;&gt; Living][Cow]-.-^[&lt;&lt;interface&gt;&gt; Living][Cow]-.-^[&lt;&lt;interface&gt;&gt; Milkable]">
 
 
-<h2>Maitosäiliö</h2>
+<!-- <h2>Maitosäiliö</h2> -->
+
+<h2>MilkContainer</h2>
 
 
-Jotta maito pysyisi tuoreena, täytyy se säilöä sille tarkoitettuun säiliöön. Säiliöitä valmistetaan sekä oletustilavuudella 2000 litraa, että asiakkaalle räätälöidyllä tilavuudella.  Toteuta luokka Maitosailio jolla on seuraavat konstruktorit ja metodit.
+<!-- Jotta maito pysyisi tuoreena, täytyy se säilöä sille tarkoitettuun säiliöön. Säiliöitä valmistetaan sekä oletustilavuudella 2000 litraa, että asiakkaalle räätälöidyllä tilavuudella.  Toteuta luokka Maitosailio jolla on seuraavat konstruktorit ja metodit. -->
 
-- `public Maitosailio()`
+In order for the milk to stay fresh, it must be in a container defined for it. The containers are made in the standard capacity of 2000 liters, and sizes tailored for the customer. Implement the class MilkContainer with the following constructors and methods.
+
+<!-- - `public Maitosailio()`
 - `public Maitosailio(double tilavuus)`
 - `public double getTilavuus()`
 - `public double getSaldo()`
@@ -104,16 +118,32 @@ Jotta maito pysyisi tuoreena, täytyy se säilöä sille tarkoitettuun säiliö�
     lisää säiliöön vain niin paljon maitoa kuin sinne mahtuu,
     ylimääräiset jäävät lisäämättä, maitosäiliön ei siis tarvitse huolehtia tilanteesta jossa maitoa valuu yli
 - `public double otaSailiosta(double maara)`
-    ottaa säiliöstä pyydetyn määrän, tai niin paljon kuin siellä on jäljellä
+    ottaa säiliöstä pyydetyn määrän, tai niin paljon kuin siellä on jäljellä -->
 
-Huomaa, että teet *kaksi konstruktoria*. Kutsuttava konstruktori määräytyy sille annettujen parametrien perusteella. Jos kutsut `new Maitosailio()`, suoritetaan ensimmäisen konstruktorin lähdekoodi. Toista konstruktoria taas kutsutaan antamalla konstruktorille parametrina tilavuus, esim. `new Maitosailio(300.0)`.
+- `public MilkContainer()`
+- `public MilkContainer(double capacity)`
+- `public double getCapacity()`
+- `public double getAmount()`
+- `public double getCapacityLeft()`
+- `public void addMilk(double amount)`
+    adds milk to the container, if the amount is bigger than how much the container has capacity left, ignore the overflow. The milk container shouldn't care if the milk is going to waste.
+- `public double takeMilk(double amount)`
+    takes the requested amount (or all that's left) of milk from the container.
 
-Toteuta `Maitosailio`-luokalle myös `toString()`-metodi, jolla kuvaat sen tilaa. Ilmaistessasi säiliön tilaa `toString()`-metodissa, pyöristä litramäärät ylöspäin käyttäen `Math`-luokan tarjoamaa `ceil()`-metodia.
+<!-- Huomaa, että teet *kaksi konstruktoria*. Kutsuttava konstruktori määräytyy sille annettujen parametrien perusteella. Jos kutsut `new Maitosailio()`, suoritetaan ensimmäisen konstruktorin lähdekoodi. Toista konstruktoria taas kutsutaan antamalla konstruktorille parametrina tilavuus, esim. `new Maitosailio(300.0)`. -->
 
-Testaa maitosailiötä seuraavalla ohjelmapätkällä:
+Note, that you're creating *two constructors*. The constructor to be called is determined by the parameters you give. If you call `new MilkContainer`, the first constructor above is run. Similarly the second constructor above is run, if you give a capacity as a parameter, for example `new MilkContainer(300.0)`.
+
+<!-- Toteuta `Maitosailio`-luokalle myös `toString()`-metodi, jolla kuvaat sen tilaa. Ilmaistessasi säiliön tilaa `toString()`-metodissa, pyöristä litramäärät ylöspäin käyttäen `Math`-luokan tarjoamaa `ceil()`-metodia. -->
+
+You should also implement the method `toString()` for the MilkContainer-class, that describes the object's current state. When describing the state of the object, round the numbers "upwards" using the `ceil()`-method of the `Math`-class.
+
+<!-- Testaa maitosailiötä seuraavalla ohjelmapätkällä: -->
+
+Test your MilkContainer class with the following code:
 
 
-```java
+<!-- ```java
 Maitosailio sailio = new Maitosailio();
 sailio.otaSailiosta(100);
 sailio.lisaaSailioon(25);
@@ -123,6 +153,18 @@ System.out.println(sailio);
 sailio = new Maitosailio(50);
 sailio.lisaaSailioon(100);
 System.out.println(sailio);
+``` -->
+
+```java
+MilkContainer container = new MilkContainer();
+container.takeMilk(100);
+container.addMilk(25);
+container.takeMilk(5);
+System.out.println(container);
+
+container = new MilkContainer(50);
+container.addMilk(100);
+System.out.println(container);
 ```
 
 <sample-output>
@@ -131,22 +173,35 @@ System.out.println(sailio);
 </sample-output>
 
 
-<h2>Lehmä</h2>
+<!-- <h2>Lehmä</h2> -->
 
-Saadaksemme maitoa tarvitsemme myös lehmiä. Lehmällä on nimi ja utareet. Utareiden tilavuus on satunnainen luku väliltä 15 ja 40, luokkaa `Random` voi käyttäää satunnaislukujen arpomiseen, esimerkiksi  `int luku = 15 + new Random().nextInt(26);`. Luokalla `Lehma` on seuraavat toiminnot:
+<h2>Cow</h2>
 
-- `public Lehma()` luo uuden lehmän satunnaisesti valitulla nimellä
+<!-- Saadaksemme maitoa tarvitsemme myös lehmiä. Lehmällä on nimi ja utareet. Utareiden tilavuus on satunnainen luku väliltä 15 ja 40, luokkaa `Random` voi käyttäää satunnaislukujen arpomiseen, esimerkiksi  `int luku = 15 + new Random().nextInt(26);`. Luokalla `Lehma` on seuraavat toiminnot: -->
+
+To get milk, we need cows. A cow has a name and udders, the capacity of the udders is a random number between 15 and 40. Getting the random number is easy by using the class `Random`: `int num = 15 + new Random().nextInt(26);`. The class Cow should have the following methods and constructors:
+
+<!-- - `public Lehma()` luo uuden lehmän satunnaisesti valitulla nimellä
 - `public Lehma(String nimi)` luo uuden lehmän annetulla nimellä
 - `public String getNimi()` palauttaa lehmän nimen
 - `public double getTilavuus()` palauttaa utareiden tilavuuden
 - `public double getMaara()` palauttaa utareissa olevan maidon määrän
-- `public String toString()` palauttaa lehmää kuvaavan merkkijonon (ks. esimerkki alla)
+- `public String toString()` palauttaa lehmää kuvaavan merkkijonon (ks. esimerkki alla) -->
+
+- `public Cow()` Creates a new cow with a random name
+- `public Cow(String name)` Creates a new cow with a given name
+- `public String getName()` return the cow's name
+- `public double getCapacity()` returns the capacity of the cow's udders
+- `public double getMilkAmount()` returns the amount of milk in the cow's udders
+- `public String toString()` returns a String representing the cow's current state (see the example below)
 
 
-`Lehma` toteuttaa myös rajapinnat: `Lypsava`, joka kuvaa lypsämiskäyttäytymistä, ja `Eleleva`, joka kuvaa elelemiskäyttäytymistä.
+<!-- `Lehma` toteuttaa myös rajapinnat: `Lypsava`, joka kuvaa lypsämiskäyttäytymistä, ja `Eleleva`, joka kuvaa elelemiskäyttäytymistä. -->
+
+`Cow` should also implement the interfaces: `Milkable`, which depicts the milking behavior of the object, and `Living`, which depicts the living behavior of the object.
 
 
-```java
+<!-- ```java
 public interface Lypsava {
     public double lypsa();
 }
@@ -154,14 +209,40 @@ public interface Lypsava {
 public interface Eleleva {
     public void eleleTunti();
 }
+``` -->
+
+```java
+public interface Milkable {
+    public double milk();
+}
+
+public interface Living {
+    public void liveAnHour();
+}
 ```
 
-Lehmää lypsettäessä sen koko maitovarasto tyhjennetään jatkokäsittelyä varten. Lehmän elellessä sen maitovarasto täyttyy hiljalleen. Suomessa maidontuotannossa käytetyt lehmät tuottavat keskimäärin noin 25-30 litraa maitoa päivässä. Simuloidaan tätä tuotantoa tuottamalla noin 0.7 - 2 litraa tunnissa.
+<!-- Lehmää lypsettäessä sen koko maitovarasto tyhjennetään jatkokäsittelyä varten. Lehmän elellessä sen maitovarasto täyttyy hiljalleen. Suomessa maidontuotannossa käytetyt lehmät tuottavat keskimäärin noin 25-30 litraa maitoa päivässä. Simuloidaan tätä tuotantoa tuottamalla noin 0.7 - 2 litraa tunnissa. -->
 
-Simuloi tuotantoa tuottamalla noin 0.7 - 2 litraa tunnissa. Random-luokan metodista `nextDouble`, joka palauttaa satunnaisluvun 0 ja 1 välillä lienee tässä hyötyä.
+When a cow is milked, it's entire milk reserve is emptied for *** . The cow's milk reserve (udders) refills slowly while it lives. Finnish cows produce an average of 25-30 liters a day. We'll simulate this by making our cows produce 0.7 - 2 liters of milk in an hour (per cow).
 
-Lisäksi, jos lehmälle ei anneta nimeä, valitse sille nimi satunnaisesti seuraavasta taulukosta. Tässä on hyötyä Random-luokan metodista `nextInt`, jolle annetaan parametrina yläraja. Kannattaa tutustua Random-luokan toimintaan erikseen ennen kuin lisää sen osaksi tätä ohjelmaa.
+<!-- Simuloi tuotantoa tuottamalla noin 0.7 - 2 litraa tunnissa. Random-luokan metodista `nextDouble`, joka palauttaa satunnaisluvun 0 ja 1 välillä lienee tässä hyötyä. -->
 
+Simulate the production of 0.7 - 2 liters of milk using the Random-class. It's method `nextDouble` gives an random number between 0 and 1, which should help.
+
+<!-- Lisäksi, jos lehmälle ei anneta nimeä, valitse sille nimi satunnaisesti seuraavasta taulukosta. Tässä on hyötyä Random-luokan metodista `nextInt`, jolle annetaan parametrina yläraja. Kannattaa tutustua Random-luokan toimintaan erikseen ennen kuin lisää sen osaksi tätä ohjelmaa. -->
+
+Additionally, if the cow is not given a name, the name will be assigned randomly from a table of names. A useful method of the Random-class would in this case be `nextInt`, which is given an upper limit as a parameter. It is highly suggested to test the functioning of the Random-class separately before including it in to this exercise.
+
+
+<!-- ```java
+private static final String[] NIMIA = new String[]{
+    "Anu", "Arpa", "Essi", "Heluna", "Hely",
+    "Hento", "Hilke", "Hilsu", "Hymy", "Matti", "Ilme", "Ilo",
+    "Jaana", "Jami", "Jatta", "Laku", "Liekki",
+    "Mainikki", "Mella", "Mimmi", "Naatti",
+    "Nina", "Nyytti", "Papu", "Pullukka", "Pulu",
+    "Rima", "Soma", "Sylkki", "Valpu", "Virpi"};
+``` -->
 
 ```java
 private static final String[] NIMIA = new String[]{
@@ -173,10 +254,11 @@ private static final String[] NIMIA = new String[]{
     "Rima", "Soma", "Sylkki", "Valpu", "Virpi"};
 ```
 
-Toteuta luokka Lehma ja testaa sen toimintaa seuraavan ohjelmapätkän avulla.
+<!-- Toteuta luokka Lehma ja testaa sen toimintaa seuraavan ohjelmapätkän avulla. -->
 
+Implement the class Cow and test it with the following snippet of code.
 
-```java
+<!-- ```java
 Lehma lehma = new Lehma();
 System.out.println(lehma);
 
@@ -201,30 +283,78 @@ lehma.eleleTunti();
 System.out.println(lehma);
 lehma.lypsa();
 System.out.println(lehma);
+``` -->
+
+```java
+Cow cow = new Cow();
+System.out.println(cow);
+
+Living livingCow = cow;
+livingCow.liveAnHour();
+livingCow.liveAnHour();
+livingCow.liveAnHour();
+livingCow.liveAnHour();
+
+System.out.println(cow);
+
+Milkable milkableCow = cow;
+milkableCow.milk();
+
+System.out.println(cow);
+System.out.println("");
+
+cow = new Cow("coco");
+System.out.println(cow);
+cow.liveAnHour();
+cow.liveAnHour();
+System.out.println(cow);
+lehma.milk();
+System.out.println(cow);
 ```
 
-Ohjelman tulostus on erimerkiksi seuraavanlainen.
+<!-- Ohjelman tulostus on erimerkiksi seuraavanlainen. -->
 
-<sample-output>
+The program output should resemble (some of the amounts and some names are random):
+
+<!-- <sample-output>
 Liekki 0.0/23.0
 Liekki 7.0/23.0
 Liekki 0.0/23.0
 Ammu 0.0/35.0
 Ammu 9.0/35.0
 Ammu 0.0/35.0
+</sample-output> -->
+
+<sample-output>
+Liekki 0.0/23.0
+Liekki 7.0/23.0
+Liekki 0.0/23.0
+coco 0.0/35.0
+coco 9.0/35.0
+coco 0.0/35.0
 </sample-output>
 
 
-<h2>Lypsyrobotti</h2>
+<!-- <h2>Lypsyrobotti</h2> -->
+
+<h2>Milking Robot</h2>
 
 
-Nykyaikaisilla maatiloilla lypsyrobotit hoitavat lypsämisen. Jotta lypsyrobotti voi lypsää lypsävää otusta, tulee lypsyrobotin olla kiinnitetty maitosäiliöön:
+<!-- Nykyaikaisilla maatiloilla lypsyrobotit hoitavat lypsämisen. Jotta lypsyrobotti voi lypsää lypsävää otusta, tulee lypsyrobotin olla kiinnitetty maitosäiliöön: -->
+
+In modern farms, milking robots do all the milking. In order for the robot to milk a milkable object, it should be connected to a milk container.
 
 
-- `public Lypsyrobotti()` luo uuden lypsyrobotin
+<!-- - `public Lypsyrobotti()` luo uuden lypsyrobotin
 - `public Maitosailio getMaitosailio()` palauttaa kiinnitetyn maitosäiliö tai `null`-viitteen, jos säiliötä ei ole vielä kiinnitetty
 - `public void setMaitosailio(Maitosailio maitosailio)` kiinnittää annetun säiliön lypsyrobottiin
+- `public void lypsa(Lypsava lypsava)` lypsää lehmän robottiin kiinnitettyyn maitosäiliöön. Jos robottiin ei ole kiinnitetty maitosäiliötä, ohjelma ilmoittaa että maito menee hukkaan. -->
+
+- `public Lypsyrobotti()` Creates a new MilkingRobot
+- `public Maitosailio getMaitosailio()` returns the attached MilkContainer or the `null`-reference if no MilkContainer has been yet attached.
+- `public void setMaitosailio(Maitosailio maitosailio)` kiinnittää annetun säiliön lypsyrobottiin
 - `public void lypsa(Lypsava lypsava)` lypsää lehmän robottiin kiinnitettyyn maitosäiliöön. Jos robottiin ei ole kiinnitetty maitosäiliötä, ohjelma ilmoittaa että maito menee hukkaan.
+
 
 Toteuta luokka Lypsyrobotti ja testaa sitä seuraavien ohjelmanpätkien avulla. Varmista että lypsyrobotti voi lypsää kaikkia Lypsava-rajapinnan toteuttavia olioita!
 
