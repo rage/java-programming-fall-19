@@ -1,12 +1,12 @@
 ---
-path: '/part-9/2-inheritance'
+path: '/part-9/1-inheritance'
 title: 'Class inheritance'
 hidden: true
 ---
 
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
-
+- Tiedät että Java-ohjelmointikielessä jokainen luokka perii luokan Object ja tiedät        miksi jokaisella oliolla on metodit toString, equals ja hashCode.
 - Tunnet käsitteet perintä, yliluokka ja aliluokka.
 - Osaat luoda luokkia, jotka perivät osan ominaisuuksistaan toisesta luokasta.
 - Osaat kutsua yliluokassa määriteltyä konstruktoria ja metodia.
@@ -19,7 +19,7 @@ hidden: true
 Luokkia käytetään olio-ohjelmoinnissa ongelma-alueeseen liittyvien käsitteiden selkeyttämiseen. Jokainen luomamme luokka lisää ohjelmointikieleen toiminnallisuutta. Tätä toiminnallisuutta tarvitaan kohtaamiemme ongelmien ratkomiseen. Olio-ohjelmoinnissa **ratkaisut syntyvät luokista luotujen olioiden välisen interaktion avulla**. Olio-ohjelmoinnissa olio on itsenäinen kokonaisuus, jolla on olion tarjoamien metodien avulla muutettava tila. Olioita käytetään yhteistyössä; jokaisella oliolla on oma vastuualue. Esimerkiksi käyttöliittymäluokkamme ovat tähän mennessä hyödyntäneet `Scanner`-olioita.
 
 
-Jokainen Javan luokka perii luokan Object, eli jokainen luomamme luokka saa käyttöönsä kaikki Object-luokassa määritellyt metodit. Jos haluamme muuttaa Object-luokassa määriteltyjen metodien toiminnallisuutta tulee ne korvata (`Override`) määrittelemällä niille uusi toteutus luodussa luokassa.
+Jokainen Javan luokka perii luokan Object, eli jokainen luomamme luokka saa käyttöönsä kaikki Object-luokassa määritellyt metodit. Jos haluamme muuttaa Object-luokassa määriteltyjen metodien toiminnallisuutta tulee ne korvata (`Override`) määrittelemällä niille uusi toteutus luodussa luokassa. Oliomme saavat luokasta Object käyttöönsä mm. metodit `equals` ja `hashCode`.
 
 
 Luokan `Object` perimisen lisäksi myös muiden luokkien periminen on mahdollista. Javan <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" target="_blank" rel="noopener">ArrayList</a>-luokan "ohjelmointirajapintaa" eli APIa tarkasteltaessa huomaamme että `ArrayList` perii luokan `AbstractList`. Luokka `AbstractList` perii luokan `AbstractCollection`, joka perii luokan `Object`.

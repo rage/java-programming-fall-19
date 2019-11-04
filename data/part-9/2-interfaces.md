@@ -1,5 +1,5 @@
 ---
-path: '/osa-9/3-interface'
+path: '/part-9/3-interface'
 title: 'Interfaces'
 hidden: true
 ---
