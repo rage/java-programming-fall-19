@@ -833,7 +833,7 @@ Metodikutsun aikaansaama toimintoketju siis on monivaiheinen. Periaate on kuiten
 <quiz id="439cf6ac-da31-5a1e-bccf-2fd154841f7a"></quiz>
 
 
-<quiz id="be260d99-07e1-5c20-843a-9f1e563ae07c"></quiz>
+<quiz id="cd07625c-a98e-59a2-8b30-9c25790c48c6"></quiz>
 
 ## Milloin perintää kannattaa käyttää?
 
