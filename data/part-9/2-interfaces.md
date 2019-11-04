@@ -1,5 +1,5 @@
 ---
-path: '/part-9/3-interface'
+path: '/part-9/2-interface'
 title: 'Interfaces'
 hidden: true
 ---
@@ -841,7 +841,7 @@ kaksi
 Huomaa että HashSet ei ota millään tavalla kantaa joukon alkioiden järjestykseen. Mikäli HashSet-olioon lisätään omista luokista tehtyjä olioita, tulee niille olla määriteltynä metodit `equals` ja `hashCode`.
 
 
-<programming-exercise name='Set as a method parameter' tmcname='part09-Part09_09.SetAsAMethodParameter'>
+<programming-exercise name='Set as  method parameter' tmcname='part09-Part09_09.SetAsMethodParameter'>
 
 <!-- Toteuta pääohjelmaluokkaan luokkametodi `palautaKoko`, joka saa parametrina Set-olion ja palauttaa sen koon kokonaislukuna.
 
@@ -935,7 +935,7 @@ tsemppiä
 
 Seuraavassa tehtävässä rakennetaan verkkokauppaan liittyvää toiminnallisuutta ja harjoitellaan luokkien käyttämistä niiden tarjoamien rajapintojen kautta.
 
-<programming-exercise name='Online store (8 parts)' tmcname='part09-Part09_10.OnlineStore' nocoins='true'>
+<programming-exercise name='Online shop (8 parts)' tmcname='part09-Part09_10.OnlineShop' nocoins='true'>
 
 
 <!-- Teemme tehtävässä muutamia verkkokaupan hallinnointiin soveltuvia ohjelmakomponentteja.

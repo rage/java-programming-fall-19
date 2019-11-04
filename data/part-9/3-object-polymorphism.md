@@ -1,5 +1,5 @@
 ---
-path: '/osa-9/4-object-polymorphism'
+path: '/part-9/3-object-polymorphism'
 title: 'Object polymorphism'
 hidden: true
 ---
