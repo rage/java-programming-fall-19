@@ -334,11 +334,15 @@ ArrayList<Integer> luvut = lista.stream()
 ```
 
 
-<programming-exercise name='Positiiviset luvut' tmcname='osa10-Osa10_03.PositiivisetLuvut'>
+<programming-exercise name='Positive Numbers' tmcname='osa10-Part10_03.PositiveNumbers'>
 
-Toteuta tehtäväpohjaan luokkametodi `public static List<Integer> positiiviset(List<Integer> luvut)`, joka saa parametrinaan lukulistan ja jonka tulee palauttaa uusi lukulista, joka sisältää parametrina saadun listan sisältämät positiiviset luvut.
+<!-- Toteuta tehtäväpohjaan luokkametodi `public static List<Integer> positiiviset(List<Integer> luvut)`, joka saa parametrinaan lukulistan ja jonka tulee palauttaa uusi lukulista, joka sisältää parametrina saadun listan sisältämät positiiviset luvut.
 
-Toteuta metodi virtaa hyödyntäen! Kokeile lukujen keräämisen `Collectors.toCollection(ArrayList::new)` lisäksi komentoa `Collectors.toList()`.
+Toteuta metodi virtaa hyödyntäen! Kokeile lukujen keräämisen `Collectors.toCollection(ArrayList::new)` lisäksi komentoa `Collectors.toList()`. -->
+
+In the exercise template, implement the class method `public static List<Integer> positive(List<Integer> numbers)`, which receives an ArrayList of integers, and returns the positive integers from the list.
+
+Implement the method using stream! For collecting the numbers try the command `Collectors.toList()` in addition to the `Collectors.toCollection(ArrayList::new)` command.
 
 </programming-exercise>
 
@@ -423,11 +427,12 @@ positiiviset.stream()
 <quiznator id='5c816449c41ed4148d97162b'></quiznator>
 
 
-<programming-exercise name='Jaolliset' tmcname='osa10-Osa10_04.Jaolliset'>
+<programming-exercise name='Divisible' tmcname='Part10-Part10_04.Divisible'>
 
-Tehtäväpohjassa on annettuna metodirunko `public static ArrayList<Integer> jaolliset(ArrayList<Integer> luvut)`. Toteuta metodirunkoon toiminnallisuus, joka kerää parametrina saadulta listalta kahdella, kolmella tai viidellä jaolliset luvut, ja palauttaa ne uudessa listassa. Metodille parametrina annetun listan ei tule muuttua.
+<!-- Tehtäväpohjassa on annettuna metodirunko `public static ArrayList<Integer> jaolliset(ArrayList<Integer> luvut)`. Toteuta metodirunkoon toiminnallisuus, joka kerää parametrina saadulta listalta kahdella, kolmella tai viidellä jaolliset luvut, ja palauttaa ne uudessa listassa. Metodille parametrina annetun listan ei tule muuttua. -->
 
-```java
+The exercise template includes a template for the method `public static ArrayList<Integer> divisible(ArrayList<Integer> numbers)`. Implement a functionality there that gathers numbers divisible by two, three or five from the list it receives as a parameter, and returns them as a new list. The list received as a parameter must not be altered.
+<!-- ```java
 ArrayList<Integer> luvut = new ArrayList<>();
 luvut.add(3);
 luvut.add(2);
@@ -439,6 +444,22 @@ ArrayList<Integer> jaolliset = jaolliset(luvut);
 
 jaolliset.stream()
     .forEach(luku -> System.out.println(luku));
+``` -->
+
+```java
+public static void main(String[] args) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(3);
+        numbers.add(2);
+        numbers.add(-17);
+        numbers.add(-5);
+        numbers.add(7);
+
+        ArrayList<Integer> divisible = divisible(numbers);
+
+        divisible.stream()
+                .forEach(luku -> System.out.println(luku));
+    }
 ```
 
 <sample-output>
