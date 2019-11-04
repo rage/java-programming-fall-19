@@ -828,12 +828,12 @@ Mitä tarkalleenottaen tapahtuu kuin kolmiulotteiselle pisteelle kutsutaan toStr
 Metodikutsun aikaansaama toimintoketju siis on monivaiheinen. Periaate on kuitenkin selkeä: suoritettavan metodin määrittelyä etsitään ensin olion todellisen tyypin määrittelystä ja jos sitä ei löydy edetään yliluokkaan. Ja jos yliluokastakaan ei löydy metodin toteutusta siirrytään etsimään yliluokan yliluokasta jne...
 
 
-<quiznator id="08a47856-0e12-5076-b4c0-b6eb26ec722d"></quiznator>
+<quiz id="7f53bd2a-48b3-541e-8d6a-d0cd64e16733"></quiz>
 
-<quiznator id="32baf4c4-948d-543a-983a-1ee8dfef14fc"></quiznator>
+<quiz id="439cf6ac-da31-5a1e-bccf-2fd154841f7a"></quiz>
 
 
-<quiznator id="be260d99-07e1-5c20-843a-9f1e563ae07c"></quiznator>
+<quiz id="be260d99-07e1-5c20-843a-9f1e563ae07c"></quiz>
 
 ## Milloin perintää kannattaa käyttää?
 
