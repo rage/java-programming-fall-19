@@ -5,5 +5,13 @@
     "activityBar.background": "#472507",
     "titleBar.activeBackground": "#63340A",
     "titleBar.activeForeground": "#FEFAF7"
-  }
+  },
+  "spellright.language": [
+    "en_US"
+  ],
+  "spellright.documentTypes": [
+    "latex",
+    "plaintext",
+    "markdown"
+  ]
 }
