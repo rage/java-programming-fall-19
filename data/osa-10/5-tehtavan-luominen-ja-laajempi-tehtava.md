@@ -352,25 +352,40 @@ In modern farms, milking robots do all the milking. In order for the robot to mi
 
 - `public Lypsyrobotti()` Creates a new MilkingRobot
 - `public Maitosailio getMaitosailio()` returns the attached MilkContainer or the `null`-reference if no MilkContainer has been yet attached.
-- `public void setMaitosailio(Maitosailio maitosailio)` kiinnittää annetun säiliön lypsyrobottiin
-- `public void lypsa(Lypsava lypsava)` lypsää lehmän robottiin kiinnitettyyn maitosäiliöön. Jos robottiin ei ole kiinnitetty maitosäiliötä, ohjelma ilmoittaa että maito menee hukkaan.
+- `public void setMaitosailio(Maitosailio maitosailio)` attaches the given MilkContainer to the milking robot.
+- `public void lypsa(Lypsava lypsava)` Milks to the attached MilkContainer. If no MilkContainer is attached, the program warns about how the milk goes to waste.
 
 
-Toteuta luokka Lypsyrobotti ja testaa sitä seuraavien ohjelmanpätkien avulla. Varmista että lypsyrobotti voi lypsää kaikkia Lypsava-rajapinnan toteuttavia olioita!
+<!-- Toteuta luokka Lypsyrobotti ja testaa sitä seuraavien ohjelmanpätkien avulla. Varmista että lypsyrobotti voi lypsää kaikkia Lypsava-rajapinnan toteuttavia olioita! -->
 
-```java
+Implement the MilkingRobot and test it with the following snippets of code. Ensure that the milking robot can milk any object implementing the interface `Milkable`.
+
+<!-- ```java
 Lypsyrobotti lypsyrobotti = new Lypsyrobotti();
 Lehma lehma = new Lehma();
 lypsyrobotti.lypsa(lehma);
+``` -->
+
+```java
+MilkingRobot milkingrobot = new MilkingRobot();
+Cow cow = new Cow();
+milkingrobot.milk(cow);
 ```
 
-<sample-output>
+
+<!-- <sample-output>
 
 Maidot menevät hukkaan!
 
+</sample-output> -->
+
+<sample-output>
+
+The milk is going to waste!
+
 </sample-output>
 
-```java
+<!-- ```java
 Lypsyrobotti lypsyrobotti = new Lypsyrobotti();
 Lehma lehma = new Lehma();
 System.out.println("");
@@ -392,11 +407,37 @@ for (int i = 0; i < 2; i++) {
     System.out.println("Säiliö: " + sailio);
     System.out.println("");
 }
+``` -->
+
+```java
+MilkingRobot milkingrobo = new MilkingRobot();
+Cow cow = new Cow();
+System.out.println("");
+
+MilkContainer container = new MilkContainer();
+milkingrobo.setMilkContainer(container);
+System.out.println("Container: " + container);
+
+for (int i = 0; i < 2; i++) {
+    System.out.println(cow);
+    System.out.println("Living..");
+    for (int j = 0; j < 5; j++) {
+        cow.liveAnHour();
+    }
+    System.out.println(cow);
+
+    System.out.println("Milking...");
+    lypsyrobotti.lypsa(cow);
+    System.out.println("Container: " + container);
+    System.out.println("");
+}
 ```
 
-Ohjelman tulostus on esimerkiksi seuraavanlainen.
+<!-- Ohjelman tulostus on esimerkiksi seuraavanlainen. -->
 
-<sample-output>
+The program output should resemble the following (random is involved):
+
+<!-- <sample-output>
 
 Säiliö: 0.0/2000.0
 Mella 0.0/23.0
@@ -411,28 +452,56 @@ Mella 7.8/23.0
 Lypsetään...
 Säiliö: 14.0/2000.0
 
+</sample-output> -->
+
+<sample-output>
+
+Container: 0.0/2000.0
+Mella 0.0/23.0
+Living..
+Mella 6.2/23.0
+Milking...
+Container: 6.2/2000.0
+
+Mella 0.0/23.0
+Living..
+Mella 7.8/23.0
+Milking...
+Container: 14.0/2000.0
+
 </sample-output>
 
 
-<h2>Navetta</h2>
+<!-- <h2>Navetta</h2> -->
+
+<h2>The Barn</h2>
 
 
-Lehmät hoidetaan (eli tässä tapauksessa lypsetään) navetassa. Alkukantaisissa navetoissa on maitosäiliö ja tilaa yhdelle lypsyrobotille. Huomaa että lypsyrobottia asennettaessa se kytketään juuri kyseisen navetan maitosäiliöön.  Jos navetassa ei ole lypsyrobottia, ei siellä voida myöskään hoitaa lehmiä. Toteuta luokka `Navetta` jolla on seuraavat konstruktorit ja metodit:
+<!-- Lehmät hoidetaan (eli tässä tapauksessa lypsetään) navetassa. Alkukantaisissa navetoissa on maitosäiliö ja tilaa yhdelle lypsyrobotille. Huomaa että lypsyrobottia asennettaessa se kytketään juuri kyseisen navetan maitosäiliöön.  Jos navetassa ei ole lypsyrobottia, ei siellä voida myöskään hoitaa lehmiä. Toteuta luokka `Navetta` jolla on seuraavat konstruktorit ja metodit: -->
+
+The cows are taken care of (Milked, in this case) in the barn. Older barns had a milk container and space for one milking robot. Note that when installing, you want to connect the milking robot to the barn's milk container. If a barn has no milking robot, no cows can be milked there. Implement the class `Barn` with the following constructors and methods
 
 
-- `public Navetta(Maitosailio maitosailio)`
+<!-- - `public Navetta(Maitosailio maitosailio)`
 - `public Maitosailio getMaitosailio()` palauttaa navetan maitosailion
 - `public void asennaLypsyrobotti(Lypsyrobotti lypsyrobotti)` asentaa lypsyrobotin ja kiinnittää sen navetan maitosäiliöön
 - `public void hoida(Lehma lehma)` lypsää parametrina annetun lehmän lypsyrobotin avulla, metodi heittää poikkeuksen `IllegalStateException`, jos lypsyrobottia ei ole asennettu
 - `public void hoida(List<Lehma> lehmat)` lypsää parametrina annetut lehmät lypsyrobotin avulla, metodi heittää poikkeuksen `IllegalStateException`, jos lypsyrobottia ei ole asennettu
-- `public String toString()` palauttaa navetan sisältämän maitosäiliön tilan
+- `public String toString()` palauttaa navetan sisältämän maitosäiliön tilan -->
+
+- `public Barn(Maitosailio maitosailio)`
+- `public MilkContainer getMilkContainer()` returns the barn's MilkContainer
+- `public void installMilkingRobot(MilkingRobot milkingrobot)` installs the MilkingRobot and attaches it to the barn's MilkContainer.
+- `public void care(Lehma lehma)` milks the cow given as a parameter, throws `IllegalStateException` if no MilkingRobot has been installed
+- `public void care(List<Lehma> lehmat)` milks the cows given as a parameter, throws the `IllegalStateException` if no MilkingRobot has been installed.
+- `public String toString()` returns the current state of the Barn's MilkContainer.
+
+<!-- Testaa luokkaa `Navetta` seuraavan ohjelmapätkän avulla. -->
+
+Test the class `Barn` using the following code snippet.
 
 
-
-Testaa luokkaa `Navetta` seuraavan ohjelmapätkän avulla.
-
-
-```java
+<!-- ```java
 Navetta navetta = new Navetta(new Maitosailio());
 System.out.println("Navetta: " + navetta);
 
@@ -457,22 +526,61 @@ for (Lehma lehma: lehmaLista) {
 
 navetta.hoida(lehmaLista);
 System.out.println("Navetta: " + navetta);
+``` -->
+
+```java
+Barn barn = new Barn(new MilkContainer());
+System.out.println("Barn: " + barn);
+
+MilkingRobot robo = new MilkingRobot();
+barn.installMilkingRobot(robo);
+
+Cow cow = new Cow();
+cow.liveAnHour();
+cow.liveAnHour();
+
+barn.care(cows);
+System.out.println("Barn: " + barn);
+
+List<Cow> cows = new ArrayList<>();
+cows.add(cow);
+cows.add(new Cow());
+
+for (Cow moo: cows) {
+    moo.liveAnHour());
+    moo.liveAnHour();
+};
+
+barn.care(cows);
+System.out.println("Barn: " + barn);
 ```
 
-Tulostuksen tulee olla esimerkiksi seuraavanlainen:
+<!-- Tulostuksen tulee olla esimerkiksi seuraavanlainen: -->
 
-<sample-output>
+The output should resemble the following (random is involved):
+
+<!-- <sample-output>
 Navetta: 0.0/2000.0
 Navetta: 2.8/2000.0
 Navetta: 9.6/2000.0
+</sample-output> -->
+
+<sample-output>
+Barn: 0.0/2000.0
+Barn: 2.8/2000.0
+Barn: 9.6/2000.0
 </sample-output>
 
 
-<h2>Maatila</h2>
+<!-- <h2>Maatila</h2> -->
 
-Maatilalla on omistaja ja siihen kuuluu navetta sekä joukko lehmiä. Maatila toteuttaa myös aiemmin nähdyn rajapinnan `Eleleva`, jonka metodia `eleleTunti()`-kutsumalla kaikki maatilaan liittyvät lehmät elelevät tunnin.  Toteuta luokka maatila siten, että se toimii seuraavien esimerkkiohjelmien mukaisesti.
+<h2>The Farm</h2>
 
-```java
+<!-- Maatilalla on omistaja ja siihen kuuluu navetta sekä joukko lehmiä. Maatila toteuttaa myös aiemmin nähdyn rajapinnan `Eleleva`, jonka metodia `eleleTunti()`-kutsumalla kaikki maatilaan liittyvät lehmät elelevät tunnin.  Toteuta luokka maatila siten, että se toimii seuraavien esimerkkiohjelmien mukaisesti. -->
+
+The Farm has an owner and a group of cows. The Farm also implements the now familiar interface `living`, and it's method `liveAnHour()` that should make all the Farm's cows live an hour when called.  Implement the class so that it behaves accordingly too the example programs:
+
+<!-- ```java
 Maitosailio sailio = new Maitosailio();
 Navetta navetta = new Navetta(sailio);
 
@@ -480,37 +588,75 @@ Maatila maatila = new Maatila("Esko", navetta);
 System.out.println(maatila);
 
 System.out.println(maatila.getOmistaja() + " on ahkera mies!");
+``` -->
+
+```java
+MilkContainer container = new MilkContainer();
+Barn barn = new Barn(container);
+
+Farm farm = new Farm("Esko", barn);
+System.out.println(farm);
+
+System.out.println(farm.getOwner() + " is a hard working fellow!");
 ```
 
-Odotettu tulostus:
+<!-- Odotettu tulostus: -->
 
-<sample-output>
+Expected output:
+
+<!-- <sample-output>
 Maatilan omistaja: Esko
 Navetan maitosäiliö: 0.0/2000.0
 Ei lehmiä.
 Esko on ahkera mies!
+</sample-output> -->
+
+<sample-output>
+Farm's owner: Esko
+Barn's Milk Container: 0.0/2000.0
+No cows.
+Esko is a hard working fellow!
 </sample-output>
 
-```java
+<!-- ```java
 Maatila maatila = new Maatila("Esko", new Navetta(new Maitosailio()));
 maatila.lisaaLehma(new Lehma());
 maatila.lisaaLehma(new Lehma());
 maatila.lisaaLehma(new Lehma());
 System.out.println(maatila);
+``` -->
+
+```java
+Farm farm = new Farm("Esko", new Barn(new MilkContainer()));
+farm.addCow(new Cow());
+farm.addCow(new Cow());
+farm.addCow(new Cow());
+System.out.println(farm);
 ```
 
-Odotettu tulostus:
+<!-- Odotettu tulostus: -->
 
-<sample-output>
+Expected output:
+
+<!-- <sample-output>
 Maatilan omistaja: Esko
 Navetan maitosäiliö: 0.0/2000.0
 Lehmät:
     Naatti 0.0/19.0
     Hilke 0.0/30.0
     Sylkki 0.0/29.0
+</sample-output> -->
+
+<sample-output>
+Farm's owner: Esko
+Barn's Milk Container: 0.0/2000.0
+Cows:
+    Naatti 0.0/19.0
+    Hilke 0.0/30.0
+    Sylkki 0.0/29.0
 </sample-output>
 
-```java
+<!-- ```java
 Maatila maatila = new Maatila("Esko", new Navetta(new Maitosailio()));
 
 maatila.lisaaLehma(new Lehma());
@@ -521,22 +667,46 @@ maatila.eleleTunti();
 maatila.eleleTunti();
 
 System.out.println(maatila);
+``` -->
+
+```java
+Farm farm = new Farm("Esko", new Barn(new MilkContainer()));
+
+farm.addCow(new Cow());
+farm.addCow(new Cow());
+farm.addCow(new Cow());
+
+farm.liveAnHour();
+farm.liveAnHour();
+
+System.out.println(farm);
 ```
 
 
-Odotettu tulostus:
+<!-- Odotettu tulostus: -->
+
+Expected output:
 
 
-<sample-output>
+<!-- <sample-output>
 Maatilan omistaja: Esko
 Navetan maitosäiliö: 0.0/2000.0
 Lehmät:
     Heluna 2.0/17.0
     Rima 3.0/32.0
     Ilo 3.0/25.0
+</sample-output> -->
+
+<sample-output>
+Farm's owner: Esko
+Barn's Milk Container: 0.0/2000.0
+Cows:
+    Heluna 2.0/17.0
+    Rima 3.0/32.0
+    Ilo 3.0/25.0
 </sample-output>
 
-```java
+<!-- ```java
 Maatila maatila = new Maatila("Esko", new Navetta(new Maitosailio()));
 Lypsyrobotti robo = new Lypsyrobotti();
 maatila.asennaNavettaanLypsyrobotti(robo);
@@ -551,20 +721,50 @@ maatila.eleleTunti();
 maatila.hoidaLehmat();
 
 System.out.println(maatila);
+``` -->
+
+```java
+Farm farm = new Farm("Esko", new Barn(new MilkContainer()));
+MilkingRobot robo = new MilkingRobot();
+farm.installBarnMilkingRobot(robo);
+
+farm.addCow(new Cow());
+farm.addCow(new Cow());
+farm.addCow(new Cow());
+
+farm.liveAnHour();
+farm.liveAnHour();
+
+farm.care();
+
+System.out.println(farm);
 ```
 
-Odotettu tulostus:
+<!-- Odotettu tulostus: -->
 
-<sample-output>
+Expected output:
+
+<!-- <sample-output>
 Maatilan omistaja: Esko
 Navetan maitosäiliö: 18.0/2000.0
 Lehmät:
     Hilke 0.0/30.0
     Sylkki 0.0/35.0
     Hento 0.0/34.0
+</sample-output> -->
+
+<sample-output>
+Farm's owner: Esko
+Barn's Milk Container: 18.0/2000.0
+Cows:
+    Hilke 0.0/30.0
+    Sylkki 0.0/35.0
+    Hento 0.0/34.0
 </sample-output>
 
 
-Edellä otettiin ensiaskeleet simulaattorin tekemiseen. Ohjelmaa voisi jatkaa vaikkapa lisäämällä maitoauton sekä luomalla useampia navettoja. Maitoautot voisivat kulkea tehtaalle, jossa tehtäisiin juustoa, jnejne..
+<!-- Edellä otettiin ensiaskeleet simulaattorin tekemiseen. Ohjelmaa voisi jatkaa vaikkapa lisäämällä maitoauton sekä luomalla useampia navettoja. Maitoautot voisivat kulkea tehtaalle, jossa tehtäisiin juustoa, jnejne.. -->
+
+In this exercise we have taken the first steps on creating a simulator. It could be expanded upon by for example adding a Dairy truck and multiple Barns. The dairy trucks could go to dairies, which would create products of them and so on, and so on...
 
 </programming-exercise>
