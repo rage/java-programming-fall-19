@@ -1,8 +1,8 @@
 ---
-path: '/osa-8/1-kertausta'
+path: '/part-8/1-recap'
 #title: 'Lyhyt kertaus'
 title: 'Short recap'
-hidden: true
+hidden: false
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -66,7 +66,7 @@ Write a program that reads strings from the user until the user inputs the strin
 </programming-exercise>
 
 
-<programming-exercise name='Average of positive numbers' tmcname='osa08-Osa08_02.AverageOfPositiveNumbers'>
+<programming-exercise name='Average of positive numbers' tmcname='part08-Part08_02.AverageOfPositiveNumbers'>
 
 <!-- Kirjoita ohjelma, joka lukee käyttäjältä kokonaislukuja kunnes käyttäjä syöttää luvun 0. Tämän jälkeen ohjelma tulostaa syötteessä esiintyneiden positiivisten (eli nollaa suurempien lukujen) keskiarvon. -->
 Write a number that asks user for input until the user inputs 0.

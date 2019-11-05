@@ -1,5 +1,5 @@
 ---
-path: '/part-9/3-yleishyodyllisia-tekniikoita'
+path: '/osa-10/3-yleishyodyllisia-tekniikoita'
 title: 'Muutamia yleishyödyllisiä tekniikoita'
 hidden: true
 ---
@@ -16,40 +16,6 @@ hidden: true
 </text-box>
 
 Tutustutaan seuraavaksi muutamaan ohjelmoinnissa varsin näppärään tekniikaan sekä luokkaan.
-
-
-## For-toistolause
-
-Olemme käyttäneet tähän mennessä ohjelmissamme while-toistolausetta, foreach-toistolausetta sekä virtoja. Tutustutaan nyt vielä yhteen toistolauseeseen eli perinteiseen for-toistolauseeseen.
-
-Olemme käyttäneet indeksistä kirjaa pitävänä toistolauseena toistaiseksi while-toistolausetta. Sen toiminta on seuraavanlainen.
-
-```java
-int i = 0;
-while (i < 10) {
-    System.out.println(i);
-    i++;
-}
-```
-
-Ylläolevan toistolauseen voi pilkkoa kolmeen osaan. Ensin esittelemme toistolauseessa toistokertojen laskemiseen käytettävän muuttujan `i` ja asetamme sen arvon nollaksi: `int i = 0;`. Tätä seuraa toistolauseen määrittely -- toistolauseen ehto on `i < 10` eli toistolausetta suoritetaan niin pitkään kuin muuttujan `i` arvo on pienempi kuin 10. Toistolauseessa on toistettava toiminnallisuus `System.out.println(i);`, jota seuraa toistolauseessa käytettävän muuttujan kasvatus `i++`.
-
-Saman toteuttaminen tapahtuu indeksistä kirjaa pitävällä for-toistolauseella seuraavasti.
-
-```java
-for (int i = 0; i < 10; i++) {
-    System.out.println(i);
-}
-```
-
-Toistolause for koostuu neljästä osasta: (1) toistokertojen laskemiseen käytettävän muuttujan esittelystä; (2) toistolauseen ehdosta; (3) laskemiseen käytetyn muuttujan kasvattamisesta (tai pienentämisestä tai muuttamisesta); ja (4) toistettavasta toiminnallisuudesta.
-
-
-```java
-for (*muuttujan esittely*; *ehto*; *kasvatus*) {
-    // toistettava asia
-}
-```
 
 
 ## StringBuilder
@@ -152,9 +118,9 @@ System.out.println(luvut.toString());
 
 StringBuilderin käyttö on suurien merkkijonojen luomisessa tehokkaampaa kuin merkkijonojen luominen `+`-operaatiolla.
 
-<quiz id='67155c46-c03e-55f9-85ea-c19a85bade1e'></quiz>
+<quiznator id='5c81657dddb6b814af328109'></quiznator>
 
-<quiz id='a3a98299-45b3-5824-af6d-d468165a73d3'></quiz>
+<quiznator id='5c8165c814524713f95a7607'></quiznator>
 
 
 ## Säännölliset lausekkeet
@@ -383,10 +349,10 @@ Samassa säännöllisessä lausekkeessa voi käyttää myös useampia toistomerk
 Merkkiryhmän avulla voi määritellä lyhyesti joukon merkkejä. Merkit kirjoitetaan hakasulkujen sisään, ja merkkivälin voi määrittää viivan avulla. Esimerkiksi merkintä `[145]` tarkoittaa samaa kuin `(1|4|5)` ja merkintä `[2-36-9]` tarkoittaa samaa kuin `(2|3|6|7|8|9)`. Vastaavasti merkintä `[a-c]*` määrittelee säännöllisen lausekkeen, joka vaatii että merkkijono sisältää vain merkkejä `a`, `b` ja `c`.
 
 
-<quiz id='7cb98d11-5b78-5cda-8b45-c84abd747a9d'></quiz>
+<quiznator id='5c8166fcfd9fd71425c68dbd'></quiznator>
 
 
-<programming-exercise name='Säännölliset lausekkeet (3 osaa)' tmcname='osa09-Osa09_15.SaannollisetLausekkeet'>
+<programming-exercise name='Säännölliset lausekkeet (3 osaa)' tmcname='osa10-Osa10_15.SaannollisetLausekkeet'>
 
 Harjoitellaan hieman säännöllisten lausekkeiden käyttöä. Tehtävissä haetut metodit tehdään luokkaan `Tarkistin`.
 
@@ -712,7 +678,7 @@ public class Kasi {
 ```
 
 
-<programming-exercise name='Enum ja Iteraattori (4 osaa)' tmcname='osa09-Osa09_16.EnumJaIteraattori' nocoins='true'>
+<programming-exercise name='Enum ja Iteraattori (4 osaa)' tmcname='osa10-Osa10_16.EnumJaIteraattori' nocoins='true'>
 
 Tehdään ohjelma pienen yrityksen henkilöstön hallintaan.
 
@@ -789,7 +755,7 @@ Elina, FT
 </programming-exercise>
 
 
-<programming-exercise name='Kortit ojennukseen (6 osaa)' tmcname='osa09-Osa09_17.KortitOjennukseen'>
+<programming-exercise name='Kortit ojennukseen (6 osaa)' tmcname='osa10-Osa10_17.KortitOjennukseen'>
 
 Tehtäväpohjan mukana on luokka, jonka oliot kuvaavat pelikortteja. Kortilla on arvo ja maa. Kortin arvo on esitetään numerona *2, 3, ..., 14* ja maa *Risti, Ruutu, Hertta* tai *Pata*. Ässä on siis arvo 14. Arvo esitetään kokonaislukuna ja maa enum-tyyppisenä oliona. Kortilla on myös metodi toString, jota käyttäen kortin arvo ja maa tulostuvat "ihmisystävällisesti".
 
