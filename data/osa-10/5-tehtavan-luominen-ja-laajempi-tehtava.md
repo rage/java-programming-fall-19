@@ -350,10 +350,10 @@ In modern farms, milking robots do all the milking. In order for the robot to mi
 - `public void setMaitosailio(Maitosailio maitosailio)` kiinnittää annetun säiliön lypsyrobottiin
 - `public void lypsa(Lypsava lypsava)` lypsää lehmän robottiin kiinnitettyyn maitosäiliöön. Jos robottiin ei ole kiinnitetty maitosäiliötä, ohjelma ilmoittaa että maito menee hukkaan. -->
 
-- `public Lypsyrobotti()` Creates a new MilkingRobot
-- `public Maitosailio getMaitosailio()` returns the attached MilkContainer or the `null`-reference if no MilkContainer has been yet attached.
-- `public void setMaitosailio(Maitosailio maitosailio)` attaches the given MilkContainer to the milking robot.
-- `public void lypsa(Lypsava lypsava)` Milks to the attached MilkContainer. If no MilkContainer is attached, the program warns about how the milk goes to waste.
+- `public MilkingRobot()` Creates a new MilkingRobot
+- `public MilkContainer getMilkContainer()` returns the attached MilkContainer or the `null`-reference if no MilkContainer has been yet attached.
+- `public void setMilkContainer(MilkContainer milkcontainer)` attaches the given MilkContainer to the milking robot.
+- `public void milk(Milkable milkable)` Milks to the attached MilkContainer. If no MilkContainer is attached, the program warns about how the milk goes to waste.
 
 
 <!-- Toteuta luokka Lypsyrobotti ja testaa sitä seuraavien ohjelmanpätkien avulla. Varmista että lypsyrobotti voi lypsää kaikkia Lypsava-rajapinnan toteuttavia olioita! -->
