@@ -583,7 +583,7 @@ Yllä kuvattu `distinct`-metodi hyödyntää olioiden `equals`-metodia yhtäsuur
 
 <!-- <programming-exercise name='Luettujen arvojen tulostaminen' tmcname='osa10-Osa10_05.LuettujenArvojenTulostaminen'> -->
 
-<programming-exercise name='Printing User Input' tmcname='osa10-Osa10_05.PrintingUserInput'>
+<programming-exercise name='Printing User Input' tmcname='part10-Part10_05.PrintingUserInput'>
 
 <!-- Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Lukeminen tulee lopettaa kun käyttäjä syöttää tyhjän merkkijonon. Tulosta tämän jälkeen käyttäjän syöttämät merkkijonot. -->
 
