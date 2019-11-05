@@ -608,8 +608,8 @@ kolmas
 **second**
 **war is peace: 1984**
 
-eka
-toka
+first
+second
 war is peace: 1984
 
 </sample-output>
