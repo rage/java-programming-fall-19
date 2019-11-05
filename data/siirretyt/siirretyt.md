@@ -1,4 +1,6 @@
 ---
+path: '/siirretty/siirretty'
+title: 'Siirretyt tehtävät'
 hidden: true
 ---
 
