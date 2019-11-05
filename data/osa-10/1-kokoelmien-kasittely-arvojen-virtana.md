@@ -581,11 +581,16 @@ henkilot.stream()
 Yllä kuvattu `distinct`-metodi hyödyntää olioiden `equals`-metodia yhtäsuuruuden tarkasteluun. Metodi `sorted` taas osaa järjestää olioita, joilla on tieto siitä, miten olio tulee järjestää -- näitä ovat esimerkiksi luvut ja merkkijonot.
 
 
-<programming-exercise name='Luettujen arvojen tulostaminen' tmcname='osa10-Osa10_05.LuettujenArvojenTulostaminen'>
+<!-- <programming-exercise name='Luettujen arvojen tulostaminen' tmcname='osa10-Osa10_05.LuettujenArvojenTulostaminen'> -->
 
-Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Lukeminen tulee lopettaa kun käyttäjä syöttää tyhjän merkkijonon. Tulosta tämän jälkeen käyttäjän syöttämät merkkijonot.
+<programming-exercise name='Printing User Input' tmcname='osa10-Osa10_05.PrintingUserInput'>
 
-<sample-output>
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Lukeminen tulee lopettaa kun käyttäjä syöttää tyhjän merkkijonon. Tulosta tämän jälkeen käyttäjän syöttämät merkkijonot. -->
+
+Write a program that reads the user's input as strings. When the user inputs an empty string (only presses enter), the input reading will be stopped and the program will print all the user inputs.
+
+
+<!-- <sample-output>
 
 **eka**
 **toka**
@@ -594,6 +599,18 @@ Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Lukeminen tulee lopet
 eka
 toka
 kolmas
+
+</sample-output> -->
+
+<sample-output>
+
+**first**
+**second**
+**war is peace: 1984**
+
+eka
+toka
+war is peace: 1984
 
 </sample-output>
 
