@@ -1147,7 +1147,7 @@ Build on the `ChangeHistory` class by adding analysis methods:
 - **public double minValue()** returns the smallest value in the change history. If the history is empty, the method should return zero.
 
 <!-- - **public double keskiarvo()** palauttaa muutoshistorian arvojen keskiarvon. Jos historia on tyhjä, metodi palauttaa nollan. -->
-- **public double avarage()** returns the average of the values in the change history. If the history is empty, the method should return zero.
+- **public double average()** returns the average of the values in the change history. If the history is empty, the method should return zero.
 
 
 <!-- Metodien ei tule muokata sisäisen listan järjestystä. -->
