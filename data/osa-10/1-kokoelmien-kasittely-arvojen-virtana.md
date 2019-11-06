@@ -834,9 +834,13 @@ Virhe: tiedosto.txt (No such file or directory)
 
 </sample-output>
 
-<programming-exercise name='Tiedoston rivit' tmcname='osa10-Osa10_09.TiedostonRivit'>
+<!-- <programming-exercise name='Tiedoston rivit' tmcname='osa10-Osa10_09.TiedostonRivit'> -->
 
-Toteuta tehtäväpohjaan staattinen metodi `public static List<String> lue(String tiedosto)`, joka lukee parametrina annetun merkkijonon nimisestä tiedostosta rivit ja palauttaa ne merkkijonolistana.
+<programming-exercise name='Reading Files Per Line' tmcname='part10-Part10_09.ReadingFilesPerLine'>
+
+<!-- Toteuta tehtäväpohjaan staattinen metodi `public static List<String> lue(String tiedosto)`, joka lukee parametrina annetun merkkijonon nimisestä tiedostosta rivit ja palauttaa ne merkkijonolistana. -->
+
+Implement the static method `public static List<String> read(String file)`, which reads the file with the filename of the parameter and returns the lines as a string list.
 
 </programming-exercise>
 
