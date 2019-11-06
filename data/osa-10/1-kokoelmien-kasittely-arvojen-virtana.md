@@ -619,7 +619,7 @@ war is peace: 1984
 
 <!-- <programming-exercise name='Rajatut luvut' tmcname='osa10-Osa10_06.RajatutLuvut'> -->
 
-<programming-exercise name='Limited numbers' tmcname='osa10-Osa10_06.LimitedNumbers'>
+<programming-exercise name='Limited numbers' tmcname='part10-Part10_06.LimitedNumbers'>
 
 <!-- Kirjoita ohjelma, joka lukee käyttäjältä lukuja. Kun käyttäjä syöttää negatiivisen luvun, lukeminen lopetetaan. Tulosta tämän jälkeen ne luvut, jotka ovat välillä 1-5. -->
 
