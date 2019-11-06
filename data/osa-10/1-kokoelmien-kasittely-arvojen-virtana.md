@@ -642,12 +642,16 @@ Write a program that reads user input. When the user gives a negative number as 
 </programming-exercise>
 
 
-<programming-exercise name='Uniikit sukunimet' tmcname='osa10-Osa10_07.UniikitSukunimet'>
+<!-- <programming-exercise name='Uniikit sukunimet' tmcname='osa10-Osa10_07.UniikitSukunimet'> -->
 
-Tehtäväpohjaan on hahmoteltu ohjelmaa, joka lukee käyttäjältä syötteenä henkilötietoja. Täydennä ohjelmaa siten, että tietojen lukemisen jälkeen ohjelma tulostaa henkilöiden uniikit sukunimet aakkosjärjestyksessä.
+<programming-exercise name='Unique last names' tmcname='part10-Part10_07.UniqueLastNames'>
+
+<!-- Tehtäväpohjaan on hahmoteltu ohjelmaa, joka lukee käyttäjältä syötteenä henkilötietoja. Täydennä ohjelmaa siten, että tietojen lukemisen jälkeen ohjelma tulostaa henkilöiden uniikit sukunimet aakkosjärjestyksessä. -->
+
+The exercise template contains a scetch of a program that reads user given information about people. Expand the program so, that it will print all the unique last names of the user given people in alphabetical order.
 
 
-<sample-output>
+<!-- <sample-output>
 
 Syötetäänkö henkilöiden tietoja, "loppu" lopettaa:
 Syötä etunimi: **Ada**
@@ -664,9 +668,28 @@ Syötä etunimi: **Alan**
 Syötä sukunimi: **Turing**
 Syötä syntymävuosi: **1912**
 
-Syötetäänkö henkilöiden tietoja, "loppu" lopettaa: loppu
+Syötetäänkö henkilöiden tietoja, "loppu" lopettaa: loppu -->
 
-Uniikit sukunimet aakkosjärjestyksessä:
+<sample-output>
+
+Continue personal information input? "quit" ends:
+Input first name: **Ada**
+Input last name: **Lovelace**
+Input the year of birth: **1815**
+
+Continue personal information input? "quit" ends:
+Input first name: **Grace**
+Input last name: **Hopper**
+Input the year of birth: **1906**
+
+Continue personal information input? "quit" ends:
+Input first name: **Alan**
+Input last name: **Turing**
+Input the year of birth: **1912**
+
+Continue personal information input? "quit" ends: quit
+
+Unique last names in alphabetical order:
 Hopper
 Lovelace
 Turing
