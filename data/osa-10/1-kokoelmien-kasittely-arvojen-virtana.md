@@ -617,9 +617,13 @@ war is peace: 1984
 </programming-exercise>
 
 
-<programming-exercise name='Rajatut luvut' tmcname='osa10-Osa10_06.RajatutLuvut'>
+<!-- <programming-exercise name='Rajatut luvut' tmcname='osa10-Osa10_06.RajatutLuvut'> -->
 
-Kirjoita ohjelma, joka lukee käyttäjältä lukuja. Kun käyttäjä syöttää negatiivisen luvun, lukeminen lopetetaan. Tulosta tämän jälkeen ne luvut, jotka ovat välillä 1-5.
+<programming-exercise name='Limited numbers' tmcname='osa10-Osa10_06.LimitedNumbers'>
+
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä lukuja. Kun käyttäjä syöttää negatiivisen luvun, lukeminen lopetetaan. Tulosta tämän jälkeen ne luvut, jotka ovat välillä 1-5. -->
+
+Write a program that reads user input. When the user gives a negative number as an input, the input reading will be stopped. After this, print all the numbers the user has given as input that are between 1 and 5.
 
 <sample-output>
 
