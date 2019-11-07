@@ -807,7 +807,7 @@ kirjat.stream()
 
 <!-- Tehtäväpohjassa on tutuhko tehtävä "Tavara, Matkalaukku ja Lastiruuma". Tässä tehtävässä tarkoituksenasi on muuttaa toistolausetta käyttävät metodit virtaa käyttäviksi metodeiksi. Lopputuloksessa ei tule esiintyä `while (...)` tai `for (...)`-toistolauseita. -->
 
-The exercise template includes the probably familiar-y project "Cargo hold". However, in this exercise you are supposed to make the for-loop using methods to use streams. The final product should not have any `while (...)` or `for (...)`-loops.
+The exercise template includes the probably familiar-y project "Cargo hold". However, in this exercise you need to make the for-loop using methods to use streams. The final product should not have any `while (...)` or `for (...)`-loops.
 
 </programming-exercise>
 
@@ -892,7 +892,11 @@ try {
 // nyt presidentit ovat listalla henkilöolioina
 ```
 
-<programming-exercise name='Kirjat tiedostosta' tmcname='osa10-Osa10_10.KirjatTiedostosta' nocoins='true'>
+<!-- <programming-exercise name='Kirjat tiedostosta' tmcname='osa10-Osa10_10.KirjatTiedostosta' nocoins='true'> -->
+
+<programming-exercise name='Books from file' tmcname='osa10-Osa10_10.BooksFromFile' nocoins='true'>
+
+<!-- Toteuta tehtäväpohjaan luokkametodi `public static List<Kirja> lueKirjat(String tiedosto)`, joka lukee parametrina annetun tiedoston ja muodostaa tiedoston riveistä kirjoja. -->
 
 Toteuta tehtäväpohjaan luokkametodi `public static List<Kirja> lueKirjat(String tiedosto)`, joka lukee parametrina annetun tiedoston ja muodostaa tiedoston riveistä kirjoja.
 
@@ -908,5 +912,15 @@ Kirjan nimi ja kirjoittaja käsitellään merkkijonona, julkaisuvuosi ja sivujen
 Do Androids Dream of Electric Sheep?,1968,210,Philip K. Dick
 Love in the Time of Cholera,1985,348,Gabriel Garcia Marquez
 </pre>
-
+<!--
+.^.
+'-'
+|=|
+|=|
+|/|
+|=|
+.-.
+' '
+' '
+-->
 </programming-exercise>
