@@ -129,14 +129,19 @@ You are provided with the class human. A human has a name and wage information. 
 </programming-exercise>
 
 
-<programming-exercise name='Opiskelijat nimijärjestykseen' tmcname='osa10-Osa10_12.OpiskelijatNimijarjestykseen'>
+<!-- <programming-exercise name='Opiskelijat nimijärjestykseen' tmcname='osa10-Osa10_12.OpiskelijatNimijarjestykseen'> -->
 
-Saat valmiin luokan Opiskelija. Opiskelijalla on nimi. Toteuta Opiskelija-luokassa `Comparable`-rajapinta siten, että `compareTo`-metodi lajittelee opiskelijat nimen mukaan aakkosjärjestykseen.
+<programming-exercise name='Students on alphabetical order' tmcname='part10-Part10_12.StudentsOnAplhabeticalOrder'>
 
-**Vinkki:** Opiskelijan nimi on String, ja String-luokka on itsessään `Comparable`. Voit hyödyntää String-luokan `compareTo`-metodia Opiskelija-luokan metodia toteuttaessasi. `String.compareTo` kohtelee kirjaimia eriarvoisesti kirjainkoon mukaan, ja tätä varten String-luokalla on myös metodi `compareToIgnoreCase` joka nimensä mukaisesti jättää kirjainkoon huomioimatta. Voit käyttää opiskelijoiden järjestämiseen kumpaa näistä haluat.
+<!-- Saat valmiin luokan Opiskelija. Opiskelijalla on nimi. Toteuta Opiskelija-luokassa `Comparable`-rajapinta siten, että `compareTo`-metodi lajittelee opiskelijat nimen mukaan aakkosjärjestykseen. -->
+
+The exercise template includes the class Student, which has a name. Implement the `Comprable`-interface in the Student-class in a way, that the `compareTo`-method sorts the students in alphabetical order based on their names.
+
+<!-- **Vinkki:** Opiskelijan nimi on String, ja String-luokka on itsessään `Comparable`. Voit hyödyntää String-luokan `compareTo`-metodia Opiskelija-luokan metodia toteuttaessasi. `String.compareTo` kohtelee kirjaimia eriarvoisesti kirjainkoon mukaan, ja tätä varten String-luokalla on myös metodi `compareToIgnoreCase` joka nimensä mukaisesti jättää kirjainkoon huomioimatta. Voit käyttää opiskelijoiden järjestämiseen kumpaa näistä haluat. -->
+
+**Hint:** The name of the Student is a String, which implements `Comparable` itself. You may use it's `compareTo`-method for your advantage when implementing the method for the `Student`-class. Note that `String.compareTo` also treats letters according to their size, while the `compareToIgnoreCase`-method of the same class ignores the capitalization completely. You may either of these methods in the exercise.
 
 </programming-exercise>
-
 
 <text-box variant='hint' name='Useamman rajapinnan toteuttaminen'>
 
@@ -414,19 +419,28 @@ C (2001)
 </sample-output>
 
 
-<programming-exercise name='Kirjallisuutta (3 osaa)' tmcname='osa10-Osa10_14.Kirjallisuutta'>
+<!-- <programming-exercise name='Kirjallisuutta (3 osaa)' tmcname='osa10-Osa10_14.Kirjallisuutta'> -->
 
-Tee ohjelma, joka lukee käyttäjältä kirjoja ja niiden minimikohdeikiä. Minimikohdeiällä tarkoitetaan pienintä ikää vuosina, jolle kyseistä kirjaa suositellaan.
+<programming-exercise name='Literature (3 parts)' tmcname='osa10-Osa10_14.Literature'>
 
-Ohjelma kysyy uusia kirjoja kunnes käyttäjä syöttää tyhjän merkkijonon kirjan nimen kohdalla (eli painaa rivinvaihtoa). Tämän jälkeen ohjelma tulostaa syötettyjen kirjojen lukumäärän sekä kirjat.
+<!-- Tee ohjelma, joka lukee käyttäjältä kirjoja ja niiden minimikohdeikiä. Minimikohdeiällä tarkoitetaan pienintä ikää vuosina, jolle kyseistä kirjaa suositellaan. -->
+
+Write a program that reads user input for books and their age recommendations.
+
+<!-- Ohjelma kysyy uusia kirjoja kunnes käyttäjä syöttää tyhjän merkkijonon kirjan nimen kohdalla (eli painaa rivinvaihtoa). Tämän jälkeen ohjelma tulostaa syötettyjen kirjojen lukumäärän sekä kirjat. -->
+
+The program asks for new books until the user gives an empty String as a name (only presses enter). After this, the program will print the amount and names of the books.
 
 
-<h2>Kirjojen lukeminen ja tulostaminen</h2>
+<!-- <h2>Kirjojen lukeminen ja tulostaminen</h2> -->
 
-Toteuta ensin kirjojen lukeminen ja niiden listaaminen. Tässä vaiheessa kirjojen järjestyksellä ei ole vielä väliä.
+<h2>Reading and printing the books</h2>
 
+<!-- Toteuta ensin kirjojen lukeminen ja niiden listaaminen. Tässä vaiheessa kirjojen järjestyksellä ei ole vielä väliä. -->
 
-<sample-output>
+Implement the reading and printing the books first, the ordering of them doesn't matter yet.
+
+<!-- <sample-output>
 
 Syötä kirjan nimi, tyhjä lopettaa: **Soiva tuutulaulukirja**
 Syötä kirjan pienin kohdeikä: **0**
@@ -445,6 +459,32 @@ Syötä kirjan nimi, tyhjä lopettaa:
 Yhteensä 4 kirjaa.
 
 Kirjat:
+Soiva tuutulaulukirja (0 vuotiaille ja vanhemmille)
+Kurkkaa kulkuneuvot (0 vuotiaille ja vanhemmille)
+Lunta tupaan (12 vuotiaille ja vanhemmille)
+Litmanen 10 (10 vuotiaille ja vanhemmille)
+
+</sample-output> -->
+
+<sample-output>
+
+Input the name of the book, empty stops: **The Ringing Lullaby Book**
+Syötä kirjan pienin kohdeikä: **0**
+
+Input the name of the book, empty stops: **Kurkkaa kulkuneuvot**
+Syötä kirjan pienin kohdeikä: **0**
+
+Input the name of the book, empty stops: **Lunta tupaan**
+Syötä kirjan pienin kohdeikä: **12**
+
+Input the name of the book, empty stops: **Litmanen 10**
+Syötä kirjan pienin kohdeikä: **10**
+
+Input the name of the book, empty stops:
+
+4 books in total.
+
+Books:
 Soiva tuutulaulukirja (0 vuotiaille ja vanhemmille)
 Kurkkaa kulkuneuvot (0 vuotiaille ja vanhemmille)
 Lunta tupaan (12 vuotiaille ja vanhemmille)
