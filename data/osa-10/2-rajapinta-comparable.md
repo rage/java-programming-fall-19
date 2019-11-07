@@ -421,7 +421,7 @@ C (2001)
 
 <!-- <programming-exercise name='Kirjallisuutta (3 osaa)' tmcname='osa10-Osa10_14.Kirjallisuutta'> -->
 
-<programming-exercise name='Literature (3 parts)' tmcname='osa10-Osa10_14.Literature'>
+<programming-exercise name='Literature (3 parts)' tmcname='part10-Part10_14.Literature'>
 
 <!-- Tee ohjelma, joka lukee käyttäjältä kirjoja ja niiden minimikohdeikiä. Minimikohdeiällä tarkoitetaan pienintä ikää vuosina, jolle kyseistä kirjaa suositellaan. -->
 
@@ -469,37 +469,41 @@ Litmanen 10 (10 vuotiaille ja vanhemmille)
 <sample-output>
 
 Input the name of the book, empty stops: **The Ringing Lullaby Book**
-Syötä kirjan pienin kohdeikä: **0**
+Input the age recommendation: **0**
 
-Input the name of the book, empty stops: **Kurkkaa kulkuneuvot**
-Syötä kirjan pienin kohdeikä: **0**
+Input the name of the book, empty stops: **The Exiting Transpotation Vehicles**
+Input the age recommendation: **0**
 
-Input the name of the book, empty stops: **Lunta tupaan**
-Syötä kirjan pienin kohdeikä: **12**
+Input the name of the book, empty stops: **The Snowy Forest Calls**
+Input the age recommendation: **12**
 
 Input the name of the book, empty stops: **Litmanen 10**
-Syötä kirjan pienin kohdeikä: **10**
+Input the age recommendation: **10**
 
 Input the name of the book, empty stops:
 
 4 books in total.
 
 Books:
-Soiva tuutulaulukirja (0 vuotiaille ja vanhemmille)
-Kurkkaa kulkuneuvot (0 vuotiaille ja vanhemmille)
-Lunta tupaan (12 vuotiaille ja vanhemmille)
-Litmanen 10 (10 vuotiaille ja vanhemmille)
+The Ringing Lullaby Book (recommended for 0 year-olds or older)
+The Exiting Transpotation Vehicles (recommended for 0 year-olds or older)
+The Snowy Forest Calls (recommended for 12 year-olds or older)
+Litmanen 10 (recommended for 10 year-olds or older)
 
 </sample-output>
 
 
-<h2>Kirjojen järjestäminen kohdeiän perusteella</h2>
+<!-- <h2>Kirjojen järjestäminen kohdeiän perusteella</h2> -->
+
+<h2>Ordering books based on their age recommendation</h2>
 
 
-Täydennä toteuttamaasi ohjelmaa siten, että kirjat järjestetään tulostuksen yhteydessä kohdeiän perusteella. Jos kahdella kirjalla on sama kohdeikä, näiden kahden kirjan keskinäinen järjestys saa olla mielivaltainen.
+<!-- Täydennä toteuttamaasi ohjelmaa siten, että kirjat järjestetään tulostuksen yhteydessä kohdeiän perusteella. Jos kahdella kirjalla on sama kohdeikä, näiden kahden kirjan keskinäinen järjestys saa olla mielivaltainen. -->
+
+Expand your program in a way, that the books are sorted based on their age recommendations when they are printed. If two (or more) books share the same age recommendations the order between them does not matter.
 
 
-<sample-output>
+<!-- <sample-output>
 
 Syötä kirjan nimi, tyhjä lopettaa: **Soiva tuutulaulukirja**
 Syötä kirjan pienin kohdeikä: **0**
@@ -523,15 +527,44 @@ Kurkkaa kulkuneuvot (0 vuotiaille ja vanhemmille)
 Litmanen 10 (10 vuotiaille ja vanhemmille)
 Lunta tupaan (12 vuotiaille ja vanhemmille)
 
+</sample-output> -->
+
+<sample-output>
+Input the name of the book, empty stops: **The Ringing Lullaby Book**
+Input the age recommendation: **0**
+
+Input the name of the book, empty stops: **The Exiting Transpotation Vehicles**
+Input the age recommendation: **0**
+
+Input the name of the book, empty stops: **The Snowy Forest Calls**
+Input the age recommendation: **12**
+
+Input the name of the book, empty stops: **Litmanen 10**
+Input the age recommendation: **10**
+
+Input the name of the book, empty stops:
+
+4 books in total.
+
+Books:
+The Ringing Lullaby Book (recommended for 0 year-olds or older)
+The Exiting Transpotation Vehicles (recommended for 0 year-olds or older)
+Litmanen 10 (recommended for 10 year-olds or older)
+The Snowy Forest Calls (recommended for 12 year-olds or older)
+
 </sample-output>
 
 
-<h2>Kirjojen järjestäminen kohdeiän ja nimen perusteella</h2>
+<!-- <h2>Kirjojen järjestäminen kohdeiän ja nimen perusteella</h2> -->
+
+<h2>Ordering books based on their age recommendation and name</h2>
 
 
-Täydennä edellistä ohjelmaasi siten, että saman kohdeiän kirjat tulostetaan aakkosjärjestyksessä.
+<!-- Täydennä edellistä ohjelmaasi siten, että saman kohdeiän kirjat tulostetaan aakkosjärjestyksessä. -->
 
-<sample-output>
+Expand your program, so that it sorts the books with the same age recommendation based on their name alphabetically.
+
+<!-- <sample-output>
 
 Syötä kirjan nimi, tyhjä lopettaa: **Soiva tuutulaulukirja**
 Syötä kirjan pienin kohdeikä: **0**
@@ -555,6 +588,29 @@ Soiva tuutulaulukirja (0 vuotiaille ja vanhemmille)
 Litmanen 10 (10 vuotiaille ja vanhemmille)
 Lunta tupaan (12 vuotiaille ja vanhemmille)
 
-</sample-output>
+</sample-output> -->
 
+<sample-output>
+Input the name of the book, empty stops: **The Ringing Lullaby Book**
+Input the age recommendation: **0**
+
+Input the name of the book, empty stops: **The Exiting Transpotation Vehicles**
+Input the age recommendation: **0**
+
+Input the name of the book, empty stops: **The Snowy Forest Calls**
+Input the age recommendation: **12**
+
+Input the name of the book, empty stops: **Litmanen 10**
+Input the age recommendation: **10**
+
+Input the name of the book, empty stops:
+
+4 books in total.
+
+Books:
+The Exiting Transpotation Vehicles (recommended for 0 year-olds or older)
+The Ringing Lullaby Book (recommended for 0 year-olds or older)
+Litmanen 10 (recommended for 10 year-olds or older)
+The Snowy Forest Calls (recommended for 12 year-olds or older)
+</sample-output>
 </programming-exercise>
