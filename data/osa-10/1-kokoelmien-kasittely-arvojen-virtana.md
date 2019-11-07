@@ -801,9 +801,13 @@ kirjat.stream()
 ```
 
 
-<programming-exercise name='Painon laskemista (2 osaa)' tmcname='osa10-Osa10_08.PainonLaskemista'>
+<!-- <programming-exercise name='Painon laskemista (2 osaa)' tmcname='osa10-Osa10_08.PainonLaskemista'> -->
 
-Tehtäväpohjassa on tutuhko tehtävä "Tavara, Matkalaukku ja Lastiruuma". Tässä tehtävässä tarkoituksenasi on muuttaa toistolausetta käyttävät metodit virtaa käyttäviksi metodeiksi. Lopputuloksessa ei tule esiintyä `while (...)` tai `for (...)`-toistolauseita.
+<programming-exercise name='Weighting (2 parts)' tmcname='part10-Part10_08.Weighting'>
+
+<!-- Tehtäväpohjassa on tutuhko tehtävä "Tavara, Matkalaukku ja Lastiruuma". Tässä tehtävässä tarkoituksenasi on muuttaa toistolausetta käyttävät metodit virtaa käyttäviksi metodeiksi. Lopputuloksessa ei tule esiintyä `while (...)` tai `for (...)`-toistolauseita. -->
+
+The exercise template includes the probably familiar-y project "Cargo hold". However, in this exercise you are supposed to make the for-loop using methods to use streams. The final product should not have any `while (...)` or `for (...)`-loops.
 
 </programming-exercise>
 
