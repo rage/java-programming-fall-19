@@ -602,11 +602,16 @@ henkilot.stream()
 Yllä kuvattu `distinct`-metodi hyödyntää olioiden `equals`-metodia yhtäsuuruuden tarkasteluun. Metodi `sorted` taas osaa järjestää olioita, joilla on tieto siitä, miten olio tulee järjestää -- näitä ovat esimerkiksi luvut ja merkkijonot.
 
 
-<programming-exercise name='Luettujen arvojen tulostaminen' tmcname='osa10-Osa10_05.LuettujenArvojenTulostaminen'>
+<!-- <programming-exercise name='Luettujen arvojen tulostaminen' tmcname='osa10-Osa10_05.LuettujenArvojenTulostaminen'> -->
 
-Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Lukeminen tulee lopettaa kun käyttäjä syöttää tyhjän merkkijonon. Tulosta tämän jälkeen käyttäjän syöttämät merkkijonot.
+<programming-exercise name='Printing User Input' tmcname='part10-Part10_05.PrintingUserInput'>
 
-<sample-output>
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Lukeminen tulee lopettaa kun käyttäjä syöttää tyhjän merkkijonon. Tulosta tämän jälkeen käyttäjän syöttämät merkkijonot. -->
+
+Write a program that reads the user's input as strings. When the user inputs an empty string (only presses enter), the input reading will be stopped and the program will print all the user inputs.
+
+
+<!-- <sample-output>
 
 **eka**
 **toka**
@@ -616,14 +621,30 @@ eka
 toka
 kolmas
 
+</sample-output> -->
+
+<sample-output>
+
+**first**
+**second**
+**war is peace: 1984**
+
+first
+second
+war is peace: 1984
+
 </sample-output>
 
 </programming-exercise>
 
 
-<programming-exercise name='Rajatut luvut' tmcname='osa10-Osa10_06.RajatutLuvut'>
+<!-- <programming-exercise name='Rajatut luvut' tmcname='osa10-Osa10_06.RajatutLuvut'> -->
 
-Kirjoita ohjelma, joka lukee käyttäjältä lukuja. Kun käyttäjä syöttää negatiivisen luvun, lukeminen lopetetaan. Tulosta tämän jälkeen ne luvut, jotka ovat välillä 1-5.
+<programming-exercise name='Limited numbers' tmcname='part10-Part10_06.LimitedNumbers'>
+
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä lukuja. Kun käyttäjä syöttää negatiivisen luvun, lukeminen lopetetaan. Tulosta tämän jälkeen ne luvut, jotka ovat välillä 1-5. -->
+
+Write a program that reads user input. When the user gives a negative number as an input, the input reading will be stopped. After this, print all the numbers the user has given as input that are between 1 and 5.
 
 <sample-output>
 
@@ -642,12 +663,16 @@ Kirjoita ohjelma, joka lukee käyttäjältä lukuja. Kun käyttäjä syöttää 
 </programming-exercise>
 
 
-<programming-exercise name='Uniikit sukunimet' tmcname='osa10-Osa10_07.UniikitSukunimet'>
+<!-- <programming-exercise name='Uniikit sukunimet' tmcname='osa10-Osa10_07.UniikitSukunimet'> -->
 
-Tehtäväpohjaan on hahmoteltu ohjelmaa, joka lukee käyttäjältä syötteenä henkilötietoja. Täydennä ohjelmaa siten, että tietojen lukemisen jälkeen ohjelma tulostaa henkilöiden uniikit sukunimet aakkosjärjestyksessä.
+<programming-exercise name='Unique last names' tmcname='part10-Part10_07.UniqueLastNames'>
+
+<!-- Tehtäväpohjaan on hahmoteltu ohjelmaa, joka lukee käyttäjältä syötteenä henkilötietoja. Täydennä ohjelmaa siten, että tietojen lukemisen jälkeen ohjelma tulostaa henkilöiden uniikit sukunimet aakkosjärjestyksessä. -->
+
+The exercise template contains a scetch of a program that reads user given information about people. Expand the program so, that it will print all the unique last names of the user given people in alphabetical order.
 
 
-<sample-output>
+<!-- <sample-output>
 
 Syötetäänkö henkilöiden tietoja, "loppu" lopettaa:
 Syötä etunimi: **Ada**
@@ -664,9 +689,28 @@ Syötä etunimi: **Alan**
 Syötä sukunimi: **Turing**
 Syötä syntymävuosi: **1912**
 
-Syötetäänkö henkilöiden tietoja, "loppu" lopettaa: loppu
+Syötetäänkö henkilöiden tietoja, "loppu" lopettaa: loppu -->
 
-Uniikit sukunimet aakkosjärjestyksessä:
+<sample-output>
+
+Continue personal information input? "quit" ends:
+Input first name: **Ada**
+Input last name: **Lovelace**
+Input the year of birth: **1815**
+
+Continue personal information input? "quit" ends:
+Input first name: **Grace**
+Input last name: **Hopper**
+Input the year of birth: **1906**
+
+Continue personal information input? "quit" ends:
+Input first name: **Alan**
+Input last name: **Turing**
+Input the year of birth: **1912**
+
+Continue personal information input? "quit" ends: quit
+
+Unique last names in alphabetical order:
 Hopper
 Lovelace
 Turing
@@ -811,9 +855,13 @@ Virhe: tiedosto.txt (No such file or directory)
 
 </sample-output>
 
-<programming-exercise name='Tiedoston rivit' tmcname='osa10-Osa10_09.TiedostonRivit'>
+<!-- <programming-exercise name='Tiedoston rivit' tmcname='osa10-Osa10_09.TiedostonRivit'> -->
 
-Toteuta tehtäväpohjaan staattinen metodi `public static List<String> lue(String tiedosto)`, joka lukee parametrina annetun merkkijonon nimisestä tiedostosta rivit ja palauttaa ne merkkijonolistana.
+<programming-exercise name='Reading Files Per Line' tmcname='part10-Part10_09.ReadingFilesPerLine'>
+
+<!-- Toteuta tehtäväpohjaan staattinen metodi `public static List<String> lue(String tiedosto)`, joka lukee parametrina annetun merkkijonon nimisestä tiedostosta rivit ja palauttaa ne merkkijonolistana. -->
+
+Implement the static method `public static List<String> read(String file)`, which reads the file with the filename of the parameter and returns the lines as a string list.
 
 </programming-exercise>
 
