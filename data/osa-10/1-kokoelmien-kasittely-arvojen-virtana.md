@@ -822,9 +822,13 @@ kirjat.stream()
 ```
 
 
-<programming-exercise name='Painon laskemista (2 osaa)' tmcname='osa10-Osa10_08.PainonLaskemista'>
+<!-- <programming-exercise name='Painon laskemista (2 osaa)' tmcname='osa10-Osa10_08.PainonLaskemista'> -->
 
-Tehtäväpohjassa on tutuhko tehtävä "Tavara, Matkalaukku ja Lastiruuma". Tässä tehtävässä tarkoituksenasi on muuttaa toistolausetta käyttävät metodit virtaa käyttäviksi metodeiksi. Lopputuloksessa ei tule esiintyä `while (...)` tai `for (...)`-toistolauseita.
+<programming-exercise name='Weighting (2 parts)' tmcname='part10-Part10_08.Weighting'>
+
+<!-- Tehtäväpohjassa on tutuhko tehtävä "Tavara, Matkalaukku ja Lastiruuma". Tässä tehtävässä tarkoituksenasi on muuttaa toistolausetta käyttävät metodit virtaa käyttäviksi metodeiksi. Lopputuloksessa ei tule esiintyä `while (...)` tai `for (...)`-toistolauseita. -->
+
+The exercise template includes the probably familiar-y project "Cargo hold". However, in this exercise you need to make the for-loop using methods to use streams. The final product should not have any `while (...)` or `for (...)`-loops.
 
 </programming-exercise>
 
@@ -909,21 +913,33 @@ try {
 // nyt presidentit ovat listalla henkilöolioina
 ```
 
-<programming-exercise name='Kirjat tiedostosta' tmcname='osa10-Osa10_10.KirjatTiedostosta' nocoins='true'>
+<!-- <programming-exercise name='Kirjat tiedostosta' tmcname='osa10-Osa10_10.KirjatTiedostosta' nocoins='true'> -->
 
-Toteuta tehtäväpohjaan luokkametodi `public static List<Kirja> lueKirjat(String tiedosto)`, joka lukee parametrina annetun tiedoston ja muodostaa tiedoston riveistä kirjoja.
+<programming-exercise name='Books from file' tmcname='part10-Part10_10.BooksFromFile' nocoins='true'>
 
-Tehtäväpohjassa on valmiina luokka `Kirja`, jota käytetään kirjan kuvaamiseen. Oleta, että kirjoja sisältävä tiedosto on seuraavaa muotoa.
+<!-- Toteuta tehtäväpohjaan luokkametodi `public static List<Kirja> lueKirjat(String tiedosto)`, joka lukee parametrina annetun tiedoston ja muodostaa tiedoston riveistä kirjoja. -->
+
+Add the method `public static List<Book> readBooks(String file)` for the class `BooksFromFile`. It should read the file given as the parameter and forms book data from it.
+
+<!-- Tehtäväpohjassa on valmiina luokka `Kirja`, jota käytetään kirjan kuvaamiseen. Oleta, että kirjoja sisältävä tiedosto on seuraavaa muotoa. -->
+
+The exercise template contains the class `Book`, which is used for describing a book. You should presume that the book files are in the following format:
+
+<!-- <pre>
+nimi,julkaisuvuosi,sivujen lukumäärä,kirjoittaja
+</pre> -->
 
 <pre>
-nimi,julkaisuvuosi,sivujen lukumäärä,kirjoittaja
+name,publishing year,page count,author
 </pre>
 
-Kirjan nimi ja kirjoittaja käsitellään merkkijonona, julkaisuvuosi ja sivujen lukumäärä kokonaislukuna. Alla vielä esimerkki tiedoston mahdollisesta sisällöstä. Esim.
+<!-- Kirjan nimi ja kirjoittaja käsitellään merkkijonona, julkaisuvuosi ja sivujen lukumäärä kokonaislukuna. Alla vielä esimerkki tiedoston mahdollisesta sisällöstä. Esim. -->
+
+The name and the author of the book are processed as strings, and the pulbishing year and the page count are processed as integers.
+Example of contents of a book file:
 
 <pre>
 Do Androids Dream of Electric Sheep?,1968,210,Philip K. Dick
 Love in the Time of Cholera,1985,348,Gabriel Garcia Marquez
 </pre>
-
 </programming-exercise>
