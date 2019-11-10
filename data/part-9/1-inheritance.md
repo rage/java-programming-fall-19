@@ -1076,10 +1076,12 @@ public class Point3D extends Point {
 }
 ```
 
-Kolmiulotteinen piste siis määrittelee kolmatta koordinaattia vastaavan oliomuuttujan ja ylikirjoittaa metodit `sijainti`, `manhattanEtaisyysOrigosta` ja `toString` siten, että ne huomioivat kolmannen ulottuvuuden. Voimme nyt laajentaa edellistä esimerkkiä ja lisätä listalle myös kolmiulotteisia pisteitä.
+<!-- Kolmiulotteinen piste siis määrittelee kolmatta koordinaattia vastaavan oliomuuttujan ja ylikirjoittaa metodit `sijainti`, `manhattanEtaisyysOrigosta` ja `toString` siten, että ne huomioivat kolmannen ulottuvuuden. Voimme nyt laajentaa edellistä esimerkkiä ja lisätä listalle myös kolmiulotteisia pisteitä. -->
+
+So a three-dimensional point defines an object variable that represents the third dimension, and overrides the methods `location`, `manhattanDistanceFromOrigin`, and `toString` so that they also account for the third dimension. Let's now expand the previous example and add also three-dimensional points to the list.
 
 
-```java
+<!-- ```java
 public class Main {
 
     public static void main(String[] args) {
@@ -1096,9 +1098,28 @@ public class Main {
         }
     }
 }
+``` -->
+
+```java
+public class Main {
+
+    public static void main(String[] args) {
+        ArrayList<Point> points = new ArrayList<>();
+        points.add(new Point(4, 8));
+        points.add(new ColorPoint(1, 1, "green"));
+        points.add(new ColorPoint(2, 5, "blue"));
+        points.add(new Point3D(5, 2, 8));
+        points.add(new Point(0, 0));
+
+
+        for (Point p: points) {
+            System.out.println(p);
+        }
+    }
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 (4, 8) etäisyys 12
 (1, 1) etäisyys 2 väri: vihreä
@@ -1106,13 +1127,24 @@ public class Main {
 (5, 2, 8) etäisyys 15
 (0, 0) etäisyys 0
 
+</sample-output> -->
+
+<sample-output>
+
+(4, 8) distance 12
+(1, 1) distance 2 color: green
+(2, 5) distance 7 color: blue
+(5, 2, 8) distance 15
+(0, 0) distance 0
+
 </sample-output>
 
+<!-- Huomamme, että kolmiulotteisen pisteen metodi `toString` on täsmälleen sama kuin pisteen toString. Voisimmeko jättää toStringin ylikirjoittamatta? Vastaus on kyllä! Kolmiulotteinen piste pelkistyy seuraavanlaiseksi. -->
 
-Huomamme, että kolmiulotteisen pisteen metodi `toString` on täsmälleen sama kuin pisteen toString. Voisimmeko jättää toStringin ylikirjoittamatta? Vastaus on kyllä! Kolmiulotteinen piste pelkistyy seuraavanlaiseksi.
+We notice that the `toString` method in Point3D is exactly the same as the toString of Point. Could we save some effort and not override toString? The answer happens to be yes! The Point3D class is refined into this:
 
 
-```java
+<!-- ```java
 public class Piste3D extends Piste {
 
     private int z;
@@ -1132,25 +1164,58 @@ public class Piste3D extends Piste {
         return super.manhattanEtaisyysOrigosta() + Math.abs(z);
     }
 }
+``` -->
+
+```java
+public class Point3D extends Point {
+
+    private int z;
+
+    public Point3D(int x, int y, int z) {
+        super(x, y);
+        this.z = z;
+    }
+
+    @Override
+    protected String location() {
+        return super.location() + ", " + z;
+    }
+
+    @Override
+    public int manhattanDistanceFromOrigin() {
+        return super.manhattanDistanceFromOrigin() + Math.abs(z);
+    }
+}
 ```
 
+<!-- Mitä tarkalleen ottaen tapahtuu kuin kolmiulotteiselle pisteelle kutsutaan toString-metodia? Suoritus etenee seuraavasti. -->
 
-Mitä tarkalleenottaen tapahtuu kuin kolmiulotteiselle pisteelle kutsutaan toString-metodia? Suoritus etenee seuraavasti.
+What happens in detail when we call the toString method of a three-dimensional point? The execution advances in the following manner.
 
 
 
-1. etsitään toString:in määrittelyä luokasta Piste3D, sitä ei löydy joten mennään yliluokkaan
+<!-- 1. etsitään toString:in määrittelyä luokasta Piste3D, sitä ei löydy joten mennään yliluokkaan
 2. etsitään toString:in määrittelyä yliluokasta Piste, metodi löytyy, joten suoritetaan sen koodi
     * suoritettava koodi siis on `return "("+this.sijainti()+") etäisyys "+this.manhattanEtaisyysOrigosta();`
     * esimmäisenä suoritetaan metodi sijainti
     * etsitään metodin sijainti määrittelyä luokasta Piste3D, metodi löytyy ja suoritetaan sen koodi
     * metodin sijainti laskee oman tuloksensa kutsumalla yliluokassa olevaa metodia sijainti
     * seuraavaksi etsitään metodin manhattanEtaisyysOrigosta määrittelyä luokasta Piste3D, metodi löytyy ja suoritetaan sen koodi
-    * jälleen metodi laskee tuloksensa kutsuen ensin yliluokassa olevaa samannimistä metodia
+    * jälleen metodi laskee tuloksensa kutsuen ensin yliluokassa olevaa samannimistä metodia -->
+
+1. Look for a definition of toString in the class Point3D. It does not exist, so the superclass is next to be examined.
+2. Look for a definition of toString in the superclass point. It can be found, so the code inside the implementation of the method is executed
+    * so the exact code to be executed is `return "("+this.location()+") distance "+this.manhattanDistanceFromOrigin();`
+    * the method `location` is executed first
+    * look for a definition of `location` in the class Point3D. It can be found, so its code is executed.
+    * This `location` calls the `location` of the superclass to calculate the result
+    * next we look for a definition of `manhattanDistanceFromOrigin` in the Point3D class. It's found and its code is then executed
+    * Again, the method calls the similarly named method of the superclass during its execution
 
 
-Metodikutsun aikaansaama toimintoketju siis on monivaiheinen. Periaate on kuitenkin selkeä: suoritettavan metodin määrittelyä etsitään ensin olion todellisen tyypin määrittelystä ja jos sitä ei löydy edetään yliluokkaan. Ja jos yliluokastakaan ei löydy metodin toteutusta siirrytään etsimään yliluokan yliluokasta jne...
+<!-- Metodikutsun aikaansaama toimintoketju siis on monivaiheinen. Periaate on kuitenkin selkeä: suoritettavan metodin määrittelyä etsitään ensin olion todellisen tyypin määrittelystä ja jos sitä ei löydy edetään yliluokkaan. Ja jos yliluokastakaan ei löydy metodin toteutusta siirrytään etsimään yliluokan yliluokasta jne... -->
 
+As we can see, the sequence of events caused by the method call has multiple steps. The principle, however, is clear: The definition for the method is first searched for in the class definition of the actual type of the object. If it is not found, we next examine the superclass. If the definition cannot be found there, either, we move on to the superclass of this superclass, etc...
 
 <quiz id="7f53bd2a-48b3-541e-8d6a-d0cd64e16733"></quiz>
 
@@ -1159,29 +1224,41 @@ Metodikutsun aikaansaama toimintoketju siis on monivaiheinen. Periaate on kuiten
 
 <quiz id="cd07625c-a98e-59a2-8b30-9c25790c48c6"></quiz>
 
-## Milloin perintää kannattaa käyttää?
+<!-- ## Milloin perintää kannattaa käyttää? -->
+
+## When is inheritance worth using?
 
 
-Perintä on väline käsitehierarkioiden rakentamiseen ja erikoistamiseen; aliluokka on aina yliluokan erikoistapaus. Jos luotava luokka on olemassaolevan luokan erikoistapaus, voidaan uusi luokka luoda perimällä olemassaoleva luokka. Esimerkiksi auton osiin liittyvässä esimerkissä moottori *on* osa, mutta moottoriin liittyy lisätoiminnallisuutta mitä jokaisella osalla ei ole.
+<!-- Perintä on väline käsitehierarkioiden rakentamiseen ja erikoistamiseen; aliluokka on aina yliluokan erikoistapaus. Jos luotava luokka on olemassaolevan luokan erikoistapaus, voidaan uusi luokka luoda perimällä olemassaoleva luokka. Esimerkiksi auton osiin liittyvässä esimerkissä moottori *on* osa, mutta moottoriin liittyy lisätoiminnallisuutta mitä jokaisella osalla ei ole. -->
+
+Inheritance is a tool for building and specializing hierarchies of concepts; a subclass is always a special case of the superclass. If the class to be created is a special case of an existing class, this new class could be created by extending the existing class. For example, in the previously discussed car part scenario an engine **is** a part, but an engine has extra functionality that not all parts have.
+
+<!-- Perittäessä aliluokka saa käyttöönsä yliluokan toiminnallisuudet. Jos aliluokka ei tarvitse tai käytä perittyä toiminnallisuutta, ei perintä ole perusteltua. Perityt luokat perivät yliluokkiensa metodit ja rajapinnat, eli aliluokkia voidaan käyttää missä tahansa missä yliluokkaa on käytetty. Perintähierarkia kannattaa pitää matalana, sillä hierarkian ylläpito ja jatkokehitys vaikeutuu perintöhierarkian kasvaessa. Yleisesti ottaen, jos perintähierarkian korkeus on yli 2 tai 3, ohjelman rakenteessa on todennäköisesti parannettavaa. -->
+
+When inheriting, the subclass receives the functionality of the superclass. If the subclass doesn't need or use some of the inherited functionality, inheritance is not justifiable. Classes that inherit will inherit all the methods and interfaces from the superclass, so the subclass can be used in place of the superclass wherever the superclass is used. It's a good idea to keep the inheritance hierarchy shallow, since maintaining and further developing the hierarchy becomes more difficult as it grows larger. Generally speaking, if your inheritance hierarchy is more than 2 or 3 levels deep, the structure of the program could probably be improved.
 
 
-Perittäessä aliluokka saa käyttöönsä yliluokan toiminnallisuudet. Jos aliluokka ei tarvitse tai käytä perittyä toiminnallisuutta, ei perintä ole perusteltua. Perityt luokat perivät yliluokkiensa metodit ja rajapinnat, eli aliluokkia voidaan käyttää missä tahansa missä yliluokkaa on käytetty. Perintähierarkia kannattaa pitää matalana, sillä hierarkian ylläpito ja jatkokehitys vaikeutuu perintöhierarkian kasvaessa. Yleisesti ottaen, jos perintähierarkian korkeus on yli 2 tai 3, ohjelman rakenteessa on todennäköisesti parannettavaa.
+<!-- Perinnän käyttöä tulee miettiä. Esimerkiksi luokan `Auto` periminen luokasta `Osa` (tai `Moottori`) olisi väärin. Auto *sisältää* moottorin ja osia, mutta auto ei ole moottori tai osa. Voimme yleisemmin ajatella että **jos olio omistaa tai koostuu toisista olioista, ei perintää tule käyttää**. -->
+
+Inheritance is not useful in every scenario. For instance, extending the class `Car` with the class `Part` (or `Engine`) would be incorrect. A car **includes** an engine and parts, but an engine or a part is not a car. More generally, **if an object owns or is composed of other objects, inheritance should not be used**.
 
 
-Perinnän käyttöä tulee miettiä. Esimerkiksi luokan `Auto` periminen luokasta `Osa` (tai `Moottori`) olisi väärin. Auto *sisältää* moottorin ja osia, mutta auto ei ole moottori tai osa. Voimme yleisemmin ajatella että **jos olio omistaa tai koostuu toisista olioista, ei perintää tule käyttää**.
+<!-- Perintää käytettäessä tulee varmistaa että <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank">Single Responsibility Principle</a> pätee myös perittäessä. Jokaisella luokalla tulee olla vain yksi syy muuttua. Jos huomaat että perintä lisää luokan vastuita, tulee luokka pilkkoa useammaksi luokaksi. -->
 
-
-Perintää käytettäessä tulee varmistaa että <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank">Single Responsibility Principle</a> pätee myös perittäessä. Jokaisella luokalla tulee olla vain yksi syy muuttua. Jos huomaat että perintä lisää luokan vastuita, tulee luokka pilkkoa useammaksi luokaksi.
+When using inheritance, you should take care to ensure that the <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank">Single Responsibility Principle</a> holds true. There should only be one reason for each class to change. If you notice that inheriting adds more responsibilities to a class, you should form multiple classes of the class.
 
 <br/>
 
-### Esimerkki perinnän väärinkäytöstä
+<!-- ### Esimerkki perinnän väärinkäytöstä -->
+
+### Example of misusing inheritance
+
+<!-- Pohditaan postituspalveluun liittyviä luokkia `Asiakas`, joka sisältää asiakkaan tiedot, ja `Tilaus`, joka perii asiakkaan tiedot ja sisältää tilattavan tavaran tiedot. Luokassa `Tilaus` on myös metodi `postitusOsoite`, joka kertoo tilauksen postitusosoitteen. -->
+
+Let's consider a postal service and some related classes. `Customer` includes the information related to a customer, and the class `Order` that inherits from the `Customer` class and includes the information about the ordered item. The class `Order` also has a method called `postalAddress` which represents the postal address that the order is shipped to.
 
 
-Pohditaan postituspalveluun liittyviä luokkia `Asiakas`, joka sisältää asiakkaan tiedot, ja `Tilaus`, joka perii asiakkaan tiedot ja sisältää tilattavan tavaran tiedot. Luokassa `Tilaus` on myös metodi `postitusOsoite`, joka kertoo tilauksen postitusosoitteen.
-
-
-```java
+<!-- ```java
 public class Asiakas {
 
     private String nimi;
@@ -1204,9 +1281,34 @@ public class Asiakas {
         this.osoite = osoite;
     }
 }
-```
+``` -->
 
 ```java
+public class Customer {
+
+    private String name;
+    private String address;
+
+    public Customer(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+}
+```
+
+<!-- ```java
 public class Tilaus extends Asiakas {
 
     private String tuote;
@@ -1230,22 +1332,55 @@ public class Tilaus extends Asiakas {
         return this.getNimi() + "\n" + this.getOsoite();
     }
 }
+``` -->
+
+```java
+public class Order extends Customer {
+
+    private String product;
+    private String count;
+
+    public Order(String product, String count, String name, String address) {
+        super(name, address);
+        this.product = product;
+        this.count = count;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public String getCount() {
+        return count;
+    }
+
+    public String postalAddress() {
+        return this.getName() + "\n" + this.getAddress();
+    }
+}
 ```
 
 
-Yllä perintää on käytetty väärin. Luokkaa perittäessä aliluokan tulee olla yliluokan erikoistapaus; tilaus ei ole asiakkaan erikoistapaus. Väärinkäyttö ilmenee single responsibility principlen rikkomisena: luokalla `Tilaus` on vastuu sekä asiakkaan tietojen ylläpidosta, että tilauksen tietojen ylläpidosta.
+<!-- Yllä perintää on käytetty väärin. Luokkaa perittäessä aliluokan tulee olla yliluokan erikoistapaus; tilaus ei ole asiakkaan erikoistapaus. Väärinkäyttö ilmenee single responsibility principlen rikkomisena: luokalla `Tilaus` on vastuu sekä asiakkaan tietojen ylläpidosta, että tilauksen tietojen ylläpidosta. -->
+
+Above inheritance is not used correctly. When inheriting, the subclass must be a special case of the superclass; an order is definitely not a special case of a customer. The misuse shows itself in how the code breaks the single responsibility principle: the `Order` class is responsible both for maintaining the customer information and the order information.
 
 
-Ratkaisussa piilevä ongelma tulee esiin kun mietimme mitä käy asiakkaan osoitteen muuttuessa.
+<!-- Ratkaisussa piilevä ongelma tulee esiin kun mietimme mitä käy asiakkaan osoitteen muuttuessa. -->
+
+The problem becomes very clear when we think of what a change in a customer's address would cause.
 
 
-Osoitteen muuttuessa joutuisimme muuttamaan *jokaista* kyseiseen asiakkaaseen liittyvää tilausoliota, mikä ei missään nimessä ole toivottua. Parempi ratkaisu olisi kapseloida `Asiakas` `Tilaus`-luokan oliomuuttujaksi. Jos ajattelemme tarkemmin tilauksen semantiikkaa, tämä on selvää. *Tilauksella on asiakas*.
+<!-- Osoitteen muuttuessa joutuisimme muuttamaan *jokaista* kyseiseen asiakkaaseen liittyvää tilausoliota, mikä ei missään nimessä ole toivottua. Parempi ratkaisu olisi kapseloida `Asiakas` `Tilaus`-luokan oliomuuttujaksi. Jos ajattelemme tarkemmin tilauksen semantiikkaa, tämä on selvää. *Tilauksella on asiakas*. -->
+
+In the case that an address changes, we would have to change *every* order object that relates to that customer. This is hardly ideal. A better solution would be to encapsulate the customer as an object variable of the `Order` class. Thinking more closely on the semantcis of an order, this seems intuitive. *An order has a customer*.
 
 
-Muutetaan luokkaa `Tilaus` siten, että se sisältää `Asiakas`-viitteen.
+<!-- Muutetaan luokkaa `Tilaus` siten, että se sisältää `Asiakas`-viitteen. -->
 
+Let's modify the `Order` class so that it includes a reference to a `Customer` object.
 
-```java
+<!-- ```java
 public class Tilaus {
 
     private Asiakas asiakas;
@@ -1270,10 +1405,38 @@ public class Tilaus {
         return this.asiakas.getNimi() + "\n" + this.asiakas.getOsoite();
     }
 }
+``` -->
+
+```java
+public class Order {
+
+    private Customer customer;
+    private String product;
+    private String count;
+
+    public Order(Customer customer, String product, String count) {
+        this.customer = customer;
+        this.product = product;
+        this.count = count;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public String getCount() {
+        return count;
+    }
+
+    public String postalAddress() {
+        return this.customer.getName() + "\n" + this.customer.getAddress();
+    }
+}
 ```
 
-Yllä oleva luokka `Tilaus` on nyt parempi. Metodi `postitusosoite` käyttää *asiakas*-viitettä postitusosoitteen saamiseen sen sijaan että luokka perisi luokan `Asiakas`. Tämä helpottaa sekä ohjelman ylläpitoa, että sen konkreettista toiminnallisuutta.
+<!-- Yllä oleva luokka `Tilaus` on nyt parempi. Metodi `postitusosoite` käyttää *asiakas*-viitettä postitusosoitteen saamiseen sen sijaan että luokka perisi luokan `Asiakas`. Tämä helpottaa sekä ohjelman ylläpitoa, että sen konkreettista toiminnallisuutta. -->
 
+This version of the `Order` class is better. The method `postalAddress` uses the *customer* reference to obtain the postal address instead of inheriting the class `Customer`. This helps both the maintenance of the program and its concrete functionality.
 
 Nyt asiakkaan muuttaessa tarvitsee muuttaa vain asiakkaan tietoja, tilauksiin ei tarvitse tehdä muutoksia.
 
@@ -1675,19 +1838,25 @@ Average: 992.8
 </programming-exercise>
 
 
-## Abstraktit luokat
+<!-- ## Abstraktit luokat -->
+
+## Abstract classes
 
 
-Perintähierarkiaa pohtiessa tulee joskus esille tilanteita, missä on olemassa selkeä käsite, mutta käsite ei sellaisenaan ole hyvä kandidaatti olioksi. Hyötyisimme käsitteestä perinnän kannalta, sillä se sisältää muuttujia ja toiminnallisuuksia, jotka ovat kaikille käsitteen periville luokille samoja, mutta toisaalta käsitteestä itsestään ei pitäisi pystyä tekemään olioita.
+<!-- Perintähierarkiaa pohtiessa tulee joskus esille tilanteita, missä on olemassa selkeä käsite, mutta käsite ei sellaisenaan ole hyvä kandidaatti olioksi. Hyötyisimme käsitteestä perinnän kannalta, sillä se sisältää muuttujia ja toiminnallisuuksia, jotka ovat kaikille käsitteen periville luokille samoja, mutta toisaalta käsitteestä itsestään ei pitäisi pystyä tekemään olioita. -->
+
+Sometimes, when planning a hierarchy of inheritance, there are cases when there exists a clear concept, but that concept is not a good candidate for an object in itself. The concept would be beneficial from the point of view of inheritance, since it includes variables and functionality that are shared by all the classes that would inherit it. On the other hand, you should not be able to create instances of the concept itself.
+
+<!-- Abstrakti luokka yhdistää rajapintoja ja perintää. Niistä ei voi tehdä ilmentymiä, vaan ilmentymät tehdään abstraktin luokan aliluokista.  Abstrakti luokka voi sisältää sekä normaaleja metodeja, joissa on metodirunko, että abstrakteja metodeja, jotka sisältävät ainoastaan metodimäärittelyn. Abstraktien metodien toteutus jätetään perivän luokan vastuulle. Yleisesti ajatellen abstrakteja luokkia käytetään esimerkiksi kun abstraktin luokan kuvaama käsite ei ole selkeä itsenäinen käsite. Tällöin siitä ei tule pystyä tekemään ilmentymiä. -->
+
+An abstract class combines interfaces and inheritance. You cannot create instances of them -- you can only create instances of subclasses of an abstract class. They can include normal methods which have a method body, but it's also possible to define abstract methods that only contain the method definition. Implementing the abstract methods is the responsibility of subclasses. Generally, abstract classes are used in situations where the concept that the class represents is not a clear independent concept. In such a case you shouldn't be able to create instances of it.
+
+<!-- Sekä abstraktin luokan että abstraktien metodien määrittelyssä käytetään avainsanaa `abstract`. Abstrakti luokka määritellään lauseella `public abstract class *LuokanNimi*`, abstrakti metodi taas lauseella `public abstract palautustyyppi metodinNimi`. Tarkastellaan seuraavaa abstraktia luokkaa `Toiminto`, joka tarjoaa rungon toiminnoille ja niiden suorittamiselle. -->
+
+To define an abstract class or an abstract method the keyword `abstract` is used. An abstract class is defined with the phrase `public abstract class *NameOfClass*`; an abstract method is defined by `public abstract returnType nameOfMethod`. Let's take a look at the following abstract class called `Operation`, which offers a structure for operations and executing them.
 
 
-Abstrakti luokka yhdistää rajapintoja ja perintää. Niistä ei voi tehdä ilmentymiä, vaan ilmentymät tehdään abstraktin luokan aliluokista.  Abstrakti luokka voi sisältää sekä normaaleja metodeja, joissa on metodirunko, että abstrakteja metodeja, jotka sisältävät ainoastaan metodimäärittelyn. Abstraktien metodien toteutus jätetään perivän luokan vastuulle. Yleisesti ajatellen abstrakteja luokkia käytetään esimerkiksi kun abstraktin luokan kuvaama käsite ei ole selkeä itsenäinen käsite. Tällöin siitä ei tule pystyä tekemään ilmentymiä.
-
-
-Sekä abstraktin luokan että abstraktien metodien määrittelyssä käytetään avainsanaa `abstract`. Abstrakti luokka määritellään lauseella `public abstract class *LuokanNimi*`, abstrakti metodi taas lauseella `public abstract palautustyyppi metodinNimi`. Tarkastellaan seuraavaa abstraktia luokkaa `Toiminto`, joka tarjoaa rungon toiminnoille ja niiden suorittamiselle.
-
-
-```java
+<!-- ```java
 public abstract class Toiminto {
 
     private String nimi;
@@ -1702,12 +1871,31 @@ public abstract class Toiminto {
 
     public abstract void suorita(Scanner lukija);
 }
-```
-
-Abstrakti luokka `Toiminto` toimii runkona toimintojen toteuttamiseen. Esimerkiksi pluslaskun voi toteuttaa perimällä luokka `Toiminto` seuraavasti.
-
+``` -->
 
 ```java
+public abstract class Operation {
+
+    private String name;
+
+    public Operation(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public abstract void execute(Scanner scanner);
+}
+```
+
+<!-- Abstrakti luokka `Toiminto` toimii runkona toimintojen toteuttamiseen. Esimerkiksi pluslaskun voi toteuttaa perimällä luokka `Toiminto` seuraavasti. -->
+
+The abstract class `Operation` works as a basis for implementing different actions. For instance, you can implement the plus operation by extending the `Operation` class in the following manner.
+
+
+<!-- ```java
 public class Pluslasku extends Toiminto {
 
     public Pluslasku() {
@@ -1724,72 +1912,102 @@ public class Pluslasku extends Toiminto {
         System.out.println("Lukujen summa on " + (eka + toka));
     }
 }
+``` -->
+
+```java
+public class PlusOperation extends Operation {
+
+    public PlusOperation() {
+        super("PlusOperation");
+    }
+
+    @Override
+    public void execute(Scanner scanner) {
+        System.out.print("First number: ");
+        int first = Integer.valueOf(scanner.nextLine());
+        System.out.print("Second number: ");
+        int second = Integer.valueOf(scanner.nextLine());
+
+        System.out.println("The sum of the numbers is " + (first + second));
+    }
+}
 ```
 
-Koska kaikki `Toiminto`-luokan perivät luokat ovat myös tyyppiä toiminto, voimme rakentaa käyttöliittymän `Toiminto`-tyyppisten muuttujien varaan. Seuraava luokka `Kayttoliittyma` sisaltaa listan toimintoja ja lukijan. Toimintoja voi lisätä käyttöliittymään dynaamisesti.
+<!-- Koska kaikki `Toiminto`-luokan perivät luokat ovat myös tyyppiä toiminto, voimme rakentaa käyttöliittymän `Toiminto`-tyyppisten muuttujien varaan. Seuraava luokka `Kayttoliittyma` sisaltaa listan toimintoja ja lukijan. Toimintoja voi lisätä käyttöliittymään dynaamisesti. -->
+
+Since all the classes that inherit from `Operation` have also the type `Operation`, we can create a user interface by using `Operation` type variables. Next we'll show the class `UserInterface` that contains a list of operations and a scanner. It's possible to add operations to the UI dynamically.
 
 
 ```java
-public class Kayttoliittyma {
+public class UserInterface {
 
-    private Scanner lukija;
-    private ArrayList<Toiminto> toiminnot;
+    private Scanner scanner;
+    private ArrayList<Operation> operations;
 
-    public Kayttoliittyma(Scanner lukija) {
-        this.lukija = lukija;
-        this.toiminnot = new ArrayList<>();
+    public UserInterface(Scanner scanner) {
+        this.scanner = scanner;
+        this.operations = new ArrayList<>();
     }
 
-    public void lisaaToiminto(Toiminto toiminto) {
-        this.toiminnot.add(toiminto);
+    public void addOperation(Operation operation) {
+        this.operations.add(operation);
     }
 
-    public void kaynnista() {
+    public void start() {
         while (true) {
-            tulostaToiminnot();
-            System.out.println("Valinta: ");
+            printOperations();
+            System.out.println("Choice: ");
 
-            String valinta = this.lukija.nextLine();
-            if (valinta.equals("0")) {
+            String choice = this.scanner.nextLine();
+            if (choice.equals("0")) {
                 break;
             }
 
-            suoritaToiminto(valinta);
+            executeOperation(choice);
             System.out.println();
         }
     }
 
-    private void tulostaToiminnot() {
-        System.out.println("\t0: Lopeta");
+    private void printOperations() {
+        System.out.println("\t0: Stop");
         int i = 0;
-        while (i < this.toiminnot.size()) {
-            String toiminnonNimi = this.toiminnot.get(i).getNimi();
-            System.out.println("\t" + (i + 1) + ": " + toiminnonNimi);
+        while (i < this.operations.size()) {
+            String operationName = this.operations.get(i).getName();
+            System.out.println("\t" + (i + 1) + ": " + operationName);
             i = i + 1;
         }
     }
 
-    private void suoritaToiminto(String valinta) {
-        int toiminto = Integer.valueOf(valinta);
+    private void executeOperation(String choice) {
+        int operation = Integer.valueOf(choice);
 
-        Toiminto valittu = this.toiminnot.get(toiminto - 1);
-        valittu.suorita(lukija);
+        Operation chosen = this.operations.get(operation - 1);
+        chosen.execute(scanner);
     }
 }
 ```
 
 
-Käyttöliittymä toimii seuraavasti:
+<!-- Käyttöliittymä toimii seuraavasti: -->
+
+The user interface works like this:
 
 
-```java
+<!-- ```java
 Kayttoliittyma kayttolittyma = new Kayttoliittyma(new Scanner(System.in));
 kayttolittyma.lisaaToiminto(new Pluslasku());
 
 kayttolittyma.kaynnista();
+``` -->
+
+```java
+UserInterface userInterface = new UserInterface(new Scanner(System.in));
+userInterface.addOperation(new PlusOperation());
+
+userInterface.start();
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Toiminnot:
         0: Lopeta
@@ -1804,10 +2022,29 @@ Toiminnot:
         1: Pluslasku
 Valinta: **0**
 
+</sample-output> -->
+
+<sample-output>
+
+Operations:
+        0: Stop
+        1: PlusOperation
+Choice: **1**
+First number: **8**
+Second number: **12**
+The sum of the numbers is 20
+
+Operations:
+        0: Stop
+        1: PlusOperation
+Choice: **0**
+
 </sample-output>
 
 
-Rajapintojen ja abstraktien luokkien suurin ero on siinä, että abstrakteissa luokissa voidaan määritellä metodien lisäksi myös oliomuuttujia sekä konstruktoreja. Koska abstrakteihin luokkiin voidaan määritellä toiminnallisuutta, voidaan niitä käyttää esimerkiksi oletustoiminnallisuuden määrittelyyn. Yllä käyttöliittymä käytti abstraktissa luokassa määriteltyä toiminnan nimen tallentamista.
+<!-- Rajapintojen ja abstraktien luokkien suurin ero on siinä, että abstrakteissa luokissa voidaan määritellä metodien lisäksi myös oliomuuttujia sekä konstruktoreja. Koska abstrakteihin luokkiin voidaan määritellä toiminnallisuutta, voidaan niitä käyttää esimerkiksi oletustoiminnallisuuden määrittelyyn. Yllä käyttöliittymä käytti abstraktissa luokassa määriteltyä toiminnan nimen tallentamista. -->
+
+The greatest difference between interfaces and abstract classes is that abstract classes can contain object variables and constructors in addition to methods. Since you can also define functionality in abstract classes, you can use them to define e.g. default behavior. In the user interface above storing the name of the operation used the functionality defined in the abstract `Operation` class.
 
 <programming-exercise name='DifferentKindsOfBoxes (3 parts)' tmcname='part09-Part09_04.DifferentKindsOfBoxes'>
 
