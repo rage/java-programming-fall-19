@@ -131,7 +131,7 @@ You are provided with the class human. A human has a name and wage information. 
 
 <!-- <programming-exercise name='Opiskelijat nimijärjestykseen' tmcname='osa10-Osa10_12.OpiskelijatNimijarjestykseen'> -->
 
-<programming-exercise name='Students on alphabetical order' tmcname='part10-Part10_12.StudentsOnAplhabeticalOrder'>
+<programming-exercise name='Students on alphabetical order' tmcname='part10-Part10_12.StudentsOnAlphabeticalOrder'>
 
 <!-- Saat valmiin luokan Opiskelija. Opiskelijalla on nimi. Toteuta Opiskelija-luokassa `Comparable`-rajapinta siten, että `compareTo`-metodi lajittelee opiskelijat nimen mukaan aakkosjärjestykseen. -->
 
