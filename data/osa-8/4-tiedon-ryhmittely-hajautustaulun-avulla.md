@@ -4,16 +4,24 @@ title: 'Grouping data using hash maps'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
 - Osaat käyttää listaa hajautustaulun arvona.
 - Osaat ryhmitellä tietoa hajautustaulua hyödyntäen.
 
+</text-box> -->
+<text-box variant='learningObjectives' name='Learning Objectives'>
+
+- You know how to use a list as a hash table's value
+- You know how to categorize data using a hash table
+
 </text-box>
 
-Hajautustaulu sisältää korkeintaan yhden arvon yhtä avainta kohti. Seuraavassa esimerkissä tallennamme henkilöiden puhelinnumeroita hajautustauluun.
+<!-- Hajautustaulu sisältää korkeintaan yhden arvon yhtä avainta kohti. Seuraavassa esimerkissä tallennamme henkilöiden puhelinnumeroita hajautustauluun. -->
+A hash table has at most one value per each key. In the following example, we store the phone numbers of people into the hash table.
 
-```java
+
+<!-- ```java
 HashMap<String, String> puhelinnumerot = new HashMap<>();
 puhelinnumerot.put("Pekka", "040-12348765");
 
@@ -22,26 +30,50 @@ System.out.println("Pekan numero: " + puhelinnumerot.get("Pekka"));
 puhelinnumerot.put("Pekka", "09-111333");
 
 System.out.println("Pekan numero: " + puhelinnumerot.get("Pekka"));
-```
+``` -->
+```java
+HashMap<String, String> phoneNumbers = new HashMap<>();
+phoneNumbers.put("Pekka", "040-12348765");
 
+System.out.println("Pekka's Number " + phoneNumbers.get("Pekka"));
+
+phoneNumbers.put("Pekka", "09-111333");
+
+System.out.println("Pekka's Number " + phoneNumbers.get("Pekka"));
+```
+<!--
 <sample-output>
 
 Pekan numero: 040-12348765
 Pekan numero: 09-111333
 
+</sample-output> -->
+
+<sample-output>
+
+Pekka's number: 040-12348765
+Pekka's number: 09-111333
+
 </sample-output>
 
-Entä jos haluaisimme liittää yhteen avaimeen useita arvoja, eli esimerkiksi useampia puhelinnumeroita yhdelle henkilölle?
+<!-- Entä jos haluaisimme liittää yhteen avaimeen useita arvoja, eli esimerkiksi useampia puhelinnumeroita yhdelle henkilölle?
 
-Koska hajautustaulun avaimet ja arvot voivat olla mitä tahansa muuttujia, myös listojen käyttäminen hajautustaulun arvona on mahdollista. Useamman arvon lisääminen yhdelle avaimelle onnistuu liittämällä avaimeen lista. Muutetaan puhelinnumeroiden tallennustapaa seuraavasti:
+Koska hajautustaulun avaimet ja arvot voivat olla mitä tahansa muuttujia, myös listojen käyttäminen hajautustaulun arvona on mahdollista. Useamman arvon lisääminen yhdelle avaimelle onnistuu liittämällä avaimeen lista. Muutetaan puhelinnumeroiden tallennustapaa seuraavasti: -->
+What if we wanted to assign multiple values ​​to a single key, such as multiple phone numbers for a given person?
 
-```java
+Since keys and values ​​in a hash table can be any variable, it is also possible to use lists as values in a hash table. You can add more values ​​to a single key by attaching a list to the key. Let's change the way the numbers are stored in the following way:
+
+<!-- ```java
 HashMap<String, ArrayList<String>> puhelinnumerot = new HashMap<>();
+``` -->
+```java
+HashMap<String, ArrayList<String>> phoneNumbers = new HashMap<>();
 ```
 
-Nyt hajautustaulussa on jokaiseen avaimeen liitettynä lista. Vaikka new-komento luo hajautustaulun, ei hajautustaulu sisällä alussa yhtäkään listaa. Ne on luotava tarvittaessa erikseen.
+<!-- Nyt hajautustaulussa on jokaiseen avaimeen liitettynä lista. Vaikka new-komento luo hajautustaulun, ei hajautustaulu sisällä alussa yhtäkään listaa. Ne on luotava tarvittaessa erikseen. -->
+Each key of the hash table now has a list attached to it. Although the new command creates a hash table, the hash table initially does not contain a single list. They need to be created separately as needed.
 
-```java
+<!-- ```java
 HashMap<String, ArrayList<String>> puhelinnumerot = new HashMap<>();
 
 // liitetään Pekka-nimeen ensin tyhjä ArrayList
@@ -53,26 +85,52 @@ puhelinnumerot.get("Pekka").add("040-12348765");
 puhelinnumerot.get("Pekka").add("09-111333");
 
 System.out.println("Pekan numerot: " + puhelinnumerot.get("Pekka"));
+``` -->
+```java
+HashMap<String, ArrayList<String>> phoneNumbers = new HashMap<>();
+
+// let's initially attatch an empty list to the name Pekka
+phoneNumbers.put("Pekka", new ArrayList<>());
+
+// and add a phone number to the list at Pekka
+phoneNumbers.get("Pekka").add("040-12348765");
+// and let's add another phone number
+phoneNumbers.get("Pekka").add("09-111333");
+
+System.out.println("Pekka's numbers: " + phoneNumbers.get("Pekka"));
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Pekan numero: [040-12348765, 09-111333]
 
+</sample-output> -->
+<sample-output>
+
+Pekka's number: [040-12348765, 09-111333]
+
 </sample-output>
 
-Määrittelimme muuttujan puhelinnumero tyypiksi `HashMap<String, ArrayList<String>>`. Tämä tarkoittaa hajautustaulua, joka käyttää avaimena merkkijonoa ja arvona merkkijonoja sisältävää listaa. Hajautustauluun lisättävät arvot ovat siis konkreettisia listoja.
+<!-- Määrittelimme muuttujan puhelinnumero tyypiksi `HashMap<String, ArrayList<String>>`. Tämä tarkoittaa hajautustaulua, joka käyttää avaimena merkkijonoa ja arvona merkkijonoja sisältävää listaa. Hajautustauluun lisättävät arvot ovat siis konkreettisia listoja. -->
+We define the type of the phone number as  `HashMap<String, ArrayList<String>>`. This refers to a hash table that uses a string as a key and a list containing strings as its value. As such, the values added to the hash table are concrete lists.
 
-```java
+<!-- ```java
 // liitetään Pekka-nimeen ensin tyhjä ArrayList
 puhelinnumerot.put("Pekka", new  ArrayList<>());
 
 // ...
+``` -->
+```java
+// let's first add an empty ArrayList as the value of Pekka
+phoneNumbers.put("Pekka", new  ArrayList<>());
+
+// ...
 ```
 
-Vastaavalla tyylillä voi toteuttaa esimerkiksi tehtävien pistekirjanpidon. Alla olevassa esimerkissä on hahmoteltu luokkaa `Tehtavakirjanpito`, mikä sisältää käyttäjäkohtaisen pistekirjanpidon. Käyttäjä esitetään merkkijonona ja pisteet kokonaislukuina.
+<!-- Vastaavalla tyylillä voi toteuttaa esimerkiksi tehtävien pistekirjanpidon. Alla olevassa esimerkissä on hahmoteltu luokkaa `Tehtavakirjanpito`, mikä sisältää käyttäjäkohtaisen pistekirjanpidon. Käyttäjä esitetään merkkijonona ja pisteet kokonaislukuina. -->
+We can implement, for instance, an exercise point tracking program in a similar way. The example below outlines the `TaskTracker` class, which involves user-specific tracking of points from tasks. The user is represented as a string and the points as integers.
 
-```java
+<!-- ```java
 public class Tehtavakirjanpito {
     private HashMap<String, ArrayList<Integer>> tehdytTehtavat;
 
@@ -99,8 +157,35 @@ public class Tehtavakirjanpito {
         }
     }
 }
-```
+``` -->
+```java
+public class TaskTracker {
+    private HashMap<String, ArrayList<Integer>> completedExercises;
 
+    public TaskTracker() {
+        this.completedExercises = new HashMap<>();
+    }
+
+    public void lisaa(String user, int exercise) {
+        // an empty list has to be added for a new user if one has not already been added
+        this.completedExercises.putIfAbsent(user, new ArrayList<>());
+
+        // let's first retrieve the list containing the exercises completed by the user and add to it
+        ArrayList<Integer> completed = this.completedExercises.get(user);
+        completed.add(exercise);
+
+        // the previous would also work without the helper variable as follows
+        // this.completedExercises.get(user).add(exercise);
+    }
+
+    public void print() {
+        for (String name: completedExercises.keySet()) {
+            System.out.println(name + ": " + completedExercises.get(name));
+        }
+    }
+}
+```
+<!--
 ```java
 Tehtavakirjanpito kirjanpito = new Tehtavakirjanpito();
 kirjanpito.lisaa("Ada", 3);
@@ -115,6 +200,22 @@ kirjanpito.lisaa("Matti", 1);
 kirjanpito.lisaa("Matti", 2);
 
 kirjanpito.tulosta();
+``` -->
+
+```java
+TaskTracker tracker = new TaskTracker();
+tracker.add("Ada", 3);
+tracker.add("Ada", 4);
+tracker.add("Ada", 3);
+tracker.add("Ada", 3);
+
+tracker.add("Pekka", 4);
+tracker.add("Pekka", 4);
+
+tracker.add("Matti", 1);
+tracker.add("Matti", 2);
+
+tracker.print();
 ```
 
 <sample-output>

@@ -5,7 +5,7 @@ hidden: false
 ---
 
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 - Tiedät että Java-ohjelmointikielessä jokainen luokka perii luokan Object ja tiedät        miksi jokaisella oliolla on metodit toString, equals ja hashCode.
 - Tunnet käsitteet perintä, yliluokka ja aliluokka.
 - Osaat luoda luokkia, jotka perivät osan ominaisuuksistaan toisesta luokasta.
@@ -13,16 +13,33 @@ hidden: false
 - Tiedät miten olion suoritettava metodi määräytyy ja tunnet käsitteen polymorfismi.
 - Tiedät milloin perintää kannattaa käyttää ja osaat antaa esimerkin tilanteesta, mihin perintä ei sovi.
 
+</text-box> -->
+
+<text-box variant='learningObjectives' name='Learning objectives'>
+
+- You know that in the Java programming language every class inherits the Object class, and you understand why every object has methods toString, equals, and hashCode.
+- You are familiar with the concepts of inheritance, superclass, and subclass.
+- You can create classes that inherit some of their properties from another class.
+- You can call a constructor or method that is defined in a superclass.
+- You know how an object's executed method is determined, and you are familiar with the concept of polymorphism.
+- You can assess when to use inheritance, and you can come up with an example that is ill suited for inheritance.
+
 </text-box>
 
 
-Luokkia käytetään olio-ohjelmoinnissa ongelma-alueeseen liittyvien käsitteiden selkeyttämiseen. Jokainen luomamme luokka lisää ohjelmointikieleen toiminnallisuutta. Tätä toiminnallisuutta tarvitaan kohtaamiemme ongelmien ratkomiseen. Olio-ohjelmoinnissa **ratkaisut syntyvät luokista luotujen olioiden välisen interaktion avulla**. Olio-ohjelmoinnissa olio on itsenäinen kokonaisuus, jolla on olion tarjoamien metodien avulla muutettava tila. Olioita käytetään yhteistyössä; jokaisella oliolla on oma vastuualue. Esimerkiksi käyttöliittymäluokkamme ovat tähän mennessä hyödyntäneet `Scanner`-olioita.
+<!-- Luokkia käytetään olio-ohjelmoinnissa ongelma-alueeseen liittyvien käsitteiden selkeyttämiseen. Jokainen luomamme luokka lisää ohjelmointikieleen toiminnallisuutta. Tätä toiminnallisuutta tarvitaan kohtaamiemme ongelmien ratkomiseen. Olio-ohjelmoinnissa **ratkaisut syntyvät luokista luotujen olioiden välisen interaktion avulla**. Olio-ohjelmoinnissa olio on itsenäinen kokonaisuus, jolla on olion tarjoamien metodien avulla muutettava tila. Olioita käytetään yhteistyössä; jokaisella oliolla on oma vastuualue. Esimerkiksi käyttöliittymäluokkamme ovat tähän mennessä hyödyntäneet `Scanner`-olioita. -->
+
+Classes are used to clarify the concepts of the problem domain in object-oriented programming. Every class we create adds functionality to the programming language. This functionality is needed to solve the problems that we encounter. An essential idea behind object-oriented programming is that **solutions rise from the interactions between objects which are created from classes**. An object in object-oriented programming is an independent unit that has a state, which can be modified by using the methods that the object provides. Objects are used in cooperation; each has its own area of responsibility. For instance, our user interface classes have so far taken use of `Scanner` objects.
 
 
-Jokainen Javan luokka perii luokan Object, eli jokainen luomamme luokka saa käyttöönsä kaikki Object-luokassa määritellyt metodit. Jos haluamme muuttaa Object-luokassa määriteltyjen metodien toiminnallisuutta tulee ne korvata (`Override`) määrittelemällä niille uusi toteutus luodussa luokassa. Oliomme saavat luokasta Object käyttöönsä mm. metodit `equals` ja `hashCode`.
+<!-- Jokainen Javan luokka perii luokan Object, eli jokainen luomamme luokka saa käyttöönsä kaikki Object-luokassa määritellyt metodit. Jos haluamme muuttaa Object-luokassa määriteltyjen metodien toiminnallisuutta tulee ne korvata (`Override`) määrittelemällä niille uusi toteutus luodussa luokassa. Oliomme saavat luokasta Object käyttöönsä mm. metodit `equals` ja `hashCode`. -->
+
+Every Java class extends the class Object, which means that every class we create has at their disposal all the methods defined in the Object class. If we want to change how these methods defined in Object function, they must be overriden by defining a new implementation for them in the newly created class. The objects we create receive methods `equals` and `hashCode`, among others, from the Object class.
 
 
-Luokan `Object` perimisen lisäksi myös muiden luokkien periminen on mahdollista. Javan <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" target="_blank" rel="noopener">ArrayList</a>-luokan "ohjelmointirajapintaa" eli APIa tarkasteltaessa huomaamme että `ArrayList` perii luokan `AbstractList`. Luokka `AbstractList` perii luokan `AbstractCollection`, joka perii luokan `Object`.
+<!-- Luokan `Object` perimisen lisäksi myös muiden luokkien periminen on mahdollista. Javan <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" target="_blank" rel="noopener">ArrayList</a>-luokan "ohjelmointirajapintaa" eli APIa tarkasteltaessa huomaamme että `ArrayList` perii luokan `AbstractList`. Luokka `AbstractList` perii luokan `AbstractCollection`, joka perii luokan `Object`. -->
+
+Every class derives from `Object`, but it's also possible to derive from other classes than that. When we examine the API (Application Programming Interface) of Java's ArrayList, we notice that `ArrayList` has the  superclass `Abstractlist`. `AbstractList`, in turn, has the class `Object` as its superclass.
 
 <br/>
 
@@ -34,16 +51,21 @@ Luokan `Object` perimisen lisäksi myös muiden luokkien periminen on mahdollist
 </pre>
 
 
-Kukin luokka voi periä suoranaisesti yhden luokan. Välillisesti luokka kuitenkin perii kaikki perimänsä luokan ominaisuudet. Luokka `ArrayList` perii luokan `AbstractList`, ja välillisesti luokat `AbstractCollection` ja `Object`. Luokalla `ArrayList` on siis käytössään luokkien `AbstractList`, `AbstractCollection` ja `Object` muuttujat ja metodit.
+<!-- Kukin luokka voi periä suoranaisesti yhden luokan. Välillisesti luokka kuitenkin perii kaikki perimänsä luokan ominaisuudet. Luokka `ArrayList` perii luokan `AbstractList`, ja välillisesti luokat `AbstractCollection` ja `Object`. Luokalla `ArrayList` on siis käytössään luokkien `AbstractList`, `AbstractCollection` ja `Object` muuttujat ja metodit. -->
+
+Each class can directly extend only one class. However, a class indirectly inherits all the properties of the class it extends. So the `ArrayList` class derives from the class `AbstractList`, and indirectly derives from the classes `AbstractCollection` and `Object`. So `ArrayList` has at its disposal all the variables and methods of the classes `AbstractList`, `AbstractCollection`, and `Object`.
 
 
-Luokan ominaisuudet peritään avainsanalla `extends`. Luokan perivää luokkaa kutsutaan aliluokaksi (*subclass*), perittävää luokkaa yliluokaksi (*superclass*).
+<!-- Luokan ominaisuudet peritään avainsanalla `extends`. Luokan perivää luokkaa kutsutaan aliluokaksi (*subclass*), perittävää luokkaa yliluokaksi (*superclass*). -->
+
+You use the keyword `extends` to inherit the properties of a class. The class that receives the properties is called the subclass, and the class whose properties are inherited is called the superclass.
 
 
-Tutustutaan erään autonvalmistajan järjestelmään, joka hallinnoi auton osia. Osien hallinan peruskomponentti on luokka `Osa`, joka määrittelee tunnuksen, valmistajan ja kuvauksen.
+<!-- Tutustutaan erään autonvalmistajan järjestelmään, joka hallinnoi auton osia. Osien hallinan peruskomponentti on luokka `Osa`, joka määrittelee tunnuksen, valmistajan ja kuvauksen. -->
 
+Let's take a look at a car manufacturing system that manages car parts. A basic component of part management is the class `Part`, which defines the identifier, the manufacturer, and the description.
 
-```java
+<!-- ```java
 public class Osa {
 
     private String tunnus;
@@ -68,15 +90,45 @@ public class Osa {
         return valmistaja;
     }
 }
-```
-
-Yksi osa autoa on moottori. Kuten kaikilla osilla, myös moottorilla on valmistaja, tunnus ja kuvaus. Näiden lisäksi moottoriin liittyy moottorityyppi: esimerkiksi polttomoottori, sähkömoottori tai hybridi.
-
-
-Perinteinen, ei perintää hyödyntävä tapa olisi toteuttaa luokka `Moottori` seuraavasti.
-
+``` -->
 
 ```java
+public class Part {
+
+    private String identifier;
+    private String manufacturer;
+    private String description;
+
+    public Part(String identifier, String manufacturer, String kuvaus) {
+        this.identifier = identifier;
+        this.manufacturer = manufacturer;
+        this.description = description;
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+}
+```
+
+<!-- Yksi osa autoa on moottori. Kuten kaikilla osilla, myös moottorilla on valmistaja, tunnus ja kuvaus. Näiden lisäksi moottoriin liittyy moottorityyppi: esimerkiksi polttomoottori, sähkömoottori tai hybridi. -->
+
+One part of the car is the engine. As is the case with all parts, the engine, too, has a manufacturer, an identifier, and a description. In addition each engine has a type: for instance, an internal combustion engine, an electric motor, or a hybrid engine.
+
+
+<!-- Perinteinen, ei perintää hyödyntävä tapa olisi toteuttaa luokka `Moottori` seuraavasti. -->
+
+The traditional way to implement the class `Engine`, without using inheritance, would be this.
+
+<!-- ```java
 public class Moottori {
 
     private String moottorityyppi;
@@ -107,16 +159,52 @@ public class Moottori {
         return valmistaja;
     }
 }
+``` -->
+
+```java
+public class Engine {
+
+    private String engineType;
+    private String identifier;
+    private String manufacturer;
+    private String description;
+
+    public Engine(String engineType, String identifier, String manufacturer, String description) {
+        this.engineType = engineType;
+        this.identifier = identifier;
+        this.manufacturer = manufacturer;
+        this.description = description;
+    }
+
+    public String getEngineType() {
+        return engineType;
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+}
 ```
 
 
-Huomaamme luokassa `Moottori` merkittävän määrän yhtäläisyyksiä luokan `Osa` kanssa. Voidaankin sanoa, että `Moottori` on luokan `Osa` erikoistapaus. **Moottori on Osa**, mutta sillä on myös ominaisuuksia, joita osalla ei ole, eli tässä moottorin tyyppi.
+<!-- Huomaamme luokassa `Moottori` merkittävän määrän yhtäläisyyksiä luokan `Osa` kanssa. Voidaankin sanoa, että `Moottori` on luokan `Osa` erikoistapaus. **Moottori on Osa**, mutta sillä on myös ominaisuuksia, joita osalla ei ole, eli tässä moottorin tyyppi. -->
+
+We notice a significant amount of overlap between the contents of `Engine` and `Part`. It can confidently be said the `Engine` is a special case of `Part`. **Engine is Part**, but it also has properties that a Part does not have, which in this case means the engine type.
+
+<!-- Tehdään sama luokka `Moottori`, ja toteutetaan luokka perintää hyödyntämällä. Luodaan luokan `Osa` perivä luokka `Moottori`: moottori on osan erikoistapaus. -->
+
+Let's recreate the class `Engine`, and this time use inheritance in our implementation. We'll create the class `Engine` which inherits the class `Part`: an engine is a special case of a part.
 
 
-Tehdään sama luokka `Moottori`, ja toteutetaan luokka perintää hyödyntämällä. Luodaan luokan `Osa` perivä luokka `Moottori`: moottori on osan erikoistapaus.
-
-
-```java
+<!-- ```java
 public class Moottori extends Osa {
 
     private String moottorityyppi;
@@ -130,38 +218,74 @@ public class Moottori extends Osa {
         return moottorityyppi;
     }
 }
-```
-
-
-Luokkamäärittely `public class Moottori extends Osa` kertoo että luokka `Moottori` perii luokan `Osa` toiminnallisuuden. Luokassa `Moottori` määritellään oliomuuttuja `moottorityyppi`.
-
-
-Moottori-luokan konstruktori on mielenkiintoinen. Konstruktorin ensimmäisellä rivillä on avainsana `super`, jolla kutsutaan yliluokan konstruktoria. Kutsu `super(tunnus, valmistaja, kuvaus)` kutsuu luokassa `Osa` määriteltyä konstruktoria `public Osa(String tunnus, String valmistaja, String kuvaus)`, jolloin yliluokassa määritellyt oliomuuttujat saavat arvonsa. Tämän jälkeen oliomuuttujalle `moottorityyppi` asetetaan siihen liittyvä arvo.
-
-
-*Kutsu on hieman samankaltainen kuin `this`-kutsu konstruktorissa; this-kutsulla kutsutaan tämän luokan konstruktoria, super-kutsulla yliluokan konstruktoria. Mikäli konstruktorissa käytetään yliluokan konstruktoria, eli konstruktorissa on `super`-kutsu, tulee `super`-kutsun olla `this`-kutsun lailla konstruktorin ensimmäisellä rivillä.*
-
-
-Kun luokka `Moottori` perii luokan `Osa`, saa se käyttöönsä kaikki luokan `Osa` tarjoamat metodit. Luokasta `Moottori` voi tehdä ilmentymän aivan kuten mistä tahansa muustakin luokasta.
+``` -->
 
 
 ```java
+public class Engine extends Part {
+
+    private String engineType;
+
+    public Engine(String engineType, String identifier, String manufacturer, String description) {
+        super(identifier, manufacturer, description);
+        this.engineType = engineType;
+    }
+
+    public String getEngineType() {
+        return engineType;
+    }
+}
+```
+
+<!-- Luokkamäärittely `public class Moottori extends Osa` kertoo että luokka `Moottori` perii luokan `Osa` toiminnallisuuden. Luokassa `Moottori` määritellään oliomuuttuja `moottorityyppi`. -->
+
+The class definition `public class Engine extends part` indicates that the class `Engine` inherits the functionality of the class `Part`. We also define an object variable `engineType` in the class `Engine`.
+
+
+<!-- Moottori-luokan konstruktori on mielenkiintoinen. Konstruktorin ensimmäisellä rivillä on avainsana `super`, jolla kutsutaan yliluokan konstruktoria. Kutsu `super(tunnus, valmistaja, kuvaus)` kutsuu luokassa `Osa` määriteltyä konstruktoria `public Osa(String tunnus, String valmistaja, String kuvaus)`, jolloin yliluokassa määritellyt oliomuuttujat saavat arvonsa. Tämän jälkeen oliomuuttujalle `moottorityyppi` asetetaan siihen liittyvä arvo. -->
+
+The constructor of the Motor class is worth some interest. On its first line we use the keyword `super` to call the constructor of the superclass. The call `super(identifier, manufacturer, description)` calls the constructor `public Part(String identifier, String manufacturer, String description)` which is defined in the class Part. Through this process the object variables defined in the superclass are initiated with their initial values. After calling the superclass constructor we also set the proper value for the object variable `engineType`.
+
+
+<!-- *Kutsu on hieman samankaltainen kuin `this`-kutsu konstruktorissa; this-kutsulla kutsutaan tämän luokan konstruktoria, super-kutsulla yliluokan konstruktoria. Mikäli konstruktorissa käytetään yliluokan konstruktoria, eli konstruktorissa on `super`-kutsu, tulee `super`-kutsun olla `this`-kutsun lailla konstruktorin ensimmäisellä rivillä.* -->
+
+*The `super` call bears some resemblance to the `this` call in a constructor; `this` is used to call a constructor of this class, while `super` is used to call a constructor of the superclass. If a constructor uses the constructor of the superclass, so `super` is called in it, the `super`call must be on the first line of the constructor. This is similar to the case with calling `this` (must also be the first line of the constructor).*
+
+<!-- Kun luokka `Moottori` perii luokan `Osa`, saa se käyttöönsä kaikki luokan `Osa` tarjoamat metodit. Luokasta `Moottori` voi tehdä ilmentymän aivan kuten mistä tahansa muustakin luokasta. -->
+
+Since the class `Engine` extends the class `Part`, it has at its disposal all the methods that the class `Part` offers. You can create instances of the class `Engine` the same way you can of any other class.
+
+
+<!-- ```java
 Moottori moottori = new Moottori("polttomoottori", "hz", "volkswagen", "VW GOLF 1L 86-91");
 System.out.println(moottori.getMoottorityyppi());
 System.out.println(moottori.getValmistaja());
+``` -->
+
+```java
+Engine engine = new Engine("combustion", "hz", "volkswagen", "VW GOLF 1L 86-91");
+System.out.println(engine.getEngineType());
+System.out.println(engine.getManufacturer());
 ```
 
 
-<sample-output>
+<!-- <sample-output>
 
 polttomoottori
 volkswagen
 
+</sample-output> -->
+
+<sample-output>
+
+combustion
+volkswagen
+
 </sample-output>
 
+<!-- Kuten huomaat, luokalla `Moottori` on käytössä luokassa `Osa` määritellyt metodit. -->
 
-Kuten huomaat, luokalla `Moottori` on käytössä luokassa `Osa` määritellyt metodit.
-
+As you can see, the class `Engine` has all the methods that are defined in the class `Part`.
 
 <programming-exercise name='ABC (2 parts)' tmcname='part09-Part09_01.ABC'>
 
@@ -233,28 +357,37 @@ C
 </programming-exercise>
 
 
-## Näkyvyysmääreet private, protected ja public
+<!-- ## Näkyvyysmääreet private, protected ja public -->
+
+## Access modifiers private, protected, and public
+
+<!-- Mikäli metodilla tai muuttujalla on näkyvyysmääre `private`, se näkyy vain luokan sisäisille metodeille. Se ei näy aliluokille eikä aliluokalla ole mitään suoraa tapaa päästä käsiksi siihen. Moottori-luokasta ei siis pääse suoraan käsiksi yliluokassa Osa määriteltyihin muuttujiin tunnus, valmistaja, kuvaus. Tällä tarkoitetaan sitä, että Moottori-luokassa ohjelmoija ei voi suoraan käsitellä niitä yliluokan muuttujia, joilla on näkyvyysmääre private. -->
+
+If a method or variable hass the access modifier `private`, it is visible only to the interal methods of that class. Subclasses will not see it, and a subclass has no direct means to access it. So, from the Motor class there is no way to directly access the variables identifier, manufacturer, and description, which are defined in the superclass Part. The programmer cannot access the variables of the superclass that have been defined with the access modifier private.
 
 
-Mikäli metodilla tai muuttujalla on näkyvyysmääre `private`, se näkyy vain luokan sisäisille metodeille. Se ei näy aliluokille eikä aliluokalla ole mitään suoraa tapaa päästä käsiksi siihen. Moottori-luokasta ei siis pääse suoraan käsiksi yliluokassa Osa määriteltyihin muuttujiin tunnus, valmistaja, kuvaus. Tällä tarkoitetaan sitä, että Moottori-luokassa ohjelmoija ei voi suoraan käsitellä niitä yliluokan muuttujia, joilla on näkyvyysmääre private.
+<!-- Aliluokka näkee kaiken yliluokan julkisen eli `public`-määreellä varustetun kaluston. Jos halutaan määritellä yliluokkaan joitain muuttujia tai metodeja joiden näkeminen halutaan sallia aliluokille, mutta estää muilta, voidaan käyttää näkyvyysmäärettä `protected`. -->
+
+A subclass sees everything that is defined with the `public` modifier in the superclass. If we want to define some variables or methods that are visible to the subclasses but invisible to everything else, we can use the access modifier `protected` to achieve this.
+
+<!-- ## Yliluokan konstruktorin kutsuminen -->
+
+## Calling the constructor of the superclass
+
+<!-- Yliluokan konstruktoria kutsutaan avainsanalla `super`. Kutsulle annetaan parametrina yliluokan konstruktorin vaatiman tyyppiset arvot. Mikäli yliluokalla on useampi konstruktori, super-kutsulle annettavat parametrit määräävät kutsuttavan konstruktorin. -->
+
+You use the keyword `super` to call the constructor of the superclass. The call receives as parameters the types of values that the superclass constructor requires. If there are multiple constructors in the superclass, the parameters of the super call dictate which of them is used.
+
+<!-- Konstruktorikutsun yhteydessä yliluokassa määritellyt muuttujat alustetaan. Konstruktorikutsussa tapahtuu käytännössä täysin samat asiat kuin normaalissa konstruktorikutsussa. Mikäli yliluokassa ei ole määritelty parametritonta konstruktoria, tulee aliluokan konstruktorikutsuissa olla aina mukana yliluokan konstruktorikutsu. -->
+
+When the constructor (of the subclass) is called, the variables defined in the superclass are initialized. The events that occur during the constructor call are practically identical to what happens with a normal constructor call. If the superclass doesn't provide a non-parameterized constructor, there must always be an explicit call to the constructor of the superclass in the constructors of the subclass.
+
+<!-- Alla olevassa esimerkissä demonstroidaan `this`-kutsua ja `super`-kutsua. Luokka `Yliluokka` sisältää oliomuuttujan ja kaksi konstruktoria. Toinen konstruktoreista kutsuu toista `this`-kutsulla. Luokka `Aliluokka` sisältää parametrillisen konstruktorin, mutta sillä ei ole yhtäkään oliomuuttujaa. Luokan `Aliluokka`-konstruktori kutsuu luokan `Yliluokka` parametrillista konstruktoria. -->
+
+We demonstrate in the example below how to call `this` and `super`. The class `Superclass` includes an object variable and two constructors. One of them calls the other constructor with the `this` keyword. The class `Subclass` includes a parameterized constructor, but it has no object variables. The constructor of `Subclass` calls the parameterized constructor of the `Superclass`.
 
 
-Aliluokka näkee kaiken yliluokan julkisen eli `public`-määreellä varustetun kaluston. Jos halutaan määritellä yliluokkaan joitain muuttujia tai metodeja joiden näkeminen halutaan sallia aliluokille, mutta estää muilta, voidaan käyttää näkyvyysmäärettä `protected`.
-
-
-## Yliluokan konstruktorin kutsuminen
-
-
-Yliluokan konstruktoria kutsutaan avainsanalla `super`. Kutsulle annetaan parametrina yliluokan konstruktorin vaatiman tyyppiset arvot. Mikäli yliluokalla on useampi konstruktori, super-kutsulle annettavat parametrit määräävät kutsuttavan konstruktorin.
-
-
-Konstruktorikutsun yhteydessä yliluokassa määritellyt muuttujat alustetaan. Konstruktorikutsussa tapahtuu käytännössä täysin samat asiat kuin normaalissa konstruktorikutsussa. Mikäli yliluokassa ei ole määritelty parametritonta konstruktoria, tulee aliluokan konstruktorikutsuissa olla aina mukana yliluokan konstruktorikutsu.
-
-
-Alla olevassa esimerkissä demonstroidaan `this`-kutsua ja `super`-kutsua. Luokka `Yliluokka` sisältää oliomuuttujan ja kaksi konstruktoria. Toinen konstruktoreista kutsuu toista `this`-kutsulla. Luokka `Aliluokka` sisältää parametrillisen konstruktorin, mutta sillä ei ole yhtäkään oliomuuttujaa. Luokan `Aliluokka`-konstruktori kutsuu luokan `Yliluokka` parametrillista konstruktoria.
-
-
-```java
+<!-- ```java
 public class Yliluokka {
 
     private String oliomuuttuja;
@@ -271,49 +404,88 @@ public class Yliluokka {
         return this.oliomuuttuja;
     }
 }
-```
-
+``` -->
 
 ```java
-public class Aliluokka extends Yliluokka {
+public class Superclass {
 
-    public Aliluokka() {
-        super("Aliluokka");
+    private String objectVariable;
+
+    public Superclass() {
+        this("Example");
+    }
+
+    public Superclass(String value) {
+        this.objectVariable = value;
+    }
+
+    public String toString() {
+        return this.objectVariable;
+    }
+}
+```
+
+```java
+public class Subclass extends Superclass {
+
+    public Subclass() {
+        super("Subclass");
     }
 }
 ```
 
 
-```java
+<!-- ```java
 Yliluokka y = new Yliluokka();
 Aliluokka a = new Aliluokka();
 
 System.out.println(y);
 System.out.println(a);
+``` -->
+
+```java
+Superclass sup = new Superclass();
+Subclass sub = new Subclass();
+
+System.out.println(sup);
+System.out.println(sub);
 ```
 
-
-<sample-output>
+<!-- <sample-output>
 
 Esimerkki
 Aliluokka
 
+</sample-output> -->
+
+<sample-output>
+
+Example
+Subclass
+
 </sample-output>
 
+<!-- ## Yliluokan metodin kutsuminen -->
 
-## Yliluokan metodin kutsuminen
+## Calling a superclass method
 
+<!-- Yliluokassa määriteltyjä metodeja voi kutsua `super`-etuliitteen avulla, aivan kuten tässä luokassa määriteltyjä metodeja voi kutsua `this`-etuliitteellä. Esimerkiksi yliluokassa määriteltyä `toString`-metodia voi hyödyntää sen korvaavassa metodissa seuraavasti: -->
 
-Yliluokassa määriteltyjä metodeja voi kutsua `super`-etuliitteen avulla, aivan kuten tässä luokassa määriteltyjä metodeja voi kutsua `this`-etuliitteellä. Esimerkiksi yliluokassa määriteltyä `toString`-metodia voi hyödyntää sen korvaavassa metodissa seuraavasti:
+You can call the methods defined in the superclass by prefixing the call with `super`, just as you can call the methods defined in this class by prefixing the call with `this`. For example, when overriding the `toString` method, you can call the superclass's definition of that method in the following manner:
 
-
-```java
+<!-- ```java
 @Override
 public String toString() {
     return super.toString() + "\n  Ja oma viestini vielä!";
 }
-```
+``` -->
 
+```java
+@Override
+public String toString() {
+    return super.toString() + "\n  And let's add my own message to it!";
+}
+```
 
 <programming-exercise name='Person and subclasses (5 parts)' tmcname='part09-Part09_02.PersonAndSubclasses' nocoins='true'>
 
@@ -574,29 +746,43 @@ Ollie
 
 
 
-## Olion todellinen tyyppi määrää suoritettavan metodin
+<!-- ## Olion todellinen tyyppi määrää suoritettavan metodin -->
+
+## The actual type of an object dictates which method is executed
+
+<!-- Olion kutsuttavissa olevat metodit määrittyvät muuttujan tyypin kautta. Esimerkiksi jos edellä toteutetun `Opiskelija`-tyyppisen olion viite on talletettu `Person`-tyyppiseen muuttujaan, on oliosta käytössä vain `Person`-luokassa määritellyt metodit (sekä Person-luokan yliluokan ja rajapintojen metodit): -->
+
+An object's type decides what the methods provided by the object are. For instance, we implemented the class `Student` earlier. If a reference to a `Student` type object is stored in a `Person` type variable, only the methods defined in the `Person` class (and its superclass and interfaces) are available:
 
 
-Olion kutsuttavissa olevat metodit määrittyvät muuttujan tyypin kautta. Esimerkiksi jos edellä toteutetun `Opiskelija`-tyyppisen olion viite on talletettu `Person`-tyyppiseen muuttujaan, on oliosta käytössä vain `Person`-luokassa määritellyt metodit (sekä Person-luokan yliluokan ja rajapintojen metodit):
-
-
-```java
+<!-- ```java
 Person olli = new Opiskelija("Olli", "Ida Albergintie 1 00400 Helsinki");
 olli.opintopisteita();        // EI TOIMI!
 olli.opiskele();              // EI TOIMI!
 System.out.println(olli);   // olli.toString() TOIMII
-```
-
-Oliolla on siis käytössä jokainen sen tyyppiin sekä sen yliluokkiin ja rajapintoihin liittyvä metodi. Esimerkiksi Opiskelija-tyyppisellä oliolla on käytössä Person-luokassa määritellyt metodit sekä Object-luokassa määritellyt metodit.
-
-
-Edellisessä tehtävässä korvasimme Opiskelijan luokalta Henkilö perimän `toString` uudella versiolla. Myös luokka Henkilö oli jo korvannut Object-luokalta perimänsä toStringin. Jos käsittelemme olioa jonkun muun kuin sen todellisen tyypin kautta, mitä versiota olion metodista kutsutaan?
-
-
-Seuraavassa esimerkissä kahta opiskelijaa käsitellään erityyppisten muuttujien kautta. Mikä versio metodista toString suoritetaan, luokassa Object, Person vai Opiskelija määritelty?
-
+``` -->
 
 ```java
+Person ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
+ollie.credits();        // DOESN'T WORK!
+ollie.study();              // DOESN'T WORK!
+System.out.println(owen);   // ollie.toString() WORKS
+```
+
+<!-- Oliolla on siis käytössä jokainen sen tyyppiin sekä sen yliluokkiin ja rajapintoihin liittyvä metodi. Esimerkiksi Opiskelija-tyyppisellä oliolla on käytössä Person-luokassa määritellyt metodit sekä Object-luokassa määritellyt metodit. -->
+
+So an object has at its disposal the methods that relate to its type, and also to its superclasses and interfaces. The Student object above offers the methods defined in the the classes Person and Object.
+
+<!-- Edellisessä tehtävässä korvasimme Opiskelijan luokalta Henkilö perimän `toString` uudella versiolla. Myös luokka Henkilö oli jo korvannut Object-luokalta perimänsä toStringin. Jos käsittelemme olioa jonkun muun kuin sen todellisen tyypin kautta, mitä versiota olion metodista kutsutaan? -->
+
+In the last exercise we wrote a new `toString` implementation for Student to override the method that it inherits from Person. The class Person had already overriden the toString method it inherited from the class Object. If we handle an object by some other type than its actual type, which version of the object's method is called?
+
+
+<!-- Seuraavassa esimerkissä kahta opiskelijaa käsitellään erityyppisten muuttujien kautta. Mikä versio metodista toString suoritetaan, luokassa Object, Person vai Opiskelija määritelty? -->
+
+In the following example, we'll have two students that we refer to by variables of different types. Which version of the toString method will be executed: the one defined in Objecct, Person, or Student?
+
+<!-- ```java
 Opiskelija olli = new Opiskelija("Olli", "Ida Albergintie 1 00400 Helsinki");
 System.out.println(olli);
 Person olliPerson = new Opiskelija("Olli", "Ida Albergintie 1 00400 Helsinki");
@@ -606,9 +792,21 @@ System.out.println(olliObject);
 
 Object liisa = new Opiskelija("Liisa", "Väinö Auerin katu 20 00500 Helsinki");
 System.out.println(liisa);
+``` -->
+
+```java
+Student ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
+System.out.println(ollie);
+Person olliePerson = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
+System.out.println(olliePerson);
+Object ollieObject = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
+System.out.println(ollieObject);
+
+Object alice = new Student("Alice", "177 Stewart Ave. Farmington, ME 04938");
+System.out.println(alice);
 ```
 
-<sample-output>
+<!-- <sample-output>
 Olli
   Ida Albergintie 1 00400 Helsinki
   opintopisteitä 0
@@ -621,26 +819,52 @@ Olli
 Liisa
   Väinö Auerin katu 20 00500 Helsinki
   opintopisteitä 0
+</sample-output> -->
+
+<sample-output>
+Ollie
+  6381 Hollywood Blvd. Los Angeles 90028
+  credits 0
+Ollie
+  6381 Hollywood Blvd. Los Angeles 90028
+  credits 0
+Ollie
+  6381 Hollywood Blvd. Los Angeles 90028
+  credits 0
+Alice
+  177 Stewart Ave. Farmington, ME 04938
+  credits 0
 </sample-output>
 
+<!-- Suoritettava metodi valitaan olion todellisen tyypin perusteella, eli sen luokan perusteella, jonka konstruktoria kutsutaan kun olio luodaan. Jos kutsuttua metodia ei ole määritelty luokassa, suoritetaan perintähierarkiassa olion todellista tyyppiä lähinnä oleva metodin toteutus. -->
 
-Suoritettava metodi valitaan olion todellisen tyypin perusteella, eli sen luokan perusteella, jonka konstruktoria kutsutaan kun olio luodaan. Jos kutsuttua metodia ei ole määritelty luokassa, suoritetaan perintähierarkiassa olion todellista tyyppiä lähinnä oleva metodin toteutus.
+The method to be executed is chosen based on the actual type of the object, which means the class whose constructor is called when the object is created. If the method has no definition in that class, the version of the method is chosen from the class that is closest to the actual type in the inheritance hierarchy.
 
 
-<text-box variant='hint' name='Polymorfismi'>
+<!-- <text-box variant='hint' name='Polymorfismi'>
 
 Suoritettava metodi valitaan aina olion todellisen tyypin perusteella riippumatta käytetyn muuttujan tyypistä. Oliot ovat monimuotoisia, eli olioita voi käyttää usean eri muuttujatyypin kautta. Suoritettava metodi liittyy aina olion todelliseen tyyppiin. Tätä monimuotoisuutta kutsutaan polymorfismiksi.
 
+</text-box> -->
+
+<text-box variant='hint' name='Polymorphism'>
+
+<!-- Suoritettava metodi valitaan aina olion todellisen tyypin perusteella riippumatta käytetyn muuttujan tyypistä. Oliot ovat monimuotoisia, eli olioita voi käyttää usean eri muuttujatyypin kautta. Suoritettava metodi liittyy aina olion todelliseen tyyppiin. Tätä monimuotoisuutta kutsutaan polymorfismiksi. -->
+
+Regardless of the type of the variable, the method that is executed is always chosen based on the actual type of the object. Objects are polymorphic, which means that they can be used via many different variable types. The executed method always relates to the actual type of the object. This phenomenon is called polymorphism.
+
 </text-box>
 
+<!-- Tarkastellaan Polymorfismia toisen esimerkin avulla. -->
 
-Tarkastellaan Polymorfismia toisen esimerkin avulla.
+Let's examine polymorphism with another example.
+
+<!-- Kaksiulotteisessa koordinaatiostossa sijaitsevaa pistettä voisi kuvata seuraavan luokan avulla: -->
+
+You could represent a point in two-dimensional coordinate system with the following class:
 
 
-Kaksiulotteisessa koordinaatiostossa sijaitsevaa pistettä voisi kuvata seuraavan luokan avulla:
-
-
-```java
+<!-- ```java
 public class Piste {
 
     private int x;
@@ -664,16 +888,46 @@ public class Piste {
         return "(" + this.sijainti() + ") etäisyys " + this.manhattanEtaisyysOrigosta();
     }
 }
+``` -->
+
+```java
+public class Point {
+
+    private int x;
+    private int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int manhattanDistanceFromOrigin() {
+        return Math.abs(x) + Math.abs(y);
+    }
+
+    protected String location(){
+        return x + ", " + y;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + this.location() + ") distance " + this.manhattanDistanceFromOrigin();
+    }
+}
 ```
 
 
-Metodi `sijainti` ei ole tarkoitettu ulkoiseen käyttöön, joten se on näkyvyysmääreeltään protected, eli aliluokat pääsevät siihen käsiksi. Esimerkiksi reitinhakualgoritmien hyödyntämällä <a href="http://en.wiktionary.org/wiki/Manhattan_distance">Manhattan-etäisyydellä</a> tarkoitetaan pisteiden etäisyyttä, jos niiden välin voi kulkea ainoastaan koordinaattiakselien suuntaisesti.
+<!-- Metodi `sijainti` ei ole tarkoitettu ulkoiseen käyttöön, joten se on näkyvyysmääreeltään protected, eli aliluokat pääsevät siihen käsiksi. Esimerkiksi reitinhakualgoritmien hyödyntämällä <a href="http://en.wiktionary.org/wiki/Manhattan_distance">Manhattan-etäisyydellä</a> tarkoitetaan pisteiden etäisyyttä, jos niiden välin voi kulkea ainoastaan koordinaattiakselien suuntaisesti. -->
+
+The `location` method is not meant for external use, which is why it is defined as protected. Subclasses will still be able to access the method. <a href="http://en.wiktionary.org/wiki/Manhattan_distance">Manhattan distance</a> means the distance between two points if you can only travel in the direction of the coordinate axes. It is used in many navigation algorithms, for example.
 
 
-Värillinen piste on muuten samanlainen kuin piste, mutta se sisältää merkkijonona ilmaistavan värin. Luokka voidaan siis tehdä perimällä Piste.
+<!-- Värillinen piste on muuten samanlainen kuin piste, mutta se sisältää merkkijonona ilmaistavan värin. Luokka voidaan siis tehdä perimällä Piste. -->
+
+A colored point is otherwise identical to a point, but it contains also a color that expressed as a string. Due to the similarity, we can create a new class by extending the class Point.
 
 
-```java
+<!-- ```java
 public class VariPiste extends Piste {
 
     private String vari;
@@ -688,15 +942,34 @@ public class VariPiste extends Piste {
         return super.toString() + " väri: " + vari;
     }
 }
-```
-
-Luokka määrittelee oliomuuttujan värin talletusta varten. Koordinaatit on valmiiksi määriteltynä yliluokassa. Merkkijonoesityksestä halutaan muuten samanlainen kuin pisteellä, mutta väri tulee myös ilmaista. Ylikirjoitettu metodi `toString` kutsuu yliluokan toString-metodia ja lisää sen tulokseen pisteen värin.
-
-
-Seuraavassa on esimerkki, jossa listalle laitetaan muutama piste. Osa pisteistä on "normaaleja" ja osa väripisteitä. Lopulta tulostetaan listalla olevat pisteet. Jokaisen pisteen metodi toString suoritetaan pisteen todellisen tyypin perusteella, vaikka lista tuntee kaikki pisteet `Piste`-tyyppisinä.
-
+``` -->
 
 ```java
+public class ColorPoint extends Point {
+
+    private String color;
+
+    public ColorPoint(int x, int y, String color) {
+        super(x, y);
+        this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " color: " + color;
+    }
+}
+```
+
+<!-- Luokka määrittelee oliomuuttujan värin talletusta varten. Koordinaatit on valmiiksi määriteltynä yliluokassa. Merkkijonoesityksestä halutaan muuten samanlainen kuin pisteellä, mutta väri tulee myös ilmaista. Ylikirjoitettu metodi `toString` kutsuu yliluokan toString-metodia ja lisää sen tulokseen pisteen värin. -->
+
+The class defines an object variable in which we store the color. The coordinates are already defined in the superclass. We want the string representation to be the same as with points, but to also include information about the color. The overriden `toString` method calls the `toString` method of the superclass, and adds to it the color of the point.
+
+<!-- Seuraavassa on esimerkki, jossa listalle laitetaan muutama piste. Osa pisteistä on "normaaleja" ja osa väripisteitä. Lopulta tulostetaan listalla olevat pisteet. Jokaisen pisteen metodi toString suoritetaan pisteen todellisen tyypin perusteella, vaikka lista tuntee kaikki pisteet `Piste`-tyyppisinä. -->
+
+Next we'll add a few points to a list. Some of them are "normal" while others are color points. At the end of the example we'll print the points on the list. For each point, the toString to be executed is determined by the actual type of the point, even though the list knows all the points by the `Point` type.
+
+<!-- ```java
 public class Main {
     public static void main(String[] args) {
         ArrayList<Piste> pisteet = new ArrayList<>();
@@ -710,20 +983,43 @@ public class Main {
         }
     }
 }
+``` -->
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Point> points = new ArrayList<>();
+        points.add(new Point(4, 8));
+        points.add(new ColorPoint(1, 1, "green"));
+        points.add(new ColorPoint(2, 5, "blue"));
+        points.add(new Point(0, 0));
+
+        for (Point p: points) {
+            System.out.println(p);
+        }
+    }
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 (4, 8) etäisyys 12
 (1, 1) etäisyys 2 väri: vihreä
 (2, 5) etäisyys 7 väri: sininen
 (0, 0) etäisyys 0
+</sample-output> -->
+
+<sample-output>
+(4, 8) distance 12
+(1, 1) distance 2 color: green
+(2, 5) distance 7 color: blue
+(0, 0) distance 0
 </sample-output>
 
+<!-- Haluamme ohjelmaamme myös kolmiulotteisen pisteen. Koska kyseessä ei ole värillinen versio, periytetään se luokasta piste. -->
 
-Haluamme ohjelmaamme myös kolmiulotteisen pisteen. Koska kyseessä ei ole värillinen versio, periytetään se luokasta piste.
+We also want to include a three-dimensional point in our program. Since it has no color information, let's derive it from the class `Point`.
 
-
-```java
+<!-- ```java
 public class Piste3D extends Piste {
 
     private int z;
@@ -750,12 +1046,43 @@ public class Piste3D extends Piste {
         return "(" + this.sijainti() + ") etäisyys " + this.manhattanEtaisyysOrigosta();
     }
 }
-```
-
-Kolmiulotteinen piste siis määrittelee kolmatta koordinaattia vastaavan oliomuuttujan ja ylikirjoittaa metodit `sijainti`, `manhattanEtaisyysOrigosta` ja `toString` siten, että ne huomioivat kolmannen ulottuvuuden. Voimme nyt laajentaa edellistä esimerkkiä ja lisätä listalle myös kolmiulotteisia pisteitä.
-
+``` -->
 
 ```java
+public class Point3D extends Point {
+
+    private int z;
+
+    public Point3D(int x, int y, int z) {
+        super(x, y);
+        this.z = z;
+    }
+
+    @Override
+    protected String location() {
+        return super.location() + ", " + z;    // the resulting string has the form "x, y, z"
+    }
+
+    @Override
+    public int manhattanDistanceFromOrigin() {
+        // first ask the superclass for the distance based on x and y
+        // and add the effect of the z coordinate to that result
+        return super.manhattanDistanceFromOrigin() + Math.abs(z);
+    }
+
+    @Override
+    public String toString() {
+        return "(" + this.location() + ") distance " + this.manhattanDistanceFromOrigin();
+    }
+}
+```
+
+<!-- Kolmiulotteinen piste siis määrittelee kolmatta koordinaattia vastaavan oliomuuttujan ja ylikirjoittaa metodit `sijainti`, `manhattanEtaisyysOrigosta` ja `toString` siten, että ne huomioivat kolmannen ulottuvuuden. Voimme nyt laajentaa edellistä esimerkkiä ja lisätä listalle myös kolmiulotteisia pisteitä. -->
+
+So a three-dimensional point defines an object variable that represents the third dimension, and overrides the methods `location`, `manhattanDistanceFromOrigin`, and `toString` so that they also account for the third dimension. Let's now expand the previous example and add also three-dimensional points to the list.
+
+
+<!-- ```java
 public class Main {
 
     public static void main(String[] args) {
@@ -772,9 +1099,28 @@ public class Main {
         }
     }
 }
+``` -->
+
+```java
+public class Main {
+
+    public static void main(String[] args) {
+        ArrayList<Point> points = new ArrayList<>();
+        points.add(new Point(4, 8));
+        points.add(new ColorPoint(1, 1, "green"));
+        points.add(new ColorPoint(2, 5, "blue"));
+        points.add(new Point3D(5, 2, 8));
+        points.add(new Point(0, 0));
+
+
+        for (Point p: points) {
+            System.out.println(p);
+        }
+    }
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 (4, 8) etäisyys 12
 (1, 1) etäisyys 2 väri: vihreä
@@ -782,13 +1128,24 @@ public class Main {
 (5, 2, 8) etäisyys 15
 (0, 0) etäisyys 0
 
+</sample-output> -->
+
+<sample-output>
+
+(4, 8) distance 12
+(1, 1) distance 2 color: green
+(2, 5) distance 7 color: blue
+(5, 2, 8) distance 15
+(0, 0) distance 0
+
 </sample-output>
 
+<!-- Huomamme, että kolmiulotteisen pisteen metodi `toString` on täsmälleen sama kuin pisteen toString. Voisimmeko jättää toStringin ylikirjoittamatta? Vastaus on kyllä! Kolmiulotteinen piste pelkistyy seuraavanlaiseksi. -->
 
-Huomamme, että kolmiulotteisen pisteen metodi `toString` on täsmälleen sama kuin pisteen toString. Voisimmeko jättää toStringin ylikirjoittamatta? Vastaus on kyllä! Kolmiulotteinen piste pelkistyy seuraavanlaiseksi.
+We notice that the `toString` method in Point3D is exactly the same as the toString of Point. Could we save some effort and not override toString? The answer happens to be yes! The Point3D class is refined into this:
 
 
-```java
+<!-- ```java
 public class Piste3D extends Piste {
 
     private int z;
@@ -808,56 +1165,101 @@ public class Piste3D extends Piste {
         return super.manhattanEtaisyysOrigosta() + Math.abs(z);
     }
 }
+``` -->
+
+```java
+public class Point3D extends Point {
+
+    private int z;
+
+    public Point3D(int x, int y, int z) {
+        super(x, y);
+        this.z = z;
+    }
+
+    @Override
+    protected String location() {
+        return super.location() + ", " + z;
+    }
+
+    @Override
+    public int manhattanDistanceFromOrigin() {
+        return super.manhattanDistanceFromOrigin() + Math.abs(z);
+    }
+}
 ```
 
+<!-- Mitä tarkalleen ottaen tapahtuu kuin kolmiulotteiselle pisteelle kutsutaan toString-metodia? Suoritus etenee seuraavasti. -->
 
-Mitä tarkalleenottaen tapahtuu kuin kolmiulotteiselle pisteelle kutsutaan toString-metodia? Suoritus etenee seuraavasti.
+What happens in detail when we call the toString method of a three-dimensional point? The execution advances in the following manner.
 
 
 
-1. etsitään toString:in määrittelyä luokasta Piste3D, sitä ei löydy joten mennään yliluokkaan
+<!-- 1. etsitään toString:in määrittelyä luokasta Piste3D, sitä ei löydy joten mennään yliluokkaan
 2. etsitään toString:in määrittelyä yliluokasta Piste, metodi löytyy, joten suoritetaan sen koodi
     * suoritettava koodi siis on `return "("+this.sijainti()+") etäisyys "+this.manhattanEtaisyysOrigosta();`
     * esimmäisenä suoritetaan metodi sijainti
     * etsitään metodin sijainti määrittelyä luokasta Piste3D, metodi löytyy ja suoritetaan sen koodi
     * metodin sijainti laskee oman tuloksensa kutsumalla yliluokassa olevaa metodia sijainti
     * seuraavaksi etsitään metodin manhattanEtaisyysOrigosta määrittelyä luokasta Piste3D, metodi löytyy ja suoritetaan sen koodi
-    * jälleen metodi laskee tuloksensa kutsuen ensin yliluokassa olevaa samannimistä metodia
+    * jälleen metodi laskee tuloksensa kutsuen ensin yliluokassa olevaa samannimistä metodia -->
+
+1. Look for a definition of toString in the class Point3D. It does not exist, so the superclass is next to be examined.
+2. Look for a definition of toString in the superclass point. It can be found, so the code inside the implementation of the method is executed
+    * so the exact code to be executed is `return "("+this.location()+") distance "+this.manhattanDistanceFromOrigin();`
+    * the method `location` is executed first
+    * look for a definition of `location` in the class Point3D. It can be found, so its code is executed.
+    * This `location` calls the `location` of the superclass to calculate the result
+    * next we look for a definition of `manhattanDistanceFromOrigin` in the Point3D class. It's found and its code is then executed
+    * Again, the method calls the similarly named method of the superclass during its execution
 
 
-Metodikutsun aikaansaama toimintoketju siis on monivaiheinen. Periaate on kuitenkin selkeä: suoritettavan metodin määrittelyä etsitään ensin olion todellisen tyypin määrittelystä ja jos sitä ei löydy edetään yliluokkaan. Ja jos yliluokastakaan ei löydy metodin toteutusta siirrytään etsimään yliluokan yliluokasta jne...
+<!-- Metodikutsun aikaansaama toimintoketju siis on monivaiheinen. Periaate on kuitenkin selkeä: suoritettavan metodin määrittelyä etsitään ensin olion todellisen tyypin määrittelystä ja jos sitä ei löydy edetään yliluokkaan. Ja jos yliluokastakaan ei löydy metodin toteutusta siirrytään etsimään yliluokan yliluokasta jne... -->
 
+As we can see, the sequence of events caused by the method call has multiple steps. The principle, however, is clear: The definition for the method is first searched for in the class definition of the actual type of the object. If it is not found, we next examine the superclass. If the definition cannot be found there, either, we move on to the superclass of this superclass, etc...
 
 <quiz id="7f53bd2a-48b3-541e-8d6a-d0cd64e16733"></quiz>
 
 <quiz id="439cf6ac-da31-5a1e-bccf-2fd154841f7a"></quiz>
 
 
-<quiz id="be260d99-07e1-5c20-843a-9f1e563ae07c"></quiz>
+<quiz id="cd07625c-a98e-59a2-8b30-9c25790c48c6"></quiz>
 
-## Milloin perintää kannattaa käyttää?
+<!-- ## Milloin perintää kannattaa käyttää? -->
 
-
-Perintä on väline käsitehierarkioiden rakentamiseen ja erikoistamiseen; aliluokka on aina yliluokan erikoistapaus. Jos luotava luokka on olemassaolevan luokan erikoistapaus, voidaan uusi luokka luoda perimällä olemassaoleva luokka. Esimerkiksi auton osiin liittyvässä esimerkissä moottori *on* osa, mutta moottoriin liittyy lisätoiminnallisuutta mitä jokaisella osalla ei ole.
-
-
-Perittäessä aliluokka saa käyttöönsä yliluokan toiminnallisuudet. Jos aliluokka ei tarvitse tai käytä perittyä toiminnallisuutta, ei perintä ole perusteltua. Perityt luokat perivät yliluokkiensa metodit ja rajapinnat, eli aliluokkia voidaan käyttää missä tahansa missä yliluokkaa on käytetty. Perintähierarkia kannattaa pitää matalana, sillä hierarkian ylläpito ja jatkokehitys vaikeutuu perintöhierarkian kasvaessa. Yleisesti ottaen, jos perintähierarkian korkeus on yli 2 tai 3, ohjelman rakenteessa on todennäköisesti parannettavaa.
+## When is inheritance worth using?
 
 
-Perinnän käyttöä tulee miettiä. Esimerkiksi luokan `Auto` periminen luokasta `Osa` (tai `Moottori`) olisi väärin. Auto *sisältää* moottorin ja osia, mutta auto ei ole moottori tai osa. Voimme yleisemmin ajatella että **jos olio omistaa tai koostuu toisista olioista, ei perintää tule käyttää**.
+<!-- Perintä on väline käsitehierarkioiden rakentamiseen ja erikoistamiseen; aliluokka on aina yliluokan erikoistapaus. Jos luotava luokka on olemassaolevan luokan erikoistapaus, voidaan uusi luokka luoda perimällä olemassaoleva luokka. Esimerkiksi auton osiin liittyvässä esimerkissä moottori *on* osa, mutta moottoriin liittyy lisätoiminnallisuutta mitä jokaisella osalla ei ole. -->
+
+Inheritance is a tool for building and specializing hierarchies of concepts; a subclass is always a special case of the superclass. If the class to be created is a special case of an existing class, this new class could be created by extending the existing class. For example, in the previously discussed car part scenario an engine **is** a part, but an engine has extra functionality that not all parts have.
+
+<!-- Perittäessä aliluokka saa käyttöönsä yliluokan toiminnallisuudet. Jos aliluokka ei tarvitse tai käytä perittyä toiminnallisuutta, ei perintä ole perusteltua. Perityt luokat perivät yliluokkiensa metodit ja rajapinnat, eli aliluokkia voidaan käyttää missä tahansa missä yliluokkaa on käytetty. Perintähierarkia kannattaa pitää matalana, sillä hierarkian ylläpito ja jatkokehitys vaikeutuu perintöhierarkian kasvaessa. Yleisesti ottaen, jos perintähierarkian korkeus on yli 2 tai 3, ohjelman rakenteessa on todennäköisesti parannettavaa. -->
+
+When inheriting, the subclass receives the functionality of the superclass. If the subclass doesn't need or use some of the inherited functionality, inheritance is not justifiable. Classes that inherit will inherit all the methods and interfaces from the superclass, so the subclass can be used in place of the superclass wherever the superclass is used. It's a good idea to keep the inheritance hierarchy shallow, since maintaining and further developing the hierarchy becomes more difficult as it grows larger. Generally speaking, if your inheritance hierarchy is more than 2 or 3 levels deep, the structure of the program could probably be improved.
 
 
-Perintää käytettäessä tulee varmistaa että <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank">Single Responsibility Principle</a> pätee myös perittäessä. Jokaisella luokalla tulee olla vain yksi syy muuttua. Jos huomaat että perintä lisää luokan vastuita, tulee luokka pilkkoa useammaksi luokaksi.
+<!-- Perinnän käyttöä tulee miettiä. Esimerkiksi luokan `Auto` periminen luokasta `Osa` (tai `Moottori`) olisi väärin. Auto *sisältää* moottorin ja osia, mutta auto ei ole moottori tai osa. Voimme yleisemmin ajatella että **jos olio omistaa tai koostuu toisista olioista, ei perintää tule käyttää**. -->
+
+Inheritance is not useful in every scenario. For instance, extending the class `Car` with the class `Part` (or `Engine`) would be incorrect. A car **includes** an engine and parts, but an engine or a part is not a car. More generally, **if an object owns or is composed of other objects, inheritance should not be used**.
+
+
+<!-- Perintää käytettäessä tulee varmistaa että <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank">Single Responsibility Principle</a> pätee myös perittäessä. Jokaisella luokalla tulee olla vain yksi syy muuttua. Jos huomaat että perintä lisää luokan vastuita, tulee luokka pilkkoa useammaksi luokaksi. -->
+
+When using inheritance, you should take care to ensure that the <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank">Single Responsibility Principle</a> holds true. There should only be one reason for each class to change. If you notice that inheriting adds more responsibilities to a class, you should form multiple classes of the class.
 
 <br/>
 
-### Esimerkki perinnän väärinkäytöstä
+<!-- ### Esimerkki perinnän väärinkäytöstä -->
+
+### Example of misusing inheritance
+
+<!-- Pohditaan postituspalveluun liittyviä luokkia `Asiakas`, joka sisältää asiakkaan tiedot, ja `Tilaus`, joka perii asiakkaan tiedot ja sisältää tilattavan tavaran tiedot. Luokassa `Tilaus` on myös metodi `postitusOsoite`, joka kertoo tilauksen postitusosoitteen. -->
+
+Let's consider a postal service and some related classes. `Customer` includes the information related to a customer, and the class `Order` that inherits from the `Customer` class and includes the information about the ordered item. The class `Order` also has a method called `postalAddress` which represents the postal address that the order is shipped to.
 
 
-Pohditaan postituspalveluun liittyviä luokkia `Asiakas`, joka sisältää asiakkaan tiedot, ja `Tilaus`, joka perii asiakkaan tiedot ja sisältää tilattavan tavaran tiedot. Luokassa `Tilaus` on myös metodi `postitusOsoite`, joka kertoo tilauksen postitusosoitteen.
-
-
-```java
+<!-- ```java
 public class Asiakas {
 
     private String nimi;
@@ -880,9 +1282,34 @@ public class Asiakas {
         this.osoite = osoite;
     }
 }
-```
+``` -->
 
 ```java
+public class Customer {
+
+    private String name;
+    private String address;
+
+    public Customer(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+}
+```
+
+<!-- ```java
 public class Tilaus extends Asiakas {
 
     private String tuote;
@@ -906,22 +1333,55 @@ public class Tilaus extends Asiakas {
         return this.getNimi() + "\n" + this.getOsoite();
     }
 }
+``` -->
+
+```java
+public class Order extends Customer {
+
+    private String product;
+    private String count;
+
+    public Order(String product, String count, String name, String address) {
+        super(name, address);
+        this.product = product;
+        this.count = count;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public String getCount() {
+        return count;
+    }
+
+    public String postalAddress() {
+        return this.getName() + "\n" + this.getAddress();
+    }
+}
 ```
 
 
-Yllä perintää on käytetty väärin. Luokkaa perittäessä aliluokan tulee olla yliluokan erikoistapaus; tilaus ei ole asiakkaan erikoistapaus. Väärinkäyttö ilmenee single responsibility principlen rikkomisena: luokalla `Tilaus` on vastuu sekä asiakkaan tietojen ylläpidosta, että tilauksen tietojen ylläpidosta.
+<!-- Yllä perintää on käytetty väärin. Luokkaa perittäessä aliluokan tulee olla yliluokan erikoistapaus; tilaus ei ole asiakkaan erikoistapaus. Väärinkäyttö ilmenee single responsibility principlen rikkomisena: luokalla `Tilaus` on vastuu sekä asiakkaan tietojen ylläpidosta, että tilauksen tietojen ylläpidosta. -->
+
+Above inheritance is not used correctly. When inheriting, the subclass must be a special case of the superclass; an order is definitely not a special case of a customer. The misuse shows itself in how the code breaks the single responsibility principle: the `Order` class is responsible both for maintaining the customer information and the order information.
 
 
-Ratkaisussa piilevä ongelma tulee esiin kun mietimme mitä käy asiakkaan osoitteen muuttuessa.
+<!-- Ratkaisussa piilevä ongelma tulee esiin kun mietimme mitä käy asiakkaan osoitteen muuttuessa. -->
+
+The problem becomes very clear when we think of what a change in a customer's address would cause.
 
 
-Osoitteen muuttuessa joutuisimme muuttamaan *jokaista* kyseiseen asiakkaaseen liittyvää tilausoliota, mikä ei missään nimessä ole toivottua. Parempi ratkaisu olisi kapseloida `Asiakas` `Tilaus`-luokan oliomuuttujaksi. Jos ajattelemme tarkemmin tilauksen semantiikkaa, tämä on selvää. *Tilauksella on asiakas*.
+<!-- Osoitteen muuttuessa joutuisimme muuttamaan *jokaista* kyseiseen asiakkaaseen liittyvää tilausoliota, mikä ei missään nimessä ole toivottua. Parempi ratkaisu olisi kapseloida `Asiakas` `Tilaus`-luokan oliomuuttujaksi. Jos ajattelemme tarkemmin tilauksen semantiikkaa, tämä on selvää. *Tilauksella on asiakas*. -->
+
+In the case that an address changes, we would have to change *every* order object that relates to that customer. This is hardly ideal. A better solution would be to encapsulate the customer as an object variable of the `Order` class. Thinking more closely on the semantcis of an order, this seems intuitive. *An order has a customer*.
 
 
-Muutetaan luokkaa `Tilaus` siten, että se sisältää `Asiakas`-viitteen.
+<!-- Muutetaan luokkaa `Tilaus` siten, että se sisältää `Asiakas`-viitteen. -->
 
+Let's modify the `Order` class so that it includes a reference to a `Customer` object.
 
-```java
+<!-- ```java
 public class Tilaus {
 
     private Asiakas asiakas;
@@ -946,10 +1406,38 @@ public class Tilaus {
         return this.asiakas.getNimi() + "\n" + this.asiakas.getOsoite();
     }
 }
+``` -->
+
+```java
+public class Order {
+
+    private Customer customer;
+    private String product;
+    private String count;
+
+    public Order(Customer customer, String product, String count) {
+        this.customer = customer;
+        this.product = product;
+        this.count = count;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public String getCount() {
+        return count;
+    }
+
+    public String postalAddress() {
+        return this.customer.getName() + "\n" + this.customer.getAddress();
+    }
+}
 ```
 
-Yllä oleva luokka `Tilaus` on nyt parempi. Metodi `postitusosoite` käyttää *asiakas*-viitettä postitusosoitteen saamiseen sen sijaan että luokka perisi luokan `Asiakas`. Tämä helpottaa sekä ohjelman ylläpitoa, että sen konkreettista toiminnallisuutta.
+<!-- Yllä oleva luokka `Tilaus` on nyt parempi. Metodi `postitusosoite` käyttää *asiakas*-viitettä postitusosoitteen saamiseen sen sijaan että luokka perisi luokan `Asiakas`. Tämä helpottaa sekä ohjelman ylläpitoa, että sen konkreettista toiminnallisuutta. -->
 
+This version of the `Order` class is better. The method `postalAddress` uses the *customer* reference to obtain the postal address instead of inheriting the class `Customer`. This helps both the maintenance of the program and its concrete functionality.
 
 Nyt asiakkaan muuttaessa tarvitsee muuttaa vain asiakkaan tietoja, tilauksiin ei tarvitse tehdä muutoksia.
 
@@ -1147,7 +1635,7 @@ Build on the `ChangeHistory` class by adding analysis methods:
 - **public double minValue()** returns the smallest value in the change history. If the history is empty, the method should return zero.
 
 <!-- - **public double keskiarvo()** palauttaa muutoshistorian arvojen keskiarvon. Jos historia on tyhjä, metodi palauttaa nollan. -->
-- **public double avarage()** returns the average of the values in the change history. If the history is empty, the method should return zero.
+- **public double average()** returns the average of the values in the change history. If the history is empty, the method should return zero.
 
 
 <!-- Metodien ei tule muokata sisäisen listan järjestystä. -->
@@ -1351,19 +1839,25 @@ Average: 992.8
 </programming-exercise>
 
 
-## Abstraktit luokat
+<!-- ## Abstraktit luokat -->
+
+## Abstract classes
 
 
-Perintähierarkiaa pohtiessa tulee joskus esille tilanteita, missä on olemassa selkeä käsite, mutta käsite ei sellaisenaan ole hyvä kandidaatti olioksi. Hyötyisimme käsitteestä perinnän kannalta, sillä se sisältää muuttujia ja toiminnallisuuksia, jotka ovat kaikille käsitteen periville luokille samoja, mutta toisaalta käsitteestä itsestään ei pitäisi pystyä tekemään olioita.
+<!-- Perintähierarkiaa pohtiessa tulee joskus esille tilanteita, missä on olemassa selkeä käsite, mutta käsite ei sellaisenaan ole hyvä kandidaatti olioksi. Hyötyisimme käsitteestä perinnän kannalta, sillä se sisältää muuttujia ja toiminnallisuuksia, jotka ovat kaikille käsitteen periville luokille samoja, mutta toisaalta käsitteestä itsestään ei pitäisi pystyä tekemään olioita. -->
+
+Sometimes, when planning a hierarchy of inheritance, there are cases when there exists a clear concept, but that concept is not a good candidate for an object in itself. The concept would be beneficial from the point of view of inheritance, since it includes variables and functionality that are shared by all the classes that would inherit it. On the other hand, you should not be able to create instances of the concept itself.
+
+<!-- Abstrakti luokka yhdistää rajapintoja ja perintää. Niistä ei voi tehdä ilmentymiä, vaan ilmentymät tehdään abstraktin luokan aliluokista.  Abstrakti luokka voi sisältää sekä normaaleja metodeja, joissa on metodirunko, että abstrakteja metodeja, jotka sisältävät ainoastaan metodimäärittelyn. Abstraktien metodien toteutus jätetään perivän luokan vastuulle. Yleisesti ajatellen abstrakteja luokkia käytetään esimerkiksi kun abstraktin luokan kuvaama käsite ei ole selkeä itsenäinen käsite. Tällöin siitä ei tule pystyä tekemään ilmentymiä. -->
+
+An abstract class combines interfaces and inheritance. You cannot create instances of them -- you can only create instances of subclasses of an abstract class. They can include normal methods which have a method body, but it's also possible to define abstract methods that only contain the method definition. Implementing the abstract methods is the responsibility of subclasses. Generally, abstract classes are used in situations where the concept that the class represents is not a clear independent concept. In such a case you shouldn't be able to create instances of it.
+
+<!-- Sekä abstraktin luokan että abstraktien metodien määrittelyssä käytetään avainsanaa `abstract`. Abstrakti luokka määritellään lauseella `public abstract class *LuokanNimi*`, abstrakti metodi taas lauseella `public abstract palautustyyppi metodinNimi`. Tarkastellaan seuraavaa abstraktia luokkaa `Toiminto`, joka tarjoaa rungon toiminnoille ja niiden suorittamiselle. -->
+
+To define an abstract class or an abstract method the keyword `abstract` is used. An abstract class is defined with the phrase `public abstract class *NameOfClass*`; an abstract method is defined by `public abstract returnType nameOfMethod`. Let's take a look at the following abstract class called `Operation`, which offers a structure for operations and executing them.
 
 
-Abstrakti luokka yhdistää rajapintoja ja perintää. Niistä ei voi tehdä ilmentymiä, vaan ilmentymät tehdään abstraktin luokan aliluokista.  Abstrakti luokka voi sisältää sekä normaaleja metodeja, joissa on metodirunko, että abstrakteja metodeja, jotka sisältävät ainoastaan metodimäärittelyn. Abstraktien metodien toteutus jätetään perivän luokan vastuulle. Yleisesti ajatellen abstrakteja luokkia käytetään esimerkiksi kun abstraktin luokan kuvaama käsite ei ole selkeä itsenäinen käsite. Tällöin siitä ei tule pystyä tekemään ilmentymiä.
-
-
-Sekä abstraktin luokan että abstraktien metodien määrittelyssä käytetään avainsanaa `abstract`. Abstrakti luokka määritellään lauseella `public abstract class *LuokanNimi*`, abstrakti metodi taas lauseella `public abstract palautustyyppi metodinNimi`. Tarkastellaan seuraavaa abstraktia luokkaa `Toiminto`, joka tarjoaa rungon toiminnoille ja niiden suorittamiselle.
-
-
-```java
+<!-- ```java
 public abstract class Toiminto {
 
     private String nimi;
@@ -1378,12 +1872,31 @@ public abstract class Toiminto {
 
     public abstract void suorita(Scanner lukija);
 }
-```
-
-Abstrakti luokka `Toiminto` toimii runkona toimintojen toteuttamiseen. Esimerkiksi pluslaskun voi toteuttaa perimällä luokka `Toiminto` seuraavasti.
-
+``` -->
 
 ```java
+public abstract class Operation {
+
+    private String name;
+
+    public Operation(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public abstract void execute(Scanner scanner);
+}
+```
+
+<!-- Abstrakti luokka `Toiminto` toimii runkona toimintojen toteuttamiseen. Esimerkiksi pluslaskun voi toteuttaa perimällä luokka `Toiminto` seuraavasti. -->
+
+The abstract class `Operation` works as a basis for implementing different actions. For instance, you can implement the plus operation by extending the `Operation` class in the following manner.
+
+
+<!-- ```java
 public class Pluslasku extends Toiminto {
 
     public Pluslasku() {
@@ -1400,72 +1913,102 @@ public class Pluslasku extends Toiminto {
         System.out.println("Lukujen summa on " + (eka + toka));
     }
 }
+``` -->
+
+```java
+public class PlusOperation extends Operation {
+
+    public PlusOperation() {
+        super("PlusOperation");
+    }
+
+    @Override
+    public void execute(Scanner scanner) {
+        System.out.print("First number: ");
+        int first = Integer.valueOf(scanner.nextLine());
+        System.out.print("Second number: ");
+        int second = Integer.valueOf(scanner.nextLine());
+
+        System.out.println("The sum of the numbers is " + (first + second));
+    }
+}
 ```
 
-Koska kaikki `Toiminto`-luokan perivät luokat ovat myös tyyppiä toiminto, voimme rakentaa käyttöliittymän `Toiminto`-tyyppisten muuttujien varaan. Seuraava luokka `Kayttoliittyma` sisaltaa listan toimintoja ja lukijan. Toimintoja voi lisätä käyttöliittymään dynaamisesti.
+<!-- Koska kaikki `Toiminto`-luokan perivät luokat ovat myös tyyppiä toiminto, voimme rakentaa käyttöliittymän `Toiminto`-tyyppisten muuttujien varaan. Seuraava luokka `Kayttoliittyma` sisaltaa listan toimintoja ja lukijan. Toimintoja voi lisätä käyttöliittymään dynaamisesti. -->
+
+Since all the classes that inherit from `Operation` have also the type `Operation`, we can create a user interface by using `Operation` type variables. Next we'll show the class `UserInterface` that contains a list of operations and a scanner. It's possible to add operations to the UI dynamically.
 
 
 ```java
-public class Kayttoliittyma {
+public class UserInterface {
 
-    private Scanner lukija;
-    private ArrayList<Toiminto> toiminnot;
+    private Scanner scanner;
+    private ArrayList<Operation> operations;
 
-    public Kayttoliittyma(Scanner lukija) {
-        this.lukija = lukija;
-        this.toiminnot = new ArrayList<>();
+    public UserInterface(Scanner scanner) {
+        this.scanner = scanner;
+        this.operations = new ArrayList<>();
     }
 
-    public void lisaaToiminto(Toiminto toiminto) {
-        this.toiminnot.add(toiminto);
+    public void addOperation(Operation operation) {
+        this.operations.add(operation);
     }
 
-    public void kaynnista() {
+    public void start() {
         while (true) {
-            tulostaToiminnot();
-            System.out.println("Valinta: ");
+            printOperations();
+            System.out.println("Choice: ");
 
-            String valinta = this.lukija.nextLine();
-            if (valinta.equals("0")) {
+            String choice = this.scanner.nextLine();
+            if (choice.equals("0")) {
                 break;
             }
 
-            suoritaToiminto(valinta);
+            executeOperation(choice);
             System.out.println();
         }
     }
 
-    private void tulostaToiminnot() {
-        System.out.println("\t0: Lopeta");
+    private void printOperations() {
+        System.out.println("\t0: Stop");
         int i = 0;
-        while (i < this.toiminnot.size()) {
-            String toiminnonNimi = this.toiminnot.get(i).getNimi();
-            System.out.println("\t" + (i + 1) + ": " + toiminnonNimi);
+        while (i < this.operations.size()) {
+            String operationName = this.operations.get(i).getName();
+            System.out.println("\t" + (i + 1) + ": " + operationName);
             i = i + 1;
         }
     }
 
-    private void suoritaToiminto(String valinta) {
-        int toiminto = Integer.valueOf(valinta);
+    private void executeOperation(String choice) {
+        int operation = Integer.valueOf(choice);
 
-        Toiminto valittu = this.toiminnot.get(toiminto - 1);
-        valittu.suorita(lukija);
+        Operation chosen = this.operations.get(operation - 1);
+        chosen.execute(scanner);
     }
 }
 ```
 
 
-Käyttöliittymä toimii seuraavasti:
+<!-- Käyttöliittymä toimii seuraavasti: -->
+
+The user interface works like this:
 
 
-```java
+<!-- ```java
 Kayttoliittyma kayttolittyma = new Kayttoliittyma(new Scanner(System.in));
 kayttolittyma.lisaaToiminto(new Pluslasku());
 
 kayttolittyma.kaynnista();
+``` -->
+
+```java
+UserInterface userInterface = new UserInterface(new Scanner(System.in));
+userInterface.addOperation(new PlusOperation());
+
+userInterface.start();
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Toiminnot:
         0: Lopeta
@@ -1480,10 +2023,29 @@ Toiminnot:
         1: Pluslasku
 Valinta: **0**
 
+</sample-output> -->
+
+<sample-output>
+
+Operations:
+        0: Stop
+        1: PlusOperation
+Choice: **1**
+First number: **8**
+Second number: **12**
+The sum of the numbers is 20
+
+Operations:
+        0: Stop
+        1: PlusOperation
+Choice: **0**
+
 </sample-output>
 
 
-Rajapintojen ja abstraktien luokkien suurin ero on siinä, että abstrakteissa luokissa voidaan määritellä metodien lisäksi myös oliomuuttujia sekä konstruktoreja. Koska abstrakteihin luokkiin voidaan määritellä toiminnallisuutta, voidaan niitä käyttää esimerkiksi oletustoiminnallisuuden määrittelyyn. Yllä käyttöliittymä käytti abstraktissa luokassa määriteltyä toiminnan nimen tallentamista.
+<!-- Rajapintojen ja abstraktien luokkien suurin ero on siinä, että abstrakteissa luokissa voidaan määritellä metodien lisäksi myös oliomuuttujia sekä konstruktoreja. Koska abstrakteihin luokkiin voidaan määritellä toiminnallisuutta, voidaan niitä käyttää esimerkiksi oletustoiminnallisuuden määrittelyyn. Yllä käyttöliittymä käytti abstraktissa luokassa määriteltyä toiminnan nimen tallentamista. -->
+
+The greatest difference between interfaces and abstract classes is that abstract classes can contain object variables and constructors in addition to methods. Since you can also define functionality in abstract classes, you can use them to define e.g. default behavior. In the user interface above storing the name of the operation used the functionality defined in the abstract `Operation` class.
 
 <programming-exercise name='DifferentKindsOfBoxes (3 parts)' tmcname='part09-Part09_04.DifferentKindsOfBoxes'>
 

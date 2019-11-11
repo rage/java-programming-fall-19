@@ -352,80 +352,145 @@ Merkkiryhmän avulla voi määritellä lyhyesti joukon merkkejä. Merkit kirjoit
 <quiznator id='5c8166fcfd9fd71425c68dbd'></quiznator>
 
 
-<programming-exercise name='Säännölliset lausekkeet (3 osaa)' tmcname='osa10-Osa10_15.SaannollisetLausekkeet'>
+<programming-exercise name='Regular expressions (3 parts)' tmcname='part10-Part10_15.RegularExpressions'>
 
-Harjoitellaan hieman säännöllisten lausekkeiden käyttöä. Tehtävissä haetut metodit tehdään luokkaan `Tarkistin`.
+<!-- Harjoitellaan hieman säännöllisten lausekkeiden käyttöä. Tehtävissä haetut metodit tehdään luokkaan `Tarkistin`. -->
+
+Let's practice using regular expressions a little. The methods in this exercise should be created in the class `Checker`.
 
 
-<h2>Viikonpäivä</h2>
+<!-- <h2>Viikonpäivä</h2> -->
 
-Tee säännöllisen lausekkeen avulla metodi `public boolean onViikonpaiva(String merkkijono)`, joka palauttaa `true` jos sen parametrina saama merkkijono on viikonpäivän lyhenne (ma, ti, ke, to, pe, la tai su).
+<h2>Day of week</h2>
 
-Esimerkkitulostuksia metodia käyttävästä ohjelmasta:
+<!-- Tee säännöllisen lausekkeen avulla metodi `public boolean onViikonpaiva(String merkkijono)`, joka palauttaa `true` jos sen parametrina saama merkkijono on viikonpäivän lyhenne (ma, ti, ke, to, pe, la tai su). -->
 
-<sample-output>
+Use regular expressions to create the method `public boolean isDayOfWeek(String string)`, which returns `true` if the parameter string is an abbreviation of a day of the week (mon, tue, wed, thu, fri, sat, sun)
+
+<!-- Esimerkkitulostuksia metodia käyttävästä ohjelmasta: -->
+
+Example outputs of a program that uses the method:
+
+<!-- <sample-output>
 
 Anna merkkijono: **ti**
 Muoto on oikea.
 
+</sample-output> -->
+
+<sample-output>
+
+Enter a string: **tue**
+The form is correct.
+
 </sample-output>
 
 <sample-output>
 
 Anna merkkijono: **abc**
-Muoto ei ole oikea.
+The form is incorrect.
 
 </sample-output>
 
 
-<h2>Vokaalitarkistus</h2>
+<!-- <h2>Vokaalitarkistus</h2> -->
 
-Tee metodi `public boolean kaikkiVokaaleja(String merkkijono)` joka tarkistaa säännöllisen lausekkeen avulla ovatko parametrina olevan merkkijonon kaikki merkit vokaaleja.
+<h2>Vowel check</h2>
 
-Esimerkkitulostuksia metodia käyttävästä ohjelmasta:
+<!-- Tee metodi `public boolean kaikkiVokaaleja(String merkkijono)` joka tarkistaa säännöllisen lausekkeen avulla ovatko parametrina olevan merkkijonon kaikki merkit vokaaleja. -->
 
-<sample-output>
+Create the method `public boolean allVowels(String string)` that uses a regular expression to check whether all the characters in the parameter string are vowels.
+
+<!-- Esimerkkitulostuksia metodia käyttävästä ohjelmasta: -->
+
+Example outputs of a program that uses the method:
+
+<!-- <sample-output>
 
 Anna merkkijono: **aie**
 Muoto on oikea.
 
-</sample-output>
+</sample-output> -->
 
 <sample-output>
+
+Enter a string: **aye**
+The form is correct.
+
+</sample-output>
+
+<!-- <sample-output>
 
 Anna merkkijono: **ane**
 Muoto ei ole oikea.
 
+</sample-output> -->
+
+<sample-output>
+
+Enter a string: **queue**
+The form is incorrect.
+
 </sample-output>
 
 
-<h2>Kellonaika</h2>
+<!-- <h2>Kellonaika</h2> -->
 
+<h2>Time of day</h2>
 
-Säännölliset lausekkeet sopivat tietynlaisiin tilanteisiin. Joissain tapaukseesa lausekkeista tulee liian monimutkaisia, ja merkkijonon "sopivuus" kannattaa tarkastaa muulla tyylillä tai voi olla tarkoituksenmukaista käyttää säännöllisiä lausekkeita vain osaan tarkastuksesta.
+<!-- Säännölliset lausekkeet sopivat tietynlaisiin tilanteisiin. Joissain tapaukseesa lausekkeista tulee liian monimutkaisia, ja merkkijonon "sopivuus" kannattaa tarkastaa muulla tyylillä tai voi olla tarkoituksenmukaista käyttää säännöllisiä lausekkeita vain osaan tarkastuksesta. -->
 
-Tee  metodi `public boolean kellonaika(String merkkijono)`  ohjelma, joka tarkistaa säännöllisen lausekkeen avulla onko parametrina oleva merkkijono muotoa `tt:mm:ss` oleva kellonaika (tunnit, minuutit ja sekunnit kaksinumeroisina).
+Regular expressions come in handy in certain situations. In some cases the expressions become too complex, and the "correctness" of the string is best checked with some other style. Or it could be beneficial to use regular expressions for only some part of the check.
 
-Esimerkkitulostuksia metodia käyttävästä ohjelmasta:
+<!-- Tee  metodi `public boolean kellonaika(String merkkijono)`  ohjelma, joka tarkistaa säännöllisen lausekkeen avulla onko parametrina oleva merkkijono muotoa `tt:mm:ss` oleva kellonaika (tunnit, minuutit ja sekunnit kaksinumeroisina). -->
 
-<sample-output>
+Create the method `public boolean timeOfDay(String string)`. It should use a regular expression to check whether the parameter string expresses a time of day in the form `hh:mm:ss` (hours, minutes, and seconds each always take up two spaces).
+
+**NB. In this exercise we use the 24-hour clock**. So the acceptable values are between 00:00:00 and 23:59:59.
+
+<!-- Esimerkkitulostuksia metodia käyttävästä ohjelmasta: -->
+
+Example outputs of a program that uses the method:
+
+<!-- <sample-output>
 
 Anna merkkijono: **17:23:05**
 Muoto on oikea.
 
-</sample-output>
+</sample-output> -->
 
 <sample-output>
+
+Enter a string: **17:23:05**
+The form is correct.
+
+</sample-output>
+
+<!-- <sample-output>
 
 Anna merkkijono: **abc**
 Muoto ei ole oikea.
 
-</sample-output>
+</sample-output> -->
 
 <sample-output>
 
+Enter a string: **abc**
+The form is incorrect.
+
+</sample-output>
+
+<!-- <sample-output>
+
 Anna merkkijono: **33:33:33**
 Muoto ei ole oikea.
+
+</sample-output> -->
+
+<sample-output>
+
+Enter a string: **33:33:33**
+The form is incorrect.
 
 </sample-output>
 

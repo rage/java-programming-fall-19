@@ -334,11 +334,15 @@ ArrayList<Integer> luvut = lista.stream()
 ```
 
 
-<programming-exercise name='Positiiviset luvut' tmcname='osa10-Osa10_03.PositiivisetLuvut'>
+<programming-exercise name='Positive Numbers' tmcname='osa10-Part10_03.PositiveNumbers'>
 
-Toteuta tehtäväpohjaan luokkametodi `public static List<Integer> positiiviset(List<Integer> luvut)`, joka saa parametrinaan lukulistan ja jonka tulee palauttaa uusi lukulista, joka sisältää parametrina saadun listan sisältämät positiiviset luvut.
+<!-- Toteuta tehtäväpohjaan luokkametodi `public static List<Integer> positiiviset(List<Integer> luvut)`, joka saa parametrinaan lukulistan ja jonka tulee palauttaa uusi lukulista, joka sisältää parametrina saadun listan sisältämät positiiviset luvut.
 
-Toteuta metodi virtaa hyödyntäen! Kokeile lukujen keräämisen `Collectors.toCollection(ArrayList::new)` lisäksi komentoa `Collectors.toList()`.
+Toteuta metodi virtaa hyödyntäen! Kokeile lukujen keräämisen `Collectors.toCollection(ArrayList::new)` lisäksi komentoa `Collectors.toList()`. -->
+
+In the exercise template, implement the class method `public static List<Integer> positive(List<Integer> numbers)`, which receives an ArrayList of integers, and returns the positive integers from the list.
+
+Implement the method using stream! For collecting the numbers try the command `Collectors.toList()` in addition to the `Collectors.toCollection(ArrayList::new)` command.
 
 </programming-exercise>
 
@@ -423,11 +427,12 @@ positiiviset.stream()
 <quiznator id='5c816449c41ed4148d97162b'></quiznator>
 
 
-<programming-exercise name='Jaolliset' tmcname='osa10-Osa10_04.Jaolliset'>
+<programming-exercise name='Divisible' tmcname='Part10-Part10_04.Divisible'>
 
-Tehtäväpohjassa on annettuna metodirunko `public static ArrayList<Integer> jaolliset(ArrayList<Integer> luvut)`. Toteuta metodirunkoon toiminnallisuus, joka kerää parametrina saadulta listalta kahdella, kolmella tai viidellä jaolliset luvut, ja palauttaa ne uudessa listassa. Metodille parametrina annetun listan ei tule muuttua.
+<!-- Tehtäväpohjassa on annettuna metodirunko `public static ArrayList<Integer> jaolliset(ArrayList<Integer> luvut)`. Toteuta metodirunkoon toiminnallisuus, joka kerää parametrina saadulta listalta kahdella, kolmella tai viidellä jaolliset luvut, ja palauttaa ne uudessa listassa. Metodille parametrina annetun listan ei tule muuttua. -->
 
-```java
+The exercise template includes a template for the method `public static ArrayList<Integer> divisible(ArrayList<Integer> numbers)`. Implement a functionality there that gathers numbers divisible by two, three or five from the list it receives as a parameter, and returns them as a new list. The list received as a parameter must not be altered.
+<!-- ```java
 ArrayList<Integer> luvut = new ArrayList<>();
 luvut.add(3);
 luvut.add(2);
@@ -439,6 +444,22 @@ ArrayList<Integer> jaolliset = jaolliset(luvut);
 
 jaolliset.stream()
     .forEach(luku -> System.out.println(luku));
+``` -->
+
+```java
+public static void main(String[] args) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(3);
+        numbers.add(2);
+        numbers.add(-17);
+        numbers.add(-5);
+        numbers.add(7);
+
+        ArrayList<Integer> divisible = divisible(numbers);
+
+        divisible.stream()
+                .forEach(luku -> System.out.println(luku));
+    }
 ```
 
 <sample-output>
@@ -581,11 +602,16 @@ henkilot.stream()
 Yllä kuvattu `distinct`-metodi hyödyntää olioiden `equals`-metodia yhtäsuuruuden tarkasteluun. Metodi `sorted` taas osaa järjestää olioita, joilla on tieto siitä, miten olio tulee järjestää -- näitä ovat esimerkiksi luvut ja merkkijonot.
 
 
-<programming-exercise name='Luettujen arvojen tulostaminen' tmcname='osa10-Osa10_05.LuettujenArvojenTulostaminen'>
+<!-- <programming-exercise name='Luettujen arvojen tulostaminen' tmcname='osa10-Osa10_05.LuettujenArvojenTulostaminen'> -->
 
-Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Lukeminen tulee lopettaa kun käyttäjä syöttää tyhjän merkkijonon. Tulosta tämän jälkeen käyttäjän syöttämät merkkijonot.
+<programming-exercise name='Printing User Input' tmcname='part10-Part10_05.PrintingUserInput'>
 
-<sample-output>
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Lukeminen tulee lopettaa kun käyttäjä syöttää tyhjän merkkijonon. Tulosta tämän jälkeen käyttäjän syöttämät merkkijonot. -->
+
+Write a program that reads the user's input as strings. When the user inputs an empty string (only presses enter), the input reading will be stopped and the program will print all the user inputs.
+
+
+<!-- <sample-output>
 
 **eka**
 **toka**
@@ -595,14 +621,30 @@ eka
 toka
 kolmas
 
+</sample-output> -->
+
+<sample-output>
+
+**first**
+**second**
+**war is peace: 1984**
+
+first
+second
+war is peace: 1984
+
 </sample-output>
 
 </programming-exercise>
 
 
-<programming-exercise name='Rajatut luvut' tmcname='osa10-Osa10_06.RajatutLuvut'>
+<!-- <programming-exercise name='Rajatut luvut' tmcname='osa10-Osa10_06.RajatutLuvut'> -->
 
-Kirjoita ohjelma, joka lukee käyttäjältä lukuja. Kun käyttäjä syöttää negatiivisen luvun, lukeminen lopetetaan. Tulosta tämän jälkeen ne luvut, jotka ovat välillä 1-5.
+<programming-exercise name='Limited numbers' tmcname='part10-Part10_06.LimitedNumbers'>
+
+<!-- Kirjoita ohjelma, joka lukee käyttäjältä lukuja. Kun käyttäjä syöttää negatiivisen luvun, lukeminen lopetetaan. Tulosta tämän jälkeen ne luvut, jotka ovat välillä 1-5. -->
+
+Write a program that reads user input. When the user gives a negative number as an input, the input reading will be stopped. After this, print all the numbers the user has given as input that are between 1 and 5.
 
 <sample-output>
 
@@ -621,12 +663,16 @@ Kirjoita ohjelma, joka lukee käyttäjältä lukuja. Kun käyttäjä syöttää 
 </programming-exercise>
 
 
-<programming-exercise name='Uniikit sukunimet' tmcname='osa10-Osa10_07.UniikitSukunimet'>
+<!-- <programming-exercise name='Uniikit sukunimet' tmcname='osa10-Osa10_07.UniikitSukunimet'> -->
 
-Tehtäväpohjaan on hahmoteltu ohjelmaa, joka lukee käyttäjältä syötteenä henkilötietoja. Täydennä ohjelmaa siten, että tietojen lukemisen jälkeen ohjelma tulostaa henkilöiden uniikit sukunimet aakkosjärjestyksessä.
+<programming-exercise name='Unique last names' tmcname='part10-Part10_07.UniqueLastNames'>
+
+<!-- Tehtäväpohjaan on hahmoteltu ohjelmaa, joka lukee käyttäjältä syötteenä henkilötietoja. Täydennä ohjelmaa siten, että tietojen lukemisen jälkeen ohjelma tulostaa henkilöiden uniikit sukunimet aakkosjärjestyksessä. -->
+
+The exercise template contains a scetch of a program that reads user given information about people. Expand the program so, that it will print all the unique last names of the user given people in alphabetical order.
 
 
-<sample-output>
+<!-- <sample-output>
 
 Syötetäänkö henkilöiden tietoja, "loppu" lopettaa:
 Syötä etunimi: **Ada**
@@ -643,9 +689,28 @@ Syötä etunimi: **Alan**
 Syötä sukunimi: **Turing**
 Syötä syntymävuosi: **1912**
 
-Syötetäänkö henkilöiden tietoja, "loppu" lopettaa: loppu
+Syötetäänkö henkilöiden tietoja, "loppu" lopettaa: loppu -->
 
-Uniikit sukunimet aakkosjärjestyksessä:
+<sample-output>
+
+Continue personal information input? "quit" ends:
+Input first name: **Ada**
+Input last name: **Lovelace**
+Input the year of birth: **1815**
+
+Continue personal information input? "quit" ends:
+Input first name: **Grace**
+Input last name: **Hopper**
+Input the year of birth: **1906**
+
+Continue personal information input? "quit" ends:
+Input first name: **Alan**
+Input last name: **Turing**
+Input the year of birth: **1912**
+
+Continue personal information input? "quit" ends: quit
+
+Unique last names in alphabetical order:
 Hopper
 Lovelace
 Turing
@@ -757,9 +822,13 @@ kirjat.stream()
 ```
 
 
-<programming-exercise name='Painon laskemista (2 osaa)' tmcname='osa10-Osa10_08.PainonLaskemista'>
+<!-- <programming-exercise name='Painon laskemista (2 osaa)' tmcname='osa10-Osa10_08.PainonLaskemista'> -->
 
-Tehtäväpohjassa on tutuhko tehtävä "Tavara, Matkalaukku ja Lastiruuma". Tässä tehtävässä tarkoituksenasi on muuttaa toistolausetta käyttävät metodit virtaa käyttäviksi metodeiksi. Lopputuloksessa ei tule esiintyä `while (...)` tai `for (...)`-toistolauseita.
+<programming-exercise name='Weighting (2 parts)' tmcname='part10-Part10_08.Weighting'>
+
+<!-- Tehtäväpohjassa on tutuhko tehtävä "Tavara, Matkalaukku ja Lastiruuma". Tässä tehtävässä tarkoituksenasi on muuttaa toistolausetta käyttävät metodit virtaa käyttäviksi metodeiksi. Lopputuloksessa ei tule esiintyä `while (...)` tai `for (...)`-toistolauseita. -->
+
+The exercise template includes the probably familiar-y project "Cargo hold". However, in this exercise you need to make the for-loop using methods to use streams. The final product should not have any `while (...)` or `for (...)`-loops.
 
 </programming-exercise>
 
@@ -790,9 +859,13 @@ Virhe: tiedosto.txt (No such file or directory)
 
 </sample-output>
 
-<programming-exercise name='Tiedoston rivit' tmcname='osa10-Osa10_09.TiedostonRivit'>
+<!-- <programming-exercise name='Tiedoston rivit' tmcname='osa10-Osa10_09.TiedostonRivit'> -->
 
-Toteuta tehtäväpohjaan staattinen metodi `public static List<String> lue(String tiedosto)`, joka lukee parametrina annetun merkkijonon nimisestä tiedostosta rivit ja palauttaa ne merkkijonolistana.
+<programming-exercise name='Reading Files Per Line' tmcname='part10-Part10_09.ReadingFilesPerLine'>
+
+<!-- Toteuta tehtäväpohjaan staattinen metodi `public static List<String> lue(String tiedosto)`, joka lukee parametrina annetun merkkijonon nimisestä tiedostosta rivit ja palauttaa ne merkkijonolistana. -->
+
+Implement the static method `public static List<String> read(String file)`, which reads the file with the filename of the parameter and returns the lines as a string list.
 
 </programming-exercise>
 
@@ -840,21 +913,33 @@ try {
 // nyt presidentit ovat listalla henkilöolioina
 ```
 
-<programming-exercise name='Kirjat tiedostosta' tmcname='osa10-Osa10_10.KirjatTiedostosta' nocoins='true'>
+<!-- <programming-exercise name='Kirjat tiedostosta' tmcname='osa10-Osa10_10.KirjatTiedostosta' nocoins='true'> -->
 
-Toteuta tehtäväpohjaan luokkametodi `public static List<Kirja> lueKirjat(String tiedosto)`, joka lukee parametrina annetun tiedoston ja muodostaa tiedoston riveistä kirjoja.
+<programming-exercise name='Books from file' tmcname='part10-Part10_10.BooksFromFile' nocoins='true'>
 
-Tehtäväpohjassa on valmiina luokka `Kirja`, jota käytetään kirjan kuvaamiseen. Oleta, että kirjoja sisältävä tiedosto on seuraavaa muotoa.
+<!-- Toteuta tehtäväpohjaan luokkametodi `public static List<Kirja> lueKirjat(String tiedosto)`, joka lukee parametrina annetun tiedoston ja muodostaa tiedoston riveistä kirjoja. -->
+
+Add the method `public static List<Book> readBooks(String file)` for the class `BooksFromFile`. It should read the file given as the parameter and forms book data from it.
+
+<!-- Tehtäväpohjassa on valmiina luokka `Kirja`, jota käytetään kirjan kuvaamiseen. Oleta, että kirjoja sisältävä tiedosto on seuraavaa muotoa. -->
+
+The exercise template contains the class `Book`, which is used for describing a book. You should presume that the book files are in the following format:
+
+<!-- <pre>
+nimi,julkaisuvuosi,sivujen lukumäärä,kirjoittaja
+</pre> -->
 
 <pre>
-nimi,julkaisuvuosi,sivujen lukumäärä,kirjoittaja
+name,publishing year,page count,author
 </pre>
 
-Kirjan nimi ja kirjoittaja käsitellään merkkijonona, julkaisuvuosi ja sivujen lukumäärä kokonaislukuna. Alla vielä esimerkki tiedoston mahdollisesta sisällöstä. Esim.
+<!-- Kirjan nimi ja kirjoittaja käsitellään merkkijonona, julkaisuvuosi ja sivujen lukumäärä kokonaislukuna. Alla vielä esimerkki tiedoston mahdollisesta sisällöstä. Esim. -->
+
+The name and the author of the book are processed as strings, and the pulbishing year and the page count are processed as integers.
+Example of contents of a book file:
 
 <pre>
 Do Androids Dream of Electric Sheep?,1968,210,Philip K. Dick
 Love in the Time of Cholera,1985,348,Gabriel Garcia Marquez
 </pre>
-
 </programming-exercise>
