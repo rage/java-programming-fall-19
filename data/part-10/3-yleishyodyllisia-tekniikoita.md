@@ -397,6 +397,8 @@ The form is incorrect.
 
 <h2>Vowel check</h2>
 
+**NB**. For simplicity's sake, in this exercises **the letters that are considered vowels are: a, e, i, o, and u**.
+
 <!-- Tee metodi `public boolean kaikkiVokaaleja(String merkkijono)` joka tarkistaa säännöllisen lausekkeen avulla ovatko parametrina olevan merkkijonon kaikki merkit vokaaleja. -->
 
 Create the method `public boolean allVowels(String string)` that uses a regular expression to check whether all the characters in the parameter string are vowels.
@@ -414,7 +416,7 @@ Muoto on oikea.
 
 <sample-output>
 
-Enter a string: **aye**
+Enter a string: **oi**
 The form is correct.
 
 </sample-output>
