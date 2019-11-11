@@ -131,7 +131,7 @@ You are provided with the class human. A human has a name and wage information. 
 
 <!-- <programming-exercise name='Opiskelijat nimijärjestykseen' tmcname='osa10-Osa10_12.OpiskelijatNimijarjestykseen'> -->
 
-<programming-exercise name='Students on alphabetical order' tmcname='part10-Part10_12.StudentsOnAplhabeticalOrder'>
+<programming-exercise name='Students on alphabetical order' tmcname='part10-Part10_12.StudentsOnAlphabeticalOrder'>
 
 <!-- Saat valmiin luokan Opiskelija. Opiskelijalla on nimi. Toteuta Opiskelija-luokassa `Comparable`-rajapinta siten, että `compareTo`-metodi lajittelee opiskelijat nimen mukaan aakkosjärjestykseen. -->
 
@@ -429,7 +429,7 @@ Write a program that reads user input for books and their age recommendations.
 
 <!-- Ohjelma kysyy uusia kirjoja kunnes käyttäjä syöttää tyhjän merkkijonon kirjan nimen kohdalla (eli painaa rivinvaihtoa). Tämän jälkeen ohjelma tulostaa syötettyjen kirjojen lukumäärän sekä kirjat. -->
 
-The program asks for new books until the user gives an empty String as a name (only presses enter). After this, the program will print the amount and names of the books.
+The program asks for new books until the user gives an empty String (only presses enter). After this, the program will print the amount- and names of the books.
 
 
 <!-- <h2>Kirjojen lukeminen ja tulostaminen</h2> -->
@@ -500,7 +500,7 @@ Litmanen 10 (recommended for 10 year-olds or older)
 
 <!-- Täydennä toteuttamaasi ohjelmaa siten, että kirjat järjestetään tulostuksen yhteydessä kohdeiän perusteella. Jos kahdella kirjalla on sama kohdeikä, näiden kahden kirjan keskinäinen järjestys saa olla mielivaltainen. -->
 
-Expand your program in a way, that the books are sorted based on their age recommendations when they are printed. If two (or more) books share the same age recommendations the order between them does not matter.
+Expand your program so, that the books are sorted based on their age recommendations when they are printed. If two (or more) books share the same age recommendations the order between them does not matter.
 
 
 <!-- <sample-output>
@@ -530,6 +530,7 @@ Lunta tupaan (12 vuotiaille ja vanhemmille)
 </sample-output> -->
 
 <sample-output>
+
 Input the name of the book, empty stops: **The Ringing Lullaby Book**
 Input the age recommendation: **0**
 
@@ -591,6 +592,7 @@ Lunta tupaan (12 vuotiaille ja vanhemmille)
 </sample-output> -->
 
 <sample-output>
+
 Input the name of the book, empty stops: **The Ringing Lullaby Book**
 Input the age recommendation: **0**
 
@@ -612,5 +614,6 @@ The Exiting Transpotation Vehicles (recommended for 0 year-olds or older)
 The Ringing Lullaby Book (recommended for 0 year-olds or older)
 Litmanen 10 (recommended for 10 year-olds or older)
 The Snowy Forest Calls (recommended for 12 year-olds or older)
+
 </sample-output>
 </programming-exercise>
