@@ -935,7 +935,9 @@ nimi,julkaisuvuosi,sivujen lukumäärä,kirjoittaja
 </pre> -->
 
 <pre>
+
 name,publishing year,page count,author
+
 </pre>
 
 <!-- Kirjan nimi ja kirjoittaja käsitellään merkkijonona, julkaisuvuosi ja sivujen lukumäärä kokonaislukuna. Alla vielä esimerkki tiedoston mahdollisesta sisällöstä. Esim. -->
@@ -944,7 +946,9 @@ The name and the author of the book are processed as strings, and the pulbishing
 Example of contents of a book file:
 
 <pre>
+
 Do Androids Dream of Electric Sheep?,1968,210,Philip K. Dick
 Love in the Time of Cholera,1985,348,Gabriel Garcia Marquez
+
 </pre>
 </programming-exercise>
