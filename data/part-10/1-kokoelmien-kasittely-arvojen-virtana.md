@@ -182,40 +182,43 @@ average of the numbers: 0.6666666666666666
 </programming-exercise>
 
 
-<programming-exercise name='Tiettyjen lukujen keskiarvo' tmcname='osa10-Part10_02.TiettyjenLukujenKeskiarvo'>
+<programming-exercise name='Average of selected numbers' tmcname='part10-Part10_02.AverageOfSelectedNumbers'>
 
-Toteuta ohjelma, joka lukee käyttäjältä syötteitä. Jos käyttäjä syöttää merkkijonon "end", lukeminen lopetetaan. Muut syötteet ovat lukuja. Kun käyttäjä syöttää merkkijonon "end", syötteiden lukeminen lopetetaan.
+<!-- Toteuta ohjelma, joka lukee käyttäjältä syötteitä. Jos käyttäjä syöttää merkkijonon "end", lukeminen lopetetaan. Muut syötteet ovat lukuja. Kun käyttäjä syöttää merkkijonon "end", syötteiden lukeminen lopetetaan. -->
+Implement a program, which reads user input. If the user input is "end", program stops reading input. The rest of the input is numbers.
 
-Tämän jälkeen käyttäjältä kysytään tulostetaanko negatiivisten vai positiivisten lukujen keskiarvo (n vai p). Jos käyttäjä syöttää merkkijonon "n", tulostetaan negatiivisten lukujen keskiarvo, muulloin tulostetaan positiivisten lukujen keskiarvo.
+<!-- Tämän jälkeen käyttäjältä kysytään tulostetaanko negatiivisten vai positiivisten lukujen keskiarvo (n vai p). Jos käyttäjä syöttää merkkijonon "n", tulostetaan negatiivisten lukujen keskiarvo, muulloin tulostetaan positiivisten lukujen keskiarvo. -->
+Then user is asked if the program should print the average of all the positive numbers, or the average of all the negative numbers (n or p). If the user selects "n", the average of all the negative numbers is printed. Otherwise the average of all the positive numbers is printed.
 
-Toteuta keskiarvon laskeminen sekä rajaus virran avulla!
+<!-- Toteuta keskiarvon laskeminen sekä rajaus virran avulla! -->
+Use streams to calculate the average and filter the numbers!
 
 
 <sample-output>
 
-Kirjoita syötteitä, "end" lopettaa.
+Input numbers, type "end" to stop.
 **-1**
 **1**
 **2**
 **end**
 
-Tulostetaanko negatiivisten vai positiivisten lukujen keskiarvo? (n/p)
+Print the average of the negative numbers or the positive numbers? (n/p)
 **n**
-Negatiivisten lukujen keskiarvo: -1.0
+Average of the negative numbers: -1.0
 
 </sample-output>
 
 <sample-output>
 
-Kirjoita syötteitä, "end" lopettaa.
+Input numbers, type "end" to stop.
 **-1**
 **1**
 **2**
 **end**
 
-Tulostetaanko negatiivisten vai positiivisten lukujen keskiarvo? (n/p)
+Print the average of the negative numbers or the positive numbers? (n/p)
 **p**
-Positiivisten lukujen keskiarvo: 1.5
+Average of the positive numbers: 1.5
 
 </sample-output>
 
@@ -336,7 +339,7 @@ ArrayList<Integer> luvut = lista.stream()
 ```
 
 
-<programming-exercise name='Positive Numbers' tmcname='osa10-Part10_03.PositiveNumbers'>
+<programming-exercise name='Positive Numbers' tmcname='part10-Part10_03.PositiveNumbers'>
 
 <!-- Toteuta tehtäväpohjaan luokkametodi `public static List<Integer> positiiviset(List<Integer> luvut)`, joka saa parametrinaan lukulistan ja jonka tulee palauttaa uusi lukulista, joka sisältää parametrina saadun listan sisältämät positiiviset luvut.
 
@@ -604,7 +607,7 @@ henkilot.stream()
 Yllä kuvattu `distinct`-metodi hyödyntää olioiden `equals`-metodia yhtäsuuruuden tarkasteluun. Metodi `sorted` taas osaa järjestää olioita, joilla on tieto siitä, miten olio tulee järjestää -- näitä ovat esimerkiksi luvut ja merkkijonot.
 
 
-<!-- <programming-exercise name='Luettujen arvojen tulostaminen' tmcname='osa10-Part10_05.LuettujenArvojenTulostaminen'> -->
+<!-- <programming-exercise name='Luettujen arvojen tulostaminen' tmcname='part10-Part10_05.LuettujenArvojenTulostaminen'> -->
 
 <programming-exercise name='Printing User Input' tmcname='part10-Part10_05.PrintingUserInput'>
 
@@ -640,7 +643,7 @@ war is peace: 1984
 </programming-exercise>
 
 
-<!-- <programming-exercise name='Rajatut luvut' tmcname='osa10-Part10_06.RajatutLuvut'> -->
+<!-- <programming-exercise name='Rajatut luvut' tmcname='part10-Part10_06.RajatutLuvut'> -->
 
 <programming-exercise name='Limited numbers' tmcname='part10-Part10_06.LimitedNumbers'>
 
@@ -665,7 +668,7 @@ Write a program that reads user input. When the user gives a negative number as 
 </programming-exercise>
 
 
-<!-- <programming-exercise name='Uniikit sukunimet' tmcname='osa10-Part10_07.UniikitSukunimet'> -->
+<!-- <programming-exercise name='Uniikit sukunimet' tmcname='part10-Part10_07.UniikitSukunimet'> -->
 
 <programming-exercise name='Unique last names' tmcname='part10-Part10_07.UniqueLastNames'>
 
@@ -824,7 +827,7 @@ kirjat.stream()
 ```
 
 
-<!-- <programming-exercise name='Painon laskemista (2 osaa)' tmcname='osa10-Part10_08.PainonLaskemista'> -->
+<!-- <programming-exercise name='Painon laskemista (2 osaa)' tmcname='part10-Part10_08.PainonLaskemista'> -->
 
 <programming-exercise name='Weighting (2 parts)' tmcname='part10-Part10_08.Weighting'>
 
@@ -861,7 +864,7 @@ Virhe: tiedosto.txt (No such file or directory)
 
 </sample-output>
 
-<!-- <programming-exercise name='Tiedoston rivit' tmcname='osa10-Part10_09.TiedostonRivit'> -->
+<!-- <programming-exercise name='Tiedoston rivit' tmcname='part10-Part10_09.TiedostonRivit'> -->
 
 <programming-exercise name='Reading Files Per Line' tmcname='part10-Part10_09.ReadingFilesPerLine'>
 
@@ -915,7 +918,7 @@ try {
 // nyt presidentit ovat listalla henkilöolioina
 ```
 
-<!-- <programming-exercise name='Kirjat tiedostosta' tmcname='osa10-Part10_10.KirjatTiedostosta' nocoins='true'> -->
+<!-- <programming-exercise name='Kirjat tiedostosta' tmcname='part10-Part10_10.KirjatTiedostosta' nocoins='true'> -->
 
 <programming-exercise name='Books from file' tmcname='part10-Part10_10.BooksFromFile' nocoins='true'>
 
