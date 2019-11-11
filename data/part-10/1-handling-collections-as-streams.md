@@ -432,7 +432,7 @@ positiiviset.stream()
 <quiznator id='5c816449c41ed4148d97162b'></quiznator>
 
 
-<programming-exercise name='Divisible' tmcname='Part10-Part10_04.Divisible'>
+<programming-exercise name='Divisible' tmcname='part10-Part10_04.Divisible'>
 
 <!-- Tehtäväpohjassa on annettuna metodirunko `public static ArrayList<Integer> jaolliset(ArrayList<Integer> luvut)`. Toteuta metodirunkoon toiminnallisuus, joka kerää parametrina saadulta listalta kahdella, kolmella tai viidellä jaolliset luvut, ja palauttaa ne uudessa listassa. Metodille parametrina annetun listan ei tule muuttua. -->
 
@@ -463,7 +463,7 @@ public static void main(String[] args) {
         ArrayList<Integer> divisible = divisible(numbers);
 
         divisible.stream()
-                .forEach(luku -> System.out.println(luku));
+                .forEach(num -> System.out.println(num));
     }
 ```
 
@@ -699,21 +699,25 @@ Syötetäänkö henkilöiden tietoja, "end" lopettaa: end -->
 <sample-output>
 
 Continue personal information input? "quit" ends:
+
 Input first name: **Ada**
 Input last name: **Lovelace**
 Input the year of birth: **1815**
 
 Continue personal information input? "quit" ends:
+
 Input first name: **Grace**
 Input last name: **Hopper**
 Input the year of birth: **1906**
 
 Continue personal information input? "quit" ends:
+
 Input first name: **Alan**
 Input last name: **Turing**
 Input the year of birth: **1912**
 
-Continue personal information input? "quit" ends: quit
+Continue personal information input? "quit" ends:
+**quit**
 
 Unique last names in alphabetical order:
 Hopper
