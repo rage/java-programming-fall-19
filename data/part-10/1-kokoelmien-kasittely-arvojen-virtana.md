@@ -1,6 +1,6 @@
 ---
-path: '/osa-10/1-kokoelmien-kasittely-virtana'
-title: 'Kokoelmien käsittely arvojen virtana'
+path: '/part-10/1-handling-collections-as-streams'
+title: 'Handling collections as streams'
 hidden: true
 ---
 
@@ -22,7 +22,7 @@ Virran avulla ohjelmoija määrittelee käytännössä tapahtumaketjun, joka suo
 
 Tutustutaan virran käyttöön konkreettisen esimerkin kautta. Tarkastellaan seuraavaa ongelmaa:
 
-*Kirjoita ohjelma, joka lukee käyttäjältä syötteitä ja tulostaa niihin liittyen tilastoja. Kun käyttäjä syöttää merkkijonon "loppu", lukeminen lopetetaan. Muut syötteet ovat lukuja merkkijonomuodossa. Kun syötteiden lukeminen lopetetaan, ohjelma tulostaa kolmella jaollisten positiivisten lukujen lukumäärän sekä kaikkien lukujen keskiarvon.*
+*Kirjoita ohjelma, joka lukee käyttäjältä syötteitä ja tulostaa niihin liittyen tilastoja. Kun käyttäjä syöttää merkkijonon "end", lukeminen lopetetaan. Muut syötteet ovat lukuja merkkijonomuodossa. Kun syötteiden lukeminen lopetetaan, ohjelma tulostaa kolmella jaollisten positiivisten lukujen lukumäärän sekä kaikkien lukujen keskiarvon.*
 
 
 ```java
@@ -33,7 +33,7 @@ List<String> syotteet = new ArrayList<>();
 // luetaan syotteet
 while (true) {
     String rivi = lukija.nextLine();
-    if (rivi.equals("loppu")) {
+    if (rivi.equals("end")) {
         break;
     }
 
@@ -147,42 +147,44 @@ Lyhyt yhteenveto tähän mennessä tutuiksi tulleista virtaan liittyvistä metod
 </table>
 
 
-<programming-exercise name='Lukujen keskiarvo' tmcname='osa10-Osa10_01.LukujenKeskiarvo'>
+<programming-exercise name='Average of Numbers' tmcname='part10-Part10_01.AverageOfNumbers'>
 
-Toteuta ohjelma, joka lukee käyttäjältä syötteitä. Jos käyttäjä syöttää merkkijonon "loppu", lukeminen lopetetaan. Muut syötteet ovat lukuja. Kun käyttäjä syöttää merkkijonon "loppu", ohjelman tulee tulostaa syötettyjen lukujen keskiarvo.
+<!-- Toteuta ohjelma, joka lukee käyttäjältä syötteitä. Jos käyttäjä syöttää merkkijonon "end", lukeminen lopetetaan. Muut syötteet ovat lukuja. Kun käyttäjä syöttää merkkijonon "end", ohjelman tulee tulostaa syötettyjen lukujen keskiarvo. -->
+Implement a program, which reads user input. If the user input is "end", the program stops reading input. The rest of the input is numbers. When the user input is "end", the program prints the average of all of the numbers.
 
-Toteuta keskiarvon laskeminen virran avulla!
+<!-- Toteuta keskiarvon laskeminen virran avulla! -->
+Implement calculating the average using a stream!
 
 
 <sample-output>
 
-Kirjoita syötteitä, "loppu" lopettaa.
+Input numbers, type "end" to stop.
 **2**
 **4**
 **6**
-**loppu**
-Lukujen keskiarvo: 4.0
+**end**
+average of the numbers: 4.0
 
 </sample-output>
 
 
 <sample-output>
 
-Kirjoita syötteitä, "loppu" lopettaa.
+Input numbers, type "end" to stop.
 **-1**
 **1**
 **2**
-**loppu**
-Lukujen keskiarvo: 0.6666666666666666
+**end**
+average of the numbers: 0.6666666666666666
 
 </sample-output>
 
 </programming-exercise>
 
 
-<programming-exercise name='Tiettyjen lukujen keskiarvo' tmcname='osa10-Osa10_02.TiettyjenLukujenKeskiarvo'>
+<programming-exercise name='Tiettyjen lukujen keskiarvo' tmcname='osa10-Part10_02.TiettyjenLukujenKeskiarvo'>
 
-Toteuta ohjelma, joka lukee käyttäjältä syötteitä. Jos käyttäjä syöttää merkkijonon "loppu", lukeminen lopetetaan. Muut syötteet ovat lukuja. Kun käyttäjä syöttää merkkijonon "loppu", syötteiden lukeminen lopetetaan.
+Toteuta ohjelma, joka lukee käyttäjältä syötteitä. Jos käyttäjä syöttää merkkijonon "end", lukeminen lopetetaan. Muut syötteet ovat lukuja. Kun käyttäjä syöttää merkkijonon "end", syötteiden lukeminen lopetetaan.
 
 Tämän jälkeen käyttäjältä kysytään tulostetaanko negatiivisten vai positiivisten lukujen keskiarvo (n vai p). Jos käyttäjä syöttää merkkijonon "n", tulostetaan negatiivisten lukujen keskiarvo, muulloin tulostetaan positiivisten lukujen keskiarvo.
 
@@ -191,11 +193,11 @@ Toteuta keskiarvon laskeminen sekä rajaus virran avulla!
 
 <sample-output>
 
-Kirjoita syötteitä, "loppu" lopettaa.
+Kirjoita syötteitä, "end" lopettaa.
 **-1**
 **1**
 **2**
-**loppu**
+**end**
 
 Tulostetaanko negatiivisten vai positiivisten lukujen keskiarvo? (n/p)
 **n**
@@ -205,11 +207,11 @@ Negatiivisten lukujen keskiarvo: -1.0
 
 <sample-output>
 
-Kirjoita syötteitä, "loppu" lopettaa.
+Kirjoita syötteitä, "end" lopettaa.
 **-1**
 **1**
 **2**
-**loppu**
+**end**
 
 Tulostetaanko negatiivisten vai positiivisten lukujen keskiarvo? (n/p)
 **p**
@@ -284,7 +286,7 @@ List<String> syotteet = new ArrayList<>()
 // luetaan syotteet
 while (true) {
     String rivi = lukija.nextLine();
-    if (rivi.equals("loppu")) {
+    if (rivi.equals("end")) {
         break;
     }
 
@@ -602,7 +604,7 @@ henkilot.stream()
 Yllä kuvattu `distinct`-metodi hyödyntää olioiden `equals`-metodia yhtäsuuruuden tarkasteluun. Metodi `sorted` taas osaa järjestää olioita, joilla on tieto siitä, miten olio tulee järjestää -- näitä ovat esimerkiksi luvut ja merkkijonot.
 
 
-<!-- <programming-exercise name='Luettujen arvojen tulostaminen' tmcname='osa10-Osa10_05.LuettujenArvojenTulostaminen'> -->
+<!-- <programming-exercise name='Luettujen arvojen tulostaminen' tmcname='osa10-Part10_05.LuettujenArvojenTulostaminen'> -->
 
 <programming-exercise name='Printing User Input' tmcname='part10-Part10_05.PrintingUserInput'>
 
@@ -638,7 +640,7 @@ war is peace: 1984
 </programming-exercise>
 
 
-<!-- <programming-exercise name='Rajatut luvut' tmcname='osa10-Osa10_06.RajatutLuvut'> -->
+<!-- <programming-exercise name='Rajatut luvut' tmcname='osa10-Part10_06.RajatutLuvut'> -->
 
 <programming-exercise name='Limited numbers' tmcname='part10-Part10_06.LimitedNumbers'>
 
@@ -663,7 +665,7 @@ Write a program that reads user input. When the user gives a negative number as 
 </programming-exercise>
 
 
-<!-- <programming-exercise name='Uniikit sukunimet' tmcname='osa10-Osa10_07.UniikitSukunimet'> -->
+<!-- <programming-exercise name='Uniikit sukunimet' tmcname='osa10-Part10_07.UniikitSukunimet'> -->
 
 <programming-exercise name='Unique last names' tmcname='part10-Part10_07.UniqueLastNames'>
 
@@ -674,22 +676,22 @@ The exercise template contains a scetch of a program that reads user given infor
 
 <!-- <sample-output>
 
-Syötetäänkö henkilöiden tietoja, "loppu" lopettaa:
+Syötetäänkö henkilöiden tietoja, "end" lopettaa:
 Syötä etunimi: **Ada**
 Syötä sukunimi: **Lovelace**
 Syötä syntymävuosi: **1815**
 
-Syötetäänkö henkilöiden tietoja, "loppu" lopettaa:
+Syötetäänkö henkilöiden tietoja, "end" lopettaa:
 Syötä etunimi: **Grace**
 Syötä sukunimi: **Hopper**
 Syötä syntymävuosi: **1906**
 
-Syötetäänkö henkilöiden tietoja, "loppu" lopettaa:
+Syötetäänkö henkilöiden tietoja, "end" lopettaa:
 Syötä etunimi: **Alan**
 Syötä sukunimi: **Turing**
 Syötä syntymävuosi: **1912**
 
-Syötetäänkö henkilöiden tietoja, "loppu" lopettaa: loppu -->
+Syötetäänkö henkilöiden tietoja, "end" lopettaa: end -->
 
 <sample-output>
 
@@ -822,7 +824,7 @@ kirjat.stream()
 ```
 
 
-<!-- <programming-exercise name='Painon laskemista (2 osaa)' tmcname='osa10-Osa10_08.PainonLaskemista'> -->
+<!-- <programming-exercise name='Painon laskemista (2 osaa)' tmcname='osa10-Part10_08.PainonLaskemista'> -->
 
 <programming-exercise name='Weighting (2 parts)' tmcname='part10-Part10_08.Weighting'>
 
@@ -859,7 +861,7 @@ Virhe: tiedosto.txt (No such file or directory)
 
 </sample-output>
 
-<!-- <programming-exercise name='Tiedoston rivit' tmcname='osa10-Osa10_09.TiedostonRivit'> -->
+<!-- <programming-exercise name='Tiedoston rivit' tmcname='osa10-Part10_09.TiedostonRivit'> -->
 
 <programming-exercise name='Reading Files Per Line' tmcname='part10-Part10_09.ReadingFilesPerLine'>
 
@@ -913,7 +915,7 @@ try {
 // nyt presidentit ovat listalla henkilöolioina
 ```
 
-<!-- <programming-exercise name='Kirjat tiedostosta' tmcname='osa10-Osa10_10.KirjatTiedostosta' nocoins='true'> -->
+<!-- <programming-exercise name='Kirjat tiedostosta' tmcname='osa10-Part10_10.KirjatTiedostosta' nocoins='true'> -->
 
 <programming-exercise name='Books from file' tmcname='part10-Part10_10.BooksFromFile' nocoins='true'>
 
