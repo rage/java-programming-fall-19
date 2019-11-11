@@ -650,11 +650,11 @@ public class Kasi {
         this.kortit = new ArrayList<>();
     }
 
-    public void lisaa(Kortti kortti) {
+    public void add(Kortti kortti) {
         this.kortit.add(kortti);
     }
 
-    public void tulosta() {
+    public void print() {
         this.kortit.stream().forEach(kortti -> {
             System.out.println(kortti);
         });
@@ -662,12 +662,12 @@ public class Kasi {
 }
 ```
 
-Luokan metodi `tulosta` tulostaa jokaisen kädessä olevan kortin.
+Luokan metodi `print` printa jokaisen kädessä olevan kortin.
 
-ArrayList ja muut *Collection*-rajapinnan toteuttavat "oliosäiliöt" toteuttavat rajapinnan *Iterable*, ja ne voidaan käydä läpi myös käyttäen *iteraattoria*, eli olioa, joka on varta vasten tarkoitettu tietyn oliokokoelman läpikäyntiin. Seuraavassa on iteraattoria käyttävä versio korttien tulostamisesta:
+ArrayList ja muut *Collection*-rajapinnan toteuttavat "oliosäiliöt" toteuttavat rajapinnan *Iterable*, ja ne voidaan käydä läpi myös käyttäen *iteraattoria*, eli olioa, joka on varta vasten tarkoitettu tietyn oliokokoelman läpikäyntiin. Seuraavassa on iteraattoria käyttävä versio korttien printmisesta:
 
 ```java
-public void tulosta() {
+public void print() {
     Iterator<Kortti> iteraattori = kortit.iterator();
 
     while (iteraattori.hasNext()) {
@@ -681,10 +681,10 @@ Iteraattori pyydetään kortteja sisältävältä listalta `kortit`. Iteraattori
 
 Iteraattori tarjoaa muutaman metodin. Metodilla `hasNext()` kysytään onko läpikäytäviä olioita vielä jäljellä. Jos on, voidaan iteraattorilta pyytää seuraavana vuorossa oleva olio metodilla `next()`. Metodi siis palauttaa seuraavana läpikäyntivuorossa olevan olion ja laittaa iteraattorin eli "sormen" osoittamaan seuraavana vuorossa olevaa läpikäytävää olioa.
 
-Iteraattorin next-metodin palauttama olioviite voidaan ottaa toki talteen myös muuttujaan, eli metodi `tulosta` voitaisiin muotoilla myös seuraavasti.
+Iteraattorin next-metodin palauttama olioviite voidaan ottaa toki talteen myös muuttujaan, eli metodi `print` voitaisiin muotoilla myös seuraavasti.
 
 ```java
-public void tulosta(){
+public void print(){
     Iterator<Kortti> iteraattori = kortit.iterator();
 
     while (iteraattori.hasNext()) {
@@ -743,77 +743,97 @@ public class Kasi {
 ```
 
 
-<programming-exercise name='Enum ja Iteraattori (4 osaa)' tmcname='osa10-Osa10_16.EnumJaIteraattori' nocoins='true'>
+<programming-exercise name='Enum and Iterator (4 parts)' tmcname='part10-Part10_16.EnumAndIterator' nocoins='true'>
 
-Tehdään ohjelma pienen yrityksen henkilöstön hallintaan.
-
-
-<h2>Koulutus</h2>
-
-Tee lueteltu tyyppi eli enum `Koulutus` jolla on tunnukset `FT` (tohtori), `FM` (maisteri), `LuK` (kandidaatti), `FilYO` (ylioppilas).
+<!-- Tehdään ohjelma pienen yrityksen henkilöstön hallintaan. -->
+Let's implement a program for managing employee data of a small company.
 
 
-<h2>Henkilo</h2>
+<!-- <h2>Education</h2> -->
+<h2>Education</h2>
 
-Tee luokka `Henkilo`. Henkilölle annetaan konstruktorin parametrina annettava nimi ja koulutus. Henkilöllä on myös koulutuksen kertova metodi `public Koulutus getKoulutus()` sekä alla olevan esimerkin mukaista jälkeä tekevä `toString`-metodi.
+<!-- Tee lueteltu tyyppi eli enum `Education` jolla on tunnukset `PHD` (tohtori), `FM` (maisteri), `LuK` (kandidaatti), `HS` (ylioppilas). -->
+Make an enumerated type (enum) `Education`. It should have the enumerators `PHD` (Doctoral degree), `MA` (Masters degree), `BA` (Bachelors degree) and `HS` (High School diploma).
 
+
+<!-- <h2>Person</h2> -->
+<h2>Person</h2>
+
+<!-- Tee luokka `Person`. Henkilölle annetaan konstruktorin parametrina annettava nimi ja koulutus. Henkilöllä on myös koulutuksen kertova metodi `public Education getEducation()` sekä alla olevan esimerkin mukaista jälkeä tekevä `toString`-metodi. -->
+Make a class `Person`. The Person constructor takes a name and the education as parameters. A Person has a method `public Education getEducation()`, which returns the education of the person. A Person also has a `toString` -method which works as follows:
+
+<!-- ```java -->
+<!-- Person vilma = new Person("Vilma", Education.PHD); -->
+<!-- System.out.println(vilma); -->
+<!-- ``` -->
 ```java
-Henkilo vilma = new Henkilo("Vilma", Koulutus.FT);
-System.out.println(vilma);
+Person anna = new Person("Anna", Education.PHD)
+System.out.pringln(anna)
 ```
-
 <sample-output>
 
-Vilma, FT
+<!-- Vilma, PHD -->
+Anna, PHD
 
 </sample-output>
 
 
-<h2>Tyontekijat</h2>
+<!-- <h2>Tyontekijat</h2> -->
+<h2>Employees</h2>
 
-Luo luokka `Tyontekijat`. Työntekijät-olio sisältää listan Henkilo-olioita. Luokalla on parametriton konstruktori ja seuraavat metodit:
+<!-- Luo luokka `Tyontekijat`. Työntekijät-olio sisältää listan Person-olioita. Luokalla on parametriton konstruktori ja seuraavat metodit: -->
+Make a class `Employees`. Employees -object contains a list of Person -objects. The class has a constructor which takes no parameters, and the following methods:
 
-- `public void lisaa(Henkilo lisattava)` lisää parametrina olevan henkilön työntekijäksi
-- `public void lisaa(List<Henkilo> lisattavat)` lisää parametrina olevan listan henkilöitä työntekijöiksi
-- `public void tulosta()` tulostaa kaikki työntekijät
-- `public void tulosta(Koulutus koulutus)` tulostaa työntekijät joiden koulutus on sama kuin parametrissa määritelty koulutus
+<!-- - `public void add(Person lisattava)` lisää parametrina olevan henkilön työntekijäksi -->
+- `public void add(Person personToAdd)` adds the given person to the employees list
+<!-- - `public void add(List<Person> lisattavat)` lisää parametrina olevan listan henkilöitä työntekijöiksi -->
+- `public void add(List<> peopleToAdd)` adds the given list of people to the employees list
+<!-- - `public void print()` printa kaikki työntekijät -->
+- `public void print()` prints all employees
+<!-- - `public void print(Education koulutus)` printa työntekijät joiden koulutus on sama kuin parametrissa määritelty koulutus -->
+- `public void print(Education education)` prints the employees whose education matches the education given as a parameter.
 
-**HUOM:** Luokan `Tyontekijat` `tulosta`-metodit on toteutettava iteraattoria käyttäen!
+<!-- **HUOM:** Luokan `Tyontekijat` `print`-metodit on toteutettava iteraattoria käyttäen! -->
+**NB:** The `print` method of the `Employees` class must be implemented using an iterator!
 
 
-<h2>Irtisanominen</h2>
+<!-- <h2>Irtisanominen</h2> -->
+<h2>Firing an employee</h2>
+<!-- Tee luokalle  `Tyontekijat` metodi `public void fire(Education koulutus)` joka poistaa Työntekijöiden joukosta kaikki henkilöt joiden koulutus on sama kuin metodin parametrina annettu. -->
+Make a method `public void fire(Education education)` for the `Employees` class. The method  removes all employees whose education matches the education given as parameter from the employees list.
 
-Tee luokalle  `Tyontekijat` metodi `public void irtisano(Koulutus koulutus)` joka poistaa Työntekijöiden joukosta kaikki henkilöt joiden koulutus on sama kuin metodin parametrina annettu.
+<!-- **HUOM:** toteuta metodi iteraattoria käyttäen! -->
+**NB**: Implement the method using an iterator!
 
-**HUOM:** toteuta metodi iteraattoria käyttäen!
-
-Seuraavassa esimerkki luokan käytöstä:
+<!-- Seuraavassa esimerkki luokan käytöstä: -->
+See an example of using the class below:
 
 ```java
-Tyontekijat yliopisto = new Tyontekijat();
-yliopisto.lisaa(new Henkilo("Petrus", Koulutus.FT));
-yliopisto.lisaa(new Henkilo("Arto", Koulutus.FilYO));
-yliopisto.lisaa(new Henkilo("Elina", Koulutus.FT));
+Employees university = new Employees();
+university.add(new Person("Petrus", Education.PHD));
+university.add(new Person("Arto", Education.HS));
+university.add(new Person("Elina", Education.PHD));
 
-yliopisto.tulosta();
+university.print();
 
-yliopisto.irtisano(Koulutus.FilYO);
+university.fire(Education.HS);
 
 System.out.println("==");
 
-yliopisto.tulosta();
+university.print();
 ```
 
-Tulostuu:
+<!-- Tulostuu: -->
+Prints:
 
 <sample-output>
 
-Petrus, FT
-Arto, FilYO
-Elina, FT
+Petrus, PHD
+Arto, HS
+Elina, PHD
 ==
-Petrus, FT
-Elina, FT
+Petrus, PHD
+Elina, PHD
 
 </sample-output>
 
@@ -861,19 +881,19 @@ Järjestyksessä pienin kortti siis olisi ristikakkonen ja suurin pataässä.
 
 Tee seuraavaksi luokka `Kasi` joka edustaa pelaajan kädessään pitämää korttien joukkoa. Tee kädelle seuraavat metodit:
 
-- `public void lisaa(Kortti kortti)` lisää käteen kortin
-- `public void tulosta()` tulostaa kädessä olevat kortit alla olevan esimerkin tyylillä
+- `public void add(Kortti kortti)` lisää käteen kortin
+- `public void print()` printa kädessä olevat kortit alla olevan esimerkin tyylillä
 
 
 ```java
 Kasi kasi = new Kasi();
 
-kasi.lisaa(new Kortti(2, Maa.RUUTU));
-kasi.lisaa(new Kortti(14, Maa.PATA));
-kasi.lisaa(new Kortti(12, Maa.HERTTA));
-kasi.lisaa(new Kortti(2, Maa.PATA));
+kasi.add(new Kortti(2, Maa.RUUTU));
+kasi.add(new Kortti(14, Maa.PATA));
+kasi.add(new Kortti(12, Maa.HERTTA));
+kasi.add(new Kortti(2, Maa.PATA));
 
-kasi.tulosta();
+kasi.print();
 ```
 
 Tulostuu:
@@ -897,14 +917,14 @@ Tee kädelle metodi `public void jarjesta()` jota kutsumalla käden sisällä ol
 ```java
 Kasi kasi = new Kasi();
 
-kasi.lisaa(new Kortti(2, Maa.RUUTU));
-kasi.lisaa(new Kortti(14, Maa.PATA));
-kasi.lisaa(new Kortti(12, Maa.HERTTA));
-kasi.lisaa(new Kortti(2, Maa.PATA));
+kasi.add(new Kortti(2, Maa.RUUTU));
+kasi.add(new Kortti(14, Maa.PATA));
+kasi.add(new Kortti(12, Maa.HERTTA));
+kasi.add(new Kortti(2, Maa.PATA));
 
 kasi.jarjesta();
 
-kasi.tulosta();
+kasi.print();
 ```
 
 Tulostuu:
@@ -930,25 +950,25 @@ Esimerkkiohjelma, jossa vertaillaan käsiä:
 ```java
 Kasi kasi1 = new Kasi();
 
-kasi1.lisaa(new Kortti(2, Maa.RUUTU));
-kasi1.lisaa(new Kortti(14, Maa.PATA));
-kasi1.lisaa(new Kortti(12, Maa.HERTTA));
-kasi1.lisaa(new Kortti(2, Maa.PATA));
+kasi1.add(new Kortti(2, Maa.RUUTU));
+kasi1.add(new Kortti(14, Maa.PATA));
+kasi1.add(new Kortti(12, Maa.HERTTA));
+kasi1.add(new Kortti(2, Maa.PATA));
 
 Kasi kasi2 = new Kasi();
 
-kasi2.lisaa(new Kortti(11, Maa.RUUTU));
-kasi2.lisaa(new Kortti(11, Maa.PATA));
-kasi2.lisaa(new Kortti(11, Maa.HERTTA));
+kasi2.add(new Kortti(11, Maa.RUUTU));
+kasi2.add(new Kortti(11, Maa.PATA));
+kasi2.add(new Kortti(11, Maa.HERTTA));
 
 int vertailu = kasi1.compareTo(kasi2);
 
 if (vertailu < 0) {
     System.out.println("arvokkaampi käsi sisältää kortit");
-    kasi2.tulosta();
+    kasi2.print();
 } else if (vertailu > 0){
     System.out.println("arvokkaampi käsi sisältää kortit");
-    kasi1.tulosta();
+    kasi1.print();
 } else {
     System.out.println("kädet yhtä arvokkaat");
 }
@@ -1050,16 +1070,16 @@ Lisää luokalle `Kasi` metodi `public void jarjestaMaittain()` jota kutsumalla 
 ```java
 Kasi kasi = new Kasi();
 
-kasi.lisaa(new Kortti(12, Maa.HERTTA));
-kasi.lisaa(new Kortti(4, Maa.PATA));
-kasi.lisaa(new Kortti(2, Maa.RUUTU));
-kasi.lisaa(new Kortti(14, Maa.PATA));
-kasi.lisaa(new Kortti(7, Maa.HERTTA));
-kasi.lisaa(new Kortti(2, Maa.PATA));
+kasi.add(new Kortti(12, Maa.HERTTA));
+kasi.add(new Kortti(4, Maa.PATA));
+kasi.add(new Kortti(2, Maa.RUUTU));
+kasi.add(new Kortti(14, Maa.PATA));
+kasi.add(new Kortti(7, Maa.HERTTA));
+kasi.add(new Kortti(2, Maa.PATA));
 
 kasi.jarjestaMaittain();
 
-kasi.tulosta();
+kasi.print();
 ```
 
 Tulostuu:
