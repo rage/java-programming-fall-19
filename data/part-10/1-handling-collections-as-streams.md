@@ -432,7 +432,7 @@ positiiviset.stream()
 <quiznator id='5c816449c41ed4148d97162b'></quiznator>
 
 
-<programming-exercise name='Divisible' tmcname='Part10-part10_04.Divisible'>
+<programming-exercise name='Divisible' tmcname='Part10-Part10_04.Divisible'>
 
 <!-- Tehtäväpohjassa on annettuna metodirunko `public static ArrayList<Integer> jaolliset(ArrayList<Integer> luvut)`. Toteuta metodirunkoon toiminnallisuus, joka kerää parametrina saadulta listalta kahdella, kolmella tai viidellä jaolliset luvut, ja palauttaa ne uudessa listassa. Metodille parametrina annetun listan ei tule muuttua. -->
 
