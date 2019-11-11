@@ -1,6 +1,6 @@
 ---
-path: '/osa-10/3-yleishyodyllisia-tekniikoita'
-title: 'Muutamia yleishyödyllisiä tekniikoita'
+path: '/part-10/3-other-useful-techniques'
+title: 'Other useful techniques'
 hidden: true
 ---
 

@@ -1,6 +1,6 @@
 ---
-path: '/osa-10/2-rajapinta-comparable'
-title: 'Valmis rajapinta Comparable'
+path: '/part-10/2-interface-comparable'
+title: 'Interface comparable'
 hidden: true
 ---
 
