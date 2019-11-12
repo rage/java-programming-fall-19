@@ -1,7 +1,7 @@
 ---
 path: '/part-10/1-handling-collections-as-streams'
 title: 'Handling collections as streams'
-hidden: true
+hidden: false
 ---
 
 

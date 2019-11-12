@@ -1,7 +1,7 @@
 ---
 path: '/part-10/2-interface-comparable'
 title: 'Interface comparable'
-hidden: true
+hidden: false
 ---
 
 
@@ -304,7 +304,7 @@ Mary Coombs
 
 
 <!-- programming-exercise name='Lukutaitovertailu (2 osaa)' tmcname='osa10-Osa10_13.Lukutaitovertailu' -->
-<programming-exercise name='Literacy comparison (2 parts)' tmcname='osa10-Osa10_13.LiteracyComparison'>
+<programming-exercise name='Literacy comparison (2 parts)' tmcname='part10-Part10_13.LiteracyComparison'>
 
 <!--Käytetään tässä tehtävässä UNESCOn avointa dataa lukutaidosta. Data sisältää tilastot eri maiden arvioiduista tai raportoiduista lukutaidoista viimeisen kahden vuoden ajalta. Tehtäväpohjassa mukana oleva tiedosto `lukutaito.csv` sisältää arviot sekä yli 15-vuotiaiden naisten että yli 15-vuotiaiden miesten lukutaidosta. Tiedoston lukutaito.csv yksittäisen rivin muoto on seuraava: teema, ikäryhmä, sukupuoli, maa, vuosi, lukutaitoprosentti. Alla on esimerkkinä tiedoston viisi ensimmäistä riviä.-->
 
