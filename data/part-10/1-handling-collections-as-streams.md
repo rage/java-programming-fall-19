@@ -13,9 +13,6 @@ hidden: true
 
 </text-box>
 
-<quiznator id="5c822807ddb6b814af3281a9"></quiznator>
-
-
 Tutustutaan kokoelmien kuten listojen läpikäyntiin arvojen virtana (stream). Virta on menetelmä tietoa sisältävän kokoelman läpikäyntiin siten, että ohjelmoija määrittelee kullekin arvolle suoritettavan toiminnallisuuden. Indeksistä tai kullakin hetkellä käsiteltävästä muuttujasta ei pidetä kirjaa.
 
 Virran avulla ohjelmoija määrittelee käytännössä tapahtumaketjun, joka suoritetaan jokaiselle tietokokoelman arvolle. Tapahtumaketju voi sisältää joidenkin arvojen pois pudottamisen, arvojen muuntamisen muodosta toiseen, ja vaikkapa arvojen laskemisen. Virta ei muuta alkuperäisen tietokokoelman arvoja, vaan se vain käsittelee niitä -- mikäli muunnokset halutaan talteen, tulee ne koota toiseen tietokokoelmaan.
@@ -429,7 +426,7 @@ positiiviset.stream()
 </sample-output>
 
 
-<quiznator id='5c816449c41ed4148d97162b'></quiznator>
+<quiz id='d4b00724-e855-5657-b782-ddd619b841f4'></quiz>
 
 
 <programming-exercise name='Divisible' tmcname='part10-Part10_04.Divisible'>
