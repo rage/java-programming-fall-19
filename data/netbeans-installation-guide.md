@@ -13,7 +13,10 @@ information_page: true
 
 <h3>1. Installing Java </h3>
   <p>
-    Download the latest Java 8 development environment (Java SE Development Kit 8u221) from address <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a>. It is very likely you are using 64-bit version of Windows, hence download the file <code>jdk-8u221-windows-x64.exe</code>. Once you've downloaded the file, install it on your computer. (If the available number is bigger than 221, you may download it as well).
+  <strong>NB! The latest Java 8 development environment (8u231) might result in "Malformed argument has embedded quote" notice when building / running projects.</strong> To fix the issue, you might want to ensure that the JDK you have install predates that version (so 8u221 or earlier). If you want to use the latest JDK, you can also append "-J-Djdk.lang.Process.allowAmbiguousCommands=true" to the default_options in "tmcbeans/etc/tmcbeans.conf" (in the folder where you have installed tmcbeans).
+  </p>
+  <p>
+    Download the Java 8 development environment (Java SE Development Kit 8u221) from address <a href="https://www.oracle.com/java/technologies/jdk8-downloads.html">https://www.oracle.com/java/technologies/jdk8-downloads.html</a>. It is very likely you are using 64-bit version of Windows, hence download the file <code>jdk-8u221-windows-x64.exe</code>. Once you've downloaded the file, install it on your computer. (Older versions than 8u221 should work, too).
   </p>
 
   <p>
@@ -46,7 +49,10 @@ information_page: true
 <h3>1. Installing Java</h3>
 
   <p>
-    Download the latest Java 8 development environment (Java SE Development Kit 8u221) from address <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a>. Download file <code>jdk-8u221-macosx-x64.dmg</code>. Once you've downloaded the file, install it on your computer. (If the available number is bigger than 221, you may download it as well).
+  **NB! The latest Java 8 development environment (8u231) might result in "Malformed argument has embedded quote" notice when building / running projects.** To fix the issue, you might want to ensure that the JDK you have install predates that version (so 8u221 or earlier). If you want to use the latest JDK, you can also append "-J-Djdk.lang.Process.allowAmbiguousCommands=true" to the default_options in "tmcbeans/etc/tmcbeans.conf" (in the folder where you have installed tmcbeans).
+  </p>
+  <p>
+    Download the latest Java 8 development environment (Java SE Development Kit 8u221) from address <a href="https://www.oracle.com/java/technologies/jdk8-downloads.html">https://www.oracle.com/java/technologies/jdk8-downloads.html</a>. Download file <code>jdk-8u221-macosx-x64.dmg</code>. Once you've downloaded the file, install it on your computer. (older versions than 8u221 should work, too).
   </p>
 
   <p>
