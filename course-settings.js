@@ -22,6 +22,10 @@ const courseSettings = {
     // },
     { title: "Support and Assistance", path: "/support-and-assistance" },
     {
+      title: "NetBeans installation guide",
+      path: "/netbeans-installation-guide"
+    },
+    {
       title: "Frequently asked questions",
       path: "/faq",
     },

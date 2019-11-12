@@ -59,3 +59,7 @@ This usually indicates either passed deadline or wrong course being selected in 
 ### I want to apply for study right through the programming mooc. Is this the right course?
 
 No, you cannot apply for the study right based on this course.
+
+### Encountering 'Cannot run program "cmd"' when doing programming exercises
+
+The issue is probably due to an error with very recent Java 8 JDK versions. See the [Installation guide](/netbeans-installation-guide) for specifics and solutions.
