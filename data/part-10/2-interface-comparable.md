@@ -303,10 +303,14 @@ Mary Coombs
 </sample-output>
 
 
-<programming-exercise name='Lukutaitovertailu (2 osaa)' tmcname='osa10-Osa10_13.Lukutaitovertailu'>
+<!-- programming-exercise name='Lukutaitovertailu (2 osaa)' tmcname='osa10-Osa10_13.Lukutaitovertailu' -->
+<programming-exercise name='Literacy comparison (2 parts)' tmcname='osa10-Osa10_13.LiteracyComparison'>
 
-Käytetään tässä tehtävässä UNESCOn avointa dataa lukutaidosta. Data sisältää tilastot eri maiden arvioiduista tai raportoiduista lukutaidoista viimeisen kahden vuoden ajalta. Tehtäväpohjassa mukana oleva tiedosto `lukutaito.csv` sisältää arviot sekä yli 15-vuotiaiden naisten että yli 15-vuotiaiden miesten lukutaidosta. Tiedoston lukutaito.csv yksittäisen rivin muoto on seuraava: teema, ikäryhmä, sukupuoli, maa, vuosi, lukutaitoprosentti. Alla on esimerkkinä tiedoston viisi ensimmäistä riviä.
+<!--Käytetään tässä tehtävässä UNESCOn avointa dataa lukutaidosta. Data sisältää tilastot eri maiden arvioiduista tai raportoiduista lukutaidoista viimeisen kahden vuoden ajalta. Tehtäväpohjassa mukana oleva tiedosto `lukutaito.csv` sisältää arviot sekä yli 15-vuotiaiden naisten että yli 15-vuotiaiden miesten lukutaidosta. Tiedoston lukutaito.csv yksittäisen rivin muoto on seuraava: teema, ikäryhmä, sukupuoli, maa, vuosi, lukutaitoprosentti. Alla on esimerkkinä tiedoston viisi ensimmäistä riviä.-->
 
+This exercise uses open data about literacy levels, provided by UNESCO. The data includes statistics of estimated or reported levels of literacy for various countries for the past two years.
+File `literacy.csv`, included with the exercise template, includes the literacy estimates for women and men over 15 years of age. Each line in the file `literacy.csv` is as follows:
+"theme, age group, gender, country, year, literacy percent. Below are the first five lines as an example.
 
 <pre>
 Adult literacy rate, population 15+ years, female (%),United Republic of Tanzania,2015,76.08978
@@ -317,8 +321,9 @@ Adult literacy rate, population 15+ years, male (%),Angola,2014,82.15105
 </pre>
 
 
-Kirjoita ohjelma, joka lukee tiedoston `lukutaito.csv` ja tulostaa tiedoston sisällön pienimmästä lukutaidosta suurimpaan. Tulostus tulee muotoilla seuraavan esimerkin näyttämään muotoon. Esimerkki näyttää tulostuksen ensimmäiset 5 odotettua riviä.
+<!--Kirjoita ohjelma, joka lukee tiedoston `lukutaito.csv` ja tulostaa tiedoston sisällön pienimmästä lukutaidosta suurimpaan. Tulostus tulee muotoilla seuraavan esimerkin näyttämään muotoon. Esimerkki näyttää tulostuksen ensimmäiset 5 odotettua riviä.-->
 
+Create a program that first reads the file `literacy.csv` and then prints the contents from the lowest to the highest ranked on the literacy rate. The output must be exactly as in the following example. The example shows the first five  of the expected rows.
 
 <sample-output>
 
@@ -330,12 +335,14 @@ Central African Republic (2015), female, 24.35549
 
 </sample-output>
 
-Tehtävä on kahden pisteen arvoinen.
+<!--Tehtävä on kahden pisteen arvoinen.-->
+This exercise is worth two points.
 
-Vinkki! Merkkijonon saa pilkottua taulukoksi pilkun kohdalta seuraavalla tavalla.
+<!--Vinkki! Merkkijonon saa pilkottua taulukoksi pilkun kohdalta seuraavalla tavalla.-->
+Tip! Here's how to split a string into an array by each comma.
 
 
-```java
+<!--```java
 String mjono = "Adult literacy rate, population 15+ years, female (%),Zimbabwe,2015,85.28513";
 String[] palat = mjono.split(",");
 // nyt palat[0] sisältää "Adult literacy rate"
@@ -344,6 +351,17 @@ String[] palat = mjono.split(",");
 
 // saat välilyönnit pois alusta ja lopusta trim-metodilla:
 palat[1] = palat[1].trim();
+```-->
+
+```java
+String string = "Adult literacy rate, population 15+ years, female (%),Zimbabwe,2015,85.28513";
+String[] pieces = mjono.split(",");
+// now pieces[0] equals "Adult literacy rate"
+// pieces[1] equals " population 15+ years"
+// etc.
+
+// to remove whitespace, use the trim() method:
+pieces[1] = pieces[1].trim();
 ```
 
 </programming-exercise>

@@ -842,14 +842,17 @@ Elina, PHD
 </programming-exercise>
 
 
-<programming-exercise name='Kortit ojennukseen (6 osaa)' tmcname='osa10-Osa10_17.KortitOjennukseen'>
+<!--programming-exercise name='Kortit ojennukseen (6 osaa)' tmcname='osa10-Osa10_17.KortitOjennukseen'-->
+<programming-exercise name='Sort them cards! (6 parts)' tmcname='part10-Part10_17.SortThemCards'>
 
-Tehtäväpohjan mukana on luokka, jonka oliot kuvaavat pelikortteja. Kortilla on arvo ja maa. Kortin arvo on esitetään numerona *2, 3, ..., 14* ja maa *Risti, Ruutu, Hertta* tai *Pata*. Ässä on siis arvo 14. Arvo esitetään kokonaislukuna ja maa enum-tyyppisenä oliona. Kortilla on myös metodi toString, jota käyttäen kortin arvo ja maa tulostuvat "ihmisystävällisesti".
+<!--Tehtäväpohjan mukana on luokka, jonka oliot kuvaavat pelikortteja. Kortilla on arvo ja maa. Kortin arvo on esitetään numerona *2, 3, ..., 14* ja maa *Risti, Ruutu, Hertta* tai *Pata*. Ässä on siis arvo 14. Arvo esitetään kokonaislukuna ja maa enum-tyyppisenä oliona. Kortilla on myös metodi toString, jota käyttäen kortin arvo ja maa tulostuvat "ihmisystävällisesti".-->
 
-Korttien luominen tapahtuu seuraavasti.
+The exercise template has a class that represents a playing card. Each card has a value and a suit. Card's value is represented as a number *2, 3, ..., 14* and its suit as *Club, Diamond, Heart* or *Spade*. Ace's value is 14. The value is represented with an integer, and the suit as an enum. Cards also have a method toString, which can be used to print the value and the suit in a readable form.
 
+<!--Korttien luominen tapahtuu seuraavasti.-->
+New cards can be created like this:
 
-```java
+<!--```java
 Kortti eka = new Kortti(2, Maa.RUUTU);
 Kortti toka = new Kortti(14, Maa.PATA);
 Kortti kolmas = new Kortti(12, Maa.HERTTA);
@@ -857,37 +860,65 @@ Kortti kolmas = new Kortti(12, Maa.HERTTA);
 System.out.println(eka);
 System.out.println(toka);
 System.out.println(kolmas);
+```-->
+
+```java
+Card first = new Card(2, Suit.DIAMOND);
+Card second = new Card(14, Suit.SPADE);
+Card third = new Card(12, Suit.HEART);
+
+System.out.println(first);
+System.out.println(second);
+System.out.println(third);
 ```
 
-Tulostuu:
+<!--Tulostuu:-->
+The output:
 
-<sample-output>
+<!--sample-output>
 
 RUUTU 2
 PATA A
 HERTTA Q
 
+</sample-output-->
+
+<sample-output>
+
+DIAMOND 2
+SPADE A
+HEART Q
+
 </sample-output>
 
 
-<h2>Kortti-luokasta Comparable</h2>
+<!--h2>Kortti-luokasta Comparable</h2-->
+<h2>Comparable Card class</h2>
 
-Tee Kortti-luokasta `Comparable`. Toteuta `compareTo`-metodi niin, että korttien järjestys on arvon mukaan nouseva. Jos verrattavien Korttien arvot ovat samat, verrataan niitä maan perusteella nousevassa järjestyksessä: *risti ensin, ruutu toiseksi, hertta kolmanneksi, pata viimeiseksi.*
+<!--Tee Kortti-luokasta `Comparable`. Toteuta `compareTo`-metodi niin, että korttien järjestys on arvon mukaan nouseva. Jos verrattavien Korttien arvot ovat samat, verrataan niitä maan perusteella nousevassa järjestyksessä: *risti ensin, ruutu toiseksi, hertta kolmanneksi, pata viimeiseksi.*-->
+Change the Card class to be `Comparable`. Implement the `compareTo` method so that using it sorts the cards ascending by their value. If the cards being compared have the same value, they are sorted by *club first, diamond next, heart third, and spade last.*
 
-Maiden järjestämisessä apua löytynee <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html#ordinal--"  target="_blank" norel>Enum-luokan ordinal-metodista</a>.
+<!--Maiden järjestämisessä apua löytynee <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html#ordinal--"  target="_blank" norel>Enum-luokan ordinal-metodista</a>.-->
+Reading <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html#ordinal--"  target="_blank" norel>Ordinal method of Enum</a> will help you out in sorting the cards by their suit.
 
-Järjestyksessä pienin kortti siis olisi ristikakkonen ja suurin pataässä.
-
-
-<h2>Käsi</h2>
-
-Tee seuraavaksi luokka `Kasi` joka edustaa pelaajan kädessään pitämää korttien joukkoa. Tee kädelle seuraavat metodit:
-
-- `public void add(Kortti kortti)` lisää käteen kortin
-- `public void print()` printa kädessä olevat kortit alla olevan esimerkin tyylillä
+<!--Järjestyksessä pienin kortti siis olisi ristikakkonen ja suurin pataässä.-->
+So, for this sorting, the least valuable card is two of clubs, and highest the ace of spades.
 
 
-```java
+<h2>Hand</h2>
+<!--h2>Käsi</h2-->
+
+<!--Tee seuraavaksi luokka `Kasi` joka edustaa pelaajan kädessään pitämää korttien joukkoa. Tee kädelle seuraavat metodit:-->
+Create a class `Hand` to represent the cards in player's hand. Add the following methods to the class:
+
+<!--- `public void add(Kortti kortti)` lisää käteen kortin
+- `public void print()` printa kädessä olevat kortit alla olevan esimerkin tyylillä-->
+
+- `public void add(Card card)` adds a card to the hand
+- `public void print()` prints the cards in hand as shown in the example below
+
+
+<!--```java
 Kasi kasi = new Kasi();
 
 kasi.add(new Kortti(2, Maa.RUUTU));
@@ -896,27 +927,49 @@ kasi.add(new Kortti(12, Maa.HERTTA));
 kasi.add(new Kortti(2, Maa.PATA));
 
 kasi.print();
+```-->
+
+```java
+Hand hand = new Hand();
+
+hand.add(new Card(2, Suit.DIAMOND));
+hand.add(new Card(14, Suit.SPADE));
+hand.add(new Card(12, Suit.HEART));
+hand.add(new Card(2, Suit.SPADE));
+
+hand.print();
 ```
 
-Tulostuu:
+<!--Tulostuu:-->
+Outputs:
 
-<sample-output>
+<!--sample-output>
 
 RUUTU 2
 PATA A
 HERTTA Q
 PATA 2
 
+</sample-output-->
+<sample-output>
+
+DIAMOND 2
+SPADE A
+HEART Q
+SPADE 2
+
 </sample-output>
 
-Käytä ArrayListiä korttien tallentamiseen.
+<!--Käytä ArrayListiä korttien tallentamiseen.-->
+Use an ArrayList to store the cards.
 
+<!--h2>Käden järjestäminen</h2-->
+<h2>Sorting the hand</h2>
 
-<h2>Käden järjestäminen</h2>
+<!--Tee kädelle metodi `public void jarjesta()` jota kutsumalla käden sisällä olevat kortit menevät suuruusjärjestykseen. Järjestämisen jälkeen kortit tulostuvat järjestyksessä:-->
+Add a method `public void sort()` to Hand class, which sorts the cards in the hand. After sorting, the cards are printed out in order:
 
-Tee kädelle metodi `public void jarjesta()` jota kutsumalla käden sisällä olevat kortit menevät suuruusjärjestykseen. Järjestämisen jälkeen kortit tulostuvat järjestyksessä:
-
-```java
+<!--```java
 Kasi kasi = new Kasi();
 
 kasi.add(new Kortti(2, Maa.RUUTU));
@@ -927,29 +980,53 @@ kasi.add(new Kortti(2, Maa.PATA));
 kasi.jarjesta();
 
 kasi.print();
+```-->
+
+```java
+Hand hand = new Hand();
+
+hand.add(new Card(2, Suit.DIAMOND));
+hand.add(new Card(14, Suit.SPADE));
+hand.add(new Card(12, Suit.HEART));
+hand.add(new Card(2, Suit.SPADE));
+
+hand.sort();
+
+hand.print();
 ```
 
-Tulostuu:
+<!--Tulostuu:-->
+Output:
 
-<sample-output>
+<!--sample-output>
 
 RUUTU 2
 PATA 2
 HERTTA Q
 PATA A
 
+</sample-output-->
+<sample-output>
+
+DIAMOND 2
+SPADE 2
+HEART Q
+SPADE A
+
 </sample-output>
 
 
-<h2>Käsien vertailu</h2>
+<!--h2>Käsien vertailu</h2-->
+<h2>Comparing hands</h2>
 
 
-Eräässä korttipelissä kahdesta korttikädestä arvokkaampi on se, jonka sisältämien korttien arvon summa on suurempi. Tee luokasta `Kasi` vertailtava tämän kriteerin mukaan, eli laita luokka toteuttamaan rajapinta `Comparable<Kasi>`.
+<!--Eräässä korttipelissä kahdesta korttikädestä arvokkaampi on se, jonka sisältämien korttien arvon summa on suurempi. Tee luokasta `Kasi` vertailtava tämän kriteerin mukaan, eli laita luokka toteuttamaan rajapinta `Comparable<Kasi>`.-->
+In a card game, hands are ranked based on the sum of values of its cards. Modify the `Hand` class to be comparable based on this criteria, i.e. change the class so that interface `Comparable<Hand>` applies to it.
 
-Esimerkkiohjelma, jossa vertaillaan käsiä:
+<!--Esimerkkiohjelma, jossa vertaillaan käsiä:-->
+Here's an example of a program that compares the hands:
 
-
-```java
+<!--```java
 Kasi kasi1 = new Kasi();
 
 kasi1.add(new Kortti(2, Maa.RUUTU));
@@ -974,32 +1051,72 @@ if (vertailu < 0) {
 } else {
     System.out.println("kädet yhtä arvokkaat");
 }
+```-->
+```java
+Hand hand1 = new Hand();
+
+hand1.add(new Card(2, Suit.DIAMOND));
+hand1.add(new Card(14, Suit.SPADE));
+hand1.add(new Card(12, Suit.HEART));
+hand1.add(new Card(2, Suit.SPADE));
+
+Hand hand2 = new Hand();
+
+hand2.add(new Card(11, Suit.DIAMOND));
+hand2.add(new Card(11, Suit.SPADE));
+hand2.add(new Card(11, Suit.HEART));
+
+int comparison = hand1.compareTo(hand2);
+
+if (comparison < 0) {
+    System.out.println("better hand is");
+    hand2.print();
+} else if (comparison > 0){
+    System.out.println("better hand is");
+    hand1.print();
+} else {
+    System.out.println("hands are equal");
+}
 ```
+<!--Tulostuu-->
+Output
 
-Tulostuu
-
-<sample-output>
+<!--sample-output>
 
 arvokkaampi käsi sisältää kortit
 RUUTU J
 PATA J
 HERTTA J
 
+</sample-output-->
+
+<sample-output>
+
+better hand is
+DIAMOND J
+SPADE J
+HEART J
+
 </sample-output>
 
 
-<h2>Korttien järjestäminen eri kriteerein</h2>
+<!--h2>Korttien järjestäminen eri kriteerein</h2-->
+<h2>Sorting cards with different criteria</h2>
 
-Entä jos haluaisimme välillä järjestää kortit hieman eri tavalla, esim. kaikki saman maan kortit peräkkäin? Luokalla voi olla vain yksi `compareTo`-metodi, joten joudumme muunlaisia järjestyksiä saadaksemme turvautumaan muihin keinoihin.
+<!--Entä jos haluaisimme välillä järjestää kortit hieman eri tavalla, esim. kaikki saman maan kortit peräkkäin? Luokalla voi olla vain yksi `compareTo`-metodi, joten joudumme muunlaisia järjestyksiä saadaksemme turvautumaan muihin keinoihin.-->
 
-
-Vaihtoehtoiset järjestämistavat toteutetaan erillisten vertailun suorittavien luokkien avulla. Korttien vaihtoehtoisten järjestyksen määräävän luokkien tulee toteuttaa `Comparator<Kortti>`-rajapinta. Järjestyksen määräävän luokan olio vertailee kahta parametrina saamaansa korttia. Metodeja on ainoastaan yksi compare(Kortti k1, Kortti k2), jonka tulee palauttaa negatiivinen arvo, jos kortti k1 on järjestyksessä ennen korttia k2, positiivinen arvo jos k2 on järjestyksessä ennen k1:stä ja 0 muuten.
-
-
-Periaatteena on luoda jokaista järjestämistapaa varten oma vertailuluokka, esim. saman maan kortit vierekkäin vievän järjestyksen määrittelevä luokka:
+What if we want to sort the cards in different ways, e.g. sorting all the cards of the same suit in a row. Class can only have one `compareTo` method, so we'll need something else to sort the cards in to a different order.
 
 
-```java
+<!--Vaihtoehtoiset järjestämistavat toteutetaan erillisten vertailun suorittavien luokkien avulla. Korttien vaihtoehtoisten järjestyksen määräävän luokkien tulee toteuttaa `Comparator<Kortti>`-rajapinta. Järjestyksen määräävän luokan olio vertailee kahta parametrina saamaansa korttia. Metodeja on ainoastaan yksi compare(Kortti k1, Kortti k2), jonka tulee palauttaa negatiivinen arvo, jos kortti k1 on järjestyksessä ennen korttia k2, positiivinen arvo jos k2 on järjestyksessä ennen k1:stä ja 0 muuten.-->
+Alternative sorting systems are possible through differnet sorting classes. Such a class must have the `Comparator<Kortti>` interface. An object of the sorting class will then compare two cards give as parameters. The class only has one method, compare(Card c1, Card c2), which returns a negative value if the card c1 should be sorted before card c2, a positive value if card c2 comes before card c1, and zero if they are equal.
+
+
+<!--Periaatteena on luoda jokaista järjestämistapaa varten oma vertailuluokka, esim. saman maan kortit vierekkäin vievän järjestyksen määrittelevä luokka:-->
+The idea is to create a different sorting class for each different way of sorting the cards, e.g. cards of the same suit in a row.:
+
+
+<!--```java
 import java.util.Comparator;
 
 public class SamatMaatVierekkain implements Comparator<Kortti> {
@@ -1007,14 +1124,25 @@ public class SamatMaatVierekkain implements Comparator<Kortti> {
         return k1.getMaa().ordinal() - k2.getMaa().ordinal();
     }
 }
+```-->
+```java
+import java.util.Comparator;
+
+public class SortBySuit implements Comparator<Card> {
+    public int compare(Card c1, Card c2) {
+        return c1.getSuit().ordinal() - c2.getSuit().ordinal();
+    }
+}
 ```
 
-Maittainen järjestys on sama kuin kortin metodin `compareTo` maille määrittelemä järjestys eli *ristit ensin, ruudut toiseksi, hertat kolmanneksi, padat viimeiseksi.*
+<!--Maittainen järjestys on sama kuin kortin metodin `compareTo` maille määrittelemä järjestys eli *ristit ensin, ruudut toiseksi, hertat kolmanneksi, padat viimeiseksi.*-->
+When sorting the cards by suit, use the same order as with the `compareTo` method: *clubs first, diamonds second, hearts third, spades last.*
 
 
-Järjestäminen tapahtuu edelleen luokan Collections metodin sort avulla. Metodi saa nyt toiseksi parametrikseen järjestyksen määräävän luokan olion:
+<!--Järjestäminen tapahtuu edelleen luokan Collections metodin sort avulla. Metodi saa nyt toiseksi parametrikseen järjestyksen määräävän luokan olion:-->
+Sorting still works with the sort method of Collections class. As its other parameter, the method now receives the object that has the sorting logic.
 
-```java
+<!--```java
 ArrayList<Kortti> kortit = new ArrayList<>();
 
 kortit.add(new Kortti(3, Maa.PATA));
@@ -1027,11 +1155,26 @@ SamatMaatVierekkain samatMaatVierekkainJarjestaja = new SamatMaatVierekkain();
 Collections.sort(kortit, samatMaatVierekkainJarjestaja);
 
 kortit.stream().forEach(k -> System.out.println(k));
+```-->
+```java
+ArrayList<Card> cards = new ArrayList<>();
+
+cards.add(new Card(3, Suit.SPADE));
+cards.add(new Card(2, Suit.DIAMOND));
+cards.add(new Card(14, Suit.SPADE));
+cards.add(new Card(12, Suit.HEART));
+cards.add(new Card(2, Suit.SPADE));
+
+SortBySuit sortBySuitSorter = new SortBySuit();
+Collections.sort(cards, sortBySuitSorter);
+
+cards.stream().forEach(c -> System.out.println(c));
 ```
 
-Tulostuu:
+<!--Tulostuu:-->
+Output:
 
-<sample-output>
+<!--sample-output>
 
 RUUTU 2
 HERTTA Q
@@ -1039,37 +1182,56 @@ PATA 3
 PATA A
 PATA 2
 
+</sample-output-->
+<sample-output>
+
+DIAMOND 2
+HEART Q
+SPADE 3
+SPADE A
+SPADE 2
+
 </sample-output>
 
 
-Järjestyksen määrittelevä olio voidaan myös luoda suoraan sort-kutsun yhteydessä:
+<!--Järjestyksen määrittelevä olio voidaan myös luoda suoraan sort-kutsun yhteydessä:-->
+The sorting object can also be created directly when sort method is called.
 
 
+<!--```java
+Collections.sort(cards, new SortBySuit());
+```-->
 ```java
-Collections.sort(kortit, new SamatMaatVierekkain());
+Collections.sort(cards, new SortBySuit());
 ```
 
-Mikäli luokkaa ei halua toteuttaa, järjestyksen voi antaa `Collections`-luokan `sort`-metodille myös lambda-lausekkeena.
 
+<!--Mikäli luokkaa ei halua toteuttaa, järjestyksen voi antaa `Collections`-luokan `sort`-metodille myös lambda-lausekkeena.-->
+Same can even be done with a lambda function, without ever creatingn the sorting class.
 
-```java
+<!--```java
 Collections.sort(kortit, (k1, k2) -> k1.getMaa().ordinal() - k2.getMaa().ordinal());
+  ```-->
+```java
+Collections.sort(cards, (c1, c2) -> c1.getSuit().ordinal() - c2.getSuit().ordinal());
   ```
 
 
-Tarkempia ohjeita vertailuluokkien tekemiseen <a href="http://leepoint.net/data/collections/comparators.html">täällä</a>
+<!--Tarkempia ohjeita vertailuluokkien tekemiseen <a href="http://leepoint.net/data/collections/comparators.html">täällä</a-->
+You can learn more about creating sorting classes <a href="http://leepoint.net/data/collections/comparators.html">here</a>.
 
 
-Tee nyt luokka Comparator-rajapinnan toteuttava luokka `SamatMaatVierekkainArvojarjestykseen` jonka avulla saat kortit muuten samanlaiseen järjestykseen kuin edellisessä esimerkissä paitsi, että saman maan kortit järjestyvät arvon mukaisesti.
+<!--Tee nyt luokka Comparator-rajapinnan toteuttava luokka `SamatMaatVierekkainArvojarjestykseen` jonka avulla saat kortit muuten samanlaiseen järjestykseen kuin edellisessä esimerkissä paitsi, että saman maan kortit järjestyvät arvon mukaisesti.-->
+Now, create a class `BySuitInValueOrder` class that has the Comparator interface, which sorts the cards in the same order as in the above example, except that now the cards are sorted by value inside their suit.
+
+<!--h2>Käden järjestäminen maittain</h2-->
+<h2>Sorting the hand by suit</h2>
 
 
-<h2>Käden järjestäminen maittain</h2>
+<!--Lisää luokalle `Kasi` metodi `public void jarjestaMaittain()` jota kutsumalla käden sisällä olevat kortit menevät edellisen tehtävän vertailijan määrittelemään järjestykseen. Järjestämisen jälkeen kortit tulostuvat järjestyksessä:-->
+Add a method `public void sortBySuit()` to class `Hand`. When the method is called, it sorts the cards in the hand with the same logic as in the previous part. After being sorted, the cards are printed in the following order:
 
-
-Lisää luokalle `Kasi` metodi `public void jarjestaMaittain()` jota kutsumalla käden sisällä olevat kortit menevät edellisen tehtävän vertailijan määrittelemään järjestykseen. Järjestämisen jälkeen kortit tulostuvat järjestyksessä:
-
-
-```java
+<!--```java
 Kasi kasi = new Kasi();
 
 kasi.add(new Kortti(12, Maa.HERTTA));
@@ -1082,11 +1244,26 @@ kasi.add(new Kortti(2, Maa.PATA));
 kasi.jarjestaMaittain();
 
 kasi.print();
+```-->
+```java
+Hand hand = new Hand();
+
+hand.add(new Card(12, Suit.HEART));
+hand.add(new Card(4, Suit.SPADE));
+hand.add(new Card(2, Suit.DIAMOND));
+hand.add(new Card(14, Suit.SPADE));
+hand.add(new Card(7, Suit.HEART));
+hand.add(new Card(2, Suit.SPADE));
+
+hand.sortBySuit();
+
+hand.print();
 ```
 
-Tulostuu:
+<!--Tulostuu:-->
+Output:
 
-<sample-output>
+<!--sample-output>
 
 RUUTU 2
 HERTTA 7
@@ -1094,6 +1271,16 @@ HERTTA Q
 PATA 2
 PATA 4
 PATA A
+
+</sample-output-->
+<sample-output>
+
+DIAMOND 2
+HEART 7
+HEART Q
+SPADE 2
+SPADE 4
+SPADE A
 
 </sample-output>
 
