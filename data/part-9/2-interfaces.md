@@ -7,31 +7,46 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-- Tunnet käsitteen rajapinta, osaat määritellä omia rajapintoja, ja osaat toteuttaa rajapinnan luokassa.
+<!-- - Tunnet käsitteen rajapinta, osaat määritellä omia rajapintoja, ja osaat toteuttaa rajapinnan luokassa.
 - Osaat käyttää rajapintoja muuttujan tyyppinä, metodin parametrina sekä metodin paluuarvona.
 - Osaat käyttää rajapintoja muuttujan tyyppinä, metodin parametrina sekä metodin paluuarvona.
-- Tunnet joitakin Javan valmiita rajapintoja.
+- Tunnet joitakin Javan valmiita rajapintoja. -->
+- You're familiar with the concept of an interface, can define your own interfaces, and implement an interface in a class.
+- You know how to use interfaces as variable types, method parameters and method return values.
+- You're aware of some of the interfaces that come with Java.
 
 </text-box>
 
 
-Rajapinnan (engl. *interface*) avulla määritellään luokalta vaadittu käyttäytyminen, eli sen metodit. Rajapinnat määritellään kuten normaalit Javan luokat, mutta luokan alussa olevan määrittelyn "`public class ...`" sijaan käytetään määrittelyä "`public interface ...`". Rajapinnat määrittelevät käyttäytymisen metodien niminä ja palautusarvoina, mutta ne eivät aina sisällä metodien konkreettista toteutusta. Näkyvyysmäärettä rajapintoihin ei erikseen merkitä, sillä se on aina `public`. Tutkitaan luettavuutta kuvaavaa rajapintaa *Luettava*.
+<!-- Rajapinnan (engl. *interface*) avulla määritellään luokalta vaadittu käyttäytyminen, eli sen metodit. Rajapinnat määritellään kuten normaalit Javan luokat, mutta luokan alussa olevan määrittelyn "`public class ...`" sijaan käytetään määrittelyä "`public interface ...`". Rajapinnat määrittelevät käyttäytymisen metodien niminä ja palautusarvoina, mutta ne eivät aina sisällä metodien konkreettista toteutusta. Näkyvyysmäärettä rajapintoihin ei erikseen merkitä, sillä se on aina `public`. Tutkitaan luettavuutta kuvaavaa rajapintaa *Luettava*. -->
+
+We can use interfaces to define behavior that's required from a class, i.e., its methods. They're defined the same way that regular Java classes are, but "`public interface ...`" is used instead of "`public class ... `" at the beginning of the class. Interfaces define behavior through method names and their return values. However, they don't always include the actual implementations of the methods. A visibility attribute on interfaces is not marked explicitly as they're always `public`. Let's examine a *Readable* interface that describes readability.
 
 
-```java
+<!-- ```java
 public interface Luettava {
     String lue();
 }
+``` -->
+```java
+public interface Readable {
+    String read();
+}
 ```
 
-
+<!--
 Rajapinta `Luettava` määrittelee metodin `lue()`, joka palauttaa String-tyyppisen olion. Luettava kuvaa käyttäytymistä: esimerkiksi tekstiviesti tai sähköpostiviesti voi olla luettava.
 
 
-Rajapinnan toteuttavat luokat päättävät *miten* rajapinnassa määritellyt metodit toteutetaan. Luokka toteuttaa rajapinnan lisäämällä luokan nimen jälkeen avainsanan *implements*, jota seuraa rajapinnan nimi. Luodaan luokka `Tekstiviesti`, joka toteuttaa rajapinnan `Luettava`.
+Rajapinnan toteuttavat luokat päättävät *miten* rajapinnassa määritellyt metodit toteutetaan. Luokka toteuttaa rajapinnan lisäämällä luokan nimen jälkeen avainsanan *implements*, jota seuraa rajapinnan nimi. Luodaan luokka `Tekstiviesti`, joka toteuttaa rajapinnan `Luettava`. -->
+
+The `Readable` interface declares a `read()` method, which returns a String-type object. Readable defines certain behavior: for example, a text message or an email may be readable.
 
 
-```java
+The classes that implement the interface decide *how* the methods defined in the interface are implemented. A class implements the interface by adding the keyword *implements* after the class name followed by the name of the interface being implemented. Let's create a class called `TextMessage` that implements the `Readable` interface.
+
+
+<!-- ```java
 public class Tekstiviesti implements Luettava {
     private String lahettaja;
     private String sisalto;
@@ -49,26 +64,58 @@ public class Tekstiviesti implements Luettava {
         return this.sisalto;
     }
 }
+``` -->
+```java
+public class TextMessage implements Readable {
+    private String sender;
+    private String content;
+
+    public TextMessage(String sender, String content) {
+        this.sender = sender;
+        this.content = content;
+    }
+
+    public String getSender() {
+        return this.sender;
+    }
+
+    public String read() {
+        return this.content;
+    }
+}
 ```
 
 
-Koska luokka `Tekstiviesti` toteuttaa rajapinnan `Luettava` (`public class Tekstiviesti implements Luettava`), on luokassa `Tekstiviesti` *pakko* olla metodin `public String lue()` toteutus. Rajapinnassa määriteltyjen metodien toteutuksilla tulee aina olla näkyvyysmääre public.
+<!-- Koska luokka `Tekstiviesti` toteuttaa rajapinnan `Luettava` (`public class Tekstiviesti implements Luettava`), on luokassa `Tekstiviesti` *pakko* olla metodin `public String lue()` toteutus. Rajapinnassa määriteltyjen metodien toteutuksilla tulee aina olla näkyvyysmääre public. -->
 
+Since the `TextMessage` class implements the `Readable` interface (`public class TextMessage implements Readable`), the `TextMessage` class *must* contain an implementation of the `public String read()` method. Implementations of methods defined in the interface must always have public as their visibility attribute.
 
-
-<text-box variant='hint' name='Rajapinta on sopimus käyttäytymisestä'>
+<!-- <text-box variant='hint' name='Rajapinta on sopimus käyttäytymisestä'>
 
 Kun luokka toteuttaa rajapinnan, se allekirjoittaa sopimuksen. Sopimuksessa luvataan, että luokka toteuttaa rajapinnan määrittelemät metodit. Jos metodeja ei ole luokassa toteutettu, ei ohjelma toimi.
 
 Rajapinta määrittelee vain vaadittujen metodien nimet, parametrit, ja paluuarvot. Rajapinta ei kuitenkaan ota kantaa metodien sisäiseen toteutukseen. Ohjelmoijan vastuulla on määritellä metodien sisäinen toiminnallisuus.
 
+</text-box> -->
+<text-box variant='hint' name='An Interface Is a Contract of Behaviour'>
+
+<!-- Kun luokka toteuttaa rajapinnan, se allekirjoittaa sopimuksen. Sopimuksessa luvataan, että luokka toteuttaa rajapinnan määrittelemät metodit. Jos metodeja ei ole luokassa toteutettu, ei ohjelma toimi.
+
+Rajapinta määrittelee vain vaadittujen metodien nimet, parametrit, ja paluuarvot. Rajapinta ei kuitenkaan ota kantaa metodien sisäiseen toteutukseen. Ohjelmoijan vastuulla on määritellä metodien sisäinen toiminnallisuus. -->
+
+When a class implements an interface, it signs an agreement. The agreement dictates that the class will implement the methods defined by the interface. If those methods are not implemented in the class, the program will not function.
+
+The interface defines only the names, parameters, and return values ​​of the required methods. The interface, however, does not have a say on the internal implementation of its methods. It is the responsibility of the programmer to define the internal functionality for the methods.
+
 </text-box>
 
 
-Toteutetaan luokan `Tekstiviesti` lisäksi toinen `Luettava` rajapinnan toteuttava luokka. Luokka `Sahkokirja` on sähköinen toteutus kirjasta, joka sisältää kirjan nimen ja sivut. Sähkökirjaa luetaan sivu kerrallaan, metodin `public String lue()` kutsuminen palauttaa aina seuraavan sivun merkkijonona.
+<!-- Toteutetaan luokan `Tekstiviesti` lisäksi toinen `Luettava` rajapinnan toteuttava luokka. Luokka `Sahkokirja` on sähköinen toteutus kirjasta, joka sisältää kirjan nimen ja sivut. Sähkökirjaa luetaan sivu kerrallaan, metodin `public String lue()` kutsuminen palauttaa aina seuraavan sivun merkkijonona. -->
+
+In addition to the `TextMessage` class, let's add another class that implements the `Readable` interface. The `Ebook` class is an electronic implementation of a book that containing the title and pages of a book. The ebook is read page by page, and calling the `public String read()` method always returns the next page as a string.
 
 
-```java
+<!-- ```java
 public class Sahkokirja implements Luettava {
     private String nimi;
     private ArrayList<String> sivut;
@@ -101,26 +148,73 @@ public class Sahkokirja implements Luettava {
         }
     }
 }
+``` -->
+```java
+public class Ebook implements Readable {
+    private String name;
+    private ArrayList<String> pages;
+    private int pageNumber;
+
+    public Ebook(String name, ArrayList<String> pages) {
+        this.name = name;
+        this.pages = pages;
+        this.pageNumber = 0;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int pages() {
+        return this.pages.size();
+    }
+
+    public String read() {
+        String page = this.pages.get(this.pageNumber);
+        seuraavaSivu();
+        return page;
+    }
+
+    private void seuraavaSivu() {
+        this.pageNumber = this.pageNumber + 1;
+        if(this.pageNumber % this.pages.size() == 0) {
+            this.pageNumber = 0;
+        }
+    }
+}
 ```
 
-Rajapinnan toteuttavasta luokasta voi tehdä olioita aivan kuten normaaleistakin luokista, ja niitä voidaan käyttää myös esimerkiksi ArrayList-listojen tyyppinä.
+<!-- Rajapinnan toteuttavasta luokasta voi tehdä olioita aivan kuten normaaleistakin luokista, ja niitä voidaan käyttää myös esimerkiksi ArrayList-listojen tyyppinä. -->
+Objects can be instantiated from interface-implementing classes just like with normal classes. They're also used in the same way, for instance, as an ArrayList's type.
 
 
-```java
+<!-- ```java
 Tekstiviesti viesti = new Tekstiviesti("ope", "Huikeaa menoa!");
 System.out.println(viesti.lue());
 
 ArrayList<Tekstiviesti> tekstiviestit = new ArrayList<>();
 tekstiviestit.add(new Tekstiviesti("tuntematon numero", "I hid the body.");
+``` -->
+```java
+TextMessage message = new TextMessage("ope", "It's going great!");
+System.out.println(message.read());
+
+ArrayList<TextMessage> tekstiviestit = new ArrayList<>();
+tekstiviestit.add(new TextMessage("private number", "I hid the body.");
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Huikeaa menoa!
 
+</sample-output> -->
+<sample-output>
+
+It's going great!
+
 </sample-output>
 
-```java
+<!-- ```java
 ArrayList<String> sivut = new ArrayList<>();
 sivut.add("Pilko metodisi lyhyiksi luettaviksi kokonaisuuksiksi.");
 sivut.add("Erota käyttöliittymälogiikka sovelluksen logiikasta.");
@@ -134,14 +228,37 @@ while (sivu < kirja.sivuja()) {
     System.out.println(kirja.lue());
     sivu = sivu + 1;
 }
+``` -->
+```java
+ArrayList<String> pages = new ArrayList<>();
+pages.add("Split your method into short, readable entities.");
+pages.add("Seperate the user-interface logic from the application logic.");
+pages.add("Always program a small part initially that solves a part of the problem.");
+pages.add("Practice makes the master. Try different out things for yourself and work on your own projects.");
+
+Ebook book = new Ebook("Tips for programming.", pages);
+
+int page = 0;
+while (page < book.pages()) {
+    System.out.println(book.read());
+    page = page + 1;
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Pilko metodisi lyhyiksi luettaviksi kokonaisuuksiksi.
 Erota käyttöliittymälogiikka sovelluksen logiikasta.
 Ohjelmoi aina ensin pieni osa, jolla ratkaiset osan ongelmasta.
 Harjoittelu tekee mestarin. Keksi ja tee omia kokeiluja ja projekteja.
+
+</sample-output> -->
+<sample-output>
+
+Split your method into short, readable entities.
+Seperate the user-interface logic from the application logic.
+Always program a small part initially that solves a part of the problem.
+Practice makes the master.Try different out things for yourself and work on your own projects.
 
 </sample-output>
 
@@ -198,27 +315,37 @@ Implement the class `CustomTacoBox`, that implements the `TacoBox` interface. `C
 
 
 
-## Rajapinta muuttujan tyyppinä
+<!-- ## Rajapinta muuttujan tyyppinä -->
+## Interface as Variable Type
 
 
-Uutta muuttujaa esitellessä kerrotaan aina muuttujan tyyppi. Tyyppejä on kahdenlaisia, alkeistyyppiset muuttujat (int, double, ...) ja viittaustyyppiset muuttujat (kaikki oliot). Olemme tähän mennessä käyttäneet viittaustyyppisten muuttujien tyyppinä olion luokkaa.
+<!-- Uutta muuttujaa esitellessä kerrotaan aina muuttujan tyyppi. Tyyppejä on kahdenlaisia, alkeistyyppiset muuttujat (int, double, ...) ja viittaustyyppiset muuttujat (kaikki oliot). Olemme tähän mennessä käyttäneet viittaustyyppisten muuttujien tyyppinä olion luokkaa. -->
+The type of a variable is always stated as its introduced. There are two kinds of type, the primitive-type variables (int, double, ...) and reference-type variables (all objects). We've so far used an object's class as the type of a reference-type variable.
 
-
-```java
+<!-- ```java
 String merkkijono = "merkkijono-olio";
 Tekstiviesti viesti = new Tekstiviesti("ope", "samalla oliolla monta tyyppiä");
+``` -->
+```java
+String string = "string-object";
+Tekstiviesti message = new TextMessage("ope", "many types for the same object");
 ```
 
 
-Olion tyyppi voi olla muutakin kuin sen luokka. Esimerkiksi rajapinnan `Luettava` toteuttavan luokan `Sahkokirja` tyyppi on sekä `Sahkokirja` että `Luettava`. Samalla tavalla myös tekstiviestillä on monta tyyppiä. Koska luokka `Tekstiviesti` toteuttaa rajapinnan `Luettava`, on sillä tyypin `Tekstiviesti` lisäksi myös tyyppi `Luettava`.
+<!-- Olion tyyppi voi olla muutakin kuin sen luokka. Esimerkiksi rajapinnan `Luettava` toteuttavan luokan `Sahkokirja` tyyppi on sekä `Sahkokirja` että `Luettava`. Samalla tavalla myös tekstiviestillä on monta tyyppiä. Koska luokka `Tekstiviesti` toteuttaa rajapinnan `Luettava`, on sillä tyypin `Tekstiviesti` lisäksi myös tyyppi `Luettava`. -->
+An object's type can be other than its class. For example, the type of the `Ebook` class that implements the `Readable` interface is both `Ebook` and `Readable`. Similarly, the text message also has multiple types. Because the `TextMessage` class implements the `Readable` interface, it has a `Readable` type in addition to the `TextMessage` type.
 
 
-```java
+<!-- ```java
 Tekstiviesti viesti = new Tekstiviesti("ope", "Kohta tapahtuu huikeita");
 Luettava luettava = new Tekstiviesti("ope", "Tekstiviesti on Luettava!");
+``` -->
+```java
+TextMessage message = new TextMessage("ope", "Something cool's about to happen);
+Readable readable = new TextMessage("ope", "The text message is Readable!");
 ```
 
-```java
+<!-- ```java
 ArrayList<String> sivut = new ArrayList<>();
 sivut.add("Metodi voi kutsua itse itseään.");
 
@@ -229,12 +356,24 @@ while (sivu < kirja.sivuja()) {
     System.out.println(kirja.lue());
     sivu = sivu + 1;
 }
+``` -->
+```java
+ArrayList<String> pages = new ArrayList<>();
+pages.add("A method can call itself.");
+
+Readable book = new Ebook("Introduction to Recursion", pages);
+
+int page = 0;
+while (page < book.pages()) {
+    System.out.println(book.read());
+    page = page + 1;
+}
 ```
 
-Koska rajapintaa voidaan käyttää tyyppinä, on mahdollista luoda rajapintaluokan tyyppisiä olioita sisältävä lista.
+<!-- Koska rajapintaa voidaan käyttää tyyppinä, on mahdollista luoda rajapintaluokan tyyppisiä olioita sisältävä lista. -->
+Because an interface can be used as a type, it's possible to create a list that contains objects of the interface's type.
 
-
-```java
+<!-- ```java
 ArrayList<Luettava> lukulista = new ArrayList<>();
 
 lukulista.add(new Tekstiviesti("ope", "never been programming before..."));
@@ -252,42 +391,76 @@ lukulista.add(new Sahkokirja("Rekursion alkeet.", sivut));
 for (Luettava luettava: lukulista) {
     System.out.println(luettava.lue());
 }
+``` -->
+```java
+ArrayList<Readable> readingList = new ArrayList<>();
+
+readingList.add(new TextMessage("ope", "never been programming before..."));
+readingList.add(new TextMessage("ope", "gonna love it i think!"));
+readingList.add(new TextMessage("ope", "give me something more challenging! :)"));
+readingList.add(new TextMessage("ope", "you think i can do it?"));
+readingList.add(new TextMessage("ope", "up here we send several messages each day"));
+
+
+ArrayList<String> pages = new ArrayList<>();
+pages.add("A method can call itself.");
+
+readingList.add(new Ebook("Introduction to Recursion.", pages));
+
+for (Readable readable: readingList) {
+    System.out.println(readable.read());
+}
 ```
 
 
-Huomaa että vaikka rajapinnan `Luettava` toteuttava luokka `Sahkokirja` on aina rajapinnan tyyppinen, eivät kaikki `Luettava`-rajapinnan toteuttavat luokat ole tyyppiä `Sahkokirja`. Luokasta `Sahkokirja` tehdyn olion asettaminen `Luettava`-tyyppiseen muuttujaan onnistuu, mutta toiseen suuntaan asetus ei ole sallittua ilman erillistä tyyppimuunnosta.
+<!-- Huomaa että vaikka rajapinnan `Luettava` toteuttava luokka `Sahkokirja` on aina rajapinnan tyyppinen, eivät kaikki `Luettava`-rajapinnan toteuttavat luokat ole tyyppiä `Sahkokirja`. Luokasta `Sahkokirja` tehdyn olion asettaminen `Luettava`-tyyppiseen muuttujaan onnistuu, mutta toiseen suuntaan asetus ei ole sallittua ilman erillistä tyyppimuunnosta. -->
+Note that although the `Ebook` class that inherits the `Readable` interface class is always of the interface's type, not all classes that implement the `Readable` interface are of type `Ebook`. You can assign an object created from the `Ebook` class to a `Readable`-type variable, but it does not work the other way without a separate type conversion.
 
-
-```java
+<!-- ```java
 Luettava luettava = new Tekstiviesti("ope", "Tekstiviesti on Luettava!"); // toimii
 Tekstiviesti viesti = luettava; // ei toimi
 
 Tekstiviesti muunnettuViesti = (Tekstiviesti) luettava; // toimii jos ja vain jos
                                                         // luettava on tyyppiä Tekstiviesti
+``` -->
+```java
+Readable readable = new TextMessage("ope", "TextMessage is Readable!"); // works
+TextMessage viesti = readable; // doesn't work
+
+TextMessage castMessage = (TextMessage) readable; // works if, and only if, readable is of text message type
 ```
 
-Tyyppimuunnos onnistuu jos ja vain jos muuttuja on oikeastikin sitä tyyppiä johon sitä yritetään muuntaa. Tyyppimuunnoksen käyttöä ei yleisesti suositella, ja lähes ainut sallittu paikka sen käyttöön on `equals`-metodin toteutuksessa.
+<!-- Tyyppimuunnos onnistuu jos ja vain jos muuttuja on oikeastikin sitä tyyppiä johon sitä yritetään muuntaa. Tyyppimuunnoksen käyttöä ei yleisesti suositella, ja lähes ainut sallittu paikka sen käyttöön on `equals`-metodin toteutuksessa. -->
+Type conversion succeeds if, and only if, the variable is of the type that it's being converted to. Type conversion is not considered good practice, and one of the few situation where it's use is appropriate is in the implementation of the `equals` method.
+
+<!-- ## Rajapinta metodin parametrina -->
+## Interfaces as Method Parameters
 
 
-## Rajapinta metodin parametrina
+<!-- Rajapintojen todelliset hyödyt tulevat esille kun niitä käytetään metodille annettavan parametrin tyyppinä. Koska rajapintaa voidaan käyttää muuttujan tyyppinä, voidaan sitä käyttää metodikutsuissa parametrin tyyppinä. Esimerkiksi seuraavan luokan `Tulostin` metodi `tulosta` saa parametrina `Luettava`-tyyppisen muuttujan. -->
+The true benefits of interfaces are reaped when they are used as the type of parameter provided to a method. Since an interface can be used as a variable's type, it can also be used as a parameter type in method calls. For example, the `print` method in the `Printer` class of the class below gets a variable of type `read`.
 
-
-Rajapintojen todelliset hyödyt tulevat esille kun niitä käytetään metodille annettavan parametrin tyyppinä. Koska rajapintaa voidaan käyttää muuttujan tyyppinä, voidaan sitä käyttää metodikutsuissa parametrin tyyppinä. Esimerkiksi seuraavan luokan `Tulostin` metodi `tulosta` saa parametrina `Luettava`-tyyppisen muuttujan.
-
-
-```java
+<!-- ```java
 public class Tulostin {
     public void tulosta(Luettava luettava) {
         System.out.println(luettava.lue());
     }
 }
+``` -->
+```java
+public class Printer {
+    public void print(Readable reaable) {
+        System.out.println(reaable.read());
+    }
+}
 ```
 
 
-Luokan `Tulostin` tarjoaman metodin `tulosta` huikeus piilee siinä, että sille voi antaa parametrina *minkä tahansa* `Luettava`-rajapinnan toteuttavan luokan ilmentymän. Kutsummepa metodia millä tahansa Luettava-luokan toteuttaneen luokan oliolla, metodi osaa toimia oikein.
+<!-- Luokan `Tulostin` tarjoaman metodin `tulosta` huikeus piilee siinä, että sille voi antaa parametrina *minkä tahansa* `Luettava`-rajapinnan toteuttavan luokan ilmentymän. Kutsummepa metodia millä tahansa Luettava-luokan toteuttaneen luokan oliolla, metodi osaa toimia oikein. -->
+The value of the `print` method of the `printer` class lies in the fact that it can be given *any* class that implements the `Readable` interface as a parameter. Were we to call the method with any object instantiate from a class that inherits the Readable class, the method would function as desired.
 
 
-```java
+<!-- ```java
 Tekstiviesti viesti = new Tekstiviesti("ope", "Huhhuh, tää tulostinkin osaa tulostaa näitä!");
 
 ArrayList<String> sivut = new ArrayList<>();
@@ -297,19 +470,37 @@ Sahkokirja kirja = new Sahkokirja("Yliopistomatematiikan perusteet.", sivut);
 Tulostin tulostin = new Tulostin();
 tulostin.tulosta(viesti);
 tulostin.tulosta(kirja);
+``` -->
+```java
+TextMessage message = new TextMessage("ope", "Oh wow, this printer knows how to print these as well!");
+
+ArrayList<String> pages = new ArrayList<>();
+pages.add("Values common to both {1, 3, 5} and {2, 3, 4, 5} are {3, 5}.");
+Ebook book = new Ebook("Introduction to University Mathematics.", pages);
+
+Printer printer = new Printer();
+printer.print(message);
+printer.print(book);
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Huhhuh, tää tulostinkin osaa tulostaa näitä!
 Lukujen {1, 3, 5} ja {2, 3, 4, 5} yhteisiä lukuja ovat {3, 5}.
 
+</sample-output> -->
+<sample-output>
+
+Oh wow, this printer knows how to print these as well!
+Values common to both {1, 3, 5} and {2, 3, 4, 5} are {3, 5}.
+
 </sample-output>
 
-Toteutetaan toinen luokka `Lukulista`, johon voidaan lisätä mielenkiintoisia luettavia asioita. Luokalla on oliomuuttujana `ArrayList`-luokan ilmentymä, johon luettavia asioita tallennetaan. Lukulistaan lisääminen tapahtuu `lisaa`-metodilla, joka saa parametrikseen `Luettava`-tyyppisen olion.
+<!-- Toteutetaan toinen luokka `Lukulista`, johon voidaan lisätä mielenkiintoisia luettavia asioita. Luokalla on oliomuuttujana `ArrayList`-luokan ilmentymä, johon luettavia asioita tallennetaan. Lukulistaan lisääminen tapahtuu `lisaa`-metodilla, joka saa parametrikseen `Luettava`-tyyppisen olion. -->
+Let's make another class called `ReadingList` to which we can ad interesting things to read. The class has an `ArrayList` instance as an instance variable, where the things to be read are added. Adding to the reading list is done using the `add` method, which receives a `Readable`-type object as its parameter.
 
 
-```java
+<!-- ```java
 public class Lukulista {
     private ArrayList<Luettava> luettavat;
 
@@ -325,13 +516,30 @@ public class Lukulista {
         return this.luettavat.size();
     }
 }
+``` -->
+```java
+public class ReadingList {
+    private ArrayList<Readable> readables;
+
+    public ReadingList() {
+        this.readables = new ArrayList<>();
+    }
+
+    public void add(Readable readable) {
+        this.readables.add(readable);
+    }
+
+    public int toRead() {
+        return this.readables.size();
+    }
+}
 ```
 
 
-Lukulistat ovat yleensä luettavia, joten toteutetaan luokalle `Lukulista` rajapinta `Luettava`. Lukulistan `lue`-metodi lukee kaikki `luettavat`-listalla olevat oliot läpi, ja lisää yksitellen niiden `lue()`-metodin palauttaman merkkijonoon.
+<!-- Lukulistat ovat yleensä luettavia, joten toteutetaan luokalle `Lukulista` rajapinta `Luettava`. Lukulistan `lue`-metodi lukee kaikki `luettavat`-listalla olevat oliot läpi, ja lisää yksitellen niiden `lue()`-metodin palauttaman merkkijonoon. -->
+Reading lists are usually readable, so let's have the `ReadingList` class implement the `Readable` interface. The `read` method of the reading list reads all the objects in the `readables` list, and adds them to the string returned by the `read()` method one-by-one.
 
-
-```java
+<!-- ```java
 public class Lukulista implements Luettava {
     private ArrayList<Luettava> luettavat;
 
@@ -359,28 +567,71 @@ public class Lukulista implements Luettava {
         return luettu;
     }
 }
+``` -->
+```java
+public class ReadingList implements Readable {
+    private ArrayList<Readable> readables;
+
+    public ReadingList() {
+        this.readables = new ArrayList<>();
+    }
+
+    public void add(Readable readable) {
+        this.readables.add(readable);
+    }
+
+    public int luettavia() {
+        return this.readables.size();
+    }
+
+    public String read() {
+        String read = "";
+
+        for (Readable readable: this.readables) {
+            read = read + readable.read() + "\n";
+        }
+
+        // once the reading list has been read, we empty it
+        this.readables.clear();
+        return read;
+    }
+}
 ```
 
 
-```java
+<!-- ```java
 Lukulista joninLista = new Lukulista();
 joninLista.lisaa(new Tekstiviesti("arto", "teitkö jo testit?"));
 joninLista.lisaa(new Tekstiviesti("arto", "katsoitko jo palautukset?"));
 
 System.out.println("Jonilla luettavia: " + joninLista.luettavia());
+``` -->
+```java
+ReadingList jonisList = new ReadingList();
+jonisList.add(new TextMessage("arto", "have you written the tests yet?"));
+jonisList.add(new TextMessage("arto", "have you checked the submissions yet?"));
+
+System.out.println("Joni's to-read: " + jonisList.toRead());
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Jonilla luettavia: 2
 
+</sample-output> -->
+<sample-output>
+
+Joni's to-read: 2
+
 </sample-output>
 
+<!--
+Koska `Lukulista` on tyyppiä `Luettava`, voi lukulistalle lisätä `Lukulista`-olioita. Alla olevassa esimerkissä Jonilla on paljon luettavaa. Onneksi Verna tulee hätiin ja lukee viestit Jonin puolesta. -->
 
-Koska `Lukulista` on tyyppiä `Luettava`, voi lukulistalle lisätä `Lukulista`-olioita. Alla olevassa esimerkissä Jonilla on paljon luettavaa. Onneksi Verna tulee hätiin ja lukee viestit Jonin puolesta.
+Because the `ReadingList` is of type `Readable`, we're able to add `ReadingList` objects to the reading list. In the example below, Joni has a lot to read. Fortunately for him, Verna comes to the rescue and reads the messages on Joni's behalf.
 
 
-```java
+<!-- ```java
 Lukulista joninLista = new Lukulista();
 int i = 0;
 while (i < 1000) {
@@ -397,22 +648,45 @@ vernanLista.lue();
 
 System.out.println();
 System.out.println("Jonilla luettavia: " + joninLista.luettavia());
+``` -->
+```java
+ReadingList jonisList = new ReadingList();
+int i = 0;
+while (i < 1000) {
+    jonisList.add(new TextMessage("arto", "teitkö jo testit?"));
+    i = i + 1;
+}
+
+System.out.println("Joni's to-read: " + jonisList.toRead());
+System.out.println("Delegating the reading to Verna");
+
+ReadingList vernasList = new ReadingList();
+vernasList.add(jonisList);
+vernanLista.read();
+
+System.out.println();
+System.out.println("Joni's to-read: " + jonisList.toRead());
 ```
 
 <sample-output>
 
-Jonilla luettavia: 1000
-Delegoidaan lukeminen Vernalle
+Joni's to-read: 1000
+Delegating the reading to Verna
 
-Jonilla luettavia: 0
+Joni's to-read:0
 
 </sample-output>
 
 
-Ohjelmassa Vernan listalle kutsuttu `lue`-metodi käy kaikki sen sisältämät `Luettava`-oliot läpi, ja kutsuu niiden `lue`-metodia. Kutsuttaessa `lue`-metodia Vernan listalle käydään myös Vernan lukulistalla oleva Jonin lukulista läpi. Jonin lukulista käydään läpi kutsumalla sen `lue`-metodia. Jokaisen `lue`-metodin kutsun lopussa tyhjennetään juuri luettu lista. Eli Jonin lukulista tyhjenee kun Verna lukee sen.
+<!-- Ohjelmassa Vernan listalle kutsuttu `lue`-metodi käy kaikki sen sisältämät `Luettava`-oliot läpi, ja kutsuu niiden `lue`-metodia. Kutsuttaessa `lue`-metodia Vernan listalle käydään myös Vernan lukulistalla oleva Jonin lukulista läpi. Jonin lukulista käydään läpi kutsumalla sen `lue`-metodia. Jokaisen `lue`-metodin kutsun lopussa tyhjennetään juuri luettu lista. Eli Jonin lukulista tyhjenee kun Verna lukee sen.
 
 
-Kuten huomaat, ohjelmassa on jo hyvin paljon viitteitä. Kannattaa piirtää ohjelman tilaa askeleittain paperille, ja hahmotella miten `vernanLista`-oliolle tapahtuva metodikutsu `lue` etenee!
+Kuten huomaat, ohjelmassa on jo hyvin paljon viitteitä. Kannattaa piirtää ohjelman tilaa askeleittain paperille, ja hahmotella miten `vernanLista`-oliolle tapahtuva metodikutsu `lue` etenee! -->
+
+The `read` method called on Verna's list goes through all the `Readable` objects and calls the `read` method on them. When the `read` method is called on Verna's list it also goes through Joni's reading list that's included in Verna's reading list. Joni's reading list is run through by calling its `read` method. At the end of each `read` method call, the read list is cleared. In this way, Joni's reading list empties when Verna reads it.
+
+
+As you notice, the program already contains a lot of references. It's a good idea to draw out the state of the program step-by-step on paper and outline how the `read` method call of the `vernasList` object proceeds!
 
 <programming-exercise name='Interface In A Box (4 parts)' tmcname='part09-Part09_06.InterfaceInABox' nocoins='true'>
 
@@ -812,14 +1086,17 @@ System.out.println(palautaKoko(names));
 </programming-exercise>
 
 
-### Set-rajapinta
+<!-- ### Set-rajapinta -->
+### Set-interface
 
 
-Rajapinta <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html" target="_blank">Set</a> kuvaa joukkoihin liittyvää toiminnallisuutta. Javassa joukot sisältävät aina joko 0 tai 1 kappaletta tiettyä oliota. Set-rajapinnan toteuttaa muun muassa <a href="http://docs.oracle.com/javase/8/docs/api/java/util/HashSet.html" target="_blank">HashSet</a>. Joukon alkioita pystyy käymään läpi seuraavasti.
+<!-- Rajapinta <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html" target="_blank">Set</a> kuvaa joukkoihin liittyvää toiminnallisuutta. Javassa joukot sisältävät aina joko 0 tai 1 kappaletta tiettyä oliota. Set-rajapinnan toteuttaa muun muassa <a href="http://docs.oracle.com/javase/8/docs/api/java/util/HashSet.html" target="_blank">HashSet</a>. Joukon alkioita pystyy käymään läpi seuraavasti. -->
+
+The <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html" target="_blank"> Set </a> interface describes functionality related to sets. In Java, sets always contain either 0 or 1 amounts of any given object. The set interface is implemented by <a href="http://docs.oracle.com/javase/8/docs/api/java/util/HashSet.html" target="_blank"> HashSet </a>, for instance . Here's how to go through the elements of a set.
 
 <br/>
 
-```java
+<!-- ```java
 Set<String> joukko = new HashSet<>();
 joukko.add("yksi");
 joukko.add("yksi");
@@ -828,17 +1105,34 @@ joukko.add("kaksi");
 for (String alkio: joukko) {
     System.out.println(alkio);
 }
+``` -->
+```java
+Set<String> set = new HashSet<>();
+set.add("one");
+set.add("one");
+set.add("two");
+
+for (String element: set) {
+    System.out.println(element);
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 yksi
 kaksi
 
+</sample-output> -->
+<sample-output>
+
+one
+two
+
 </sample-output>
 
 
-Huomaa että HashSet ei ota millään tavalla kantaa joukon alkioiden järjestykseen. Mikäli HashSet-olioon lisätään omista luokista tehtyjä olioita, tulee niille olla määriteltynä metodit `equals` ja `hashCode`.
+<!-- Huomaa että HashSet ei ota millään tavalla kantaa joukon alkioiden järjestykseen. Mikäli HashSet-olioon lisätään omista luokista tehtyjä olioita, tulee niille olla määriteltynä metodit `equals` ja `hashCode`. -->
+Note that HashSet in no way assumes the order of a set of elements. If objects created from custom classes are added to the HashSet object, they must have both the `equals` and `hashCode` methods defined. ->
 
 
 <programming-exercise name='Set as  method parameter' tmcname='part09-Part09_09.SetAsMethodParameter'>
@@ -885,20 +1179,23 @@ Prints:
 
 
 
-### Collection-rajapinta
+<!-- ### Collection-rajapinta -->
+### Collection-interface
 
 
-Rajapinta <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" target="_blank" rel="noopener">Collection</a> kuvaa kokoelmiin liittyvää toiminnallisuutta. Javassa muun muassa listat ja joukot ovat kokoelmia -- rajapinnat List ja Set toteuttavat rajapinnan Collection. Kokoelmarajapinta tarjoaa metodit muun muassa alkioiden olemassaolon tarkistamiseen (metodi `contains`) ja kokoelman koon tarkistamiseen (metodi `size`).
+<!-- Rajapinta <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" target="_blank" rel="noopener">Collection</a> kuvaa kokoelmiin liittyvää toiminnallisuutta. Javassa muun muassa listat ja joukot ovat kokoelmia -- rajapinnat List ja Set toteuttavat rajapinnan Collection. Kokoelmarajapinta tarjoaa metodit muun muassa alkioiden olemassaolon tarkistamiseen (metodi `contains`) ja kokoelman koon tarkistamiseen (metodi `size`). -->
+The <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" target="_blank" rel="noopener"> Collection </a> interface describes functionality related to collections. Among other things, lists and sets are categorized as collections in Java -- both the List and Set interfaces implement the Collection interface. The Collection interface provides, for instance, methods for checking the existence of an item (the method `contains`) and determining the size of a collection (the method `size`).
 
 <br/>
 
-Collection-rajapinta määrää myös läpikäynnin toteuttamisesta. Jokaisella luokalla, joka toteuttaa Collection-rajapinnan joko välillisesti tai suoraan, on myös `for-each`-toistolauseessa tarvittava toiminnallisuus.
+<!-- Collection-rajapinta määrää myös läpikäynnin toteuttamisesta. Jokaisella luokalla, joka toteuttaa Collection-rajapinnan joko välillisesti tai suoraan, on myös `for-each`-toistolauseessa tarvittava toiminnallisuus. -->
+The Collection interface also determines how the collection is iterated over. Any class that implements the Collection interface, either directly or indirectly, inherits the functionality required for a `for-each` loop.
+
+<!-- Luodaan vielä hajautustaulu ja käydään erikseen läpi siihen liittyvät avaimet ja arvot. -->
+Let's create a hash table, and iterate over its keys and values.
 
 
-Luodaan vielä hajautustaulu ja käydään erikseen läpi siihen liittyvät avaimet ja arvot.
-
-
-```java
+<!-- ```java
 Map<String, String> kaannokset = new HashMap<>();
 kaannokset.put("ganbatte", "tsemppiä");
 kaannokset.put("hai", "kyllä");
@@ -918,9 +1215,30 @@ Collection<String> arvot = kaannokset.values();
 for (String arvo: arvot) {
     System.out.println(arvo);
 }
+``` -->
+```java
+Map<String, String> translations = new HashMap<>();
+translations.put("ganbatte", "good luck");
+translations.put("hai", "yes");
+
+Set<String> keys = translations.keySet();
+Collection<String> keyCollection = keys;
+
+System.out.println("Keys:");
+for (String key: keyCollection) {
+    System.out.println(key);
+}
+
+System.out.println();
+System.out.println("Values:");
+Collection<String> values = translations.values();
+
+for (String value: values) {
+    System.out.println(value);
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Avaimet:
 ganbatte
@@ -930,10 +1248,23 @@ Arvot:
 kyllä
 tsemppiä
 
+</sample-output> -->
+<sample-output>
+
+Keys:
+ganbatte
+hai
+
+Values:
+yes
+good luck
+
 </sample-output>
 
 
-Seuraavassa tehtävässä rakennetaan verkkokauppaan liittyvää toiminnallisuutta ja harjoitellaan luokkien käyttämistä niiden tarjoamien rajapintojen kautta.
+<!-- Seuraavassa tehtävässä rakennetaan verkkokauppaan liittyvää toiminnallisuutta ja harjoitellaan luokkien käyttämistä niiden tarjoamien rajapintojen kautta. -->
+
+In the next exercise, we build functionality realted to e-commerce and practice using classes through the their interfaces.
 
 <programming-exercise name='Online shop (8 parts)' tmcname='part09-Part09_10.OnlineShop' nocoins='true'>
 
