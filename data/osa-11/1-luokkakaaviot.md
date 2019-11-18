@@ -126,20 +126,30 @@ public class Henkilo {
 <img src="../img/diagrams/luokkakaavio-henkilo-ika-ja-nimi-ja-konstruktori-ja-tulosta-ja-getnimi.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void;+getNimi():String]">
 
 
-<programming-exercise name='Asiakas' tmcname='osa11-Osa11_01.Asiakas'>
+<!-- <programming-exercise name='Asiakas' tmcname='osa11-Osa11_01.Asiakas'> -->
 
-Alla olevassa luokkakaaviossa on kuvattuna luokka Asiakas. Toteuta luokka tehtäväpohjaan.
+<programming-exercise name='Customer' tmcname='part11-Part11_01.Customer'>
 
-<img src="../img/exercises/luokkakaavio-asiakas.png" alt="[Asiakas|-nimi:String;-osoite:String;-email:String]">
+<!-- Alla olevassa luokkakaaviossa on kuvattuna luokka Asiakas. Toteuta luokka tehtäväpohjaan. -->
+
+The class diagram below shows the class Customer. Implement the class in the exercise base.
+
+<img src="../img/exercises/class-diagram-customer.svg" alt="[Customer|-name:String;-address:String;-email:String]">
 
 </programming-exercise>
 
 <programming-exercise name='Kirja ja lentokone' tmcname='osa11-Osa11_02.KirjaJaLentokone'>
 
-Alla olevassa luokkakaaviossa on kuvattuna luokat Kirja ja Lentokone. Toteuta luokat tehtäväpohjaan.
+<!-- Alla olevassa luokkakaaviossa on kuvattuna luokat Kirja ja Lentokone. Toteuta luokat tehtäväpohjaan. -->
 
-<img src="../img/exercises/luokkakaavio-kirja-ja-lentokone.png" alt="[Kirja|-nimi:String;-kirjoittaja:String;-sivuja:int]
-    [Lentokone|-tunnus:String;-malli:String;-kayttoonottovuosi:int]">
+The class diagram below depicts the classes Book and Plane. Implement the classes in the exercise base.
+
+<img src="../img/exercises/class-diagram-book.svg" alt="[Book|-name:String;-author:String;-pageCount:int]">
+
+<img src="../img/exercises/class-diagram-plane.svg" alt="[Plane|-ID:String;-model:String;-yearOfIntroduction:int]">
+
+<!-- <img src="../img/exercises/luokkakaavio-kirja-ja-lentokone.png" alt="[Kirja|-nimi:String;-kirjoittaja:String;-sivuja:int]
+    [Lentokone|-tunnus:String;-malli:String;-kayttoonottovuosi:int]"> -->
 
 </programming-exercise>
 
@@ -225,13 +235,19 @@ public class Kirja {
 Ylläolevaan kaavioon voisi lisätä vielä ArrayListin sisältämien arvojen tyypin `ArrayList<Henkilo>` sekä yhteyttä tarkentavan määreen "kirjoittajat".
 
 
-<programming-exercise name='Naytos ja lippu' tmcname='osa11-Osa11_03.NaytosJaLippu'>
+<programming-exercise name='Show and ticket' tmcname='part11-Part11_03.ShowAndTicket'>
 
-Alla on kuvattu kaksi luokkaa, Naytos ja Lippu, sekä niiden välinen yhteys. Alla olevassa kuvassa tähti on luokan Lippu-päädyssä -- tässä tapauksessa tähti antaa lisätietoa yhteydestä; vaikkei näytös tiedä näytökseen myydyistä lipuista, voi lippuja silti myydä näytökseen monia.
+<!-- Alla on kuvattu kaksi luokkaa, Naytos ja Lippu, sekä niiden välinen yhteys. Alla olevassa kuvassa tähti on luokan Lippu-päädyssä -- tässä tapauksessa tähti antaa lisätietoa yhteydestä; vaikkei näytös tiedä näytökseen myydyistä lipuista, voi lippuja silti myydä näytökseen monia. -->
 
-Toteuta kuvatut luokat tehtäväpohjaan.
+In the class diagram below, the classes Show and Ticket, and their connection, are depicted. The star is at the Ticket end of the connection -- in this case the star gives some extra information of the connection; even though a show doesn't know about the tickets that have been sold to it, you can still sell many tickets to one show.
 
-<img src="../img/exercises/luokkakaavio-naytos-ja-lippu.png" alt="[Naytos|-elokuva:String;-aika:String]<-*[Lippu|-paikka:int;-koodi:int]">
+<!-- Toteuta kuvatut luokat tehtäväpohjaan. -->
+
+Implement the classes in the diagram in the exercise base.
+
+<!-- <img src="../img/exercises/luokkakaavio-naytos-ja-lippu.png" alt="[Naytos|-elokuva:String;-aika:String]<-*[Lippu|-paikka:int;-koodi:int]"> -->
+
+<img src="../img/exercises/class-diagram-show-and-ticket.svg" alt="[Show|-movie:String;-time:String]<-*[Ticket|-seat:int;-code:int]">
 
 </programming-exercise>
 
@@ -286,11 +302,15 @@ public class Henkilo {
 ```
 
 
-<programming-exercise name='Opiskelija ja korkeakoulu' tmcname='osa11-Osa11_04.OpiskelijaJaKorkeakoulu'>
+<!-- <programming-exercise name='Opiskelija ja korkeakoulu' tmcname='osa11-Osa11_04.OpiskelijaJaKorkeakoulu'> -->
 
-Alla on kuvattu kaksi luokkaa, Opiskelija ja Korkeakoulu, sekä niiden välinen yhteys. Toteuta kuvatut luokat tehtäväpohjaan.
+<programming-exercise name='StudentAndUniversity' tmcname='part11-Part11_04.StudentAndUniversity'>
 
-<img src="../img/exercises/luokkakaavio-opiskelija-ja-korkeakoulu.png" alt="[Opiskelija|-opiskelijanumero:int;-nimi:String]*-[Korkeakoulu|-nimi:String]">
+<!-- Alla on kuvattu kaksi luokkaa, Opiskelija ja Korkeakoulu, sekä niiden välinen yhteys. Toteuta kuvatut luokat tehtäväpohjaan. -->
+
+Two classes, Student and University, are depicted below, as well as the connection between them. Implement these classes in the exercise base.
+
+<img src="../img/exercises/class-diagram-student-and-university.svg" alt="[Student|-studentID:int;-name:String]*-[University|-name:String]">
 
 </programming-exercise>
 
@@ -313,13 +333,19 @@ Abstraktien luokkien perintä toimii lähes samalla tavalla. Abstraktit luokat k
 <img src="../img/diagrams/luokkakaavio-abstraktit.png" />
 
 
-<programming-exercise name='Pelaaja ja tekoäly' nocoins='true' tmcname='osa11-Osa11_05.PelaajaJaTekoaly'>
+<programming-exercise name='Player and bot' nocoins='true' tmcname='part11-Part11_05.PlayerAndBot'>
 
-Alla on kuvattu kaksi luokkaa, Pelaaja ja Tekoaly, sekä niiden välinen yhteys. Toteuta kuvatut luokat tehtäväpohjaan.
+<!-- Alla on kuvattu kaksi luokkaa, Pelaaja ja Tekoaly, sekä niiden välinen yhteys. Toteuta kuvatut luokat tehtäväpohjaan. -->
 
-<img src="../img/exercises/luokkakaavio-pelaaja-ja-tekoaly.png" alt="[Pelaaja|-nimi:String|+pelaa():void;+tulostaNimi():void]^-[Tekoaly||+pelaa():void;+lisaaSiirto(siirto:String):void]">
+The classes Player and Bot and the connection between them are depicted in the class diagram below. Implement these classes in the exercise base.
 
-Tähän tehtävään ei ole erillistä mallivastausta.
+<!-- <img src="../img/exercises/luokkakaavio-pelaaja-ja-tekoaly.png" alt="[Pelaaja|-nimi:String|+pelaa():void;+tulostaNimi():void]^-[Tekoaly||+pelaa():void;+lisaaSiirto(siirto:String):void]"> -->
+
+<img src="../img/exercises/class-diagram-player-and-bot.svg" alt="[Player|-name:String|+play():void;+printName():void]^-[Bot||+play():void;+addMove(move:String):void]">
+
+<!-- Tähän tehtävään ei ole erillistä mallivastausta. -->
+
+A model answer is not supplied for this exercise.
 
 </programming-exercise>
 
@@ -344,12 +370,15 @@ Rajapinnan toteuttaminen merkitään katkoviivalla ja kolmiolla. Alla on kuvattu
 <img src="../img/diagrams/luokkakaavio-kirja-toteuttaa-luettavan.png" alt="[<<interface>> Luettava][Kirja]-.-^[<<interface>> Luettava]">
 
 
-<programming-exercise name='Tallennettava henkilo' tmcname='osa11-Osa11_06.TallennettavaHenkilo'>
+<programming-exercise name='Saveable person' tmcname='part11-Part11_06.SaveablePerson'>
 
-Alla on kuvattuna rajapinta Tallennettava sekä luokka Henkilo. Toteuta luokkakaaviossa kuvattu sisältö tehtäväpohjaan.
+<!-- Alla on kuvattuna rajapinta Tallennettava sekä luokka Henkilo. Toteuta luokkakaaviossa kuvattu sisältö tehtäväpohjaan. -->
 
-<img  src="../img/exercises/luokkakaavio-tallennettava-henkilo.png" alt="[<<interface>> Tallennettava||+tallenna():void;+poista():void;+lataa(osoite:String):void]^-.-[Henkilo|-nimi:String;-osoite:String]">
+Below you'll see the interface Saveable and the class Person. Implement the contents of this class diagram in the exercise base.
 
+<!-- <img  src="../img/exercises/luokkakaavio-tallennettava-henkilo.png" alt="[<<interface>> Tallennettava||+tallenna():void;+poista():void;+lataa(osoite:String):void]^-.-[Henkilo|-nimi:String;-osoite:String]"> -->
+
+<img src="../img/exercises/class-diagram-saveable-person.svg" alt="[<<interface>> Saveable ||+save():void;+delete():void;+load(address:String):void]^-.-[Person|-name:String;-address:String]">
 
 </programming-exercise>
 
@@ -368,9 +397,12 @@ Materiaalissa käytetyt luokkakaaviot on piirretty <a href="https://yuml.me/" ta
 </text-box>
 
 
-<programming-exercise name='Isompi luokkakaavio' tmcname='osa11-Osa11_07.IsompiLuokkakaavio'>
+<!-- <programming-exercise name='Isompi luokkakaavio' tmcname='osa11-Osa11_07.IsompiLuokkakaavio'> -->
+<programming-exercise name='Bigger class diagram' tmcname='part11-Part11_07.BiggerClassDiagram'>
 
-Alla on kuvattuna isompi luokkakaavio, jossa on luokat A, B, C, D ja E, sekä rajapinnat IA, IB ja IC. Toteuta luokkakaavion kuvaama sisältö tehtäväpohjaan.
+<!-- Alla on kuvattuna isompi luokkakaavio, jossa on luokat A, B, C, D ja E, sekä rajapinnat IA, IB ja IC. Toteuta luokkakaavion kuvaama sisältö tehtäväpohjaan. -->
+
+Below you'll see a somewhat larger class diagram. In it are the classes A, B, C, D, and E, as well as the interfaces IA, IB, and IC. Implement these contents in the exercise base.
 
 <img  src="../img/exercises/luokkakaavio-iso-abstrakti.png" alt="[<<interface>>;IA][<<interface>>;IB][<<interface>>;IC][A]-.-^[<<interface>>;IA][B]-.-^[<<interface>>;IB][C]-.-^[<<interface>>;IC][D]->[<<interface>>;IA][E]*-*[C][C]-^[B][B]-^[A]">
 
