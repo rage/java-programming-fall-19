@@ -5,26 +5,42 @@ hidden: false
 ---
 
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
 - Tiedät mitä pakkaukset ovat ja osaat asettaa luokkia pakkauksiin.
 - Tiedät mistä Javassa käytetyn `import`-lauseen osat muodostuvat.
 
+</text-box> -->
+
+<text-box variant='learningObjectives' name='Learning objectives'>
+
+- You know what packages are and can place classes in them
+
+- You know what the `import` statement used in Java is composed of
+
 </text-box>
 
+<!-- Ohjelmaa varten toteutettujen luokkien määrän kasvaessa toiminnallisuuksien ja metodien muistaminen vaikeutuu. Muistamista helpottaa luokkien järkevä nimentä sekä luokkien suunnittelu siten, että jokaisella luokalla on yksi selkeä vastuu. Tämän lisäksi luokat kannattaa jakaa toiminnallisuutta, käyttötarkoitusta tai jotain muuta loogista kokonaisuutta kuvaaviin pakkauksiin. -->
 
-Ohjelmaa varten toteutettujen luokkien määrän kasvaessa toiminnallisuuksien ja metodien muistaminen vaikeutuu. Muistamista helpottaa luokkien järkevä nimentä sekä luokkien suunnittelu siten, että jokaisella luokalla on yksi selkeä vastuu. Tämän lisäksi luokat kannattaa jakaa toiminnallisuutta, käyttötarkoitusta tai jotain muuta loogista kokonaisuutta kuvaaviin pakkauksiin.
+As the number of classes implemented for the program grows, remembering all the functionality and methods becomes more difficult. What helps remembering is naming the classes in a sensible manner and planning them so that each class has one clear responsibility. In addition to these measures, it's wise to divide the classes into packages. Classes in one package might share funcionality, purpose, or share some other logical property.
 
-Pakkaukset (*package*) ovat käytännössä hakemistoja (directory, puhekielessä myös kansio), joihin lähdekooditiedostot organisoidaan.
+<!-- Pakkaukset (*package*) ovat käytännössä hakemistoja (directory, puhekielessä myös kansio), joihin lähdekooditiedostot organisoidaan. -->
 
-Ohjelmointiympäristöt tarjoavat valmiit työkalut pakkausten hallintaan. Olemme tähän mennessä luoneet luokkia ja rajapintoja vain projektiin liittyvän lähdekoodipakkaukset-osion (*Source Packages*) oletuspakkaukseen (*default package*). Uuden pakkauksen voi luoda NetBeansissa projektin pakkauksiin liittyvässä Source Packages -osiossa oikeaa hiirennappia painamalla ja valitsemalla *New -&gt; Java Package...*.
+Packages are practically directories in which the source code files are organised.
 
-Pakkauksen sisälle voidaan luoda luokkia aivan kuten oletuspakkaukseenkin (`default package`). Alla luodaan juuri luotuun pakkaukseen `kirjasto` luokka `Sovellus`.
+<!-- Ohjelmointiympäristöt tarjoavat valmiit työkalut pakkausten hallintaan. Olemme tähän mennessä luoneet luokkia ja rajapintoja vain projektiin liittyvän lähdekoodipakkaukset-osion (*Source Packages*) oletuspakkaukseen (*default package*). Uuden pakkauksen voi luoda NetBeansissa projektin pakkauksiin liittyvässä Source Packages -osiossa oikeaa hiirennappia painamalla ja valitsemalla *New -&gt; Java Package...*. -->
 
-Luokan pakkaus -- eli pakkaus, jossa luokka sijaitsee -- ilmaistaan lähdekooditiedoston alussa lauseella `package *pakkaus*;`. Alla oleva luokka `Sovellus` sijaitsee pakkauksessa `kirjasto`.
+IDEs offer existing tools for packet management. Up until this point we have only created classes and interfaces into the default package of the Source Packages part of the project. You can create a new package in NetBeans by clicking the right mouse button in the Source Packages section (which relates to the packets of the project), and then choosing *New -&gt; Java Package...*.
 
+<!-- Pakkauksen sisälle voidaan luoda luokkia aivan kuten oletuspakkaukseenkin (`default package`). Alla luodaan juuri luotuun pakkaukseen `kirjasto` luokka `Sovellus`. -->
 
-```java
+You can create classes inside a package in the same way you can in the default package. Below we create the class `Program` in the newly created package `library`.
+
+<!-- Luokan pakkaus -- eli pakkaus, jossa luokka sijaitsee -- ilmaistaan lähdekooditiedoston alussa lauseella `package *pakkaus*;`. Alla oleva luokka `Sovellus` sijaitsee pakkauksessa `kirjasto`. -->
+
+The package of a class -- i.e., the package in which the class is stored -- is marked at the beginning of the source code file with the statement `package *name-of-package*;`. Below, the class Program is in the package `library`.
+
+<!-- ```java
 package kirjasto;
 
 public class Sovellus {
@@ -33,12 +49,25 @@ public class Sovellus {
         System.out.println("Hello packageworld!");
     }
 }
-```
-
-Jokainen pakkaus -- myös oletuspakkaus eli default package -- voi sisältää useampia pakkauksia. Esimerkiksi pakkausmäärittelyssä `package kirjasto.domain` pakkaus `domain` on pakkauksen `kirjasto` sisällä. Edellä käytettyä nimeä `domain` käytetään usein kuvaamaan sovellusalueen käsitteisiin liittyvien luokkien säilytyspaikkaa. Esimerkiksi luokka `Kirja` voisi hyvin olla pakkauksen `kirjasto.domain` sisällä, sillä se kuvaa kirjastosovellukseen liittyvää käsitettä.
-
+``` -->
 
 ```java
+package library;
+
+public class Program {
+
+    public static void main(String[] args) {
+        System.out.println("Hello packageworld!");
+    }
+}
+```
+
+<!-- Jokainen pakkaus -- myös oletuspakkaus eli default package -- voi sisältää useampia pakkauksia. Esimerkiksi pakkausmäärittelyssä `package kirjasto.domain` pakkaus `domain` on pakkauksen `kirjasto` sisällä. Edellä käytettyä nimeä `domain` käytetään usein kuvaamaan sovellusalueen käsitteisiin liittyvien luokkien säilytyspaikkaa. Esimerkiksi luokka `Kirja` voisi hyvin olla pakkauksen `kirjasto.domain` sisällä, sillä se kuvaa kirjastosovellukseen liittyvää käsitettä. -->
+
+Every package -- including the default package -- may contain many packages. For instance, in the package definition `package library.domain` the package `domain` is inside the package `library`. The word `domain` is often used to refer to the storage space of the classes that represent the concepts of the problem domain. For example the class `Book` could well be inside the package `library.domain` since it represents a concept in the library application.
+
+
+<!-- ```java
 package kirjasto.domain;
 
 public class Kirja {
@@ -52,11 +81,29 @@ public class Kirja {
         return this.nimi;
     }
 }
-```
-
-Pakkauksissa olevia luokkia tuodaan luokan käyttöön `import`-lauseen avulla. Pakkauksessa `kirjasto.domain` oleva luokka `Kirja` tuodaan käyttöön puolipisteeseen päättyvällä lauseella `import kirjasto.domain.Kirja`. Luokkien tuomiseen käytetyt import-lauseet asetetaan lähdekooditiedostoon pakkausmäärittelyn jälkeen.
+``` -->
 
 ```java
+package library.domain;
+
+public class Book {
+    private String name;
+
+    public Book(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+}
+```
+
+<!-- Pakkauksissa olevia luokkia tuodaan luokan käyttöön `import`-lauseen avulla. Pakkauksessa `kirjasto.domain` oleva luokka `Kirja` tuodaan käyttöön puolipisteeseen päättyvällä lauseella `import kirjasto.domain.Kirja`. Luokkien tuomiseen käytetyt import-lauseet asetetaan lähdekooditiedostoon pakkausmäärittelyn jälkeen. -->
+
+A class can access classes inside a package by using the `import` statement. The class `Book` in the package `library.domain` is made available for use with the statement `import library.domain.Book;`. The import statement that are used to import classes are placed in the source code file after the package definition.
+
+<!-- ```java
 package kirjasto;
 
 import kirjasto.domain.Kirja;
@@ -68,15 +115,37 @@ public class Sovellus {
         System.out.println("Hello packageworld: " + kirja.getNimi());
     }
 }
+``` -->
+
+```java
+package library;
+
+import library.domain.Book;
+
+public class Program {
+
+    public static void main(String[] args) {
+        Book book = new Book("the ABC of packages!");
+        System.out.println("Hello packageworld: " + book.getNimi());
+    }
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Hello packageworld: pakkausten ABC!
 
+</sample-output> -->
+
+<sample-output>
+
+Hello packageworld: the ABC of packages!
+
 </sample-output>
 
-Jatkossa *lähes kaikissa* tehtävissämme käytetään pakkauksia. Luodaan seuraavaksi ensimmäiset pakkaukset itse.
+<!-- Jatkossa *lähes kaikissa* tehtävissämme käytetään pakkauksia. Luodaan seuraavaksi ensimmäiset pakkaukset itse. -->
+
+From this point on, *nearly all* of the exercises will use packages. Let's begin by creating our first very own packages.
 
 
 <!-- <programming-exercise name='Ensimmäisiä pakkauksia (3 osaa)' tmcname='osa11-Osa11_08.EnsimmaisiaPakkauksia'> -->
@@ -191,24 +260,35 @@ Within the exercise base, create three packages: `a`, `b`, and `c`. Create class
 
 
 
-## Hakemistorakenne tiedostojärjestelmässä
+<!-- ## Hakemistorakenne tiedostojärjestelmässä -->
+
+## Directory structure in a file system
 
 
-Kaikki NetBeansissa näkyvät projektit ovat tietokoneesi <a href="http://fi.wikipedia.org/wiki/Tiedostoj%C3%A4rjestelm%C3%A4" target="_blank">tiedostojärjestelmässä</a> tai jollain keskitetyllä levypalvelimella. Jokaiselle projektille on olemassa oma hakemisto, jonka sisällä on projektiin liittyvät tiedostot ja hakemistot.
+<!-- Kaikki NetBeansissa näkyvät projektit ovat tietokoneesi <a href="http://fi.wikipedia.org/wiki/Tiedostoj%C3%A4rjestelm%C3%A4" target="_blank">tiedostojärjestelmässä</a> tai jollain keskitetyllä levypalvelimella. Jokaiselle projektille on olemassa oma hakemisto, jonka sisällä on projektiin liittyvät tiedostot ja hakemistot. -->
+
+Every project you see in NetBeans are in your computer's <a href="https://en.wikipedia.org/wiki/File_system" target="_blank">file system</a> or on some centralized server.
 
 <br/>
 
-Projektin hakemistossa `src/main/java` on ohjelmaan liittyvät lähdekoodit. Jos luokan pakkauksena on kirjasto, sijaitsee luokka projektin lähdekoodihakemiston `src/main/java/kirjasto`-kansiossa. NetBeansissa voi käydä katsomassa projektien konkreettista rakennetta **Files**-välilehdeltä joka on normaalisti **Projects**-välilehden vieressä. Jos et näe välilehteä **Files**, saa sen näkyville valitsemalla vaihtoehdon **Files** valikosta **Window**.
+<!-- Projektin hakemistossa `src/main/java` on ohjelmaan liittyvät lähdekoodit. Jos luokan pakkauksena on kirjasto, sijaitsee luokka projektin lähdekoodihakemiston `src/main/java/kirjasto`-kansiossa. NetBeansissa voi käydä katsomassa projektien konkreettista rakennetta **Files**-välilehdeltä joka on normaalisti **Projects**-välilehden vieressä. Jos et näe välilehteä **Files**, saa sen näkyville valitsemalla vaihtoehdon **Files** valikosta **Window**. -->
 
-Sovelluskehitystä tehdään normaalisti **Projects**-välilehdeltä, jossa NetBeans on piilottanut projektiin liittyviä tiedostoja joista ohjelmoijan ei tarvitse välittää.
+In the project directory `src/main/java` there are the source code files of the program. If the package of a class is library, that class is stored inside the `src/main/java/libary` folder of the source code directory. You can also check the concrete project structure in NetBeans in the **Files** tab, which is normally next to the **Project** tab. If you cannot see the **Files** tab, you can make it appear by choosing the option **Files** from the dropdown menu **Window**.
+
+<!-- Sovelluskehitystä tehdään normaalisti **Projects**-välilehdeltä, jossa NetBeans on piilottanut projektiin liittyviä tiedostoja joista ohjelmoijan ei tarvitse välittää. -->
+
+Application development is normally done in the **Projects** tab, where NetBeans does not show the files that the programmer need not concern themselves with.
+
+<!-- ## Pakkaukset ja näkyvyysmääreet -->
+
+## Packages and access modifiers
+
+<!-- Olemme tähän mennessä käyttäneet kahta näkyvyysmäärettä. Näkyvyysmääreellä `private` määritellään muuttujia (ja metodeja), jotka ovat näkyvissä vain sen luokan sisällä joka määrittelee ne. Niitä ei voi käyttää luokan ulkopuolelta. Näkyvyysmääreellä `public` varustetut metodit ja muuttujat ovat taas kaikkien käytettävissä. -->
+
+Until now we've used two access modifiers. The modifier `private` is used to define variables (and methods) that are only visible inside the class where they are defined. They cannot be used from outside that class. The methods and variables defined with `public`, on the other hand, are available for everyone to use.
 
 
-## Pakkaukset ja näkyvyysmääreet
-
-Olemme tähän mennessä käyttäneet kahta näkyvyysmäärettä. Näkyvyysmääreellä `private` määritellään muuttujia (ja metodeja), jotka ovat näkyvissä vain sen luokan sisällä joka määrittelee ne. Niitä ei voi käyttää luokan ulkopuolelta. Näkyvyysmääreellä `public` varustetut metodit ja muuttujat ovat taas kaikkien käytettävissä.
-
-
-```java
+<!-- ```java
 package kirjasto.ui;
 
 public class Kayttoliittyma {
@@ -230,15 +310,41 @@ public class Kayttoliittyma {
         System.out.println("************");
     }
 }
-```
-
-
-Yllä olevasta `Kayttoliittyma`-luokasta tehdyn olion konstruktori ja `kaynnista`-metodi on kutsuttavissa mistä tahansa ohjelmasta. Metodi `tulostaOtsikko` ja `lukija`-muuttuja on käytössä vain luokan sisällä.
-
-Jos näkyvyysmäärettä ei määritellä, metodit ja muuttujat ovat näkyvillä saman pakkauksen sisällä. Tätä kutsutaan oletus- tai pakkausnäkyvyydeksi. Muutetaan yllä olevaa esimerkkiä siten, että metodilla `tulostaOtsikko` on pakkausnäkyvyys.
-
+``` -->
 
 ```java
+package library.ui;
+
+public class UserInterface {
+    private Scanner scanner;
+
+    public UserInterface(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public void start() {
+        printTitle();
+
+        // other functionality
+    }
+
+    private void printTitle() {
+        System.out.println("***********");
+        System.out.println("* LIBRARY *");
+        System.out.println("***********");
+    }
+}
+```
+
+<!-- Yllä olevasta `Kayttoliittyma`-luokasta tehdyn olion konstruktori ja `kaynnista`-metodi on kutsuttavissa mistä tahansa ohjelmasta. Metodi `tulostaOtsikko` ja `lukija`-muuttuja on käytössä vain luokan sisällä. -->
+
+If you create an object of the `UserInterface` class above, its constructor and `start` method are callable from anywhere in the program. The metho `printTitle` and the variable `scanner` are available only from within the class.
+
+<!-- Jos näkyvyysmäärettä ei määritellä, metodit ja muuttujat ovat näkyvillä saman pakkauksen sisällä. Tätä kutsutaan oletus- tai pakkausnäkyvyydeksi. Muutetaan yllä olevaa esimerkkiä siten, että metodilla `tulostaOtsikko` on pakkausnäkyvyys. -->
+
+If the access modifier is missing, the methods and variables are only visible inside the same package. We call this the default or package modifier. Let's change the example above so that the method `printTitle` has package access modifier.
+
+<!-- ```java
 package kirjasto.ui;
 
 public class Kayttoliittyma {
@@ -260,12 +366,37 @@ public class Kayttoliittyma {
         System.out.println("************");
     }
 }
-```
-
-Nyt saman pakkauksen sisällä olevat luokat -- eli luokat, jotka sijaitsevat pakkauksessa `kirjasto.ui` voivat käyttää metodia `tulostaOtsikko`.
-
+``` -->
 
 ```java
+package library.ui;
+
+public class UserInterface {
+    private Scanner scanner;
+
+    public UserInterface(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public void start() {
+        printTitle();
+
+        // other functionality
+    }
+
+    void printTitle() {
+        System.out.println("***********");
+        System.out.println("* LIBRARY *");
+        System.out.println("***********");
+    }
+}
+```
+
+<!-- Nyt saman pakkauksen sisällä olevat luokat -- eli luokat, jotka sijaitsevat pakkauksessa `kirjasto.ui` voivat käyttää metodia `tulostaOtsikko`. -->
+
+Now the classes inside the same package -- i.e., the classes inside the package `library.ui` -- can use the method `printTitle`.
+
+<!-- ```java
 package kirjasto.ui;
 
 import java.util.Scanner;
@@ -279,12 +410,29 @@ public class Main {
         kayttoliittyma.tulostaOtsikko(); // onnistuu!
     }
 }
-```
-
-Jos luokka on eri pakkauksessa, ei metodia `tulostaOtsikko` pysty käyttämään. Alla olevassa esimerkissä luokka Main on pakkauksessa `kirjasto`, jolloin pakkauksessa `kirjasto.ui` pakkausnäkyvyydellä määriteltyyn metodiin `tulostaOtsikko` ei pääse käsiksi.
-
+``` -->
 
 ```java
+package library.ui;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        UserInterface ui = new UserInterface(scanner);
+
+        ui.printTitle(); // works!
+    }
+}
+```
+
+<!-- Jos luokka on eri pakkauksessa, ei metodia `tulostaOtsikko` pysty käyttämään. Alla olevassa esimerkissä luokka Main on pakkauksessa `kirjasto`, jolloin pakkauksessa `kirjasto.ui` pakkausnäkyvyydellä määriteltyyn metodiin `tulostaOtsikko` ei pääse käsiksi. -->
+
+If a class is in a different package, the method `printTitle` cannot be called. In the example below the class `Main` is in the package `library`. Since the `printTitle` method is in the package `library.ui` and it has the package access modifier, it cannot be used.
+
+<!-- ```java
 package kirjasto;
 
 import java.util.Scanner;
@@ -299,11 +447,29 @@ public class Main {
         kayttoliittyma.tulostaOtsikko(); // ei onnistu!
     }
 }
+``` -->
+
+```java
+package library;
+
+import java.util.Scanner;
+import library.ui.UserInterface;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        UserInterface ui = new UserInterface(scanner);
+
+        ui.printTitle(); // doesn't work!
+    }
+}
 ```
 
 
-## Laajempi esimerkki: lentokentän hallinta
+<!-- ## Laajempi esimerkki: lentokentän hallinta -->
 
+## A larger example: flight control
 
 Tarkastellaan ohjelmaa, joka tarjoaa tekstikäyttöliittymän lentokoneiden ja lentojen lisäämiseen sekä näiden tarkasteluun. Ohjelman tekstikäyttöliittymä on seuraava.
 
