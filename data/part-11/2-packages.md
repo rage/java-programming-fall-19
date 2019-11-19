@@ -471,10 +471,11 @@ public class Main {
 
 ## A larger example: flight control
 
-Tarkastellaan ohjelmaa, joka tarjoaa tekstikäyttöliittymän lentokoneiden ja lentojen lisäämiseen sekä näiden tarkasteluun. Ohjelman tekstikäyttöliittymä on seuraava.
+<!-- Tarkastellaan ohjelmaa, joka tarjoaa tekstikäyttöliittymän lentokoneiden ja lentojen lisäämiseen sekä näiden tarkasteluun. Ohjelman tekstikäyttöliittymä on seuraava. -->
 
+Let's take a look at a program that offers a text UI for adding and examining airplanes and flights. The user interface of the program looks like this.
 
-<sample-output>
+<!-- <sample-output>
 
 Lentokentän hallinta
 --------------------
@@ -560,30 +561,135 @@ Valitse toiminto:
 [x] Lopeta
 &gt; **x**
 
+</sample-output> -->
+
+<sample-output>
+
+Airport Asset Control
+--------------------
+
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **1**
+Give the airplane id: **HA-LOL**
+Give the airplane capacity: **42**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **1**
+Give the airplane id: **G-OWAC**
+Give the airplane capacity: **101**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **2**
+Give the airplane id: **HA-LOL**
+Give the departure airport id: **HEL**
+Give the target airport id: **BAL**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **2**
+Give the airplane id: **G-OWAC**
+Give the departure airport id: **JFK**
+Give the target airport id: **BAL**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **2**
+Give the airplane id: **HA-LOL**
+Give the departure airport id: **BAL**
+Give the target airport id: **HEL**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **x**
+
+Flight Control
+------------
+
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **1**
+G-OWAC (101 capacity)
+HA-LOL (42 capacity)
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **2**
+HA-LOL (42 henkilöä) (HEL-BAL)
+HA-LOL (42 henkilöä) (BAL-HEL)
+G-OWAC (101 henkilöä) (JFK-BAL)
+
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **3**
+Give the airplane id: **G-OWAC**
+G-OWAC (101 capacity)
+
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **x**
+
 </sample-output>
 
-Ohjelmasta löytyy useita aihealueen käsitteitä, joista oleellisia ovat `Lentokone` ja `Lento`. Kuhunkin lentoon liittyy lisäksi `Paikka` (lähtöpaikka ja kohdepaikka).  Aihealuetta kuvaavien käsitteiden lisäksi ohjelmaan kuuluu tekstikäyttöliittymä sekä luokka, jonka kautta tekstikäyttöliittymä hallinnoi käsitteitä.
+<!-- Ohjelmasta löytyy useita aihealueen käsitteitä, joista oleellisia ovat `Lentokone` ja `Lento`. Kuhunkin lentoon liittyy lisäksi `Paikka` (lähtöpaikka ja kohdepaikka).  Aihealuetta kuvaavien käsitteiden lisäksi ohjelmaan kuuluu tekstikäyttöliittymä sekä luokka, jonka kautta tekstikäyttöliittymä hallinnoi käsitteitä. -->
 
-Ohjelman pakkausrakenne voi olla -- esimerkiksi -- seuraava:
+There are many concepts of the problem domain in the program, and the essential ones are `Airplane` and `Flight`. Each flight also involves a `Place` (places of departure and destination). In addition to the concepts that represent the problem domain, the program also contains a text UI and a class through which the text UI uses the concepts.
 
-- `lentokentta` - sisältää ohjelman käynnistämiseen tarvittavan pääohjelmaluokan.
+<!-- Ohjelman pakkausrakenne voi olla -- esimerkiksi -- seuraava: -->
 
-- `lentokentta.domain` - sisältää aihealueen käsitteitä kuvaavat luokat `Lentokone`, `Lento`, ja `Paikka`.
+The package structure of the program could look like the following (for example):
 
-- `lentokentta.logiikka` - sisältää toiminnallisuuden, jonka avulla sovellusta hallinnoidaan
+<!-- - `lentokentta` - sisältää ohjelman käynnistämiseen tarvittavan pääohjelmaluokan. -->
 
-- `lentokentta.ui` - sisältää tekstikäyttöliittymän
+- `flightControl` - includes the main program class that is needed to start the program
+
+<!-- - `lentokentta.domain` - sisältää aihealueen käsitteitä kuvaavat luokat `Lentokone`, `Lento`, ja `Paikka`. -->
+
+- `flightControl.domain` - includes the classes that represent concepts of the probelm domain: `Airplane`, `Flight`, and `Place`
+
+<!-- - `lentokentta.logiikka` - sisältää toiminnallisuuden, jonka avulla sovellusta hallinnoidaan -->
+
+- `flightControl.logic` - includes the functionality that is used to control the application
+
+<!-- - `lentokentta.ui` - sisältää tekstikäyttöliittymän -->
+
+- `flightControl.ui` - includes the textual user interface
 
 
-Alla olevissa aliluvuissa on listattu eräs mahdollinen jako sovelluksen toimintaa varten (poislukien pääohjelmaluokka).
+<!-- Alla olevissa aliluvuissa on listattu eräs mahdollinen jako sovelluksen toimintaa varten (poislukien pääohjelmaluokka). -->
+
+The next subchapters list one possible division for the operation of the program (excluding the main progrma class).
 
 
-### Aihealueen käsitteitä kuvaavat luokat
+<!-- ### Aihealueen käsitteitä kuvaavat luokat -->
 
-Aihealueen käsitteitä kuvaavat luokat asetetaan usein pakkaukseen nimeltä `domain`. Koska koko sovellus on pakkauksessa `lentokentta`, asetetaan pakkaus `domain` pakkaukseen `lentokentta`. Aihealueen käsitteitä kuvaavat luokat `Paikka`, `Lentokone`, ja `Lento`.
+## Classes that represent concepts of the problem domain
 
+<!-- Aihealueen käsitteitä kuvaavat luokat asetetaan usein pakkaukseen nimeltä `domain`. Koska koko sovellus on pakkauksessa `lentokentta`, asetetaan pakkaus `domain` pakkaukseen `lentokentta`. Aihealueen käsitteitä kuvaavat luokat `Paikka`, `Lentokone`, ja `Lento`. -->
 
-```java
+The classes that represent concepts of the problem domain are ofter placed inside a package called `domain`. Since the entirety of the application is inside the package `flightControl`, let's place the package `domain` inside the package `flightControl`. Concepts of the problem domain are represented by the classes `Place`, `Airplane`, and `Flight`.
+
+<!-- ```java
 package lentokentta.domain;
 
 public class Paikka {
@@ -599,9 +705,27 @@ public class Paikka {
         return this.tunnus;
     }
 }
-```
+``` -->
 
 ```java
+package flightControl.domain;
+
+public class Place {
+
+    private String ID;
+
+    public Place(String ID) {
+        this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return this.ID;
+    }
+}
+```
+
+<!-- ```java
 package lentokentta.domain;
 
 public class Lentokone {
@@ -627,9 +751,37 @@ public class Lentokone {
         return this.tunnus + " (" + this.kapasiteetti + " henkilöä)";
     }
 }
-```
+``` -->
 
 ```java
+package flightControl.domain;
+
+public class Airplane {
+
+    private String id;
+    private int capacity;
+
+    public Airplane(String id, int capacity) {
+        this.id = id;
+        this.capacity = capacity;
+    }
+
+    public String getID() {
+        return this.id;
+    }
+
+    public int getCapacity() {
+        return this.capacity;
+    }
+
+    @Override
+    public String toString() {
+        return this.id + " (" + this.capacity + " capacity)";
+    }
+}
+```
+
+<!-- ```java
 package lentokentta.domain;
 
 public class Lento {
@@ -661,15 +813,52 @@ public class Lento {
         return this.lentokone + " (" + this.lahtopaikka + "-" + this.kohdepaikka + ")";
     }
 }
+``` -->
+
+```java
+package flightControl.domain;
+public class Flight {
+
+    private Airplane airplane;
+    private Place departureAirport;
+    private Place targetAirport;
+
+    public Flight(Airplane airplane, Place departureAirport, Place targetAirport) {
+        this.airplane = airplane;
+        this.departureAirport = departureAirport;
+        this.targetAirport = targetAirport;
+    }
+
+    public Airplane getAirplane() {
+        return this.airplane;
+    }
+
+    public Place getDeparturePlace() {
+        return this.departureAirport;
+    }
+
+    public Place getTargetPlace() {
+        return this.targetAirport;
+    }
+
+    @Override
+    public String toString() {
+        return this.airplane.toString() + " (" + this.departureAirport + "-" + this.targetAirport + ")";
+    }
+}
+
 ```
 
 
-### Sovelluslogiikka
+<!-- ### Sovelluslogiikka -->
 
-Sovelluslogiikka eriytetään tyypillisesti aihealuetta kuvaavista luokista. Sovelluslogiikka on esimerkissämme lisätty pakkaukseen `logiikka`. Sovelluslogiikka sisältää toiminnallisuudet lentokoneiden ja lentojen lisäämiseen sekä niiden listaamiseen.
+### Application logic
 
+<!-- Sovelluslogiikka eriytetään tyypillisesti aihealuetta kuvaavista luokista. Sovelluslogiikka on esimerkissämme lisätty pakkaukseen `logiikka`. Sovelluslogiikka sisältää toiminnallisuudet lentokoneiden ja lentojen lisäämiseen sekä niiden listaamiseen. -->
 
-```java
+The application logic is typically kept separate from the classes that represents concepts of the problem domain. In our example, application logic is stored in the package `logic`. Application logic includes the functionality to add airplanes and flights, and to list them.
+
+<!-- ```java
 package lentokentta.logiikka;
 
 import java.util.Collection;
@@ -716,17 +905,70 @@ public class Lentohallinta {
         return this.lentokoneet.get(tunnus);
     }
 }
+``` -->
+
+```java
+package flightControl.logic;
+
+import java.util.Collection;
+import flightControl.domain.Flight;
+import flightControl.domain.Airplane;
+import java.util.HashMap;
+import java.util.Map;
+import flightControl.domain.Place;
+
+public class FlightControl {
+
+    private HashMap<String, Airplane> airplanes = new HashMap<>();
+    private HashMap<String, Flight> flights = new HashMap<>();
+    private Map<String, Place> places;
+
+    public FlightControl() {
+        this.flights = new HashMap<>();
+        this.airplanes = new HashMap<>();
+        this.places = new HashMap<>();
+    }
+
+    public void addAirplane(String ID, int capacity) {
+        Airplane plane = new Airplane(ID, capacity);
+        this.airplanes.put(ID, plane);
+    }
+
+    public void addFlight(Airplane plane, String departureID, String destinationID) {
+        this.places.putIfAbsent(departureID, new Place(departureID));
+        this.places.putIfAbsent(destinationID, new Place(destinationID));
+
+        Flight flight = new Flight(plane, this.places.get(departureID), this.places.get(destinationID));
+        this.flights.put(flight.toString(), flight);
+    }
+
+    public Collection<Airplane> getAirplanes() {
+        return this.airplanes.values();
+    }
+
+    public Collection<Flight> getFlights() {
+        return this.flights.values();
+    }
+
+    public Airplane getAirplane(String ID) {
+        return this.airplanes.get(ID);
+    }
+}
+
 ```
 
 <quiz id="d8ad4197-aa5b-5abc-beba-cc575263c5c7"></quiz>
 
 
-### Tekstikäyttöliittymä
+<!-- ### Tekstikäyttöliittymä -->
 
-Käyttöliittymä eriytetään aihealuetta kuvaavista luokista ja sovelluslogiikasta. Käyttöliittymä on alla olevassa esimerkissä lisätty pakkaukseen `ui`.
+### Text user interface
 
+<!-- Käyttöliittymä eriytetään aihealuetta kuvaavista luokista ja sovelluslogiikasta. Käyttöliittymä on alla olevassa esimerkissä lisätty pakkaukseen `ui`. -->
 
-```java
+The user interface is separate from the application logic and the classes that represent the problem domain. In this example the user interface is stored in the package `ui`.
+
+<!-- ```java
 package lentokentta.ui;
 
 import lentokentta.domain.Lento;
@@ -855,6 +1097,139 @@ public class Tekstikayttoliittyma {
         }
 
         return lentokone;
+    }
+}
+``` -->
+
+```java
+package flightControl.ui;
+
+import flightControl.domain.Flight;
+import flightControl.domain.Airplane;
+import java.util.Scanner;
+import flightControl.logic.FlightControl;
+
+public class TextUI {
+
+    private FlightControl flightControl;
+    private Scanner scanner;
+
+    public TextUI(FlightControl flightControl, Scanner scanner) {
+        this.flightControl = flightControl;
+        this.scanner = scanner;
+    }
+
+    public void start() {
+        // let's start in two parts -- first start the asset control,
+        // then the flight control
+        startAssetControl();
+        System.out.println();
+        startFlightControl();
+        System.out.println();
+    }
+
+    private void startAssetControl() {
+        System.out.println("Airport Asset Control");
+        System.out.println("--------------------");
+        System.out.println();
+
+        while (true) {
+            System.out.println("Choose an action:");
+            System.out.println("[1] Add an airplane");
+            System.out.println("[2] Add a flight");
+            System.out.println("[x] Exit Airport Asset Control");
+
+            System.out.print("> ");
+            String answer = scanner.nextLine();
+
+            if (answer.equals("1")) {
+                addAirplane(scanner);
+            } else if (answer.equals("2")) {
+                addFlight(scanner);
+            } else if (answer.equals("x")) {
+                break;
+            }
+        }
+    }
+
+    private void addAirplane() {
+        System.out.print("Give the airplane id: ");
+        String id = scanner.nextLine();
+        System.out.print("Give the airplane capacity: ");
+        int capacity = Integer.parseInt(scanner.nextLine());
+
+        this.flightControl.addAirplane(id, capacity);
+    }
+
+    private void addFlight() {
+        System.out.print("Give the airplane id: ");
+        Airplane airplane = askForAirplane(scanner);
+        System.out.print("Give the departure airport id: ");
+        String departureID = scanner.nextLine();
+        System.out.print("Give the target airport id: ");
+        String destinationID = scanner.nextLine();
+
+        this.flightControl.addFlight(airplane, departureID, destinationID);
+    }
+
+    private void startFlightControl() {
+        System.out.println("Flight Control");
+        System.out.println("------------");
+        System.out.println();
+
+        while (true) {
+            System.out.println("Choose an action:");
+            System.out.println("[1] Print airplanes");
+            System.out.println("[2] Print flights");
+            System.out.println("[3] Print airplane details");
+            System.out.println("[x] Quit");
+
+            System.out.print("> ");
+            String answer = scanner.nextLine();
+            if (answer.equals("1")) {
+                printAirplanes();
+            } else if (answer.equals("2")) {
+                printFlights();
+            } else if (answer.equals("3")) {
+                printAirplaneDetails();
+            } else if (answer.equals("x")) {
+                break;
+            }
+        }
+    }
+
+    private void printAirplanes() {
+        for (Airplane plane : flightControl.getAirplanes()) {
+            System.out.println(plane);
+        }
+    }
+
+    private void printFlights() {
+        for (Flight flight : flightControl.getFlights()) {
+            System.out.println(flight);
+            System.out.println("");
+        }
+    }
+
+    private void printAirplaneDetails() {
+        System.out.print("Give the airplane id: ");
+        Airplane plane = askForAirplane();
+        System.out.println(plane);
+        System.out.println();
+    }
+
+    private Airplane askForAirplane() {
+        Airplane airplane = null;
+        while (airplane == null) {
+            String id = scanner.nextLine();
+            airplane = flightControl.getAirplane(id);
+
+            if (airplane == null) {
+                System.out.println("No airplane with the id " + id + ".");
+            }
+        }
+
+        return airplane;
     }
 }
 ```
