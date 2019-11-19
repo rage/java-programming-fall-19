@@ -5,26 +5,42 @@ hidden: false
 ---
 
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
 - Tiedät mitä pakkaukset ovat ja osaat asettaa luokkia pakkauksiin.
 - Tiedät mistä Javassa käytetyn `import`-lauseen osat muodostuvat.
 
+</text-box> -->
+
+<text-box variant='learningObjectives' name='Learning objectives'>
+
+- You know what packages are and can place classes in them
+
+- You know what the `import` statement used in Java is composed of
+
 </text-box>
 
+<!-- Ohjelmaa varten toteutettujen luokkien määrän kasvaessa toiminnallisuuksien ja metodien muistaminen vaikeutuu. Muistamista helpottaa luokkien järkevä nimentä sekä luokkien suunnittelu siten, että jokaisella luokalla on yksi selkeä vastuu. Tämän lisäksi luokat kannattaa jakaa toiminnallisuutta, käyttötarkoitusta tai jotain muuta loogista kokonaisuutta kuvaaviin pakkauksiin. -->
 
-Ohjelmaa varten toteutettujen luokkien määrän kasvaessa toiminnallisuuksien ja metodien muistaminen vaikeutuu. Muistamista helpottaa luokkien järkevä nimentä sekä luokkien suunnittelu siten, että jokaisella luokalla on yksi selkeä vastuu. Tämän lisäksi luokat kannattaa jakaa toiminnallisuutta, käyttötarkoitusta tai jotain muuta loogista kokonaisuutta kuvaaviin pakkauksiin.
+As the number of classes implemented for the program grows, remembering all the functionality and methods becomes more difficult. What helps remembering is naming the classes in a sensible manner and planning them so that each class has one clear responsibility. In addition to these measures, it's wise to divide the classes into packages. Classes in one package might share funcionality, purpose, or share some other logical property.
 
-Pakkaukset (*package*) ovat käytännössä hakemistoja (directory, puhekielessä myös kansio), joihin lähdekooditiedostot organisoidaan.
+<!-- Pakkaukset (*package*) ovat käytännössä hakemistoja (directory, puhekielessä myös kansio), joihin lähdekooditiedostot organisoidaan. -->
 
-Ohjelmointiympäristöt tarjoavat valmiit työkalut pakkausten hallintaan. Olemme tähän mennessä luoneet luokkia ja rajapintoja vain projektiin liittyvän lähdekoodipakkaukset-osion (*Source Packages*) oletuspakkaukseen (*default package*). Uuden pakkauksen voi luoda NetBeansissa projektin pakkauksiin liittyvässä Source Packages -osiossa oikeaa hiirennappia painamalla ja valitsemalla *New -&gt; Java Package...*.
+Packages are practically directories in which the source code files are organised.
 
-Pakkauksen sisälle voidaan luoda luokkia aivan kuten oletuspakkaukseenkin (`default package`). Alla luodaan juuri luotuun pakkaukseen `kirjasto` luokka `Sovellus`.
+<!-- Ohjelmointiympäristöt tarjoavat valmiit työkalut pakkausten hallintaan. Olemme tähän mennessä luoneet luokkia ja rajapintoja vain projektiin liittyvän lähdekoodipakkaukset-osion (*Source Packages*) oletuspakkaukseen (*default package*). Uuden pakkauksen voi luoda NetBeansissa projektin pakkauksiin liittyvässä Source Packages -osiossa oikeaa hiirennappia painamalla ja valitsemalla *New -&gt; Java Package...*. -->
 
-Luokan pakkaus -- eli pakkaus, jossa luokka sijaitsee -- ilmaistaan lähdekooditiedoston alussa lauseella `package *pakkaus*;`. Alla oleva luokka `Sovellus` sijaitsee pakkauksessa `kirjasto`.
+IDEs offer existing tools for packet management. Up until this point we have only created classes and interfaces into the default package of the Source Packages part of the project. You can create a new package in NetBeans by clicking the right mouse button in the Source Packages section (which relates to the packets of the project), and then choosing *New -&gt; Java Package...*.
 
+<!-- Pakkauksen sisälle voidaan luoda luokkia aivan kuten oletuspakkaukseenkin (`default package`). Alla luodaan juuri luotuun pakkaukseen `kirjasto` luokka `Sovellus`. -->
 
-```java
+You can create classes inside a package in the same way you can in the default package. Below we create the class `Program` in the newly created package `library`.
+
+<!-- Luokan pakkaus -- eli pakkaus, jossa luokka sijaitsee -- ilmaistaan lähdekooditiedoston alussa lauseella `package *pakkaus*;`. Alla oleva luokka `Sovellus` sijaitsee pakkauksessa `kirjasto`. -->
+
+The package of a class -- i.e., the package in which the class is stored -- is marked at the beginning of the source code file with the statement `package *name-of-package*;`. Below, the class Program is in the package `library`.
+
+<!-- ```java
 package kirjasto;
 
 public class Sovellus {
@@ -33,12 +49,25 @@ public class Sovellus {
         System.out.println("Hello packageworld!");
     }
 }
-```
-
-Jokainen pakkaus -- myös oletuspakkaus eli default package -- voi sisältää useampia pakkauksia. Esimerkiksi pakkausmäärittelyssä `package kirjasto.domain` pakkaus `domain` on pakkauksen `kirjasto` sisällä. Edellä käytettyä nimeä `domain` käytetään usein kuvaamaan sovellusalueen käsitteisiin liittyvien luokkien säilytyspaikkaa. Esimerkiksi luokka `Kirja` voisi hyvin olla pakkauksen `kirjasto.domain` sisällä, sillä se kuvaa kirjastosovellukseen liittyvää käsitettä.
-
+``` -->
 
 ```java
+package library;
+
+public class Program {
+
+    public static void main(String[] args) {
+        System.out.println("Hello packageworld!");
+    }
+}
+```
+
+<!-- Jokainen pakkaus -- myös oletuspakkaus eli default package -- voi sisältää useampia pakkauksia. Esimerkiksi pakkausmäärittelyssä `package kirjasto.domain` pakkaus `domain` on pakkauksen `kirjasto` sisällä. Edellä käytettyä nimeä `domain` käytetään usein kuvaamaan sovellusalueen käsitteisiin liittyvien luokkien säilytyspaikkaa. Esimerkiksi luokka `Kirja` voisi hyvin olla pakkauksen `kirjasto.domain` sisällä, sillä se kuvaa kirjastosovellukseen liittyvää käsitettä. -->
+
+Every package -- including the default package -- may contain many packages. For instance, in the package definition `package library.domain` the package `domain` is inside the package `library`. The word `domain` is often used to refer to the storage space of the classes that represent the concepts of the problem domain. For example the class `Book` could well be inside the package `library.domain` since it represents a concept in the library application.
+
+
+<!-- ```java
 package kirjasto.domain;
 
 public class Kirja {
@@ -52,11 +81,29 @@ public class Kirja {
         return this.nimi;
     }
 }
-```
-
-Pakkauksissa olevia luokkia tuodaan luokan käyttöön `import`-lauseen avulla. Pakkauksessa `kirjasto.domain` oleva luokka `Kirja` tuodaan käyttöön puolipisteeseen päättyvällä lauseella `import kirjasto.domain.Kirja`. Luokkien tuomiseen käytetyt import-lauseet asetetaan lähdekooditiedostoon pakkausmäärittelyn jälkeen.
+``` -->
 
 ```java
+package library.domain;
+
+public class Book {
+    private String name;
+
+    public Book(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+}
+```
+
+<!-- Pakkauksissa olevia luokkia tuodaan luokan käyttöön `import`-lauseen avulla. Pakkauksessa `kirjasto.domain` oleva luokka `Kirja` tuodaan käyttöön puolipisteeseen päättyvällä lauseella `import kirjasto.domain.Kirja`. Luokkien tuomiseen käytetyt import-lauseet asetetaan lähdekooditiedostoon pakkausmäärittelyn jälkeen. -->
+
+A class can access classes inside a package by using the `import` statement. The class `Book` in the package `library.domain` is made available for use with the statement `import library.domain.Book;`. The import statement that are used to import classes are placed in the source code file after the package definition.
+
+<!-- ```java
 package kirjasto;
 
 import kirjasto.domain.Kirja;
@@ -68,15 +115,37 @@ public class Sovellus {
         System.out.println("Hello packageworld: " + kirja.getNimi());
     }
 }
+``` -->
+
+```java
+package library;
+
+import library.domain.Book;
+
+public class Program {
+
+    public static void main(String[] args) {
+        Book book = new Book("the ABC of packages!");
+        System.out.println("Hello packageworld: " + book.getNimi());
+    }
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Hello packageworld: pakkausten ABC!
 
+</sample-output> -->
+
+<sample-output>
+
+Hello packageworld: the ABC of packages!
+
 </sample-output>
 
-Jatkossa *lähes kaikissa* tehtävissämme käytetään pakkauksia. Luodaan seuraavaksi ensimmäiset pakkaukset itse.
+<!-- Jatkossa *lähes kaikissa* tehtävissämme käytetään pakkauksia. Luodaan seuraavaksi ensimmäiset pakkaukset itse. -->
+
+From this point on, *nearly all* of the exercises will use packages. Let's begin by creating our first very own packages.
 
 
 <!-- <programming-exercise name='Ensimmäisiä pakkauksia (3 osaa)' tmcname='osa11-Osa11_08.EnsimmaisiaPakkauksia'> -->
@@ -191,24 +260,35 @@ Within the exercise base, create three packages: `a`, `b`, and `c`. Create class
 
 
 
-## Hakemistorakenne tiedostojärjestelmässä
+<!-- ## Hakemistorakenne tiedostojärjestelmässä -->
+
+## Directory structure in a file system
 
 
-Kaikki NetBeansissa näkyvät projektit ovat tietokoneesi <a href="http://fi.wikipedia.org/wiki/Tiedostoj%C3%A4rjestelm%C3%A4" target="_blank">tiedostojärjestelmässä</a> tai jollain keskitetyllä levypalvelimella. Jokaiselle projektille on olemassa oma hakemisto, jonka sisällä on projektiin liittyvät tiedostot ja hakemistot.
+<!-- Kaikki NetBeansissa näkyvät projektit ovat tietokoneesi <a href="http://fi.wikipedia.org/wiki/Tiedostoj%C3%A4rjestelm%C3%A4" target="_blank">tiedostojärjestelmässä</a> tai jollain keskitetyllä levypalvelimella. Jokaiselle projektille on olemassa oma hakemisto, jonka sisällä on projektiin liittyvät tiedostot ja hakemistot. -->
+
+Every project you see in NetBeans are in your computer's <a href="https://en.wikipedia.org/wiki/File_system" target="_blank">file system</a> or on some centralized server.
 
 <br/>
 
-Projektin hakemistossa `src/main/java` on ohjelmaan liittyvät lähdekoodit. Jos luokan pakkauksena on kirjasto, sijaitsee luokka projektin lähdekoodihakemiston `src/main/java/kirjasto`-kansiossa. NetBeansissa voi käydä katsomassa projektien konkreettista rakennetta **Files**-välilehdeltä joka on normaalisti **Projects**-välilehden vieressä. Jos et näe välilehteä **Files**, saa sen näkyville valitsemalla vaihtoehdon **Files** valikosta **Window**.
+<!-- Projektin hakemistossa `src/main/java` on ohjelmaan liittyvät lähdekoodit. Jos luokan pakkauksena on kirjasto, sijaitsee luokka projektin lähdekoodihakemiston `src/main/java/kirjasto`-kansiossa. NetBeansissa voi käydä katsomassa projektien konkreettista rakennetta **Files**-välilehdeltä joka on normaalisti **Projects**-välilehden vieressä. Jos et näe välilehteä **Files**, saa sen näkyville valitsemalla vaihtoehdon **Files** valikosta **Window**. -->
 
-Sovelluskehitystä tehdään normaalisti **Projects**-välilehdeltä, jossa NetBeans on piilottanut projektiin liittyviä tiedostoja joista ohjelmoijan ei tarvitse välittää.
+In the project directory `src/main/java` there are the source code files of the program. If the package of a class is library, that class is stored inside the `src/main/java/libary` folder of the source code directory. You can also check the concrete project structure in NetBeans in the **Files** tab, which is normally next to the **Project** tab. If you cannot see the **Files** tab, you can make it appear by choosing the option **Files** from the dropdown menu **Window**.
+
+<!-- Sovelluskehitystä tehdään normaalisti **Projects**-välilehdeltä, jossa NetBeans on piilottanut projektiin liittyviä tiedostoja joista ohjelmoijan ei tarvitse välittää. -->
+
+Application development is normally done in the **Projects** tab, where NetBeans does not show the files that the programmer need not concern themselves with.
+
+<!-- ## Pakkaukset ja näkyvyysmääreet -->
+
+## Packages and access modifiers
+
+<!-- Olemme tähän mennessä käyttäneet kahta näkyvyysmäärettä. Näkyvyysmääreellä `private` määritellään muuttujia (ja metodeja), jotka ovat näkyvissä vain sen luokan sisällä joka määrittelee ne. Niitä ei voi käyttää luokan ulkopuolelta. Näkyvyysmääreellä `public` varustetut metodit ja muuttujat ovat taas kaikkien käytettävissä. -->
+
+Until now we've used two access modifiers. The modifier `private` is used to define variables (and methods) that are only visible inside the class where they are defined. They cannot be used from outside that class. The methods and variables defined with `public`, on the other hand, are available for everyone to use.
 
 
-## Pakkaukset ja näkyvyysmääreet
-
-Olemme tähän mennessä käyttäneet kahta näkyvyysmäärettä. Näkyvyysmääreellä `private` määritellään muuttujia (ja metodeja), jotka ovat näkyvissä vain sen luokan sisällä joka määrittelee ne. Niitä ei voi käyttää luokan ulkopuolelta. Näkyvyysmääreellä `public` varustetut metodit ja muuttujat ovat taas kaikkien käytettävissä.
-
-
-```java
+<!-- ```java
 package kirjasto.ui;
 
 public class Kayttoliittyma {
@@ -230,15 +310,41 @@ public class Kayttoliittyma {
         System.out.println("************");
     }
 }
-```
-
-
-Yllä olevasta `Kayttoliittyma`-luokasta tehdyn olion konstruktori ja `kaynnista`-metodi on kutsuttavissa mistä tahansa ohjelmasta. Metodi `tulostaOtsikko` ja `lukija`-muuttuja on käytössä vain luokan sisällä.
-
-Jos näkyvyysmäärettä ei määritellä, metodit ja muuttujat ovat näkyvillä saman pakkauksen sisällä. Tätä kutsutaan oletus- tai pakkausnäkyvyydeksi. Muutetaan yllä olevaa esimerkkiä siten, että metodilla `tulostaOtsikko` on pakkausnäkyvyys.
-
+``` -->
 
 ```java
+package library.ui;
+
+public class UserInterface {
+    private Scanner scanner;
+
+    public UserInterface(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public void start() {
+        printTitle();
+
+        // other functionality
+    }
+
+    private void printTitle() {
+        System.out.println("***********");
+        System.out.println("* LIBRARY *");
+        System.out.println("***********");
+    }
+}
+```
+
+<!-- Yllä olevasta `Kayttoliittyma`-luokasta tehdyn olion konstruktori ja `kaynnista`-metodi on kutsuttavissa mistä tahansa ohjelmasta. Metodi `tulostaOtsikko` ja `lukija`-muuttuja on käytössä vain luokan sisällä. -->
+
+If you create an object of the `UserInterface` class above, its constructor and `start` method are callable from anywhere in the program. The metho `printTitle` and the variable `scanner` are available only from within the class.
+
+<!-- Jos näkyvyysmäärettä ei määritellä, metodit ja muuttujat ovat näkyvillä saman pakkauksen sisällä. Tätä kutsutaan oletus- tai pakkausnäkyvyydeksi. Muutetaan yllä olevaa esimerkkiä siten, että metodilla `tulostaOtsikko` on pakkausnäkyvyys. -->
+
+If the access modifier is missing, the methods and variables are only visible inside the same package. We call this the default or package modifier. Let's change the example above so that the method `printTitle` has package access modifier.
+
+<!-- ```java
 package kirjasto.ui;
 
 public class Kayttoliittyma {
@@ -260,12 +366,37 @@ public class Kayttoliittyma {
         System.out.println("************");
     }
 }
-```
-
-Nyt saman pakkauksen sisällä olevat luokat -- eli luokat, jotka sijaitsevat pakkauksessa `kirjasto.ui` voivat käyttää metodia `tulostaOtsikko`.
-
+``` -->
 
 ```java
+package library.ui;
+
+public class UserInterface {
+    private Scanner scanner;
+
+    public UserInterface(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public void start() {
+        printTitle();
+
+        // other functionality
+    }
+
+    void printTitle() {
+        System.out.println("***********");
+        System.out.println("* LIBRARY *");
+        System.out.println("***********");
+    }
+}
+```
+
+<!-- Nyt saman pakkauksen sisällä olevat luokat -- eli luokat, jotka sijaitsevat pakkauksessa `kirjasto.ui` voivat käyttää metodia `tulostaOtsikko`. -->
+
+Now the classes inside the same package -- i.e., the classes inside the package `library.ui` -- can use the method `printTitle`.
+
+<!-- ```java
 package kirjasto.ui;
 
 import java.util.Scanner;
@@ -279,12 +410,29 @@ public class Main {
         kayttoliittyma.tulostaOtsikko(); // onnistuu!
     }
 }
-```
-
-Jos luokka on eri pakkauksessa, ei metodia `tulostaOtsikko` pysty käyttämään. Alla olevassa esimerkissä luokka Main on pakkauksessa `kirjasto`, jolloin pakkauksessa `kirjasto.ui` pakkausnäkyvyydellä määriteltyyn metodiin `tulostaOtsikko` ei pääse käsiksi.
-
+``` -->
 
 ```java
+package library.ui;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        UserInterface ui = new UserInterface(scanner);
+
+        ui.printTitle(); // works!
+    }
+}
+```
+
+<!-- Jos luokka on eri pakkauksessa, ei metodia `tulostaOtsikko` pysty käyttämään. Alla olevassa esimerkissä luokka Main on pakkauksessa `kirjasto`, jolloin pakkauksessa `kirjasto.ui` pakkausnäkyvyydellä määriteltyyn metodiin `tulostaOtsikko` ei pääse käsiksi. -->
+
+If a class is in a different package, the method `printTitle` cannot be called. In the example below the class `Main` is in the package `library`. Since the `printTitle` method is in the package `library.ui` and it has the package access modifier, it cannot be used.
+
+<!-- ```java
 package kirjasto;
 
 import java.util.Scanner;
@@ -299,16 +447,35 @@ public class Main {
         kayttoliittyma.tulostaOtsikko(); // ei onnistu!
     }
 }
+``` -->
+
+```java
+package library;
+
+import java.util.Scanner;
+import library.ui.UserInterface;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        UserInterface ui = new UserInterface(scanner);
+
+        ui.printTitle(); // doesn't work!
+    }
+}
 ```
 
 
-## Laajempi esimerkki: lentokentän hallinta
+<!-- ## Laajempi esimerkki: lentokentän hallinta -->
 
+## A larger example: flight control
 
-Tarkastellaan ohjelmaa, joka tarjoaa tekstikäyttöliittymän lentokoneiden ja lentojen lisäämiseen sekä näiden tarkasteluun. Ohjelman tekstikäyttöliittymä on seuraava.
+<!-- Tarkastellaan ohjelmaa, joka tarjoaa tekstikäyttöliittymän lentokoneiden ja lentojen lisäämiseen sekä näiden tarkasteluun. Ohjelman tekstikäyttöliittymä on seuraava. -->
 
+Let's take a look at a program that offers a text UI for adding and examining airplanes and flights. The user interface of the program looks like this.
 
-<sample-output>
+<!-- <sample-output>
 
 Lentokentän hallinta
 --------------------
@@ -394,30 +561,135 @@ Valitse toiminto:
 [x] Lopeta
 &gt; **x**
 
+</sample-output> -->
+
+<sample-output>
+
+Airport Asset Control
+--------------------
+
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **1**
+Give the airplane id: **HA-LOL**
+Give the airplane capacity: **42**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **1**
+Give the airplane id: **G-OWAC**
+Give the airplane capacity: **101**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **2**
+Give the airplane id: **HA-LOL**
+Give the departure airport id: **HEL**
+Give the target airport id: **BAL**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **2**
+Give the airplane id: **G-OWAC**
+Give the departure airport id: **JFK**
+Give the target airport id: **BAL**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **2**
+Give the airplane id: **HA-LOL**
+Give the departure airport id: **BAL**
+Give the target airport id: **HEL**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **x**
+
+Flight Control
+------------
+
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **1**
+G-OWAC (101 capacity)
+HA-LOL (42 capacity)
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **2**
+HA-LOL (42 henkilöä) (HEL-BAL)
+HA-LOL (42 henkilöä) (BAL-HEL)
+G-OWAC (101 henkilöä) (JFK-BAL)
+
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **3**
+Give the airplane id: **G-OWAC**
+G-OWAC (101 capacity)
+
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **x**
+
 </sample-output>
 
-Ohjelmasta löytyy useita aihealueen käsitteitä, joista oleellisia ovat `Lentokone` ja `Lento`. Kuhunkin lentoon liittyy lisäksi `Paikka` (lähtöpaikka ja kohdepaikka).  Aihealuetta kuvaavien käsitteiden lisäksi ohjelmaan kuuluu tekstikäyttöliittymä sekä luokka, jonka kautta tekstikäyttöliittymä hallinnoi käsitteitä.
+<!-- Ohjelmasta löytyy useita aihealueen käsitteitä, joista oleellisia ovat `Lentokone` ja `Lento`. Kuhunkin lentoon liittyy lisäksi `Paikka` (lähtöpaikka ja kohdepaikka).  Aihealuetta kuvaavien käsitteiden lisäksi ohjelmaan kuuluu tekstikäyttöliittymä sekä luokka, jonka kautta tekstikäyttöliittymä hallinnoi käsitteitä. -->
 
-Ohjelman pakkausrakenne voi olla -- esimerkiksi -- seuraava:
+There are many concepts of the problem domain in the program, and the essential ones are `Airplane` and `Flight`. Each flight also involves a `Place` (places of departure and destination). In addition to the concepts that represent the problem domain, the program also contains a text UI and a class through which the text UI uses the concepts.
 
-- `lentokentta` - sisältää ohjelman käynnistämiseen tarvittavan pääohjelmaluokan.
+<!-- Ohjelman pakkausrakenne voi olla -- esimerkiksi -- seuraava: -->
 
-- `lentokentta.domain` - sisältää aihealueen käsitteitä kuvaavat luokat `Lentokone`, `Lento`, ja `Paikka`.
+The package structure of the program could look like the following (for example):
 
-- `lentokentta.logiikka` - sisältää toiminnallisuuden, jonka avulla sovellusta hallinnoidaan
+<!-- - `lentokentta` - sisältää ohjelman käynnistämiseen tarvittavan pääohjelmaluokan. -->
 
-- `lentokentta.ui` - sisältää tekstikäyttöliittymän
+- `flightControl` - includes the main program class that is needed to start the program
+
+<!-- - `lentokentta.domain` - sisältää aihealueen käsitteitä kuvaavat luokat `Lentokone`, `Lento`, ja `Paikka`. -->
+
+- `flightControl.domain` - includes the classes that represent concepts of the probelm domain: `Airplane`, `Flight`, and `Place`
+
+<!-- - `lentokentta.logiikka` - sisältää toiminnallisuuden, jonka avulla sovellusta hallinnoidaan -->
+
+- `flightControl.logic` - includes the functionality that is used to control the application
+
+<!-- - `lentokentta.ui` - sisältää tekstikäyttöliittymän -->
+
+- `flightControl.ui` - includes the textual user interface
 
 
-Alla olevissa aliluvuissa on listattu eräs mahdollinen jako sovelluksen toimintaa varten (poislukien pääohjelmaluokka).
+<!-- Alla olevissa aliluvuissa on listattu eräs mahdollinen jako sovelluksen toimintaa varten (poislukien pääohjelmaluokka). -->
+
+The next subchapters list one possible division for the operation of the program (excluding the main progrma class).
 
 
-### Aihealueen käsitteitä kuvaavat luokat
+<!-- ### Aihealueen käsitteitä kuvaavat luokat -->
 
-Aihealueen käsitteitä kuvaavat luokat asetetaan usein pakkaukseen nimeltä `domain`. Koska koko sovellus on pakkauksessa `lentokentta`, asetetaan pakkaus `domain` pakkaukseen `lentokentta`. Aihealueen käsitteitä kuvaavat luokat `Paikka`, `Lentokone`, ja `Lento`.
+## Classes that represent concepts of the problem domain
 
+<!-- Aihealueen käsitteitä kuvaavat luokat asetetaan usein pakkaukseen nimeltä `domain`. Koska koko sovellus on pakkauksessa `lentokentta`, asetetaan pakkaus `domain` pakkaukseen `lentokentta`. Aihealueen käsitteitä kuvaavat luokat `Paikka`, `Lentokone`, ja `Lento`. -->
 
-```java
+The classes that represent concepts of the problem domain are ofter placed inside a package called `domain`. Since the entirety of the application is inside the package `flightControl`, let's place the package `domain` inside the package `flightControl`. Concepts of the problem domain are represented by the classes `Place`, `Airplane`, and `Flight`.
+
+<!-- ```java
 package lentokentta.domain;
 
 public class Paikka {
@@ -433,9 +705,27 @@ public class Paikka {
         return this.tunnus;
     }
 }
-```
+``` -->
 
 ```java
+package flightControl.domain;
+
+public class Place {
+
+    private String ID;
+
+    public Place(String ID) {
+        this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return this.ID;
+    }
+}
+```
+
+<!-- ```java
 package lentokentta.domain;
 
 public class Lentokone {
@@ -461,9 +751,37 @@ public class Lentokone {
         return this.tunnus + " (" + this.kapasiteetti + " henkilöä)";
     }
 }
-```
+``` -->
 
 ```java
+package flightControl.domain;
+
+public class Airplane {
+
+    private String id;
+    private int capacity;
+
+    public Airplane(String id, int capacity) {
+        this.id = id;
+        this.capacity = capacity;
+    }
+
+    public String getID() {
+        return this.id;
+    }
+
+    public int getCapacity() {
+        return this.capacity;
+    }
+
+    @Override
+    public String toString() {
+        return this.id + " (" + this.capacity + " capacity)";
+    }
+}
+```
+
+<!-- ```java
 package lentokentta.domain;
 
 public class Lento {
@@ -495,15 +813,52 @@ public class Lento {
         return this.lentokone + " (" + this.lahtopaikka + "-" + this.kohdepaikka + ")";
     }
 }
+``` -->
+
+```java
+package flightControl.domain;
+public class Flight {
+
+    private Airplane airplane;
+    private Place departureAirport;
+    private Place targetAirport;
+
+    public Flight(Airplane airplane, Place departureAirport, Place targetAirport) {
+        this.airplane = airplane;
+        this.departureAirport = departureAirport;
+        this.targetAirport = targetAirport;
+    }
+
+    public Airplane getAirplane() {
+        return this.airplane;
+    }
+
+    public Place getDeparturePlace() {
+        return this.departureAirport;
+    }
+
+    public Place getTargetPlace() {
+        return this.targetAirport;
+    }
+
+    @Override
+    public String toString() {
+        return this.airplane.toString() + " (" + this.departureAirport + "-" + this.targetAirport + ")";
+    }
+}
+
 ```
 
 
-### Sovelluslogiikka
+<!-- ### Sovelluslogiikka -->
 
-Sovelluslogiikka eriytetään tyypillisesti aihealuetta kuvaavista luokista. Sovelluslogiikka on esimerkissämme lisätty pakkaukseen `logiikka`. Sovelluslogiikka sisältää toiminnallisuudet lentokoneiden ja lentojen lisäämiseen sekä niiden listaamiseen.
+### Application logic
 
+<!-- Sovelluslogiikka eriytetään tyypillisesti aihealuetta kuvaavista luokista. Sovelluslogiikka on esimerkissämme lisätty pakkaukseen `logiikka`. Sovelluslogiikka sisältää toiminnallisuudet lentokoneiden ja lentojen lisäämiseen sekä niiden listaamiseen. -->
 
-```java
+The application logic is typically kept separate from the classes that represents concepts of the problem domain. In our example, application logic is stored in the package `logic`. Application logic includes the functionality to add airplanes and flights, and to list them.
+
+<!-- ```java
 package lentokentta.logiikka;
 
 import java.util.Collection;
@@ -550,17 +905,70 @@ public class Lentohallinta {
         return this.lentokoneet.get(tunnus);
     }
 }
+``` -->
+
+```java
+package flightControl.logic;
+
+import java.util.Collection;
+import flightControl.domain.Flight;
+import flightControl.domain.Airplane;
+import java.util.HashMap;
+import java.util.Map;
+import flightControl.domain.Place;
+
+public class FlightControl {
+
+    private HashMap<String, Airplane> airplanes = new HashMap<>();
+    private HashMap<String, Flight> flights = new HashMap<>();
+    private Map<String, Place> places;
+
+    public FlightControl() {
+        this.flights = new HashMap<>();
+        this.airplanes = new HashMap<>();
+        this.places = new HashMap<>();
+    }
+
+    public void addAirplane(String ID, int capacity) {
+        Airplane plane = new Airplane(ID, capacity);
+        this.airplanes.put(ID, plane);
+    }
+
+    public void addFlight(Airplane plane, String departureID, String destinationID) {
+        this.places.putIfAbsent(departureID, new Place(departureID));
+        this.places.putIfAbsent(destinationID, new Place(destinationID));
+
+        Flight flight = new Flight(plane, this.places.get(departureID), this.places.get(destinationID));
+        this.flights.put(flight.toString(), flight);
+    }
+
+    public Collection<Airplane> getAirplanes() {
+        return this.airplanes.values();
+    }
+
+    public Collection<Flight> getFlights() {
+        return this.flights.values();
+    }
+
+    public Airplane getAirplane(String ID) {
+        return this.airplanes.get(ID);
+    }
+}
+
 ```
 
 <quiz id="d8ad4197-aa5b-5abc-beba-cc575263c5c7"></quiz>
 
 
-### Tekstikäyttöliittymä
+<!-- ### Tekstikäyttöliittymä -->
 
-Käyttöliittymä eriytetään aihealuetta kuvaavista luokista ja sovelluslogiikasta. Käyttöliittymä on alla olevassa esimerkissä lisätty pakkaukseen `ui`.
+### Text user interface
 
+<!-- Käyttöliittymä eriytetään aihealuetta kuvaavista luokista ja sovelluslogiikasta. Käyttöliittymä on alla olevassa esimerkissä lisätty pakkaukseen `ui`. -->
 
-```java
+The user interface is separate from the application logic and the classes that represent the problem domain. In this example the user interface is stored in the package `ui`.
+
+<!-- ```java
 package lentokentta.ui;
 
 import lentokentta.domain.Lento;
@@ -689,6 +1097,139 @@ public class Tekstikayttoliittyma {
         }
 
         return lentokone;
+    }
+}
+``` -->
+
+```java
+package flightControl.ui;
+
+import flightControl.domain.Flight;
+import flightControl.domain.Airplane;
+import java.util.Scanner;
+import flightControl.logic.FlightControl;
+
+public class TextUI {
+
+    private FlightControl flightControl;
+    private Scanner scanner;
+
+    public TextUI(FlightControl flightControl, Scanner scanner) {
+        this.flightControl = flightControl;
+        this.scanner = scanner;
+    }
+
+    public void start() {
+        // let's start in two parts -- first start the asset control,
+        // then the flight control
+        startAssetControl();
+        System.out.println();
+        startFlightControl();
+        System.out.println();
+    }
+
+    private void startAssetControl() {
+        System.out.println("Airport Asset Control");
+        System.out.println("--------------------");
+        System.out.println();
+
+        while (true) {
+            System.out.println("Choose an action:");
+            System.out.println("[1] Add an airplane");
+            System.out.println("[2] Add a flight");
+            System.out.println("[x] Exit Airport Asset Control");
+
+            System.out.print("> ");
+            String answer = scanner.nextLine();
+
+            if (answer.equals("1")) {
+                addAirplane(scanner);
+            } else if (answer.equals("2")) {
+                addFlight(scanner);
+            } else if (answer.equals("x")) {
+                break;
+            }
+        }
+    }
+
+    private void addAirplane() {
+        System.out.print("Give the airplane id: ");
+        String id = scanner.nextLine();
+        System.out.print("Give the airplane capacity: ");
+        int capacity = Integer.parseInt(scanner.nextLine());
+
+        this.flightControl.addAirplane(id, capacity);
+    }
+
+    private void addFlight() {
+        System.out.print("Give the airplane id: ");
+        Airplane airplane = askForAirplane(scanner);
+        System.out.print("Give the departure airport id: ");
+        String departureID = scanner.nextLine();
+        System.out.print("Give the target airport id: ");
+        String destinationID = scanner.nextLine();
+
+        this.flightControl.addFlight(airplane, departureID, destinationID);
+    }
+
+    private void startFlightControl() {
+        System.out.println("Flight Control");
+        System.out.println("------------");
+        System.out.println();
+
+        while (true) {
+            System.out.println("Choose an action:");
+            System.out.println("[1] Print airplanes");
+            System.out.println("[2] Print flights");
+            System.out.println("[3] Print airplane details");
+            System.out.println("[x] Quit");
+
+            System.out.print("> ");
+            String answer = scanner.nextLine();
+            if (answer.equals("1")) {
+                printAirplanes();
+            } else if (answer.equals("2")) {
+                printFlights();
+            } else if (answer.equals("3")) {
+                printAirplaneDetails();
+            } else if (answer.equals("x")) {
+                break;
+            }
+        }
+    }
+
+    private void printAirplanes() {
+        for (Airplane plane : flightControl.getAirplanes()) {
+            System.out.println(plane);
+        }
+    }
+
+    private void printFlights() {
+        for (Flight flight : flightControl.getFlights()) {
+            System.out.println(flight);
+            System.out.println("");
+        }
+    }
+
+    private void printAirplaneDetails() {
+        System.out.print("Give the airplane id: ");
+        Airplane plane = askForAirplane();
+        System.out.println(plane);
+        System.out.println();
+    }
+
+    private Airplane askForAirplane() {
+        Airplane airplane = null;
+        while (airplane == null) {
+            String id = scanner.nextLine();
+            airplane = flightControl.getAirplane(id);
+
+            if (airplane == null) {
+                System.out.println("No airplane with the id " + id + ".");
+            }
+        }
+
+        return airplane;
     }
 }
 ```
