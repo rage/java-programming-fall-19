@@ -1,7 +1,7 @@
 ---
-path: '/osa-11/1-luokkakaaviot'
-title: 'Luokkakaaviot'
-hidden: true
+path: '/part-11/1-class-diagrams'
+title: 'Class diagrams'
+hidden: false
 ---
 
 
@@ -138,7 +138,7 @@ The class diagram below shows the class Customer. Implement the class in the exe
 
 </programming-exercise>
 
-<programming-exercise name='Kirja ja lentokone' tmcname='osa11-Osa11_02.KirjaJaLentokone'>
+<programming-exercise name='Book and plane' tmcname='part11-Part11_02.ABookAndAPlane'>
 
 <!-- Alla olevassa luokkakaaviossa on kuvattuna luokat Kirja ja Lentokone. Toteuta luokat tehtäväpohjaan. -->
 
@@ -409,4 +409,4 @@ Below you'll see a somewhat larger class diagram. In it are the classes A, B, C,
 </programming-exercise>
 
 
-<quiznator id="5c8b61cb244fe21455cbe44c"></quiznator>
+<quiz id="cc7eee4a-8e17-58bc-9f57-0f61fdfb6d9f"></quiz>
