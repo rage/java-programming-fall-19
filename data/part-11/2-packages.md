@@ -1,7 +1,7 @@
 ---
-path: '/osa-11/2-pakkaukset'
-title: 'Pakkaukset'
-hidden: true
+path: '/part-11/2-packages'
+title: 'Packages'
+hidden: false
 ---
 
 
@@ -181,7 +181,7 @@ Updating UI
 
 <!-- <programming-exercise name='Kolme pakkausta' tmcname='osa11-Osa11_09.KolmePakkausta'> -->
 
-<programming-exercise name='Three packages' tmcname='part11-Part11_09.ThreePackages'>
+<programming-exercise name='Three packages' tmcname='part11-Part11_09.TheThreePackages'>
 
 <!-- Luo tehtäväpohjaan kolme pakkausta `a`, `b` ja `c`. Luo pakkauksen `a` sisälle luokka `A`, pakkauksen `b` sisälle luokka `B`, ja pakkauksen `c` sisälle luokka `C`. Luokissa ei tarvita oliomuuttujia, konstruktoreja tai metodeja. -->
 
@@ -552,7 +552,7 @@ public class Lentohallinta {
 }
 ```
 
-<quiznator id="5c895b0c99236814c5bbfc8f"></quiznator>
+<quiz id="d8ad4197-aa5b-5abc-beba-cc575263c5c7"></quiz>
 
 
 ### Tekstikäyttöliittymä

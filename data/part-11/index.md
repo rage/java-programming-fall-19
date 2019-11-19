@@ -1,8 +1,8 @@
 ---
-path: '/osa-11'
-title: 'Osa 11'
+path: '/part-11'
+title: 'Part 11'
 overview: true
-hidden: true
+hidden: false
 ---
 
 <only-for-course-variant variant="dl">
@@ -33,7 +33,11 @@ hidden: true
   <deadline>Kirjaudu sisään nähdäksesi deadlinen tälle osalle</deadline>
 </only-for-not-logged-in>
 
-Kurssimateriaalin yhdennessätoista osassa opit tulkitsemaan yksinkertaisia luokkakaavioita. Tutustut Javan pakkauksiin ja opit mistä `import`-lauseen osat muodostuvat. Harjoittelet Javan poikkeusten käyttöä ja opit sekä niiden käsittelyn että niiden eteenpäin heittämisen. Kertaat tiedon lukemista tiedostosta ja opit kirjoittamaan tietoa tiedostoon.
+<!-- Kurssimateriaalin yhdennessätoista osassa opit tulkitsemaan yksinkertaisia luokkakaavioita. Tutustut Javan pakkauksiin ja opit mistä `import`-lauseen osat muodostuvat. Harjoittelet Javan poikkeusten käyttöä ja opit sekä niiden käsittelyn että niiden eteenpäin heittämisen. Kertaat tiedon lukemista tiedostosta ja opit kirjoittamaan tietoa tiedostoon. -->
+
+In the eleventh part you'll learn to decypher simple class diagrams. You'll become familiar with packages in Java and learn what the different parts of an `import` statement mean. You'll practise using exceptions in Java: how to throw and handle them. You'll take another look at reading data from a file, and learn to write data to a file. 
+
+Only the exercises for this part are currently available in English!
 
 
 <please-login></please-login>

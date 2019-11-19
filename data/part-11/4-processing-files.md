@@ -1,7 +1,7 @@
 ---
-path: '/osa-11/4-tiedostojen-kasittely'
-title: 'Tiedostojen käsittely'
-hidden: true
+path: '/part-11/4-processing-files'
+title: 'Processing files'
+hidden: false
 ---
 
 
@@ -59,12 +59,13 @@ Mikäli tiedostoja haluaa käsitellä siten, että kirjoitus tapahtuu olemassaol
 
 <br/>
 
-<quiznator id="5c8b66b7017ffc13eddd143e"></quiznator>
+<quiz id="fd2ed847-2fd2-513b-93a2-fd589a4a4189"></quiz>
 
 
 <programming-exercise name='Saveable Dictionary (4 parts)' nocoins='true' tmcname='part11-Part11_13.SaveableDictionary'>
 
 <!-- Tässä tehtävässä laajennetaan dictionarya siten, että sanat voidaan lukea tiedostosta ja kirjoittaa tiedostoon. Sanakirjan tulee myös partsa kääntää molempiin suuntiin, suomesta vieraaseen kieleen sekä toiseen suuntaan (tehtävässä oletetaan hieman epärealistisesti, että suomen kielessä ja vieraassa kielessä ei ole yhtään samalla tavalla kirjoitettavaa sanaa). Tehtävänäsi on luoda dictionary luokkaan `SaveableDictionary`. Toteuta luokka pakkaukseen `dictionary`. -->
+
 In this exercise we will extend the dictionary so, that it can read words from a file and write words to a file.
 The dictionary must also be able to translate both from Finnish to another language and from another language to Finnish (in this exercise we ignore the fact that some words might be written the same in Finnish and in other languages). Your mission is to create a dictionary in the class `SaveableDictionary`. Implement the class in the package `dictionary`.
 
@@ -77,7 +78,9 @@ For the dictionary, implement a constructor which takes no parameters, and the f
 
 <!-- - `public void add(String sana, String kaannos)` lisää sanan dictionaryan. Jokaisella sanalla on vain yksi käännös ja jos sama sana lisätään uudelleen, ei tapahdu mitään. -->
 <!-- - `public String add(String sana)` palauttaa käännöksen annetulle sanalle. Jos sanaa ei tunneta, palautetaan null. -->
+
  - `public void add(String words, String translation)` adds a word to the dictionary. Every word has just one translation, and if the same word is added for the second time, nothing happens.
+
  - `public string translate(String word)` returns the translation for the given word. If the word is not in the dictionary, returns null.
 
 
@@ -98,7 +101,9 @@ System.out.println(dictionary.translate("banana"));
 ```
 
 <!-- Tulostuu -->
+
 Prints
+
 <sample-output>
 
 monkey
@@ -113,7 +118,7 @@ As can be seen from the output, after a translation has been added to the dictio
 
 
 <!-- <b>Huom:</b> metodit `add` ja `add` eivät lue tiedostoa tai kirjoita tiedostoon! Myöskään konstruktori ei koske tiedostoon. -->
-<b>NB:</b> the mtehods `add` and `translate` do not read from a file or write to a file! The constructor does not touch the file either.
+<b>NB:</b> the methods `add` and `translate` do not read from a file or write to a file! The constructor does not touch the file either.
 
 
 <!-- <h2>Sanojen deleteminen</h2> -->
@@ -126,6 +131,7 @@ Add the dictionary method `public void delete(String word)` which deletes the gi
 It might be worth it to revise the material concerning deleting objects from an ArrayList from the previous weeks.
 
 <!-- <b>HUOM2:</b> metodi `delete` ei kirjoita tiedostoon. -->
+
 <b>NB:</b> the method `delete` does not write to the file.
 
 <!-- Sanakirjan tulee tässä vaiheessa toimia seuraavasti: -->
@@ -190,7 +196,7 @@ olut:beer
 Read the dictionary file line by line with the method `nextLine`. You can split a line using the String method `split` like so:
 
 
-```java
+<!-- ```java
 Scanner fileReader = new ...
 while (fileReader.hasNextLine()) {
     String line = fileReader.nextLine();
@@ -198,6 +204,17 @@ while (fileReader.hasNextLine()) {
 
     System.out.println(parts[0]);     // ennen :-merkkiä ollut osa linestä
     System.out.println(parts[1]);     // :-merkin jälkeen ollut osa linestä
+}
+``` -->
+
+```java
+Scanner fileReader = new ...
+while (fileReader.hasNextLine()) {
+    String line = fileReader.nextLine();
+    String[] parts = line.split(":");   // split the line based on the ':' character
+
+    System.out.println(parts[0]);     // part of line before :
+    System.out.println(parts[1]);     // part of line after :
 }
 ```
 
