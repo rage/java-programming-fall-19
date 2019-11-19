@@ -300,21 +300,31 @@ Exception in thread "..." java.lang.IllegalArgumentException: Arvosanan tulee ol
 Jos poikkeus on esimerkiksi tyyppiä IllegalArgumentException, tai yleisemmin ajonaikainen poikkeus, ei sen heittämisestä tarvitse kirjoittaa erikseen metodin määrittelyyn.
 
 
-<programming-exercise name='Parametrien validointi (2 osaa)' tmcname='osa11-Osa11_11.ParametrienValidointi'>
+<!-- <programming-exercise name='Parametrien validointi (2 osaa)' tmcname='osa11-Osa11_11.ParametrienValidointi'> -->
 
-Harjoitellaan hieman parametrien validointia `IllegalArgumentException`-poikkeuksen avulla. Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Laskin`. Muuta luokkia seuraavasti:
+<programming-exercise name='Validating parameters (2 parts)' tmcname='part11-Part11_11.ValidatingParameters'>
 
-<h2>Henkilön validointi</h2>
+<!-- Harjoitellaan hieman parametrien validointia `IllegalArgumentException`-poikkeuksen avulla. Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Laskin`. Muuta luokkia seuraavasti: -->
+
+Let's practise a little parameter validation with the `IllegalArgumentException` exception. There are two classes included with the exercise base: `Person` and `Calculator`. Modify the classes in the following manner:
+
+<!-- <h2>Henkilön validointi</h2> -->
+
+<h2>Validating a person</h2>
+
+<!-- Luokan `Henkilo` konstruktorin tulee varmistaa että parametrina annettu nimi ei ole null, tyhjä tai yli 40 merkkiä pitkä. Myös iän tulee olla väliltä 0-120. Jos joku edelläolevista ehdoista ei päde, tulee konstruktorin heittää `IllegalArgumentException`-poikkeus. -->
+
+The constructor of the class `Person` should ensure that the name given as the parameter is not null, empty, or over 40 characters in length. The age should between 0 and 120. If some of these conditions are not met, the constructor should throw an `IllegalArgumentException`.
 
 
-Luokan `Henkilo` konstruktorin tulee varmistaa että parametrina annettu nimi ei ole null, tyhjä tai yli 40 merkkiä pitkä. Myös iän tulee olla väliltä 0-120. Jos joku edelläolevista ehdoista ei päde, tulee konstruktorin heittää `IllegalArgumentException`-poikkeus.
+<!-- <h2>Laskimen validointi</h2> -->
+
+<h2>Validating the calculator</h2>
 
 
-<h2>Laskimen validointi</h2>
+<!-- Luokan `Laskin` metodeja tulee muuttaa seuraavasti: Metodin `kertoma` tulee toimia vain jos parametrina annetaan ei-negatiivinen luku (0 tai suurempi). Metodin `binomikerroin` tulee toimia vain jos parametrit ovat ei-negatiivisia ja osajoukon koko on pienempi kuin joukon koko. Jos jompikumpi metodeista saa epäkelpoja arvoja metodikutsujen yhteydessä, tulee metodien heittää poikkeus `IllegalArgumentException`. -->
 
-
-Luokan `Laskin` metodeja tulee muuttaa seuraavasti: Metodin `kertoma` tulee toimia vain jos parametrina annetaan ei-negatiivinen luku (0 tai suurempi). Metodin `binomikerroin` tulee toimia vain jos parametrit ovat ei-negatiivisia ja osajoukon koko on pienempi kuin joukon koko. Jos jompikumpi metodeista saa epäkelpoja arvoja metodikutsujen yhteydessä, tulee metodien heittää poikkeus `IllegalArgumentException`.
-
+The methods of the `Calculator` class should be follow in the following manner: The method `factorial` should only work if the parameter is a non-negative number (0 or greater). The method `binomialCoefficient` should only work when the parameters are non-negative and the subset size does not exceed the set size. If these methods receive invalid parameters when they are called, they should throw an `IllegalArgumentException`
 
 </programming-exercise>
 
@@ -400,14 +410,20 @@ Stack tracen lukeminen tapahtuu alhaalta ylöspäin. Alimpana on ensimmäinen ku
 <quiznator id="5c8b64ba3972a9147410a33f"></quiznator>
 
 
-<programming-exercise name='Sensorit ja lämpötila (4 osaa)' tmcname='osa11-Osa11_12.SensoritJaLampotila'>
+<!-- <programming-exercise name='Sensorit ja lämpötila (4 osaa)' tmcname='osa11-Osa11_12.SensoritJaLampotila'> -->
+
+<programming-exercise name='Sensors and temperature (4 parts)' tmcname='part11-Part11_12.SensorsAndTemperature'>
 
 
-Kaikki luotavat luokat tulee sijoittaa pakkaukseen `sovellus`.
+<!-- Kaikki luotavat luokat tulee sijoittaa pakkaukseen `sovellus`. -->
 
-Käytössämme on seuraava rajapinta:
+All the classes should be placed inside the `application` package.
 
-```java
+<!-- Käytössämme on seuraava rajapinta: -->
+
+We have the following interface at our disposal:
+
+<!-- ```java
 public interface Sensori {
     boolean onPaalla();  // palauttaa true jos sensori on päällä
     void paalle();       // käynnistä sensorin
@@ -416,17 +432,35 @@ public interface Sensori {
                          // jos sensori ei ole päällä heittää poikkeuksen
                          // IllegalStateException
 }
-```
-
-<h2>Vakiosensori</h2>
-
-Tee luokka `Vakiosensori` joka toteuttaa rajapinnan `Sensori`.
-
-Vakiosensori on koko ajan päällä. Metodien paalle ja poisPaalta kutsuminen ei tee mitään. Vakiosensorilla tulee olla konstruktori, jonka parametrina on kokonaisluku. Metodikutsu `mittaa` palauttaa aina konstruktorille parametrina annetun luvun.
-
-Esimerkki:
+``` -->
 
 ```java
+public interface Sensori {
+    boolean isOn();    // returns true if the sensor is on
+    void setOn();      // sets the sensor on
+    void setOff();     // sets the sensor off
+    int read();        // returns the value of the sensor if it's on
+                       // if the sensor is not on, throw an IllegalStateException
+}
+```
+
+<!-- <h2>Vakiosensori</h2> -->
+
+<h2>Standard sensor</h2>
+
+<!-- Tee luokka `Vakiosensori` joka toteuttaa rajapinnan `Sensori`. -->
+
+Create a class called `StandardSensor` that implements the interface `Sensor`.
+
+<!-- Vakiosensori on koko ajan päällä. Metodien paalle ja poisPaalta kutsuminen ei tee mitään. Vakiosensorilla tulee olla konstruktori, jonka parametrina on kokonaisluku. Metodikutsu `mittaa` palauttaa aina konstruktorille parametrina annetun luvun. -->
+
+A standard sensor is always on. Calling the methods setOn and setOff has no effect. The StandardSensor must have a constructor that takes one integer parameter. The method call `read` returns the number that was given to the constructor.
+
+<!-- Esimerkki: -->
+
+An example:
+
+<!-- ```java
 public static void main(String[] args) {
     Vakiosensori kymppi = new Vakiosensori(10);
     Vakiosensori miinusViis = new Vakiosensori(-5);
@@ -437,6 +471,20 @@ public static void main(String[] args) {
     System.out.println(kymppi.onPaalla());
     kymppi.poisPaalta();
     System.out.println(kymppi.onPaalla());
+}
+``` -->
+
+```java
+public static void main(String[] args) {
+    StandardSensor ten = new StandardSensor(10);
+    StandardSensor minusFive = new StandardSensor(-5);
+
+    System.out.println(ten.read());
+    System.out.println(minusFive.read());
+
+    System.out.println(ten.isOn());
+    ten.setOff();
+    System.out.println(ten.isOn());
 }
 ```
 
@@ -450,32 +498,51 @@ true
 </sample-output>
 
 
-<h2>Lampomittari</h2>
+<!-- <h2>Lampomittari</h2> -->
 
-Tee luokka `Lampomittari`, joka toteuttaa rajapinnan `Sensori`.
+<h2>TemperatureSensor</h2>
 
-Aluksi lämpömittari on poissa päältä. Kutsuttaessa metodia `mittaa` kun mittari on päällä mittari arpoo luvun väliltä -30...30 ja palauttaa sen kutsujalle. Jos mittari ei ole päällä, heitetään poikkeus `IllegalStateException`.
+<!-- Tee luokka `Lampomittari`, joka toteuttaa rajapinnan `Sensori`. -->
 
-Käytä Javan valmista luokkaa <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html" target="_blank" rel="noopener">Random</a> satunnaisen luvun arpomiseen. Saat luvun väliltä 0...60 kutsulla `new Random().nextInt(61);` -- väliltä -30...30 arvotun luvun saa vähentämällä väliltä 0...60 olevasta luvusta sopiva luku.
+Create a class `TemperatureSensor` that implements the `Sensor` interface.
+
+<!-- Aluksi lämpömittari on poissa päältä. Kutsuttaessa metodia `mittaa` kun mittari on päällä mittari arpoo luvun väliltä -30...30 ja palauttaa sen kutsujalle. Jos mittari ei ole päällä, heitetään poikkeus `IllegalStateException`. -->
+
+At first a temperature sensor is off. When the method `read` is called and the sensor is on, the sensor randomly chooses an integer in the range -30...30 and returns it. If the sensor is off, the method `read` throws an `IllegalStateException`.
+
+<!-- Käytä Javan valmista luokkaa <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html" target="_blank" rel="noopener">Random</a> satunnaisen luvun arpomiseen. Saat luvun väliltä 0...60 kutsulla `new Random().nextInt(61);` -- väliltä -30...30 arvotun luvun saa vähentämällä väliltä 0...60 olevasta luvusta sopiva luku. -->
+
+Use the ready-made Java class <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html" target="_blank" rel="noopener">Random</a> to choose the random number. You'll get an integer in the range 0...60 by calling `new Random().nextInt(61);` -- to get a random integer in the range -30...30 you'll have to subtract a suitable number from the random number in the range 0...60.
 
 <br/>
 
 
-<h2>Keskiarvosensori</h2>
+<!-- <h2>Keskiarvosensori</h2> -->
 
-Tee luokka `Keskiarvosensori`, joka toteuttaa rajapinnan `Sensori`.
+<h2>Average sensor</h2>
 
-Keskiarvosensori sisältää useita sensoreita. Rajapinnan `Sensori` määrittelemien metodien lisäksi keskiarvosensorilla on metodi `public void lisaaSensori(Sensori lisattava)` jonka avulla keskiarvosensorin hallintaan lisätään uusi sensori.
+<!-- Tee luokka `Keskiarvosensori`, joka toteuttaa rajapinnan `Sensori`. -->
 
-Keskiarvosensori on päällä silloin kuin *kaikki* sen sisältävät sensorit ovat päällä. Kun keskiarvosensori käynnistetään, täytyy kaikkien sen sisä
-ltävien sensorien käynnistyä jos ne eivät ole käynnissä. Kun keskiarvosensori suljetaan, täytyy ainakin yhden sen sisältävän sensorin mennä pois päältä. Saa myös käydä niin että kaikki sen sisältävät sensorit menevät pois päältä.
+Create a class called `AverageSensor` that implements the interface `Sensor`.
 
-Keskiarvosensorin metodi `mittaa` palauttaa sen sisältämien sensoreiden lukemien keskiarvon (koska paluuarvo on `int`, pyöristyy lukema alaspäin kuten kokonaisluvuilla tehdyissä jakolaskuissa). Jos keskiarvosensorin metodia `mittaa` kutsutaan sensorin ollessa poissa päältä, tai jos keskiarvosensorille ei vielä ole lisätty yhtään sensoria heitetään poikkeus `IllegalStateException`.
+<!-- Keskiarvosensori sisältää useita sensoreita. Rajapinnan `Sensori` määrittelemien metodien lisäksi keskiarvosensorilla on metodi `public void lisaaSensori(Sensori lisattava)` jonka avulla keskiarvosensorin hallintaan lisätään uusi sensori. -->
 
-Seuraavassa sensoreja käyttävä esimerkkiohjelma (huomaa, että sekä Lämpömittarin että Keskiarvosensorin konstruktorit ovat parametrittomia):
+An average sensor includes multiple sensors. In addition to the methods defined in the `Sensor` interface, the AverageSensor has the method `public void addSensor(Sensor toAdd)` that can be used to add a new sensor for the average sensor to control.
+
+<!-- Keskiarvosensori on päällä silloin kuin *kaikki* sen sisältävät sensorit ovat päällä. Kun keskiarvosensori käynnistetään, täytyy kaikkien sen sisältävien sensorien käynnistyä jos ne eivät ole käynnissä. Kun keskiarvosensori suljetaan, täytyy ainakin yhden sen sisältävän sensorin mennä pois päältä. Saa myös käydä niin että kaikki sen sisältävät sensorit menevät pois päältä. -->
+
+An AverageSensor is on when *all* its sensors are on. When `setOn` is called, all the sensors must be set on. When `setOff` is called, at least one of the sensors must be set off. It's also acceptable to set off all the sensors.
+
+<!-- Keskiarvosensorin metodi `mittaa` palauttaa sen sisältämien sensoreiden lukemien keskiarvon (koska paluuarvo on `int`, pyöristyy lukema alaspäin kuten kokonaisluvuilla tehdyissä jakolaskuissa). Jos keskiarvosensorin metodia `mittaa` kutsutaan sensorin ollessa poissa päältä, tai jos keskiarvosensorille ei vielä ole lisätty yhtään sensoria heitetään poikkeus `IllegalStateException`. -->
+
+The method `read` of AverageSensor returns the average of the `read` methods of its sensors (since the return value is `int`, the number is rounded down as is the case with integer division). If this method is called while the AverageSensor is off, or if no sensors have been added to it, the method should throw an `IllegalStateException`.
+
+<!-- Seuraavassa sensoreja käyttävä esimerkkiohjelma (huomaa, että sekä Lämpömittarin että Keskiarvosensorin konstruktorit ovat parametrittomia): -->
+
+Here follows an example program that uses the sensors (NB: the constructors of both TemperatureSensor and AverageSensor are non-parameterized):
 
 
-```java
+<!-- ```java
 public static void main(String[] args) {
     Sensori kumpula = new Lampomittari();
     kumpula.paalle();
@@ -492,26 +559,56 @@ public static void main(String[] args) {
     paakaupunki.paalle();
     System.out.println("lämpötila Pääkaupunkiseudulla " + paakaupunki.mittaa() + " astetta");
 }
+``` -->
+
+```java
+public static void main(String[] args) {
+    Sensor kumpula = new TemperatureSensor();
+    kumpula.setOn();
+    System.out.println("temperature in Kumpula " + kumpula.mittaa() + " degrees Celsius");
+
+    Sensor kaisaniemi = new TemperatureSensor();
+    Sensor helsinkiVantaaAirport = new TemperatureSensor();
+
+    AverageSensor helsinkiRegion = new AverageSensor();
+    helsinkiRegion.addSensor(kumpula);
+    helsinkiRegion.addSensor(kaisaniemi);
+    helsinkiRegion.addSensor(helsinkiVantaaAirport);
+
+    helsinkiRegion.setOn();
+    System.out.println("temperature in Helsinki region " + helsinkiRegion.read() + " degrees Celsius");
+}
 ```
 
-Alla olevan esimerkin tulostukset riippuvat arvotuista lämpötiloista:
+<!-- Alla olevan esimerkin tulostukset riippuvat arvotuista lämpötiloista: -->
+
+The prints below depend on which temperatures are randomly returned:
 
 
-<sample-output>
+<!-- <sample-output>
 
 lämpötila Kumpulassa 11 astetta
 lämpötila Pääkaupunkiseudulla 8 astetta
 
+</sample-output> -->
+
+<sample-output>
+
+temperature in Kumpula 11 degrees Celsius
+temperature in Helsinki region 8 degrees Celsius
+
 </sample-output>
 
 
-<h2>Kaikki mittaukset</h2>
+<!-- <h2>Kaikki mittaukset</h2> -->
 
+<h2>All readings</h2>
 
-Lisää luokalle Keskiarvosensori metodi `public List<Integer> mittaukset()`, joka palauttaa listana kaikkien keskiarvosensorin avulla suoritettujen mittausten tulokset. Seuraavassa esimerkki metodin toiminnasta:
+<!-- Lisää luokalle Keskiarvosensori metodi `public List<Integer> mittaukset()`, joka palauttaa listana kaikkien keskiarvosensorin avulla suoritettujen mittausten tulokset. Seuraavassa esimerkki metodin toiminnasta: -->
 
+Add to the class AverageSensor the method `public List<Integer> readings()`. The method should return the results of all the executed readings that the average sensor has done as a list. Here is an example:
 
-```java
+<!-- ```java
 public static void main(String[] args) {
     Sensori kumpula = new Lampomittari();
     Sensori kaisaniemi = new Lampomittari();
@@ -529,18 +626,39 @@ public static void main(String[] args) {
 
     System.out.println("mittaukset: " + paakaupunki.mittaukset());
 }
+``` -->
+
+```java
+public static void main(String[] args) {
+    Sensor kumpula = new TemperatureSensor();
+    Sensor kaisaniemi = new TemperatureSensor();
+    Sensor helsinkiVantaaAirport = new TemperatureSensor();
+
+    AverageSensor helsinkiRegion = new AverageSensor();
+    helsinkiRegion.addSensor(kumpula);
+    helsinkiRegion.addSensor(kaisaniemi);
+    helsinkiRegion.addSensor(helsinkiVantaaAirport);
+
+    helsinkiRegion.setOn();
+    System.out.println("temperature in Helsinki region " + helsinkiRegion.read() + " degrees Celsius");
+    System.out.println("temperature in Helsinki region " + helsinkiRegion.read() + " degrees Celsius");
+    System.out.println("temperature in Helsinki region " + helsinkiRegion.read() + " degrees Celsius");
+
+    System.out.println("readings: " + helsinkiRegion.readings());
+}
 ```
 
-Alla olevan esimerkin tulostukset riippuvat jälleen arvotuista lämpötiloista:
+<!-- Alla olevan esimerkin tulostukset riippuvat jälleen arvotuista lämpötiloista: -->
 
+Again, the exact prints depend on the randomized readings:
 
 <sample-output>
 
-lämpötila Pääkaupunkiseudulla -10 astetta
-lämpötila Pääkaupunkiseudulla -4 astetta
-lämpötila Pääkaupunkiseudulla 5 astetta
+temperature in Helsinki region -10 degrees Celsius
+temperature in Helsinki region -4 degrees Celsius
+temperature in Helsinki region 5 degrees Celsius
 
-mittaukset: [-10, -4, 5]
+readings: [-10, -4, 5]
 
 </sample-output>
 

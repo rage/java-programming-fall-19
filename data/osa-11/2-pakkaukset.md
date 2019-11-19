@@ -79,36 +79,54 @@ Hello packageworld: pakkausten ABC!
 Jatkossa *lähes kaikissa* tehtävissämme käytetään pakkauksia. Luodaan seuraavaksi ensimmäiset pakkaukset itse.
 
 
-<programming-exercise name='Ensimmäisiä pakkauksia (3 osaa)' tmcname='osa11-Osa11_08.EnsimmaisiaPakkauksia'>
+<!-- <programming-exercise name='Ensimmäisiä pakkauksia (3 osaa)' tmcname='osa11-Osa11_08.EnsimmaisiaPakkauksia'> -->
+
+<programming-exercise name='First packages (3 parts)' tmcname='part11-Part11_08.FirstPackages'>
+
+<h2>UserInterface</h2>
+
+<!-- Tehtäväpohjassa on valmiina pakkaus `mooc`. Rakennetaan tämän pakkauksen sisälle sovelluksen toiminta. Lisää pakkaukseen mooc pakkaus `ui` (tämän jälkeen käytössä pitäisi olla pakkaus `mooc.ui`), ja lisää sinne rajapinta `Kayttoliittyma`. -->
+
+There is a package called `mooc` included in the exercise base. We will create the functionality of the program inside this package. Add the package `ui` inside the package `mooc` (after which the package `mocc.ui` should be available), and add an interface called `UserInterface` in it.
+
+<!-- Rajapinnan `Kayttoliittyma` tulee määritellä metodi `void paivita()`. -->
+
+The interface `UserInterface` is to define the method `void update()`.
 
 
-<h2>Käyttöliittymä-rajapinta</h2>
+<!-- <h2>Tekstikäyttöliittymä</h2> -->
 
-Tehtäväpohjassa on valmiina pakkaus `mooc`. Rakennetaan tämän pakkauksen sisälle sovelluksen toiminta. Lisää pakkaukseen mooc pakkaus `ui` (tämän jälkeen käytössä pitäisi olla pakkaus `mooc.ui`), ja lisää sinne rajapinta `Kayttoliittyma`.
+<h2>Text user interface</h2>
 
-Rajapinnan `Kayttoliittyma` tulee määritellä metodi `void paivita()`.
+<!-- Luo samaan pakkaukseen luokka `Tekstikayttoliittyma`, joka toteuttaa rajapinnan `Kayttoliittyma`. Toteuta luokassa `Tekstikayttoliittyma` rajapinnan `Kayttoliittyma` vaatima metodi `public void paivita()` siten, että sen ainut tehtävä on merkkijonon "`Päivitetään käyttöliittymää`"-tulostaminen `System.out.println`-metodikutsulla. -->
 
-
-<h2>Tekstikäyttöliittymä</h2>
-
-Luo samaan pakkaukseen luokka `Tekstikayttoliittyma`, joka toteuttaa rajapinnan `Kayttoliittyma`. Toteuta luokassa `Tekstikayttoliittyma` rajapinnan `Kayttoliittyma` vaatima metodi `public void paivita()` siten, että sen ainut tehtävä on merkkijonon "`Päivitetään käyttöliittymää`"-tulostaminen `System.out.println`-metodikutsulla.
+In the same package, create the class `TextInterface` that implements the `UserInterface` interface. Implement the method `public void update()`, required by the interface `UserInterface`, so that the only thing it does is to print the string `"Updating UI"` by calling the method `System.out.println`.
 
 
-<h2>Sovelluslogiikka</h2>
+<!-- <h2>Sovelluslogiikka</h2> -->
 
-Luo tämän jälkeen pakkaus `mooc.logiikka`, ja lisää sinne luokka `Sovelluslogiikka`. Sovelluslogiikan tarjoaman toiminnallisuuden tulee olla seuraavanlainen.
+<h2>Application logic</h2>
+
+<!-- Luo tämän jälkeen pakkaus `mooc.logiikka`, ja lisää sinne luokka `Sovelluslogiikka`. Sovelluslogiikan tarjoaman toiminnallisuuden tulee olla seuraavanlainen. -->
+
+Then create the package `mooc.logic`. Create the class `ApplicationLogic` in it. The functionality that the application logic offers should be as follows:
+
+<!-- - `public Sovelluslogiikka(Kayttoliittyma kayttoliittyma)`<br/>Sovelluslogiikka-luokan konstruktori. Saa parametrina Kayttoliittyma-rajapinnan toteuttavan luokan. Huom: jotta sovelluslogiikka näkisi rajapinnan, on sen "importoitava" se, eli tarvitset tiedoston alkuun rivin `import mooc.ui.Kayttoliittyma;` -->
+
+- `public ApplicationLogic(UserInterface ui)`<br/>The constructor of the ApplicationLogic class. It receives as a parameter a class that implements the UserInterface interface. NB: For application logic to see the interface, it must be "imported". Add the line `import mooc.ui.UserInterface` at the beginning of the file.
 
 
-- `public Sovelluslogiikka(Kayttoliittyma kayttoliittyma)`<br/>Sovelluslogiikka-luokan konstruktori. Saa parametrina Kayttoliittyma-rajapinnan toteuttavan luokan. Huom: jotta sovelluslogiikka näkisi rajapinnan, on sen "importoitava" se, eli tarvitset tiedoston alkuun rivin `import mooc.ui.Kayttoliittyma;`
+<!-- - `public void suorita(int montaKertaa)`<br/>Tulostaa `montaKertaa`-muuttujan määrittelemän määrän merkkijonoa "Sovelluslogiikka toimii". Jokaisen "Sovelluslogiikka toimii"-tulostuksen jälkeen tulee kutsua konstruktorin parametrina saadun rajapinnan `Kayttoliittyma`-toteuttaman olion määrittelemää `paivita()`-metodia. -->
+
+- `public void execute(int times)`<br/>Prints the string "Application logic is working" the number of times that is indicated by the variable `times`. After each print, the method should call the `update()` method of the object that was received as a constructor parameter (which implements the `UserInterface` interface).
 
 
-- `public void suorita(int montaKertaa)`<br/>Tulostaa `montaKertaa`-muuttujan määrittelemän määrän merkkijonoa "Sovelluslogiikka toimii". Jokaisen "Sovelluslogiikka toimii"-tulostuksen jälkeen tulee kutsua konstruktorin parametrina saadun rajapinnan `Kayttoliittyma`-toteuttaman olion määrittelemää `paivita()`-metodia.
+<!-- Voit testata sovelluksen toimintaa seuraavalla pääohjelmaluokalla. -->
+
+You can test the program with the following main program class.
 
 
-Voit testata sovelluksen toimintaa seuraavalla pääohjelmaluokalla.
-
-
-```java
+<!-- ```java
 import mooc.logiikka.Sovelluslogiikka;
 import mooc.ui.Kayttoliittyma;
 import mooc.ui.Tekstikayttoliittyma;
@@ -120,25 +138,54 @@ public class Main {
         new Sovelluslogiikka(kayttoliittyma).suorita(3);
     }
 }
+``` -->
+
+```java
+import mooc.logic.ApplicationLogic;
+import mooc.ui.UserInterface;
+import mooc.ui.TextInterface;
+
+public class Main {
+
+    public static void main(String[] args) {
+        UserInterface ui = new TextInterface();
+        new ApplicationLogic(ui).execute(3);
+    }
+}
 ```
+
+<!-- <sample-output>
+
+Sovelluslogiikka toimii
+Päivitetään käyttöliittymää
+Sovelluslogiikka toimii
+Päivitetään käyttöliittymää
+Sovelluslogiikka toimii
+Päivitetään käyttöliittymää
+
+</sample-output> -->
 
 <sample-output>
 
-Sovelluslogiikka toimii
-Päivitetään käyttöliittymää
-Sovelluslogiikka toimii
-Päivitetään käyttöliittymää
-Sovelluslogiikka toimii
-Päivitetään käyttöliittymää
+Application logic is working
+Updating UI
+Application logic is working
+Updating UI
+Application logic is working
+Updating UI
 
 </sample-output>
 
 </programming-exercise>
 
 
-<programming-exercise name='Kolme pakkausta' tmcname='osa11-Osa11_09.KolmePakkausta'>
+<!-- <programming-exercise name='Kolme pakkausta' tmcname='osa11-Osa11_09.KolmePakkausta'> -->
 
-Luo tehtäväpohjaan kolme pakkausta `a`, `b` ja `c`. Luo pakkauksen `a` sisälle luokka `A`, pakkauksen `b` sisälle luokka `B`, ja pakkauksen `c` sisälle luokka `C`. Luokissa ei tarvita oliomuuttujia, konstruktoreja tai metodeja.
+<programming-exercise name='Three packages' tmcname='part11-Part11_09.ThreePackages'>
+
+<!-- Luo tehtäväpohjaan kolme pakkausta `a`, `b` ja `c`. Luo pakkauksen `a` sisälle luokka `A`, pakkauksen `b` sisälle luokka `B`, ja pakkauksen `c` sisälle luokka `C`. Luokissa ei tarvita oliomuuttujia, konstruktoreja tai metodeja. -->
+
+Within the exercise base, create three packages: `a`, `b`, and `c`. Create class `A` inside the package `a`, class `B` inside the package `b`, and class `C` inside the package `c`. The classes don't need object variables, constructors, or methods.
 
 </programming-exercise>
 
@@ -647,26 +694,40 @@ public class Tekstikayttoliittyma {
 ```
 
 
-<programming-exercise name='Lentokenttä (2 osaa)' tmcname='osa11-Osa11_10.Lentokentta'>
+<!-- <programming-exercise name='Lentokenttä (2 osaa)' tmcname='osa11-Osa11_10.Lentokentta'> -->
+<programming-exercise name='FlightControl (2 parts)' tmcname='part11-Part11_10.FlightControl'>
 
-Tässä tehtävässä toteutat edellä kuvatun sovelluksen. Saat suunnitella rakenteen vapaasti, tai voit noudattaa edellä kuvattua rakennetta. Käyttöliittymän ulkomuoto sekä vaaditut komennot on määritelty ennalta. Tehtävä on kahden yksittäisen tehtäväpisteen arvoinen.
+<!-- Tässä tehtävässä toteutat edellä kuvatun sovelluksen. Saat suunnitella rakenteen vapaasti, tai voit noudattaa edellä kuvattua rakennetta. Käyttöliittymän ulkomuoto sekä vaaditut komennot on määritelty ennalta. Tehtävä on kahden yksittäisen tehtäväpisteen arvoinen. -->
 
-**Huom: jotta testit toimisivat, saat luoda ohjelmassasi vain yhden Scanner-olion käyttäjän syötteen lukemiseen.**
+In this exercise you will implement the application that was described above. You are free to design the structure as you wish, or you can follow the structure sketched out above. The appearance of the user interface and the required commands are predefined. This exercise is worth two normal exercise points.
 
-Lentokenttä-tehtävässä toteutetaan lentokentän hallintasovellus. Lentokentän hallintasovelluksessa hallinnoidaan lentokoneita ja lentoja. Lentokoneista tiedetään aina tunnus ja kapasiteetti. Lennoista tiedetään lennon lentokone, lähtöpaikan tunnus (esim. <a href="http://en.wikipedia.org/wiki/Helsinki_Airport" target="_blank" rel="noopener">HEL</a>) ja kohdepaikan tunnus (esim. <a href="http://en.wikipedia.org/wiki/Batman_Airport" target="_blank" rel="noopener">BAL</a>).
+<!-- **Huom: jotta testit toimisivat, saat luoda ohjelmassasi vain yhden Scanner-olion käyttäjän syötteen lukemiseen.** -->
+
+**NB: for the tests to work, you can only create one Scanner object in your program to read user input.**
+
+<!-- Lentokenttä-tehtävässä toteutetaan lentokentän hallintasovellus. Lentokentän hallintasovelluksessa hallinnoidaan lentokoneita ja lentoja. Lentokoneista tiedetään aina tunnus ja kapasiteetti. Lennoista tiedetään lennon lentokone, lähtöpaikan tunnus (esim. <a href="http://en.wikipedia.org/wiki/Helsinki_Airport" target="_blank" rel="noopener">HEL</a>) ja kohdepaikan tunnus (esim. <a href="http://en.wikipedia.org/wiki/Batman_Airport" target="_blank" rel="noopener">BAL</a>). -->
+
+In this exercise you will implement a flight control application. It is used to control the airplanes and their flight routes. The system always knows the identifier and the capacity of an airplance. The flight information consists of the used airplane, the departure airport id (e.g. <a href="http://en.wikipedia.org/wiki/Helsinki_Airport" target="_blank" rel="noopener">HEL</a>), and the destination airport ID (e.g. <a href="http://en.wikipedia.org/wiki/Batman_Airport" target="_blank" rel="noopener">BAL</a>).
 
 <br/>
 
-Sekä lentokoneita että lentoja voi olla useita. Samalla lentokoneella voidaan myös lentää useita eri lentoja.
+<!-- Sekä lentokoneita että lentoja voi olla useita. Samalla lentokoneella voidaan myös lentää useita eri lentoja. -->
 
-Sovelluksen tulee toimia kahdessa vaiheessa: ensin syötetään lentokoneiden ja lentojen tietoja hallintakäyttöliittymässä, jonka jälkeen siirrytään lentopalvelun käyttöön. Lentopalvelussa on kolme toimintoa; lentokoneiden tulostaminen, lentojen tulostaminen, ja lentokoneen tietojen tulostaminen. Tämän lisäksi käyttäjä voi poistua ohjelmasta valitsemalla vaihtoehdon `x`. Jos käyttäjä syöttää epäkelvon komennon, kysytään komentoa uudestaan.
+There can be multpiple airplanes and flights. The same airplane can be used to make several flights.
 
+<!-- Sovelluksen tulee toimia kahdessa vaiheessa: ensin syötetään lentokoneiden ja lentojen tietoja hallintakäyttöliittymässä, jonka jälkeen siirrytään lentopalvelun käyttöön. Lentopalvelussa on kolme toimintoa; lentokoneiden tulostaminen, lentojen tulostaminen, ja lentokoneen tietojen tulostaminen. Tämän lisäksi käyttäjä voi poistua ohjelmasta valitsemalla vaihtoehdon `x`. Jos käyttäjä syöttää epäkelvon komennon, kysytään komentoa uudestaan. -->
 
-**Ohjelman tulee käynnistyä kun pakkauksessa `lentokentta` olevan luokan Main metodi main suoritetaan.**
+The application should operate in two parts: first, the user enters information about airplanes and flights in the airport asset control, after which the program offers the flight information service for the user. There are three operations in this latter flight control -- printing the airplanes, printing the flights, and printing the information of a single airplane. In addition, the user may exit the program by choosing the option `x`. If the user enters an invalid command, the program asks for a command again.
 
-Ohjelman esimerkkitulostus alla:
+<!-- **Ohjelman tulee käynnistyä kun pakkauksessa `lentokentta` olevan luokan Main metodi main suoritetaan.** -->
 
-<sample-output>
+**The program should start when the main method of the Main class inside the package `FlightControl` is executed**
+
+<!-- Ohjelman esimerkkitulostus alla: -->
+
+Example output of the program is presented below:
+
+<!-- <sample-output>
 
 Lentokentän hallinta
 --------------------
@@ -752,13 +813,104 @@ Valitse toiminto:
 [x] Lopeta
 &gt; **x**
 
+</sample-output> -->
+
+<sample-output>
+
+Airport Asset Control
+--------------------
+
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **1**
+Give the airplane id: **HA-LOL**
+Give the airplane capacity: **42**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **1**
+Give the airplane id: **G-OWAC**
+Give the airplane capacity: **101**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **2**
+Give the airplane id: **HA-LOL**
+Give the departure airport id: **HEL**
+Give the target airport id: **BAL**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **2**
+Give the airplane id: **G-OWAC**
+Give the departure airport id: **JFK**
+Give the target airport id: **BAL**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **2**
+Give the airplane id: **HA-LOL**
+Give the departure airport id: **BAL**
+Give the target airport id: **HEL**
+Choose an action:
+[1] Add an airplane
+[2] Add a flight
+[x] Exit Airport Asset Control
+&gt; **x**
+
+Flight Control
+------------
+
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **1**
+G-OWAC (101 capacity)
+HA-LOL (42 capacity)
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **2**
+HA-LOL (42 henkilöä) (HEL-BAL)
+HA-LOL (42 henkilöä) (BAL-HEL)
+G-OWAC (101 henkilöä) (JFK-BAL)
+
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **3**
+Give the airplane id: **G-OWAC**
+G-OWAC (101 capacity)
+
+Choose an action:
+[1] Print airplanes
+[2] Print flights
+[3] Print airplane details
+[x] Quit
+&gt; **x**
+
 </sample-output>
 
 
-**Huom1:** Testien kannalta on oleellista että *käyttöliittymä* toimii **täsmälleen** kuten yllä kuvattu. Ohjelman tulostamat vaihtoehdot kannattanee copypasteta tästä ohjelmakoodiin. Testit eivät oleta, että ohjelmasi on varautunut epäkelpoihin syötteisiin.
+<!-- **Huom1:** Testien kannalta on oleellista että *käyttöliittymä* toimii **täsmälleen** kuten yllä kuvattu. Ohjelman tulostamat vaihtoehdot kannattanee copypasteta tästä ohjelmakoodiin. Testit eivät oleta, että ohjelmasi on varautunut epäkelpoihin syötteisiin. -->
 
-**Huom2:** älä käytä luokkien nimissä skandeja, ne saattavat aiheuttaa ongelmia testeihin!
+**NB** For the purposes of the test it is essential that the *user interface* work **exactly** as described above. You should probably copy the options printed by the program from here to your code. The tests won't assume that your program is prepared to handle improper input.
 
+<!-- **Huom2:** älä käytä luokkien nimissä skandeja, ne saattavat aiheuttaa ongelmia testeihin! -->
+
+**NB** don't use scandic letters (å, ä, ö) in the class names, since they might cause probelms with the tests!
 
 
 </programming-exercise>
