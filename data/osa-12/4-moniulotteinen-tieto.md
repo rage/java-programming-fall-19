@@ -89,14 +89,19 @@ rivi, sarake, arvo
 </sample-output>
 
 
-<programming-exercise name='Taulukko merkkijonona' tmcname='osa12-Osa12_09.TaulukkoMerkkijonona'>
+<!-- <programming-exercise name='Taulukko merkkijonona' tmcname='osa12-Osa12_09.TaulukkoMerkkijonona'> -->
 
-Luo tehtäväpohjaan metodi `public static String taulukkoMerkkijonona(int[][] taulukko)`, joka muodostaa parametrina saamastaan taulukosta merkkijonomuotoisen esityksen ja palauttaa sen.
+<programming-exercise name='Array as a string' tmcname='part12-Part12_09.ArrayAsAString'>
 
-Kertaa yhdeksännestä osasta StringBuilderin käyttö ennen tehtävän tekoa. Alla muutamia esimerkkejä metodin odotetusta toiminnasta.
+<!-- Luo tehtäväpohjaan metodi `public static String taulukkoMerkkijonona(int[][] taulukko)`, joka muodostaa parametrina saamastaan taulukosta merkkijonomuotoisen esityksen ja palauttaa sen. -->
 
+Create in the exercise base a method called `public static String arrayAsString(int[][] array)`. It should create a string representation of the array it receives as the parameter and return it.
 
-```java
+<!-- Kertaa yhdeksännestä osasta StringBuilderin käyttö ennen tehtävän tekoa. Alla muutamia esimerkkejä metodin odotetusta toiminnasta. -->
+
+Brush up on using StrinBuilder in part nine before taking  on this exercise. Below there are a few examples of how the method is expected to  work.
+
+<!-- ```java
 int rivit = 2;
 int sarakkeet = 3;
 int[][] matriisi = new int[rivit][sarakkeet];
@@ -104,6 +109,16 @@ matriisi[0][1] = 5;
 matriisi[1][0] = 3;
 matriisi[1][2] = 7;
 System.out.println(taulukkoMerkkijonona(matriisi));
+``` -->
+
+```java
+int rows = 2;
+int cols = 3;
+int[][] matrix = new int[rivit][sarakkeet];
+matrix[0][1] = 5;
+matrix[1][0] = 3;
+matrix[1][2] = 7;
+System.out.println(arrayAsString(matrix));
 ```
 
 <sample-output>
@@ -113,7 +128,7 @@ System.out.println(taulukkoMerkkijonona(matriisi));
 
 </sample-output>
 
-```java
+<!-- ```java
 int[][] matriisi = {
     {3, 2, 7, 6},
     {2, 4, 1, 0},
@@ -121,6 +136,16 @@ int[][] matriisi = {
 };
 
 System.out.println(taulukkoMerkkijonona(matriisi));
+``` -->
+
+```java
+int[][] matrix = {
+    {3, 2, 7, 6},
+    {2, 4, 1, 0},
+    {3, 2, 1, 0}
+};
+
+System.out.println(arrayAsString(matrix));
 ```
 
 <sample-output>
