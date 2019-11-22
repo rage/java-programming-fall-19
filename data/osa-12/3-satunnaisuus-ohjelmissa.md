@@ -317,20 +317,39 @@ Su: Aurinko paistaa -5 astetta
 
 </sample-output>
 
-<programming-exercise name='Lottoarvonta' tmcname='osa12-Osa12_08.Lottoarvonta'>
+<!-- <programming-exercise name='Lottoarvonta' tmcname='osa12-Osa12_08.Lottoarvonta'> -->
 
-Tehtävänäsi on täydentää luokkaa `Lottorivi`, joka arpoo viikon lottonumerot. Lottonumerot ovat väliltä 1--40 ja niitä arvotaan 7. Lottorivi koostuu siis seitsemästä eri numerosta väliltä 1--40.
+<programming-exercise name='Lottery' tmcname='part12-Part12_08.Lottery'>
 
-Luokalle toivotaan seuraava toiminnot:
+<!-- Tehtävänäsi on täydentää luokkaa `Lottorivi`, joka arpoo viikon lottonumerot. Lottonumerot ovat väliltä 1--40 ja niitä arvotaan 7. Lottorivi koostuu siis seitsemästä eri numerosta väliltä 1--40. -->
 
-- konstruktori `Lottorivi` luo uuden Lottorivi-olion joka sisältää uudet, arvotut numerot
-- metodi `numerot` palauttaa tämän lottorivin lottonumerot
-- metodi `sisaltaaNumeron` kertoo onko arvotuissa numeroissa annettu numero
-- metodi `arvoNumerot` arpoo riville uudet numerot
+Your assignment is to complete the class `LotteryRow`, which is used to draw the week's winning numbers. The numbers are in range 1--40, and 7 numbers will be drawn in total. In other words, a lottery row consists of seven different numbers that are all in range 1--40.
 
-Luokan runko on seuraava:
+<!-- Luokalle toivotaan seuraava toiminnot: -->
 
-```java
+We wish to implement the following functions in the class:
+
+<!-- - konstruktori `Lottorivi` luo uuden Lottorivi-olion joka sisältää uudet, arvotut numerot -->
+
+- the constructor `LotteryRow` creates a new LotteryRow object that contains new randomized numbers.
+
+<!-- - metodi `numerot` palauttaa tämän lottorivin lottonumerot -->
+
+- the method `numbers` returns the drawn lottery numbers of this lottery row
+
+<!-- - metodi `sisaltaaNumeron` kertoo onko arvotuissa numeroissa annettu numero -->
+
+- the method `containsNumber` tells whether the given number is included in the drawn numbers
+
+<!-- - metodi `arvoNumerot` arpoo riville uudet numerot -->
+
+- the method `randomizeNumbers` randomizes new numbers for the lottery row.
+
+<!-- Luokan runko on seuraava: -->
+
+The basic structure of the class is as follows:
+
+<!-- ```java
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -360,12 +379,46 @@ import java.util.Random;
         return false;
     }
 }
-```
-
-Tehtäväpohjan mukana tulee seuraava pääohjelma:
-
+``` -->
 
 ```java
+import java.util.ArrayList;
+import java.util.Random;
+
+    public class LotteryRow {
+    private ArrayList<Integer> numbers;
+
+    public LotteryRow() {
+        this.randomizeNumbers();
+    }
+
+    public ArrayList<Integer> numbers() {
+        return this.numbers;
+    }
+
+    public boolean containsNumber(int number) {
+        // Tests whether the number is already among the randomized numbers
+        return false;
+    }
+
+    public void randomizeNumbers() {
+        // initialize the list for numbers
+        this.numbers = new ArrayList<>();
+        // Implement the randomization of the numbers by using the method containsNumber() here
+    }
+
+    public boolean equals(Object other) {
+        return false;
+    }
+}
+```
+
+<!-- Tehtäväpohjan mukana tulee seuraava pääohjelma: -->
+
+The following main program is supplied in the exercise base:
+
+
+<!-- ```java
 import java.util.ArrayList;
 
 public class Ohjelma {
@@ -381,27 +434,62 @@ public class Ohjelma {
         System.out.println("");
     }
 }
+``` -->
+
+```java
+import java.util.ArrayList;
+
+public class Program {
+    public static void main(String[] args) {
+        LotteryRow row = new LotteryRow();
+        ArrayList<Integer> lotteryNumbers = row.numbers();
+
+        System.out.println("Lottery numbers:");
+        for (int number: lotteryNumbers) {
+            System.out.print(number + " ");
+        }
+
+        System.out.println("");
+    }
+}
 ```
 
-Ohjelman mahdollisia tulostuksia ovat seuraavat:
+<!-- Ohjelman mahdollisia tulostuksia ovat seuraavat: -->
+
+Here are a few possible outputs of the program:
 
 
-<sample-output>
+<!-- <sample-output>
 
 Lottonumerot:
 3 5 10 14 15 27 37
 
-</sample-output>
+</sample-output> -->
 
 <sample-output>
+
+Lottery numbers:
+3 5 10 14 15 27 37
+
+</sample-output>
+
+<!-- <sample-output>
 
 Lottonumerot:
 2 9 11 18 23 32 34
 
+</sample-output> -->
+
+<sample-output>
+
+Lottery numbers:
+2 9 11 18 23 32 34
+
 </sample-output>
 
+<!-- **Huom!** Sama numero saa esiintyä lottorivissä vain kerran. Lottorivin numeroiden ei tarvitse olla järjestyksessä. -->
 
-**Huom!** Sama numero saa esiintyä lottorivissä vain kerran. Lottorivin numeroiden ei tarvitse olla järjestyksessä.
+**NB!** The same number can only appear once in a lottery row. The numbers don't need to be ordered.
 
 </programming-exercise>
 
