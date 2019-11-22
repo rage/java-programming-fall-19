@@ -5,17 +5,23 @@ hidden: false
 ---
 
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
+<text-box variant='learningObjectives' name='Learning Objectives'>
 
-- Tunnet käsitteen perintähierarkia.
-- Ymmärrät että olio voidaan esittää kaikkien sen todellisten tyyppien avulla.
+<!-- - Tunnet käsitteen perintähierarkia.
+- Ymmärrät että olio voidaan esittää kaikkien sen todellisten tyyppien avulla. -->
+- You are familiar with the concept of inheritance hierarchy.
+- You understand that an object can be represented through all its actual types.
+
+
 
 </text-box>
+<!--
+Olemme aiemmissa osissa törmänneet tilanteisiin, joissa viittaustyyppisillä muuttujilla on oman tyyppinsä lisäksi muita tyyppejä. Esimerkiksi *kaikki* oliot ovat tyyppiä `Object`, eli mikä tahansa olio voidaan oman tyyppinsä lisäksi esittää `Object`-tyyppisenä muuttujana. -->
 
-Olemme aiemmissa osissa törmänneet tilanteisiin, joissa viittaustyyppisillä muuttujilla on oman tyyppinsä lisäksi muita tyyppejä. Esimerkiksi *kaikki* oliot ovat tyyppiä `Object`, eli mikä tahansa olio voidaan oman tyyppinsä lisäksi esittää `Object`-tyyppisenä muuttujana.
+We've encountered situations where reference-type variables have other types besides their own one. For example, *all* objects are of type `Object`, i.e., any given object can be represented as a `Object`-type variable in addition to its own type.
 
-
-```java
+<!-- ```java
 String merkkijono = "merkkijono";
 Object merkkijonoString = "toinen merkkijono";
 ```
@@ -23,26 +29,46 @@ Object merkkijonoString = "toinen merkkijono";
 ```java
 String merkkijono = "merkkijono";
 Object merkkijonoString = merkkijono;
+``` -->
+```java
+String text = "text";
+Object textString = "another string";
 ```
-
-Yllä olevissa esimerkeissä merkkijonomuuttuja esitetään sekä String-tyyppisenä että Object-tyyppisenä, jonka lisäksi String-tyyppinen muuttuja asetetaan Object-tyyppiseen muuttujaan. Asetus toiseen suuntaan, eli Object-tyyppisen muuttujan asettaminen String-tyyppiseksi ei kuitenkaan onnistu. Tämä johtuu siitä, että `Object`-tyyppiset muuttujat eivät ole tyyppiä `String`
 
 ```java
-Object merkkijonoString = "toinen merkkijono";
-String merkkijono = merkkijonoString; // EI ONNISTU!
+String text = "text";
+Object textString = text;
 ```
 
-Mistä tässä oikein on kyse?
+<!-- Yllä olevissa esimerkeissä merkkijonomuuttuja esitetään sekä String-tyyppisenä että Object-tyyppisenä, jonka lisäksi String-tyyppinen muuttuja asetetaan Object-tyyppiseen muuttujaan. Asetus toiseen suuntaan, eli Object-tyyppisen muuttujan asettaminen String-tyyppiseksi ei kuitenkaan onnistu. Tämä johtuu siitä, että `Object`-tyyppiset muuttujat eivät ole tyyppiä `String` -->
+
+In the examples above, a string variable is represented as both a String type and an Object type. Also, a String-type variable is assigned to an Object-type variable. However, assignment in the other direction, i.e., setting an Object-type variable to a String type, will not work. This is because `Object`-type variables are not of type `String`
+
+<!-- ```java
+Object merkkijonoString = "toinen merkkijono";
+String merkkijono = merkkijonoString; // EI ONNISTU!
+``` -->
+```java
+Object textString = "another string";
+String text = textString; // WON'T WORK!
+```
+
+<!-- Mistä tässä oikein on kyse?
 
 
 Jokainen muuttuja voidaan esittää muuttujan alkuperäisen tyypin lisäksi myös muuttujan toteuttamien rajapintojen sekä perimien luokkien tyyppisenä. Luokka String perii luokan Object, joten String-oliot ovat aina myös tyyppiä Object. Luokka Object ei peri String-luokkaa, joten Object-tyyppiset muuttujat eivät ole automaattisesti tyyppiä String. Tutustutaan tarkemmin <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a>-luokan API-dokumentaatioon, erityisesti HTML-sivun yläosaan.
+ -->
+
+What is this all about?
+
+In addition to each variable's original type, each variable can also be represented by the types of interfaces it implements and classes that it inherits. The String class inherits the Object class and, as such, String objects are always of type Object. The Object class does not inherit a String class, so Object-type variables are not automatically of type String. Take a closer look at the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html"> String </a> API documentation, the top of the HTML page in particular.
+
+<!-- <img src="../img/material/string-api-perinta.png" alt="Kuvakaappaus String-luokan API-dokumentaatiosta. Kuvakaappauksessa näkyy, että String-luokka perii luokan Object."/> -->
+<img src="../img/material/string-api-perinta.png" alt="A screenshot of the String Class API documentation. The screenshot shows that the String class inherits the class Object."/>
 
 
-<img src="../img/material/string-api-perinta.png" alt="Kuvakaappaus String-luokan API-dokumentaatiosta. Kuvakaappauksessa näkyy, että String-luokka perii luokan Object."/>
-
-
-String-luokan API-dokumentaatio alkaa yleisellä otsakkeella jota seuraa luokan pakkaus (`java.lang`). Pakkauksen jälkeen tulee luokan nimi (`Class String`), jota seuraa luokan *perintähierarkia*.
-
+<!-- String-luokan API-dokumentaatio alkaa yleisellä otsakkeella jota seuraa luokan pakkaus (`java.lang`). Pakkauksen jälkeen tulee luokan nimi (`Class String`), jota seuraa luokan *perintähierarkia*. -->
+The API documentation for the String class begins with a generic header followed by the class' package (`java.lang`). After the package details, the name of the class (`Class String`) is followed by the  *inheritance hierarchy* of the class.
 
 <pre>
   <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html">java.lang.Object</a>
@@ -50,16 +76,22 @@ String-luokan API-dokumentaatio alkaa yleisellä otsakkeella jota seuraa luokan 
 </pre>
 
 
-Perintähierarkia listaa luokat, jotka luokka on perinyt. Perityt luokat listataan perimisjärjestyksessä, tarkasteltava luokka aina alimpana. String-luokan perintähierarkiasta näemme, että `String`-luokka perii luokan `Object`. *Javassa jokainen luokka voi periä korkeintaan yhden luokan*. Toisaalta, perittävä luokka on voinut periä toisen luokan, joten välillisesti luokka voi periä useampia luokkia.
+<!-- Perintähierarkia listaa luokat, jotka luokka on perinyt. Perityt luokat listataan perimisjärjestyksessä, tarkasteltava luokka aina alimpana. String-luokan perintähierarkiasta näemme, että `String`-luokka perii luokan `Object`. *Javassa jokainen luokka voi periä korkeintaan yhden luokan*. Toisaalta, perittävä luokka on voinut periä toisen luokan, joten välillisesti luokka voi periä useampia luokkia.
 
 
 Perintähierarkiaa voi ajatella myös listana tyypeistä, joita olio toteuttaa.
 
 
-Tieto siitä, että oliot voivat olla montaa eri tyyppiä -- esimerkiksi tyyppiä Object -- suoraviivaistaa ohjelmointia. Jos tarvitsemme metodissa vain Object-luokassa määriteltyjä metodeja kuten `toString`, `equals` ja `hashCode`, voimme käyttää metodin parametrina tyyppiä `Object`. Tällöin metodille voi antaa parametrina *minkä tahansa* olion. Tarkastellaan tätä metodin `tulostaMonesti` avulla. Metodi saa parametrinaan `Object`-tyyppisen muuttujan ja tulostusten lukumäärän.
+Tieto siitä, että oliot voivat olla montaa eri tyyppiä -- esimerkiksi tyyppiä Object -- suoraviivaistaa ohjelmointia. Jos tarvitsemme metodissa vain Object-luokassa määriteltyjä metodeja kuten `toString`, `equals` ja `hashCode`, voimme käyttää metodin parametrina tyyppiä `Object`. Tällöin metodille voi antaa parametrina *minkä tahansa* olion. Tarkastellaan tätä metodin `tulostaMonesti` avulla. Metodi saa parametrinaan `Object`-tyyppisen muuttujan ja tulostusten lukumäärän. -->
+The inheritance hierarchy lists all the classes that the given class has inherited. Inherited classes are listed in the order of inheritance, with class being inspected always at the bottom. In the inheritance hierarchy of the String class, we see that the `String` class inherits the `Object` class. *In Java, each class can inherit one class at most*. On the other hand, the inherited class may have inherited another class. As such, a class may indirectly inherit more than a signle class.
 
 
-```java
+The inheritance hierarchy can also be thought of as a list of the different types that the class implements.
+
+
+Knowledge of the fact that objects can be of many different types -- of type Object, for instance -- makes programming simpler. If we only need methods defined in the Object class, such as `toString`, `equals` and `hashCode` in a method, we can simply use `Object` as the type of the method parameter. In that case, you can pass the method **any* object as a parameter. Let's take a look at this with the `printManyTimes` method. The method gets an `Object`-type variable and the number of print operations as its parameters.
+
+<!-- ```java
 public class Tulostin {
 
     public void tulostaMonesti(Object object, int kertaa) {
@@ -72,12 +104,27 @@ public class Tulostin {
         }
     }
 }
+``` -->
+```java
+public class Printer {
+
+    public void printManyTimes(Object object, int times) {
+        int i = 0;
+        while (i < times) {
+            System.out.println(object.toString());
+            // or System.out.println(object);
+
+            i = i + 1;
+        }
+    }
+}
 ```
 
-Metodille voi antaa parametrina minkä tahansa olion. Metodin `tulostaMonesti` sisällä oliolla on käytössään vain `Object`-luokassa määritellyt metodit, koska olio *tunnetaan* metodissa `Object`-tyyppisenä. Todellisuudessa olio voi olla myös toisen tyyppinen.
+<!-- Metodille voi antaa parametrina minkä tahansa olion. Metodin `tulostaMonesti` sisällä oliolla on käytössään vain `Object`-luokassa määritellyt metodit, koska olio *tunnetaan* metodissa `Object`-tyyppisenä. Todellisuudessa olio voi olla myös toisen tyyppinen. -->
+The method can be given any type of object as a parameter. Within the `printManyTimes` method, the object only has access to the methods defined in the `Object` class because the object is *known* in the method to be of type `Object`. The object may, in fact, be of another type.
 
 
-```java
+<!-- ```java
 Tulostin tulostin = new Tulostin();
 
 String merkkijono = " o ";
@@ -89,21 +136,44 @@ sanat.add("abstrahointi");
 
 tulostin.tulostaMonesti(merkkijono, 2);
 tulostin.tulostaMonesti(sanat, 3);
+``` -->
+```java
+Printer printer = new Printer();
+
+String string = " o ";
+List<String> words = new ArrayList<>();
+words.add("polymorphism");
+words.add("inheritance");
+words.add("encapsulation");
+words.add("abstraction");
+
+printer.tulostaMonesti(string, 2);
+printer.tulostaMonesti(words, 3);
 ```
 
+<!-- <sample-output>
+
+o
+o
+[polymorfismi, perintä, kapselointi, abstrahointi]
+[polymorfismi, perintä, kapselointi, abstrahointi]
+[polymorfismi, perintä, kapselointi, abstrahointi]
+
+</sample-output> -->
 <sample-output>
 
 o
 o
-[polymorfismi, perintä, kapselointi, abstrahointi]
-[polymorfismi, perintä, kapselointi, abstrahointi]
-[polymorfismi, perintä, kapselointi, abstrahointi]
+[polymorphism, inheritance, encapsulation, abstraction]
+[polymorphism, inheritance, encapsulation, abstraction]
+[polymorphism, inheritance, encapsulation, abstraction]
 
 </sample-output>
 
 
-Jatketaan `String`-luokan API-kuvauksen tarkastelua. Kuvauksessa olevaa perintähierarkiaa seuraa listaus luokan toteuttamista rajapinnoista.
+<!-- Jatketaan `String`-luokan API-kuvauksen tarkastelua. Kuvauksessa olevaa perintähierarkiaa seuraa listaus luokan toteuttamista rajapinnoista. -->
 
+Let's continue to look at the API description of the `String` class. The inheritance hierarchy in the description is followed by a list of interfaces implemented by the class.
 
 <pre>
   All Implemented Interfaces:
@@ -111,22 +181,28 @@ Jatketaan `String`-luokan API-kuvauksen tarkastelua. Kuvauksessa olevaa perintä
 </pre>
 
 
-Luokka `String` toteuttaa rajapinnat `Serializable`, `CharSequence`, ja `Comparable<String>`. Myös rajapinta on tyyppi. Luokan String API-kuvauksen mukaan String-olion tyypiksi voi asettaa seuraavat rajapinnat.
+<!-- Luokka `String` toteuttaa rajapinnat `Serializable`, `CharSequence`, ja `Comparable<String>`. Myös rajapinta on tyyppi. Luokan String API-kuvauksen mukaan String-olion tyypiksi voi asettaa seuraavat rajapinnat. -->
+The `String` class implements the `Serializable`, `CharSequence`, and `Comparable <String>` interfaces. An interface is also a type. According to the class' API description, the following interfaces can be set as the type of a String object.
 
-
-```java
+<!-- ```java
 Serializable serializableString = "merkkijono";
 CharSequence charSequenceString = "merkkijono";
 Comparable<String> comparableString = "merkkijono";
+``` -->
+```java
+Serializable serializableString = "string";
+CharSequence charSequenceString = "string";
+Comparable<String> comparableString = "string";
 ```
 
-Koska metodeille voidaan määritellä metodin parametrin tyyppi, voimme määritellä metodeja jotka vastaanottavat *tietyn rajapinnan toteuttavan* olion. Kun metodille määritellään parametrina rajapinta, sille voidaan antaa parametrina mikä tahansa olio, joka toteuttaa kyseisen rajapinnan.
+<!-- Koska metodeille voidaan määritellä metodin parametrin tyyppi, voimme määritellä metodeja jotka vastaanottavat *tietyn rajapinnan toteuttavan* olion. Kun metodille määritellään parametrina rajapinta, sille voidaan antaa parametrina mikä tahansa olio, joka toteuttaa kyseisen rajapinnan. -->
 
+Since we're able to define the type of a method's parameter, we can declare methods that receive an object that *implements a specific interface*. When a method's parameter is an interface, any object that implements that interface can be passed to it as an argument.
 
-Täydennetään `Tulostin`-luokkaa siten, että sillä on metodi `CharSequence`-rajapinnan toteuttavien olioiden merkkien tulostamiseen. Rajapinta `CharSequence` tarjoaa muunmuassa metodit `int length()`, jolla saa merkkijonon pituuden, ja `char charAt(int index)`, jolla saa merkin tietyssä indeksissä.
+<!-- Täydennetään `Tulostin`-luokkaa siten, että sillä on metodi `CharSequence`-rajapinnan toteuttavien olioiden merkkien tulostamiseen. Rajapinta `CharSequence` tarjoaa muunmuassa metodit `int length()`, jolla saa merkkijonon pituuden, ja `char charAt(int index)`, jolla saa merkin tietyssä indeksissä. -->
+We'll extend the `Printer` class so that it has a method for printing the characters of objects that implement the `CharSequence` interface. The `CharSequence` interface provides, among other things, methods `int length()` for getting a string's length and `char charAt(int index)`, which retrieves a character from a given index.
 
-
-```java
+<!-- ```java
 public class Tulostin {
 
     public void tulostaMonesti(Object object, int kertaa) {
@@ -145,20 +221,47 @@ public class Tulostin {
         }
     }
 }
+``` -->
+```java
+public class Printer {
+
+    public void printManyTimes(Object object, int times) {
+        int i = 0;
+        while (i < times) {
+            System.out.println(object);
+            i = i + 1;
+        }
+    }
+
+    public void printCharacters(CharSequence charSequence) {
+        int i = 0;
+        while (i < charSequence.length()) {
+            System.out.println(charSequence.charAt(i));
+            i = i + 1;
+        }
+    }
+}
 ```
 
-Metodille `tulostaMerkit` voi antaa minkä tahansa `CharSequence`-rajapinnan toteuttavan olion. Näitä ovat muun muassa `String` ja merkkijonojen rakentamisessa usein Stringiä tehokkaampi `StringBuilder`. Metodi `tulostaMerkit` tulostaa annetun olion jokaisen merkin omalle rivilleen.
+<!-- Metodille `tulostaMerkit` voi antaa minkä tahansa `CharSequence`-rajapinnan toteuttavan olion. Näitä ovat muun muassa `String` ja merkkijonojen rakentamisessa usein Stringiä tehokkaampi `StringBuilder`. Metodi `tulostaMerkit` tulostaa annetun olion jokaisen merkin omalle rivilleen. -->
+The `printCharacters` method can be passed any object that implements the `CharSequence` interface. These include `String` as well as `StringBuilder`, which is often more performant in building strings than `String`. The `printCharacters` method prints each character of a given object on its own line.
 
-
-```java
+<!-- ```java
 Tulostin tulostin = new Tulostin();
 
 String mjono = "toimii";
 
 tulostin.tulostaMerkit(mjono);
+``` -->
+```java
+Printer printer = new Printer();
+
+String string = "works";
+
+printer.tulostaMerkit(string);
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 t
 o
@@ -166,6 +269,15 @@ i
 m
 i
 i
+
+</sample-output> -->
+<sample-output>
+
+w
+o
+r
+k
+s
 
 </sample-output>
 
@@ -412,7 +524,8 @@ Garfield purrs
 
 Finally, create an interface called `NoiseCapable`. It should define a non-parameterized method makeNoise that returns no value (void). Implement the interface in the classes Dog and Cat. The interface should take use of the bark and purr methods you've defined earlier.
 
-Alla on esimerkki odotetusta toiminnasta:
+<!-- Alla on esimerkki odotetusta toiminnasta: -->
+Below is an example of the expected functionality.
 
 <!-- ```java
 Aanteleva koira = new Koira();
