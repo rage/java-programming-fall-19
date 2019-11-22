@@ -23,19 +23,19 @@ Taulukko on olio, joka sisältää rajatun määrän numeroituja paikkoja arvoil
 Taulukkotyyppi määritellään hakasuluilla, jota edeltää taulukossa olevien alkioiden tyyppi (alkioidentyyppi[]). Taulukko luodaan `new`-kutsulla, jota seuraa taulukon alkioiden tyyppi, hakasulut, sekä hakasulkujen sisään asetettava luotavan taulukon alkioiden lukumäärä.
 
 ```java
-int[] luvut = new int[3];
+int[] numbers = new int[3];
 String[] merkkijonot = new String[5];
 ```
 
 Taulukon alkioihin viitataan taulukon indeksien perusteella. Alla olevassa esimerkissä luodaan kolmepaikkainen kokonaislukutaulukko, jonka jälkeen taulukon indekseihin 0 ja 2 asetetaan arvot. Tämän jälkeen arvot tulostetaan.
 
 ```java
-int[] luvut = new int[3];
-luvut[0] = 2;
-luvut[2] = 5;
+int[] numbers = new int[3];
+numbers[0] = 2;
+numbers[2] = 5;
 
-System.out.println(luvut[0]);
-System.out.println(luvut[2]);
+System.out.println(numbers[0]);
+System.out.println(numbers[2]);
 ```
 
 <sample-output>
@@ -52,16 +52,16 @@ Taulukko-olion koon saa selville taulukko-olioon liittyvän julkisen oliomuuttuj
 
 
 ```java
-int[] luvut = new int[4];
-luvut[0] = 42;
-luvut[1] = 13;
-luvut[2] = 12;
-luvut[3] = 7;
+int[] numbers = new int[4];
+numbers[0] = 42;
+numbers[1] = 13;
+numbers[2] = 12;
+numbers[3] = 7;
 
-System.out.println("Taulukossa on " + luvut.length + " alkiota.");
+System.out.println("Taulukossa on " + numbers.length + " alkiota.");
 
-for (int i = 0; i < luvut.length; i++) {
-    System.out.println(luvut[i]);
+for (int i = 0; i < numbers.length; i++) {
+    System.out.println(numbers[i]);
 }
 ```
 
@@ -80,20 +80,22 @@ Taulukossa on 4 alkiota.
 <quiz id='fd66bcc3-962b-5970-936f-47c6d2d56d18'></quiz>
 
 
-<programming-exercise name='Rajatut taulukossa' tmcname='osa12-Osa12_03.RajatutTaulukossa'>
+<programming-exercise name='Sum these for me' tmcname='part12-Part12_03.SumTheseForMe'>
 
-Luo luokkaan `Ohjelma` luokkametodi `public static int summa(int[] taulukko, int mista, int mihin, int pienin, int suurin)`. Metodin tulee laskea sille parametrina annetusta taulukosta indeksien mista ja mihin välillä olevien arvojen summa. Summaan otetaan mukaan vain ne arvot, jotka ovat suurempia tai yhtäsuuria kuin pienin ja pienempiä kuin suurin.
+<!-- Luo luokkaan `Ohjelma` luokkametodi `public static int sum(int[] taulukko, int mista, int mihin, int pienin, int suurin)`. Metodin tulee laskea sille parametrina annetusta taulukosta indeksien mista ja mihin välillä olevien arvojen sum. Summaan otetaan mukaan vain ne arvot, jotka ovat suurempia tai yhtäsuuria kuin pienin ja pienempiä kuin suurin. -->
+In the class `Program` implement a class method `public static int sum(int[]array, int fromWhere, int toWhere, int smallest, int largest)`. The method must calculate the sum of the elements in the array between the lower and the upper limits. Only numbers smaller or equal to the int largest and larger or equal to the int smallest are added to the sum.
 
-Metodin tulee lisäksi varmistaa, että käsiteltävät indeksit ovat valideja. Mikäli parametri `mista` on pienempi kuin 0, tulee taulukon indeksien läpikäynti alkaa parametrin mista arvon sijaan nollasta. Vastaavasti, mikäli parametri `mihin` on suurempi kuin käsiteltävä taulukko, tulee taulukon indeksien läpikäynti lopettaa  parametrin mihin arvon sijaan taulukon kokoon.
+<!-- Metodin tulee lisäksi varmistaa, että käsiteltävät indeksit ovat valideja. Mikäli parametri `mista` on pienempi kuin 0, tulee taulukon indeksien läpikäynti alkaa parametrin mista arvon sijaan nollasta. Vastaavasti, mikäli parametri `mihin` on suurempi kuin käsiteltävä taulukko, tulee taulukon indeksien läpikäynti lopettaa  parametrin mihin arvon sijaan taulukon kokoon. -->
+The method must also check, that the lower and the upper limit are valid indexes in the array. If the parameter `fromWhere` is smaller than 0, the lower limit becomes 0 instead. Accordingly, if the parameter `toWhere` is larger than the size of the array, the upper limit becomes the last index of the array instead.
 
 ```java
-int[] luvut = {3, -1, 8, 4};
+int[] numbers = {3, -1, 8, 4};
 
-System.out.println(summa(luvut, 0, 0, 0, 0));
-System.out.println(summa(luvut, 0, 0, 0, 10));
-System.out.println(summa(luvut, 0, 1, 0, 10));
-System.out.println(summa(luvut, 0, 1, -10, 10));
-System.out.println(summa(luvut, -1, 999, -10, 10));
+System.out.println(sum(numbers, 0, 0, 0, 0));
+System.out.println(sum(numbers, 0, 0, 0, 10));
+System.out.println(sum(numbers, 0, 1, 0, 10));
+System.out.println(sum(numbers, 0, 1, -10, 10));
+System.out.println(sum(numbers, -1, 999, -10, 10));
 ```
 
 <sample-output>
