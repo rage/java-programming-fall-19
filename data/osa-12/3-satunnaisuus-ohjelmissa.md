@@ -51,13 +51,27 @@ Ohjelman tuottama tulostus ei ole aina sama. Yksi mahdollinen tulostusesimerkki 
 </sample-output>
 
 
-<programming-exercise name='Lukuja' tmcname='osa12-Osa12_06.Lukuja'>
+<!-- <programming-exercise name='Lukuja' tmcname='osa12-Osa12_06.Lukuja'> -->
+<programming-exercise name='Numbers' tmcname='part12-Part12_06.Numbers'>
 
-Kirjoita ohjelma, joka kysyy käyttäjältä tulostettavien satunnaislukujen määrän ja tulostaa tämän jälkeen luvut. Tulostettavien lukujen tulee olla välillä `[0, 10]`. Alla muutamia esimerkkejä.
+<!-- Kirjoita ohjelma, joka kysyy käyttäjältä tulostettavien satunnaislukujen määrän ja tulostaa tämän jälkeen luvut. Tulostettavien lukujen tulee olla välillä `[0, 10]`. Alla muutamia esimerkkejä. -->
+
+Write a program that prompts the user for how many random numbers should be generated and then prints the numbers. The printed numbers should be within the range `[0, 10]`. Below are some examples.
+
+<!-- <sample-output>
+
+Montako satunnaislukua tulostetaan?
+**4**
+9
+1
+4
+3
+
+</sample-output> -->
 
 <sample-output>
 
-Montako satunnaislukua tulostetaan?
+How many random rumbers should be printed?
 **4**
 9
 1
@@ -67,9 +81,24 @@ Montako satunnaislukua tulostetaan?
 </sample-output>
 
 
-<sample-output>
+<!-- <sample-output>
 
 Montako satunnaislukua tulostetaan?
+**8**
+9
+6
+0
+9
+10
+7
+3
+3
+
+</sample-output> -->
+
+<sample-output>
+
+How many random numbers should be printed?
 **8**
 9
 6
@@ -94,11 +123,13 @@ int lampotila = arpoja.nextInt(81) - 30;
 System.out.println(lampotila);
 ```
 
-<programming-exercise name='Noppa' tmcname='osa12-Osa12_07.Noppa'>
+<!-- <programming-exercise name='Die' tmcname='osa12-Osa12_07.Noppa'> -->
+<programming-exercise name='Die' tmcname='part12-Part12_07.Die'>
 
-Tehtäväpohjassa on luokka `Noppa`, jonka runko on seuraava:
+<!-- Tehtäväpohjassa on luokka `Noppa`, jonka runko on seuraava: -->
+The exercise template contains a class `Die`, which has the following body:
 
-```java
+<!-- ```java
 import java.util.Random;
 
 public class Noppa {
@@ -115,14 +146,36 @@ public class Noppa {
         // ja palauta se
     }
 }
-```
-
-Muokkaa luokkaa siten, että sen konstruktori`Noppa(int tahkojenMaara)` luo uuden noppa-olion annetulla nopan tahkojen (eri oman numeronsa sisältämien "puolien") määrällä. Muokkaa myös metodia `heita` siten, että se antaa satunnaisen nopanheiton tuloksen, jonka arvon tulee olla väliltä `1...tahkojen määrä`.
-
-Seuraavassa noppaa testaava pääohjelma:
-
+``` -->
 
 ```java
+import java.util.Random;
+
+public class Die {
+    private Random random;
+    private int numberOfFaces;
+
+    public Die(int numberOfFaces) {
+        this.random = new Random();
+        // Initialize the value of numberOfFaces here
+    }
+
+    public int throwDie() {
+        // generate a random number which may be any number
+        // between one and the number of faces, and then return it
+    }
+}
+```
+
+<!-- Muokkaa luokkaa siten, että sen konstruktori`Noppa(int tahkojenMaara)` luo uuden noppa-olion annetulla nopan tahkojen (eri oman numeronsa sisältämien "puolien") määrällä. Muokkaa myös metodia `heita` siten, että se antaa satunnaisen nopanheiton tuloksen, jonka arvon tulee olla väliltä `1...tahkojen määrä`. -->
+
+Modify the class, such that the constructor `Die(int numberOfFaces)` creates a new die-object with the given number of faces (i.e. the number of "sides" with a number). Also, modify the method `throwDie` so it returns the result of a random throw of the die, which should be a value withing the range `1 ... number of faces`.
+
+<!-- Seuraavassa noppaa testaava pääohjelma: -->
+The following is a main program for testing the die:
+
+
+<!-- ```java
 public class Ohjelma {
     public static void main(String[] args) {
         Noppa noppa = new Noppa(6);
@@ -132,9 +185,22 @@ public class Ohjelma {
         }
     }
 }
+``` -->
+
+```java
+public class Program {
+    public static void main(String[] args) {
+        Die die = new Die(6);
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(die.throwDie());
+        }
+    }
+}
 ```
 
-Tulostus voisi olla esimerkiksi seuraava:
+<!-- Tulostus voisi olla esimerkiksi seuraava: -->
+The output could be as follows:
 
 <sample-output>
 
