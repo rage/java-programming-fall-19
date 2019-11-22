@@ -160,7 +160,7 @@ public class Die {
         // Initialize the value of numberOfFaces here
     }
 
-    public int throw() {
+    public int throwDie() {
         // generate a random number which may be any number
         // between one and the number of faces, and then return it
     }
@@ -169,7 +169,7 @@ public class Die {
 
 <!-- Muokkaa luokkaa siten, että sen konstruktori`Noppa(int tahkojenMaara)` luo uuden noppa-olion annetulla nopan tahkojen (eri oman numeronsa sisältämien "puolien") määrällä. Muokkaa myös metodia `heita` siten, että se antaa satunnaisen nopanheiton tuloksen, jonka arvon tulee olla väliltä `1...tahkojen määrä`. -->
 
-Modify the class, such that the constructor `Die(int numberOfFaces)` creates a new die-object with the given number of faces (i.e. the number of "sides" with a number). Also, modify the method `throw` so it returns the result of a random throw of the die, which should be a value withing the range `1 ... number of faces`.
+Modify the class, such that the constructor `Die(int numberOfFaces)` creates a new die-object with the given number of faces (i.e. the number of "sides" with a number). Also, modify the method `throwDie` so it returns the result of a random throw of the die, which should be a value withing the range `1 ... number of faces`.
 
 <!-- Seuraavassa noppaa testaava pääohjelma: -->
 The following is a main program for testing the die:
@@ -193,7 +193,7 @@ public class Program {
         Die die = new Die(6);
 
         for (int i = 0; i < 10; i++) {
-            System.out.println(die.throw());
+            System.out.println(die.throwDie());
         }
     }
 }
