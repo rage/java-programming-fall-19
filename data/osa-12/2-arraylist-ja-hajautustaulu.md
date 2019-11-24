@@ -823,9 +823,11 @@ public V remove(K avain) {
 }
 ```
 
-<programming-exercise name='Hajautustaulu (3 osaa)' tmcname='osa12-Osa12_05.Hajautustaulu' nocoins='1'>
+<programming-exercise name='Hash table (3 parts)' tmcname='part12-Part12_05.HashTable' nocoins='1'>
 
-Toteuta tehtäväpohjaan edellistä esimerkkiä noudattaen luokka Hajautustaulu. Toisin kuin esimerkissä, toteuta luokka siten, että se hyödyntää sisäisessä toteutuksessa Listan sijaan Javan valmista luokkaa ArrayList. Tehtäväpohjassa ei ole testejä -- kokeile myLista materiaalin esimerkkien ja omien kokeilujen avulla. Tehtävä on kolmen pisteen valueinen.
+<!-- Toteuta tehtäväpohjaan edellistä esimerkkiä noudattaen luokka Hajautustaulu. Toisin kuin esimerkissä, toteuta luokka siten, että se hyödyntää sisäisessä toteutuksessa Listan sijaan Javan valmista luokkaa ArrayList. Tehtäväpohjassa ei ole testejä -- kokeile myLista materiaalin esimerkkien ja omien kokeilujen avulla. Tehtävä on kolmen pisteen valueinen. -->
+
+Implement the class HashTable in the exercise base, following along the lines of the previous example. Unlike the example, implement the class so that it uses the ready-made Java class ArrayList in its internal implementation. There are no tests in the exercise base -- test its functionality with the examples in the material, and with your own experimentation. This exercise is worth three points.
 
 </programming-exercise>
 
