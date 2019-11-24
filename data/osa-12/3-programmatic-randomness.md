@@ -1,7 +1,7 @@
 ---
 path: '/part-12/3-programmatic-randomness'
 title: 'Programmatic randomness'
-hidden: true
+hidden: false
 ---
 
 
