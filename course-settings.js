@@ -35,7 +35,7 @@ const courseSettings = {
     //{ separator: true, title: "Advanced course in programming" },
     { title: "Part 12", tba: "TBA" },
     { title: "Part 13", tba: "TBA" },
-    { title: "Part 14", tba: "TBA" },
+    { title: "Part 14", tba: "TBA" }
   ],
   splitCourses: true,
 }
