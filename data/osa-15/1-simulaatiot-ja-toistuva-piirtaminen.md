@@ -1,5 +1,5 @@
 ---
-path: '/part-14/1-simulaatiot-ja-toistuva-piirtaminen'
+path: '/osa-14/1-simulaatiot-ja-toistuva-piirtaminen'
 title: 'Simulaatiot ja toistuva piirtäminen'
 hidden: true
 ---
@@ -14,7 +14,7 @@ hidden: true
 
 </text-box>
 
-<quiz id="d3865624-5826-5918-8006-19311f54dca8"></quiz>
+<quiznator id="5cb5c0ef06d26046c3ea28c8"></quiznator>
 
 
 Tietokonesimulaatioita käytetään tosielämän ilmiöiden mallintamiseen tietokoneella. Simulaation toteutus sisältää ilmiötä kuvaavan mallin luomisen (esimerkiksi säämalli) sekä mallin ajamisen eli simuloinnin. Tutustumme tässä muutamaan klassiseen tietokonesimulaatioon, jotka käyttävät kaksiulotteista taulukkoa.
@@ -400,3 +400,4 @@ Muokkaa loputa sovellusta siten, että hiekka syrjäyttää veden. Kun lisäät 
 Kun olet saanut kaikki neljännentoista osan tehtävät valmiiksi, voit palauta tähän tehtävään ja lähteä toteuttamaan uusia toiminnallisuuksia. Miten toteuttaisit esimerkiksi laavan?
 
 </programming-exercise>
+

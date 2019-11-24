@@ -1,5 +1,5 @@
 ---
-path: '/part-14/3-viela-hieman-testaamisesta'
+path: '/osa-14/3-viela-hieman-testaamisesta'
 title: 'Vielä hieman testaamisesta'
 hidden: true
 ---
@@ -133,4 +133,4 @@ Huom! Ohjelman toiminnallisuuden lisäksi tehtävässä tulee kirjoittaa ohjelma
 </programming-exercise>
 
 
-<quiz id="fc0f931c-6b78-530b-8b3d-ce8b71b61160"></quiz>
+<quiznator id="5cb968ecc99c4e46a4398e3a"></quiznator>
