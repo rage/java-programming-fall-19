@@ -144,6 +144,7 @@ false
 ### Creating a new list
 
 <!-- Luodaan luokka `List`. Listarakenne sisältää geneerisen taulukon -- eli taulukon, jonka alkioiden tyyppi määräytyy ajonaikaisesti tyyppiparametreista. Asetetaan taulukon alkukooksi `10`. Taulukko luodaan object-tyyppisenä ja muunnetaan geneerisen tyyppiseksi `(T[]) new Object[10];` -- tämä tehdään, sillä kutsu `new T[10];` ei ainakaan toistaiseksi toimi Javassa. -->
+
 Lets create class `List`. The List has a generic array -- the type of the elements in the array is defined on run time using type parameters.
 Lets set the size of the array to `10`. The array is created as type object, and changed to type generic with `(A[]) new object[10];` -- this is done because Java does not support the call `new A[10];` for now.
 
@@ -221,23 +222,28 @@ The size of the list does not grow. One of the benefits of the `ArrayList` class
 Lets add the functionality for increasing the size of the List. The size of the List increases if user tries to add a value to a full list. The size of the List is increased by creating a new, larger, array to which the values from the old array are copied to. After this the old array is abandoned and the List starts to use the new array.
 
 <!-- Uuden taulukon size määräytyy Javassa kaavalla `vanhaKoko + vanhaKoko / 2`. Hyödynnetään samaa kaavaa omassa toteutuksessamme. Luodaan kasvattamista varten erillinen metodi `grow`, joka on vain luokan omien metodien käytössä (eli sillä on `private`-näkyvyys). -->
+
 The size of the array is determined in Java with the formula `oldSize + oldSize / 2`. Lets use the same formula in our implementation. We'll create a new method `grow` for increasing the size of the array. The method is available only for other methods in the class (it is `private`).
 
 ```java
 private void grow() {
     int newSize = this.values.length + this.values.length / 2;
-    Type[] new = (Type[]) new Object[newSize];
+    Type[] newValues = (Type[]) new Object[newSize];
     for (int i = 0; i < this.values.length; i++) {
-        new[i] = this.values[i];
+        newValues[i] = this.values[i];
     }
 
-    this.values = new;
+    this.values = newValues;
 }
 ```
 
-Toteutus luo uuden taulukon, jonka size on 1.5-kertainen vanhaan taulukkoon verrattuna. Tämän jälkeen kaikki vanhan taulukon alkiot kopioidaan uuteen taulukkoon ja lopulta olion `values`-muuttujan -- eli taulukon -- valueksi asetetaan new taulukko. Javan automaattinen roskienkerääjä removea vanhan taulukon kun siihen ei enää viitata.
+<!-- Toteutus luo uuden taulukon, jonka size on 1.5-kertainen vanhaan taulukkoon verrattuna. Tämän jälkeen kaikki vanhan taulukon alkiot kopioidaan uuteen taulukkoon ja lopulta olion `values`-muuttujan -- eli taulukon -- valueksi asetetaan new taulukko. Javan automaattinen roskienkerääjä removea vanhan taulukon kun siihen ei enää viitata. -->
 
-Muokataan vielä metodia `add` siten, että taulukon sizea kasvatetaan tarvittaessa.
+The implementation creates a new array whose size is 1.5 times the size of the old array. After this all the elements of the old array are copied into the new one, and finally the value of the object variable `values` is set to the new array. The automatic Java garbage collector removes the old array at some point, now that there are no longer any references to it.
+
+<!-- Muokataan vielä metodia `add` siten, että taulukon sizea kasvatetaan tarvittaessa. -->
+
+Let's modify the `add` method so that the size of the array grows when needed.
 
 ```java
 public void add(Type value) {
@@ -527,21 +533,31 @@ This exercise is worth 2 points.
 </programming-exercise>
 
 
-## Hajautustaulu
+<!-- ## Hajautustaulu -->
 
-Hajautustaulu on toteutettu taulukkona, missä jokainen alkio sisältää myListn. Listalle tallennetaan (avain,value)-pareja. Käyttäjä voi hakea hajautustaulusta firstFreeIndex avaimen perusteella, ja toisaalta käyttäjä voi lisätä hajautustauluun avain-value -pareja. Kukin avain voi esiintyä hajautustaulussa korkeintaan kerran.
+## Hash map
 
-Hajautustaulun toiminta perustuu avaimen hajautusvalueon. Kun hajautustauluun lisätään (avain,value)-pari, lasketaan avaimeen liittyvä hajautusvalue. Hajautusvalue määrää hajautustaulun sisäisen taulukon indexn, missä olevaan myListan (avain,value)-pari lisätään.
+<!-- Hajautustaulu on toteutettu taulukkona, missä jokainen alkio sisältää myListn. Listalle tallennetaan (avain,value)-pareja. Käyttäjä voi hakea hajautustaulusta firstFreeIndex avaimen perusteella, ja toisaalta käyttäjä voi lisätä hajautustauluun avain-value -pareja. Kukin avain voi esiintyä hajautustaulussa korkeintaan kerran. -->
 
-Hahmotellaan hajautustaulun toimintaa.
+Hash map is implemented as an array, in which every element includes a list. The lists contain (key, value) pairs. The user can search from the hash map based on the key, and they can also add new key-value pairs into it. Eech key can appear at most once in the hash map.
+
+<!-- Hajautustaulun toiminta perustuu avaimen hajautusvalueon. Kun hajautustauluun lisätään (avain,value)-pari, lasketaan avaimeen liittyvä hajautusvalue. Hajautusvalue määrää hajautustaulun sisäisen taulukon indexn, missä olevaan myListan (avain,value)-pari lisätään. -->
+
+The functioning of the hash map is based on the hash value of the key. When a new (key, value) pair is stored in a hash map, we calculate a hash value based on the key to be stored. The hash value decides the index of the internal array that will be used for storing. The (key, value) pair is stored in the list that can be found at that index.
+
+<!-- Hahmotellaan hajautustaulun toimintaa. -->
+
+Let's sketch out how a hash map functions.
 
 
-### Avain-value -pari
+### Key-value pair
 
-Luodaan ensin avain-value -paria kuvaava luokka `Pari`. Haluamme tehdä hajautustaulusta mahdollisimman yleiskäyttöisen, joten avaimen ja valuen tyyppi määrätään ajonaikaisesti. Pari sisältää avaimen ja valuen sekä niihin liittyvät get-metodit. Geneeriset tyypit K ja V ovat nimetty sanojen key ja value perusteella.
+<!-- Luodaan ensin avain-value -paria kuvaava luokka `Pari`. Haluamme tehdä hajautustaulusta mahdollisimman yleiskäyttöisen, joten avaimen ja valuen tyyppi määrätään ajonaikaisesti. Pari sisältää avaimen ja valuen sekä niihin liittyvät get-metodit. Geneeriset tyypit K ja V ovat nimetty sanojen key ja value perusteella. -->
+
+Let's start by creating the class `Pair` that represents a key-value pair. We want to make the hash map as general as possible, so the types of the key and the value are determined at run-time. The Pair class contains a key and a value, as well as the related get methods. The generic types K and V are named so after the words 'key' and 'value'.
 
 
-```java
+<!-- ```java
 public class Pari<K, V> {
 
     private K avain;
@@ -564,28 +580,70 @@ public class Pari<K, V> {
         this.value = value;
     }
 }
-```
-
-Avain-value -parien luominen on suoraviivaista.
+``` -->
 
 ```java
+public class Pair<K, V> {
+
+    private K key;
+    private V value;
+
+    public Pair(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    public K getKey() {
+        return key;
+    }
+
+    public V getValue() {
+        return value;
+    }
+
+    public void setValue(V value) {
+        this.value = value;
+    }
+}
+```
+
+<!-- Avain-value -parien luominen on suoraviivaista. -->
+
+Creating key-value pairs is straightforward.
+
+<!-- ```java
 Pari<String, Integer> pari = new Pari<>("yksi", 1);
 System.out.println(pari.getAvain() + " -> " + pari.getArvo());
+``` -->
+
+```java
+Pair<String, Integer> pair = new Pair<>("one", 1);
+System.out.println(pair.getKey() + " -> " + pair.getValue());
 ```
+
+<!-- <sample-output>
+
+yksi -> 1
+
+</sample-output> -->
 
 <sample-output>
 
-yksi -> 1
+one -> 1
 
 </sample-output>
 
 
-### Hajautustaulun luominen
+<!-- ### Hajautustaulun luominen -->
 
-Hajautustaulu sisältää taulukon listoja. Jokainen myListn value on edellä kuvattu pari, joka sisältää avain-value -parin. Hajautustaululla on lisäksi tieto valuejen lukumäärästä. Tässä käytössämme on edellä luotu luokka `List`.
+### Creating a hash map
+
+<!-- Hajautustaulu sisältää taulukon listoja. Jokainen myListn value on edellä kuvattu pari, joka sisältää avain-value -parin. Hajautustaululla on lisäksi tieto valuejen lukumäärästä. Tässä käytössämme on edellä luotu luokka `List`. -->
+
+A hash map contians an array of lists. Each value on the list is a pair (described in the previous section) that contains a key and a value. A hash map also knows the number of the values. Here we have at our disposal the previously created class `List`.
 
 
-```java
+<!-- ```java
 public class Hajautustaulu<K, V> {
 
     private List<Pari<K, V>>[] values;
@@ -596,19 +654,40 @@ public class Hajautustaulu<K, V> {
         this.firstFreeIndex = 0;
     }
 }
+``` -->
+
+```java
+public class HashMap<K, V> {
+
+    private List<Pair<K, V>>[] values;
+    private int firstFreeIndex;
+
+    public HashMap() {
+        this.values = new List[32];
+        this.firstFreeIndex = 0;
+    }
+}
 ```
 
 
-### Arvon hakeminen
+<!-- ### Arvon hakeminen -->
 
-Toteutetaan ensin metodi `public V hae(K avain)`, jota käytetään valuen hakemiseen avaimen perusteella.
+### Retrieving a value
 
-Metodissa lasketaan ensin avaimen hajautusvalue ja päätellään sen perusteella hajautustaulun sisäisen taulukon index, mistä firstFreeIndex haetaan. Avaimen hajautusvaluen laskemiseen käytetään jokaisella oliolla olevaa `hashCode`-metodia. Jakojäännöstä käytetään hajautusvaluen hajautustaulun koon sisällä pysymiseen.
+<!-- Toteutetaan ensin metodi `public V hae(K avain)`, jota käytetään valuen hakemiseen avaimen perusteella. -->
 
-Mikäli hajautusvaluen ja jakojäänneksen avulla lasketussa indexssä ei ole myLista, ei indexin ole lisätty vielä yhtäkään avain-value -paria, eikä avaimelle ole tallennettu valuea. Tällöin palautetaan `null`-viite. Muussa tapauksessa taulukon indexssä oleva myList käydään läpi, ja avaimen yhtäsuuruutta vertaillaan jokaiseen myListn avain-value -parin avaimeen. Mikäli joku myListlla olevista avaimista vastaa avainta, jonka perusteella valuea haetaan, palautetaan kyseinen value. Muulloin avainta (ja siihen liittyvää valuea) ei löydy, ja palautetaan value null.
+Let's implement a method called `public V get(K key)`. It can be used to search for a value based on a key.
+
+<!-- Metodissa lasketaan ensin avaimen hajautusvalue ja päätellään sen perusteella hajautustaulun sisäisen taulukon index, mistä firstFreeIndex haetaan. Avaimen hajautusvaluen laskemiseen käytetään jokaisella oliolla olevaa `hashCode`-metodia. Jakojäännöstä käytetään hajautusvaluen hajautustaulun koon sisällä pysymiseen. -->
+
+The method begins by calculating a hash value for the key, and using it to figure out which is the relevant index of the internal array of the hash map. The hash value is calculated with the `hashCode` method that each object has. Then modulo (remainder of division operation) is used for ensuring that the index stays within the size boundaries of the internal array.
+
+<!-- Mikäli hajautusvaluen ja jakojäänneksen avulla lasketussa indexssä ei ole myLista, ei indexin ole lisätty vielä yhtäkään avain-value -paria, eikä avaimelle ole tallennettu valuea. Tällöin palautetaan `null`-viite. Muussa tapauksessa taulukon indexssä oleva myList käydään läpi, ja avaimen yhtäsuuruutta vertaillaan jokaiseen myListn avain-value -parin avaimeen. Mikäli joku myListlla olevista avaimista vastaa avainta, jonka perusteella valuea haetaan, palautetaan kyseinen value. Muulloin avainta (ja siihen liittyvää valuea) ei löydy, ja palautetaan value null. -->
+
+If there is no list in the calculated index, no key-value pairs have been added to that index. This means that there are no key-value pairs with this key that have been stored. In this case we'll return the `null` reference. Otherwise, the program goes through the list at the index, and we compare the parameter key to the key of every key-value pair on that list. If some of the keys matches the parameter key, the method returns the value of that key-value pair. Otherwise we cannot find a suitable key (and related value), so the method returns the value null.
 
 
-```java
+<!-- ```java
 public V hae(K avain) {
     int hajautusArvo = Math.abs(avain.hashCode() % this.values.length);
     if (this.values[hajautusArvo] == null) {
@@ -625,28 +704,59 @@ public V hae(K avain) {
 
     return null;
 }
+``` -->
+
+```java
+public V get(K key) {
+    int hashValue = Math.abs(key.hashCode() % this.values.length);
+    if (this.values[hashValue] == null) {
+        return null;
+    }
+
+    List<Pair<K, V>> valuesAtIndex = this.values[hashValue];
+
+    for (int i = 0; i < valuesAtINdex.size(); i++) {
+        if (valuesAtIndex.value(i).getKey().equals(key)) {
+            return valuesAtindex.value(i).getValue();
+        }
+    }
+
+    return null;
+}
 ```
 
 
-<text-box variant='hint' name='Miksei hajautustaulua toteuteta myListna?'>
+<text-box variant='hint' name='Why not implement hash map as a list?'>
 
-Hajautustaulun toimintaperiaate perustuu siihen, että avain-value -parit jaetaan hajautusvaluen perusteella pieniin joukkoihin. Tällöin avaimen perusteella haettaessa käydään läpi vain hyvin pieni joukko avain-value -pareja -- olettaen toki, että hajautusvalue on järkevä.
+<!-- Hajautustaulun toimintaperiaate perustuu siihen, että avain-value -parit jaetaan hajautusvaluen perusteella pieniin joukkoihin. Tällöin avaimen perusteella haettaessa käydään läpi vain hyvin pieni joukko avain-value -pareja -- olettaen toki, että hajautusvalue on järkevä. -->
 
-Jos hajautusvalue on aina sama -- esimerkiksi 1 -- vastaa hajautustaulun sisäinen toteutus myLista -- kaikki values ovat samalla myListlla. Jos taas hajautusvalue on hyvin satunnainen, values hajautetaan mahdollisimman tasaisesti taulukon eri listoille.
+The main principle of the hash map is that the key-value pairs are divided into small sets with the help of hash values. In this case a search based on key demands only going through a very small number of key-value pairs -- assuming that the hash values are calculated in a sensible manner.
 
-Hajautustaulu toimii lisäksi siten, että hajautustaulun käyttämää taulukkoa kasvatetaan mikäli valuejen määrä on tarpeeksi iso (tyypillisesti noin 75% taulukon koosta). Tyypillisesti miljoonia avain-value -pareja sisältävän hajautustaulun taulukon yhdessä indexssä on vain muutama avain-value -pari. Tämä tarkoittaa käytännössä sitä, että avain-value -parin olemassaolon selvittämiseen tarvitaan vain hajautusvaluen laskeminen sekä muutaman olion tarkastelu -- tämä on paljon nopeampaa kuin myListn läpikäynti.
+<!-- Jos hajautusvalue on aina sama -- esimerkiksi 1 -- vastaa hajautustaulun sisäinen toteutus myLista -- kaikki values ovat samalla myListlla. Jos taas hajautusvalue on hyvin satunnainen, values hajautetaan mahdollisimman tasaisesti taulukon eri listoille. -->
+
+If the hash value is always the same -- e.g. 1 -- the internal implementation of a hash map is similar to a list -- all the values are on the same list. If the hash values are sufficiently random, the different values are as evenly distributed to the different lists as possible.
+
+<!-- Hajautustaulu toimii lisäksi siten, että hajautustaulun käyttämää taulukkoa kasvatetaan mikäli valuejen määrä on tarpeeksi iso (tyypillisesti noin 75% taulukon koosta). Tyypillisesti miljoonia avain-value -pareja sisältävän hajautustaulun taulukon yhdessä indexssä on vain muutama avain-value -pari. Tämä tarkoittaa käytännössä sitä, että avain-value -parin olemassaolon selvittämiseen tarvitaan vain hajautusvaluen laskeminen sekä muutaman olion tarkastelu -- tämä on paljon nopeampaa kuin myListn läpikäynti. -->
+
+Hash maps also grow the size of their internal array if the number of values becomes large enough (typically 75% of the size of the array). Typically a hash map that contains millions of key-value pairs only contains a few key-value pairs in each index. The practical consequence is that discovering if a key-value pair exists, we only need to calculate the hash value and examine a few objects -- this is very significantly faster than going through a single list that contains the entirety of stored values.
 
 </text-box>
 
 
-### Hajautustauluun lisääminen, osa 1
+<!-- ### Hajautustauluun lisääminen, osa 1 -->
 
-Toteutetaan hajautustauluun lisäämisen käytettävän metodin `public void add(K avain, V value)` ensimmäinen versio. Ensimmäisessä versiossa hajautustaulun sisältämän taulukon sizea ei kasvateta lisäyksen yhteydessä.
+### Adding to hash map
 
-Metodi laskee ensin avaimelle hajautusvaluen ja päättelee hajautusvaluen perusteella hajautustaulun sisäisen taulukon indexn. Jos taulukon kyseisessä indexssä ei ole valuea, taulukon indexin lisätään myList. Tämän jälkeen taulukon indexssä oleva myList käydään läpi ja sieltä etsitään avain-value -paria, jonka avain vastaa lisättävän avain-value -parin avainta. Mikäli vastaava avain löytyy, päivitetään olemassaolevan avain-value -parin value vastaamaan uutta avainta. Muulloin myListan lisätään new avain-value -pari -- tällöin myös hajautustaulussa olevien valuejen lukumäärää kasvatetaan yhdellä.
+<!-- Toteutetaan hajautustauluun lisäämisen käytettävän metodin `public void add(K avain, V value)` ensimmäinen versio. Ensimmäisessä versiossa hajautustaulun sisältämän taulukon sizea ei kasvateta lisäyksen yhteydessä. -->
+
+Let's implement the first version of the method `public void add(K key, V value)`, which is used to add values to the hash map. In this version we are not going to increase the size of the internal array when new values are added to the hash map.
+
+<!-- Metodi laskee ensin avaimelle hajautusvaluen ja päättelee hajautusvaluen perusteella hajautustaulun sisäisen taulukon indexn. Jos taulukon kyseisessä indexssä ei ole valuea, taulukon indexin lisätään myList. Tämän jälkeen taulukon indexssä oleva myList käydään läpi ja sieltä etsitään avain-value -paria, jonka avain vastaa lisättävän avain-value -parin avainta. Mikäli vastaava avain löytyy, päivitetään olemassaolevan avain-value -parin value vastaamaan uutta avainta. Muulloin myListan lisätään new avain-value -pari -- tällöin myös hajautustaulussa olevien valuejen lukumäärää kasvatetaan yhdellä. -->
+
+The method first calculates the hash value for the key, and uses it to determine the suitable index in the internal array. If there is no value in that index, we create a list into that index. After this the method goes through the list at the index, and looks for a key-value pair whose key matches the key of the key-value pair to be added. If the matching key is found, the value related to it is updated to match the new value. Otherwise the method adds a new key-value pair in the list -- in which case the number of stored values is also incremented by one.
 
 
-```java
+<!-- ```java
 public void add(K avain, V value) {
     int hajautusArvo = Math.abs(avain.hashCode() % values.length);
     if (values[hajautusArvo] == null) {
@@ -670,12 +780,40 @@ public void add(K avain, V value) {
         valuesIndeksissa.value(index).setArvo(value);
     }
 }
-```
-
-Metodi on melko monimutkainen. Pilkotaan se pienempiin osiin -- ensimmäisen osan vastuulla on avaimeen liittyvän myListn hakeminen ja toisen osan vastuulla on avaimen indexn etsiminen myListlta.
-
+``` -->
 
 ```java
+public void add(K key, V value) {
+    int hashValue = Math.abs(key.hashCode() % values.length);
+    if (values[hashValue] == null) {
+        values[hashValue] = new List<>();
+    }
+
+    List<Pari<K, V>> valuesAtindex = values[hashValue];
+
+    int index = -1;
+    for (int i = 0; i < valuesAtIndex.size(); i++) {
+        if (valuesAtINdex.value(i).getKey().equals(key)) {
+            index = i;
+            break;
+        }
+    }
+
+    if (index < 0) {
+        valuesAtIndex.add(new Pair<>(key, value));
+        this.firstFreeIndex++;
+    } else {
+        valuesAtIndex.value(index).setValue(value);
+    }
+}
+```
+
+<!-- Metodi on melko monimutkainen. Pilkotaan se pienempiin osiin -- ensimmäisen osan vastuulla on avaimeen liittyvän myListn hakeminen ja toisen osan vastuulla on avaimen indexn etsiminen myListlta. -->
+
+The method is quite complex, so let's divide it into smaller parts. The first part is responsible for finding the list related to the key, and the second part is responsible for finding the key on that list.
+
+
+<!-- ```java
 private List<Pari<K, V>> haeAvaimeenLittyvaLista(K avain) {
     int hajautusArvo = Math.abs(avain.hashCode() % values.length);
     if (values[hajautusArvo] == null) {
@@ -694,12 +832,35 @@ private int haeAvaimenIndeksi(List<Pari<K, V>> myList, K avain) {
 
     return -1;
 }
-```
-
-Nyt metodi `public void add(K avain, V value)` voidaan toteuttaa hieman selkeämmin.
-
+``` -->
 
 ```java
+private List<Pair<K, V>> getListBasedOnKey(K key) {
+    int hashValue = Math.abs(key.hashCode() % values.length);
+    if (values[hashValue] == null) {
+        values[hashValue] = new List<>();
+    }
+
+    return values[hashValue];
+}
+
+private int getIndexOfKey(List<Pair<K, V>> myList, K key) {
+    for (int i = 0; i < myList.size(); i++) {
+        if (myList.value(i).getKey().equals(key)) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+```
+
+<!-- Nyt metodi `public void add(K avain, V value)` voidaan toteuttaa hieman selkeämmin. -->
+
+Now we can write a somewhat clearer implementation of the method `public void add(K key, V value)`
+
+
+<!-- ```java
 public void add(K avain, V value) {
     List<Pari<K, V>> valuesIndeksissa = haeAvaimeenLittyvaLista(avain);
     int index = haeAvaimenIndeksi(valuesIndeksissa, avain);
@@ -711,19 +872,40 @@ public void add(K avain, V value) {
         valuesIndeksissa.value(index).setArvo(value);
     }
 }
+``` -->
+
+```java
+public void add(K key, V value) {
+    List<Pair<K, V>> valuesAtIndex = getListBasedOnKey(key);
+    int index = getIndexOfKey(valuesAtIndex, key);
+
+    if (index < 0) {
+        valuesAtIndex.add(new Pair<>(key, value));
+        this.firstFreeIndex++;
+    } else {
+        valuesAtindex.value(index).setValue(value);
+    }
+}
 ```
 
 
-### Hajautustauluun lisääminen, osa 2
+<!-- ### Hajautustauluun lisääminen, osa 2 -->
 
-Edellä kuvattu hajautustauluun lisääminen toimii osittain. Toiminnallisuuden suurin puute on se, että taulukon sizea ei kasvateta kun valuejen määrä kasvaa liian suureksi. Lisätään ohjelmaan kasvatustoiminnallisuus, mikä tuplaa hajautustaulun sisäisen taulukon koon. Kasvatustoiminnallisuuden tulee myös sijoittaa jokainen hajautustaulussa olevan taulukon value uuteen taulukkoon.
+### Adding to hash table, part 2
 
-Hahmotellaan kasvatustoiminnallisuuden alku. Kasvatustoiminnallisuudessa luodaan new taulukko, jonka size on edelliseen verrattuna kaksinkertainen. Tämän jälkeen alkuperäinen taulukko käydään index indexltä läpi ja olemassaolevat avain-value -parit kopioidaan uuteen taulukkoon. Lopulta alkuperäinen taulukko korvataan uudella taulukolla.
+<!-- Edellä kuvattu hajautustauluun lisääminen toimii osittain. Toiminnallisuuden suurin puute on se, että taulukon sizea ei kasvateta kun valuejen määrä kasvaa liian suureksi. Lisätään ohjelmaan kasvatustoiminnallisuus, mikä tuplaa hajautustaulun sisäisen taulukon koon. Kasvatustoiminnallisuuden tulee myös sijoittaa jokainen hajautustaulussa olevan taulukon value uuteen taulukkoon. -->
 
-Alla on hahmoteltu metodin toimintaa. Kopiointia ei ole vielä toteutettu.
+The way of adding to a hash table that was described above works party. The greates fault in the functionality is that the size of the internal array is not increased when the number of values grows too large. Let's add to the program a growing functionality that doubles the size of the internal array of the hash map. The growing operation should also place each value in the hash map into the newly created bigger array.
 
+<!-- Hahmotellaan kasvatustoiminnallisuuden alku. Kasvatustoiminnallisuudessa luodaan new taulukko, jonka size on edelliseen verrattuna kaksinkertainen. Tämän jälkeen alkuperäinen taulukko käydään index indexltä läpi ja olemassaolevat avain-value -parit kopioidaan uuteen taulukkoon. Lopulta alkuperäinen taulukko korvataan uudella taulukolla. -->
 
-```java
+Let's sketch the beginning of the growing functionality. The responsible method should create a new array whose size is double that of the old array. After this it goes through the old array, index by index. The encountered key-value pairs are copied into the new array. Finally, the old array is replaced with the new one.
+
+<!-- Alla on hahmoteltu metodin toimintaa. Kopiointia ei ole vielä toteutettu. -->
+
+Below there is a first version of how the method should work. We haven't implemented the copying yet.
+
+<!-- ```java
 private void grow() {
     // luodaan new taulukko
     List<Pari<K, V>>[] new = new List[this.values.length * 2];
@@ -736,12 +918,29 @@ private void grow() {
     // korvataan vanha taulukko uudella
     this.values = new;
 }
-```
-
-Hahmotellaan seuraavaksi metodia, joka kopioi alkuperäisen taulukon yhden indexn sisältämän myListn values uuteen taulukkoon. Kopioinnin yhteydessä jokaisen kopioitavan avain-value -parin sijainti taulukossa lasketaan uudelleen -- tämä tehdään, sillä taustalla olevan taulukon size kasvaa ja avain-values -parit halutaan sijoittaa taulukkoon mahdollisimman tasaisesti.
-
+``` -->
 
 ```java
+private void grow() {
+    // crete a new array
+    List<Pair<K, V>>[] newValues = new List[this.values.length * 2];
+
+    for (int i = 0; i < this.values.length; i++) {
+        // copy the values of the old array into the new one
+
+    }
+
+    // replace the old array with the new one
+    this.values = newValues;
+}
+```
+
+<!-- Hahmotellaan seuraavaksi metodia, joka kopioi alkuperäisen taulukon yhden indexn sisältämän myListn values uuteen taulukkoon. Kopioinnin yhteydessä jokaisen kopioitavan avain-value -parin sijainti taulukossa lasketaan uudelleen -- tämä tehdään, sillä taustalla olevan taulukon size kasvaa ja avain-values -parit halutaan sijoittaa taulukkoon mahdollisimman tasaisesti. -->
+
+Then let's begin to create a method that copies the list of values at one index of the old array into the new one. When copying, the location of each key-value pair is recalculated for the new array -- this is done because the size of the internal array grows, and we want to distribute all the key-value pairs in that array as evenly as possible.
+
+
+<!-- ```java
 private void kopioi(List<Pari<K, V>>[] new, int indexsta) {
     for (int i = 0; i < this.values[indexsta].size(); i++) {
         Pari<K, V> value = this.values[indexsta].value(i);
@@ -754,14 +953,31 @@ private void kopioi(List<Pari<K, V>>[] new, int indexsta) {
         new[hajautusvalue].add(value);
     }
 }
+``` -->
+
+```java
+private void copy(List<Pair<K, V>>[] newArray, int fromIdx) {
+    for (int i = 0; i < this.values[fromIdx].size(); i++) {
+        Pair<K, V> value = this.values[fromIdx].value(i);
+
+        int hashValue = Math.abs(value.getKey().hashCode() % newArray.length);
+        if(newArray[hashValue] == null) {
+            newArray[hashValue] = new List<>();
+        }
+
+        newArray[hashValue].add(value);
+    }
+}
 ```
 
 <quiz id='7fa6ce58-158d-51be-a1c1-f5df803443b5'></quiz>
 
-Nyt kopioi-metodia voidaan kutsua grow-metodista.
+<!-- Nyt kopioi-metodia voidaan kutsua grow-metodista. -->
+
+Now you can call the copy method from the grow method
 
 
-```java
+<!-- ```java
 private void grow() {
     // luodaan new taulukko
     List<Pari<K, V>>[] new = new List[this.values.length * 2];
@@ -774,12 +990,29 @@ private void grow() {
     // korvataan vanha taulukko uudella
     this.values = new;
 }
-```
-
-Lisätään lopuksi kasvatustoiminnallisuus osaksi lisäystoiminnallisuutta. Hajautustaulun sizea kasvatetaan aina jos hajautustaulussa olevien avain-value -parien määrä on yli 75% taulukon koosta.
-
+``` -->
 
 ```java
+private void grow() {
+    // create a new array
+    List<Pair<K, V>>[] newArray = new List[this.values.length * 2];
+
+    for (int i = 0; i < this.values.length; i++) {
+        // copy the values of the old array into the new one
+        copy(newArray, i);
+    }
+
+    // replace the old array with the new
+    this.values = newArray;
+}
+```
+
+<!-- Lisätään lopuksi kasvatustoiminnallisuus osaksi lisäystoiminnallisuutta. Hajautustaulun sizea kasvatetaan aina jos hajautustaulussa olevien avain-value -parien määrä on yli 75% taulukon koosta. -->
+
+Finally, let's add the growing functionality to be a part of the `add` method. We want to grow the size of the hash map if the number of key-value pairs in it is greater than 75% of the size of the internal array.
+
+
+<!-- ```java
 public void add(K avain, V value) {
     List<Pari<K, V>> valuesIndeksissa = haeAvaimeenLittyvaLista(avain);
     int index = haeAvaimenIndeksi(valuesIndeksissa, avain);
@@ -795,17 +1028,41 @@ public void add(K avain, V value) {
         grow();
     }
 }
+``` -->
+
+```java
+public void add(K key, V value) {
+    List<Pair<K, V>> valuesAtIndex = getListBasedOnKey(key);
+    int index = getIndexOfKey(valuesAtIndex, key);
+
+    if (index < 0) {
+        valuesAtIndex.add(new Pair<>(key, value));
+        this.firstFreeIndex++;
+    } else {
+        valuesAtIndex.value(index).setValue(value);
+    }
+
+    if (1.0 * this.firstFreeIndex / this.values.length > 0.75) {
+        grow();
+    }
+}
 ```
 
 
-### Poistaminen
+<!-- ### Poistaminen -->
+
+### Remove
 
 
-Lisätään hajautustauluun vielä toiminnallisuus avain-value -parin removemiseen avaimen perusteella. Poistotoiminnallisuus palauttaa null-valuen mikäli valuea ei löydy, muuten metodi palauttaa poistettavaan avaimeen liittyvän valuen.
+<!-- Lisätään hajautustauluun vielä toiminnallisuus avain-value -parin removemiseen avaimen perusteella. Poistotoiminnallisuus palauttaa null-valuen mikäli valuea ei löydy, muuten metodi palauttaa poistettavaan avaimeen liittyvän valuen. -->
 
-Voimme hyödyntää valmiiksi toteuttamiamme metodeja poistotoiminnallisuudessa. Selitä itsellesi (ääneen) alla olevan metodin konkreettinen toiminta.
+Let's give the hash map the functionality to remove a key-value pair based on key. The removal functionality returns null if the value cannot be found, and otherwise it will remove the value that is paired with the key to be removed.
 
-```java
+<!-- Voimme hyödyntää valmiiksi toteuttamiamme metodeja poistotoiminnallisuudessa. Selitä itsellesi (ääneen) alla olevan metodin konkreettinen toiminta. -->
+
+We can take advantage of the method we've already implemented in the removing method. Explain to yourself (out loud) how the method described below conretely works.
+
+<!-- ```java
 public V remove(K avain) {
     List<Pari<K, V>> valuesIndeksissa = haeAvaimeenLittyvaLista(avain);
     if (valuesIndeksissa.size() == 0) {
@@ -821,13 +1078,31 @@ public V remove(K avain) {
     valuesIndeksissa.remove(pari);
     return pari.getArvo();
 }
+``` -->
+
+```java
+public V remove(K key) {
+    List<Pair<K, V>> valuesAtIndex = getListBasedOnKey(key);
+    if (valuesAtIndex.size() == 0) {
+        return null;
+    }
+
+    int index = getIndexOfKey(valuesAtIndex, key);
+    if (index < 0) {
+        return null;
+    }
+
+    Pair<K, V> pair = valuesAtIndex.value(index);
+    valuesAtIndex.remove(pair);
+    return pair.getValue();
+}
 ```
 
-<programming-exercise name='Hash table (3 parts)' tmcname='part12-Part12_05.HashTable' nocoins='1'>
+<programming-exercise name='Hash map (3 parts)' tmcname='part12-Part12_05.HashMap' nocoins='1'>
 
 <!-- Toteuta tehtäväpohjaan edellistä esimerkkiä noudattaen luokka Hajautustaulu. Toisin kuin esimerkissä, toteuta luokka siten, että se hyödyntää sisäisessä toteutuksessa Listan sijaan Javan valmista luokkaa ArrayList. Tehtäväpohjassa ei ole testejä -- kokeile myLista materiaalin esimerkkien ja omien kokeilujen avulla. Tehtävä on kolmen pisteen valueinen. -->
 
-Implement the class HashTable in the exercise base, following along the lines of the previous example. Unlike the example, implement the class so that it uses the ready-made Java class ArrayList in its internal implementation. There are no tests in the exercise base -- test its functionality with the examples in the material, and with your own experimentation. This exercise is worth three points.
+Implement the class HashMap in the exercise base, following along the lines of the previous example. Unlike the example, implement the class so that it uses the ready-made Java class ArrayList in its internal implementation. There are no tests in the exercise base -- test its functionality with the examples in the material, and with your own experimentation. This exercise is worth three points.
 
 </programming-exercise>
 
