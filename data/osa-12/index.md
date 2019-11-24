@@ -1,6 +1,6 @@
 ---
-path: '/osa-12'
-title: 'Osa 12'
+path: '/part-12'
+title: 'Part 12'
 overview: true
 hidden: true
 ---
@@ -30,11 +30,14 @@ hidden: true
 </only-for-course-variant>
 
 <only-for-not-logged-in>
-  <deadline>Kirjaudu sisään nähdäksesi deadlinen tälle osalle</deadline>
+  <deadline>Log in to see the deadline for this part</deadline>
 </only-for-not-logged-in>
 
-Kurssimateriaalin kahdennessatoista osassa tutustut geneerisiin tyyppiparametreihin ja opit mitä merkintä ArrayList&lt;String&gt; oikeastaan tarkoittaa. Opit luomaan luokkia, joissa käytetään geneerisiä tyyppiparametreja. Tutustut ArrayListin ja HashMapin sisäiseen toteutukseen ja toteutat niistä yksinkertaiset omat versiot. Opit luomaan satunnaislukuja ja harjoittelet Javan valmiiden välineiden käyttöä satunnaislukujen luomiseen. Tutustut  moniulotteisen tiedon esittämiseen ja opit luomaan ja käsittelemään moniulotteisia taulukoita.
+<!-- Kurssimateriaalin kahdennessatoista osassa tutustut geneerisiin tyyppiparametreihin ja opit mitä merkintä ArrayList&lt;String&gt; oikeastaan tarkoittaa. Opit luomaan luokkia, joissa käytetään geneerisiä tyyppiparametreja. Tutustut ArrayListin ja HashMapin sisäiseen toteutukseen ja toteutat niistä yksinkertaiset omat versiot. Opit luomaan satunnaislukuja ja harjoittelet Javan valmiiden välineiden käyttöä satunnaislukujen luomiseen. Tutustut  moniulotteisen tiedon esittämiseen ja opit luomaan ja käsittelemään moniulotteisia taulukoita. -->
 
+In the twelfth part of the material you will learn to use generic type parameters and learn what really is the meaning of the notation ArrayList&lt;String&gt;. You will create classes of your own that use generic type parameters. You'll familiarize yourself with the internal implementations of ArrayList and HashMap, and implement simplified versions of both by yourself! You will learn to generate random numbers and practise using the existing Java tools for generating them, as well. We'll take a look at representing multidimensional data, and creating and handling multidimensional arrays.
+
+Only the exercises and some key parts of the material are currently available in English!
 
 <please-login></please-login>
 

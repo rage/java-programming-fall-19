@@ -1,6 +1,6 @@
 ---
-path: '/osa-12/2-arraylist-ja-hajautustaulu'
-title: 'ArrayList ja Hajautustaulu'
+path: '/part-12/2-array-list-and-hash-map'
+title: 'Array list and hash map'
 hidden: true
 ---
 

@@ -1,6 +1,6 @@
 ---
-path: '/osa-12/1-geneeriset-tyyppiparametrit'
-title: 'Geneeriset tyyppiparametrit'
+path: '/part-12/1-generic-type-parameters'
+title: 'Generic type parameters'
 hidden: true
 ---
 

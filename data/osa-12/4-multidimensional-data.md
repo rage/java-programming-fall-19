@@ -1,6 +1,6 @@
 ---
-path: '/osa-12/4-moniulotteinen-tieto'
-title: 'Moniulotteinen tieto'
+path: '/part-12/4-multidimensional-data'
+title: 'Multidimensional data'
 hidden: true
 ---
 

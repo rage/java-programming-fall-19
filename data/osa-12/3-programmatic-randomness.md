@@ -1,6 +1,6 @@
 ---
-path: '/osa-12/3-satunnaisuus-ohjelmissa'
-title: 'Satunnaisuus ohjelmissa'
+path: '/part-12/3-programmatic-randomness'
+title: 'Programmatic randomness'
 hidden: true
 ---
 
