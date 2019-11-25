@@ -34,7 +34,7 @@ const courseSettings = {
   sidebarFuturePages: [
     //{ separator: true, title: "Advanced course in programming" },
     { title: "Part 13", tba: "TBA" },
-    { title: "Part 14", tba: "TBA" },
+    { title: "Part 14", tba: "TBA" }
   ],
   splitCourses: true,
 }

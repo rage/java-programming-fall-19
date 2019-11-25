@@ -1,6 +1,6 @@
 ---
-path: '/part-12/2-array-list-and-hash-map'
-title: 'Array list and hash map'
+path: '/part-12/2-arraylist-and-hashtable'
+title: 'ArrayList and hash table'
 hidden: false
 ---
 

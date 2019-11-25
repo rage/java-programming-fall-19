@@ -1,5 +1,5 @@
 ---
-path: '/part-13/3-laajempi-sovellus-asteroids'
+path: '/osa-14/3-laajempi-sovellus-asteroids'
 title: 'Laajempi sovellus: Asteroids'
 hidden: true
 ---
@@ -604,7 +604,7 @@ public class Asteroidi extends Hahmo {
 }
 ```
 
-<quiz id="45be5a68-eedb-5d8e-8b70-c98999509a33"></quiz>
+<quiznator id="45be5a68-eedb-5d8e-8b70-c98999509a33"></quiznator>
 
 Testataan vielä, että asteroidin voi lisätä sovellukseen.
 
@@ -1193,7 +1193,7 @@ if(Math.random() < 0.005) {
 <img src="../img/material/asteroids-ready.gif" alt="Like a boss."/>
 
 
-<programming-exercise name='Asteroids (4 osaa)' tmcname='osa13-Osa13_09.Asteroids' nocoins='true'>
+<programming-exercise name='Asteroids (4 osaa)' tmcname='osa14-Osa14_09.Asteroids' nocoins='true'>
 
 Tehtäväpohjassa on tyhjä ohjelmapohja. Toteuta tehtävään edellistä laajempaa esimerkkiä seuraten Asteroids-peli.
 

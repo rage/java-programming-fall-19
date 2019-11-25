@@ -1,8 +1,10 @@
 ---
-path: '/part-14/1-simulaatiot-ja-toistuva-piirtaminen'
-title: 'Simulaatiot ja toistuva piirtäminen'
+path: '/osa-14/0-epic'
+title: 'Epic'
 hidden: true
 ---
+
+# Simulaatiot ja toistuva piirtäminen
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
@@ -14,7 +16,7 @@ hidden: true
 
 </text-box>
 
-<quiz id="d3865624-5826-5918-8006-19311f54dca8"></quiz>
+<quiznator id="5cb5c0ef06d26046c3ea28c8"></quiznator>
 
 
 Tietokonesimulaatioita käytetään tosielämän ilmiöiden mallintamiseen tietokoneella. Simulaation toteutus sisältää ilmiötä kuvaavan mallin luomisen (esimerkiksi säämalli) sekä mallin ajamisen eli simuloinnin. Tutustumme tässä muutamaan klassiseen tietokonesimulaatioon, jotka käyttävät kaksiulotteista taulukkoa.
@@ -400,3 +402,374 @@ Muokkaa loputa sovellusta siten, että hiekka syrjäyttää veden. Kun lisäät 
 Kun olet saanut kaikki neljännentoista osan tehtävät valmiiksi, voit palauta tähän tehtävään ja lähteä toteuttamaan uusia toiminnallisuuksia. Miten toteuttaisit esimerkiksi laavan?
 
 </programming-exercise>
+
+
+# Maven ja kolmannen osapuolen kirjastot
+
+<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+
+- Tunnet käsitteen kirjasto ja tiedät muutamia kolmannen osapuolen kirjastoja.
+- Tiedät mistä kirjastoja voi etsiä.
+- Toteutat sovelluksen, joka hyödyntää kolmannen osapuolen kirjastoa.
+- Tiedät että sovelluksia voi paketoida ja jakaa muille, ja että jaetut sovellukset eivät vaadi ohjelmointiympäristöä toimiakseen.
+
+</text-box>
+
+
+Kurssin ohjelmointitehtävät on tehty NetBeans-nimisessä ohjelmointiympäristössä, johon on lisätty tehtävien lataamiseen ja palauttamiseen tarkoitettu Test My Code -liitännäinen. Kurssilla käytetyt tehtäväpohjat eivät kuitenkaan ole millään tavalla NetBeans tai Test My Code -riippuvaisia, vaan niitä voi käyttää muissakin ohjelmointiympäristöissä.
+
+Tehtäväpohjissa käytetään [Maven](https://maven.apache.org/)-nimistä työvälinettä, joka tarjoaa apuvälineitä ohjelmien suorittamiseen ja hallintaan. Maven määrää projektiemme rakenteen -- tämän takia jokaisen projektin juuressa on `pom.xml`-niminen tiedosto ja lähdekoodimme sijaitsevat `src`-nimisen kansion alla. Kansiossa `src` on tyypillisesti kaksi kansiota, toinen on `main`, joka sisältää projektin lähdekoodit ym, ja toinen `test`, joka sisältää ohjelman testaamiseen käytettävät lähdekoodit kuten yksikkötestit.
+
+Mavenin etu on se, että se auttaa apukirjastojen lataamisessa. Apukirjastot ovat muiden kirjoittamaa lähdekoodia, joka on paketoitu kaikkien käytettäväksi. Esimerkiksi yksikkötestaukseen on käytetty JUnit-nimistä kirjastoa. Valmiita kirjastoja on hyvin moneen lähtöön. Esimerkiksi osoitteessa [https://mvnrepository.com/](https://mvnrepository.com/) olevan hakukoneen kautta voi löytää yli 10 miljoonaa kirjastoa -- moni näistä on tosin saman kirjaston eri versioita.
+
+Hakukoneesta löytyy esimerkiksi tietokantojen käyttöön sekä vaikkapa telegram-bottien kirjoittamiseen tarkoitettuja kirjastoja. Tutustutaan näihin seuraavaksi lyhyesti.
+
+
+## Tietokannan käyttö
+
+Tietokannat, tai oikeastaan tietokannanhallintajärjestelmät, ovat välineitä tiedon hallintaan. Tutustumme näihin tarkemmin kurssilla Tietokantojen perusteet (TKT10004). Tarkastellaan lyhyesti tietokantaa käyttävän sovelluksen rakentamista.
+
+
+Osoitteesta [https://mvnrepository.com/](https://mvnrepository.com/) löytyy useita kirjastoja tietokantojen käyttöön. Otamme esimerkinomaisesti käyttöömme [H2](http://www.h2database.com/html/main.html)-nimisen tietokannanhallintajärjestelmän. Tämä onnistuu lisäämällä tiedoston `pom.xml` sisällä olevalle `<dependencies>`- ja `</dependencies>` -elementtien rajaamalle kirjastoriippuvuuksia sisältävälle alueelle H2-tietokannanhallintajärjestelmän kuvaavan kirjaston, kuten alla.
+
+
+```xml
+<!-- muuta sisältöä -->
+
+<dependencies>
+<!-- muita kirjastoja -->
+
+    <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>1.4.197</version>
+    </dependency>
+
+<!-- muita kirjastoja -->
+</dependencies>
+
+<!-- muuta sisältöä -->
+```
+
+Tehtäväpohjassa tämä on tehty valmiiksi. Kun kirjastoriippuvuus on lisätty osaksi projektia, ovat sen tarjoamat luokat projektissa käytettävissä. Seuraavassa tehtävässä hyödynnät valmiiksi edellä kuvattua riippuvuutta ja toteutat tietokantaa käyttävän sovelluksen.
+
+
+<programming-exercise name='Tietokanta' tmcname='osa14-Osa14_05.Tietokanta'>
+
+Tehtäväpohjassa tulee sovellus, johon on lisätty riippuvuus H2-nimiseen tietokantaan. Sovelluksessa on seuraavat neljä luokkaa:
+
+- `Todo`: tehtävää tehtävää kuvaava luokka. Jokaisella tehtävällä on numeerinen tunnus (id), nimi, kuvaus sekä tieto siitä onko tehtävä tehty.
+
+- `TodoDao`: tehtävien tietokantaan tallentamiseen käytettävä luokka, sana "dao" on lyhenne sanasta "data access object". Luokka tarjoaa metodit tehtävien listaamiseen, lisäämiseen, tehdyksi asettamiseen sekä poistamiseen. Tehdyksi asettaminen ja poistaminen tapahtuu numeerisen tunnuksen perusteella. Luokan konstruktori saa parametrinaan käytettävän tietokannan osoitteen.
+
+- `Kayttoliittyma`: tehtävien tietokantaan tallentamiseen käytettävä luokka. Luokka tarjoaa metodit tehtävien listaamiseen, lisäämiseen, tehdyksi asettamiseen sekä poistamiseen. Tehdyksi asettaminen ja poistaminen tapahtuu numeerisen tunnuksen perusteella. Luokan konstruktori saa parametrina käytettävän tietokannan osoitteen.
+
+- `Ohjelma`: sovelluksen käynnistämiseen tarkoitettu luokka.
+
+
+Tässä tehtävässä tarkoituksenasi on muokata käyttöliittymää siten, että sovelluksen käyttäjällä on mahdollisuus tehtävien lisäämiseen, listaamiseen, tehdyksi asettamiseen sekä poistamiseen. Älä muokkaa luokkia `Todo`, `TodoDao` tai `Ohjelma`.
+
+Odotettu sovelluksen toiminta on seuraava:
+
+
+```
+
+Syötä komento:
+1) listaa
+2) lisää
+3) aseta tehdyksi
+4) poista
+x) lopeta
+> 1
+Listataan tietokannan tiedot
+
+Syötä komento:
+1) listaa
+2) lisää
+3) aseta tehdyksi
+4) poista
+x) lopeta
+> 2
+Lisätään tehtävää
+Syötä nimi
+koodaa
+Syötä kuvaus
+koodaa paljon
+
+Syötä komento:
+1) listaa
+2) lisää
+3) aseta tehdyksi
+4) poista
+x) lopeta
+> 2
+Lisätään tehtävää
+Syötä nimi
+tee ruokaa
+Syötä kuvaus
+riisipuuroa
+
+Syötä komento:
+1) listaa
+2) lisää
+3) aseta tehdyksi
+4) poista
+x) lopeta
+> 1
+Listataan tietokannan tiedot
+Todo{id=1, nimi=koodaa, kuvaus=koodaa paljon, valmis=false}
+Todo{id=2, nimi=tee ruokaa, kuvaus=riisipuuroa, valmis=false}
+
+Syötä komento:
+1) listaa
+2) lisää
+3) aseta tehdyksi
+4) poista
+x) lopeta
+> 3
+
+Mikä asetetaan tehdyksi (syötä id)?
+2
+
+Syötä komento:
+1) listaa
+2) lisää
+3) aseta tehdyksi
+4) poista
+x) lopeta
+> 1
+Listataan tietokannan tiedot
+Todo{id=1, nimi=koodaa, kuvaus=koodaa paljon, valmis=false}
+Todo{id=2, nimi=tee ruokaa, kuvaus=riisipuuroa, valmis=true}
+
+Syötä komento:
+1) listaa
+2) lisää
+3) aseta tehdyksi
+4) poista
+x) lopeta
+> 4
+
+Mikä poistetaan (syötä id)?
+2
+
+Syötä komento:
+1) listaa
+2) lisää
+3) aseta tehdyksi
+4) poista
+x) lopeta
+> 1
+Listataan tietokannan tiedot
+Todo{id=1, nimi=koodaa, kuvaus=koodaa paljon, valmis=false}
+
+Syötä komento:
+1) listaa
+2) lisää
+3) aseta tehdyksi
+4) poista
+x) lopeta
+> 3
+
+Mikä asetetaan tehdyksi (syötä id)?
+1
+
+Syötä komento:
+1) listaa
+2) lisää
+3) aseta tehdyksi
+4) poista
+x) lopeta
+> 1
+Listataan tietokannan tiedot
+Todo{id=1, nimi=koodaa, kuvaus=koodaa paljon, valmis=true}
+
+Syötä komento:
+1) listaa
+2) lisää
+3) aseta tehdyksi
+4) poista
+x) lopeta
+> x
+Kiitos!
+
+```
+
+Tehtävässä toteuttamasi tekstikäyttöliittymä ei oikeastaan poikkea millään tavalla aiemmin toteuttamistamme tekstikäyttöliittymistä. Toisin kuin ennen, nyt tieto vain tallennetaan tietokantaan: *tallennetut tiedot ovat sovelluksen käytössä myös seuraavan käynnistyksen yhteydessä.*
+
+</programming-exercise>
+
+
+## Telegrambotti
+
+Kuten todettu, Mavenin avulla löytyy merkittävä määrä kirjastoja, joita voi käyttää osana omia sovelluksia. Hakemalla osoitteesta [https://mvnrepository.com/](https://mvnrepository.com/) sanaa telegram, löytää mm. [TelegramBots](https://github.com/rubenlagus/TelegramBots)-kirjaston Telegram-bottien tekemiseen.
+
+
+Telegrambotit ovat ohjelmia, jotka reagoivat telegramissa lähetettyihin viesteihin ja esimerkiksi kertovat vitsejä. Bottien tekeminen on kuitenkin tämän kurssin osaamistavoitteiden ulkopuolella. Samalla, kurssin aikana opitut taidot auttavat olemassaolevien oppaiden lukemisessa ja opiskelussa. Mikäli haluat oppia tekemään Telegrambotin, lue osoitteessa [https://github.com/rubenlagus/TelegramBots/wiki/Getting-Started](https://github.com/rubenlagus/TelegramBots/wiki/Getting-Started) oleva opas. Muista aloittaa botin rakennus pienistä osista -- kokeile luoda ensin esimerkiksi botti, joka liittyy kanavalle.
+
+
+## Sovellusten paketointi
+
+Sovelluksemme ovat tähän mennessä toimineet vain ohjelmointiympäristössä. Tämä ei kuitenkaan ole käytännössä totta, sillä ohjelman käynnistäminen ohjelmointiympäristössä vastaa melko vahvasti sen käynnistämistä ohjelmointiympäristön ulkopuolella. Voimme määritellä luokan, jossa olevaa metodia `public static void main` käytetään ohjelman käynnistämiseen.
+
+Oracle tarjoaa [javapackager](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javapackager.html)-työvälineen sovellusten paketointia varten. Osoitteessa [https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/packager.html](https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/packager.html) on ohjeita välineen käyttöön.
+
+Edellä mainittuja ohjeita seuraamalla voit tehdä luomistasi ohjelmista versiot, joita voit jakaa myös muille. Ohjeiden käyttämä kirjasto on paketoitu myös Mavenin käyttöön ns. liitännäiseksi, kts. [https://github.com/javafx-maven-plugin/javafx-maven-plugin](https://github.com/javafx-maven-plugin/javafx-maven-plugin).
+
+Muitakin vaihtoehtoja paketointiin on, kuten vaikkapa [JavaPackager](https://github.com/fvarrui/JavaPackager)-maven liitännäinen.
+
+
+## Muut ympäristöt
+
+Java on yksi maailman eniten käytetyistä ohjelmointikielistä ja sitä käytetään myös mm. Android-kännyköissä. Kurssin aikana harjoittelemamme käyttöliittymien luomistekniikka ei ole rajoitettu vain työpöytäsovelluksiin, vaikka JavaFX onkin niihin ensisijaisesti suunnattu. Mikäli haluat siirtää JavaFX-sovelluksia kännykkään, on sitä varten luotu [JavaFXPorts](https://gluonhq.com/products/mobile/javafxports/)-projekti. JavaFXPorts-projektin avulla voit tehdä mobiilisovelluksia JavaFX-kirjastoa käyttäen. Osoitteessa [https://docs.gluonhq.com/javafxports/](https://docs.gluonhq.com/javafxports/) on tähän lisää ohjeistusta.
+
+
+Mobiilisovellusten kehittämisestä enemmän kiinnostuneiden kannattaa tutustua Androidin sovelluskehittäjille luomaan sivustoon, joka löytyy osoitteessa [https://developer.android.com/guide/](https://developer.android.com/guide/). Käymäsi ohjelmoinnin perusteet ja ohjelmoinnin jatkokurssi antaa näihin hyvän lähtökohdan. Vastaavasti, mikäli yksinkertaisten (mobiili)pelien kehittäminen kiinnostaa, tutustu esimerkiksi [FXGL](https://github.com/AlmasB/FXGL/wiki)-kirjastoon.
+
+
+# Vielä hieman testaamisesta
+
+<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+
+- Kertaat ohjelmistojen testausta.
+- Tunnet käsitteen testikattavuus.
+
+</text-box>
+
+
+Olemme harjoitelleet aiemmin yksikkötestausta: Yksikkötestauksella tarkoitetaan lähdekoodiin kuuluvien yksittäisten osien kuten luokkien ja niiden tarjoamien metodien testaamista. Luokkien ja metodien rakenteen suunnittelussa käytettävän ohjesäännön -- jokaisella metodilla ja luokalla tulee olla yksi selkeä vastuu -- noudattamisen tai siitä poikkeamisen huomaa testejä kirjoittaessa. Mitä useampi vastuu metodilla on, sitä monimutkaisempi testi on. Jos laaja sovellus on kirjoitettu yksittäiseen metodiin, on testien kirjoittaminen sitä varten erittäin haastavaa ellei jopa mahdotonta. Vastaavasti, jos sovellus on pilkottu selkeisiin luokkiin ja metodeihin, on testienkin kirjoittaminen suoraviivaista.
+
+Yksikkötestien hyvyyttä voi miettiä *testikattavuuden* kannalta. Testikattavuudella tarkoitetaan sitä, että kuinka hyvin testit käsittelevät ohjelman eri suorituspolut eli kaikki vaihtoehtoiset polut miten ohjelman suoritus voi edetä.
+
+Alla olevassa metodissa on kaksi vaihtoehtoista suorituspolkua. Mikäli metodille annetaan parametrina luku, joka on pienempi kuin kymmenen, palauttaa metodi merkkijonon "alle kymmenen". Toisaalta, mikäli metodille annetaan parametrina luku, joka on kymmenen tai suurempi, metodi palauttaa merkkijonon "kymmenen tai yli".
+
+
+```java
+public class Esimerkki {
+    public static String testattava(int luku) {
+        if (luku < 10) {
+            return "alle kymmenen";
+        } else {
+            return "kymmenen tai yli";
+        }
+    }
+}
+```
+
+Alla olevan testiluokan kattavuus ei ole kovin hyvä. Alla tarkastellaan vain toista edellisen esimerkin suorituspoluista.
+
+```java
+public class EsimerkkiTest {
+
+    @Test
+    public void testaaAlleKymmenen() {
+        assertEquals("alle kymmenen", Esimerkki.testattava(1));
+    }
+}
+```
+
+Parempi vaihtoehto olisi testata kumpikin suorituspolku, eli tilanteet missä metodi saa parametriksi luvun, jonka arvo on pienempi kuin 10, sekä luvun, jonka arvo on yli 10. Alla olevassa testiluokassa testikattavuus on hyvä.
+
+```java
+public class EsimerkkiTest {
+
+    @Test
+    public void testaaAlleKymmenen() {
+        assertEquals("alle kymmenen", Esimerkki.testattava(1));
+    }
+
+    @Test
+    public void testaaYliKymmenen() {
+        assertEquals("kymmenen tai yli", Esimerkki.testattava(100));
+    }
+}
+```
+
+Kun tarkastelemme testejä, eivät niiden syötteet ole kuitenkaan ideaalit. Mikäli ohjelmassa on tietyn rajan tai arvon olemassaoloa tarkasteleva ehto (yllä esimerkissä raja on 10), kannattaa testissa tarkastella ehdon toimivuutta juuri rajalla. Tapauksessamme raja on 10, ja testien pitäisi käsitellä ainakin syötteitä 9 ja 10. Tällaisia raja-arvoja kutsutaan "corner caseiksi", eli kohdiksi, joissa ohjelman toiminnallisuuden pitäisi muuttua. Alla olevassa testiesimerkissä käsitellään juurikin ohjelman corner caset.
+
+
+```java
+public class EsimerkkiTest {
+
+    @Test
+    public void testaaAlleKymmenen() {
+        assertEquals("alle kymmenen", Esimerkki.testattava(9));
+    }
+
+    @Test
+    public void testaaAlleKymmenen() {
+        assertEquals("kymmenen tai yli", Esimerkki.testattava(10));
+    }
+}
+```
+
+<programming-exercise name='Testausta' tmcname='osa14-Osa14_06.Testausta' nocoins="1">
+
+Tässä tehtävässä harjoittelet ohjelman kirjoittamista sekä sen testaamista.
+
+Erään alakoulun luokka 4B keräsi viikon ajan pulloja leirikoulun rahoittamista varten. Kirjoita ohjelma, jolla voidaan luoda tilastoja kerätyistä pulloista, sekä ohjelmalle testit. Ohjelma tulee toteuttaa tehtäväpohjan luokan `Ohjelma` metodiin `public static String suorita(Scanner lukija)`. Testit tulee toteuttaa tehtäväpohjan luokkaan `OhjelmaTest`.
+
+Ohjelmalle syötetään ensin kunkin oppilaan keräämien pullojen lukumäärät, jotka on erotettu rivinvaihdoilla. Pullojen lukumäärien syöttämisen lopettaminen ilmoitetaan luvulla -1. Kun pullojen lukumäärät on syötetty, ohjelman tulee selvittää pulloja keränneiden oppilaiden lukumäärä, kerättyjen pullojen lukumäärä, sekä keskimääräinen kerättyjen pullojen lukumäärä. Metodin `suorita` tulee *palauttaa* merkkijono, joka sisältää ohjelman tulostuksen.
+
+Syötteessä saattaa olla negatiivisia lukuja, jotka ovat virhesyötteitä -- näitä ei tule ottaa huomioon.
+
+Alla esimerkkejä ohjelman toiminnasta.
+
+```java
+System.out.println(Ohjelma.suorita(new Scanner("3\n2\n1\n-1\n")));
+```
+
+<sample-output>
+
+Pulloja: 6
+Oppilaita: 3
+Keskiarvo: 2.0
+
+</sample-output>
+
+```java
+System.out.println(Ohjelma.suorita(new Scanner("1\n0\n-55\n-1\n")));
+```
+
+<sample-output>
+
+Pulloja: 1
+Oppilaita: 2
+Keskiarvo: 0.5
+
+</sample-output>
+
+Mikäli kerättyjä pulloja ei ole lainkaan, ilmoita ettei keskiarvoa voi laskea.
+
+```java
+System.out.println(Ohjelma.suorita(new Scanner("-55\n-1\n")));
+```
+
+<sample-output>
+
+Pulloja: 0
+Oppilaita: 0
+Keskiarvoa ei voida laskea
+
+</sample-output>
+
+Huom! Ohjelman toiminnallisuuden lisäksi tehtävässä tulee kirjoittaa ohjelmalle testit. Automaattisia testejä tai mallivastausta tehtävässä ei ole, eli palauta ohjelma kun sekä ohjelma että siihen toteuttamasi testit toimivat kattavasti. Otathan huomioon myös ns corner caset.
+
+</programming-exercise>
+
+
+<quiznator id="5cb968ecc99c4e46a4398e3a"></quiznator>
+
+# Yhteenveto
+
+Materiaalin neljännessätoista osassa eli ohjelmoinnin jatkokurssin viimeisessä osassa tarkasteltiin simulaatioiden luomista kaksiulotteisten taulukoiden avulla. Tämän lisäksi tutustuttiin kolmannen osapuolen kirjastojen käyttöön ja kerrattiin yksikkötestausta.
+
+<text-box variant='hint' name='Mitä seuraavaksi?'>
+
+Tämän kurssin jälkeen on hyvä aloittaa kurssit Tietokantojen perusteet sekä Tietorakenteet ja algoritmit. Kurssin tietokantojen perusteet jälkeen kannattaa ottaa kurssi Ohjelmistotekniikka. Muistathan, että kurssin Tietorakenteet ja algoritmit esitietovaatimuksena on kurssi Johdatus yliopistomatematiikkaan.
+
+</text-box>
+
+Vastaa vielä seuraavaan kyselyyn.
+
+<quiznator id="5cb5c003a4fb9e4613a5a85b"></quiznator>

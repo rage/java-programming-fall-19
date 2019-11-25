@@ -1,5 +1,5 @@
 ---
-path: '/part-14/2-maven-ja-kolmannen-osapuolen-kirjastot'
+path: '/osa-14/4-maven-ja-kolmannen-osapuolen-kirjastot'
 title: 'Maven ja kolmannen osapuolen kirjastot'
 hidden: true
 ---
@@ -52,7 +52,7 @@ Osoitteesta [https://mvnrepository.com/](https://mvnrepository.com/) löytyy use
 Tehtäväpohjassa tämä on tehty valmiiksi. Kun kirjastoriippuvuus on lisätty osaksi projektia, ovat sen tarjoamat luokat projektissa käytettävissä. Seuraavassa tehtävässä hyödynnät valmiiksi edellä kuvattua riippuvuutta ja toteutat tietokantaa käyttävän sovelluksen.
 
 
-<programming-exercise name='Tietokanta' tmcname='osa14-Osa14_05.Tietokanta'>
+<programming-exercise name='Tietokanta' tmcname='osa14-Osa14_10.Tietokanta'>
 
 Tehtäväpohjassa tulee sovellus, johon on lisätty riippuvuus H2-nimiseen tietokantaan. Sovelluksessa on seuraavat neljä luokkaa:
 

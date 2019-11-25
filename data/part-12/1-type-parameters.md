@@ -1,6 +1,11 @@
 ---
+<<<<<<< HEAD:data/part-12/1-generic-type-parameters.md
 path: '/part-12/1-generic-type-parameters'
 title: 'Generic type parameters'
+=======
+path: '/part-12/1-type-parameters'
+title: 'Type parameters'
+>>>>>>> master:data/part-12/1-type-parameters.md
 hidden: false
 ---
 
