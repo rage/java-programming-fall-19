@@ -14,5 +14,5 @@ Tämän kurssin jälkeen on hyvä aloittaa kurssit Tietokantojen perusteet sekä
 
 Vastaa vielä seuraavaan kyselyyn.
 
-<quiznator id="5cb5c003a4fb9e4613a5a85b"></quiznator>
+<quiz id="f988f84b-e2d3-5f9d-88e9-b141ea560771"></quiz>
 
