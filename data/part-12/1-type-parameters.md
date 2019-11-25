@@ -1,7 +1,7 @@
 ---
-path: '/osa-12/1-geneeriset-tyyppiparametrit'
-title: 'Geneeriset tyyppiparametrit'
-hidden: true
+path: '/part-12/1-type-parameters'
+title: 'Type parameters'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

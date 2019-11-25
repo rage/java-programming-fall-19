@@ -1,7 +1,7 @@
 ---
-path: '/osa-12/4-moniulotteinen-tieto'
-title: 'Moniulotteinen tieto'
-hidden: true
+path: '/part-12/4-multidimensional-data'
+title: 'Multidimensional data'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -318,4 +318,4 @@ Kun ajattelemme muistin käyttöä, hajautustaululla voi olla -- tapauksesta rii
 </text-box>
 
 
-TODO: tänne game of life tai schellingin malli?
+<!-- TODO: tänne game of life tai schellingin malli? -->

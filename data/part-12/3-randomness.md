@@ -1,7 +1,7 @@
 ---
-path: '/osa-12/3-satunnaisuus-ohjelmissa'
-title: 'Satunnaisuus ohjelmissa'
-hidden: true
+path: '/part-12/3-randomness'
+title: 'Randomness'
+hidden: false
 ---
 
 
@@ -71,7 +71,7 @@ Montako satunnaislukua tulostetaan?
 
 <sample-output>
 
-How many random rumbers should be printed?
+How many random numbers should be printed?
 **4**
 9
 1

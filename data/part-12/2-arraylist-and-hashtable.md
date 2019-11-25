@@ -1,7 +1,7 @@
 ---
-path: '/osa-12/2-arraylist-ja-hajautustaulu'
-title: 'ArrayList ja Hajautustaulu'
-hidden: true
+path: '/part-12/2-arraylist-and-hashtable'
+title: 'ArrayList and hash table'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
