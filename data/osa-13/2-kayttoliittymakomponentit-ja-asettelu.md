@@ -142,7 +142,7 @@ You can find a list of available interface component from [https://docs.oracle.c
 <!-- Käyttöliittymäkomponentteja on huomattava määrä. Niiden opiskeluun kannattaa käyttää verkossa olevia valmiita oppaita kuten edellä mainittua verkkosivua. Käyttöliittymäkomponentteja kannattaa kokeilla aluksi erikseen siten, että kokeilee yhden komponentin lisäämistä ja tarkastelee sen toimintaa. -->
 There are a considerable amount of different interface components. Online materials, like the site linked above, are a good way to learn about them. In the beginning it is good to try them out one at a time to learn how they work.
 
-<quiznator id='c17f53ef-9476-50c5-a046-057d9ee3f4c8'></quiznator>
+<quiz id='c17f53ef-9476-50c5-a046-057d9ee3f4c8'></quiz>
 
 <!-- Kun yksittäiset komponentit tulevat tutuksi, on niiden käyttäminen suoraviivaisempaa. Lähes kaikille komponenteille yhteistä on se, miten ne lisätään sovellukseen. Kun osaat lisätä yhden komponentin käyttöliittymään, osaat lisätä käytännössä lähes kaikki komponentit käyttöliittymään. -->
 When you get more familiar with different components, using them becomes easier. Common between almost all of the components is how they can be added to an interface - when you know how to add one, you can add almost any component to your interface.
