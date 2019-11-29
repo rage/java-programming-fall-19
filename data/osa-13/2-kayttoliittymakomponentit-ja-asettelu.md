@@ -217,9 +217,12 @@ public class JavaFxSovellus extends Application {
 <img src="../img/material/gui-borderpane.png" alt="BorderPane-asettelua käyttävä käyttöliittymä, jossa jokaiseen pääkohtaan on asetettu textComponent."/>
 
 
-<programming-exercise name='BorderPane' tmcname='osa13-Osa13_04.BorderPane'>
+<!-- <programming-exercise name='BorderPane' tmcname='osa13-Osa13_04.BorderPane'> -->
+<programming-exercise name='BorderPane' tmcname='part13-Part13_04.BorderPane'>
 
-Luo tehtäväpohjassa olevaan luokkaan graafinen käyttöliittymä, joka käyttää BorderPane-luokkaa käyttöliittymäkomponenttien asetteluun. Lisää ylälaitaan textComponent, jossa on teksti "NORTH", oikeaan laitaan textComponent, jossa on teksti "EAST", ja alalaitaan textComponent, jossa on teksti "SOUTH".
+<!-- Luo tehtäväpohjassa olevaan luokkaan graafinen käyttöliittymä, joka käyttää BorderPane-luokkaa käyttöliittymäkomponenttien asetteluun. Lisää ylälaitaan textComponent, jossa on teksti "NORTH", oikeaan laitaan textComponent, jossa on teksti "EAST", ja alalaitaan textComponent, jossa on teksti "SOUTH". -->
+
+Create a graphical user interface in the class provided in the exercise template. It should use the BorderPane class for laying out the components of the user interface. Add a textComponent at the top edge of the window containing the text "NORTH", a textComponent along the right edge containing the text "EAST", and a textComponent at the bottom edge containing the text "SOUTH".
 
 </programming-exercise>
 
@@ -360,9 +363,11 @@ public class JavaFxSovellus extends Application {
 <img src="../img/material/gui-useampi.png" alt="Samassa käyttöliittymässä käytetty useampaa asettelijaa. BorderPane luo rungon, ylälaidassa on HBox ja vasemmassa laidassa VBox. Keskellä olevaan tekstilaatikkoon on kirjoitettu tekstiä."/>
 
 
-<programming-exercise name='Tekstitilastointia' tmcname='osa13-Osa13_05.Tekstitilastointia'>
+<!-- <programming-exercise name='Tekstitilastointia' tmcname='osa13-Osa13_05.Tekstitilastointia'> -->
+<programming-exercise name='Text statistics' tmcname='part13-Part13_05.TextStatistics'>
 
-Luo tehtäväpohjassa olevaan luokkaan sovellus, joka käyttää BorderPane-luokkaa asetteluun. Keskellä tulee olla TextArea-luokasta luotu tekstikenttä, ja alalaidassa kolme textComponenta. Aseta alalaidan tekstikomponentit HBox-olion sisään. Ensimmäisessä tekstikomponentissa tulee olla teksti "Kirjaimia: 0". Toisessa tekstikomponentissa tulee olla teksti "Sanoja: 0". Kolmannessa tekstikomponentissa tulee olla teksti "Pisin sana on:".
+<!-- Luo tehtäväpohjassa olevaan luokkaan sovellus, joka käyttää BorderPane-luokkaa asetteluun. Keskellä tulee olla TextArea-luokasta luotu tekstikenttä, ja alalaidassa kolme textComponenta. Aseta alalaidan tekstikomponentit HBox-olion sisään. Ensimmäisessä tekstikomponentissa tulee olla teksti "Kirjaimia: 0". Toisessa tekstikomponentissa tulee olla teksti "Sanoja: 0". Kolmannessa tekstikomponentissa tulee olla teksti "Pisin sana on:". -->
 
+Create an applicaton in the class provided in the exercise template. Use the BorderPane class for the layout. In the center there should be a text field created using the TextArea class, and along the bottom edge there should be three textComponents. Place the text components along the bottom edge into a HBox object.The first text component should have the text "Letters: 0", the second text component should have the text "Words: 0", and the third text component should have the text "The longest word is:".
 
 </programming-exercise>
