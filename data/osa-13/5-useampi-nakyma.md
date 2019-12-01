@@ -412,15 +412,23 @@ public class HenkiloSovellus extends Application {
 
 ## Hieman suurempi sovellus: Sanaston harjoittelua
 
-Hahmotellaan vieraiden sanojen harjoitteluun tarkoitettua sovellusta. Sovellus tarjoaa käyttäjälle kaksi toimintoa: sanojen ja niiden käännösten syöttämisen sekä harjoittelun. Luodaan sovellusta varten neljä erillistä luokkaa: ensimmäinen luokka tarjoaa sovelluksen ydinlogiikkatoiminnallisuuden eli sanakirjan ylläpidon, toinen ja kolmas luokka sisältävät syöttönäkymän ja harjoittelunäkymän, ja neljäs luokka sovelluksen päävalikon sekä sovelluksen käynnistämiseen tarvittavan toiminnallisuuden.
+## A slightly larger application: Vocabulary practice
+
+<!-- Hahmotellaan vieraiden sanojen harjoitteluun tarkoitettua sovellusta. Sovellus tarjoaa käyttäjälle kaksi toimintoa: sanojen ja niiden käännösten syöttämisen sekä harjoittelun. Luodaan sovellusta varten neljä erillistä luokkaa: ensimmäinen luokka tarjoaa sovelluksen ydinlogiikkatoiminnallisuuden eli sanakirjan ylläpidon, toinen ja kolmas luokka sisältävät syöttönäkymän ja harjoittelunäkymän, ja neljäs luokka sovelluksen päävalikon sekä sovelluksen käynnistämiseen tarvittavan toiminnallisuuden. -->
+
+Let's outline an application that can be used to practise vocabulary of a foreign language. The application offers two features to the user: entering words and their translations, and practising with the stored words. We'll create four different classes for the application: the first class offers the core logic, i.e. maintaining a dictionary; second and third classes contain the entering view and the practice view; and the fourth class contains the main menu and the functionality required to start the application.
 
 
-### Sanakirja
+<!-- ### Sanakirja -->
 
-Sanakirja toteutetaan hajautustaulun ja listan avulla. Hajautustaulu sisältää sanat ja niiden käännökset, ja listaa käytetään satunnaisesti kysyttävän sanan arpomiseen. Luokalla on metodit käännösten lisäämiseen, käännöksen hakemiseen sekä käännettävän sanan arpomiseen.
+### Dictionary
+
+<!-- Sanakirja toteutetaan hajautustaulun ja listan avulla. Hajautustaulu sisältää sanat ja niiden käännökset, ja listaa käytetään satunnaisesti kysyttävän sanan arpomiseen. Luokalla on metodit käännösten lisäämiseen, käännöksen hakemiseen sekä käännettävän sanan arpomiseen. -->
+
+The dictionary is going to be implemented with the help of a hash map and a list. The hash map contains the words and their translations, and the list is used to randomly choose the word for practice. The class has the necessary methods for adding a translation, for fetching a translation, and for drawing a random word.
 
 
-```java
+<!-- ```java
 package sovellus;
 
 import java.util.ArrayList;
@@ -458,22 +466,70 @@ public class Sanakirja {
         return this.sanat.get(satunnainen.nextInt(this.sanat.size()));
     }
 }
+``` -->
+
+```java
+package application;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
+public class Dictionary {
+
+    private List<String> words;
+    private Map<String, String> translations;
+
+    public Dictionary() {
+        this.words = new ArrayList<>();
+        this.translations = new HashMap<>();
+
+        lisaa("sana", "word");
+    }
+
+    public String get(String word) {
+        return this.translations.get(word);
+    }
+
+    public void add(String word, String translation) {
+        if (!this.translations.containsKey(word)) {
+            this.words.add(word);
+        }
+
+        this.translations.put(word, translations);
+    }
+
+    public String getRandomWord() {
+        Random random = new Random();
+        return this.words.get(random.nextInt(this.words.size()));
+    }
+}
 ```
 
 
-Sanakirjan voisi toteuttaa myös niin, että sanan arpominen loisi aina uduen listan kaannokset-hajautustaulun avaimista. Tällöin sanat-listalle ei olisi erillistä tarvetta. Tämä vaikuttaisi kuitenkin sovelluksen tehokkuuteen (tai, olisi ainakin vaikuttanut ennen vuosituhannen vaihdetta -- nykyään koneet ovat jo hieman nopeampia..).
+<!-- Sanakirjan voisi toteuttaa myös niin, että sanan arpominen loisi aina uduen listan kaannokset-hajautustaulun avaimista. Tällöin sanat-listalle ei olisi erillistä tarvetta. Tämä vaikuttaisi kuitenkin sovelluksen tehokkuuteen (tai, olisi ainakin vaikuttanut ennen vuosituhannen vaihdetta -- nykyään koneet ovat jo hieman nopeampia..). -->
+
+You could also implement the Dictionary so that returning a random word would always generate a new list of words from the keys of the translations hash map. In such a case there would be no need to maintaing a separate list of words. However, this would have an effect on the performance of the program (or it would have had an effect before the turn of the millennium -- computers these days are a tad faster...).
 
 
-### Sanojen syöttäminen
+<!-- ### Sanojen syöttäminen -->
+
+### Entering new words
 
 
-Luodaan seuraavaksi sanojen syöttämiseen tarvittava toiminnallisuus. Sanojen syöttämistä varten tarvitsemme viitteen sanakirja-olioon sekä tekstikentät sanalle ja käännökselle. GridPane-asettelu sopii hyvin kenttien asetteluun. Luodaan luokka Syottonakyma, joka tarjoaa metodin getNakyma, joka luo sanojen syöttämiseen tarvittavan näkymän. Metodi palauttaa viitteen [Parent](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Parent.html)-tyyppiseen olioon. Parent on muunmuassa asetteluun käytettävien luokkien yläluokka, joten mitä tahansa asetteluun käytettävää luokkaa voidaan esittää Parent-oliona.
+<!-- Luodaan seuraavaksi sanojen syöttämiseen tarvittava toiminnallisuus. Sanojen syöttämistä varten tarvitsemme viitteen sanakirja-olioon sekä tekstikentät sanalle ja käännökselle. GridPane-asettelu sopii hyvin kenttien asetteluun. Luodaan luokka Syottonakyma, joka tarjoaa metodin getNakyma, joka luo sanojen syöttämiseen tarvittavan näkymän. Metodi palauttaa viitteen [Parent](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Parent.html)-tyyppiseen olioon. Parent on muunmuassa asetteluun käytettävien luokkien yläluokka, joten mitä tahansa asetteluun käytettävää luokkaa voidaan esittää Parent-oliona. -->
+
+Next we'll shape the functionality that's needed for entering words. In order for us to do that, we're going to need a reference to the dictionary object, and text fields for the word and its translation. The GridPane layout works well for the fields. Let's create a class called InputView. It contains the method getView that creates the view necessary for entering new words. This method should return a reference to a [Parent](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Parent.html) type object. Parent is a superclass to many classes, among them all the classes used for layouts. Therefore any layout class can be represented as a Parent object.
 
 
-Luokka määrittelee myös käyttöliittymään liittyvän napinpainallustoiminnallisuuden. Kun käyttäjä painaa nappia, sanapari lisätään sanakirjaan. Samalla myös tekstikentät tyhjennetään seuraavan sanan syöttämistä varten.
+<!-- Luokka määrittelee myös käyttöliittymään liittyvän napinpainallustoiminnallisuuden. Kun käyttäjä painaa nappia, sanapari lisätään sanakirjaan. Samalla myös tekstikentät tyhjennetään seuraavan sanan syöttämistä varten. -->
+
+The class also defines what happens when a button in the user interface is pressed. When the user clicks the button, the new word is added to the dictionary. The text fields are also cleared so that the next word can be entered.
 
 
-```java
+<!-- ```java
 package sovellus;
 
 import javafx.geometry.Insets;
@@ -526,19 +582,80 @@ public class Syottonakyma {
         return asettelu;
     }
 }
+``` -->
+
+```java
+package applicatoin;
+
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+
+public class InputView {
+
+    private Dictionary dictionary;
+
+    public InputView(Dictionary dictionary) {
+        this.dictionary = dictionary;
+    }
+
+    public Parent getView() {
+        GridPane layout = new GridPane();
+
+        Label wordInstruction = new Label("Word");
+        TextField wordField = new TextField();
+        Label translationInstruction = new Label("Translation");
+        TextField translationField = new TextField();
+
+        layout.setAlignment(Pos.CENTER);
+        layout.setVgap(10);
+        layout.setHgap(10);
+        layout.setPadding(new Insets(10, 10, 10, 10));
+
+        Button addButton = new Button("Add the word pair");
+
+        layout.add(wordInstruction, 0, 0);
+        layout.add(wordField, 0, 1);
+        layout.add(translationInstruction, 0, 2);
+        layout.add(translationField, 0, 3);
+        layout.add(addButton, 0, 4);
+
+        addButton.setOnMouseClicked((event) -> {
+            String word = wordField.getText();
+            String translation = translationField.getText();
+
+            dictionary.add(word, translation);
+
+            wordField.clear();
+            translationField.clear();
+        });
+
+        return layout;
+    }
+}
 ```
 
 
-### Sanaharjoittelu
+<!-- ### Sanaharjoittelu -->
+
+### Vocabulary training
 
 
-Luodaan tämän jälkeen harjoitteluun tarvittava toiminnallisuus. Harjoittelua varten tarvitsemme myös viitteen sanakirja-olioon, jotta voimme hakea harjoiteltavia sanoja sekä tarkastaa käyttäjän syöttämien käännösten oikeellisuuden. Sanakirjan lisäksi tarvitsemme tekstin, jonka avulla kysytään sanaa, sekä tekstikentän, johon käyttäjä voi syöttää käännöksen. Myös tässä GridPane sopii hyvin kenttien asetteluun.
+<!-- Luodaan tämän jälkeen harjoitteluun tarvittava toiminnallisuus. Harjoittelua varten tarvitsemme myös viitteen sanakirja-olioon, jotta voimme hakea harjoiteltavia sanoja sekä tarkastaa käyttäjän syöttämien käännösten oikeellisuuden. Sanakirjan lisäksi tarvitsemme tekstin, jonka avulla kysytään sanaa, sekä tekstikentän, johon käyttäjä voi syöttää käännöksen. Myös tässä GridPane sopii hyvin kenttien asetteluun. -->
+
+Now we shall create the functionality to practise mastery of the stored words. We are going to need a reference to a dictionary object, so that we have a source for the words used for practice and so that we can check whether the translation is correct. In addition to the dictionary, we are going to need a text component that informs the user of which word to translate, and a text field where the translation can be placed. GridPane works well enough to handle the layout of the fields in this case, too.
 
 
-Kullakin hetkellä harjoiteltava sana on luokalla oliomuuttujana. Oliomuuttujaa voi käsitellä ja muuttaa myös tapahtumankäsittelijän yhteyteen määrittelyssä metodissa.
+<!-- Kullakin hetkellä harjoiteltava sana on luokalla oliomuuttujana. Oliomuuttujaa voi käsitellä ja muuttaa myös tapahtumankäsittelijän yhteyteen määrittelyssä metodissa. -->
+
+The translated word at each time is an object variable of the class. The object variable can be used and changed also in the method that is defined in the context of an event handler.
 
 
-```java
+<!-- ```java
 package sovellus;
 
 import javafx.geometry.Insets;
@@ -596,16 +713,79 @@ public class Harjoittelunakyma {
         return asettelu;
     }
 }
+``` -->
+
+```java
+package application;
+
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+
+public class PracticeView {
+
+    private Dictionary dictionary;
+    private String word;
+
+    public PracticeView(Dictionary dictionary) {
+        this.dictionary = dictionary;
+        this.word = dictionary.getRandomWord();
+    }
+
+    public Parent getView() {
+        GridPane layout = new GridPane();
+
+        Label wordInstruction = new Label("Translate the word '" + this.word + "'");
+        TextField translationField = new TextField();
+
+        layout.setAlignment(Pos.CENTER);
+        layout.setVgap(10);
+        layout.setHgap(10);
+        layout.setPadding(new Insets(10, 10, 10, 10));
+
+        Button addButton = new Button("Check");
+
+        Label feedback = new Label("");
+
+        layout.add(wordInstruction, 0, 0);
+        layout.add(translationField, 0, 1);
+        layout.add(addButton, 0, 2);
+        layout.add(feedback, 0, 3);
+
+        addButton.setOnMouseClicked((event) -> {
+            String translation = translationField.getText();
+            if (dictionary.get(word).equals(translation)) {
+                feedback.setText("Correct!");
+            } else {
+                feedback.setText("Incorrect! The translation fo the word '" + word + "' is '" + dictionary.get(word) + "'.");
+                return;
+            }
+
+            this.word = this.dictionary.getRandomWord();
+            wordInstruction.setText("Translate the word '" + this.word + "'");
+            translationField.clear();
+        });
+
+        return layout;
+    }
+}
 ```
 
 
-### Harjoittelusovellus
+<!-- ### Harjoittelusovellus -->
+
+### Practice application
 
 
-Harjoittelusovellus sekä nitoo edellä toteutetut luokat yhteen että tarjoaa sovelluksen valikon. Harjoittelusovelluksen rakenne on seuraava.
+<!-- Harjoittelusovellus sekä nitoo edellä toteutetut luokat yhteen että tarjoaa sovelluksen valikon. Harjoittelusovelluksen rakenne on seuraava. -->
 
+The practice application both unites the previously created classes and offers the main menu of the application. The structure of the practice application is as follows.
 
-```java
+<!-- ```java
 package sovellus;
 
 import javafx.application.Application;
@@ -665,6 +845,71 @@ public class HarjoitteluSovellus extends Application {
 
     public static void main(String[] args) {
         launch(HarjoitteluSovellus.class);
+    }
+}
+``` -->
+
+```java
+package application;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+
+public class PracticeApplication extends Application {
+
+    private Dictionary dictionary;
+
+    @Override
+    public void init() throws Exception {
+        // 1. Create the dictionary that the application uses
+        this.dictionary = new Dictionary();
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        // 2. Create the views ("subviews")
+        PracticeView practiceView = new PracticeView(dictionary);
+        InputView inputView = new InputView(dictionary);
+
+        // 3. Create the higher level layout
+        BorderPane layout = new BorderPane();
+
+        // 3.1. Create the menu for the general layout
+        HBox menu = new HBox();
+        menu.setPadding(new Insets(20, 20, 20, 20));
+        menu.setSpacing(10);
+
+        // 3.2. Create the menu buttons
+        Button enterButton = new Button("Enter new words");
+        Button practiceButton = new Button("Practice");
+
+        // 3.3. Add the buttons to the menu
+        menu.getChildren().addAll(enterButton, practiceButton);
+        layout.setTop(menu);
+
+
+        // 4. Connect the subviews with the buttons. Clicking menu buttons changes the subview.
+        enterButton.setOnAction((event) -> layout.setCenter(inputView.getView()));
+        practiceButton.setOnAction((event) -> layout.setCenter(practiceView.getView()));
+
+        // 5. First show the input view
+        layout.setCenter(inputView.getView());
+
+        // 6. Create the main view and add the high level layout
+        Scene view = new Scene(layout, 400, 300);
+
+        // 7. Show the application
+        stage.setScene(view);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(PracticeApplication.class);
     }
 }
 ```
