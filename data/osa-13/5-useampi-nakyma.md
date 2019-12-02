@@ -179,7 +179,7 @@ In the exercise templare there is a class called GreeterApplication. Create in i
 
 An example of how the program should work:
 
-<img src="../img/material/gui-tervehtija.gif" alt="Tekstikenttään syötetään nimi, jonka jälkeen nappia painetaan. Näkymä vaihtuu toiseksi, jossa lukee 'Tervetuloa nimi!'"/>
+<img src="../img/material/gui-greeter.gif" alt="A name is entered into the text field, and the button is pressed. The view changes, and the text 'Welcome <name>!' appears"/>
 
 </programming-exercise>
 
@@ -926,7 +926,7 @@ public class PracticeApplication extends Application {
 
 <!-- <programming-exercise name='Sanojen harjoittelua' tmcname='osa13-Osa13_12.SanojenHarjoittelu'> -->
 
-<programming-exercise name='Vocabulary practice' tmcname='part13-Part13_12.VocabularyPractice>
+<programming-exercise name='Vocabulary practice' tmcname='part13-Part13_12.VocabularyPractice'>
 
 <!-- Tässä tehtävässä laadit edellä olevaa materiaalia noudattaen sanojen harjoitteluun tarkoitetun sovelluksen. Sovelluksen tulee käynnistyä kun luokan SanaharjoitteluSovellus main-metodi suoritetaan. -->
 
@@ -941,7 +941,7 @@ Follow the previous example and create an application for practising translation
 Let's discuss the user interface in more detail. The button that shows the input view should contain the text "Enter new words". The button that shows the practice view should contain the text "Practice". In the input view, the first text field should have the word in the original language, and the second text field should contain the translation of that word. The button that adds this word and the translation should read "Add the word pair". In the practice view the user is represented with a word in the original language, and their task is to write down the translation. If the answer is correct, the user interface displays the text "Correct!". If the answer is incorrect, the text that is displayed is "Incorrec!". In this case the correct translation is also shown.
 
 
-<img src="../img/material/gui-sanaharjoittelu.gif" />
+<img src="../img/material/gui-vocabulary-practice.gif"/>
 
 
 <!-- Sovelluksessa ei ole automaattisia testejä -- palauta tehtävä kun sovellus toimii tehtävänannossa kuvatulla tavalla. Esimerkkiratkaisuun on hahmoteltu ensiaskeleita myös mahdollisesta tilastotoiminnallisuudesta, joka ei kuitenkaan ole oleellista tehtävän tavoitteiden kannalta. -->
