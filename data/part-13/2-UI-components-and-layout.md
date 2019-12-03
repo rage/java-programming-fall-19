@@ -1,7 +1,7 @@
 ---
-path: '/osa-13/2-kayttoliittymakomponentit-ja-niiden-asettelu'
-title: 'Käyttöliittymäkomponentit ja niiden asettelu'
-hidden: true
+path: '/part-13/2-UI-components-and-layout'
+title: 'UI components and their layout'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -160,9 +160,11 @@ The Label must be either on top or on the left side of the Button.
 </programming-exercise>
 
 
-<programming-exercise name='Nappi ja tekstikenttä' tmcname='osa13-Osa13_03.NappiJaTekstikentta'>
+<programming-exercise name='Button and text field' tmcname='part13-Part13_03.ButtonAndTextField'>
 
-Luo tehtäväpohjassa olevaan luokkaan graafinen käyttöliittymä, jossa on nappi ja tekstikenttä. Tekstikentän saa toteutettua luokalla [TextField](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/TextField.html). Napin tulee olla tekstikentän vasemmalla puolella tai yläpuolella.
+<!-- Luo tehtäväpohjassa olevaan luokkaan graafinen käyttöliittymä, jossa on nappi ja tekstikenttä. Tekstikentän saa toteutettua luokalla [TextField](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/TextField.html). Napin tulee olla tekstikentän vasemmalla puolella tai yläpuolella. -->
+
+Create a graphical user interface in the class that is supplied with the exercise base. It should contain a button and a text field. You can implement the text field with the help of the [TextField](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/TextField.html) class. The button should be placed above or to the left of the text field.
 
 </programming-exercise>
 
