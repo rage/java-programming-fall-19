@@ -4,19 +4,24 @@ title: 'Tapahtumien käsittely'
 hidden: true
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
+<text-box variant='learningObjectives' name='Learning Objectives'>
 
-- Tunnet käsitteen tapahtumankäsittelijä ja osaat käsitellä käyttöliittymän tapahtumia.
+<!-- - Tunnet käsitteen tapahtumankäsittelijä ja osaat käsitellä käyttöliittymän tapahtumia. -->
+- You know the concept of an event handler and are able to handle events of a user interface.
 
 </text-box>
 
 
-Edellä toteuttamamme käyttöliittymät eivät reagoi käyttöliittymässä tehtyihin tapahtumiin. Reagoimattomuus ei johdu käyttöliittymäkomponenteista, vaan siitä että emme ole lisänneet käyttöliittymäkomponentteihin tapahtumien käsittelyyn tarvittavaa toiminnallisuutta.
+<!-- Edellä toteuttamamme käyttöliittymät eivät reagoi käyttöliittymässä tehtyihin tapahtumiin. Reagoimattomuus ei johdu käyttöliittymäkomponenteista, vaan siitä että emme ole lisänneet käyttöliittymäkomponentteihin tapahtumien käsittelyyn tarvittavaa toiminnallisuutta. -->
 
-Nappien painaminen käsitellään [EventHandler](https://docs.oracle.com/javase/8/javafx/api/javafx/event/EventHandler.html)-rajapinnan toteuttavalla luokalla. Tapahtuman tyyppi on tällöin [ActionEvent](https://docs.oracle.com/javase/8/javafx/api/javafx/event/ActionEvent.html). Rajapinnan toteutukseen määritellään *mitä tehdään* silloin, kun käyttäjä painaa nappia.
+Our previous user interfaces do not react to events in the user inteface. The lack of reactiveness is not a cause of the user interface components, but because we have not added any functionality for handling events to the user interface components.
 
+<!-- Nappien painaminen käsitellään [EventHandler](https://docs.oracle.com/javase/8/javafx/api/javafx/event/EventHandler.html)-rajapinnan toteuttavalla luokalla. Tapahtuman tyyppi on tällöin [ActionEvent](https://docs.oracle.com/javase/8/javafx/api/javafx/event/ActionEvent.html). Rajapinnan toteutukseen määritellään *mitä tehdään* silloin, kun käyttäjä painaa nappia. -->
 
-```java
+Button presses are handled using a class that implements the [EventHandler](https://docs.oracle.com/javase/8/javafx/api/javafx/event/EventHandler.html) interface. In this case the type of the event is [ActionEvent](https://docs.oracle.com/javase/8/javafx/api/javafx/event/ActionEvent.html). Inside the implementation of the interface we define *what is done*, when the user presses the button.
+
+<!-- ```java
 Button nappi = new Button("Tämä on nappi");
 nappi.setOnAction(new EventHandler<ActionEvent>() {
     @Override
@@ -24,28 +29,49 @@ nappi.setOnAction(new EventHandler<ActionEvent>() {
         System.out.println("Painettu!");
     }
 });
-```
-
-Rajapinnan eksplisiittisen toteutuksen voi korvata halutessaan Lambda-lausekkeella.
-
+``` -->
 
 ```java
+Button button = new Button("This is a button");
+button.setOnAction(new EventHandler<ActionEvent>() {
+    @Override
+    public void handle(ActionEvent event) {
+        System.out.println("Pressed!");
+    }
+});
+```
+
+<!-- Rajapinnan eksplisiittisen toteutuksen voi korvata halutessaan Lambda-lausekkeella. -->
+If desired, the explicit implementation of the interface can be replaced by a Lambda expression.
+
+
+<!-- ```java
 Button nappi = new Button("Tämä on nappi");
 nappi.setOnAction((event) -> {
     System.out.println("Painettu!");
 });
-```
-
-Kun edellä olevaa nappi painetaan, konsoliin tulostetaan teksti "Painettu!".
-
-
-Käyttöliittymäkomponentteihin liitetyt **tapahtumankäsittelijät** kuten edellä käytetty EventHandler liittyvät aina tiettyihin käyttöliittymäkomponentteihin. Aina kun käyttöliittymäkomponentille tehdään toiminto, esimerkiksi napille napin painaminen, jokaista kyseiseen käyttöliittymäkomponenttiin liitettyä tapahtumankäsittelijää kutsutaan, ja niihin liittyvä ohjelmakoodi suoritetaan.
-
-
-Haluamme usein että tapahtumankäsittelijä muokkaa jonkin olion tilaa. Päästäksemme olioon käsiksi, tulee tapahtumankäsittelijällä olla viite käsiteltävään olioon. Pohditaan seuraavaa käyttöliittymää jossa on kaksi tekstikenttää sekä nappi.
-
+``` -->
 
 ```java
+Button button = new Button("This is a button");
+button.setOnAction((event) -> {
+    System.out.println("Pressed!");
+});
+```
+
+<!-- Kun edellä olevaa nappi painetaan, konsoliin tulostetaan teksti "Painettu!". -->
+When the button is pressed, the program prints the text "Pressed!" to the console.
+
+
+<!-- Käyttöliittymäkomponentteihin liitetyt **tapahtumankäsittelijät** kuten edellä käytetty EventHandler liittyvät aina tiettyihin käyttöliittymäkomponentteihin. Aina kun käyttöliittymäkomponentille tehdään toiminto, esimerkiksi napille napin painaminen, jokaista kyseiseen käyttöliittymäkomponenttiin liitettyä tapahtumankäsittelijää kutsutaan, ja niihin liittyvä ohjelmakoodi suoritetaan. -->
+
+**Event handlers** attached to user interface components, like previously used EventHandler are always related to specific user interface components. Whenever a action is performed on a user interface component, e.g. pressing a button, each of the event handlers attached to that component is called and the functionality defined for them is executed.
+
+<!-- Haluamme usein että tapahtumankäsittelijä muokkaa jonkin olion tilaa. Päästäksemme olioon käsiksi, tulee tapahtumankäsittelijällä olla viite käsiteltävään olioon. Pohditaan seuraavaa käyttöliittymää jossa on kaksi tekstikenttää sekä nappi. -->
+
+Often we want an event handler to change the state of some object. To access that object the event handler needs a reference to that object. Let's ponder on the following user interface which has two text fields and a button.
+
+<!-- ```java
 @Override
 public void start(Stage ikkuna) {
     TextField vasenTeksti = new TextField();
@@ -61,17 +87,39 @@ public void start(Stage ikkuna) {
     ikkuna.setScene(nakyma);
     ikkuna.show();
 }
-```
-
-Käyttöliittymän vasemmassa ja oikeassa laidassa on tekstikenttä. Tekstikenttien lisäksi käyttöliittymän keskellä on nappi, jossa on teksti "Kopioi".
-
-<img src="../img/material/gui-kopioija.png" alt="Kaksi tekstikenttää sekä nappi, jossa on teksti 'Kopioi'."/>
-
-
-Haluamme ohjelman, jossa vasemman tekstikentän sisältö kopioituu oikean kentän sisällöksi kun käyttäjä painaa nappia. Tämä onnistuu EventHandler-rajapinnan toteuttavan olion avulla.
-
+``` -->
 
 ```java
+@Override
+public void start(Stage window) {
+    TextField leftText = new TextField();
+    TextField rightText = new TextField();
+    Button button = new Button("Copy");
+
+    HBox componentGroup = new HBox();
+    componentGroup.setSpacing(20);
+    componentGroup.getChildren().addAll(leftText, button, rightText);
+
+    Scene viewport = new Scene(componentGroup);
+
+    window.setScene(viewport);
+    window.show();
+}
+```
+
+<!-- Käyttöliittymän vasemmassa ja oikeassa laidassa on tekstikenttä. Tekstikenttien lisäksi käyttöliittymän keskellä on nappi, jossa on teksti "Kopioi". -->
+
+On the left and right hand side of the user interface there is a text field. In addition to the text fields there is a button in the middle with the text "Copy".
+
+<!-- <img src="../img/material/gui-kopioija.png" alt="Kaksi tekstikenttää sekä nappi, jossa on teksti 'Kopioi'."/> -->
+<img src="../img/material/gui-kopioija.png" alt="Two text fields and a button with the text 'Copy'."/>
+
+
+<!-- Haluamme ohjelman, jossa vasemman tekstikentän sisältö kopioituu oikean kentän sisällöksi kun käyttäjä painaa nappia. Tämä onnistuu EventHandler-rajapinnan toteuttavan olion avulla. -->
+
+We want an application where the content of the left text field is copied as the content of the right text field when the user presses the button. This is achieved using an object implementing the EventHandler interface.
+
+<!-- ```java
 @Override
 public void start(Stage ikkuna) {
     TextField vasenTeksti = new TextField();
@@ -91,17 +139,42 @@ public void start(Stage ikkuna) {
     ikkuna.setScene(nakyma);
     ikkuna.show();
 }
+``` -->
+
+```java
+@Override
+public void start(Stage window) {
+    TextField leftText = new TextField();
+    TextField rightText = new TextField();
+    Button button = new Button("Kopioi");
+
+    button.setOnAction((event) -> {
+        rightText.setText(leftText.getText());
+    });
+
+    HBox componentGroup = new HBox();
+    componentGroup.setSpacing(20);
+    componentGroup.getChildren().addAll(leftText, button, rightText);
+
+    Scene viewport = new Scene(componentGroup);
+
+    window.setScene(viewport);
+    window.show();
+}
 ```
 
 
-Nyt nappia painettaessa vasemman tekstikentän sisältö kopioituu oikealla olevaan tekstikenttään.
+<!-- Nyt nappia painettaessa vasemman tekstikentän sisältö kopioituu oikealla olevaan tekstikenttään. -->
+
+Now pressing the button results in the content of the left text field being copied to the text field on the right.
+
+<!-- <img src="../img/material/gui-kopioija-2.png" alt="Kaksi tekstikenttää sekä nappi, jossa on teksti 'Kopioi'."/> -->
+<img src="../img/material/gui-kopioija-2.png" alt="Two text fields and a button with the text 'Copy'."/>
 
 
-<img src="../img/material/gui-kopioija-2.png" alt="Kaksi tekstikenttää sekä nappi, jossa on teksti 'Kopioi'."/>
+<!-- Huom! Toteutettava metodi pystyy käyttämään metodin edellä määriteltyjä olioita, mikäli käytettävien olioiden arvoa ei aseteta ohjelmassa uudestaan yhtäsuuruusmerkillä (eli viitteet eivät muutu). -->
 
-
-Huom! Toteutettava metodi pystyy käyttämään metodin edellä määriteltyjä olioita, mikäli käytettävien olioiden arvoa ei aseteta ohjelmassa uudestaan yhtäsuuruusmerkillä (eli viitteet eivät muutu).
-
+NB! The defined method can use objects defined before the method definition, as long as the values of the objects being used are not reassigned using the equals operator, i.e. the references do not change.
 
 <!-- <programming-exercise name='Ilmoitin' tmcname='osa13-Osa13_06.Ilmoitin'> -->
 <programming-exercise name='Notifier' tmcname='part13-Part13_06.Notifier'>
@@ -126,7 +199,7 @@ Then add functionality to the application, where pressing the button leads to th
 
 <!-- Käytettävä tapahtumankäsittelijä riippuu käyttöliittymäkomponentista, johon tapahtumankäsittelijä kytketään. Jos haluaisimme seurata tekstikenttään tapahtuvia muutoksia merkki merkiltä, käyttäisimme rajapintaa [ChangeListener](https://docs.oracle.com/javafx/2/api/javafx/beans/value/ChangeListener.html).  Alla olevassa esimerkissä vasempaan tekstikenttään on kytketty rajapinnan ChangeListener toteuttava olio, joka sekä tulostaa muutokset tekstikonsoliin että asettaa aina uuden arvon oikealla olevaan tekstikenttään. -->
 
-The eventhandler being used depends on what kind of user interface component we attach it to. If we want to listen to changes made to a text field character by character, then we would use the iterface [ChangeListener](https://docs.oracle.com/javafx/2/api/javafx/beans/value/ChangeListener.html). In the example below we have attached an object implementing the ChangeListener interface to text field on the left. This object prints the changes in the text field to the console as well as sets the new value into the text field on the right.
+The eventhandler being used depends on what kind of user interface component we attach it to. If we want to listen to changes made to a text field character by character, then we would use the interface [ChangeListener](https://docs.oracle.com/javafx/2/api/javafx/beans/value/ChangeListener.html). In the example below we have attached an object implementing the ChangeListener interface to text field on the left. This object prints the changes in the text field to the console as well as sets the new value into the text field on the right.
 
 <!-- ```java
 vasenTeksti.textProperty().addListener(new ChangeListener<String>() {
