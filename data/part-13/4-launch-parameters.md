@@ -1,7 +1,7 @@
 ---
-path: '/osa-13/4-kaynnistysparametreja-sovellukselle'
-title: 'Käynnistysparametreja sovellukselle'
-hidden: true
+path: '/part-13/4-launch-parameters'
+title: 'Application's launch parameters'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

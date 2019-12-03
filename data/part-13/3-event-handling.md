@@ -1,7 +1,7 @@
 ---
-path: '/osa-13/3-tapahtumien-kasittely'
-title: 'Tapahtumien käsittely'
-hidden: true
+path: '/part-13/3-event-handling'
+title: 'Event handling'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

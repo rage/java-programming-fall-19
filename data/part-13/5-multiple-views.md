@@ -1,7 +1,7 @@
 ---
-path: '/osa-13/5-useampi-nakyma'
-title: 'Useampi näkymä'
-hidden: true
+path: '/part-13/5-multiple-views'
+title: 'Multiple views'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -62,7 +62,7 @@ Edellä olevan sovelluksen käynnistäminen luo käyttöliittymän, jossa siirty
 
 <!-- <programming-exercise name='Useampi Näkymä' tmcname='osa13-Osa13_09.UseampiNakyma'> -->
 
-<programming-exercise name='Multiple views' tmcname='part13-Part13-09.MultipleViews'>
+<programming-exercise name='Multiple views' tmcname='part13-Part13_09.MultipleViews'>
 
 <!-- Luo tehtäväpohjassa olevaan luokkaan UseampiNakyma sovellus, joka sisältää kolme erillistä näkymää. Näkymät ovat seuraavat: -->
 
