@@ -124,10 +124,11 @@ Then add functionality to the application, where pressing the button leads to th
 </programming-exercise>
 
 
-Käytettävä tapahtumankäsittelijä riippuu käyttöliittymäkomponentista, johon tapahtumankäsittelijä kytketään. Jos haluaisimme seurata tekstikenttään tapahtuvia muutoksia merkki merkiltä, käyttäisimme rajapintaa [ChangeListener](https://docs.oracle.com/javafx/2/api/javafx/beans/value/ChangeListener.html).  Alla olevassa esimerkissä vasempaan tekstikenttään on kytketty rajapinnan ChangeListener toteuttava olio, joka sekä tulostaa muutokset tekstikonsoliin että asettaa aina uuden arvon oikealla olevaan tekstikenttään.
+<!-- Käytettävä tapahtumankäsittelijä riippuu käyttöliittymäkomponentista, johon tapahtumankäsittelijä kytketään. Jos haluaisimme seurata tekstikenttään tapahtuvia muutoksia merkki merkiltä, käyttäisimme rajapintaa [ChangeListener](https://docs.oracle.com/javafx/2/api/javafx/beans/value/ChangeListener.html).  Alla olevassa esimerkissä vasempaan tekstikenttään on kytketty rajapinnan ChangeListener toteuttava olio, joka sekä tulostaa muutokset tekstikonsoliin että asettaa aina uuden arvon oikealla olevaan tekstikenttään. -->
 
+The eventhandler being used depends on what kind of user interface component we attach it to. If we want to listen to changes made to a text field character by character, then we would use the iterface [ChangeListener](https://docs.oracle.com/javafx/2/api/javafx/beans/value/ChangeListener.html). In the example below we have attached an object implementing the ChangeListener interface to text field on the left. This object prints the changes in the text field to the console as well as sets the new value into the text field on the right.
 
-```java
+<!-- ```java
 vasenTeksti.textProperty().addListener(new ChangeListener<String>() {
     @Override
     public void changed(ObservableValue<? extends String> muutos,
@@ -137,24 +138,46 @@ vasenTeksti.textProperty().addListener(new ChangeListener<String>() {
         oikeaTeksti.setText(uusiArvo);
     }
 });
-```
-
-
-Edellä muutoksia havainnoidaan tekstikenttään liittyvästä tekstistä. Koska teksti on merkkijonomuotoista, on muutoksia käsittelevälle rajapinnalle annettu tyypiksi merkkijono. Kuten edellä, myös tässäkin esimerkissä ohjelmakoodi voidaan esittää lyhyemmässä muodossa.
-
+``` -->
 
 ```java
-vasenTeksti.textProperty().addListener((muutos, vanhaArvo, uusiArvo) -> {
-    System.out.println(vanhaArvo + " -> " + uusiArvo);
-    oikeaTeksti.setText(uusiArvo);
+leftText.textProperty().addListener(new ChangeListener<String>() {
+    @Override
+    public void changed(ObservableValue<? extends String> change,
+            String oldValue, String newValue) {
+
+        System.out.println(oldValue + " -> " + newValue);
+        oikeaTeksti.setText(newValue);
+    }
 });
 ```
 
 
-Ohjelma voi tehdä myös tilastointia. Edellisessä tehtävässä luotujen tekstikenttien arvot saa laskettua melko suoraviivaisesti. Alla olevaa esimerkkiä noudattaen arvot päivittyisivät aina kun käyttäjä muuttaa tekstikentän sisältöä.
+<!-- Edellä muutoksia havainnoidaan tekstikenttään liittyvästä tekstistä. Koska teksti on merkkijonomuotoista, on muutoksia käsittelevälle rajapinnalle annettu tyypiksi merkkijono. Kuten edellä, myös tässäkin esimerkissä ohjelmakoodi voidaan esittää lyhyemmässä muodossa. -->
 
+In the previous example the changes being observed are in the text of the text field. Beacause text is in string format we have provided string as the type for the handler interface. As before, we can also express this code in a more compact form.
+
+
+<!-- ```java
+vasenTeksti.textProperty().addListener((muutos, vanhaArvo, uusiArvo) -> {
+    System.out.println(vanhaArvo + " -> " + uusiArvo);
+    rightText.setText(uusiArvo);
+});
+``` -->
 
 ```java
+leftText.textProperty().addListener((change, oldValue, newValue) -> {
+    System.out.println(oldValue + " -> " + newValue);
+    rightText.setText(newValue);
+});
+```
+
+
+<!-- Ohjelma voi tehdä myös tilastointia. Edellisessä tehtävässä luotujen tekstikenttien arvot saa laskettua melko suoraviivaisesti. Alla olevaa esimerkkiä noudattaen arvot päivittyisivät aina kun käyttäjä muuttaa tekstikentän sisältöä. -->
+
+The program can also do statistics. Calculating the values for the text fields in the previous exercise is quite straightforward. Following the example below, the values would be updated every time the user changes the content of the text field.
+
+<!-- ```java
 vasenTeksti.textProperty().addListener((muutos, vanhaArvo, uusiArvo) -> {
     int merkkeja = uusiArvo.length();
     String[] palat = uusiArvo.split(" ");
@@ -165,6 +188,20 @@ vasenTeksti.textProperty().addListener((muutos, vanhaArvo, uusiArvo) -> {
         .get();
 
     // asetetaan arvot tekstielementteihin
+});
+``` -->
+
+```java
+leftText.textProperty().addListener((change, oldValue, newValue) -> {
+    int characters = newValue.length();
+    String[] parts = newValue.split(" ");
+    int words = parts.length;
+    String longest = Arrays.stream(parts)
+        .sorted((s1, s2) -> s2.length() - s1.length())
+        .findFirst()
+        .get();
+
+    // set values of text elements
 });
 ```
 
@@ -178,6 +215,7 @@ vasenTeksti.textProperty().addListener((muutos, vanhaArvo, uusiArvo) -> {
 Copy the work you did in the Text statistics exercise into the class included in the exercise template and add to it the functionality from the example above for calculating the statistics. The end result should an application that calculates statistics based on text that is input, which are updated automatically and displayed in the application.
 
 
-<img src="../img/material/part13.3-gui-stats.gif" alt="Esimerkki tekstitilastointiin tarkoitetun ohjelman toiminnasta."/>
+<!-- <img src="../img/material/part13.3-gui-stats.gif" alt="Esimerkki tekstitilastointiin tarkoitetun ohjelman toiminnasta."/> -->
+<img src="../img/material/part13.3-gui-stats.gif" alt="A example of the functionality of an application made for text statistics."/>
 
 </programming-exercise>
