@@ -14,21 +14,21 @@ hidden: false
 - Ymmärrät että luokka määrää olion muuttujat ja metodit, ja tiedät että oliomuuttujien arvot ovat oliokohtaisia.
 - Osaat luoda luokkia ja olioita ja osaat käyttää olioita osana ohjelmia. -->
 
-- You're familiar with the concepts class, object, constructor, object methods, and object variables.
+- You're familiar with the concepts of class, object, constructor, object methods, and object variables.
 
 - You understand that a class defines an object's methods and that the values of instance variables are object-specific.
 
-- You know how to create classes and objects, and know how to use objects as parts of a program.asdfasdfsa
+- You know how to create classes and objects, and know how to use objects in your programs.
 
 </text-box>
 
 <!-- Aloitamme nyt matkan olio-ohjelmoinnin pariin. Aluksi keskiössä on käsitteiden ja tiedon kuvaaminen luokkien ja olioiden avulla, jonka jälkeen tutustumme toiminnallisuuden eli metodien lisäämiseen. -->
 
-We'll now begin our journey in the world of object-oriented programming. Our primary focus will initially be on the description of concepts and data through the aid of objects. After that, we'll learn how to add  functionality, i.e., methods to our program.
+We'll now begin our journey in to the world of object-oriented programming. Our focus will initially be on describing concepts and data using objects. After that, we'll learn how to add functionality, i.e., methods to our program.
 
 <!-- Olio-ohjelmoinnissa on kyse ratkaistavassa ongelmassa esiintyvien käsitteiden eristämisestä omiksi kokonaisuuksikseen sekä näiden kokonaisuuksien käyttämistä ongelman ratkaisemisessa. Kun ongelmaan liittyvät käsitteet on tunnistettu, niistä voidaan myös keskustella. Toisin ajatellen, ratkaistavasta ongelmasta muodostetaan abstraktioita, joiden avulla ongelmaa on helpompi käsitellä. -->
 
-Object-oriented programming is concerned with isolating concepts that appear in the problem domain into separate entities and then using those entities to solve a given problem. Once the concepts related to the problem are identified, they can also be discussed. In other words, we form abstractions from the problems and use them to make the problem easier to approach
+Object-oriented programming is concerned with isolating concepts that appear in the problem domain into separate entities and then using those entities to solve a given problem. Once the concepts related to the problem are identified, they can also be discussed. In other words, we form abstractions from problems and use those abstractions to make the problem easier to approach.
 
 <!-- Kun ongelmasta tunnistetaan käsitteitä, voidaan niitä vastaavia rakenteita luoda myös ohjelmaan. Näitä rakenteita ja niistä luotavia yksittäisiä ilmentymiä eli olioita käytetään ongelman ratkaisemisessa. Nyt ehkä käsittämättömältä tuntuva lausahdus **ohjelma rakennetaan pienistä selkeistä yhteistoiminnassa olevista olioista** alkaa hiljalleen kurssin edetessä tuntua järkeenkäyvältä ja jopa itsestäänselvältä. -->
 
