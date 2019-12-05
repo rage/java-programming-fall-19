@@ -378,7 +378,7 @@ public void start(Stage stage) {
     vihrData.getData().add(new XYChart.Data(2008, 8.9));
 
     // add the data set to the line chart
-    viivakaavio.getData().add(vihrData);
+    lineChart.getData().add(vihrData);
 
     // display the line chart
     Scene view = new Scene(lineChart, 640, 480);
@@ -391,7 +391,7 @@ public void start(Stage stage) {
 
 The program should look like this when started.
 
-<img src="../img/material/kaavio-kannatus-rkp-ja-vihr.png"/>
+<img src="../img/material/chart-support-rkp-and-vihr.png"/>
 
 
 <!-- Edellä jokainen kaavion piste lisättiin ohjelmakoodiin manuaalisesti -- olemme ohjelmoijia, joten tämä tuntuu hieman hölmöltä. Ratkaisu on tiedon lukeminen sopivaan tietorakenteeseen, jota seuraa tietorakenteen läpikäynti ja tiedon lisääminen kaavioon. Sopiva tietorakenne on esimerkiksi puolueiden nimiä avaimena käyttävä hajautustaulu, jonka arvona on hajautustaulu -- tämä hajautustaulu sisältää numeropareja, jotka kuvaavat vuotta ja kannatusta. Nyt datan lisääminen kaavioon on suoraviivaisempaa. -->
@@ -473,7 +473,7 @@ You will find the class `ShangaiApplication` in the exercise base. Create in it 
 
 The result drawn by the application could like the following example:
 
-<img src="../img/shanghai.png" />
+<img src="../img/shanghai.png"/>
 
 </programming-exercise>
 
@@ -534,7 +534,7 @@ To create a floating point number of a string that contains a floating point num
 
 The visualization created by the application should look something like this:
 
-<img src="../img/material/kaavio-suhteellinen-kannatus.png" />
+<img src="../img/material/chart-relative-support.png" />
 
 &nbsp;
 
