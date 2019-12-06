@@ -596,28 +596,44 @@ Kuvassa huomaamme ns. "korkoa korolle"-efektin, joskin hyvin optimistiselle koro
 </programming-exercise>
 
 
-### Pylväskaaviot
+<!-- ### Pylväskaaviot -->
 
-Pylväskaavioita käytetään kategorisen datan visualisointiin. Tieto kuvataan pylväinä, missä jokainen pylväs kuvaa tiettyä kategoriaa, ja pylvään korkeus (tai pituus) kategoriaan liittyvää arvoa. Pylväskaavioilla kuvattavasta datasta esimerkkejä ovat esimerkiksi maiden asukasluvut tai kauppojen tai tuotteiden markkinaosuudet.
+### Bar charts
 
-Tarkastellaan pylväskaavion käyttöä pohjoismaiden asukaslukujen visualisointiin. Käytetty data on Wikipedian pohjoismaita kuvaavasta artikkelista osoitteesta [https://fi.wikipedia.org/wiki/Pohjoismaat](https://fi.wikipedia.org/wiki/Pohjoismaat) (noudettu 10.4.2017, asukasluvut ovat vuoden 2015 arvioita).
+<!-- Pylväskaavioita käytetään kategorisen datan visualisointiin. Tieto kuvataan pylväinä, missä jokainen pylväs kuvaa tiettyä kategoriaa, ja pylvään korkeus (tai pituus) kategoriaan liittyvää arvoa. Pylväskaavioilla kuvattavasta datasta esimerkkejä ovat esimerkiksi maiden asukasluvut tai kauppojen tai tuotteiden markkinaosuudet. -->
+
+Bar charts can be used to visualize categorical data. The data is represented as bars --  each bar represents a certain category, and its height (or length) represents the value associated with the category. Examples of data that could well be illustrated with bar charts are populations of countries, or market shares of stores or products.
+
+<!-- Tarkastellaan pylväskaavion käyttöä pohjoismaiden asukaslukujen visualisointiin. Käytetty data on Wikipedian pohjoismaita kuvaavasta artikkelista osoitteesta [https://fi.wikipedia.org/wiki/Pohjoismaat](https://fi.wikipedia.org/wiki/Pohjoismaat) (noudettu 10.4.2017, asukasluvut ovat vuoden 2015 arvioita). -->
+
+Let's take a look at using a bar chart to visualize the population counts of the Nordic countries. The used data is from [the Wikipedia article on the Nordic countries](https://en.wikipedia.org/wiki/Nordic_countries) (retrieved 6.12.2019, populations are estimates from the year 2018).
 
 <br/>
 
-<pre>
+<!-- <pre>
 Islanti, 329100
 Norja, 5165800
 Ruotsi, 9801616
 Suomi, 5483533
 Tanska, 5678348
+</pre> -->
+
+<pre>
+Iceland, 343518
+Norway, 5372191
+Sweden, 10313447
+Finland, 5537364
+Denmark, 5809502
 </pre>
 
 
-Pylväskaavio luodaan JavaFx:n luokan [BarChart](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/BarChart.html) avulla. Kuten viivakaavion käyttö, myös pylväskaavion käyttö vaatii käytettävien koordinaatistojen määrittelyn sekä tiedon lisäämisen kaavioon. Toisin kuin viivakaavioesimerkissä, tässä käytämme x-akselin määrittelyssä kategorista kategorista [CategoryAxis](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/CategoryAxis.html)-luokkaa. Kun käytössä on CategoryAxis-luokka, kaavion akselin arvojen tyyppi on String, mikä tulee näkyä myös kaavioon lisättävässä datassa.
+<!-- Pylväskaavio luodaan JavaFx:n luokan [BarChart](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/BarChart.html) avulla. Kuten viivakaavion käyttö, myös pylväskaavion käyttö vaatii käytettävien koordinaatistojen määrittelyn sekä tiedon lisäämisen kaavioon. Toisin kuin viivakaavioesimerkissä, tässä käytämme x-akselin määrittelyssä kategorista kategorista [CategoryAxis](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/CategoryAxis.html)-luokkaa. Kun käytössä on CategoryAxis-luokka, kaavion akselin arvojen tyyppi on String, mikä tulee näkyä myös kaavioon lisättävässä datassa. -->
+
+We will use the JavaFx class [BarChart](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/BarChart.html). Like with line charts, using bar charts requires defining the used axes and adding the data into the chart. However, in this case we are going to take advantage of the categorical [CategoryAxis](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/CategoryAxis.html) class when we define the x axis. With the CategoryAxis class, the type of axis values is String, which must be accounted for also in the data that is going to be added to the chart.
 
 <br/>
 
-```java
+<!-- ```java
 @Override
 public void start(Stage ikkuna) {
     CategoryAxis xAkseli = new CategoryAxis();
@@ -639,17 +655,51 @@ public void start(Stage ikkuna) {
     ikkuna.setScene(nakyma);
     ikkuna.show();
 }
+``` -->
+
+<pre>
+Iceland, 343518
+Norway, 5372191
+Sweden, 10313447
+Finland, 5537364
+Denmark, 5809502
+</pre>
+
+```java
+@Override
+public void start(Stage stage) {
+    CategoryAxis xAxis = new CategoryAxis();
+    NumberAxis yAxis = new NumberAxis();
+    BarChart<String, Number> barChart = new BarChart<>(xAxis, yAxis);
+
+    barChart.setTitle("Populations of the Nordic countries");
+    barChart.setLegendVisible(false);
+
+    XYChart.Series populations = new XYChart.Series();
+    populations.getData().add(new XYChart.Data("Sweden", 10313447));
+    populations.getData().add(new XYChart.Data("Denmark", 5809502));
+    populations.getData().add(new XYChart.Data("Finland", 5537364));
+    populations.getData().add(new XYChart.Data("Norway", 5372191));
+    populations.getData().add(new XYChart.Data("Iceland", 343518));
+
+    barChart.getData().add(populations);
+    Scene view = new Scene(barChart, 640, 480);
+    stage.setScene(view);
+    stage.show();
+}
 ```
 
-<quiznator id="798b180b-25c9-5c93-a666-dbe97b15d6fd"></quiznator>
+<quiz id="798b180b-25c9-5c93-a666-dbe97b15d6fd"></quiz>
 
-Edellinen lähdekoodi tuottaa seuraavanlaisen kaavion.
+<!-- Edellinen lähdekoodi tuottaa seuraavanlaisen kaavion. -->
 
+The source code above produces the following chart.
 
-<img src="../img/material/kaavio-pohjoismaiden-asukasluvut.png" />
+<img src="../img/material/chart-nordic-countries-populations.png" />
 
-Kuten huomaat, kun x-akseli on määritelty luokan CategoryAxis avulla, kaavio noudattaa sitä järjestystä, missä kategoriat annetaan sovellukselle. Edellisessä esimerkissä maat on järjestetty asukaslukumäärien mukaan. Kokeile muokata sovellusta siten, että pohjoismaat on järjestetty maan nimen mukaan kaaviossa. Ymmärrät mahdollisesti sovelluksen käynnistettyäsi miksei kyseistä visualisaatiota näytetä tällaisessa järjestyksessä lähes missään...
+<!-- Kuten huomaat, kun x-akseli on määritelty luokan CategoryAxis avulla, kaavio noudattaa sitä järjestystä, missä kategoriat annetaan sovellukselle. Edellisessä esimerkissä maat on järjestetty asukaslukumäärien mukaan. Kokeile muokata sovellusta siten, että pohjoismaat on järjestetty maan nimen mukaan kaaviossa. Ymmärrät mahdollisesti sovelluksen käynnistettyäsi miksei kyseistä visualisaatiota näytetä tällaisessa järjestyksessä lähes missään... -->
 
+As you can see, since the x-axis is defined with the CategoryAxis class, the chart follows the order in which the categories are supplied to the program. In the previous example the countries are ordered by population. Try to modify the program so that the Nordic countries are sorted by their names in the chart. You might understand after starting the application why this order is rarely ever used in visualizations...
 
 
 <programming-exercise name='Epäreilua mainontaa' tmcname='osa14-Osa14_04.EpareiluaMainontaa'>
@@ -668,9 +718,13 @@ Tässä tehtävässä ei ole automaattisia testejä eikä mallivastausta, joten 
 </programming-exercise>
 
 
-<programming-exercise name='Pyöräilijätilastot' tmcname='osa14-Osa14_05.Pyorailijatilastot'>
+<!-- <programming-exercise name='Pyöräilijätilastot' tmcname='osa14-Osa14_05.Pyorailijatilastot'> -->
 
-Tehtäväpohjassa tulee mukana valmis sovellus, jota on käytetty pyöräilijätilastojen näyttöön viivakaaviona. Muokkaa sovellusta siten, että sovellus käyttää viivakaavion sijaan  pylväskaaviota. Kaikki viitteet viivakaavioon tulee poistaa muokkauksen yhteydessä.
+<programming-exercise name='Cycling statistics' tmcname='part14-Part14_05.CyclingStatistic'>
+
+<!-- Tehtäväpohjassa tulee mukana valmis sovellus, jota on käytetty pyöräilijätilastojen näyttöön viivakaaviona. Muokkaa sovellusta siten, että sovellus käyttää viivakaavion sijaan  pylväskaaviota. Kaikki viitteet viivakaavioon tulee poistaa muokkauksen yhteydessä. -->
+
+In the exercise base there is a ready application that illustrates cycling statistics as a line chart. Modify the program so that it uses a bar chart instead of the line chart. All the references to line charts must be removed in the course of the editing.
 
 </programming-exercise>
 
