@@ -322,13 +322,19 @@ public class AudioClipApplication extends Application {
 }
 ```
 
-<programming-exercise name='Hurraa' tmcname='osa14-Osa14_08.Hurraa'>
+<!-- <programming-exercise name='Hurraa' tmcname='osa14-Osa14_08.Hurraa'> -->
 
-Tehtäväpohjan juurikansiossa on tiedosto `Applause-Yannick_Lemieux.wav`, joka sisältää hurrausäänen. Tehtävänäsi on luoda sovellus, missä on "Hurraa"-nappi. Kun käyttäjä painaa nappia, sovelluksen tulee soittaa edellä mainittu äänitiedosto.
+<programming-exercise name='Hurray' tmcname='part14-Part14_08.Hurray'>
+
+<!-- Tehtäväpohjan juurikansiossa on tiedosto `Applause-Yannick_Lemieux.wav`, joka sisältää hurrausäänen. Tehtävänäsi on luoda sovellus, missä on "Hurraa"-nappi. Kun käyttäjä painaa nappia, sovelluksen tulee soittaa edellä mainittu äänitiedosto. -->
+
+In the root folder of the exercise base there is a file called `Applause-Yannick_Lemieux.wav`. The file contains a hurray sound. Your task is to create a program that contains a "Hurray" button. When the user clicks the button, the program should play the audio file included in the project.
 
 <img src="../img/material/hurraa-nappi.png"/>
 
-*Äänitiedosto on Yannick Lemieuxin nauhoittama. Tiedosto on lisensoitu Creative Commonsin Attribuutiolisenssillä [https://creativecommons.org/licenses/by/3.0/](https://creativecommons.org/licenses/by/3.0/).*
+<!-- *Äänitiedosto on Yannick Lemieuxin nauhoittama. Tiedosto on lisensoitu Creative Commonsin Attribuutiolisenssillä [https://creativecommons.org/licenses/by/3.0/](https://creativecommons.org/licenses/by/3.0/).* -->
+
+*The audio file is recorded by Yannick Lemieux. It is licensed with the Creative Commons attribution license [https://creativecommons.org/licenses/by/3.0/](https://creativecommons.org/licenses/by/3.0/).*
 
 
 </programming-exercise>
