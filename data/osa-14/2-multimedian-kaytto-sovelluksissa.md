@@ -328,9 +328,9 @@ public class AudioClipApplication extends Application {
 
 <!-- Tehtäväpohjan juurikansiossa on tiedosto `Applause-Yannick_Lemieux.wav`, joka sisältää hurrausäänen. Tehtävänäsi on luoda sovellus, missä on "Hurraa"-nappi. Kun käyttäjä painaa nappia, sovelluksen tulee soittaa edellä mainittu äänitiedosto. -->
 
-In the root folder of the exercise base there is a file called `Applause-Yannick_Lemieux.wav`. The file contains a hurray sound. Your task is to create a program that contains a "Hurray" button. When the user clicks the button, the program should play the audio file included in the project.
+In the root folder of the exercise base there is a file called `Applause-Yannick_Lemieux.wav`. The file contains a hurray sound. Your task is to create a program that contains a "Hurray!" button. When the user clicks the button, the program should play the audio file included in the project.
 
-<img src="../img/material/hurraa-nappi.png"/>
+<img src="../img/material/hurray-button.png"/>
 
 <!-- *Äänitiedosto on Yannick Lemieuxin nauhoittama. Tiedosto on lisensoitu Creative Commonsin Attribuutiolisenssillä [https://creativecommons.org/licenses/by/3.0/](https://creativecommons.org/licenses/by/3.0/).* -->
 
