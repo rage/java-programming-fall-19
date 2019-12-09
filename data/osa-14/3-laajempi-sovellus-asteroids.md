@@ -1120,9 +1120,11 @@ Sovelluksessamme on nyt sekä alus että asteroidi.
 <!-- ## Aluksen ja asteroidin törmääminen -->
 ## The collision between the ship and an asteroid
 
-Toteutetaan seuraavaksi aluksen ja asteroidin törmäämisen tarkistaminen. Jos alus törmää asterodiin, kutsutaan AnimationTimer-olion metodia `stop`, joka lopettaa animaation.
+<!-- Toteutetaan seuraavaksi aluksen ja asteroidin törmäämisen tarkistaminen. Jos alus törmää asterodiin, kutsutaan AnimationTimer-olion metodia `stop`, joka lopettaa animaation. -->
+Next we will implement collision between a ship and an asteroid. If a ship collides with an asteroid, the `stop` method of an AnimationTimer -object is called, and the animation stops.
 
-Sekä alus että asteroidi ovat hahmoja. Lisätään luokalle `Hahmo` metodi, jota käytetään törmäyksen tarkastamiseen. Metodin ensimmäinen versio on sellainen, että hahmo ei koskaan törmää toiseen hahmoon.
+<!-- Sekä alus että asteroidi ovat hahmoja. Lisätään luokalle `Hahmo` metodi, jota käytetään törmäyksen tarkastamiseen. Metodin ensimmäinen versio on sellainen, että hahmo ei koskaan törmää toiseen hahmoon. -->
+Both a ship and an asteroid are characters. Add a method for checking if two characters collide to the  `Character` class. For now two characters never collide.
 
 
 <!-- ```java
@@ -1137,10 +1139,11 @@ public boolean collide(Character other) {
 }
 ```
 
-Luokalla [Shape](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/shape/Shape.html), jonka Polygon *myös* perii, on törmäyksen tarkastamista varten varsin näppärä metodi. Metodi [public static Shape intersect(Shape shape1, Shape shape2)](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/shape/Shape.html#intersect-javafx.scene.shape.Shape-javafx.scene.shape.Shape-) palauttaa kahden Shape-tyyppisen olion leikkausalueen.
+<!-- Luokalla [Shape](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/shape/Shape.html), jonka Polygon *myös* perii, on törmäyksen tarkastamista varten varsin näppärä metodi. Metodi [public static Shape intersect(Shape shape1, Shape shape2)](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/shape/Shape.html#intersect-javafx.scene.shape.Shape-javafx.scene.shape.Shape-) palauttaa kahden Shape-tyyppisen olion leikkausalueen. -->
+The [Shape](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/shape/Shape.html) class, which the Polygon class inherits, has a handy method for checking for collision. The method [public static Shape intersect(Shape shape1, Shape shape2)](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/shape/Shape.html#intersect-javafx.scene.shape.Shape-javafx.scene.shape.Shape-) returns the intersection of two Shape objects.
 
-Jos alue on tyhjä, törmäystä ei ole tapahtunut. Muokataan törmäysten tarkistamista siten, että se hyödyntää edellä mainittua metodia.
-
+<!-- Jos alue on tyhjä, törmäystä ei ole tapahtunut. Muokataan törmäysten tarkistamista siten, että se hyödyntää edellä mainittua metodia. -->If the intersection is zero, there is no collision.
+Let's modify the collide method so, that it uses the intersect method.
 
 <!-- ```java
 public boolean tormaa(Hahmo toinen) {
@@ -1156,7 +1159,8 @@ public boolean collide(Character other) {
 }
 ```
 
-Lisätään ohjelmaan vielä toiminnallisuus, joka lopettaa sovelluksen törmäyksen yhteydessä.
+<!-- Lisätään ohjelmaan vielä toiminnallisuus, joka lopettaa sovelluksen törmäyksen yhteydessä. -->
+Let's also add functionality that stops the application if a collision happens.
 
 
 <!-- ```java
@@ -1213,7 +1217,8 @@ new AnimationTimer() {
 }.start();
 ```
 
-Nyt sovellus pysähtyy aluksen ja asteroidin törmätessä.
+<!-- Nyt sovellus pysähtyy aluksen ja asteroidin törmätessä. -->
+Now the application stops if a ship and an asteroid collide.
 
 <img src="../img/material/asteroids-tormays.gif" alt="Sovellus pysähtyy mikäli alus ja asteroidi törmäävät."/>
 
@@ -1221,7 +1226,9 @@ Nyt sovellus pysähtyy aluksen ja asteroidin törmätessä.
 <!-- ## Useampi asteroidi -->
 ## Multiple asteroids
 
-Muokataan sovellusta seuraavaksi siten, että sovelluksessa on useampia asteroideja. Asteroidit on hyvä esittää listana. Alla olevassa esimerkissä luodaan ensin alus, jonka jälkeen sovellukseen lisätään viisi asteroidia.
+<!-- Muokataan sovellusta seuraavaksi siten, että sovelluksessa on useampia asteroideja. Asteroidit on hyvä esittää listana. Alla olevassa esimerkissä luodaan ensin alus, jonka jälkeen sovellukseen lisätään viisi asteroidia. -->
+Now we will add more asteroids. We can represent the asteroids as a list.
+In the example below we first create a ship and then add five asteroids.
 
 
 <!-- ```java
@@ -1250,7 +1257,8 @@ pane.getChildren().add(ship.getCharacter());
 asteroids.forEach(asteroid -> pane.getChildren().add(asteroid.getCharacter()));
 ```
 
-Muokataan vielä asteroidien piirtämistä ja törmäystoiminnallisuutta siten, että yksittäisen asteroidin sijaan käydään lista läpi.
+<!-- Muokataan vielä asteroidien piirtämistä ja törmäystoiminnallisuutta siten, että yksittäisen asteroidin sijaan käydään lista läpi. -->
+Let's modify drawing asteroids and checking for collision so that they work with multiple asteroids.
 
 
 <!-- ```java
@@ -1313,14 +1321,19 @@ new AnimationTimer() {
 }.start();
 ```
 
-Ohjelman käynnistyessä siinä on nyt useampia asteroideja.
+<!-- Ohjelman käynnistyessä siinä on nyt useampia asteroideja. -->
+Now when the application starts we see multiple asteroids.
 
 <img src="../img/material/asteroids-monta-asteroidia.png" alt="Monta asteroidia."/>
 
 
-Tällä hetkellä jokainen asteroidi näyttää samalta ja liikkuu samalla tavalla. Olisi hienoa, jos asteroideissa olisi vähän vaihtelua. Muokataan Asteroidi-luokkaa siten, että luokalla on erillinen metodi asteroidin rakenteen arpomiseen. Sovitaan, että asteroidit ovat aina viisikulmaisia, ja että niiden perusmuoto on viisikulmio. Luodaan vaihtelua asteroideihin muokkaamalla niiden kulmien sijainteja hieman.
+<!-- Tällä hetkellä jokainen asteroidi näyttää samalta ja liikkuu samalla tavalla. Olisi hienoa, jos asteroideissa olisi vähän vaihtelua. Muokataan Asteroidi-luokkaa siten, että luokalla on erillinen metodi asteroidin rakenteen arpomiseen. Sovitaan, että asteroidit ovat aina viisikulmaisia, ja että niiden perusmuoto on viisikulmio. Luodaan vaihtelua asteroideihin muokkaamalla niiden kulmien sijainteja hieman. -->
+At the moment every asteroid looks the same and moves the same way. It would be nice if there was some variance between the asteroids. Let's modify the Asteroid -class so, that it has a method for randomly assigning attributes to asteroids.
+We can decide that asteroids always have five corners, and their basic shape is always a pentagon. We can add variance to their shapes by moving the locations of the corners a little.
 
-Viisikulmion kulmien laskemiseen saa apua osoitteesta [http://mathworld.wolfram.com/Pentagon.html](http://mathworld.wolfram.com/Pentagon.html). Alla on sovellettu linkin takana olevaa kaavaa, jonka lisäksi monikulmion koko on vaihteleva sekä monikulmion kulmien sijainnit voivat vaihdella hieman.
+<!-- Viisikulmion kulmien laskemiseen saa apua osoitteesta [http://mathworld.wolfram.com/Pentagon.html](http://mathworld.wolfram.com/Pentagon.html). Alla on sovellettu linkin takana olevaa kaavaa, jonka lisäksi monikulmion koko on vaihteleva sekä monikulmion kulmien sijainnit voivat vaihdella hieman. -->
+You can find the formula for calculating the angles of the corners of a pentagon from [http://mathworld.wolfram.com/Pentagon.html](http://mathworld.wolfram.com/Pentagon.html).
+Below we have used the formula, and added some variance to the size of the asteroids and the locations of an asteroids corners.
 
 <!-- ```java
 import java.util.Random;
@@ -1390,7 +1403,8 @@ public class PolygonFactory {
 }
 ```
 
-Muokataan luokkaa Asteroidi siten, että se hyödyntää yllä kuvattua monikulmioiden luomiseen tarkoitettua luokkaa.
+<!-- Muokataan luokkaa Asteroidi siten, että se hyödyntää yllä kuvattua monikulmioiden luomiseen tarkoitettua luokkaa. -->
+Let's modify the Asteroid class so that it uses the PolygonFactory class to create polygons.
 
 <!-- ```java
 public class Asteroidi extends Hahmo {
@@ -1412,12 +1426,17 @@ public class Asteroid extends Character {
 }
 ```
 
-Nyt asteroidit ovat monipuolisempia.
+<!-- Nyt asteroidit ovat monipuolisempia. -->
+Now the asteroids look a bit more varied.
 
 <img src="../img/material/asteroids-satunnaiset-monikulmiot.png" alt="Asteroideissa on vaihtelua."/>
 
 
-Lisätään asteroideille vielä liike ja suunta. Liike ja suunta on osittain määriteltynä luokassa Hahmo, mutta haluamme toimintaan hieman satunnaisuutta. Kun asteroidi luodaan, sen suunnan tulee olla satunnainen luku välillä [0, 360[. Tämän lisäksi asteroidi liikkuu hieman -- liike määritetään satunnaisena määränä kiihdytyskutsuja hahmon luonnin yhteydessä. Lopuksi asteroidilla on myös pieni pyörimisliike. Aina kun asteroidi liikkuu, se myös pyörii hieman.
+<!-- Lisätään asteroideille vielä liike ja suunta. Liike ja suunta on osittain määriteltynä luokassa Hahmo, mutta haluamme toimintaan hieman satunnaisuutta. Kun asteroidi luodaan, sen suunnan tulee olla satunnainen luku välillä [0, 360[. Tämän lisäksi asteroidi liikkuu hieman -- liike määritetään satunnaisena määränä kiihdytyskutsuja hahmon luonnin yhteydessä. Lopuksi asteroidilla on myös pieni pyörimisliike. Aina kun asteroidi liikkuu, se myös pyörii hieman. -->
+We will also add movement and direction to the asteroids.
+Movement and direction have been partially defined in the Character class, but we want to add some randomness to the movement.
+When an asteroid is created, it's direction should be a random number between [0, 360]. Asteroids also move a little -- the movement is defined as a random number of exeleration calls when the character is created.
+Finally an asteroid also rotates. Each time an asteroid moves, it also rotates a little.
 
 
 <!-- ```java
@@ -1480,7 +1499,9 @@ public class Asteroid extends Character {
 }
 ```
 
-Yllä olevassa esimerkissä hyödynnetään perintää myös metodissa `liiku`. Kun Asteroidin liiku-metodia kutsutaan, metodi kutsuu ensin yläluokassa Hahmo määriteltyä metodia liiku. Tämän jälkeen hahmoa käännetään pyörimisliikkeen verran. Lopputuloksena asteroidilla on pieni pyörimisliike.
+<!-- Yllä olevassa esimerkissä hyödynnetään perintää myös metodissa `liiku`. Kun Asteroidin liiku-metodia kutsutaan, metodi kutsuu ensin yläluokassa Hahmo määriteltyä metodia liiku. Tämän jälkeen hahmoa käännetään pyörimisliikkeen verran. Lopputuloksena asteroidilla on pieni pyörimisliike. -->
+In the example below we use inheritance in the `move` method.
+When the move method is called, it first calls the move method from the Character class. Then the character is rotated. The final product is an asteroid with some rotational movement.
 
 
 <img src="../img/material/asteroidit-liikkuu.gif" />
@@ -1489,10 +1510,11 @@ Yllä olevassa esimerkissä hyödynnetään perintää myös metodissa `liiku`. 
 <!-- ## Ruudussa pysyminen -->
 ## Staying within the window
 
-Sovellus on hieman tylsä, sillä asteroidit ja alus voivat siirtyä pois ruudusta. Muokataan sovellusta siten, että asteroidit ja alus pysyvät jatkuvasti ruudussa. Tämä onnistuu muokkaamalla niiden liikkumista siten, että oikealta laidalta poistuttaessa hahmo tulee takaisin vasemmalta laidalta ja toisinpäin. Vastaava toiminnallisuus tarvitaan myös yläkautta ja alakautta poistumiselle.
+<!-- Sovellus on hieman tylsä, sillä asteroidit ja alus voivat siirtyä pois ruudusta. Muokataan sovellusta siten, että asteroidit ja alus pysyvät jatkuvasti ruudussa. Tämä onnistuu muokkaamalla niiden liikkumista siten, että oikealta laidalta poistuttaessa hahmo tulee takaisin vasemmalta laidalta ja toisinpäin. Vastaava toiminnallisuus tarvitaan myös yläkautta ja alakautta poistumiselle. -->
+The application is a bit boring, because the asteroids and the ship can leave the screen. Let's modify it so, that the characters stay on screen.
 
-Määritellään AsteroidsSovellukselle vakioarvoiset muuttujat leveys ja korkeus. Luokille voidaan määritellä luokkakohtaisia arvoja avainsanan `static` avulla. Alla määritellään muuttujat `LEVEYS` ja `KORKEUS`, joihin voidaan viitata muualta ohjelmasta.
-
+<!-- Määritellään AsteroidsSovellukselle vakioarvoiset muuttujat leveys ja korkeus. Luokille voidaan määritellä luokkakohtaisia arvoja avainsanan `static` avulla. Alla määritellään muuttujat `LEVEYS` ja `KORKEUS`, joihin voidaan viitata muualta ohjelmasta. -->
+We will define constants width and height for the AsteroidsApplication. Each class can have class specific values using the keyword `static`. Below we define variables `WIDTH` and `HEIGHT`, which can be referenced elsewhere in the program code.
 
 <!-- ```java
 public class AsteroidsSovellus extends Application {
@@ -1545,7 +1567,11 @@ public class AsteroidsApplication extends Application {
 ```
 
 
-Muuttujat, jotka on määritelty avainsanalla `static`, eivät liity luokasta tehtäviin olioihin. Jos `static`-muuttujalla on määre `public` -- kuten yllä -- voi muuttujaan viitata myös muista luokista. Muokataan luokan Hahmo liiku-metodia siten, että se hyödyntää AsteroidsSovelluksen *staattisia muuttujia* eli luokkamuuttujia LEVEYS ja KORKEUS. Alla oleva liiku-metodi tarkastaa, että hahmo on jatkuvasti näkyvillä.
+<!-- Muuttujat, jotka on määritelty avainsanalla `static`, eivät liity luokasta tehtäviin olioihin. Jos `static`-muuttujalla on määre `public` -- kuten yllä -- voi muuttujaan viitata myös muista luokista. Muokataan luokan Hahmo liiku-metodia siten, että se hyödyntää AsteroidsSovelluksen *staattisia muuttujia* eli luokkamuuttujia LEVEYS ja KORKEUS. Alla oleva liiku-metodi tarkastaa, että hahmo on jatkuvasti näkyvillä. -->
+Variables with the keyword `static` are not part of objects made from the class. If a `static` variable is also `public` --like above -- the variable can be referenced by other classes.
+Let's modify the move method of the Character class so that it uses the *static variables* of the AsteroidApplication, the class variables WIDTH and HEIGHT.
+The move method below checks that the character stays on screen.
+
 
 <!-- ```java
 public void liiku() {
@@ -1593,17 +1619,23 @@ public void move() {
 }
 ```
 
-Nyt hahmot pysyvät ruudussa.
+<!-- Nyt hahmot pysyvät ruudussa. -->
+Now the characters stay on screen.
 
 <img src="../img/material/asteroids-pysyy-ruudussa.gif" />
 
-Emme ole yllä kuvattuun versioon täysin tyytyväisiä, sillä hahmot saattavat "hypätä" ruudun laidalta toiselle. Hahmon kokoa ei huomioida yllä kuvatussa liikkumistoiminnossa, jolloin hahmon x- tai y-koordinaatti voi olla ulkona ruudusta, vaikka osa hahmosta olisi vielä näkyvissä. Tähän löytyy -- mahdollisesti -- ratkaisu Node-luokalta löytyvästä getBoundsInParent-metodista. Emme tarkastele tätä kuitenkaan sen enempää.
+<!-- Emme ole yllä kuvattuun versioon täysin tyytyväisiä, sillä hahmot saattavat "hypätä" ruudun laidalta toiselle. Hahmon kokoa ei huomioida yllä kuvatussa liikkumistoiminnossa, jolloin hahmon x- tai y-koordinaatti voi olla ulkona ruudusta, vaikka osa hahmosta olisi vielä näkyvissä. Tähän löytyy -- mahdollisesti -- ratkaisu Node-luokalta löytyvästä getBoundsInParent-metodista. Emme tarkastele tätä kuitenkaan sen enempää. -->
+We are not quite satisfied with this version of the application, because characters sometimes "jump" from one side of the screen to the other. The size of the character is not taken into account, so its x- or y -coordinates can be outside of the screen, even if part of the character stays visible.
+We can --propably-- solve this problem with the getBoundsInParent-method of the Node -class. However we will not go more into it here.
 
 
 <!-- ## Ammukset -->
 ## Projectiles
 
-Asteroids ilman ammuksia olisi pelkkää väistelyä. Lisätään asteroidsiin seuraavaksi ammukset. Ammuksilla on muoto, suunta ja liike. Voimme käyttää Hahmoa myös Ammusten luomiseen. Luodaan Ammus-luokan ensimmäinen versio, missä ammusta kuvataan neliön avulla.
+<!-- Asteroids ilman ammuksia olisi pelkkää väistelyä. Lisätään asteroidsiin seuraavaksi ammukset. Ammuksilla on muoto, suunta ja liike. Voimme käyttää Hahmoa myös Ammusten luomiseen. Luodaan Ammus-luokan ensimmäinen versio, missä ammusta kuvataan neliön avulla. -->
+Playing asteroids without projectiles would be just dodging asteroids.
+Next we will add projectiles. Projectiles have a shape, a direction and movement. We can use the Character class for creating projectiles.
+Let's create the first version of the Projectile-class. For now all projectiles are squares.
 
 
 <!-- ```java
@@ -1631,7 +1663,8 @@ public class Projectile extends Character {
 ```
 
 
-Toisin kuin hahmojen ja asteroidien tapauksessa, emme halua että pelin alkutilassa on ammuksia. Määritellään ammuksia varten lista, mutta jätetään se aluksi tyhjäksi.
+<!-- Toisin kuin hahmojen ja asteroidien tapauksessa, emme halua että pelin alkutilassa on ammuksia. Määritellään ammuksia varten lista, mutta jätetään se aluksi tyhjäksi. -->
+Contrary to ships and asteroids, we don't want any projectiles on screen when the application starts. We will declare a list for projectiles, but leave it empty for now.
 
 
 <!-- ```java
@@ -1642,8 +1675,9 @@ List<Ammus> ammukset = new ArrayList<>();
 List<Projectile> projectiles = new ArrayList<>();
 ```
 
-Ammus luodaan kun käyttäjä painaa välilyöntiä. Ammuksen luomisen yhteydessä sen suunnaksi asetetaan aluksen suunta. Luodaan ampumisesta ensimmäinen versio.
-
+<!-- Ammus luodaan kun käyttäjä painaa välilyöntiä. Ammuksen luomisen yhteydessä sen suunnaksi asetetaan aluksen suunta. Luodaan ampumisesta ensimmäinen versio. -->
+A projectile is created when the user presses the spacebar. When a projectile is created its direction is the same as the ship's direction.
+Let's make the first version of shooting projectiles.
 
 <!-- ```java
 if (painetutNapit.getOrDefault(KeyCode.SPACE, false)) {
@@ -1667,14 +1701,16 @@ if (pressedKeys.getOrDefault(KeyCode.SPACE, false)) {
 }
 ```
 
-Ensimmäisessä versiossa alus ampuu kun käyttäjä painaa välilyöntiä, mutta ammukset eivät liiku. Ammukset eivät myöskään törmää muihin hahmoihin.
+<!-- Ensimmäisessä versiossa alus ampuu kun käyttäjä painaa välilyöntiä, mutta ammukset eivät liiku. Ammukset eivät myöskään törmää muihin hahmoihin. -->
+Now the ship shoots a projectile when the user presses the spacebar, but the projectiles do not move. The projectiles do not hit other characters either.
 
 <img src="../img/material/alus-ampuu.gif" />
 
-Haluamme, että ammuksen liikettä voidaan muokata. Tällä hetkellä Hahmon muuttuja `liike` on kuitenkin määritelty private-tyyppiseksi, eikä siihen ole pääsyä minkään metodin kautta. Lisätään luokalle `Hahmo` metodit `getLiike` ja `setLiike`.
+<!-- Haluamme, että ammuksen liikettä voidaan muokata. Tällä hetkellä Hahmon muuttuja `liike` on kuitenkin määritelty private-tyyppiseksi, eikä siihen ole pääsyä minkään metodin kautta. Lisätään luokalle `Hahmo` metodit `getLiike` ja `setLiike`. -->
+We want to be able to modify the movement of a projectile. However, currently the `move` method of a Character is `private`, and we have to access to it through other methods. Let's add `getMovement` and `setMovement` to the `Character` class.
 
-Tämän jälkeen ammuksen nopeuden asettaminen on suoraviivaista. Kiihdytetään ammuksen nopeutta hieman (jottei ammus jää koskaan paikalleen), normalisoidaan nopeus (käytännössä nopeutta käsitellään vektorina, jonka pituudeksi asetetaan 1), jonka jälkeen nopeutta kasvatetaan hieman. Tässä nopeus kerrotaan kolmella.
-
+<!-- Tämän jälkeen ammuksen nopeuden asettaminen on suoraviivaista. Kiihdytetään ammuksen nopeutta hieman (jottei ammus jää koskaan paikalleen), normalisoidaan nopeus (käytännössä nopeutta käsitellään vektorina, jonka pituudeksi asetetaan 1), jonka jälkeen nopeutta kasvatetaan hieman. Tässä nopeus kerrotaan kolmella. -->
+Now setting the speed of a projectile is straightforwards. We accelerate the speed of a projectile a bit (so it never stays put) and  normalize the speed (in practice we handle the speed as a vector with the length of 1). Here the speed is multiplied by three.
 
 <!-- ```java
 if (painetutNapit.getOrDefault(KeyCode.SPACE, false)) {
@@ -1704,8 +1740,9 @@ if (pressedKeys.getOrDefault(KeyCode.SPACE, false)) {
 }
 ```
 
-Lisätään vielä ammusten liikkuminen muiden hahmojen liikkumisen yhteyteen.
+<!-- Lisätään vielä ammusten liikkuminen muiden hahmojen liikkumisen yhteyteen. -->
 
+Finally we add moving the projectiles to moving all other characters.
 <!-- ```java
 alus.liiku();
 asteroidit.forEach(asteroidi -> asteroidi.liiku());
@@ -1718,7 +1755,8 @@ asteroids.forEach(asteroid -> asteroid.move());
 projectiles.forEach(projectile -> projectile.move());
 ```
 
-Nyt ammukset liikkuvat. Ne eivät kuitenkaan vielä törmää mihinkään, ja niitä on aika.. paljon. Rajataan ammusten määrää ensin hieman -- sovitaan, että ammuksia saa olla kerrallaan korkeintaan 3.
+<!-- Nyt ammukset liikkuvat. Ne eivät kuitenkaan vielä törmää mihinkään, ja niitä on aika.. paljon. Rajataan ammusten määrää ensin hieman -- sovitaan, että ammuksia saa olla kerrallaan korkeintaan 3. -->
+Now the projectiles move. They do not yet hit anything, and there are quite a lot of them... Let's limit the number of projectiles a bit -- we can decide that there can only be 3 projectiles at once.
 
 <!-- ```java
 if (painetutNapit.getOrDefault(KeyCode.SPACE, false) && ammukset.size() < 3) {
@@ -1748,7 +1786,9 @@ if (pressedKeys.getOrDefault(KeyCode.SPACE, false) && projectiles.size() < 3) {
 }
 ```
 
-Lisätään tämän jälkeen ammuksille törmäystoiminnallisuus. Ammukset voivat törmätä asteroideihin. Jos ammus törmää asteroidiin, asteroidi poistetaan sekä piirrettävistä asteroideista että asteroidilistasta.
+<!-- Lisätään tämän jälkeen ammuksille törmäystoiminnallisuus. Ammukset voivat törmätä asteroideihin. Jos ammus törmää asteroidiin, asteroidi poistetaan sekä piirrettävistä asteroideista että asteroidilistasta. -->
+Let's also add functionality for hitting asteroids.
+Projectiles can hit asteroids. If a projectile hits an asteroid, the asteroid is removed from the asteroid list and is not drawn.
 
 <!-- ```java
 ammukset.forEach(ammus -> {
@@ -1778,8 +1818,8 @@ projectiles.forEach(projectile -> {
 
 <img src="../img/material/ammus-poistaa-asteroidin.gif" />
 
-Ammukset eivät kuitenkaan poistu törmäyksen yhteydessä. Eräs tapa poistaa myös ammukset on esitelty seuraavassa esimerkissä.
-
+<!-- Ammukset eivät kuitenkaan poistu törmäyksen yhteydessä. Eräs tapa poistaa myös ammukset on esitelty seuraavassa esimerkissä. -->
+The projectiles do not however dissappear when they hit an asteroid. One way to remove the projectiles after a hit is described below.
 
 <!-- ```java
 List<Ammus> poistettavatAmmukset = ammukset.stream().filter(ammus -> {
@@ -1829,7 +1869,9 @@ projectilesToRemove.forEach(projectile -> {
 });
 ```
 
-Vaikka lähestymistapa toimii, voisi sitä ehkäpä parantaa hieman. Kyseessä on käytännössä hahmon "pelissä olemisen" määrittely. Hahmolle voisi esimerkiksi määritellä ominaisuuden "elossa", jota voisi hyödyntää edellä olevan selkeyttämiseen. Kyseisen muuttujan avulla ohjelma selkiytyy hieman.
+<!-- Vaikka lähestymistapa toimii, voisi sitä ehkäpä parantaa hieman. Kyseessä on käytännössä hahmon "pelissä olemisen" määrittely. Hahmolle voisi esimerkiksi määritellä ominaisuuden "elossa", jota voisi hyödyntää edellä olevan selkeyttämiseen. Kyseisen muuttujan avulla ohjelma selkiytyy hieman. -->
+It works, but we can improve it a bit. In practice this is declaring wether a Character is "in the game" or not. We could for example add an attribute "alive", which we could use to make things clearer.
+Using this attribute the code improves a bit.
 
 <!-- ```java
 ammukset.forEach(ammus -> {
@@ -1881,7 +1923,8 @@ asteroids.removeAll(asteroids.stream()
                             .collect(Collectors.toList()));
 ```
 
-Lopun riviparit ovat myös käytännössä identtiset -- kummatkin käsittelevät hahmoja. Ehkäpä tässä olisi lisäkohta refaktoroinnille.
+<!-- Lopun riviparit ovat myös käytännössä identtiset -- kummatkin käsittelevät hahmoja. Ehkäpä tässä olisi lisäkohta refaktoroinnille. -->
+The lines at the end are almost identical -- both are handling characters. Maybe we could refactor this a bit.
 
 <img src="../img/material/ammus-poistuu.gif" />
 
@@ -1889,9 +1932,13 @@ Lopun riviparit ovat myös käytännössä identtiset -- kummatkin käsittelevä
 <!-- ## Pisteiden lisääminen -->
 ## Adding points
 
-Lähes jokaiseen Asteroids-peliin kuuluu pisteiden seuraaminen. Pisteet kirjoitetaan ohjelmaan teksti-oliona, jonka arvoa muutetaan aina pisteiden muuttuessa. Sovitaan, että käyttäjä saa aina 1000 pistettä kun hän saa tuhottua asteroidin.
+<!-- Lähes jokaiseen Asteroids-peliin kuuluu pisteiden seuraaminen. Pisteet kirjoitetaan ohjelmaan teksti-oliona, jonka arvoa muutetaan aina pisteiden muuttuessa. Sovitaan, että käyttäjä saa aina 1000 pistettä kun hän saa tuhottua asteroidin. -->
+Asteroids games almost always have a some sort of a points system. The points are displayed as text-objects, value of which changes when the number of points changes.
+We can decide that a player gets 1000 points every time they destroy an asteroid.
 
-Javan tarjoama <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/text/Text.html" target="_blank">Text</a>-luokka on tähän tarkoitukseen mainio. Tekstioliolle määritellään koordinaatti sekä sisältö. Alla olevassa esimerkissä pisteet ovat aina 0.
+<!-- Javan tarjoama -luokka on tähän tarkoitukseen mainio. Tekstioliolle määritellään koordinaatti sekä sisältö. Alla olevassa esimer<a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/text/Text.html" target="_blank">Text</a>kissä pisteet ovat aina 0. -->
+The Java <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/text/Text.html" target="_blank">Text</a> -class is great for this purpose.
+A Text objext has coordinates and content. In the example below the player always has 0 points.
 
 <br/>
 
@@ -1925,7 +1972,9 @@ public void start(Stage stage) throws Exception {
 
 <img src="../img/material/asteroids-pisteet.png" alt="Ikkuna, jossa on teksti pisteet. Pisteet on nollassa."/>
 
-Yllä olevassa esimerkissä pisteet ovat aina 0. Haluamme kuitenkin muuttuvat pisteet. Yksi näppärä väline tähän on luokka [AtomicInteger](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html), joka tarjoaa kokonaisluvun kapseloituna oliona. AtomicInteger mahdollistaa myös pisteiden kasvattamisen metodikutsun yhteydessä.
+<!-- Yllä olevassa esimerkissä pisteet ovat aina 0. Haluamme kuitenkin muuttuvat pisteet. Yksi näppärä väline tähän on luokka [AtomicInteger](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html), joka tarjoaa kokonaisluvun kapseloituna oliona. AtomicInteger mahdollistaa myös pisteiden kasvattamisen metodikutsun yhteydessä. -->
+However we want to be able to increase the number of points.
+One handy tool for this is the [AtomicInteger](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html)-class, which offers integers as encapsulated objects. AtomicInteger also enables us to increase the points when a method is called.
 
 
 <!-- ```java
@@ -1980,10 +2029,12 @@ public void start(Stage stage) throws Exception {
 
 <img src="../img/material/pisteet-kasvavat.gif" alt="Ikkuna, jossa on teksti pisteet. Pisteet kasvavat."/>
 
-Saamme siis pisteet näkyville ja pisteet kasvamaan. Kytketään pisteiden laskenta asteroids-peliin siten, että pisteitä tulee aina kun pelaajan ammus osuu asteroidiin.
+<!-- Saamme siis pisteet näkyville ja pisteet kasvamaan. Kytketään pisteiden laskenta asteroids-peliin siten, että pisteitä tulee aina kun pelaajan ammus osuu asteroidiin. -->
+Now we can display the number of points and increase it.
+Let's connect the points to the game so, that the number of points increases every time player's projectile hits an asteroid.
 
-Tämän voi toteuttaa osana ammusten ja asteroidien törmäystä.
-
+<!-- Tämän voi toteuttaa osana ammusten ja asteroidien törmäystä. -->
+This can be done as a part of collision between a projectile and an asteroid.
 
 <!-- ```java
 ammukset.forEach(ammus -> {
@@ -2015,7 +2066,8 @@ projectiles.forEach(projectile -> {
 });
 ```
 
-Nyt, olettaen että pisteiden kasvatus on poistettu animationtimerin alusta, pisteitä saa aina asteroidiin osuttaessa.
+<!-- Nyt, olettaen että pisteiden kasvatus on poistettu animationtimerin alusta, pisteitä saa aina asteroidiin osuttaessa. -->
+Now, if the increasing of points has been removed from the start of the animationmeter, player gets points when they hit an asteroid.
 
 <img src="../img/material/asteroids-ammuskelua.gif" alt="Like a boss."/>
 
@@ -2023,11 +2075,14 @@ Nyt, olettaen että pisteiden kasvatus on poistettu animationtimerin alusta, pis
 <!-- ## Asteroidien jatkuva lisääminen -->
 ## Continuous adding of asteroids
 
-Kun osumme asteroideihin, ne katoavat ja ammuttava loppuu kesken. Tämä ei ole hyväksyttävää!
+<!-- Kun osumme asteroideihin, ne katoavat ja ammuttava loppuu kesken. Tämä ei ole hyväksyttävää! -->
+When we hit an asteroid, they disappear, and soon there is nothing to shoot. This is not acceptable!
 
-Lisätään ohjelmaan arpomistoiminnallisuus, mikä lisää asteroideja pelin edetessä. Asteroideja lisätään puolen prosentin todennäköisyydellä AnimationTimer-olion kutsujen yhteydessä. Tämän lisäksi uusi asteroidi lisätään vain mikäli se ei heti törmää alukseen.
+<!-- Lisätään ohjelmaan arpomistoiminnallisuus, mikä lisää asteroideja pelin edetessä. Asteroideja lisätään puolen prosentin todennäköisyydellä AnimationTimer-olion kutsujen yhteydessä. Tämän lisäksi uusi asteroidi lisätään vain mikäli se ei heti törmää alukseen. -->
+We will add a function which adds asteroids throughout the game. A new asteroid is added with the propability of 0.5% each time the AnimationTimer-object is called. A new asteroid is added only if it does not collide with a ship immediately.
 
-AnimationTimer-olion metodia handle kutsutaan noin 60 kertaa sekunnissa, joten uusia asteroideja tulee kymmenessä sekunnissa muutamia. Kutsu lisätään AnimationTimer-olion handle-metodin loppuun.
+<!-- AnimationTimer-olion metodia handle kutsutaan noin 60 kertaa sekunnissa, joten uusia asteroideja tulee kymmenessä sekunnissa muutamia. Kutsu lisätään AnimationTimer-olion handle-metodin loppuun. -->
+The handle method of an AnimationTimer-object is called approximately 60 times a second, so in ten seconds a few asteroids are added. We add the call to the end of the handle -method.
 
 
 <!-- ```java
