@@ -23,19 +23,24 @@ Mavenin etu on se, että se auttaa apukirjastojen lataamisessa. Apukirjastot ova
 Hakukoneesta löytyy esimerkiksi tietokantojen käyttöön sekä vaikkapa telegram-bottien kirjoittamiseen tarkoitettuja kirjastoja. Tutustutaan näihin seuraavaksi lyhyesti.
 
 
-## Tietokannan käyttö
+<!-- ## Tietokannan käyttö -->
 
-Tietokannat, tai oikeastaan tietokannanhallintajärjestelmät, ovat välineitä tiedon hallintaan. Tutustumme näihin tarkemmin kurssilla Tietokantojen perusteet (TKT10004). Tarkastellaan lyhyesti tietokantaa käyttävän sovelluksen rakentamista.
+## Using a database
 
+<!-- Tietokannat, tai oikeastaan tietokannanhallintajärjestelmät, ovat välineitä tiedon hallintaan. Tutustumme näihin tarkemmin kurssilla Tietokantojen perusteet (TKT10004). Tarkastellaan lyhyesti tietokantaa käyttävän sovelluksen rakentamista. -->
 
-Osoitteesta [https://mvnrepository.com/](https://mvnrepository.com/) löytyy useita kirjastoja tietokantojen käyttöön. Otamme esimerkinomaisesti käyttöömme [H2](http://www.h2database.com/html/main.html)-nimisen tietokannanhallintajärjestelmän. Tämä onnistuu lisäämällä tiedoston `pom.xml` sisällä olevalle `<dependencies>`- ja `</dependencies>` -elementtien rajaamalle kirjastoriippuvuuksia sisältävälle alueelle H2-tietokannanhallintajärjestelmän kuvaavan kirjaston, kuten alla.
+Databases, or rather database management systems, are tools for managing data. You have a chance to familiarize yourself better with them on the course Introduction to Databases (TKT10004). Let's have a brief look at an application that uses a database.
+
+<!-- Osoitteesta [https://mvnrepository.com/](https://mvnrepository.com/) löytyy useita kirjastoja tietokantojen käyttöön. Otamme esimerkinomaisesti käyttöömme [H2](http://www.h2database.com/html/main.html)-nimisen tietokannanhallintajärjestelmän. Tämä onnistuu lisäämällä tiedoston `pom.xml` sisällä olevalle `<dependencies>`- ja `</dependencies>` -elementtien rajaamalle kirjastoriippuvuuksia sisältävälle alueelle H2-tietokannanhallintajärjestelmän kuvaavan kirjaston, kuten alla. -->
+
+There are several libraries for using databases at the address [https://mvnrepository.com/](https://mvnrepository.com/). We will show an example of how to begin using the database management system called [H2](http://www.h2database.com/html/main.html). This can be done by adding the H2 library to the file `pom.xml`, between the tags `<dependencies>` and `</dependencies>`, which is the area for the library dependencies. You can take a look at the example below.
 
 
 ```xml
-<!-- muuta sisältöä -->
+<!-- other content -->
 
 <dependencies>
-<!-- muita kirjastoja -->
+<!-- other libraries -->
 
     <dependency>
         <groupId>com.h2database</groupId>
@@ -43,34 +48,51 @@ Osoitteesta [https://mvnrepository.com/](https://mvnrepository.com/) löytyy use
         <version>1.4.197</version>
     </dependency>
 
-<!-- muita kirjastoja -->
+<!-- other libraries -->
 </dependencies>
 
-<!-- muuta sisältöä -->
+<!-- other content -->
 ```
 
-Tehtäväpohjassa tämä on tehty valmiiksi. Kun kirjastoriippuvuus on lisätty osaksi projektia, ovat sen tarjoamat luokat projektissa käytettävissä. Seuraavassa tehtävässä hyödynnät valmiiksi edellä kuvattua riippuvuutta ja toteutat tietokantaa käyttävän sovelluksen.
+<!-- Tehtäväpohjassa tämä on tehty valmiiksi. Kun kirjastoriippuvuus on lisätty osaksi projektia, ovat sen tarjoamat luokat projektissa käytettävissä. Seuraavassa tehtävässä hyödynnät valmiiksi edellä kuvattua riippuvuutta ja toteutat tietokantaa käyttävän sovelluksen. -->
+
+This has already been done in the exercise base. When the library dependency has been configured as part of the project, the classes included in that library are usable in the project. In the following exercise you are going to use the previously described dependency, and implement a program that uses a database to manage data.
+
+<!-- <programming-exercise name='Tietokanta' tmcname='osa14-Osa14_10.Tietokanta'> -->
+
+<programming-exercise name='Database' tmcname='part14-Part14_10.Database'>
 
 
-<programming-exercise name='Tietokanta' tmcname='osa14-Osa14_10.Tietokanta'>
+<!-- Tehtäväpohjassa tulee sovellus, johon on lisätty riippuvuus H2-nimiseen tietokantaan. Sovelluksessa on seuraavat neljä luokkaa: -->
 
-Tehtäväpohjassa tulee sovellus, johon on lisätty riippuvuus H2-nimiseen tietokantaan. Sovelluksessa on seuraavat neljä luokkaa:
+The exercise base contains an application that has the H2 database configured as a dependency. It also includes the following four classes:
 
-- `Todo`: tehtävää tehtävää kuvaava luokka. Jokaisella tehtävällä on numeerinen tunnus (id), nimi, kuvaus sekä tieto siitä onko tehtävä tehty.
+<!-- - `Todo`: tehtävää tehtävää kuvaava luokka. Jokaisella tehtävällä on numeerinen tunnus (id), nimi, kuvaus sekä tieto siitä onko tehtävä tehty. -->
 
-- `TodoDao`: tehtävien tietokantaan tallentamiseen käytettävä luokka, sana "dao" on lyhenne sanasta "data access object". Luokka tarjoaa metodit tehtävien listaamiseen, lisäämiseen, tehdyksi asettamiseen sekä poistamiseen. Tehdyksi asettaminen ja poistaminen tapahtuu numeerisen tunnuksen perusteella. Luokan konstruktori saa parametrinaan käytettävän tietokannan osoitteen.
+- `Todo`: a class that represents a task that is to be done. Each todo has a numerical identifier (id), a name, a description, and the information abot whether it has been done.
 
-- `Kayttoliittyma`: tehtävien tietokantaan tallentamiseen käytettävä luokka. Luokka tarjoaa metodit tehtävien listaamiseen, lisäämiseen, tehdyksi asettamiseen sekä poistamiseen. Tehdyksi asettaminen ja poistaminen tapahtuu numeerisen tunnuksen perusteella. Luokan konstruktori saa parametrina käytettävän tietokannan osoitteen.
+<!-- - `TodoDao`: tehtävien tietokantaan tallentamiseen käytettävä luokka, sana "dao" on lyhenne sanasta "data access object". Luokka tarjoaa metodit tehtävien listaamiseen, lisäämiseen, tehdyksi asettamiseen sekä poistamiseen. Tehdyksi asettaminen ja poistaminen tapahtuu numeerisen tunnuksen perusteella. Luokan konstruktori saa parametrinaan käytettävän tietokannan osoitteen. -->
 
-- `Ohjelma`: sovelluksen käynnistämiseen tarkoitettu luokka.
+- `TodoDao`: a class that is used to store todos to the database. The word "dao" comes from the phrase "data access object". The class offers methods for listing, adding, setting as completed, and removing todos. Removing or setting as done is done on the basis of the id. The class constructor receives the location of the database.
+
+<!-- - `Kayttoliittyma`: tehtävien tietokantaan tallentamiseen käytettävä luokka. Luokka tarjoaa metodit tehtävien listaamiseen, lisäämiseen, tehdyksi asettamiseen sekä poistamiseen. Tehdyksi asettaminen ja poistaminen tapahtuu numeerisen tunnuksen perusteella. Luokan konstruktori saa parametrina käytettävän tietokannan osoitteen. -->
+
+- `UserInterface`: a class that is used to ask the user for instructions for what to do. The constructor receives a Scanner object and a TodoDao object as its parameters. Calling the `start` method starts the user interface, after which the user controls the program with their keyboard input.
+
+<!-- - `Ohjelma`: sovelluksen käynnistämiseen tarkoitettu luokka. -->
+
+- `Program`: a class that serves as a starting point for the program.
 
 
-Tässä tehtävässä tarkoituksenasi on muokata käyttöliittymää siten, että sovelluksen käyttäjällä on mahdollisuus tehtävien lisäämiseen, listaamiseen, tehdyksi asettamiseen sekä poistamiseen. Älä muokkaa luokkia `Todo`, `TodoDao` tai `Ohjelma`.
+<!-- Tässä tehtävässä tarkoituksenasi on muokata käyttöliittymää siten, että sovelluksen käyttäjällä on mahdollisuus tehtävien lisäämiseen, listaamiseen, tehdyksi asettamiseen sekä poistamiseen. Älä muokkaa luokkia `Todo`, `TodoDao` tai `Ohjelma`. -->
 
-Odotettu sovelluksen toiminta on seuraava:
+In this exercise it is your task to modify the user interface so that the user of the program can add new todos, or list, mark as done, or remove existing ones. Don't do changes in the classes `Todo`, `TodoDao`, or `Program`.
 
+<!-- Odotettu sovelluksen toiminta on seuraava: -->
 
-```
+The finished program is expected to behave in the following manner:
+
+<!-- ```
 
 Syötä komento:
 1) listaa
@@ -191,9 +213,134 @@ x) lopeta
 > x
 Kiitos!
 
+``` -->
+
 ```
 
-Tehtävässä toteuttamasi tekstikäyttöliittymä ei oikeastaan poikkea millään tavalla aiemmin toteuttamistamme tekstikäyttöliittymistä. Toisin kuin ennen, nyt tieto vain tallennetaan tietokantaan: *tallennetut tiedot ovat sovelluksen käytössä myös seuraavan käynnistyksen yhteydessä.*
+Enter command:
+1) list
+2) add
+3) mark as done
+4) remove
+x) quit
+> 1
+Listing the database contents
+
+Enter command:
+1) list
+2) add
+3) mark as done
+4) remove
+x) quit
+> 2
+Adding a new todo
+Enter name
+code
+Enter description
+code a whole lot
+
+Enter command:
+1) list
+2) add
+3) mark as done
+4) remove
+x) quit
+> 2
+Adding a new todo
+Enter name
+prepare food
+Enter description
+rice porridge
+
+Enter command:
+1) list
+2) add
+3) mark as done
+4) remove
+x) quit
+> 1
+Listing the database contents
+Todo{id=1, name=code, description=code a whole lot, done=false}
+Todo{id=2, name=prepare food, description=rice porridge, done=false}
+
+Enter command:
+1) list
+2) add
+3) mark as done
+4) remove
+x) quit
+> 3
+
+Which todo should be marked as done (give the id)?
+2
+
+Enter command:
+1) list
+2) add
+3) mark as done
+4) remove
+x) quit
+> 1
+Listing the database contents
+Todo{id=1, name=code, description=code a whole lot, done=false}
+Todo{id=2, name=prepare food, description=rice porridge, done=true}
+
+Enter command:
+1) list
+2) add
+3) mark as done
+4) remove
+x) quit
+> 4
+
+Which todo should be removed (give the id)?
+2
+
+Enter command:
+1) list
+2) add
+3) mark as done
+4) remove
+x) quit
+> 1
+Listing the database contents
+Todo{id=1, name=code, description=code a whole lot, done=false}
+
+Enter command:
+1) list
+2) add
+3) mark as done
+4) remove
+x) quit
+> 3
+
+Which todo should be marked as done (give the id)?
+1
+
+Enter command:
+1) list
+2) add
+3) mark as done
+4) remove
+x) quit
+> 1
+Listing the database contents
+Todo{id=1, name=code, description=code a whole lot, done=true}
+
+Enter command:
+1) list
+2) add
+3) mark as done
+4) remove
+x) quit
+> x
+Thank you!
+
+```
+
+<!-- Tehtävässä toteuttamasi tekstikäyttöliittymä ei oikeastaan poikkea millään tavalla aiemmin toteuttamistamme tekstikäyttöliittymistä. Toisin kuin ennen, nyt tieto vain tallennetaan tietokantaan: *tallennetut tiedot ovat sovelluksen käytössä myös seuraavan käynnistyksen yhteydessä.* -->
+
+The text user interface in this exercise does not differ in any essential way from the earlier text UIs we have created. The difference is that the data is being stored in a database: *the stored data will be available for the program when it is started the next time.*
 
 </programming-exercise>
 
