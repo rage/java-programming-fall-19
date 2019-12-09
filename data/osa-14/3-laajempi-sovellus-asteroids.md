@@ -18,43 +18,64 @@ hidden: true
 
 </text-box>
 
-[Asteroids](https://en.wikipedia.org/wiki/Asteroids_(video_game)) on [Atari](https://en.wikipedia.org/wiki/Atari,_Inc.)n kehittämä ja vuonna 1979 julkaisema tietokonepeliklassikko. Pelissä pelaaja ohjaa kolmionmuotoista avaruusalusta, ja pelin tavoitteena on tuhota asteroideja niitä ampuen.
+<!-- [Asteroids](https://en.wikipedia.org/wiki/Asteroids_(video_game)) on [Atari](https://en.wikipedia.org/wiki/Atari,_Inc.)n kehittämä ja vuonna 1979 julkaisema tietokonepeliklassikko. Pelissä pelaaja ohjaa kolmionmuotoista avaruusalusta, ja pelin tavoitteena on tuhota asteroideja niitä ampuen. -->
 
-Seuraavaksi tehdään laajempi esimerkki, missä toteutetaan osa Asteroids-pelistä. Peli on myös kurssin tehtävänä -- tee peli esimerkkiä seuraten annettuun tehtäväpohjaan (esimerkin lopussa).
+[Asteroids](https://en.wikipedia.org/wiki/Asteroids_(video_game)) developed by [Atari](https://en.wikipedia.org/wiki/Atari,_Inc.) and self published in the year 1979 is a video game classic. The gameplay consists of the player steering a triangular spaceship, with the goal of destroying asteroids by shooting them.
 
-Peli koostetaan useammassa osassa, jotka ovat seuraavat:
+<!-- Seuraavaksi tehdään laajempi esimerkki, missä toteutetaan osa Asteroids-pelistä. Peli on myös kurssin tehtävänä -- tee peli esimerkkiä seuraten annettuun tehtäväpohjaan (esimerkin lopussa). -->
 
-- Peliruudun luominen
+What follows is a larger scale example, where we create a part of the Asteroids game. The game is also an exercise in the course -- write the game into the provided template (at the end of the example) by following the example.
 
-- Aluksen luominen
+<!-- Peli koostetaan useammassa osassa, jotka ovat seuraavat: -->
+The game is constructed in multiple parts, which are the following:
 
-- Aluksen kääntäminen
+<!-- - Peliruudun luominen -->
+- Creating the game window
 
-- Aluksen liikuttaminen
+<!-- - Aluksen luominen -->
+- Creating the ship
 
-- Asteroidin luominen
+<!-- - Aluksen kääntäminen -->
+- Turning the ship
 
-- Aluksen ja asteroidin törmääminen
+<!-- - Aluksen liikuttaminen -->
+- Moving the ship
 
-- Useampi asteroidi
+<!-- - Asteroidin luominen -->
+- Creating an asteroid
 
-- Ruudussa pysyminen
+<!-- - Aluksen ja asteroidin törmääminen -->
+- The collision between the ship and an asteroid
 
-- Ammukset
+<!-- - Useampi asteroidi -->
+- Multiple asteroids
 
-- Pisteiden lisääminen
+<!-- - Ruudussa pysyminen -->
+- Staying within the window
 
-- Asteroidien jatkuva lisääminen
+<!-- - Ammukset -->
+- Projectiles
 
-Aloitetaan ohjelman luominen peliruudun luomisesta.
+<!-- - Pisteiden lisääminen -->
+- Adding points
+
+<!-- - Asteroidien jatkuva lisääminen -->
+- Continuous adding of asteroids
+
+<!-- Aloitetaan ohjelman luominen peliruudun luomisesta. -->
+
+Let's begin making the application by creating the game window
 
 <!-- ## Peliruudun luominen -->
 ## Creating the game window
 
-Rakennetaan ohjelma niin, että ohjelman ruutu voi sisältää vapaavalintaisen määrän elementtejä, joiden sijaintiin käytettävä asettelu ei ota kantaa. Tähän sopii hyvin luokka [Pane](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/Pane.html). Luokka Pane sisältää edellisestä [ObservableList](https://docs.oracle.com/javase/8/javafx/api/javafx/collections/ObservableList.html)-tyyppisen listan lapsielementtejä. Listaan pääsee käsiksi Pane-luokan metodin `getChildren`-kautta.
+<!-- Rakennetaan ohjelma niin, että ohjelman ruutu voi sisältää vapaavalintaisen määrän elementtejä, joiden sijaintiin käytettävä asettelu ei ota kantaa. Tähän sopii hyvin luokka [Pane](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/Pane.html). Luokka Pane sisältää edellisestä [ObservableList](https://docs.oracle.com/javase/8/javafx/api/javafx/collections/ObservableList.html)-tyyppisen listan lapsielementtejä. Listaan pääsee käsiksi Pane-luokan metodin `getChildren`-kautta. -->
 
-Alla olevassa esimerkissä on ohjelma, joka luo 300 pikseliä leveän ja 200 pikseliä korkean ruudun. Ruudussa on kohdassa 30, 50 ympyrä, jonka säde on 10 pikseliä. Tietokoneohjelmissa koordinaatiston origo on tyypillisesti ikkunan vasemmassa yläkulmassa. Lisäksi y-koordinaatin arvo kasvaa alaspäin mennessä.
+We will build the application such that the game window may contain an arbitrary amount of elements, the positions of which will be ignored by the layout used. This task fits the [Pane](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/Pane.html) class. The Pane class contains a list of type [ObservableList](https://docs.oracle.com/javase/8/javafx/api/javafx/collections/ObservableList.html) containing child elements. The list can be accessed using the `getChildren` method of the Pane class.
 
+<!-- Alla olevassa esimerkissä on ohjelma, joka luo 300 pikseliä leveän ja 200 pikseliä korkean ruudun. Ruudussa on kohdassa 30, 50 ympyrä, jonka säde on 10 pikseliä. Tietokoneohjelmissa koordinaatiston origo on tyypillisesti ikkunan vasemmassa yläkulmassa. Lisäksi y-koordinaatin arvo kasvaa alaspäin mennessä. -->
+
+The program shown below creates a window that is 300 pixels wide and 200 pixels tall. At the point 30, 50 in the window is a circle with a radius of 10 pixels. In computer programs it is typical for the origin of the coordinate system is placed at the top left corner of the window. Additionally the value of the y-coordinate increases when moving down.
 
 <!-- ```java
 import javafx.application.Application;
@@ -111,8 +132,9 @@ public class PaneExample extends Application {
 <img src="../img/material/pane-circle.png" alt="Ympyrä ikkunassa."/>
 
 
-Kutsutaan ohjelmaamme AsteroidsSovellukseksi. AsteroidsSovellus mukailee yllä olevaa esimerkkiä. Sovelluksessa ei aseteta ruutuun ympyrää, mutta sovellukselle on asetettu otsikko. Ikkunan leveys on 600 pikseliä ja korkeus 400 pikseliä.
+<!-- Kutsutaan ohjelmaamme AsteroidsSovellukseksi. AsteroidsSovellus mukailee yllä olevaa esimerkkiä. Sovelluksessa ei aseteta ruutuun ympyrää, mutta sovellukselle on asetettu otsikko. Ikkunan leveys on 600 pikseliä ja korkeus 400 pikseliä. -->
 
+We call our application `AsteroidsApplication`. AsteroidsApplication applies the above example. The application does not add a circle to the window, but we have provided a title for the application. The width of the window is 600 pixels and the height is 400 pixels.
 
 <!-- ```java
 import javafx.application.Application;
@@ -168,10 +190,13 @@ public class AsteroidsApplication extends Application {
 ## Creating the ship
 
 
-Luodaan ohjelmaan seuraavaksi alus. Asteroidsissa alus on kolmio. Kolmion esittäminen onnistuu monikulmiota kuvaavan [Polygon](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/shape/Polygon.html)-luokan avulla. Monikulmion kulmat asetetaan Polygon-oliolle joko konstruktorin parametrina tai Polygon-luokan sisältämään listaan. Listaan pääsee käsiksi metodilla `getPoints`.
+<!-- Luodaan ohjelmaan seuraavaksi alus. Asteroidsissa alus on kolmio. Kolmion esittäminen onnistuu monikulmiota kuvaavan [Polygon](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/shape/Polygon.html)-luokan avulla. Monikulmion kulmat asetetaan Polygon-oliolle joko konstruktorin parametrina tai Polygon-luokan sisältämään listaan. Listaan pääsee käsiksi metodilla `getPoints`. -->
 
-Alla olevassa esimerkissä ruutuun on lisätty 100 pikseliä leveä ja 50 pikseliä korkea suunnikas, joka on luotu Polygon-luokan avulla.
+Next we create the ship. In Asteroids the ship is a triangle. The display of the triangle is possible using the [Polygon](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/shape/Polygon.html) class, which is used to represent polygons. The corners of the polygon are set for the Polygon object, either as parameters of the constructor or into the list contained within the Polygon class.
 
+<!-- Alla olevassa esimerkissä ruutuun on lisätty 100 pikseliä leveä ja 50 pikseliä korkea suunnikas, joka on luotu Polygon-luokan avulla. -->
+
+In the example below we have added a parallelogram that is 100 pixels wide and 50 pixels tall using the Polygon class.
 
 <!-- ```java
 @Override
@@ -206,8 +231,9 @@ public void start(Stage stage) throws Exception {
 <img src="../img/material/pane-suunnikas.png" alt="Suunnikas ikkunassa."/>
 
 
-Polygon-olion siirtäminen sopivampaan paikkaan onnistuu sen tarjoamien `setTranslateX` ja `setTranslateY`-metodien avulla. Alla olevassa esimerkissä luodaan edellistä esimerkkiä vastaava suunnikas, mutta nyt suunnikasta on siirretty 100 pikseliä oikealle ja 20 pikseliä alas.
+<!-- Polygon-olion siirtäminen sopivampaan paikkaan onnistuu sen tarjoamien `setTranslateX` ja `setTranslateY`-metodien avulla. Alla olevassa esimerkissä luodaan edellistä esimerkkiä vastaava suunnikas, mutta nyt suunnikasta on siirretty 100 pikseliä oikealle ja 20 pikseliä alas. -->
 
+Moving the polygon into a more fitting position can be done with the provided methods `setTranslateX` and `setTranslateY` of the Polygon class. In the example below we create a parallelogram just like before, but now the parallelogram has been moved 100 pixels to the right and 20 pixels down.
 
 <!-- ```java
 @Override
@@ -248,8 +274,9 @@ public void start(Stage stage) throws Exception {
 <img src="../img/material/pane-suunnikas-siirretty.png" alt="Suunnikas ikkunassa. Suunnikasta on siirretty 100 pikseliä oikealle ja 20 pikseliä alas."/>
 
 
-Luodaan alusta kuvaava kolmio ja lisätään se aiempaan AsteroidsSovellukseemme. Siirretään hahmo ruudun keskelle -- koska ruudun leveys on 600 pikseliä ja ruudun korkeus on 400 pikseliä, hahmoa siirretään 300 pikseliä oikealla ja 200 pikseliä alas.
+<!-- Luodaan alusta kuvaava kolmio ja lisätään se aiempaan AsteroidsSovellukseemme. Siirretään hahmo ruudun keskelle -- koska ruudun leveys on 600 pikseliä ja ruudun korkeus on 400 pikseliä, hahmoa siirretään 300 pikseliä oikealla ja 200 pikseliä alas. -->
 
+Let's create a triangle representing the ship and add it to our AsteroidsApplication. We set the triangle at the center of the screen -- because the width of the screen is 600 pixels and the height is 400 pixels, we move the triangle 300 pixels to the right and 200 pixels down.
 
 <!-- ```java
 import javafx.application.Application;
@@ -318,12 +345,14 @@ public class AsteroidsApplication extends Application {
 <!-- ## Aluksen kääntäminen: Näppäimistön kuuntelija, osa 1 -->
 ## Turning the ship: Keyboard listener, part 1
 
-Luokat kuten Polygon ja Circle perivät JavaFx:n [Node](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Node.html)-luokan. Node-luokalla on valmiina muuttuja `rotate`, joka kuvaa esineen käännöstä asteina. Minkä tahansa Node-luokan perivän olion kääntäminen on siis melko suoraviivaista -- tarvitsee vain käyttää valmista metodia `setRotate`. Metodille annetaan parametrina käännöksen asteluku.
+<!-- Luokat kuten Polygon ja Circle perivät JavaFx:n [Node](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Node.html)-luokan. Node-luokalla on valmiina muuttuja `rotate`, joka kuvaa esineen käännöstä asteina. Minkä tahansa Node-luokan perivän olion kääntäminen on siis melko suoraviivaista -- tarvitsee vain käyttää valmista metodia `setRotate`. Metodille annetaan parametrina käännöksen asteluku. -->
+
+Classes like Polygon and Circle inherit the [Node](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Node.html) class of JavaFx. The Node class has a variable `rotate`, which describes the rotation of the node in degrees. Turning any object inheriting the Node class is therefore quite straightforward -- you just use the existing method `setRotate`. The method is given the amount to turn in degrees as its parameter.
 
 <br/>
 
-Alla olevassa esimerkissä edellä nähtyä esimerkkiä on muunnettu siten, että alusta on käännetty 30 astetta.
-
+<!-- Alla olevassa esimerkissä edellä nähtyä esimerkkiä on muunnettu siten, että alusta on käännetty 30 astetta. -->
+In the example below we have modified a previous example such that the parallelogram is rotated 30 degrees.
 
 <!-- ```java
 @Override
@@ -363,11 +392,17 @@ public void start(Stage stage) throws Exception {
 }
 ```
 
-Todellisuudessa emme kuitenkaan halua tilannetta, missä alus kääntyy vain kerran, vaan tilanteen, missä alusta voi ohjata pelin käynnissäollessa. Tarvitsemme siis tapahtumankuuntelijan, joka kuuntelee näppäimistöä ja kääntää alusta näppäimistön painalluksen yhteydessä.
+<!-- Todellisuudessa emme kuitenkaan halua tilannetta, missä alus kääntyy vain kerran, vaan tilanteen, missä alusta voi ohjata pelin käynnissäollessa. Tarvitsemme siis tapahtumankuuntelijan, joka kuuntelee näppäimistöä ja kääntää alusta näppäimistön painalluksen yhteydessä. -->
 
-Ikkunan sisältöä kuvaava `Scene`-olio tarjoaa metodin `setOnKeyPressed`, jolle voidaan antaa parametrina tapahtumia käsittelevä olio. Luodaan tapahtumankäsittelijä, joka reagoi näppäimistöön. Näppäimistötapahtumiin liittyy enumeroitu muuttuja `KeyCode`, joka kertoo painetun napin. Olemme kiinnostuneita napeista vasen (LEFT) ja oikea (RIGHT).
+In reality we don't want a situation where the ship only turns once, but one in which we can steer the ship while the game is running.
 
-Tehdään ensin testiversio, missä aluksen käännös on yksinkertainen. Jos käyttäjä painaa nuolta vasemmalle, asteeksi asetetaan -30. Jos taas käyttäjä painaa nuolta oikealle, asteeksi asetetaan 30.
+<!-- Ikkunan sisältöä kuvaava `Scene`-olio tarjoaa metodin `setOnKeyPressed`, jolle voidaan antaa parametrina tapahtumia käsittelevä olio. Luodaan tapahtumankäsittelijä, joka reagoi näppäimistöön. Näppäimistötapahtumiin liittyy enumeroitu muuttuja `KeyCode`, joka kertoo painetun napin. Olemme kiinnostuneita napeista vasen (LEFT) ja oikea (RIGHT). -->
+
+The `Scene` object describing the content of the window provides a method `setOnKeyPressed`, which can be given an object for handling events as its parameter. Let's create an event handler, which reacts to events on the keyboard. Keyboard events have an enumerated variable `KeyCode`, which tells us the key that was pressed. We are interested in the keys left (LEFT) and right (RIGHT).
+
+<!-- Tehdään ensin testiversio, missä aluksen käännös on yksinkertainen. Jos käyttäjä painaa nuolta vasemmalle, asteeksi asetetaan -30. Jos taas käyttäjä painaa nuolta oikealle, asteeksi asetetaan 30. -->
+
+First we make a test version, in which the turning of the ship is simple. If the user presses the left arrow, the degrees are set to -30. Then again, if the user presses the right key, then the degrees are set to 30.
 
 <!-- ```java
 scene.setOnKeyPressed(event -> {
@@ -393,12 +428,16 @@ scene.setOnKeyPressed(event -> {
 });
 ```
 
-Jos aluksen sijaan käytössä olisi suunnikas, ohjelman toiminta näyttäisi seuraavanlaiselta.
+<!-- Jos aluksen sijaan käytössä olisi suunnikas, ohjelman toiminta näyttäisi seuraavanlaiselta. -->
+
+If the ship was a parallelogram the functionality would look as follows:
 
 <img src="../img/material/pane-polygon-move.gif" alt="Suunnikasta voi kääntää vasemmalle tai oikealle."/>
 
 
-Käännöksen saa tasaiseksi hyödyntämällä tietoa olemassaolevasta käännöksestä. Alla olevassa esimerkissä alus kääntyy viisi astetta kerrallaan.
+<!-- Käännöksen saa tasaiseksi hyödyntämällä tietoa olemassaolevasta käännöksestä. Alla olevassa esimerkissä alus kääntyy viisi astetta kerrallaan. -->
+
+The turning can be made smoother by utilizing existing information about the rotation. In the next example the ship turns five degrees at a time.
 
 <!-- ```java
 scene.setOnKeyPressed(event -> {
@@ -424,7 +463,9 @@ scene.setOnKeyPressed(event -> {
 });
 ```
 
-Alla kuvattuna vastaava esimerkki, missä aluksen sijaan käännetään suunnikasta.
+<!-- Alla kuvattuna vastaava esimerkki, missä aluksen sijaan käännetään suunnikasta. -->
+
+Below is pictured an equivalent example, where instead of rotating the ship we rotate a parallelogram.
 
 <img src="../img/material/pane-polygon-move-rotate.gif" alt="Suunnikasta voi kääntää vasemmalle tai oikealle."/>
 
@@ -432,14 +473,20 @@ Alla kuvattuna vastaava esimerkki, missä aluksen sijaan käännetään suunnika
 <!-- ## Aluksen kääntäminen: Näppäimistön kuuntelija, osa 2 -->
 ## Turning the ship: Keyboard listener, part 2
 
-Edellä kuvattu lähestymistapa mahdollistaa "ihan ok"-tyyppisen kääntämisen. Lähestymistavassa on samalla ongelma -- liike ei ole sulavaa. Kun nappia painaa, alus kääntyy, pitää pienen tauon, ja jatkaa vasta tämän jälkeen kääntymistä.
+<!-- Edellä kuvattu lähestymistapa mahdollistaa "ihan ok"-tyyppisen kääntämisen. Lähestymistavassa on samalla ongelma -- liike ei ole sulavaa. Kun nappia painaa, alus kääntyy, pitää pienen tauon, ja jatkaa vasta tämän jälkeen kääntymistä. -->
 
-Tämä liittyy siihen, miten ohjelmat oletuksena käsittelevät näppäinten painalluksen. Jos ohjelma käsittelisi näppäimen painalluksen useana tapahtumana heti kun näppäintä painetaan, muuttuisi esimerkiksi tekstin kirjoittaminen paljon hankalammaksi, sillä hieman pidemmät painallukset tuottaisivat heti useampia merkkejä.
+The previous approach enables a "kind of OK"-way to turn a node. There is an issue with the approach -- the movement is not smooth. When the key is pressed, the ship rotates, then takes a short break, after which it continues rotating.
 
-Muutetaan näppäinten käsittelyä siten, että pidämme kirjaa pohjassa olevista napeista. Tämä onnistuu (esimerkiksi) hajautustaulun avulla. Hajautustaulu sisältää avaimena KeyCode-olion, eli nappia kuvaavan olion, ja arvona Boolean-tyyppisen muuttujan. Jos tiettyyn nappiin liittyvän boolean-muuttujan arvo on `true`, nappi on pohjassa, muulloin nappi ei ole pohjassa.
+<!-- Tämä liittyy siihen, miten ohjelmat oletuksena käsittelevät näppäinten painalluksen. Jos ohjelma käsittelisi näppäimen painalluksen useana tapahtumana heti kun näppäintä painetaan, muuttuisi esimerkiksi tekstin kirjoittaminen paljon hankalammaksi, sillä hieman pidemmät painallukset tuottaisivat heti useampia merkkejä. -->
 
-Nyt huomioidaan myös napin nostaminen, eli `onKeyReleased`-tapahtuma.
+This is related to how programs handle keyboard events by default. If the program would handle the keypress as multiple events immediately as the key is pressed, then, for example, writing text would become quite difficult, since even slightly longer keypresses would immediately generate multiple characters.
 
+<!-- Muutetaan näppäinten käsittelyä siten, että pidämme kirjaa pohjassa olevista napeista. Tämä onnistuu (esimerkiksi) hajautustaulun avulla. Hajautustaulu sisältää avaimena KeyCode-olion, eli nappia kuvaavan olion, ja arvona Boolean-tyyppisen muuttujan. Jos tiettyyn nappiin liittyvän boolean-muuttujan arvo on `true`, nappi on pohjassa, muulloin nappi ei ole pohjassa. -->
+
+Let's change the handling of keyboard event, such that we keep a record of pressed keys. This can be done, for example, using a hash table. The hash table contains the KeyCode object, i.e. the object representing the key, as the key and a Boolean variable as the value. If the value of the boolean variable of a particular key is `true`, then the key is pressed, otherwise the key is not pressed.
+
+<!-- Nyt huomioidaan myös napin nostaminen, eli `onKeyReleased`-tapahtuma. -->
+Now we also consider depressing the key, i.e. the `onKeyReleased` event.
 
 <!-- ```java
 Map<KeyCode, Boolean> painetutNapit = new HashMap<>();
@@ -465,9 +512,13 @@ scene.setOnKeyReleased(event -> {
 });
 ```
 
-Mutta! Eihän tuolla mikään nyt käännä alusta.
+<!-- Mutta! Eihän tuolla mikään nyt käännä alusta. -->
 
-Ei niin. Tarvitsemme vielä kääntämistoiminnallisuuden. Otetaan käyttöön animaatioiden luomiseen tarkoitettu AnimationTimer-luokka, ja annetaan sen vastuulle aluksen kääntäminen mikäli vasen tai oikea nappi on pohjassa.
+But! Nothing is currently turning the ship.
+
+<!-- Ei niin. Tarvitsemme vielä kääntämistoiminnallisuuden. Otetaan käyttöön animaatioiden luomiseen tarkoitettu AnimationTimer-luokka, ja annetaan sen vastuulle aluksen kääntäminen mikäli vasen tai oikea nappi on pohjassa. -->
+
+Indeed. We still need functionality for rotation. We will start using the AnimationTimer class, which is meant for creating animations, and assign it the responsibility of turning the the ship in case the left or right key is pressed.
 
 
 <!-- ```java
@@ -522,7 +573,9 @@ new AnimationTimer() {
 }.start();
 ```
 
-AnimationTimer-luokan maetodia `handle` kutsutaan noin 60 kertaa sekunnissa. Nyt kääntyminen on paljon sulavampaa (tosin, sitä ei alla olevasta gif-kuvasta taida huomata...).
+<!-- AnimationTimer-luokan maetodia `handle` kutsutaan noin 60 kertaa sekunnissa. Nyt kääntyminen on paljon sulavampaa (tosin, sitä ei alla olevasta gif-kuvasta taida huomata...). -->
+
+The `handle` method of the AnimationTimer class is called approximately 60 times per second. Now the rotation is much smoother (however, it is not very apparent in the gif below...).
 
 <img src="../img/material/pane-polygon-move-rotate-better.gif" alt="Suunnikasta voi kääntää vasemmalle tai oikealle."/>
 
@@ -1435,7 +1488,7 @@ Now the asteroids look a bit more varied.
 <!-- Lisätään asteroideille vielä liike ja suunta. Liike ja suunta on osittain määriteltynä luokassa Hahmo, mutta haluamme toimintaan hieman satunnaisuutta. Kun asteroidi luodaan, sen suunnan tulee olla satunnainen luku välillä [0, 360[. Tämän lisäksi asteroidi liikkuu hieman -- liike määritetään satunnaisena määränä kiihdytyskutsuja hahmon luonnin yhteydessä. Lopuksi asteroidilla on myös pieni pyörimisliike. Aina kun asteroidi liikkuu, se myös pyörii hieman. -->
 We will also add movement and direction to the asteroids.
 Movement and direction have been partially defined in the Character class, but we want to add some randomness to the movement.
-When an asteroid is created, it's direction should be a random number between [0, 360]. Asteroids also move a little -- the movement is defined as a random number of exeleration calls when the character is created.
+When an asteroid is created, it's direction should be a random number between [0, 360]. Asteroids also move a little -- the movement is defined as a random number of acceleration calls when the character is created.
 Finally an asteroid also rotates. Each time an asteroid moves, it also rotates a little.
 
 
@@ -1626,7 +1679,7 @@ Now the characters stay on screen.
 
 <!-- Emme ole yllä kuvattuun versioon täysin tyytyväisiä, sillä hahmot saattavat "hypätä" ruudun laidalta toiselle. Hahmon kokoa ei huomioida yllä kuvatussa liikkumistoiminnossa, jolloin hahmon x- tai y-koordinaatti voi olla ulkona ruudusta, vaikka osa hahmosta olisi vielä näkyvissä. Tähän löytyy -- mahdollisesti -- ratkaisu Node-luokalta löytyvästä getBoundsInParent-metodista. Emme tarkastele tätä kuitenkaan sen enempää. -->
 We are not quite satisfied with this version of the application, because characters sometimes "jump" from one side of the screen to the other. The size of the character is not taken into account, so its x- or y -coordinates can be outside of the screen, even if part of the character stays visible.
-We can --propably-- solve this problem with the getBoundsInParent-method of the Node -class. However we will not go more into it here.
+We can --probably-- solve this problem with the getBoundsInParent-method of the Node -class. However we will not go more into it here.
 
 
 <!-- ## Ammukset -->
@@ -1819,7 +1872,7 @@ projectiles.forEach(projectile -> {
 <img src="../img/material/ammus-poistaa-asteroidin.gif" />
 
 <!-- Ammukset eivät kuitenkaan poistu törmäyksen yhteydessä. Eräs tapa poistaa myös ammukset on esitelty seuraavassa esimerkissä. -->
-The projectiles do not however dissappear when they hit an asteroid. One way to remove the projectiles after a hit is described below.
+The projectiles do not however disappear when they hit an asteroid. One way to remove the projectiles after a hit is described below.
 
 <!-- ```java
 List<Ammus> poistettavatAmmukset = ammukset.stream().filter(ammus -> {
@@ -1938,7 +1991,7 @@ We can decide that a player gets 1000 points every time they destroy an asteroid
 
 <!-- Javan tarjoama -luokka on tähän tarkoitukseen mainio. Tekstioliolle määritellään koordinaatti sekä sisältö. Alla olevassa esimer<a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/text/Text.html" target="_blank">Text</a>kissä pisteet ovat aina 0. -->
 The Java <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/text/Text.html" target="_blank">Text</a> -class is great for this purpose.
-A Text objext has coordinates and content. In the example below the player always has 0 points.
+A Text object has coordinates and content. In the example below the player always has 0 points.
 
 <br/>
 
@@ -2067,7 +2120,7 @@ projectiles.forEach(projectile -> {
 ```
 
 <!-- Nyt, olettaen että pisteiden kasvatus on poistettu animationtimerin alusta, pisteitä saa aina asteroidiin osuttaessa. -->
-Now, if the increasing of points has been removed from the start of the animationmeter, player gets points when they hit an asteroid.
+Now, if the increasing of points has been removed from the start of the animation timer, player gets points when they hit an asteroid.
 
 <img src="../img/material/asteroids-ammuskelua.gif" alt="Like a boss."/>
 
@@ -2079,7 +2132,7 @@ Now, if the increasing of points has been removed from the start of the animatio
 When we hit an asteroid, they disappear, and soon there is nothing to shoot. This is not acceptable!
 
 <!-- Lisätään ohjelmaan arpomistoiminnallisuus, mikä lisää asteroideja pelin edetessä. Asteroideja lisätään puolen prosentin todennäköisyydellä AnimationTimer-olion kutsujen yhteydessä. Tämän lisäksi uusi asteroidi lisätään vain mikäli se ei heti törmää alukseen. -->
-We will add a function which adds asteroids throughout the game. A new asteroid is added with the propability of 0.5% each time the AnimationTimer-object is called. A new asteroid is added only if it does not collide with a ship immediately.
+We will add a function which adds asteroids throughout the game. A new asteroid is added with the probability of 0.5% each time the AnimationTimer-object is called. A new asteroid is added only if it does not collide with a ship immediately.
 
 <!-- AnimationTimer-olion metodia handle kutsutaan noin 60 kertaa sekunnissa, joten uusia asteroideja tulee kymmenessä sekunnissa muutamia. Kutsu lisätään AnimationTimer-olion handle-metodin loppuun. -->
 The handle method of an AnimationTimer-object is called approximately 60 times a second, so in ten seconds a few asteroids are added. We add the call to the end of the handle -method.
@@ -2113,7 +2166,7 @@ if(Math.random() < 0.005) {
 
 <!-- Tehtäväpohjassa on tyhjä ohjelmapohja. Toteuta tehtävään edellistä laajempaa esimerkkiä seuraten Asteroids-peli. -->
 
-The exercise template contains an empty program template. Create the Asteroids game by following the preceeding example of a large application.
+The exercise template contains an empty program template. Create the Asteroids game by following the preceding example of a large application.
 
 <!-- Sitä mukaa kun toteutat peliä tehtäväpohjaan, päivitä luokan `AsteroidsSovellus` metodia `osiaToteutettu` palauttamaan valmiiksi saamasi tehtävän osan numero. Voit palauttaa tehtävän vaikket tekisikään kaikkia osia, jolloin saat pisteitä tehtävän niistä osista, jotka olet tehnyt. -->
 
@@ -2150,7 +2203,7 @@ When you have these, and the previous parts working, set the return value of the
 
 <!-- Täydennä Asteroids-peliä lisäämällä peliin (1) asteroidin luominen, (2) aluksen ja asteroidin törmääminen, ja (3) useamman asteroidin lisääminen. -->
 
-Extend the Asteroids game with (1) creating an asteroid, (2) collition between ship and asteroid, and (3) adding multiple asteroids.
+Extend the Asteroids game with (1) creating an asteroid, (2) the collision between ship and asteroid, and (3) adding multiple asteroids.
 
 <!-- Kun olet saanut nämä ja edelliset osat toimimaan, aseta luokan `AsteroidsSovellus` metodin `osiaToteutettu` palauttamaksi arvoksi `3`. -->
 
