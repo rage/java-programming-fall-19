@@ -1,7 +1,7 @@
 ---
-path: '/osa-13/1-graafiset-kayttoliittymat'
-title: 'Graafiset käyttöliittymät'
-hidden: true
+path: '/part-13/1-graphical-user-interfaces'
+title: 'Graphical user interfaces'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

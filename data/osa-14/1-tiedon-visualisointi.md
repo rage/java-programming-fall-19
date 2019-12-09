@@ -59,26 +59,47 @@ for (int i = 0; i < palat.length; i++) {
 Tutustutaan tässä muutamaan tiedon visualisointiin käytettävään kaavioon sekä erääseen liikkuvan tiedon visualisointitapaan.
 
 
-## Kaaviot
+<!-- ## Kaaviot -->
 
-Java tarjoaa [paljon valmiita luokkia](https://docs.oracle.com/javafx/2/api/javafx/scene/chart/package-summary.html) kaavioiden piirtämiseen. Kaaviotyypit sisältävät muunmuassa aluekaavion, pylväskaavion, viivakaavion sekä piirakkakaavion.
+## Charts
 
-Tutustutaan tässä viivakaavion ja pylväskaavion käyttöön. Kannattaa myös tutustua osoitteessa [https://docs.oracle.com/javafx/2/charts/jfxpub-charts.htm](https://docs.oracle.com/javafx/2/charts/jfxpub-charts.htm) olevaan Oraclen oppaaseen aiheesta.
+<!-- Java tarjoaa [paljon valmiita luokkia](https://docs.oracle.com/javafx/2/api/javafx/scene/chart/package-summary.html) kaavioiden piirtämiseen. Kaaviotyypit sisältävät muunmuassa aluekaavion, pylväskaavion, viivakaavion sekä piirakkakaavion. -->
+
+Java offers [a variety of classes](https://docs.oracle.com/javafx/2/api/javafx/scene/chart/package-summary.html) for drawing different types of charts. The types of charts include, among others, area charts, bar charts, and line charts.
+
+<!-- Tutustutaan tässä viivakaavion ja pylväskaavion käyttöön. Kannattaa myös tutustua osoitteessa [https://docs.oracle.com/javafx/2/charts/jfxpub-charts.htm](https://docs.oracle.com/javafx/2/charts/jfxpub-charts.htm) olevaan Oraclen oppaaseen aiheesta. -->
+
+We are next going to take a look at using a line chart and a bar chart. It might we worthwhile to also take a look at Oracle's guide on the subject, which can be found at the following location: [https://docs.oracle.com/javafx/2/charts/jfxpub-charts.htm](https://docs.oracle.com/javafx/2/charts/jfxpub-charts.htm).
+
+<br/>
+
+<!-- ### Viivakaavio -->
+
+### Line chart
+
+<!-- Viivakaaviota käytetään esimerkiksi ajan yli tapahtuvan muutoksen kuvaamiseen. Tieto kuvataan kaksiulotteisessa koordinaatistossa sijaitsevien pisteiden läpi piirretyllä viivalla, missä x-koordinaatti kuvaa ajanhetkeä ja y-koordinaatti muuttujan arvoa kullakin ajanhetkellä. Viivakaavio voi sisältää myös useampia muuttujia. -->
+
+Line charts can be used to illustrate change that happens over time. The data is illustrated as a line that connects dots in a two-dimencional coordinate system, where the x-axis represents time, and the y-axis the value of the variable at each ppoint of time. A line chart can also contain many different variables.
+
+<!-- Viivakaaviota voi käyttää esimerkiksi Tilastokeskuksen tarjoaman puolueiden äänimääriä ja suhteellista kannatusta kunnallisvaaleissa vuosina 1968-2008 kuvaavan tiedon visualisointiin. Alkuperäinen data löytyy osoitteesta [https://tilastokeskus.fi/til/kvaa/2008/kvaa_2008_2010-07-30\_tau\_002.html](https://tilastokeskus.fi/til/kvaa/2008/kvaa_2008_2010-07-30_tau_002.html). Datasta on poimittu visualisointia varten muutama piste -- keskitymme tässä suhteelliseen kannatukseen. Käytössä oleva data on seuraavanlainen -- datan erottelussa on käytetty sarkainmerkkiä ('\t'). -->
+
+Let's use a line chart some real-world data. Statistics Finland offers data on the total votes and relative percentage of votes in Finnish communal elections in the years 1968-2008. The original data can be found at [https://tilastokeskus.fi/til/kvaa/2008/kvaa_2008_2010-07-30_tau_002.html](https://tilastokeskus.fi/til/kvaa/2008/kvaa_2008_2010-07-30_tau_002.html). Below a few point drawn from the data for visualization -- here we will focus on the relative share of the votes. Our data below uses tabs for separation (so the character '\t').
 
 <br/>
 
-### Viivakaavio
-
-
-Viivakaaviota käytetään esimerkiksi ajan yli tapahtuvan muutoksen kuvaamiseen. Tieto kuvataan kaksiulotteisessa koordinaatistossa sijaitsevien pisteiden läpi piirretyllä viivalla, missä x-koordinaatti kuvaa ajanhetkeä ja y-koordinaatti muuttujan arvoa kullakin ajanhetkellä. Viivakaavio voi sisältää myös useampia muuttujia.
-
-
-Viivakaaviota voi käyttää esimerkiksi Tilastokeskuksen tarjoaman puolueiden äänimääriä ja suhteellista kannatusta kunnallisvaaleissa vuosina 1968-2008 kuvaavan tiedon visualisointiin. Alkuperäinen data löytyy osoitteesta [https://tilastokeskus.fi/til/kvaa/2008/kvaa_2008_2010-07-30\_tau\_002.html](https://tilastokeskus.fi/til/kvaa/2008/kvaa_2008_2010-07-30_tau_002.html). Datasta on poimittu visualisointia varten muutama piste -- keskitymme tässä suhteelliseen kannatukseen. Käytössä oleva data on seuraavanlainen -- datan erottelussa on käytetty sarkainmerkkiä ('\t').
-
-<br/>
+<!-- <pre>
+Puolue	1968	1972	1976	1980	1984	1988	1992	1996	2000	2004	2008
+KOK	16.1	18.1	20.9	22.9	23.0	22.9	19.1	21.6	20.8	21.8	23.4
+SDP	23.9	27.1	24.8	25.5	24.7	25.2	27.1	24.5	23.0	24.1	21.2
+KESK	18.9	18.0	18.4	18.7	20.2	21.1	19.2	21.8	23.8	22.8	20.1
+VIHR	-	-	-	-	2.8	2.3	6.9	6.3	7.7	7.4	8.9
+VAS	16.9	17.5	18.5	16.6	13.1	12.6	11.7	10.4	9.9	9.6	8.8
+PS	7.3	5.0	2.1	3.0	5.3	3.6	2.4	0.9	0.7	0.9	5.4
+RKP	5.6	5.2	4.7	4.7	5.1	5.3	5.0	5.4	5.1	5.2	4.7
+</pre> -->
 
 <pre>
-Puolue	1968	1972	1976	1980	1984	1988	1992	1996	2000	2004	2008
+Party	1968	1972	1976	1980	1984	1988	1992	1996	2000	2004	2008
 KOK	16.1	18.1	20.9	22.9	23.0	22.9	19.1	21.6	20.8	21.8	23.4
 SDP	23.9	27.1	24.8	25.5	24.7	25.2	27.1	24.5	23.0	24.1	21.2
 KESK	18.9	18.0	18.4	18.7	20.2	21.1	19.2	21.8	23.8	22.8	20.1
@@ -89,18 +110,28 @@ RKP	5.6	5.2	4.7	4.7	5.1	5.3	5.0	5.4	5.1	5.2	4.7
 </pre>
 
 
-Yksittäisen yllä kuvatun rivin voi pilkkoa seuraavasti.
+<!-- Yksittäisen yllä kuvatun rivin voi pilkkoa seuraavasti. -->
+
+It's possible to split one of the rows above in the following manner:
 
 
-```java
+<!-- ```java
 String rivi = "Puolue	1968	1972	1976	1980	1984	1988"
 List<String> palat = Arrays.asList(rivi.split("\t"));
 for (int i = 0; i < palat.size(); i++) {
     System.out.println(i + ": " + palat.get(i));
 }
+``` -->
+
+```java
+String row = "Party	1968	1972	1976	1980	1984	1988"
+List<String> pieces = Arrays.asList(row.split("\t"));
+for (int i = 0; i < pieces.size(); i++) {
+    System.out.println(i + ": " + pieces.get(i));
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 0: Puolue
 1: 1968
@@ -110,13 +141,25 @@ for (int i = 0; i < palat.size(); i++) {
 5: 1984
 6: 1988
 
+</sample-output> -->
+
+<sample-output>
+
+0: Party
+1: 1968
+2: 1972
+3: 1976
+4: 1980
+5: 1984
+6: 1988
+
 </sample-output>
 
+<!-- Viivakaavion käyttö vaatii koordinaatiston akseleiden määrittelyn, koordinaatistoja käyttävän viivakaavion luomisen, sekä tiedon lisäämisen viivakaavioon. Ensimmäinen hahmotelma sovelluksesta on seuraava. Sovellus yrittää visualisoida RKP:n kannatusta vuosina 1968-2008. -->
 
-Viivakaavion käyttö vaatii koordinaatiston akseleiden määrittelyn, koordinaatistoja käyttävän viivakaavion luomisen, sekä tiedon lisäämisen viivakaavioon. Ensimmäinen hahmotelma sovelluksesta on seuraava. Sovellus yrittää visualisoida RKP:n kannatusta vuosina 1968-2008.
+Using a line chart requires that we define the axes of the coordinate system, create the line chart that uses those axes, and insert the data into the created line chart. Our first take at the application follows. The progam attempts to visualize the support enjoyed by the RKP party in the years 1968-2008.
 
-
-```java
+<!-- ```java
 @Override
 public void start(Stage ikkuna) {
     // luodaan kaaviossa käytettävät x- ja y-akselit
@@ -156,26 +199,80 @@ public void start(Stage ikkuna) {
     ikkuna.setScene(nakyma);
     ikkuna.show();
 }
+``` -->
+
+```java
+@Override
+public void start(Stage stage) {
+    // create the x and y axes that the chart is going to use
+    NumberAxis xAxis = new NumberAxis();
+    NumberAxis yAxis = new NumberAxis();
+
+    // set the titles for the axes
+    xAxis.setLabel("Year");
+    yAxis.setLabel("Relative support (%)");
+
+
+    // create the line chart. The values of the chart are given as numbers
+    // and it uses the axes we created earlier
+    LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
+    lineChart.setTitle("Relative support in the years 1968-2008");
+
+    // create the data set that is going to be added to the line chart
+    XYChart.Series rkpData = new XYChart.Series();
+    rkpData.setName("RKP");
+    // and single points into the data set
+    rkpData.getData().add(new XYChart.Data(1968, 5.6));
+    rkpData.getData().add(new XYChart.Data(1972, 5.2));
+    rkpData.getData().add(new XYChart.Data(1976, 4.7));
+    rkpData.getData().add(new XYChart.Data(1980, 4.7));
+    rkpData.getData().add(new XYChart.Data(1984, 5.1));
+    rkpData.getData().add(new XYChart.Data(1988, 5.3));
+    rkpData.getData().add(new XYChart.Data(1992, 5.0));
+    rkpData.getData().add(new XYChart.Data(1996, 5.4));
+    rkpData.getData().add(new XYChart.Data(2000, 5.1));
+    rkpData.getData().add(new XYChart.Data(2004, 5.2));
+    rkpData.getData().add(new XYChart.Data(2008, 4.7));
+
+    // add the data set to the line chart
+    lineChart.getData().add(rkpData);
+
+    // display the line chart
+    Scene view = new Scene(lineChart, 640, 480);
+    stage.setScene(view);
+    stage.show();
+}
 ```
 
+<!-- Kun käynnistämme sovelluksen, huomaamme muutamia ongelmia (kokeile sovellusta ja katso miltä data näyttää). Koordinaatiston akseleiden luomiseen käytetty luokka [NumberAxis](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/NumberAxis.html) tarjoaa onneksemme myös toisenlaisen konstruktorin. NumberAxin-luokan konstruktorille voi määritellä myös ala- ja yläraja sekä välien määrän näytettyjen numeroiden välillä. Määritellään alarajaksi 1968, ylärajaksi 2008, ja välien määräksi 4. -->
 
-Kun käynnistämme sovelluksen, huomaamme muutamia ongelmia (kokeile sovellusta ja katso miltä data näyttää). Koordinaatiston akseleiden luomiseen käytetty luokka [NumberAxis](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/NumberAxis.html) tarjoaa onneksemme myös toisenlaisen konstruktorin. NumberAxin-luokan konstruktorille voi määritellä myös ala- ja yläraja sekä välien määrän näytettyjen numeroiden välillä. Määritellään alarajaksi 1968, ylärajaksi 2008, ja välien määräksi 4.
+When we start the program, there are a few problems we notice (try it out and see what the data looks like). The class that we used to create the axes, [NumberAxis](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/NumberAxis.html), happens to offer another constructor, too. You can give as parameters to the constructor the lower and upper bounds, as well as the number of ticks betwen them. Let's set the lower bound as 1968, the upper bound as 2008, and the number of ticks as 4.
 
 <br/>
 
-```java
+<!-- ```java
 @Override
 public void start(Stage ikkuna) {
     // luodaan kaaviossa käytettävät x- ja y-akselit
     NumberAxis xAkseli = new NumberAxis(1968, 2008, 4);
     // .. muu ohjelmakoodi pysyy samana
-```
-
-
-Toisen puolueen kannatuksen lisääminen onnistuu ohjelmaan vastaavasti. Alla olevassa esimerkissä kaavioon on lisätty Vihreät, joilla on ollut toimintaa vuodesta 1984 lähtien.
+``` -->
 
 
 ```java
+@Override
+public void start(Stage stage) {
+    // create the x and y axis
+    NumberAxis xAxis= new NumberAxis(1968, 2008, 4);
+    // .. the rest of the code stays the same
+```
+
+<!-- Toisen puolueen kannatuksen lisääminen onnistuu ohjelmaan vastaavasti. Alla olevassa esimerkissä kaavioon on lisätty Vihreät, joilla on ollut toimintaa vuodesta 1984 lähtien. -->
+
+Adding the support numbers of another party to the program can be accomplished in a similar manner. In the example below, we add the party VIHR to the chart -- the party has been active since the year 1984.
+
+
+<!-- ```java
 @Override
 public void start(Stage ikkuna) {
     // luodaan kaaviossa käytettävät x- ja y-akselit
@@ -230,17 +327,79 @@ public void start(Stage ikkuna) {
     ikkuna.setScene(nakyma);
     ikkuna.show();
 }
-```
-
-Ohjelma näyttää käynnistyessään seuraavalta.
-
-<img src="../img/material/kaavio-kannatus-rkp-ja-vihr.png"/>
-
-
-Edellä jokainen kaavion piste lisättiin ohjelmakoodiin manuaalisesti -- olemme ohjelmoijia, joten tämä tuntuu hieman hölmöltä. Ratkaisu on tiedon lukeminen sopivaan tietorakenteeseen, jota seuraa tietorakenteen läpikäynti ja tiedon lisääminen kaavioon. Sopiva tietorakenne on esimerkiksi puolueiden nimiä avaimena käyttävä hajautustaulu, jonka arvona on hajautustaulu -- tämä hajautustaulu sisältää numeropareja, jotka kuvaavat vuotta ja kannatusta. Nyt datan lisääminen kaavioon on suoraviivaisempaa.
-
+``` -->
 
 ```java
+@Override
+public void start(Stage stage) {
+    // create the x and y axes that the chart is going to use
+    NumberAxis xAxis = new NumberAxis();
+    NumberAxis yAxis = new NumberAxis();
+
+    // set the titles for the axes
+    xAxis.setLabel("Year");
+    yAxis.setLabel("Relative support (%)");
+
+
+    // create the line chart. The values of the chart are given as numbers
+    // and it uses the axes we created earlier
+    LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
+    lineChart.setTitle("Relative support in the years 1968-2008");
+
+    // create the data set that is going to be added to the line chart
+    XYChart.Series rkpData = new XYChart.Series();
+    rkpData.setName("RKP");
+    // and single points into the data set
+    rkpData.getData().add(new XYChart.Data(1968, 5.6));
+    rkpData.getData().add(new XYChart.Data(1972, 5.2));
+    rkpData.getData().add(new XYChart.Data(1976, 4.7));
+    rkpData.getData().add(new XYChart.Data(1980, 4.7));
+    rkpData.getData().add(new XYChart.Data(1984, 5.1));
+    rkpData.getData().add(new XYChart.Data(1988, 5.3));
+    rkpData.getData().add(new XYChart.Data(1992, 5.0));
+    rkpData.getData().add(new XYChart.Data(1996, 5.4));
+    rkpData.getData().add(new XYChart.Data(2000, 5.1));
+    rkpData.getData().add(new XYChart.Data(2004, 5.2));
+    rkpData.getData().add(new XYChart.Data(2008, 4.7));
+
+    // add the data set to the line chart
+    lineChart.getData().add(rkpData);
+
+    // create another data set that's going to be added to the chart
+    XYChart.Series vihrData = new XYChart.Series();
+    vihrData.setName("VIHR");
+    // and single points into the data set
+    vihrData.getData().add(new XYChart.Data(1984, 2.8));
+    vihrData.getData().add(new XYChart.Data(1988, 2.3));
+    vihrData.getData().add(new XYChart.Data(1992, 6.9));
+    vihrData.getData().add(new XYChart.Data(1996, 6.3));
+    vihrData.getData().add(new XYChart.Data(2000, 7.7));
+    vihrData.getData().add(new XYChart.Data(2004, 7.4));
+    vihrData.getData().add(new XYChart.Data(2008, 8.9));
+
+    // add the data set to the line chart
+    lineChart.getData().add(vihrData);
+
+    // display the line chart
+    Scene view = new Scene(lineChart, 640, 480);
+    stage.setScene(view);
+    stage.show();
+}
+```
+
+<!-- Ohjelma näyttää käynnistyessään seuraavalta. -->
+
+The program should look like this when started.
+
+<img src="../img/material/chart-support-rkp-and-vihr.png"/>
+
+
+<!-- Edellä jokainen kaavion piste lisättiin ohjelmakoodiin manuaalisesti -- olemme ohjelmoijia, joten tämä tuntuu hieman hölmöltä. Ratkaisu on tiedon lukeminen sopivaan tietorakenteeseen, jota seuraa tietorakenteen läpikäynti ja tiedon lisääminen kaavioon. Sopiva tietorakenne on esimerkiksi puolueiden nimiä avaimena käyttävä hajautustaulu, jonka arvona on hajautustaulu -- tämä hajautustaulu sisältää numeropareja, jotka kuvaavat vuotta ja kannatusta. Nyt datan lisääminen kaavioon on suoraviivaisempaa. -->
+
+Above each data point was manually added to the program code -- since we're programmers, this approach seems needlessly tedious. The solution is to read the data into a suitable data structure, after which we go through the structure and add the data in it into the chart. A good candidate for the data structure is a hash map that uses the names of the parties as its keys. The values of the hash table are pairs of numbers that represent the year and the corresponding support number. Now it's much more straightforward to add data into the chart.
+
+
+<!-- ```java
 // akselit ja viivakaavio luotu aiemmin
 
 // data luettu aiemmin -- datan sisältää seuraava olio
@@ -260,12 +419,37 @@ arvot.keySet().stream().forEach(puolue -> {
     // ja datajoukko lisätään kaavioon
     viivakaavio.getData().add(data);
 });
+``` -->
+
+```java
+// the axes and the line chart created previously
+
+// data has been read earlier -- the following object contains the data
+Map<String, Map<Integer, Double>> values = // created elsewhere
+
+// go through the parties and add them to the chart
+values.keySet().stream().forEach(party -> {
+    // a different data set for every party
+    XYChart.Series data = new XYChart.Series();
+    data.setName(party);
+
+    // add the party's support numbers to the data set
+    values.get(party).entrySet().stream().forEach(pair -> {
+        data.getData().add(new XYChart.Data(pair.getKey(), pair.getValue()));
+    });
+
+    // and add the data set to the chart
+    lineChart.getData().add(data);
+});
 ```
 
+<!-- <programming-exercise name='Shanghai' tmcname='osa14-Osa14_01.Shanghai'> -->
 
-<programming-exercise name='Shanghai' tmcname='osa14-Osa14_01.Shanghai'>
+<programming-exercise name='Shanghai' tmcname='part14-Part14_01.Shanghai'>
 
-Yliopistoja vertaillaan vuosittain. Eräs kansainvälisesti tunnistettu arvioijataho on Shanghai Ranking Consultancy, joka julkaisee vuosittain listan kansainvälisesti tunnistetuista yliopistoista. Lista sisältää myös yliopiston sijan maailmanlaajuisessa vertailussa. Helsingin yliopiston sijoitus on vuosina 2007-2017 ollut seuraava:
+<!-- Yliopistoja vertaillaan vuosittain. Eräs kansainvälisesti tunnistettu arvioijataho on Shanghai Ranking Consultancy, joka julkaisee vuosittain listan kansainvälisesti tunnistetuista yliopistoista. Lista sisältää myös yliopiston sijan maailmanlaajuisessa vertailussa. Helsingin yliopiston sijoitus on vuosina 2007-2017 ollut seuraava: -->
+
+Universities are compared yearly. One internationally respected comparer is the Shanghai Ranking Consultancy, which published a yearly comparison list of internationally famous universities. The list also includes the rank for each university. The University of Helsinki has obtained the following ranks in the years 2007-2017:
 
 <pre>
 2007 73
@@ -281,33 +465,55 @@ Yliopistoja vertaillaan vuosittain. Eräs kansainvälisesti tunnistettu arvioija
 2017 56
 </pre>
 
-Luo tehtäväpohjassa olevaan luokkaan `ShanghaiSovellus` ohjelma, joka näyttää Helsingin yliopiston sijoituksen kehityksen viivakaaviona. Huom! Älä käytä sovelluksessa mitään asettelua, eli anna viivakaavio-olio suoraan Scene-oliolle konstruktorin parametrina. Huomaa myös, että Scenelle tulee tällöin antaa näytettävän alueen leveys ja korkeus.
+<!-- Luo tehtäväpohjassa olevaan luokkaan `ShanghaiSovellus` ohjelma, joka näyttää Helsingin yliopiston sijoituksen kehityksen viivakaaviona. Huom! Älä käytä sovelluksessa mitään asettelua, eli anna viivakaavio-olio suoraan Scene-oliolle konstruktorin parametrina. Huomaa myös, että Scenelle tulee tällöin antaa näytettävän alueen leveys ja korkeus. -->
 
-Sovelluksen tuottama tulos näyttää esimerkiksi seuraavanlaiselta:
+You will find the class `ShangaiApplication` in the exercise base. Create in it a program that shows how the University of Helsinki's ranking has varied during these years. NB! Don't use any layout in the application -- give the line chart object directly as the Scene object's constructor parameter. Also take notice that the Scene also needs the width and height of the displayed area as parameters.
 
-<img src="../img/shanghai.png" />
+<!-- Sovelluksen tuottama tulos näyttää esimerkiksi seuraavanlaiselta: -->
+
+The result drawn by the application could like the following example:
+
+<img src="../img/shanghai.png"/>
 
 </programming-exercise>
 
 
-<programming-exercise name='Puolueet' tmcname='osa14-Osa14_02.Puolueet'>
+<!-- <programming-exercise name='Puolueet' tmcname='osa14-Osa14_02.Puolueet'> -->
 
-Luo tehtäväpohjassa olevaan luokkaan PuolueetSovellus ohjelma, joka näyttää puolueiden suhteellisen kannatuksen vuosina 1968-2008. Käytössä on edellisissä esimerkeissä käytetty data, joka löytyy tiedostosta "puoluedata.tsv".
+<programming-exercise name='Finnish parties' tmcname='part14-Part14_02.FinnishParties'>
 
-Suhteellinen kannatus tulee näyttää puoluekohtaisesti siten, että jokaista puoluetta kuvaa viivakaaviossa erillinen viiva. Aseta aina viivan luomiseen käytettävän XYChart.Series-olion nimeksi (metodi setName) datasta löytyvä puolueen nimi.
+<!-- Luo tehtäväpohjassa olevaan luokkaan PuolueetSovellus ohjelma, joka näyttää puolueiden suhteellisen kannatuksen vuosina 1968-2008. Käytössä on edellisissä esimerkeissä käytetty data, joka löytyy tiedostosta "puoluedata.tsv". -->
 
-Kun viivakaavion käyttämää x-akselia luo, kannattaa huomioida myös se, että ensimmäinen tilaston sisältämä tieto on vuodelta 1968.
+The exercise base contains the class PartiesApplication. Create in it an application that displays the relative support of the major Finnish parties during the years 1968-2008. The project contains the raw data that has been used in the previous examples, and it can be found in the file "partiesdata.tsv".
 
-Sarkainmerkillä erotellun merkkijonon saa pilkottua osiin seuraavasti:
+<!-- Suhteellinen kannatus tulee näyttää puoluekohtaisesti siten, että jokaista puoluetta kuvaa viivakaaviossa erillinen viiva. Aseta aina viivan luomiseen käytettävän XYChart.Series-olion nimeksi (metodi setName) datasta löytyvä puolueen nimi. -->
 
+The relative support must be displayed for each party so that a separate line represents each of them in the line chart. Always set the name of the XYChart.Series object to be the party name that can be found in the data (with the help of the setName method).
 
-```java
+<!-- Kun viivakaavion käyttämää x-akselia luo, kannattaa huomioida myös se, että ensimmäinen tilaston sisältämä tieto on vuodelta 1968. -->
+
+When creating the x axis that the line chart uses, take notice that the first year that the statistics cover is the year of 1968.
+
+<!-- Sarkainmerkillä erotellun merkkijonon saa pilkottua osiin seuraavasti: -->
+
+Tab-separated string can be split into parts in the following manner:
+
+<!-- ```java
 String merkkijono = "KOK	16.1	18.1	20.9";
 String[] palat = merkkijono.split("\t");
 System.out.println(palat[0]);
 System.out.println(palat[1]);
 System.out.println(palat[2]);
 System.out.println(palat[3]);
+``` -->
+
+```java
+String string = "KOK    16.1    18.1    20.9";
+String[] pieces = string.split("\t");
+System.out.println(pieces[0]);
+System.out.println(pieces[1]);
+System.out.println(pieces[2]);
+System.out.println(pieces[3]);
 ```
 
 <sample-output>
@@ -320,16 +526,22 @@ KOK
 </sample-output>
 
 
-Merkkijonomuodossa olevan desimaaliluvun muuntaminen desimaaliluvuksi onnistuu luokan Double metodilla valueOf. Esim. `Double.valueOf("16.1");`
+<!-- Merkkijonomuodossa olevan desimaaliluvun muuntaminen desimaaliluvuksi onnistuu luokan Double metodilla valueOf. Esim. `Double.valueOf("16.1");` -->
 
-Sovelluksen tuottaman visualisaation tulee näyttää kutakuinkin seuraavanlaiselta:
+To create a floating point number of a string that contains a floating point number, you can use the valueOf method of the Double class. So for instance `Double.valueOf("16.1");`
 
-<img src="../img/material/kaavio-suhteellinen-kannatus.png" />
+<!-- Sovelluksen tuottaman visualisaation tulee näyttää kutakuinkin seuraavanlaiselta: -->
+
+The visualization created by the application should look something like this:
+
+<img src="../img/material/chart-relative-support.png" />
 
 &nbsp;
 
 
-*Dataa vastaaviin kaavioihin löytyy muunmuassa Tilastokeskuksen [PX-Web-tietokannoista](https://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/).*
+<!-- *Dataa vastaaviin kaavioihin löytyy muunmuassa Tilastokeskuksen [PX-Web-tietokannoista](https://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/).* -->
+
+*Data for similar charts can be found in the [PX-Web databases](https://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/) of Statistics Finland*
 
 </programming-exercise>
 
@@ -400,28 +612,44 @@ In the chart we see the compound interest of our savings, although with a very o
 </programming-exercise>
 
 
-### Pylväskaaviot
+<!-- ### Pylväskaaviot -->
 
-Pylväskaavioita käytetään kategorisen datan visualisointiin. Tieto kuvataan pylväinä, missä jokainen pylväs kuvaa tiettyä kategoriaa, ja pylvään korkeus (tai pituus) kategoriaan liittyvää arvoa. Pylväskaavioilla kuvattavasta datasta esimerkkejä ovat esimerkiksi maiden asukasluvut tai kauppojen tai tuotteiden markkinaosuudet.
+### Bar charts
 
-Tarkastellaan pylväskaavion käyttöä pohjoismaiden asukaslukujen visualisointiin. Käytetty data on Wikipedian pohjoismaita kuvaavasta artikkelista osoitteesta [https://fi.wikipedia.org/wiki/Pohjoismaat](https://fi.wikipedia.org/wiki/Pohjoismaat) (noudettu 10.4.2017, asukasluvut ovat vuoden 2015 arvioita).
+<!-- Pylväskaavioita käytetään kategorisen datan visualisointiin. Tieto kuvataan pylväinä, missä jokainen pylväs kuvaa tiettyä kategoriaa, ja pylvään korkeus (tai pituus) kategoriaan liittyvää arvoa. Pylväskaavioilla kuvattavasta datasta esimerkkejä ovat esimerkiksi maiden asukasluvut tai kauppojen tai tuotteiden markkinaosuudet. -->
+
+Bar charts can be used to visualize categorical data. The data is represented as bars --  each bar represents a certain category, and its height (or length) represents the value associated with the category. Examples of data that could well be illustrated with bar charts are populations of countries, or market shares of stores or products.
+
+<!-- Tarkastellaan pylväskaavion käyttöä pohjoismaiden asukaslukujen visualisointiin. Käytetty data on Wikipedian pohjoismaita kuvaavasta artikkelista osoitteesta [https://fi.wikipedia.org/wiki/Pohjoismaat](https://fi.wikipedia.org/wiki/Pohjoismaat) (noudettu 10.4.2017, asukasluvut ovat vuoden 2015 arvioita). -->
+
+Let's take a look at using a bar chart to visualize the population counts of the Nordic countries. The used data is from [the Wikipedia article on the Nordic countries](https://en.wikipedia.org/wiki/Nordic_countries) (retrieved 6.12.2019, populations are estimates from the year 2018).
 
 <br/>
 
-<pre>
+<!-- <pre>
 Islanti, 329100
 Norja, 5165800
 Ruotsi, 9801616
 Suomi, 5483533
 Tanska, 5678348
+</pre> -->
+
+<pre>
+Iceland, 343518
+Norway, 5372191
+Sweden, 10313447
+Finland, 5537364
+Denmark, 5809502
 </pre>
 
 
-Pylväskaavio luodaan JavaFx:n luokan [BarChart](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/BarChart.html) avulla. Kuten viivakaavion käyttö, myös pylväskaavion käyttö vaatii käytettävien koordinaatistojen määrittelyn sekä tiedon lisäämisen kaavioon. Toisin kuin viivakaavioesimerkissä, tässä käytämme x-akselin määrittelyssä kategorista kategorista [CategoryAxis](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/CategoryAxis.html)-luokkaa. Kun käytössä on CategoryAxis-luokka, kaavion akselin arvojen tyyppi on String, mikä tulee näkyä myös kaavioon lisättävässä datassa.
+<!-- Pylväskaavio luodaan JavaFx:n luokan [BarChart](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/BarChart.html) avulla. Kuten viivakaavion käyttö, myös pylväskaavion käyttö vaatii käytettävien koordinaatistojen määrittelyn sekä tiedon lisäämisen kaavioon. Toisin kuin viivakaavioesimerkissä, tässä käytämme x-akselin määrittelyssä kategorista kategorista [CategoryAxis](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/CategoryAxis.html)-luokkaa. Kun käytössä on CategoryAxis-luokka, kaavion akselin arvojen tyyppi on String, mikä tulee näkyä myös kaavioon lisättävässä datassa. -->
+
+We will use the JavaFx class [BarChart](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/BarChart.html). Like with line charts, using bar charts requires defining the used axes and adding the data into the chart. However, in this case we are going to take advantage of the categorical [CategoryAxis](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/chart/CategoryAxis.html) class when we define the x axis. With the CategoryAxis class, the type of axis values is String, which must be accounted for also in the data that is going to be added to the chart.
 
 <br/>
 
-```java
+<!-- ```java
 @Override
 public void start(Stage ikkuna) {
     CategoryAxis xAkseli = new CategoryAxis();
@@ -443,17 +671,51 @@ public void start(Stage ikkuna) {
     ikkuna.setScene(nakyma);
     ikkuna.show();
 }
+``` -->
+
+<pre>
+Iceland, 343518
+Norway, 5372191
+Sweden, 10313447
+Finland, 5537364
+Denmark, 5809502
+</pre>
+
+```java
+@Override
+public void start(Stage stage) {
+    CategoryAxis xAxis = new CategoryAxis();
+    NumberAxis yAxis = new NumberAxis();
+    BarChart<String, Number> barChart = new BarChart<>(xAxis, yAxis);
+
+    barChart.setTitle("Populations of the Nordic countries");
+    barChart.setLegendVisible(false);
+
+    XYChart.Series populations = new XYChart.Series();
+    populations.getData().add(new XYChart.Data("Sweden", 10313447));
+    populations.getData().add(new XYChart.Data("Denmark", 5809502));
+    populations.getData().add(new XYChart.Data("Finland", 5537364));
+    populations.getData().add(new XYChart.Data("Norway", 5372191));
+    populations.getData().add(new XYChart.Data("Iceland", 343518));
+
+    barChart.getData().add(populations);
+    Scene view = new Scene(barChart, 640, 480);
+    stage.setScene(view);
+    stage.show();
+}
 ```
 
-<quiznator id="798b180b-25c9-5c93-a666-dbe97b15d6fd"></quiznator>
+<quiz id="798b180b-25c9-5c93-a666-dbe97b15d6fd"></quiz>
 
-Edellinen lähdekoodi tuottaa seuraavanlaisen kaavion.
+<!-- Edellinen lähdekoodi tuottaa seuraavanlaisen kaavion. -->
 
+The source code above produces the following chart.
 
-<img src="../img/material/kaavio-pohjoismaiden-asukasluvut.png" />
+<img src="../img/material/chart-nordic-countries-populations.png" />
 
-Kuten huomaat, kun x-akseli on määritelty luokan CategoryAxis avulla, kaavio noudattaa sitä järjestystä, missä kategoriat annetaan sovellukselle. Edellisessä esimerkissä maat on järjestetty asukaslukumäärien mukaan. Kokeile muokata sovellusta siten, että pohjoismaat on järjestetty maan nimen mukaan kaaviossa. Ymmärrät mahdollisesti sovelluksen käynnistettyäsi miksei kyseistä visualisaatiota näytetä tällaisessa järjestyksessä lähes missään...
+<!-- Kuten huomaat, kun x-akseli on määritelty luokan CategoryAxis avulla, kaavio noudattaa sitä järjestystä, missä kategoriat annetaan sovellukselle. Edellisessä esimerkissä maat on järjestetty asukaslukumäärien mukaan. Kokeile muokata sovellusta siten, että pohjoismaat on järjestetty maan nimen mukaan kaaviossa. Ymmärrät mahdollisesti sovelluksen käynnistettyäsi miksei kyseistä visualisaatiota näytetä tällaisessa järjestyksessä lähes missään... -->
 
+As you can see, since the x-axis is defined with the CategoryAxis class, the chart follows the order in which the categories are supplied to the program. In the previous example the countries are ordered by population. Try to modify the program so that the Nordic countries are sorted by their names in the chart. You might understand after starting the application why this order is rarely ever used in visualizations...
 
 
 <programming-exercise name='Unfair Advertisement' tmcname='part14-Part14_04.UnfairAdvertisement'>
@@ -475,9 +737,13 @@ This exercise has no automatic tests or model answer, so you can define the comp
 </programming-exercise>
 
 
-<programming-exercise name='Pyöräilijätilastot' tmcname='osa14-Osa14_05.Pyorailijatilastot'>
+<!-- <programming-exercise name='Pyöräilijätilastot' tmcname='osa14-Osa14_05.Pyorailijatilastot'> -->
 
-Tehtäväpohjassa tulee mukana valmis sovellus, jota on käytetty pyöräilijätilastojen näyttöön viivakaaviona. Muokkaa sovellusta siten, että sovellus käyttää viivakaavion sijaan  pylväskaaviota. Kaikki viitteet viivakaavioon tulee poistaa muokkauksen yhteydessä.
+<programming-exercise name='Cycling statistics' tmcname='part14-Part14_05.CyclingStatistic'>
+
+<!-- Tehtäväpohjassa tulee mukana valmis sovellus, jota on käytetty pyöräilijätilastojen näyttöön viivakaaviona. Muokkaa sovellusta siten, että sovellus käyttää viivakaavion sijaan  pylväskaaviota. Kaikki viitteet viivakaavioon tulee poistaa muokkauksen yhteydessä. -->
+
+In the exercise base there is a ready application that illustrates cycling statistics as a line chart. Modify the program so that it uses a bar chart instead of the line chart. All the references to line charts must be removed in the course of the editing.
 
 </programming-exercise>
 

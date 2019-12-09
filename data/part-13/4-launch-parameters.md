@@ -1,7 +1,7 @@
 ---
-path: '/osa-13/4-kaynnistysparametreja-sovellukselle'
-title: 'Käynnistysparametreja sovellukselle'
-hidden: true
+path: '/part-13/4-launch-parameters'
+title: "Application's launch parameters"
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -95,10 +95,15 @@ public class Main {
 
 Parametreja käyttämällä ohjelmalle voisi kertoa esimerkiksi henkilöiden tallentamiseen ja lataamiseen käytetyn tiedoston nimen tai vaikkapa verkko-osoitteen.
 
-<programming-exercise name='Käyttäjän otsikko' tmcname='osa13-Osa13_08.KayttajanOtsikko'>
+<!-- <programming-exercise name='Käyttäjän otsikko' tmcname='osa13-Osa13_08.KayttajanOtsikko'> -->
+<programming-exercise name="User's title" tmcname='part13-Part13_08.UserTitle'>
 
-Kirjoita ohjelma, joka kysyy tekstikäyttöliittymässä käyttäjältä sovelluksen otsikkoa. Kun käyttäjä syöttää otsikon tekstikäyttöliittymään ja painaa enter, käyttäjälle näytetään graafinen käyttöliittymä, jonka otsikkona on käyttäjän syöttämä otsikko.
+Write a program that asks for a title in a command line interface. When the user types the title and presses enter, the user is shown a graphical user interface with the given title.
 
-Huomaa, että tässä tehtävässä ei ole automaattisia testejä. Palauta sovellus kun se toimii tehtävänannossa kuvatulla tavalla.
+Notice, this exercise does not have automatic tests. Return the program once it works as described in the exercise.
+
+<!-- Kirjoita ohjelma, joka kysyy tekstikäyttöliittymässä käyttäjältä sovelluksen otsikkoa. Kun käyttäjä syöttää otsikon tekstikäyttöliittymään ja painaa enter, käyttäjälle näytetään graafinen käyttöliittymä, jonka otsikkona on käyttäjän syöttämä otsikko.
+
+Huomaa, että tässä tehtävässä ei ole automaattisia testejä. Palauta sovellus kun se toimii tehtävänannossa kuvatulla tavalla. -->
 
 </programming-exercise>
