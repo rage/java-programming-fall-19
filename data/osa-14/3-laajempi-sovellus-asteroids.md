@@ -604,7 +604,7 @@ public class Asteroidi extends Hahmo {
 }
 ```
 
-<quiznator id="45be5a68-eedb-5d8e-8b70-c98999509a33"></quiznator>
+<quiz id="45be5a68-eedb-5d8e-8b70-c98999509a33"></quiz>
 
 Testataan vielä, että asteroidin voi lisätä sovellukseen.
 
