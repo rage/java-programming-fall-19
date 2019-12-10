@@ -1,7 +1,7 @@
 ---
-path: '/osa-14/1-tiedon-visualisointi'
-title: 'Tiedon visualisointi'
-hidden: true
+path: '/part-14/1-data-visualization'
+title: 'Data visualization'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -739,7 +739,7 @@ This exercise has no automatic tests or model answer, so you can define the comp
 
 <!-- <programming-exercise name='Pyöräilijätilastot' tmcname='osa14-Osa14_05.Pyorailijatilastot'> -->
 
-<programming-exercise name='Cycling statistics' tmcname='part14-Part14_05.CyclingStatistic'>
+<programming-exercise name='Cycling statistics' tmcname='part14-Part14_05.CyclingStatistics'>
 
 <!-- Tehtäväpohjassa tulee mukana valmis sovellus, jota on käytetty pyöräilijätilastojen näyttöön viivakaaviona. Muokkaa sovellusta siten, että sovellus käyttää viivakaavion sijaan  pylväskaaviota. Kaikki viitteet viivakaavioon tulee poistaa muokkauksen yhteydessä. -->
 

@@ -1,7 +1,7 @@
 ---
-path: '/osa-14/4-maven-ja-kolmannen-osapuolen-kirjastot'
-title: 'Maven ja kolmannen osapuolen kirjastot'
-hidden: true
+path: '/part-14/4-maven-and-third-party-libraries'
+title: 'Maven and third-party libraries'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
