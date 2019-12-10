@@ -125,17 +125,27 @@ Ohjelma toimii käynnistyessään seuraavasti. Huomaathan, että pisteet ovat sa
 
 &nbsp;
 
-<programming-exercise name='Piirto-ohjelma' tmcname='osa14-Osa14_01.PiirtoOhjelma'>
+<!-- <programming-exercise name='Piirto-ohjelma' tmcname='osa14-Osa14_01.PiirtoOhjelma'> -->
 
-Tehtäväpohjaan on toteutettu graafinen sovellus, joka sisältää kaksiulotteisen taulukon. Tehtävänäsi on muuttaa sovelluksen toimintaa siten, että kun käyttäjä painaa hiirtä sovelluksessa tai liikuttaa hiirtä kun nappi on pohjassa, ikkunaan piirretään.
+<programming-exercise name='Drawing application' tmcname='part14-Part14_01.DrawingApplication'>
 
-Tee tätä varten kaksi asiaa: (1) muuta sovelluksessa olevan taulukon "piirrettava" arvoja sopivasti kun käyttäjä käyttää hiirtä, ja (2) piirrä komentoa `piirturi.fillRect(x, y, 2, 2)` käyttäen ne alkiot, joiden arvo on 1. Käytä koordinaatteina x, y taulukon indeksejä.
+<!-- Tehtäväpohjaan on toteutettu graafinen sovellus, joka sisältää kaksiulotteisen taulukon. Tehtävänäsi on muuttaa sovelluksen toimintaa siten, että kun käyttäjä painaa hiirtä sovelluksessa tai liikuttaa hiirtä kun nappi on pohjassa, ikkunaan piirretään. -->
 
-Kun sovellus toimii, voit käyttää sitä vaikkapa seuraavanlaisen taideteoksen tekemiseen.
+In the exercise base there is a graphical application that contains a two-dimensional array. Your task is to modify the program so that when the user clicks on the mouse in the application window, or moves the mouse around when it is being pressed, the cursor draws in the window.
+
+<!-- Tee tätä varten kaksi asiaa: (1) muuta sovelluksessa olevan taulukon "piirrettava" arvoja sopivasti kun käyttäjä käyttää hiirtä, ja (2) piirrä komentoa `piirturi.fillRect(x, y, 2, 2)` käyttäen ne alkiot, joiden arvo on 1. Käytä koordinaatteina x, y taulukon indeksejä. -->
+
+For this, do two things: (1) change the values of the array "drawable" in the application in a suitable manner when the user uses the mouse, and (2) by using the command `drawer.fillRect(x, y, 2, 2)` to draw the elements whose value is 1. Use the indexes of the array as the coordinates.
+
+<!-- Kun sovellus toimii, voit käyttää sitä vaikkapa seuraavanlaisen taideteoksen tekemiseen. -->
+
+Once you have a working application, you can use to draw fine art like the following.
 
 <img src="../img/exercises/06-14-piirturi-ok.png" />
 
-Tehtävässä ei ole testejä eli palauta se vasta kun sovellus toimii toivotulla tavalla.
+<!-- Tehtävässä ei ole testejä eli palauta se vasta kun sovellus toimii toivotulla tavalla. -->
+
+There are no tests in the exercise, so only return your answer once the program works as instructed here.
 
 </programming-exercise>
 
