@@ -563,11 +563,11 @@ new AnimationTimer() {
     @Override
     public void handle(long now) {
         if(pressedKeys.getOrDefault(KeyCode.LEFT, false)) {
-            alus.setRotate(alus.getRotate() - 5);
+            ship.setRotate(ship.getRotate() - 5);
         }
 
         if(pressedKeys.getOrDefault(KeyCode.RIGHT, false)) {
-            alus.setRotate(alus.getRotate() + 5);
+            ship.setRotate(ship.getRotate() + 5);
         }
     }
 }.start();
@@ -583,12 +583,17 @@ The `handle` method of the AnimationTimer class is called approximately 60 times
 <!-- ## Aluksen liikuttaminen: Ensimmäinen yritys -->
 ## Moving the ship: First attempt
 
-Alustamme pystyy nyt kääntämään. Lisätään seuraavaksi mahdollisuus liikkumiseen. Alus voi liikkua mihin tahansa ilmansuuntaan, eli liikkeen kuvaamiseen tarvitaan sekä x- että y-koordinaatin arvo. Konkreettinen liikkuminen tapahtuu muuntamalla alusta kuvaavan polygonin sijaintia ohjelman edetessä.
+<!-- Alustamme pystyy nyt kääntämään. Lisätään seuraavaksi mahdollisuus liikkumiseen. Alus voi liikkua mihin tahansa ilmansuuntaan, eli liikkeen kuvaamiseen tarvitaan sekä x- että y-koordinaatin arvo. Konkreettinen liikkuminen tapahtuu muuntamalla alusta kuvaavan polygonin sijaintia ohjelman edetessä. -->
 
-Hyödynnetään Javan valmista [Point2D](https://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Point2D.html)-luokkaa liikkeen kuvaamiseen -- luokalla on sekä x- että y-koordinaatti.
+It's now possible to rotate the ship. Next, we'll add the possibility to move around. The ship should be able to move in any cardinal direction, which means that we need values for both x and y coordinates to represent movement. The concrete implementation of the movement is to modify the position of the polygon that represents the ship while the program is running.
 
-Ensimmäinen testiversio on liike-muuttujan luominen sekä sen lisääminen AnimationTimer-luokan handle-metodiin.
+<!-- Hyödynnetään Javan valmista [Point2D](https://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Point2D.html)-luokkaa liikkeen kuvaamiseen -- luokalla on sekä x- että y-koordinaatti. -->
 
+Let's make use of the existing [Point2D](https://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Point2D.html) Java class to represent movement -- the class has both x and y coordinates.
+
+<!-- Ensimmäinen testiversio on liike-muuttujan luominen sekä sen lisääminen AnimationTimer-luokan handle-metodiin. -->
+
+The first test version is to create a movement variable and adding it to the AnimationTimer class's handle method.
 
 <!-- ```java
 Point2D liike = new Point2D(1, 0);
@@ -634,13 +639,16 @@ new AnimationTimer() {
 }.start();
 ```
 
-Huraa! Alus liikkuu (ja sitä voi kääntää). Se tosin katoaa aika nopeasti..
+<!-- Huraa! Alus liikkuu (ja sitä voi kääntää). Se tosin katoaa aika nopeasti.. -->
+
+Hurray! The ship is moving (and it can be rotated). Although it disappears quite quickly...
 
 <img src="../img/material/pane-alus-liikkuu.gif" alt="Suunnikasta voi kääntää vasemmalle tai oikealle."/>
 
 
-Valitsemamme Point2D luokka muistuttaa hieman String-luokkaa siinä, että se on *immutaabeli* eli muuttumaton. Emme voi muuttaa olemassaolevan pisteen arvoja, vaan pisteen metodien kutsuminen palauttaa aina uuden arvon. Tämä on hieman ongelmallista, sillä olioiden arvoja ei saa asettaa uudestaan metodien sisällä -- emme siis voi tehdä esimerkiksi seuraavasti.
+<!-- Valitsemamme Point2D luokka muistuttaa hieman String-luokkaa siinä, että se on *immutaabeli* eli muuttumaton. Emme voi muuttaa olemassaolevan pisteen arvoja, vaan pisteen metodien kutsuminen palauttaa aina uuden arvon. Tämä on hieman ongelmallista, sillä olioiden arvoja ei saa asettaa uudestaan metodien sisällä -- emme siis voi tehdä esimerkiksi seuraavasti. -->
 
+The class that we chose, Point2D, is like the String class in some regards -- namely, it is *immutable* so it cannot be modified. We cannot change the values of an existing point, and calling the methods of a point always returns a new point value. This poses something of a problem, since we cannot set the values of the objects to something else inside methods. The following solution is therefore ruled out.
 
 <!-- ```java
 new AnimationTimer() {
@@ -670,14 +678,17 @@ new AnimationTimer() {
 }.start();
 ```
 
-Metodikutsut ovat kuitenkin sallittuja. Taitaa olla aika refaktoroinnille, eli ohjelman rakenteen selkeyttämiselle..
+<!-- Metodikutsut ovat kuitenkin sallittuja. Taitaa olla aika refaktoroinnille, eli ohjelman rakenteen selkeyttämiselle.. -->
 
+However, method calls are allowed. Looks like it's time for refactoring and clearing up the structure of the program...
 
 <!-- ## Aluksen liikuttaminen: Ohjelman refaktorointi -->
+
 ## Moving the ship: Refactoring
 
-Luodaan luokka Alus, joka sisältää Polygon-olion sekä Point2D-olion. Polygon-olio kuvaa alusta, ja Point2D-olio aluksen liikettä. Alus saa konstruktorin parametrina aluksen x- ja y-koordinaatit, jonka lisäksi alusta voi kääntää vasemmalle ja oikealle.
+<!-- Luodaan luokka Alus, joka sisältää Polygon-olion sekä Point2D-olion. Polygon-olio kuvaa alusta, ja Point2D-olio aluksen liikettä. Alus saa konstruktorin parametrina aluksen x- ja y-koordinaatit, jonka lisäksi alusta voi kääntää vasemmalle ja oikealle. -->
 
+Let's create a class called Ship, which contains a Polygon object and a Point2D object. The Polygon object represents the ship, and the Point2D object represents the movement of the ship. The ship receives the x and y coordinates of the ship as its constructor parameters. The ship can be rotated left or right.
 
 <!-- ```java
 import javafx.geometry.Point2D;
@@ -752,7 +763,9 @@ public class Ship {
 ```
 
 
-Refaktoroinnin johdosta sovellusta tulee muuttaa muutamasta kohtaa. Liikettä kuvaavan pisteen sijaan ja alusta kuvaavan monikulmion sijaan luodaan Alus. Tämän lisäksi Pane-oliolle annetaan alukseen liittyvä Polygon-olio, mutta ei itse alus-oliota.
+<!-- Refaktoroinnin johdosta sovellusta tulee muuttaa muutamasta kohtaa. Liikettä kuvaavan pisteen sijaan ja alusta kuvaavan monikulmion sijaan luodaan Alus. Tämän lisäksi Pane-oliolle annetaan alukseen liittyvä Polygon-olio, mutta ei itse alus-oliota. -->
+
+This refactoring leads to changes in the program in a couple of places. Instead of the point to represent movement and a polygon to represent the ship, we will create a Ship. In addition, the Pane object is given the Polygon object of the ship, but not the Ship object itself.
 
 
 <!-- ```java
@@ -767,7 +780,9 @@ Ship ship = new Ship(150, 100);
 pane.getChildren().add(ship.getCharacter());
 ```
 
-Myös AnimationTimer-olion metodia tulee päivittää siten, että metodissa hyödynnetään aluksen metodeja.
+<!-- Myös AnimationTimer-olion metodia tulee päivittää siten, että metodissa hyödynnetään aluksen metodeja. -->
+
+The method in the AnimationTimer object should also be updated to use the methods of the ship.
 
 <!-- ```java
 new AnimationTimer() {
@@ -775,7 +790,7 @@ new AnimationTimer() {
     @Override
     public void handle(long nykyhetki) {
         if(painetutNapit.getOrDefault(KeyCode.LEFT, false)) {
-            alus.kaannaVasemmalle();
+            alus.kaannerent timings you should create a dedicated class for that. If each of them runs at a different speed, yo
         }
 
         if(painetutNapit.getOrDefault(KeyCode.RIGHT, false)) {
@@ -808,12 +823,16 @@ new AnimationTimer() {
 ```
 
 <!-- ## Aluksen liikuttaminen: Toinen yritys -->
+
 ## Moving the ship: Second attempt
 
-Alus liikkuu, mutta aluksen liikettä ei voi vielä muuttaa. Lisätään alukselle kiihdytystoiminnallisuus. Kiihdytyksen tulee toimia niin, että aluksen nopeus kiihtyy aluksen osoittamaan suuntaan. Saamme kiihdytyksen monikulmion asteesta, jonka saa selville metodilla `getRotate()`. Olemme käyttäneet tätä jo paljon alusta kääntäessä.
+<!-- Alus liikkuu, mutta aluksen liikettä ei voi vielä muuttaa. Lisätään alukselle kiihdytystoiminnallisuus. Kiihdytyksen tulee toimia niin, että aluksen nopeus kiihtyy aluksen osoittamaan suuntaan. Saamme kiihdytyksen monikulmion asteesta, jonka saa selville metodilla `getRotate()`. Olemme käyttäneet tätä jo paljon alusta kääntäessä. -->
 
-Kiihdytyksen suunta saadaan selville sini- ja kosinifunktion avulla. Nämä löytyvät Javan valmiista [Math](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html)-luokasta. Metodit saavat parametrina asteen radiaaneina, joten joudumme hyödyntämään myös Math-luokan asteiden radiaaneiksi muuttavaa metodia.
+The ship moves, but it's not possible to affect the movement yet. Let's add an acceleration functionality to the shpi. The ship should accelerate so that the speed accelerates to the direction that the ship points to. We can get the acceleration information from the rotation degree, which we can use the `getRotate()` method. We have already become well acquainted with it in rotating the ship.
 
+<!-- Kiihdytyksen suunta saadaan selville sini- ja kosinifunktion avulla. Nämä löytyvät Javan valmiista [Math](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html)-luokasta. Metodit saavat parametrina asteen radiaaneina, joten joudumme hyödyntämään myös Math-luokan asteiden radiaaneiksi muuttavaa metodia. -->
+
+The direction of the acceleration can be figured out with sine and cosine functions. The existing Java [Math](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html) class contains the relevant methods. The methods assume their parameters to be in radians, so we are also going to need the Math class method that converts degrees into radians.
 
 <!-- ```java
 double muutosX = Math.cos(Math.toRadians(*kulmaAsteina*));
@@ -825,8 +844,9 @@ double changeX = Math.cos(Math.toRadians(*angle in degrees*));
 double changeY = Math.sin(Math.toRadians(*angle in degrees*));
 ```
 
-Luokan Alus kiihdyta-metodin ensimmäinen versio on seuraavanlainen.
+<!-- Luokan Alus kiihdyta-metodin ensimmäinen versio on seuraavanlainen. -->
 
+The first version of the accelerate method of the Ship class looks like this.
 
 <!-- ```java
 public void kiihdyta() {
@@ -846,8 +866,9 @@ public void accelerate() {
 }
 ```
 
-Lisätään sovellukseen vielä kiihdytystoiminnallisuus. Kiihdytysmetodia kutsutaan kun käyttäjä painaa ylös-nappia.
+<!-- Lisätään sovellukseen vielä kiihdytystoiminnallisuus. Kiihdytysmetodia kutsutaan kun käyttäjä painaa ylös-nappia. -->
 
+Let's add the possibility to accelerate into the application. The accelerate method is called when the user is pressing the up button.
 
 <!-- ```java
 new AnimationTimer() {
@@ -896,7 +917,9 @@ new AnimationTimer() {
 <img src="../img/material/pane-alus-kiihtyy.gif" alt="Alus kiihtyy."/>
 
 
-Kuten huomaamme, alus kiihtyy. Kiihtyvyys on tosin aika kova, joten sitä on hyvä korjata hieman. Muokataan aluksen kiihdyta-metodia siten, että muutos on vain 5% edellisestä.
+<!-- Kuten huomaamme, alus kiihtyy. Kiihtyvyys on tosin aika kova, joten sitä on hyvä korjata hieman. Muokataan aluksen kiihdyta-metodia siten, että muutos on vain 5% edellisestä. -->
+
+As can be seen, the ship accelerates, indeed. The amount of acceleration is quite high, so it should be tweaked somewhat. Let's modify the accelerate mehtod of the ship so that the change is only 5% of the previous value.
 
 
 <!-- ```java
@@ -923,7 +946,9 @@ public void accelerate() {
 }
 ```
 
-Nyt aluksen ohjaus on jotenkuten mahdollista.
+<!-- Nyt aluksen ohjaus on jotenkuten mahdollista. -->
+
+Now it's more or less possible to steer the ship.
 
 <img src="../img/material/alus-kiihtyy-fiksummin.gif" alt="Alus kiihtyy siten, että sitä pystyy kontrolloimaan."/>
 
@@ -931,11 +956,15 @@ Nyt aluksen ohjaus on jotenkuten mahdollista.
 <!-- ## Asteroidin luominen -->
 ## Creating an asteroid
 
-Luodaan seuraavaksi asteroidi. Asteroidilla on muoto, sijainti ja liike.
+<!-- Luodaan seuraavaksi asteroidi. Asteroidilla on muoto, sijainti ja liike. -->
+
+Next up, we are going to create an asteroid. An asteroid has a shape, position, and movement.
 
 Hmm..
 
-Oikeastaan lähes täysin samat asiat kuin mitä aluksella on -- vain muoto on erilainen. Tässä kohtaa on hyvä hetki *yleistämiselle*. Luodaan *abstrakti luokka* Hahmo, joka saa parametrina muodon ja sijainnin. Huomaat, että toiminnallisuus on lähes täysin kopioitu luokasta `Alus`.
+<!-- Oikeastaan lähes täysin samat asiat kuin mitä aluksella on -- vain muoto on erilainen. Tässä kohtaa on hyvä hetki *yleistämiselle*. Luodaan *abstrakti luokka* Hahmo, joka saa parametrina muodon ja sijainnin. Huomaat, että toiminnallisuus on lähes täysin kopioitu luokasta `Alus`. -->
+
+Come to think of it, these are almost exactly the same things that a ship needs -- the only difference is in the shape. This is a good moment to *generalize*. We'll create an *abstract class* called Character, which receives a polygon and position as its constructor parameters. Notice that the functionality is almost entirely copied from the class `Ship`.
 
 <!-- ```java
 import javafx.geometry.Point2D;
@@ -1029,7 +1058,9 @@ public abstract class Character {
 }
 ```
 
-Muokataan luokkaa Alus siten, että se perii luokan Hahmo.
+<!-- Muokataan luokkaa Alus siten, että se perii luokan Hahmo. -->
+
+Then let's change the class Ship to inherit from the Character class.
 
 
 <!-- ```java
@@ -1054,9 +1085,13 @@ public class Ship extends Character {
 }
 ```
 
-Aika suoraviivaista.
+<!-- Aika suoraviivaista. -->
 
-Lisätään seuraavaksi luokka Asteroidi. Tehdään ensimmäisestä toteutuksesta suorakulmio ja palataan asteroidin muotoon myöhemmin.
+Pretty straighforward stuff.
+
+<!-- Lisätään seuraavaksi luokka Asteroidi. Tehdään ensimmäisestä toteutuksesta suorakulmio ja palataan asteroidin muotoon myöhemmin. -->
+
+Then let's create the Asteroid class. The first draft is going to be a rectangle -- we'll return to worry about the shape of the asteroid at a later stage.
 
 <!-- ```java
 import javafx.scene.shape.Polygon;
@@ -1080,9 +1115,11 @@ public class Asteroid extends Character {
 }
 ```
 
-<quiznator id="45be5a68-eedb-5d8e-8b70-c98999509a33"></quiznator>
+<quiz id="45be5a68-eedb-5d8e-8b70-c98999509a33"></quiz>
 
 Testataan vielä, että asteroidin voi lisätä sovellukseen.
+
+Then let's make sure that you can also add an asteroid to the application.
 
 <!-- ```java
 Pane ruutu = new Pane();
@@ -1116,7 +1153,9 @@ asteroid.accelerate();
 asteroid.accelerate();
 ```
 
-Jotta asteroidi liikkuisi, tulee siihen liittyvää liiku-metodia kutsua animaatiossa.
+<!-- Jotta asteroidi liikkuisi, tulee siihen liittyvää liiku-metodia kutsua animaatiossa. -->
+
+In order for an asteroid to move, the related move method must be called in the animation.
 
 
 <!-- ```java
@@ -1165,7 +1204,9 @@ new AnimationTimer() {
 }.start();
 ```
 
-Sovelluksessamme on nyt sekä alus että asteroidi.
+<!-- Sovelluksessamme on nyt sekä alus että asteroidi. -->
+
+Now the application contains both a ship and an asteroid.
 
 <img src="../img/material/asteroidi-huti.gif" alt="Sovelluksessa sekä alus että yksi asteroidi."/>
 
