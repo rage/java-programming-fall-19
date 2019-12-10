@@ -1,7 +1,7 @@
 ---
-path: '/osa-14/2-multimedian-kaytto-sovelluksissa'
-title: 'Multimedian käyttö sovelluksissa'
-hidden: true
+path: '/part-14/2-multimedia-in-programs'
+title: 'Multimedia in programs'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

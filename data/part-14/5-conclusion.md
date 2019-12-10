@@ -1,7 +1,7 @@
 ---
-path: '/osa-14/5-yhteenveto'
-title: 'Yhteenveto'
-hidden: true
+path: '/part-14/5-conclusion'
+title: 'Conclusion'
+hidden: false
 ---
 
 <!-- TODO: koko kurssin recap -->
