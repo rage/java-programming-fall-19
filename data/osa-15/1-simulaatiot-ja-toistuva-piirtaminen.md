@@ -282,45 +282,60 @@ Game of Life -tehtävässä taulukosta tehtiin kopio, johon laskettiin sääntö
 Tutustutaan mallin toimintaan tehtävän avulla.
 
 
-<programming-exercise name='Schelling (2 osaa)' tmcname='osa14-Osa14_03.Schelling'>
+<programming-exercise name='Schelling (2 parts)' tmcname='part14-Part14_03.Schelling'>
 
-Tässä tehtävässä pohditaan Schellingin mallia sekä kehitetään siihen liittyvää simulaatio-ohjelmaa.
+<!-- Tässä tehtävässä pohditaan Schellingin mallia sekä kehitetään siihen liittyvää simulaatio-ohjelmaa. -->
+In this exercise we will examine [Schelling's](https://en.wikipedia.org/wiki/Thomas_Schelling) model of segregation by simulating it.
 
-Simulaation suoritus alkaa tilanteesta, jossa ihmiset ovat asetettu satunnaisesti asumaan.
+<!-- Simulaation suoritus alkaa tilanteesta, jossa ihmiset ovat asetettu satunnaisesti asumaan. -->
+In the first state of the simulation, people have been randomly assigned to a location.
 
 <img src="../img/exercises/schelling-alku.png" alt="Tilanne, jossa ihmiset asuvat satunnaisesti."/>
 
 &nbsp;
 
-Kun simulaatio etenee, päädytään ennen pitkää tilanteeseen, jossa samankaltaiset ihmiset ovat muuttaneet samankaltaisten ihmisten luo.
+<!-- Kun simulaatio etenee, päädytään ennen pitkää tilanteeseen, jossa samankaltaiset ihmiset ovat muuttaneet samankaltaisten ihmisten luo. -->
+As the simulation progresses, people slowly move to live next to people similar to them.
 
 <img src="../img/exercises/schelling-loppu.png" alt="Ihmiset ovat muuttaneet sopivampiin paikkoihin."/>
 
 &nbsp;
 
-Tehtäväpohjan mukana tulevasta ohjelmasta puuttuu muutamia oleellisia toiminnallisuuksia: (1) kartan tyhjennys, (2) tyhjien paikkojen etsiminen, sekä (3) tyytymättömien henkilöiden tunnistaminen. Tutustu tehtäväpohjan ohjelmaan ennen aloittamista.
+<!-- Tehtäväpohjan mukana tulevasta ohjelmasta puuttuu muutamia oleellisia toiminnallisuuksia: (1) kartan tyhjennys, (2) tyhjien paikkojen etsiminen, sekä (3) tyytymättömien henkilöiden tunnistaminen. Tutustu tehtäväpohjan ohjelmaan ennen aloittamista. -->
+The exercise template lacks some essential functionalities: (1) emptying the map, (2) finding empty locations, and (3) regodnizing unhappy people.
+Get familiar with the exercise template before starting.
 
-Siinä missä Game of Life -tehtävässä maailmaa kuvaava taulukko oli upotettu osaksi mallia (luokka GameOfLife), tässä tehtävässä taulukko on eriytetty erilliseksi luokakseen.
-
-
-<h2>Kartan tyhjentäminen ja tyhjien paikkojen etsiminen</h2>
-
-Malli käyttää kaksiulotteista taulukkoa. Kohdassa (x, y) oleva arvo 0 kuvaa tyhjää paikkaa ja luvut 1-5 kuvaavat eri ryhmiä.
-
-Toteuta ensin luokan `Eriytymismalli` metodiin `public void tyhjenna()` toiminnallisuus, joka asettaa jokaisen solun arvoksi 0.
-
-Lisää tämän jälkeen metodiin `public ArrayList<Piste> tyhjatPaikat()` toiminnallisuus, joka tunnistaa tyhjät paikat (solut, joissa on arvo 0), luo jokaisesta Piste-olion, ja palauttaa ne listana. Huomaa, että käytössä olevassa hajautustaulussa ensimmäinen ulottuvuus kuvaa x-koordinaattia, ja toinen y-koordinaattia (taulukko.hae(x, y)).
+<!-- Siinä missä Game of Life -tehtävässä maailmaa kuvaava taulukko oli upotettu osaksi mallia (luokka GameOfLife), tässä tehtävässä taulukko on eriytetty erilliseksi luokakseen. -->
+In the Game of Life exercise the array representing the  cells was a part of the model (GameOfLife class), but here the array has been separated into a separate class.
 
 
-<h2>Tyytymättömien hakeminen</h2>
+<!-- <h2>Kartan tyhjentäminen ja tyhjien paikkojen etsiminen</h2> -->
+<h2>Emptying the map and finding empty locations</h2>
 
-Mallille voidaan asettaa parametri `tyytyvaisyysraja`. Tyytyväisyysrajalla kuvataan samaan ryhmään kuuluvien naapureiden minimimäärää, jonka täyttyessä henkilö on tyytyväinen sijaintiinsa. Jos ruudussa (x, y) olevan henkilön naapureista on samankaltaisia yhtä paljon tai yli `tyytyvaisyysraja`n, on henkilö tyytyväinen. Muissa tapauksissa henkilö on tyytymätön.
+<!-- Malli käyttää kaksiulotteista taulukkoa. Kohdassa (x, y) oleva arvo 0 kuvaa tyhjää paikkaa ja luvut 1-5 kuvaavat eri ryhmiä. -->
+The model uses an two dimensional array. 0 at any location (x,y) represents an empty slot, and values 1-5 represent different groups of people.
 
-Naapureista tulee tarkastella kaikkia ruudun vieressä olevia ruutuja. Alueen ulkopuolella olevat ruudut (esim. -1, 0) tulee käsitellä tyhjänä ruutuna (ei samankaltainen).
+<!-- Toteuta ensin luokan `Eriytymismalli` metodiin `public void tyhjenna()` toiminnallisuus, joka asettaa jokaisen solun arvoksi 0. -->
+Complete the method `public void empty()` in the class `SegregationModel`. This method should set the value of each element of the array to 0.
 
-Toteuta metodi `public ArrayList<Piste> haeTyytymattomat()`, joka palauttaa tyytymättömät listana.
+<!-- Lisää tämän jälkeen metodiin `public ArrayList<Piste> tyhjatPaikat()` toiminnallisuus, joka tunnistaa tyhjät paikat (solut, joissa on arvo 0), luo jokaisesta Piste-olion, ja palauttaa ne listana. Huomaa, että käytössä olevassa hajautustaulussa ensimmäinen ulottuvuus kuvaa x-koordinaattia, ja toinen y-koordinaattia (taulukko.hae(x, y)). -->
+Next complete the method `public ArrayList<Location> findEmptyLocations()`. The method should find any empty locations (elements which value is 0), create a Location object from each empty location, and return the objects as a list. Note, that the first dimension of the hash table represents the x coordinate, and the second y coordinate (locations.find(x,y)).
 
-*Vaikka karttamme on suorakulmio, voisi sen yhtä hyvin piirtää vaikkapa Helsingin muotoiseksi. Osa alueesta voisi olla myös esimerkiksi vettä, johon ei voisi muuttaa ymym.*
+
+<!-- <h2>Tyytymättömien hakeminen</h2> -->
+<h2>Regodnizing unhappy people</h2>
+
+<!-- Mallille voidaan asettaa parametri `tyytyvaisyysraja`. Tyytyväisyysrajalla kuvataan samaan ryhmään kuuluvien naapureiden minimimäärää, jonka täyttyessä henkilö on tyytyväinen sijaintiinsa. Jos ruudussa (x, y) olevan henkilön naapureista on samankaltaisia yhtä paljon tai yli `tyytyvaisyysraja`n, on henkilö tyytyväinen. Muissa tapauksissa henkilö on tyytymätön. -->
+We can set a parameter `happinessLimit` to the model. The happiness limit represents the minimum number of similiar neighbors a person must have in order to be happy with their location. If a person at location (x,y) has more than the happiness limit of neighbors in the same group as them, the person is happy. If not, they are unhappy.
+
+<!-- Naapureista tulee tarkastella kaikkia ruudun vieressä olevia ruutuja. Alueen ulkopuolella olevat ruudut (esim. -1, 0) tulee käsitellä tyhjänä ruutuna (ei samankaltainen). -->
+Neighbor is any location next to a location. Locations outside of the array (i.e -1,0) are handled as empty locations (not similiar).
+
+<!-- Toteuta metodi `public ArrayList<Piste> haeTyytymattomat()`, joka palauttaa tyytymättömät listana. -->
+Implement the method `public ArrayList<Location> findUnhappyPeople()` which returns the locations of unhappy people as a list.
+
+<!-- *Vaikka karttamme on suorakulmio, voisi sen yhtä hyvin piirtää vaikkapa Helsingin muotoiseksi. Osa alueesta voisi olla myös esimerkiksi vettä, johon ei voisi muuttaa ymym.* -->
+*Even though our map is a rectangle, we could draw it any shape we want, for example the shape of New York. Some of the locations could also be for example water, which cannot be moved to, and so on and so on.*
 
 </programming-exercise>
 
