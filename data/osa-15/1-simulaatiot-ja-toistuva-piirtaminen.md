@@ -145,48 +145,65 @@ Silloin tällöin ohjelma halutaan toteuttaa siten, että uusi tila piirretään
 ## Game of Life
 
 
-[Game of Life](https://en.wikipedia.org/wiki/Conway's_Game_of_Life) on klassinen tietokonesimulaatio. Se toteutetaan kaksiulotteisen taulukon avulla, ja se noudattaa seuraavia sääntöjä:
+<!-- [Game of Life](https://en.wikipedia.org/wiki/Conway's_Game_of_Life) on klassinen tietokonesimulaatio. Se toteutetaan kaksiulotteisen taulukon avulla, ja se noudattaa seuraavia sääntöjä: -->
+[Game of Life](https://en.wikipedia.org/wiki/Conway's_Game_of_Life) is a computer simulation classic. It can be implemented using a two dimensional array, and it follows these rules:
 
-1. Jos elävän solun naapureina on alle kaksi elävää solua, se kuolee alikansoituksen takia.
-2. Jos elävän solun naapureina on kaksi tai kolme elävää solua, se jää henkiin.
-3. Jos elävän solun naapureina on yli kolme elävää solua, se kuolee ylikansoituksen takia.
-4. Jos kuolleen solun naapureina on tasan kolme elävää solua, se syntyy eli muuttuu eläväksi.
+<!-- 1. Jos elävän solun naapureina on alle kaksi elävää solua, se kuolee alikansoituksen takia. -->
+<!-- 2. Jos elävän solun naapureina on kaksi tai kolme elävää solua, se jää henkiin. -->
+<!-- 3. Jos elävän solun naapureina on yli kolme elävää solua, se kuolee ylikansoituksen takia. -->
+<!-- 4. Jos kuolleen solun naapureina on tasan kolme elävää solua, se syntyy eli muuttuu eläväksi. -->
 
-Naapurit ovat soluun koskettavia soluja. Naapuri koskettaa solua joko reunasta, (pohjoinen, itä, etelä, länsi) tai kulmasta (koillinen, kaakko, lounas, luode).
+1. Any live cell with fewer than two live neighbors dies, as if by underpopulation
+2. Any live cell with two or three live neighbors lives on to the next generation.
+3. Any live cell with more than three live neighbors dies, as if by overpopulation.
+4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 
-Game of Life ei sisällä liikkumissääntöjä, mutta se silti luo tilanteita, joissa erilaiset hahmot liikkuvat ruudulla. Alla olevalla videolla John Conway kertoo Game of Lifen kehittämisestä.
+<!-- Naapurit ovat soluun koskettavia soluja. Naapuri koskettaa solua joko reunasta, (pohjoinen, itä, etelä, länsi) tai kulmasta (koillinen, kaakko, lounas, luode). -->
+Neighbors of a cell are all cells which touch it. Neighbor can touch either the side of a cell (from north, south, east or west) or the corner of a cell (from north-west, north-east, south-west or south-east).
+
+<!-- Game of Life ei sisällä liikkumissääntöjä, mutta se silti luo tilanteita, joissa erilaiset hahmot liikkuvat ruudulla. Alla olevalla videolla John Conway kertoo Game of Lifen kehittämisestä. -->
+There are no movement rules in the Game of Life, but it creates situations, where different characters move about on the screen.
+Below is a video where John Conway speaks about developing the Game of Life.
 
 <youtube id="R9Plq-D1gEk"></youtube>
 
 
-<programming-exercise name='Game of Life (2 osaa)' tmcname='osa14-Osa14_02.GameOfLife'>
+<programming-exercise name='Game of Life (2 parts)' tmcname='part14-Part14_02.GameOfLife'>
 
-Tässä tehtävässä toteutetaan oleellisilta osin Game of Life-pelin säännöt. Toteutusta varten tehtäväpohjassa on luokka GameOfLife, joka sisältää kaksiulotteisen taulukon, sekä luokka GameOfLifeSovellus, jota voidaan käyttää pelin visualisointiin.
+<!-- Tässä tehtävässä toteutetaan oleellisilta osin Game of Life-pelin säännöt. Toteutusta varten tehtäväpohjassa on luokka GameOfLife, joka sisältää kaksiulotteisen taulukon, sekä luokka GameOfLifeSovellus, jota voidaan käyttää pelin visualisointiin. -->
+In this exercise we will implement the Game of Life. The exercise template contains the classes GameOfLife and GameOfLifeApplication.
+The first class contains a two dimensional array, and the second class will be used to visualize the game.
 
-<h2>Elossa olevien naapurien lukumäärä</h2>
+<!-- <h2>Elossa olevien naapurien lukumäärä</h2> -->
+<h2>Number of living neighbors</h2>
 
-Täydennä luokassa GameOfLife olevaa metodia `public int elossaOleviaNaapureita(int[][] taulukko, int x, int y)` siten, että se laskee annetun x, y -koordinaatin elossa olevien naapureiden lukumäärän. Naapuri on elossa jos sen arvo on 1.
+<!-- Täydennä luokassa GameOfLife olevaa metodia `public int numberOfLivingNeighbors(int[][] taulukko, int x, int y)` siten, että se laskee annetun x, y -koordinaatin elossa olevien naapureiden lukumäärän. Naapuri on elossa jos sen arvo on 1. -->
+Complete the method `public int numberOfLivingNeighbors(int[][] cells, int x int y)`. The method should calculate the number of living neighbors for a cell at the given x and y coordinates.
+A cell is alive if its value is 1.
 
-Naapureita ovat kaikki ne alkiot, jotka ovat kulman tai sivun kautta yhteydessä alkioon.
+<!-- Naapureita ovat kaikki ne alkiot, jotka ovat kulman tai sivun kautta yhteydessä alkioon. -->
+A neighbor of a cell is any cell which touches either the side or the corner of the cell.
 
-Huomaa, että metodin tulee varoa `ArrayIndexOutOfBounds`-virhettä. Indeksissä -1 ei esimerkiksi voi olla ketään. Vastaavasti taulukon leveyden tai korkeuden yli ei voi mennä (esim. `taulukko[taulukko.length][0]` tai `taulukko[0][taulukko[0].length]`).
+<!-- Huomaa, että metodin tulee varoa `ArrayIndexOutOfBounds`-virhettä. Indeksissä -1 ei esimerkiksi voi olla ketään. Vastaavasti taulukon leveyden tai korkeuden yli ei voi mennä (esim. `taulukko[taulukko.length][0]` tai `taulukko[0][taulukko[0].length]`). -->
+Be mindful of the size of the array, and avoid getting the `ArrayIndexOutOfBounds` error.
+For example there can be no cell at the index -1. Accordingly you cannot go over the height or the width of the array (for example `cells[cells.length][0]` or `cells[0][cells[0].length]`).
 
-Voit kokeilla metodiasi muunmuassa seuraavilla esimerkeillä.
-
+<!-- Voit kokeilla metodiasi muunmuassa seuraavilla esimerkeillä. -->
+You can test your method like so:
 
 ```java
-GameOfLife gol = new GameOfLife(3, 3);
+GameOfLife thisGameOfLife = new GameOfLife(3, 3);
 
-int[][] taulukko = new int[3][3];
-taulukko[0][0] = 1;
-taulukko[0][1] = 1;
-taulukko[1][1] = 1;
-taulukko[2][2] = 1;
+int[][] cells = new int[3][3];
+cells[0][0] = 1;
+cells[0][1] = 1;
+cells[1][1] = 1;
+cells[2][2] = 1;
 
-System.out.println(gol.elossaOleviaNaapureita(taulukko, 0, 0));
-System.out.println(gol.elossaOleviaNaapureita(taulukko, 1, 0));
-System.out.println(gol.elossaOleviaNaapureita(taulukko, 1, 1));
-System.out.println(gol.elossaOleviaNaapureita(taulukko, 2, 2));
+System.out.println(thisGameOfLife.numberOfLivingNeighbors(cells, 0, 0));
+System.out.println(thisGameOfLife.numberOfLivingNeighbors(cells, 1, 0));
+System.out.println(thisGameOfLife.numberOfLivingNeighbors(cells, 1, 1));
+System.out.println(thisGameOfLife.numberOfLivingNeighbors(cells, 2, 2));
 ```
 
 <sample-output>
@@ -199,14 +216,14 @@ System.out.println(gol.elossaOleviaNaapureita(taulukko, 2, 2));
 </sample-output>
 
 ```java
-GameOfLife gol = new GameOfLife(4, 4);
+GameOfLife thisGameOfLife = new GameOfLife(4, 4);
 
-int[][] taulukko = {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 0, 1, 0}, {0, 1, 0, 1}};
+int[][] cells = {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 0, 1, 0}, {0, 1, 0, 1}};
 
-System.out.println(gol.elossaOleviaNaapureita(taulukko, 0, 0));
-System.out.println(gol.elossaOleviaNaapureita(taulukko, 1, 1));
-System.out.println(gol.elossaOleviaNaapureita(taulukko, 2, 2));
-System.out.println(gol.elossaOleviaNaapureita(taulukko, 3, 3));
+System.out.println(thisGameOfLife.numberOfLivingNeighbors(cells, 0, 0));
+System.out.println(thisGameOfLife.numberOfLivingNeighbors(cells, 1, 1));
+System.out.println(thisGameOfLife.numberOfLivingNeighbors(cells, 2, 2));
+System.out.println(thisGameOfLife.numberOfLivingNeighbors(cells, 3, 3));
 ```
 
 <sample-output>
@@ -219,20 +236,30 @@ System.out.println(gol.elossaOleviaNaapureita(taulukko, 3, 3));
 </sample-output>
 
 
-<h2>Kehittyminen</h2>
+<!-- <h2>Kehittyminen</h2> -->
+<h2>Evolution</h2>
 
-Täydennä seuraavaksi GameOfLife-luokan metodia `public void kehity()` siten, että se käy yhden Game of Life -pelin askeleen.
+<!-- Täydennä seuraavaksi GameOfLife-luokan metodia `public void kehity()` siten, että se käy yhden Game of Life -pelin askeleen. -->
+Next complete the `public void evolve()` method in the GameOfLife class.
+The method should complete one of the steps in the Game of Life.
 
-Toteuta toiminnallisuus niin, että luot toisen taulukon, jonka koko on sama kuin alkuperäisen taulukon. Käy tämän jälkeen alkuperäistä taulukkoa läpi alkio alkiolta siten, että seuraat seuraavia sääntöjä:
+<!-- Toteuta toiminnallisuus niin, että luot toisen taulukon, jonka koko on sama kuin alkuperäisen taulukon. Käy tämän jälkeen alkuperäistä taulukkoa läpi alkio alkiolta siten, että seuraat seuraavia sääntöjä: -->
+Implement this functionality by creating a new array the size of the original array. Then go the original array through element be element so, that you follow these rules:
 
-1. Jos alkuperäisen taulukon alkion arvo on 1 ja sillä on alle kaksi elävää naapuria, kopioon asetetaan alkion arvoksi 0.
-2. Jos alkuperäisen taulukon alkion arvo on 1 ja sillä on kaksi tai kolme elävää naapuria, kopioon asetetaan alkion arvoksi 1.
-3. Jos alkuperäisen taulukon alkion arvo on 1 ja sillä on yli kolme elävää naapuria, kopioon asetetaan alkion arvoksi 0.
-4. Jos alkuperäisen taulukon alkion arvo on 0 ja sillä on tasan kolme elävää naapuria, kopioon asetetaan alkion arvoksi 1.
+<!-- 1. Jos alkuperäisen taulukon alkion arvo on 1 ja sillä on alle kaksi elävää naapuria, kopioon asetetaan alkion arvoksi 0. -->
+<!-- 2. Jos alkuperäisen taulukon alkion arvo on 1 ja sillä on kaksi tai kolme elävää naapuria, kopioon asetetaan alkion arvoksi 1. -->
+<!-- 3. Jos alkuperäisen taulukon alkion arvo on 1 ja sillä on yli kolme elävää naapuria, kopioon asetetaan alkion arvoksi 0. -->
+<!-- 4. Jos alkuperäisen taulukon alkion arvo on 0 ja sillä on tasan kolme elävää naapuria, kopioon asetetaan alkion arvoksi 1. -->
+1. If the value of an element in the original array is 1 and it has less than two living neighbors, its value in the new array becomes 0.
+2. If the value of an element in the original array is 1 and it has two or three living neighbors, its value in the new array becomes 1.
+3. If the value of an element in the original array is 1 and it has more than three living neighbors, its value in the new array becomes 0.
+4. If the value of an element in the original array is 0 and it has exactly three living neighbors, its value in the new array becomes 1.
 
-Käytä naapureiden lukumäärän selvittämisessä edellisessä osassa tehtyä metodia. Kun olet käynyt koko taulukon läpi, vaihda kopio taulukon paikalle.
+<!-- Käytä naapureiden lukumäärän selvittämisessä edellisessä osassa tehtyä metodia. Kun olet käynyt koko taulukon läpi, vaihda kopio taulukon paikalle. -->
+Use the method you implemented in part 1 to calculate the number of living neighbor for each element. When you have gone through the whole array, swap the new array with the original array.
 
-Kokeile tämän jälkeen sovelluksen toimintaa graafisen käyttöliittymän kautta. Sovelluksen pitäisi käynnistyä -- yksi mahdollinen hetkellinen tila on seuraavanlainen.
+<!-- Kokeile tämän jälkeen sovelluksen toimintaa graafisen käyttöliittymän kautta. Sovelluksen pitäisi käynnistyä -- yksi mahdollinen hetkellinen tila on seuraavanlainen. -->
+Then you can test the application through the graphical UI. The Application should start --  below is an example of a possible view.
 
 <img src="../img/exercises/06-15-gameoflife.png" width="600"/>
 
