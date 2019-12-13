@@ -78,57 +78,68 @@ public class EsimerkkiTest {
 }
 ```
 
-<programming-exercise name='Testausta' tmcname='osa14-Osa14_06.Testausta' nocoins="1">
+<programming-exercise name='Testing' tmcname='part14-Part14_06.Testing' nocoins="1">
 
-Tässä tehtävässä harjoittelet ohjelman kirjoittamista sekä sen testaamista.
+<!-- Tässä tehtävässä harjoittelet ohjelman kirjoittamista sekä sen testaamista. -->
+In this exercise we practice implementing and testing an application.
 
-Erään alakoulun luokka 4B keräsi viikon ajan pulloja leirikoulun rahoittamista varten. Kirjoita ohjelma, jolla voidaan luoda tilastoja kerätyistä pulloista, sekä ohjelmalle testit. Ohjelma tulee toteuttaa tehtäväpohjan luokan `Ohjelma` metodiin `public static String suorita(Scanner lukija)`. Testit tulee toteuttaa tehtäväpohjan luokkaan `OhjelmaTest`.
+<!-- Erään alakoulun luokka 4B keräsi viikon ajan pulloja leirikoulun rahoittamista varten. Kirjoita ohjelma, jolla voidaan luoda tilastoja kerätyistä pulloista, sekä ohjelmalle testit. Ohjelma tulee toteuttaa tehtäväpohjan luokan `Ohjelma` metodiin `public static String suorita(Scanner lukija)`. Testit tulee toteuttaa tehtäväpohjan luokkaan `OhjelmaTest`. -->
+Class 4B from one primary school collected bottles for a week in order to fund their field trip. Write a program for creating statistics about the collected bottles, and write tests for your program.
+The program must be implemented in the method `public static String run(Scanner reader)` of the class `Program` in the exercise template. The tests must be implemented in the class `ProgramTest` in the template.
 
-Ohjelmalle syötetään ensin kunkin oppilaan keräämien pullojen lukumäärät, jotka on erotettu rivinvaihdoilla. Pullojen lukumäärien syöttämisen lopettaminen ilmoitetaan luvulla -1. Kun pullojen lukumäärät on syötetty, ohjelman tulee selvittää pulloja keränneiden oppilaiden lukumäärä, kerättyjen pullojen lukumäärä, sekä keskimääräinen kerättyjen pullojen lukumäärä. Metodin `suorita` tulee *palauttaa* merkkijono, joka sisältää ohjelman tulostuksen.
+<!-- Ohjelmalle syötetään ensin kunkin oppilaan keräämien pullojen lukumäärät, jotka on erotettu rivinvaihdoilla. Pullojen lukumäärien syöttämisen lopettaminen ilmoitetaan luvulla -1. Kun pullojen lukumäärät on syötetty, ohjelman tulee selvittää pulloja keränneiden oppilaiden lukumäärä, kerättyjen pullojen lukumäärä, sekä keskimääräinen kerättyjen pullojen lukumäärä. Metodin `suorita` tulee *palauttaa* merkkijono, joka sisältää ohjelman tulostuksen. -->
+The program must work as follows: First the user gives the number of different bottles collected, separated by newline character. User writes -1 to stop.
+After the number of bottles has been given, the program must prompt for the number of students, and calculate the total number of bottles collected and the number of bottles collected on average by one student.
+The method `run` returns a string which contains the output.
 
-Syötteessä saattaa olla negatiivisia lukuja, jotka ovat virhesyötteitä -- näitä ei tule ottaa huomioon.
+<!-- Syötteessä saattaa olla negatiivisia lukuja, jotka ovat virhesyötteitä -- näitä ei tule ottaa huomioon. -->
+User input might contain negative numbers, which are handled as user mistakes -- do not take them into account
 
-Alla esimerkkejä ohjelman toiminnasta.
+<!-- Alla esimerkkejä ohjelman toiminnasta. -->
+Below is an example of the desired functionality.
 
 ```java
-System.out.println(Ohjelma.suorita(new Scanner("3\n2\n1\n-1\n")));
+System.out.println(Program.run(new Scanner("3\n2\n1\n-1\n")));
 ```
 
 <sample-output>
 
-Pulloja: 6
-Oppilaita: 3
-Keskiarvo: 2.0
+Bottles: 6
+Students: 3
+Average: 2.0
 
 </sample-output>
 
 ```java
-System.out.println(Ohjelma.suorita(new Scanner("1\n0\n-55\n-1\n")));
+System.out.println(Program.srun(new Scanner("1\n0\n-55\n-1\n")));
 ```
 
 <sample-output>
 
-Pulloja: 1
-Oppilaita: 2
-Keskiarvo: 0.5
+Bottles: 1
+Students: 2
+Average: 0.5
 
 </sample-output>
 
-Mikäli kerättyjä pulloja ei ole lainkaan, ilmoita ettei keskiarvoa voi laskea.
+<!-- Mikäli kerättyjä pulloja ei ole lainkaan, ilmoita ettei keskiarvoa voi laskea. -->
+If there are no bottles collected, the program notifies the user that the average cannot be calculated.
 
 ```java
-System.out.println(Ohjelma.suorita(new Scanner("-55\n-1\n")));
+System.out.println(Program.run(new Scanner("-55\n-1\n")));
 ```
 
 <sample-output>
 
-Pulloja: 0
-Oppilaita: 0
-Keskiarvoa ei voida laskea
+Bottles: 0
+Student: 0
+Cannot calculate average
 
 </sample-output>
 
-Huom! Ohjelman toiminnallisuuden lisäksi tehtävässä tulee kirjoittaa ohjelmalle testit. Automaattisia testejä tai mallivastausta tehtävässä ei ole, eli palauta ohjelma kun sekä ohjelma että siihen toteuttamasi testit toimivat kattavasti. Otathan huomioon myös ns corner caset.
+<!-- Huom! Ohjelman toiminnallisuuden lisäksi tehtävässä tulee kirjoittaa ohjelmalle testit. Automaattisia testejä tai mallivastausta tehtävässä ei ole, eli palauta ohjelma kun sekä ohjelma että siihen toteuttamasi testit toimivat kattavasti. Otathan huomioon myös ns corner caset. -->
+NB! You have to submit the program and its tests.
+There is no automatic tests for this exercise, so submit it when you feel the program and your tests are complete. Remember to think about the so called corner cases.
 
 </programming-exercise>
 
