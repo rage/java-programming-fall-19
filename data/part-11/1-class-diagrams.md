@@ -14,116 +14,132 @@ hidden: false
 </text-box>
 
 
-Luokkakaavio on ohjelmistojen suunnittelussa ja mallinnuksessa käytettävä kaavio, jonka avulla kuvataan luokkia ja niiden yhteyksiä. Luokkakaaviot mahdollistavat ohjelmien kuvaamisen korkealla abstraktiotasolla ilman lähdekoodin katsomista.
+<!-- Luokkakaavio on ohjelmistojen suunnittelussa ja mallinnuksessa käytettävä kaavio, jonka avulla kuvataan luokkia ja niiden yhteyksiä. Luokkakaaviot mahdollistavat ohjelmien kuvaamisen korkealla abstraktiotasolla ilman lähdekoodin katsomista. -->
+A class diagram is a diagram used in designing and modeling software to describe classes and their relationships. Class diagrams enable us to model software in high level of abstraction and without having to look at the source code.
 
-Luokkaaviossa kuvattavat luokat vastaavat ohjelmakoodin luokkia. Kaavioissa kuvataan luokkien nimet, attribuutit, luokkien väliset yhteydet sekä mahdollisesti myös metodit.
+<!-- Luokkaaviossa kuvattavat luokat vastaavat ohjelmakoodin luokkia. Kaavioissa kuvataan luokkien nimet, attribuutit, luokkien väliset yhteydet sekä mahdollisesti myös metodit. -->
+Classes in a class diagram correspond with classes in the source code. The diagram shows the names and attributes of the classes, connections between the classes and sometimes also the methods of the classes.
 
-Tutustumme seuraavaksi luokkakaavioiden merkintään ja tulkintaan. Opimme samalla <a href="https://fi.wikipedia.org/wiki/UML-mallinnus" target="_blank" norel>UML</a>-kielen luokkakaavioiden kuvaamiseen -- yhteisen kielen avulla eri ihmisten piirtämät luokkakaaviot ovat kaikkien ymmärrettävissä.
+<!-- Tutustumme seuraavaksi luokkakaavioiden merkintään ja tulkintaan. Opimme samalla <a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language" target="_blank" norel>UML</a>-kielen luokkakaavioiden kuvaamiseen -- yhteisen kielen avulla eri ihmisten piirtämät luokkakaaviot ovat kaikkien ymmärrettävissä. -->
+Next we will get familiar with creating and reading class diagrams using <a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language" target="_blank" norel>UML</a>. Using an unified modeling language ensures that class diagrams drawn by different people can be read and understood by everyone familiar with the language.
 
 <br/>
 
-## Luokan ja sen attribuuttien kuvaaminen
+## Describing class and class attributes
 
-Tutustutaan ensin luokan ja sen attribuuttien kuvaamiseen. Luodaan luokka nimeltä `Henkilo`, jolla on oliomuuttujat nimi ja ikä.
+<!-- Tutustutaan ensin luokan ja sen attribuuttien kuvaamiseen. Luodaan luokka nimeltä `Henkilo`, jolla on oliomuuttujat nimi ja ikä. -->
+First we will describe one class and its attributes. Below is the source code for a class called `Person` which has two class attributes name and age.
 
 
 ```java
-public class Henkilo {
-    private String nimi;
-    private int ika;
+public class Person {
+    private String name;
+    private int age;
 }
 ```
 
-Luokkakaavioissa luokka kuvataan suorakulmiona, jonka ylälaidassa on luokan nimi. Luokan nimen alla on viiva, ja viivan alapuolella on attribuuttien eli oliomuuttujien nimet ja tyypit. Kukin oliomuuttuja kuvataan omalla rivillään.
+<!-- Luokkakaavioissa luokka kuvataan suorakulmiona, jonka ylälaidassa on luokan nimi. Luokan nimen alla on viiva, ja viivan alapuolella on attribuuttien eli oliomuuttujien nimet ja tyypit. Kukin oliomuuttuja kuvataan omalla rivillään. -->
+In a class diagram a class is represented by a rectangle with the name of the class written on top.
+A line below the name of the class divides the name from the list of attributes (names and types of the class variables). The attributes are written one attribute per line.
 
-Luokkaakaaviossa luokkaan liittyvät oliomuuttujat määritellään muodossa "muuttujanNimi: muuttujanTyyppi". Muuttujien näkyvyysmääreet merkitään muuttujan nimeä edeltävällä miinuksella (private) tai plussalla (public).
+<!-- Luokkaakaaviossa luokkaan liittyvät oliomuuttujat määritellään muodossa "muuttujanNimi: muuttujanTyyppi". Muuttujien näkyvyysmääreet merkitään muuttujan nimeä edeltävällä miinuksella (private) tai plussalla (public). -->
+In a class diagram, class attributes are written "attributeName: attributeType". + before the attribute name means the attribute is public, and - the attribute is private.
 
 <img src="../img/diagrams/luokkakaavio-henkilo-ika-ja-nimi.png" alt="[Henkilo|-nimi:String;-ika:int]">
 
 
-## Luokan konstruktorin kuvaaminen
+## Describing class constructor
 
-Määrittellään luokalle seuraavaksi parametrillinen konstruktori. Konstruktori saa parametrinaan nimen.
-
+<!-- Määrittellään luokalle seuraavaksi parametrillinen konstruktori. Konstruktori saa parametrinaan nimen. -->
+Below we have the source code for a constructor for our Person class. The constructor gets the name of the person as a parameter.
 
 ```java
-public class Henkilo {
-    private String nimi;
-    private int ika;
+public class Person {
+    private String name;
+    private int age;
 
-    public Henkilo(String nimi) {
-        this.nimi = nimiAlussa;
-        this.ika = 0;
+    public Person(String initialName) {
+        this.name = initialName;
+        this.age = 0;
     }
 }
 ```
 
-Luokkakaaviossa konstruktori (ja metodit) merkitään oliomuuttujien jälkeen. Oliomuuttujien alapuolelle lisätään viiva, jonka jälkeen tulee konstruktori (ja metodit). Konstruktori saa näkyvyysmääreen public takia eteen plussan, jonka lisäksi siitä merkitään nimi sekä parametrien nimet ja niiden tyypit. Yllä olevan luokan konstruktori merkitään muodossa `+ Henkilo(nimi: String)`.
+<!-- Luokkakaaviossa konstruktori (ja metodit) merkitään oliomuuttujien jälkeen. Oliomuuttujien alapuolelle lisätään viiva, jonka jälkeen tulee konstruktori (ja metodit). Konstruktori saa näkyvyysmääreen public takia eteen plussan, jonka lisäksi siitä merkitään nimi sekä parametrien nimet ja niiden tyypit. Yllä olevan luokan konstruktori merkitään muodossa `+ Henkilo(nimi: String)`. -->
+In a class diagram we list the constructor (and all other methods) below the attributes. A line below the attributes list separates it from the method list.
+Methods are written +/- (debending on the visibility of the method), method name, parameters and their types. The constructor above is written `+ Person(initialName:String)`
 
-Parametrit noudattavat siis samaa määrittelymuotoa kuin oliomuuttujat, eli "muuttujanNimi: muuttujanTyyppi".
+<!-- Parametrit noudattavat siis samaa määrittelymuotoa kuin oliomuuttujat, eli "muuttujanNimi: muuttujanTyyppi". -->
+The parameters are written the same way class attributes were, "parameterName: parameterType".
 
 <img src="../img/diagrams/luokkakaavio-henkilo-ika-ja-nimi-ja-konstruktori.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String)]">
 
 
-## Luokan metodien kuvaaminen
+## Describing class methods
 
 
-Lisätään luokalle metodi, jonka palautustyyppi on void.
+<!-- Lisätään luokalle metodi, jonka palautustyyppi on void. -->
+Below we have added a method printPerson() which returns void to the Person class.
 
 ```java
-public class Henkilo {
-    private String nimi;
-    private int ika;
+public class Person {
+    private String name;
+    private int age;
 
-    public Henkilo(String nimi) {
-        this.nimi = nimi;
-        this.ika = 0;
+    public Person(String initialName) {
+        this.name = initialName;
+        this.age = 0;
     }
 
-    public void tulostaHenkilo() {
-        System.out.println(this.nimi + ", ikä " + this.ika + " vuotta");
+    public void printPerson() {
+        System.out.println(this.name + ", age " +   this.age + " years");
     }
 }
 ```
 
-Luokkakaaviossa metodi merkitään konstruktorin kanssa samaan alueeseen -- konstruktorit listataan ennen metodeja. Toisin kuin konstruktorille, metodeille merkitään myös palautustyyppi.
+<!-- Luokkakaaviossa metodi merkitään konstruktorin kanssa samaan alueeseen -- konstruktorit listataan ennen metodeja. Toisin kuin konstruktorille, metodeille merkitään myös palautustyyppi. -->
+In a class diagram we list all class methods with the constructors -- constructors are listed first and then all class methods.
+We also write the return type of a method to the class diagram.
 
-<img src="../img/diagrams/luokkakaavio-henkilo-ika-ja-nimi-ja-konstruktori-ja-tulosta.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void]">
+<img src="../img/diagrams/luokkakaavio-henkilo-ika-ja-nimi-ja-konstruktori-ja-tulosta.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+printPerson():void]">
 
 
 <text-box variant='hint' name='Luokkakaavio kertoo luokat, muuttujat, konstruktorit, ja metodit'>
 
-Luokkakaaviossa kuvataan luokat, muuttujat, konstruktorit, ja metodit sekä luokkien väliset yhteydet. Luokkakaavio ei kuitenkaan kerro mitään konstruktorien ja metodien sisäisestä toteutuksesta. Luokkakaaviolla kerrotaan siis olioiden rakenteesta, mutta luokkakaaviot eivät itsessään määrittele toiminnallisuutta.
+<!-- Luokkakaaviossa kuvataan luokat, muuttujat, konstruktorit, ja metodit sekä luokkien väliset yhteydet. Luokkakaavio ei kuitenkaan kerro mitään konstruktorien ja metodien sisäisestä toteutuksesta. Luokkakaaviolla kerrotaan siis olioiden rakenteesta, mutta luokkakaaviot eivät itsessään määrittele toiminnallisuutta. -->
+A class diagram describes classes and their attributes, constructors and methods as well as the connections between classes. However a class diagram tells us nothing about the implementation of the constructors or the methods. Therefore a class diagram describes the structure of an object but not its functionality.
 
-Esimerkiksi metodi `tulostaHenkilo` hyödyntää oliomuuttujia `nimi` ja `ika`, mutta luokkakaaviossa tämä ei näy millään tavalla.
+<!-- Esimerkiksi metodi `tulostaHenkilo` hyödyntää oliomuuttujia `nimi` ja `ika`, mutta luokkakaaviossa tämä ei näy millään tavalla. -->
+For example the method `printPerson` uses the class attributes `name` and `age`, but this cannot be seen from the class diagram.
 
 </text-box>
 
 
-Lisätään luokalle vielä nimen palauttava metodi `getNimi`.
+<!-- Lisätään luokalle vielä nimen palauttava metodi `getNimi`. -->
+Below we have added method `getName` to the Person class which returns the name of the Person.
 
 
 ```java
-public class Henkilo {
-    private String nimi;
-    private int ika;
+public class Person {
+    private String name;
+    private int age;
 
-    public Henkilo(String nimi) {
-        this.nimi = nimi;
-        this.ika = 0;
+    public Person(String initialName) {
+        this.name = initialName;
+        this.age = 0;
     }
 
-    public void tulostaHenkilo() {
-        System.out.println(this.nimi + ", ikä " + this.ika + " vuotta");
+    public void printPerson() {
+        System.out.println(this.name + ", age " +   this.age + " years");
     }
 
-    public String getNimi() {
-        return this.nimi;
+    public String getName() {
+        return this.name;
     }
 }
 ```
 
-<img src="../img/diagrams/luokkakaavio-henkilo-ika-ja-nimi-ja-konstruktori-ja-tulosta-ja-getnimi.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void;+getNimi():String]">
+<img src="../img/diagrams/luokkakaavio-henkilo-ika-ja-nimi-ja-konstruktori-ja-tulosta-ja-getnimi.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+printPerson():void;+getNimi():String]">
 
 
 <!-- <programming-exercise name='Asiakas' tmcname='osa11-Osa11_01.Asiakas'> -->
@@ -154,85 +170,96 @@ The class diagram below depicts the classes Book and Plane. Implement the classe
 </programming-exercise>
 
 
-## Luokkien väliset yhteydet
+## Connections between classes
 
-Luokkakaavioissa yhteydet merkitään viivoilla, joissa nuolet kuvaavat yhteyden suuntaa. Oletetaan, että käytössämme luokka Kirja.
+<!-- Luokkakaavioissa yhteydet merkitään viivoilla, joissa nuolet kuvaavat yhteyden suuntaa. Oletetaan, että käytössämme luokka Kirja. -->
+In a class diagram, the connections between classes are shown as arrows. The arrows also show the direction of the connection.
+
+Below we have a class Book.
 
 
 ```java
-public class Kirja {
-    private String nimi;
-    private String kustantaja;
+public class Book {
+    private String name;
+    private String publisher;
 
-    // konstruktorit ja metodit
+    // constructors and methods
 }
 ```
 
 <img src="../img/diagrams/luokkakaavio-kirja-nimi-ja-kustantaja.png" alt="[Kirja|-nimi:String;-julkaisija:String]">
 
 
-Jos luokalle kirja merkitään kirjoittaja, joka on tyyppiä Henkilo, ohjelmakoodissa oliomuuttuja merkitään muiden muuttujien seuraksi.
+<!-- Jos luokalle kirja merkitään kirjoittaja, joka on tyyppiä Henkilo, ohjelmakoodissa oliomuuttuja merkitään muiden muuttujien seuraksi. -->
+If we add a variable author, type of which is Person, in the source code the variable is declared like all other class variables.
 
 
 ```java
-public class Kirja {
-    private String nimi;
-    private String kustantaja;
-    private Henkilo kirjoittaja;
+public class Book {
+    private String name;
+    private String publisher;
+    private Person author;
 
-    // konstruktorit ja metodit
+    // constructors and methods
 }
 ```
 
-Luokkakaaviossa toisiin olioihin viittaavia muuttujia ei merkitä attribuutteihin, vaan ne merkitään yhteyksinä. Alla olevassa luokkakaaviossa on merkittynä luokat Henkilo ja Kirja, sekä näiden välinen yhteys.
+<!-- Luokkakaaviossa toisiin olioihin viittaavia muuttujia ei merkitä attribuutteihin, vaan ne merkitään yhteyksinä. Alla olevassa luokkakaaviossa on merkittynä luokat Henkilo ja Kirja, sekä näiden välinen yhteys. -->
+In a class diagram variables which refer to other objects are not written with the rest of the class attributes, but are shown as connections between the classes. In the class diagram below we have the classes Person and Book, and the connection between them.
 
 
-<img src="../img/diagrams/luokkakaavio-kirja-nimi-ja-kustantaja-ja-kirjoittaja.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void;+getNimi():String][Kirja|-nimi:String;-julkaisija:String][Kirja]-kirjoittaja->[Henkilo]">
+<img src="../img/diagrams/luokkakaavio-kirja-nimi-ja-kustantaja-ja-kirjoittaja.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+printPerson():void;+getNimi():String][Kirja|-nimi:String;-julkaisija:String][Kirja]-kirjoittaja->[Henkilo]">
 
-Nuoli kertoo "tietämyssuunnan". Yllä oleva yhteys kertoo, että kirja tietää kirjoittajansa, mutta henkilö ei tiedä mitään kirjoittamistaan kirjoista. Viivaan voi kirjoittaa myös tekstin, joka antaa lisätietoa yhteydestä. Yllä olevassa esimerkissä viivaan on kirjattu tieto siitä, että kirjaan liittyy "kirjoittaja".
+<!-- Nuoli kertoo "tietämyssuunnan". Yllä oleva yhteys kertoo, että kirja tietää kirjoittajansa, mutta henkilö ei tiedä mitään kirjoittamistaan kirjoista. Viivaan voi kirjoittaa myös tekstin, joka antaa lisätietoa yhteydestä. Yllä olevassa esimerkissä viivaan on kirjattu tieto siitä, että kirjaan liittyy "kirjoittaja". -->
+The arrow shows the direction of the connection. The connection above shows that a Book knows its author but a Person does not know about books they are the author of.
+We can also add a label to the arrow to describe the connection. In the above diagram the arrow has an accompanying label telling us that a Book has an author.
 
-Mikäli kirjalla voi olla useita kirjoittajia, kirjoittajat merkitään luokkaan listana.
+<!-- Mikäli kirjalla voi olla useita kirjoittajia, kirjoittajat merkitään luokkaan listana. -->
+If a book can have multiple authors, the authors are saved to a list.
 
 ```java
-public class Kirja {
-    private String nimi;
-    private String kustantaja;
-    private ArrayList<Henkilo> kirjoittajat;
+public class Book {
+    private String name;
+    private String publisher;
+    private ArrayList<Person> authors;
 
-    // konstruktorit ja metodit
+    // constructors and methods
 }
 ```
 
-Luokkakaaviossa tilanne merkitään yhteyden päätyyn asetettavalla tähdellä. Tähti kertoo, että kirjalla voi olla nollasta äärettömään kirjoittajaa. Alla olevassa esimerkissä yhteyteen ei ole merkitty yhteyttä kuvaavaa tekstiä "kirjoittajat", mutta se kannattaisi selkeyden takia lisätä kaavioon.
+<!-- Luokkakaaviossa tilanne merkitään yhteyden päätyyn asetettavalla tähdellä. Tähti kertoo, että kirjalla voi olla nollasta äärettömään kirjoittajaa. Alla olevassa esimerkissä yhteyteen ei ole merkitty yhteyttä kuvaavaa tekstiä "kirjoittajat", mutta se kannattaisi selkeyden takia lisätä kaavioon. -->
+In a class diagram this situation is described by adding a star to the end of the arrow showing a connection between classes. The star tells us that a book can have between 0 and unlimited number of authors. Below we have not amended the label to describe the multiplicity of the connection, but it would be a good idea for the sake of clarity.
 
-<img src="../img/diagrams/luokkakaavio-kirja-nimi-ja-kustantaja-ja-kirjoittajat.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void;+getNimi():String][Kirja|-nimi:String;-julkaisija:String][Kirja]-*>[Henkilo]">
+<img src="../img/diagrams/luokkakaavio-kirja-nimi-ja-kustantaja-ja-kirjoittajat.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+printPerson():void;+getNimi():String][Kirja|-nimi:String;-julkaisija:String][Kirja]-*>[Henkilo]">
 
 
-Metodit merkitään luokkakaavioon normaalisti. Alla luokkaan Kirja on lisätty metodit `getKirjoittajat` ja `lisaaKirjoittaja`.
+<!-- Metodit merkitään luokkakaavioon normaalisti. Alla luokkaan Kirja on lisätty metodit `getKirjoittajat` ja `lisaaKirjoittaja`. -->
+Class methods are described just like we did before. Below we have added methods `getAuthors` and `addAuthor` to the Book class.
 
 
 ```java
-public class Kirja {
-    private String nimi;
-    private String kustantaja;
-    private ArrayList<Henkilo> kirjoittajat;
+public class Book {
+    private String name;
+    private String publisher;
+    private ArrayList<Person> authors;
 
-    // konstruktori
+    // constructor
 
-    public ArrayList<Henkilo> getKirjoittajat() {
-        return this.kirjoittajat;
+    public ArrayList<Person> getAuthors() {
+        return this.authors;
     }
 
-    public void lisaaKirjoittaja(Henkilo kirjoittaja) {
-        this.kirjoittajat.add(kirjoittaja);
+    public void addAuthor(Person author) {
+        this.authors.add(author);
     }
 }
 ```
 
-<img src="../img/diagrams/luokkakaavio-kirja-nimi-ja-kustantaja-ja-kirjoittajat-ja-metodit.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void;+getNimi():String][Kirja|-nimi:String;-julkaisija:String|+getKirjoittajat():ArrayList;+lisaaKirjoittaja(kirjoittaja:Henkilo)][Kirja]-*>[Henkilo]">
+<img src="../img/diagrams/luokkakaavio-kirja-nimi-ja-kustantaja-ja-kirjoittajat-ja-metodit.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+printPerson():void;+getNimi():String][Kirja|-nimi:String;-julkaisija:String|+getAuthors():ArrayList;+lisaaKirjoittaja(kirjoittaja:Henkilo)][Kirja]-*>[Henkilo]">
 
 
-Ylläolevaan kaavioon voisi lisätä vielä ArrayListin sisältämien arvojen tyypin `ArrayList<Henkilo>` sekä yhteyttä tarkentavan määreen "kirjoittajat".
+<!-- Ylläolevaan kaavioon voisi lisätä vielä ArrayListin sisältämien arvojen tyypin `ArrayList<Person>` sekä yhteyttä tarkentavan määreen "kirjoittajat". -->
+We could add the type of the elements in the ArrayList `ArrayList<Person>` and a label describing the connection "authors" to the class diagram above.
 
 
 <programming-exercise name='Show and ticket' tmcname='part11-Part11_03.ShowAndTicket'>
@@ -252,17 +279,18 @@ Implement the classes in the diagram in the exercise base.
 </programming-exercise>
 
 
-Mikäli luokkakaavioon ei merkitä nuolta, näkyy yhteys kummassakin oliossa. Alla esimerkki tilanteesta, missä kirja tietää kirjoittajansa ja henkilö tietää kirjoittamansa kirjan.
+<!-- Mikäli luokkakaavioon ei merkitä nuolta, näkyy yhteys kummassakin oliossa. Alla esimerkki tilanteesta, missä kirja tietää kirjoittajansa ja henkilö tietää kirjoittamansa kirjan. -->
+If there is no arrowhead in a connection, both classes know about each other. Below is an example where a book knows about its author and a person knows about a book they have written.
 
 
-<img src="../img/diagrams/luokkakaavio-kirja-henkilo-kaksisuuntainen.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void;+getNimi():String],[Kirja|-nimi:String;-julkaisija:String|+getKirjoittajat():ArrayList;+lisaaKirjoittaja(kirjoittaja:Henkilo)],[Kirja]-*[Henkilo]">
+<img src="../img/diagrams/luokkakaavio-kirja-henkilo-kaksisuuntainen.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+printPerson():void;+getNimi():String],[Kirja|-nimi:String;-julkaisija:String|+getAuthors():ArrayList;+lisaaKirjoittaja(kirjoittaja:Henkilo)],[Kirja]-*[Henkilo]">
 
 
 ```java
-public class Henkilo {
-    private String nimi;
-    private int ika;
-    private Kirja kirja;
+public class Person {
+    private String name;
+    private int age;
+    private Book book;
 
     // ...
 }
@@ -270,32 +298,33 @@ public class Henkilo {
 
 
 ```java
-public class Kirja {
-    private String nimi;
-    private String kustantaja;
-    private ArrayList<Henkilo> kirjoittajat;
+public class Book {
+    private String name;
+    private String publisher;
+    private ArrayList<Person> authors;
 
     // ..
 }
 ```
 
-Kuten yllä huomaat, oletuksena -- eli kun viivan päätyyn ei merkitä tähteä -- kyse on yhdestä viitteestä. Yllä olevat luokat ovat mielenkiintoiset, sillä henkilöllä voi olla vain yksi kirja.
+<!-- Kuten yllä huomaat, oletuksena -- eli kun viivan päätyyn ei merkitä tähteä -- kyse on yhdestä viitteestä. Yllä olevat luokat ovat mielenkiintoiset, sillä henkilöllä voi olla vain yksi kirja. -->
+As you can see, by default -- if there is no star on the connection -- the connection is singular. The classes above are interesting, because a Person can only have one book.
 
+<!-- Mikäli henkilöllä voi olla monta kirjaa ja kirjalla monta kirjoittajaa, merkitään tähti yhteyden kumpaankin päätyyn seuraavasti: -->
+If a person can have multiple books and a book can have multiple authors, we add a star to both ends of the connection:
 
-Mikäli henkilöllä voi olla monta kirjaa ja kirjalla monta kirjoittajaa, merkitään tähti yhteyden kumpaankin päätyyn seuraavasti:
+<img src="../img/diagrams/luokkakaavio-kirja-henkilo-kaksisuuntainen-monesta-moneen.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+printPerson():void;+getNimi():String],[Kirja|-nimi:String;-julkaisija:String|+getAuthors():ArrayList;+lisaaKirjoittaja(kirjoittaja:Henkilo)],[Kirja]*-*[Henkilo]">
 
-<img src="../img/diagrams/luokkakaavio-kirja-henkilo-kaksisuuntainen-monesta-moneen.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void;+getNimi():String],[Kirja|-nimi:String;-julkaisija:String|+getKirjoittajat():ArrayList;+lisaaKirjoittaja(kirjoittaja:Henkilo)],[Kirja]*-*[Henkilo]">
-
-Nyt luokka Henkilo olisi muotoa:
-
+<!-- Nyt luokka Henkilo olisi muotoa: -->
+Now the person class would be as follows:
 
 ```java
 import java.util.ArrayList;
 
-public class Henkilo {
-    private String nimi;
-    private int ika;
-    private ArrayList<Kirja> kirja;
+public class Person {
+    private String name;
+    private int age;
+    private ArrayList<Book> books;
 
     // ...
 }
@@ -315,19 +344,23 @@ Two classes, Student and University, are depicted below, as well as the connecti
 </programming-exercise>
 
 
-## Perintä luokkakaavioissa
+## Describing inheritance
 
-Perintä merkitään luokkakaavioon kolmion muotoisella nuolella. Kolmio on perittävän luokan päädyssä. Alla olevassa esimerkissä luokka Moottori perii luokan Osa.
+<!-- Perintä merkitään luokkakaavioon kolmion muotoisella nuolella. Kolmio on perittävän luokan päädyssä. Alla olevassa esimerkissä luokka Moottori perii luokan Osa. -->
+In a class diagram inheritance is described by an arrow with a triangle head. The triangle points to the class being inherited from. In the below example the Motor inherits the class Part.
 
 <img src="../img/diagrams/luokkakaavio-moottori-perii-osan.png" alt="[Osa|-tunnus:String;-valmistaja:String;-kuvaus:String][Moottori|-moottorityyppi:String][Osa]^-[Moottori]" />
 
 
-Alla olevaan esimerkkiin on kirjoitettu auki muistavaa tuotevarastoa käsittelevän tehtävän luokkakaavio. Muistava tuotevarasto perii tuotevaraston, joka taas perii varaston. Muutoshistoria on erillinen luokka, jonka muistava tuotevarasto sisältää. Muistava tuotevarasto tietää muutoshistorian, mutta muutoshistoria ei tiedä muistavasta tuotevarastosta.
+<!-- Alla olevaan esimerkkiin on kirjoitettu auki muistavaa tuotevarastoa käsittelevän tehtävän luokkakaavio. Muistava tuotevarasto perii tuotevaraston, joka taas perii varaston. Muutoshistoria on erillinen luokka, jonka muistava tuotevarasto sisältää. Muistava tuotevarasto tietää muutoshistorian, mutta muutoshistoria ei tiedä muistavasta tuotevarastosta. -->
+In the below example the class diagram describes the classes from the Product warehouse exercise. The ProductWarehouseWithHistory class inherits the ProductWarehouse class which in turn inherits the Warehouse class.
+ChangeHistory is a separate class connected to the ProductWarehouse. ProductWarehouseWithHistory knows about the ChangeHistory but the ChangeHistory does now know about the ProductWarehouseWithHistory.
 
 <img src="../img/diagrams/luokkakaavio-muistava-tuotevarasto.png" alt="[Varasto|-tilavuus:double;-saldo:double|+Varasto(tilavuus:double);+getSaldo():double;+getTilavuus():double;+paljonkoMahtuu():double;+lisaaVarastoon(maara:double):void;+otaVarastosta(maara:double):double;+toString():String][Tuotevarasto|-nimi:String|+Tuotevarasto(nimi:String، tilavuus:double);+getNimi():String;+setNimi(nimi:String):String;+toString():String][Muutoshistoria|-tilanteet:ArrayList|+Muutoshistoria();+lisaa(tilanne:double);+nollaa():void;...][MuistavaTuotevarasto||+MuistavaTuotevarasto(nimi:String، tilavuus:double،alkusaldo:double);+historia():String;+tulostaAnalyysi():void;+lisaaVarastoon(maara:double);+otaVarastosta(maara:double):double][Varasto]^-[Tuotevarasto][Tuotevarasto]^-[MuistavaTuotevarasto][Muutoshistoria]<-[MuistavaTuotevarasto]" />
 
 
-Abstraktien luokkien perintä toimii lähes samalla tavalla. Abstraktit luokat kuitenkin merkitään luokkakaavioon siten, että luokan nimen yläpuolella lukee `<<abstract>>`. Tämän lisäksi luokan nimi ja luokassa määritellyt abstraktit metodit kuvataan kursiivilla.
+<!-- Abstraktien luokkien perintä toimii lähes samalla tavalla. Abstraktit luokat kuitenkin merkitään luokkakaavioon siten, että luokan nimen yläpuolella lukee `<<abstract>>`. Tämän lisäksi luokan nimi ja luokassa määritellyt abstraktit metodit kuvataan kursiivilla. -->
+Inheritance of abstract classes is described almost the same way as regular classes. However we add the description `<<abstract>>` above the name of the class. The name of the class and its abstract methods are also written in cursive.
 
 
 <img src="../img/diagrams/luokkakaavio-abstraktit.png" />
@@ -350,22 +383,25 @@ A model answer is not supplied for this exercise.
 </programming-exercise>
 
 
-## Rajapinnat luokkakaavioissa
+## Describing interfaces
 
-Rajapinnat merkitään luokkakaavioissa muodossa `<<interface>>` RajapintaLuokanNimi. Tarkastellaan esimerkkinä rajapintaa Luettava.
+<!-- Rajapinnat merkitään luokkakaavioissa muodossa `<<interface>>` RajapintaLuokanNimi. Tarkastellaan esimerkkinä rajapintaa Luettava. -->
+In class diagrams interfaces are written `<<interface>>` NameOfTheInterface. Below we describe an interface Readable.
 
 
 ```java
-public interface Luettava {
+public interface Readable {
 
 }
 ```
 
 <img src="../img/diagrams/luokkakaavio-rajapinta-luettava.png" alt="[&lt;&lt;interface&gt;&gt; Luettava]">
 
-Metodit voidaan merkitä alle kuten luokkakaavioissa.
+<!-- Metodit voidaan merkitä alle kuten luokkakaavioissa. -->
+Methods are described just like they are for a class.
 
-Rajapinnan toteuttaminen merkitään katkoviivalla ja kolmiolla. Alla on kuvattu tilanne, missä luokka Kirja toteuttaa rajapinnan Luettava.
+<!-- Rajapinnan toteuttaminen merkitään katkoviivalla ja kolmiolla. Alla on kuvattu tilanne, missä luokka Kirja toteuttaa rajapinnan Luettava. -->
+Implementing an interface is shown as a dashed arrow with a triangle arrowhead. Below is described a situation where Book implements interface Readable.
 
 <img src="../img/diagrams/luokkakaavio-kirja-toteuttaa-luettavan.png" alt="[<<interface>> Luettava][Kirja]-.-^[<<interface>> Luettava]">
 
@@ -385,14 +421,18 @@ Below you'll see the interface Saveable and the class Person. Implement the cont
 
 <text-box variant='hint' name='Miten näitä kannattaa piirtää?'>
 
-Luokkakaaviot ovat erinomainen tapa kuvata ongelma-aluetta ja ongelman muotoa muille. Niiden käyttö on erittäin hyödyllistä myös silloin, kun ohjelmoija suunnittelee useammasta luokasta koostuvan ohjelman rakennetta.
+<!-- Luokkakaaviot ovat erinomainen tapa kuvata ongelma-aluetta ja ongelman muotoa muille. Niiden käyttö on erittäin hyödyllistä myös silloin, kun ohjelmoija suunnittelee useammasta luokasta koostuvan ohjelman rakennetta. -->
+Class diagrams are an excellent way to describe a problem and a problem-domain to others. They are particularily useful when a programmer is designing a program with multiple classes.
 
 
-Luokkakaavioita piirretään ohjelman suunnitteluvaiheessa usein esimerkiksi valkotaulua tai isompaa paperiarkkia käyttäen. Luokkakaaviot kannattaa ajatella poisheitettävinä tuotoksina, jotka auttavat ohjelman rakennuksessa. Kaavion piirtämiseen -- eli tyylin oikeellisuuteen ja yksityiskohtiin -- ei kannata käyttää liian pitkään aikaa. Vastaavasti kaavio kannattaa piirtää sopivalla abstraktiotasolla. Esimerkiksi kymmeniä luokkia sisältävään luokkakaavioon ei kannata merkitä jokaisen luokan jokaista metodia ja muuttujaa: oleellista on, että kaaviosta saa luotua nopean yleiskuvan.
+<!-- Luokkakaavioita piirretään ohjelman suunnitteluvaiheessa usein esimerkiksi valkotaulua tai isompaa paperiarkkia käyttäen. Luokkakaaviot kannattaa ajatella poisheitettävinä tuotoksina, jotka auttavat ohjelman rakennuksessa. Kaavion piirtämiseen -- eli tyylin oikeellisuuteen ja yksityiskohtiin -- ei kannata käyttää liian pitkään aikaa. Vastaavasti kaavio kannattaa piirtää sopivalla abstraktiotasolla. Esimerkiksi kymmeniä luokkia sisältävään luokkakaavioon ei kannata merkitä jokaisen luokan jokaista metodia ja muuttujaa: oleellista on, että kaaviosta saa luotua nopean yleiskuvan. -->
+Often a class diagram is drawn on a whiteboard or a big sheet of paper during the design phase. They should be though of as helpful tools to build a program, which can be thrown away afterwards. You should not use too much energy to think about the correctness and details of the modeling language.
+Class diagram should also be drawn in a suitable level of abstraction. For example if you have tens of classes, it might not be worth it to describe each attribute and each method of each class: getting a good overview of the program structure is the most important.
 
 
-Materiaalissa käytetyt luokkakaaviot on piirretty <a href="https://yuml.me/" target="_blank" norel>yUML</a>:n, <a href="https://creately.com" target="_blank" norel>Creately</a>n, ja <a href="https://www.draw.io/" target="_blank" norel>draw.io</a>:n. Myös NetBeansiin löytyy välineitä luokkakaavioiden luomiseen -- esimerkiksi <a href="http://plugins.netbeans.org/plugin/55435/easyuml" target="_blank" norel>easyUML</a> mahdollistaa luokkakaavioiden luomisen suoraan projektin koodista.
-
+<!-- Materiaalissa käytetyt luokkakaaviot on piirretty <a href="https://yuml.me/" target="_blank" norel>yUML</a>:n, <a href="https://creately.com" target="_blank" norel>Creately</a>n, ja <a href="https://www.draw.io/" target="_blank" norel>draw.io</a>:n. Myös NetBeansiin löytyy välineitä luokkakaavioiden luomiseen -- esimerkiksi <a href="http://plugins.netbeans.org/plugin/55435/easyuml" target="_blank" norel>easyUML</a> mahdollistaa luokkakaavioiden luomisen suoraan projektin koodista. -->
+The class diagrams in the material have been drawn using <a href="https://yuml.me/" target="_blank" norel>yUML</a>, <a href="https://creately.com" target="_blank" norel>Creately</a>, and <a href="https://www.draw.io/" target="_blank" norel>draw.io</a>.
+NetBeans also has tools for drawing class diagrams -- for example the <a href="http://plugins.netbeans.org/plugin/55435/easyuml" target="_blank" norel>easyUML</a> draws class diagrams from the source code.
 
 </text-box>
 
