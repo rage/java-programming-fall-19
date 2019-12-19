@@ -5,11 +5,14 @@ hidden: false
 ---
 
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name='Learning objectives'>
 
-- Tunnet luokkakaavioiden merkintätavan ja osaat merkitä luokkakaavioon luokat, attribuutit, konstruktorit, ja metodit.
-- Tunnet luokkien väliset yhteydet ja osaat merkitä luokkakaavioon perinnän sekä rajapinnan toteutuksen.
-- Osaat luoda luokkia luokkakaavioiden perusteella.
+<!-- - Tunnet luokkakaavioiden merkintätavan ja osaat merkitä luokkakaavioon luokat, attribuutit, konstruktorit, ja metodit. -->
+<!-- - Tunnet luokkien väliset yhteydet ja osaat merkitä luokkakaavioon perinnän sekä rajapinnan toteutuksen. -->
+<!-- - Osaat luoda luokkia luokkakaavioiden perusteella. -->
+- Know how to draw class diagrams, and how to describe classes and their attributes, constructors and methods.
+- Know how to describe connections between classes, and can describe inheritance and iplementing interfaces
+- Can implement a class based on a class diagram
 
 </text-box>
 
