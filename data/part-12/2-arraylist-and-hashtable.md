@@ -4,30 +4,52 @@ title: 'ArrayList and hash table'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
 
-- Tiedät miten miten muuttuvansizeinen geneerinen myList toteutetaan.
-- Tunnet erään mahdollisen tavan Javan ArrayListin kaltaisen luokan toteutukselle.
-- Tiedät miten miten hajautustaulu toteutetaan.
-- Tunnet erään mahdollisen tavan Javan HashMapin kaltaisen luokan toteutukselle.
+<text-box variant='learningObjectives' name='Learning objectives'>
+
+<!-- - Tiedät miten miten muuttuvansizeinen geneerinen myList toteutetaan. -->
+
+- You know how to implement a generic list that has changing size.
+
+<!-- - Tunnet erään mahdollisen tavan Javan ArrayListin kaltaisen luokan toteutukselle. -->
+
+- You know of one possible method to implement a class like Java's ArrayList.
+
+<!-- - Tiedät miten miten hajautustaulu toteutetaan. -->
+
+- You know how to implement a hash table.
+
+<!-- - Tunnet erään mahdollisen tavan Javan HashMapin kaltaisen luokan toteutukselle. -->
+
+- You are aware of one possible method to implement a class like Java's HashMap.
 
 </text-box>
 
-ArrayList ja Hajautustaulu ovat ohjemoinnissa hyvin yleisesti käytettyjä tietorakenteita. Tarkastellaan tässä niiden todelmyList toteutusta. Kerrataan ensin lyhyesti taulukon käyttöä, jonka jälkeen rakennetaan esimerkinomaisesti ensin ArrayListiä imitoiva tietorakenne `List`, jota hyödynnetään sitten tietorakenteen `Hajautustaulu` tekemisessä.
+<!-- ArrayList ja Hajautustaulu ovat ohjemoinnissa hyvin yleisesti käytettyjä tietorakenteita. Tarkastellaan tässä niiden todelmyList toteutusta. Kerrataan ensin lyhyesti taulukon käyttöä, jonka jälkeen rakennetaan esimerkinomaisesti ensin ArrayListiä imitoiva tietorakenne `List`, jota hyödynnetään sitten tietorakenteen `Hajautustaulu` tekemisessä. -->
 
+ArrayList and HashMap are some of commonly used data structures in programming. We are now going to take a look at their actual implementation. First we'll remind ourselves of how to use an array, after which we're going to build a data structure called `List`, imitating ArrayList. Then we'll make use of the List to implement the data structure `HashTable`.
 
-## Lyhyt kertaus taulukoista
+<!-- ## Lyhyt kertaus taulukoista -->
 
-Taulukko on olio, joka sisältää rajatun määrän numeroituja paikkoja valueille. Taulukon pituus (tai size) on siinä olevien paikkojen lukumäärä, eli kuinka monta valuea taulukkoon voi laittaa. Taulukon size on aina ennalta määrätty: size määrätään taulukon luomisen yhteydessä eikä sitä voi muuttaa.
+## A brief recap of arrays
 
-Taulukkotyyppi määritellään hakasuluilla, jota edeltää taulukossa olevien alkioiden tyyppi (alkioidentyyppi[]). Taulukko luodaan `new`-kutsulla, jota seuraa taulukon alkioiden tyyppi, hakasulut, sekä hakasulkujen sisään asetettava luotavan taulukon alkioiden lukumäärä.
+<!-- Taulukko on olio, joka sisältää rajatun määrän numeroituja paikkoja valueille. Taulukon pituus (tai size) on siinä olevien paikkojen lukumäärä, eli kuinka monta valuea taulukkoon voi laittaa. Taulukon size on aina ennalta määrätty: size määrätään taulukon luomisen yhteydessä eikä sitä voi muuttaa. -->
+
+An array is an object that contains a limited number of places for values. The length (or size) of an array is the number of places in it; in other words, how many values can be stored in the array. The size of an array is always predetermined: it is chosen when the array is created, and cannot be changed later.
+
+<!-- Taulukkotyyppi määritellään hakasuluilla, jota edeltää taulukossa olevien alkioiden tyyppi (alkioidentyyppi[]). Taulukko luodaan `new`-kutsulla, jota seuraa taulukon alkioiden tyyppi, hakasulut, sekä hakasulkujen sisään asetettava luotavan taulukon alkioiden lukumäärä. -->
+
+The array type is defined with square brackets preceded by the type of the elements in the array (typeOfElements[]). An array is created with the `new` call, followed by the type of the elements in that array, square brackets, and the number of elements in the array places inside the square brackets.
 
 ```java
 int[] numbers = new int[3];
 String[] strings = new String[5];
 ```
 
-Taulukon alkioihin viitataan taulukon indexen perusteella. Alla olevassa esimerkissä luodaan kolmepaikkainen sizenaislukutaulukko, jonka jälkeen taulukon indekseihin 0 ja 2 asetetaan values. Tämän jälkeen values tulostetaan.
+<!-- Taulukon alkioihin viitataan taulukon indexen perusteella. Alla olevassa esimerkissä luodaan kolmepaikkainen sizenaislukutaulukko, jonka jälkeen taulukon indekseihin 0 ja 2 asetetaan values. Tämän jälkeen values tulostetaan. -->
+
+The elements of the array are referred to by the indexes. Below we create an integer array of size three, after which we set values to indexes 0 and 2. Then we print those values.
 
 ```java
 int[] numbers = new int[3];
@@ -46,10 +68,27 @@ System.out.println(numbers[2]);
 </sample-output>
 
 
-Yksittäisen valuen asettaminen taulukon tiettyyn paikkaan tapahtuu kuten valuen asetus tavalliseen muuttujaan, mutta taulukkoon asetettaessa kerrotaan paikkaa kuvaava index.
+<!-- Yksittäisen valuen asettaminen taulukon tiettyyn paikkaan tapahtuu kuten valuen asetus tavalliseen muuttujaan, mutta taulukkoon asetettaessa kerrotaan paikkaa kuvaava index. -->
 
-Taulukko-olion koon saa selville taulukko-olioon liittyvän julkisen oliomuuttujan `length` avulla, ja taulukon alkioiden läpikäynti voidaan toteuttaa esimerkiksi for-toistolauseen avulla.
+Setting a single value to a certain position is done similarly to setting a value to a regular variable, just that when placing the value in an array, you use the index to indicate the position.
 
+<!-- Taulukko-olion koon saa selville taulukko-olioon liittyvän julkisen oliomuuttujan `length` avulla, ja taulukon alkioiden läpikäynti voidaan toteuttaa esimerkiksi for-toistolauseen avulla. -->
+
+To discover the size of an array you can use the public object variable `length` that arrays have. Examining the elements one by one can be accomplished with a for loop, for instance.
+
+<!-- ```java
+int[] numbers = new int[4];
+numbers[0] = 42;
+numbers[1] = 13;
+numbers[2] = 12;
+numbers[3] = 7;
+
+System.out.println("Taulukossa on " + numbers.length + " alkiota.");
+
+for (int i = 0; i < numbers.length; i++) {
+    System.out.println(numbers[i]);
+}
+``` -->
 
 ```java
 int[] numbers = new int[4];
@@ -58,7 +97,7 @@ numbers[1] = 13;
 numbers[2] = 12;
 numbers[3] = 7;
 
-System.out.println("Taulukossa on " + numbers.length + " alkiota.");
+System.out.println("There are " + numbers.length + " elements in the array.");
 
 for (int i = 0; i < numbers.length; i++) {
     System.out.println(numbers[i]);
@@ -76,6 +115,15 @@ Taulukossa on 4 alkiota.
 
 </sample-output>
 
+<sample-output>
+
+There are 4 elements in the array.
+42
+13
+12
+7
+
+</sample-output>
 
 <quiz id='fd66bcc3-962b-5970-936f-47c6d2d56d18'></quiz>
 
@@ -86,6 +134,7 @@ Taulukossa on 4 alkiota.
 In the class `Program` implement a class method `public static int sum(int[]array, int fromWhere, int toWhere, int smallest, int largest)`. The method must calculate the sum of the elements in the array between the lower and the upper limits. Only numbers smaller or equal to the int largest and larger or equal to the int smallest are added to the sum.
 
 <!-- Metodin tulee lisäksi varmistaa, että käsiteltävät indext ovat valideja. Mikäli parametri `mista` on pienempi kuin 0, tulee taulukon indexen läpikäynti alkaa parametrin mista valuen sijaan nollasta. Vastaavasti, mikäli parametri `mihin` on suurempi kuin käsiteltävä taulukko, tulee taulukon indexen läpikäynti lopettaa  parametrin mihin valuen sijaan taulukon sizeon. -->
+
 The method must also check, that the lower and the upper limit are valid indexes in the array. If the parameter `fromWhere` is smaller than 0, the lower limit becomes 0 instead. Accordingly, if the parameter `toWhere` is larger than the size of the array, the upper limit becomes the last index of the array instead.
 
 ```java
@@ -111,15 +160,19 @@ System.out.println(sum(numbers, -1, 999, -10, 10));
 </programming-exercise>
 
 
-Taulukoita voi käyttää täysin samalla tavalla kuin muitakin muuttujia, eli niitä voi käyttää esimerkiksi oliomuuttujina, metodin parametreina, metodin paluuvaluena ym.
+<!-- Taulukoita voi käyttää täysin samalla tavalla kuin muitakin muuttujia, eli niitä voi käyttää esimerkiksi oliomuuttujina, metodin parametreina, metodin paluuvaluena ym. -->
 
-Merkittävä osa yleisesti käytetyistä tietorakenteista käyttää taulukoita niiden sisäisessä toteutuksessa.
+Arrays can be used exactly in the same manner as other variables, so they can be object variables, method parameters, return values of methods, and so on.
 
+<!-- Merkittävä osa yleisesti käytetyistä tietorakenteista käyttää taulukoita niiden sisäisessä toteutuksessa. -->
+
+A significant portion of generally used data structures use arrays in their internal implementation.
 
 ## Lists
 
 
 <!-- Tarkastellaan erästä tapaa Javan tarjoaman ArrayList-tietorakenteen toteuttamiseen. Javan ArrayList hyödyntää sisäisesti taulukkoa, jonka alkioiden tyyppi on määritelty luokalle ArrayList annettavan tyyppiparametrin avulla. Tämän takia myListlle saa lisätä käytännössä minkä tyyppisiä firstFreeIndex tahansa. List tarjoaa useita metodeja, joista tämän esimerkin kannalta oleellisia ovat `add` eli lisääminen, `contains` eli olemassaolon tarkastaminen, `remove` eli removeminen sekä `get`, eli tietystä indexstä hakeminen. -->
+
 Lets examine one way to implement the Java ArrayList data structure. Java ArrayList uses an array. The type of the elements in the array is defined by the type parameter given to the ArrayList. Due to this we can add nearly any type of data to a list. Java List offers multiple methods, but right now `add`, `contains`,`remove` and `get` are most relevant for us.
 
 
@@ -1107,11 +1160,15 @@ Implement the class HashMap in the exercise base, following along the lines of t
 </programming-exercise>
 
 
-## Hakemisen tehokkuudesta
+<!-- ## Hakemisen tehokkuudesta -->
 
-Tarkastellaan vielä hakemisen tehokkuutta myListsta ja hajautustaulusta. Tehokkuusmittauksia voi tehdä metodin `System.nanotime()` palauttaman nanosekunteja kuvaavan valuen avulla. Ohjelma luo ensin miljoona alkiota hajautustauluun ja myListan, jonka jälkeen hajautustaulusta ja myListsta etsitään tuhatta satunnaista valuea. Noin 50% valueista löytyy myListlta ja hajautustaulusta.
+## On search performance
 
-```java
+<!-- Tarkastellaan vielä hakemisen tehokkuutta myListsta ja hajautustaulusta. Tehokkuusmittauksia voi tehdä metodin `System.nanotime()` palauttaman nanosekunteja kuvaavan valuen avulla. Ohjelma luo ensin miljoona alkiota hajautustauluun ja myListan, jonka jälkeen hajautustaulusta ja myListsta etsitään tuhatta satunnaista valuea. Noin 50% valueista löytyy myListlta ja hajautustaulusta. -->
+
+Let's compare the performance of searching from a list or a hash map. To evaluate performance we can use the `System.nanotime()` method and the value it returns, which represents the time as nanoseconds. The program first creates a hash map and a list, each containing a million elements, after which a thousand randomly chosen values are chosen from both. Roughly 50 % of the values are found with both structures.
+
+<!-- ```java
 List<String> myList = new List<>();
 Hajautustaulu<String, String> taulu = new Hajautustaulu<>();
 
@@ -1146,12 +1203,52 @@ System.out.println("List: haku kesti noin " + myListnHaku / 1000000 + " millisek
 long hajautustaulunHaku = hajautustaulunHakuLopetus - hajautustaulunHakuAloitus;
 System.out.println("Hajautustaulu: haku kesti noin " + hajautustaulunHaku / 1000000 +
     " millisekuntia (" + hajautustaulunHaku + " nanosekuntia.)");
-```
+``` -->
 
 ```java
-List: haku kesti noin 6284 millisekuntia (6284420580 nanosekuntia.)
-Hajautustaulu: haku kesti noin 0 millisekuntia (805106 nanosekuntia.)
+List<String> myList = new List<>();
+HashMap<String, String> hashMap = new HashMap<>();
+
+for (int i = 0; i < 1000000; i++) {
+    myList.add("" + i);
+    hashMap.add("" + i, "" + i);
+}
+
+List<String> elements = new List<>();
+Random randomizer = new Random();
+for (int i = 0; i < 1000; i++) {
+    elements.add("" + randomizer.nextInt(2000000));
+}
+
+long listSearchStartTime = System.nanoTime();
+for (int i = 0; i < elements.size(); i++) {
+    myList.contains(elements.value(i));
+}
+long listSearchEndTime = System.nanoTime();
+
+long hashMapSearchStartTime = System.nanoTime();
+for (int i = 0; i < elements.size(); i++) {
+    hashMap.hae(elements.value(i));
+}
+long hashMapSearchEndTime = System.nanoTime();
+
+
+long listSearch = listSearchEndTime - listSearchStartTime;
+System.out.println("List: the search took about " + listSearch / 1000000 + " milliseconds (" +
+    listSearch + " nanoseconds.)");
+
+long hashMapSearch = hashMapSearchEndTime - hashMapSearchStartTime;
+System.out.println("Hash map: the search took about " + hashMapSearch / 1000000 +
+    " milliseconds (" + hashMapSearch + " nanoseconds.)");
 ```
 
+<sample-output>
 
-*Edellä kuvatut ja kursseilla käyttämämme myListt ja hajautustaulut poikkeavat toki sisäiseltä toteutukselta hieman toisistaan. Ohjelmointikielten tarjoamissa tietorakenteissa on hieman enemmän erilaisia optimointeja -- näihinkin palataan myöhemmillä kursseilla. Tämän kurssin puitteissa riittää em. tietorakenteiden käyttöosaaminen sekä jonkintasoinen ymmärrys niiden tehokkuuseroista sekä käyttötapauksista.*
+List: the search took about 6284 milliseconds (6284420580 nanoseconds.)
+Hajautustaulu: the search took about 0 milliseconds (805106 nanoseconds.)
+
+</sample-output>
+
+<!-- *Edellä kuvatut ja kursseilla käyttämämme myListt ja hajautustaulut poikkeavat toki sisäiseltä toteutukselta hieman toisistaan. Ohjelmointikielten tarjoamissa tietorakenteissa on hieman enemmän erilaisia optimointeja -- näihinkin palataan myöhemmillä kursseilla. Tämän kurssin puitteissa riittää em. tietorakenteiden käyttöosaaminen sekä jonkintasoinen ymmärrys niiden tehokkuuseroista sekä käyttötapauksista.* -->
+
+*The list and hash map that are described in this chapter do have some differences from the readymade tools we use elsewhere in the course. The data structures offered by the programming language have more different kinds of optimizations -- other courses go more in detail with these specifics. For the purposes of this course it's enough to know how to use the data structures and to have some idea of the performance differences and when they are suitable to use.*
