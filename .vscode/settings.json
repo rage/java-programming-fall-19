@@ -7,8 +7,7 @@
     "titleBar.activeForeground": "#FEFAF7"
   },
   "spellright.language": [
-    "en",
-    "fi"
+    "en_US"
   ],
   "spellright.documentTypes": [
     "latex",
