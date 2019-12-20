@@ -1,5 +1,5 @@
 ---
-path: '/part-14/4-yhteenveto'
+path: '/osa-15/4-yhteenveto'
 title: 'Yhteenveto'
 hidden: true
 ---
@@ -15,3 +15,4 @@ Tämän kurssin jälkeen on hyvä aloittaa kurssit Tietokantojen perusteet sekä
 Vastaa vielä seuraavaan kyselyyn.
 
 <quiz id="f988f84b-e2d3-5f9d-88e9-b141ea560771"></quiz>
+
