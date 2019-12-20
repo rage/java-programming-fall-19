@@ -7,33 +7,39 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-- Tiedät miten satunnaislukuja luodaan ja tiedät joitakin tilanteita missä satunnaislukuja tarvitaan.
-- Osaat käyttää Javan valmista Random-luokkaa satunnaislukujen luomiseen.
-
+<!-- - Tiedät miten satunnaislukuja luodaan ja tiedät joitakin tilanteita missä satunnaislukuja tarvitaan. -->
+<!-- - Osaat käyttää Javan valmista Random-luokkaa satunnaislukujen luomiseen. -->
+- Know how to generate random numbers, and know some situations where random numbers are needed.
+ - Can use Java `Random` class to generate random numbers.
 </text-box>
 
-Satunnaisuutta tarvitaan esimerkiksi salausalgoritmeissa, koneoppimisessa sekä tietokonepelien ennustettavuuden vähentämisessä. Satunnaisuutta mallinnetaan käytännössä satunnaislukujen avulla, joiden luomiseen Java tarjoaa valmiin `Random`-luokan. Random-luokasta voi tehdä olion jota voi käyttää seuraavalla tavalla.
+<!-- Satunnaisuutta tarvitaan esimerkiksi salausalgoritmeissa, koneoppimisessa sekä tietokonepelien ennustettavuuden vähentämisessä. Satunnaisuutta mallinnetaan käytännössä satunnaislukujen avulla, joiden luomiseen Java tarjoaa valmiin `Random`-luokan. Random-luokasta voi tehdä olion jota voi käyttää seuraavalla tavalla. -->
+Encryption algorithms, machine learning and making computer games less predictable all require randomness.
+We can model randomness using random numbers. Java offers ready-made `Random` class for creating random numbers.
+An instance of the Random class can be used as follows:
 
 
 ```java
 import java.util.Random;
 
-public class Arvontaa {
+public class Raffle {
     public static void main(String[] args) {
-        Random arpoja = new Random(); // luodaan apuväline arpoja
+        Random ladyLuck = new Random(); // create Random object ladyLuck
 
         for (int i = 0; i < 10; i++) {
-            // Arvotaan ja tulostetaan satunnainen luku
-            int luku = arpoja.nextInt(10);
-            System.out.println(luku);
+            // Draw and print a random number
+            int randomNumber = ladyLuck.nextInt(10);
+            System.out.println(randomNumber);
         }
     }
 }
 ```
 
-Yllä olevassa esimerkissä luodaan ensin `Random`-luokasta olio. Random-olio tarjoaa metodin `nextInt`, jolle annetaan parametrina kokonaisluku. Metodi palauttaa satunnaisen kokonaisluvun väliltä `[0,kokonaisluku[` eli *0..(annettu kokonaisluku - 1)*.
+<!-- Yllä olevassa esimerkissä luodaan ensin `Random`-luokasta olio. Random-olio tarjoaa metodin `nextInt`, jolle annetaan parametrina kokonaisluku. Metodi palauttaa satunnaisen kokonaisluvun väliltä `[0,kokonaisluku[` eli *0..(annettu kokonaisluku - 1)*. -->
+Above we create an instance of the `Random`class. It has `nextInt` method, which gets an integer as a parameter. The method returns a random number between `[0, integer[` or *0..(integer -1)*.
 
-Ohjelman tuottama tulostus ei ole aina sama. Yksi mahdollinen tulostusesimerkki on seuraava:
+<!-- Ohjelman tuottama tulostus ei ole aina sama. Yksi mahdollinen tulostusesimerkki on seuraava: -->
+The program output is not always the same. One possible output is the following:
 
 <sample-output>
 
@@ -114,13 +120,16 @@ How many random numbers should be printed?
 </programming-exercise>
 
 
-Metodin `nextInt` avulla pystyy luomaan hyvin monipuolista satunnaisuutta. Ohjelmoija saattaisi esimerkiksi haluta, että ohjelman ilmoittama lämpötila on satunnainen ja väliltä [-30,50]. Tällöin ratkaisu on arpoa lukuja nollan ja kahdeksankymmenen väliltä ja miinustaa arvotusta luvusta 30.
+<!-- Metodin `nextInt` avulla pystyy luomaan hyvin monipuolista satunnaisuutta. Ohjelmoija saattaisi esimerkiksi haluta, että ohjelman ilmoittama lämpötila on satunnainen ja väliltä [-30,50]. Tällöin ratkaisu on arpoa lukuja nollan ja kahdeksankymmenen väliltä ja miinustaa arvotusta luvusta 30. -->
+We can use the `nextInt` method to create diverse randomness.
+For example, we might need a program to give us a temperature between [-30,50].
+We can do this by first creating random a number between 0 and 80 and then subtracting 30 from it.
 
 
 ```java
-Random arpoja = new Random();
-int lampotila = arpoja.nextInt(81) - 30;
-System.out.println(lampotila);
+Random weatherMan = new Random();
+int temperature = weatherMan(81) - 30;
+System.out.println(temperature);
 ```
 
 <!-- <programming-exercise name='Die' tmcname='osa12-Osa12_07.Noppa'> -->
@@ -220,100 +229,108 @@ The output could be as follows:
 </programming-exercise>
 
 
-Random-luokasta tehdyn olion kautta päästään käsiksi myös satunnaisiin liukulukuihin, joita käytetään muunmuassa todennäköisyyslaskennan yhteydessä; tietokoneilla todennäköisyyksiä simuloidaan yleensä väliltä [0..1] olevilla luvuilla.
+<!-- Random-luokasta tehdyn olion kautta päästään käsiksi myös satunnaisiin liukulukuihin, joita käytetään muunmuassa todennäköisyyslaskennan yhteydessä; tietokoneilla todennäköisyyksiä simuloidaan yleensä väliltä [0..1] olevilla luvuilla. -->
+A Random object can also be used to create random doubles. These can for example be used for calculating probabilities. Computers often simulate probabilities using doubles between [0..1].
 
-Random-oliolta satunnaisia liukulukuja saa metodilla `nextDouble`. Tarkastellaan seuraavia säämahdollisuuksia:
+<!-- Random-oliolta satunnaisia liukulukuja saa metodilla `nextDouble`. Tarkastellaan seuraavia säämahdollisuuksia: -->
+The `nextDouble` method of the Random class creates random doubles.
+Let's assume the weather follows these probabilities:
 
-- Sataa räntää todennäköisyydellä 0.1 (10%)
-- Sataa lunta todennäköisyydellä 0.3 (30%)
-- Aurinko paistaa todennäköisyydellä 0.6 (60%)
+- There is 0.1 probability it rains (10%)
+- There is 0.3 probability it snows (30%)
+- There is 0.6 probability the sun shines (60%)
 
-Luodaan edellä olevista arvioista sääennustaja.
+<!-- Luodaan edellä olevista arvioista sääennustaja. -->
+Let's create a weather forecast using these probabilities.
 
 ```java
 import java.util.ArrayList;
 import java.util.Random;
 
-public class SaaEnnustaja {
+public class WeatherMan {
     private Random random;
 
-    public SaaEnnustaja() {
+    public WeatherMan() {
         this.random = new Random();
     }
 
-    public String ennustaSaa() {
-        double todennakoisyys = this.random.nextDouble();
+    public String forecast() {
+        double propability = this.random.nextDouble();
 
-        if (todennakoisyys <= 0.1) {
-            return "Sataa räntää";
-        } else if (todennakoisyys <= 0.4) { // 0.1 + 0.3
-            return "Sataa lunta";
-        } else { // loput, 1.0 - 0.4 = 0.6
-            return "Aurinko paistaa";
+        if (propability <= 0.1) {
+            return "It rains";
+        } else if (propability <= 0.4) { // 0.1 + 0.3
+            return "It snows";
+        } else { // rest, 1.0 - 0.4 = 0.6
+            return "The sun shines";
         }
     }
 
-    public int ennustaLampotila() {
+    public int makeAForecast() {
         return (int) (4 * this.random.nextGaussian() - 3);
     }
 }
 ```
 
-Metodi `ennustaLampotila` on monella tapaa mielenkiintoinen. Metodin sisällä tehtävä kutsu `this.random.nextGaussian()` on tavallinen metodikutsu, jonka kaltaisia olemme nähneet aikaisemminkin. Kiinnostavaa tässä `Random`-luokan ilmentymän tarjoamassa metodissa on se, että metodin palauttama luku on normaalijakautunut (normaalijakautuneilla luvuilla voi kuvata esimerkiksi ihmisten pituuksia ja painoja -- jos et koe mielenkiintoa satunnaisuuden eri lajeihin se ei haittaa!).
-
+<!-- Metodi `ennustaLampotila` on monella tapaa mielenkiintoinen. Metodin sisällä tehtävä kutsu `this.random.nextGaussian()` on tavallinen metodikutsu, jonka kaltaisia olemme nähneet aikaisemminkin. Kiinnostavaa tässä `Random`-luokan ilmentymän tarjoamassa metodissa on se, että metodin palauttama luku on normaalijakautunut (normaalijakautuneilla luvuilla voi kuvata esimerkiksi ihmisten pituuksia ja painoja -- jos et koe mielenkiintoa satunnaisuuden eri lajeihin se ei haittaa!). -->
+The `makeAForecast` method is interesting in many ways. The `this.random.nextGaussian()` call is a regular method call. However what is interesting is that this method of the `Random` class returns a normally distributed number (normally distributed numbers can be used to for example model the heights and weights of people -- if you are not interested in different kinds of randomness that is OK!).
 
 ```java
-public int ennustaLampotila() {
+public int makeAForecast() {
     return (int) (4 * this.random.nextGaussian() - 3);
 }
 ```
 
-Edellisessä esimerkissä käytetään eksplisiittistä tyyppimuunnosta liukulukujen muuntamiseen kokonaisluvuiksi `(int)`. Vastaavalla menetelmällä voidaan muuttaa myös kokonaislukuja liukuluvuiksi kirjoittamalla `(double) kokonaisluku`
+<!-- Edellisessä esimerkissä käytetään eksplisiittistä tyyppimuunnosta liukulukujen muuntamiseen kokonaisluvuiksi `(int)`. Vastaavalla menetelmällä voidaan muuttaa myös kokonaislukuja liukuluvuiksi kirjoittamalla `(double) kokonaisluku` -->
+In the previous example we use explicit type casting to convert doubles to integers `(int)`.
+We can equally convert integers to doubles with `(double) integer`.
 
-Luodaan vielä pääohjelma josta luokkaa `SaaEnnustaja` käytetään.
+<!-- Luodaan vielä pääohjelma josta luokkaa `WeatherMan` käytetään. -->
+Let's now add a main which uses the `WeatherMan` class.
 
 ```java
-// importit
+// imports
 
-public class Ohjelma {
+public class Program {
 
     public static void main(String[] args) {
-        SaaEnnustaja ennustaja = new SaaEnnustaja();
+        WeatherMan forecaster = new WeatherMan();
 
-        // tallennetaan päivät listalle
-        ArrayList<String> paivat = new ArrayList<>();
-        paivat.add("Ma");
-        paivat.add("Ti");
-        paivat.add("Ke");
-        paivat.add("To");
-        paivat.add("Pe");
-        paivat.add("La");
-        paivat.add("Su");
+        // save days of the week to a list
+        ArrayList<String> days = new ArrayList<>();
+        days.add("Mon");
+        days.add("Tue");
+        days.add("Wed");
+        days.add("Thu");
+        days.add("Fri");
+        days.add("Sat");
+        days.add("Sun");
 
-        System.out.println("Seuraavan viikon sääennuste:");
+        System.out.println("Next week's weather forecast:");
 
-        for (String paiva: paivat) {
-            String saaEnnuste = ennustaja.ennustaSaa();
-            int lampotilaEnnuste = ennustaja.ennustaLampotila();
+        for (String day : days) {
+            String weatherForecast = forecaster.forecast();
+            int temperatureForecast = forecaster.makeAForecast();
 
-            System.out.println(paiva + ": " + saaEnnuste + " " + lampotilaEnnuste + " astetta.");
+            System.out.println(day + ": " + weatherForecast + " " + temperatureForecast + " degrees.");
         }
     }
 }
 ```
 
-Ohjelman tulostus voisi olla esimerkiksi seuraavanlainen:
+<!-- Ohjelman tulostus voisi olla esimerkiksi seuraavanlainen: -->
+The program output could be:
 
 <sample-output>
 
-Seuraavan viikon sääennuste:
-Ma: Sataa lunta 1 astetta.
-Ti: Sataa lunta 1 astetta.
-Ke: Aurinko paistaa -2 astetta.
-To: Aurinko paistaa 0 astetta.
-Pe: Sataa lunta -3 astetta.
-La: Sataa lunta -3 astetta.
-Su: Aurinko paistaa -5 astetta
+Next week's weather forecast:
+Mon: It snows 1 degrees.
+Tue: It snows 1 degrees.
+Wed: The sun shines -2 degrees.
+Thu: The sun shines 0 degrees.
+Fri: It snows -3 degrees.
+Sat: It snows -3 degrees.
+Sun: The sun shines -5 degrees
 
 </sample-output>
 
@@ -494,18 +511,25 @@ Lottery numbers:
 </programming-exercise>
 
 
-<text-box variant='hint' name='Lukujen satunnaisuudesta'>
+<text-box variant='hint' name='On randomness of numbers'>
 
-Tietokoneiden toiminta on ennustettavissa sillä ne suorittavat niille annettuja komentoja orjallisesti. Ovatko siis tietokoneen luomat luvut todellisuudessa satunnaisia?
+<!-- Tietokoneiden toiminta on ennustettavissa sillä ne suorittavat niille annettuja komentoja orjallisesti. Ovatko siis tietokoneen luomat luvut todellisuudessa satunnaisia? -->
+We can predict how computers work, because they slavishly execute any command we give them. Is a random number generated by a computer then really random?
 
-Tietokoneohjelmissa käytetyt satunnaisluvut ovat tyypillisesti pseudosatunnaislukuja, eli ne vaikuttavat satunnaisluvuilta, mutta seuraavat todellisuudessa jonkinlaista algoritmisesti luotua toistuvaa lukusarjaa. Suurimmalle osalle tietokoneohjelmista pseudosatunnaisluvut ovat riittävän hyviä -- esimerkiksi youtube-videoiden satunnaisessa toistossa normaali käyttäjä tuskin huomaa eroa. Toisaalta, jos satunnaislukuja käytetään tieteelliseen laskentaan, heikosti toimivat pseudosatunnaislukuja luovat algoritmit saattavat jopa johtaa tulosten kyseenalaistamiseen. Eräs esimerkki tällaisesta on hetken 1960-luvulla käytössä ollut IBM:n <a href="https://en.wikipedia.org/wiki/RANDU" target="_blank" norel>RANDU</a>.
+<!-- Tietokoneohjelmissa käytetyt satunnaisluvut ovat tyypillisesti pseudosatunnaislukuja, eli ne vaikuttavat satunnaisluvuilta, mutta seuraavat todellisuudessa jonkinlaista algoritmisesti luotua toistuvaa lukusarjaa. Suurimmalle osalle tietokoneohjelmista pseudosatunnaisluvut ovat riittävän hyviä -- esimerkiksi youtube-videoiden satunnaisessa toistossa normaali käyttäjä tuskin huomaa eroa. Toisaalta, jos satunnaislukuja käytetään tieteelliseen laskentaan, heikosti toimivat pseudosatunnaislukuja luovat algoritmit saattavat jopa johtaa tulosten kyseenalaistamiseen. Eräs esimerkki tällaisesta on hetken 1960-luvulla käytössä ollut IBM:n <a href="https://en.wikipedia.org/wiki/RANDU" target="_blank" norel>RANDU</a>. -->
+Random numbers used by computer programs are typically pseudorandom. They seem like random numbers, but in reality they follow some algorihmically created series of numbers.
+Most of the time pseudorandom is good enough -- for example the user will not notice any difference when YouTube random play is pseudorandom.
+On the other hand if random numbers are used for scientific calculations, using a weak pseudorandom number generator can lead to questionable results.
+One example is IBM's  <a href="https://en.wikipedia.org/wiki/RANDU" target="_blank" norel>RANDU</a> which was used for a short while in the 1960's.
+<br/>
+
+<!-- Kaikki tietokoneohjelmien satunnaisuus ei kuitenkaan ole pseudosatunnaisuutta. Vahvempaan satunnaisuuteen pyrkivät ohjelmat hyödyntävät muunmuassa jonkinlaisia tosielämän satunnaiseksi ajateltuja ilmiöitä satunnaislukujen luomiseen. Tällaisia ilmiöitä ovat esimerkiksi avaruussäteily tai vaikkapa <a href="https://www.wired.com/2003/08/random/" target="_blank" norel>laavalamppujen toiminta</a>. -->
+All randomness in computer programs is not pseudorandom. Programs aiming for stronger randomness use, among other things, real life random phenomena to generate random numbers.
+For example space radiation or <a href="https://www.wired.com/2003/08/random/" target="_blank" norel>lava lamps</a> are thought to be random phenomena.
 
 <br/>
 
-Kaikki tietokoneohjelmien satunnaisuus ei kuitenkaan ole pseudosatunnaisuutta. Vahvempaan satunnaisuuteen pyrkivät ohjelmat hyödyntävät muunmuassa jonkinlaisia tosielämän satunnaiseksi ajateltuja ilmiöitä satunnaislukujen luomiseen. Tällaisia ilmiöitä ovat esimerkiksi avaruussäteily tai vaikkapa <a href="https://www.wired.com/2003/08/random/" target="_blank" norel>laavalamppujen toiminta</a>.
-
-<br/>
-
-Lisää aiheesta osoitteessa <a href="https://www.random.org/randomness/" target="_blank" norel>https://www.random.org/randomness/</a>.
+<!-- Lisää aiheesta osoitteessa <a href="https://www.random.org/randomness/" target="_blank" norel>https://www.random.org/randomness/</a>. -->
+You can read more about randomness from <a href="https://www.random.org/randomness/" target="_blank" norel>https://www.random.org/randomness/</a>.
 
 </text-box>
