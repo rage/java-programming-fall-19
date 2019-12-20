@@ -7,28 +7,41 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-- Tunnet perinteisen for-toistolauseen.
+<!-- - Tunnet perinteisen for-toistolauseen.
 - Tiedät merkkijonojen liittämiseen liittyviä ongelmia ja osaat välttää ne StringBuilder-luokan avulla.
 - Tunnet säännölliset lausekkeet ja osaat kirjoittaa omia säännöllisiä lausekkeita.
 - Tunnet luetellut tyypit (enum) ja tiedät milloin niitä kannattaa käyttää.
-- Osaat käyttää iteraattoria tietokokoelmien läpikäyntiin.
+- Osaat käyttää iteraattoria tietokokoelmien läpikäyntiin. -->
+- You understand the traditional for-loop.
+- You understand the issues related to string concatenation and know how to avoid them with the StringBuilder class.
+- You understand regular expressions and can write your own ones.
+- You understand enumerated (enum) types and know when to use them.
+- You know how to use an iterator to go through collections of data.
 
 </text-box>
 
-Tutustutaan seuraavaksi muutamaan ohjelmoinnissa varsin näppärään tekniikaan sekä luokkaan.
-
+<!-- Tutustutaan seuraavaksi muutamaan ohjelmoinnissa varsin näppärään tekniikaan sekä luokkaan. -->
+We'll now take a look at some useful programming techniques and classes.
 
 ## StringBuilder
 
 
-Tarkastellaan seuraavaa ohjelmaa.
+<!-- Tarkastellaan seuraavaa ohjelmaa. -->
+Let's look at the following program.
 
-```java
+<!-- ```java
 String luvut = "";
 for (int i = 1; i < 5; i++) {
     luvut = luvut + i;
 }
 System.out.println(luvut);
+``` -->
+```java
+String numbers = "";
+for (int i = 1; i < 5; i++) {
+    numbers = numbers + i;
+}
+System.out.println(numbers);
 ```
 
 <sample-output>
@@ -37,12 +50,15 @@ System.out.println(luvut);
 
 </sample-output>
 
-Ohjelma on rakenteeltaan suoraviivainen. Ohjelmassa luodaan merkkijono, joka sisältää luvun 1234. Lopulta merkkijono tulostetaan.
+<!-- Ohjelma on rakenteeltaan suoraviivainen. Ohjelmassa luodaan merkkijono, joka sisältää luvun 1234. Lopulta merkkijono tulostetaan.
 
-Ohjelma toimii, mutta sen toiminnallisuudessa on pieni käyttäjälle näkymätön ongelma. Kutsu `luvut + i` luo *uuden* merkkijonon. Tarkastellaan ohjelmaa riveittän siten, että toistolause on purettu auki.
+Ohjelma toimii, mutta sen toiminnallisuudessa on pieni käyttäjälle näkymätön ongelma. Kutsu `luvut + i` luo *uuden* merkkijonon. Tarkastellaan ohjelmaa riveittän siten, että toistolause on purettu auki. -->
 
+The program structure is straightforward. A string containing the number 1234 is created, and the string is then outputted.
 
-```java
+The program works, but there is a small problem invisible to the user. Calling `numbers + i` creates a *new* string. Let's inspect the program line-by-line with the repetition block unpacked.
+
+<!-- ```java
 String luvut = ""; // luodaan uusi merkkijono: ""
 int i = 1;
 luvut = luvut + i; // luodaan uusi merkkijono: "1"
@@ -55,19 +71,45 @@ luvut = luvut + i; // luodaan uusi merkkijono: "1234"
 i++;
 
 System.out.println(luvut); // tulostetaan merkkijono
+``` -->
+```java
+String numbers = ""; // creating a new string: ""
+int i = 1;
+numbers = numbers + i; // creating a new string: "1"
+i++;
+numbers = numbers + i; // creating a new string: "12"
+i++;
+numbers = numbers + i; // creating a new string: "123"
+i++;
+numbers = numbers + i; // creating a new string: "1234"
+i++;
+
+System.out.println(numbers); // printing the string
 ```
 
-Edellisessä esimerkissä luodaan yhteensä viisi merkkijonoa.
+<!-- Edellisessä esimerkissä luodaan yhteensä viisi merkkijonoa.
 
-Tarkastellaan samaa ohjelmaa siten, että jokaisen luvun jälkeen lisätään rivinvaihto.
+Tarkastellaan samaa ohjelmaa siten, että jokaisen luvun jälkeen lisätään rivinvaihto. -->
 
+In the previous example, five strings are created in total.
 
+Let's look at the same program where a new line is added after each number.
+
+<!--
 ```java
 String luvut = "";
 for (int i = 1; i < 5; i++) {
     luvut = luvut + i + "\n";
 }
 System.out.println(luvut);
+``` -->
+
+```java
+String numbers = "";
+for (int i = 1; i < 5; i++) {
+    numbers = numbers + i + "\n";
+}
+System.out.println(numbers);
 ```
 
 <sample-output>
@@ -79,9 +121,10 @@ System.out.println(luvut);
 
 </sample-output>
 
-Kukin `+`-operaatio luo uuden merkkijonon. Yllä rivillä `luvut + i + "\n";` luodaan ensin merkkijono `luvut + i`, jonka jälkeen luodaan toinen merkkijono, joka yhdistää edellä luotuun merkkijonoon rivinvaihdon. Kirjoitetaan tämäkin auki.
+<!-- Kukin `+`-operaatio luo uuden merkkijonon. Yllä rivillä `luvut + i + "\n";` luodaan ensin merkkijono `luvut + i`, jonka jälkeen luodaan toinen merkkijono, joka yhdistää edellä luotuun merkkijonoon rivinvaihdon. Kirjoitetaan tämäkin auki. -->
+Each `+`-operation forms a new string. On the line `numbers + i + "\n";` a string is first created, after which another string is created joining a new line onto the previous string. Let's write this out as well.
 
-```java
+<!-- ```java
 String luvut = ""; // luodaan uusi merkkijono: ""
 int i = 1;
 // luodaan ensin merkkijono "1" ja sitten merkkijono "1\n"
@@ -98,15 +141,41 @@ luvut = luvut + i + "\n"
 i++;
 
 System.out.println(luvut); // tulostetaan merkkijono
+``` -->
+```java
+String numbers = ""; // luodaan uusi merkkijono: ""
+int i = 1;
+// first creating the string "1" and then the string "1\n"
+numbers = numbers + i + "\n";
+i++;
+// first creating the string "1\n2" and then the string "1\n2\n"
+numbers = numbers + i + "\n"
+i++;
+// first creating the string "1\n2\n3" and then the string "1\n2\n3\n"
+numbers = numbers + i + "\n"
+i++;
+// and so on
+numbers = numbers + i + "\n"
+i++;
+
+System.out.println(numbers); // outputting the string
 ```
 
-Edellisessä esimerkissä luodaan yhteensä yhdeksän merkkijonoa.
+<!-- Edellisessä esimerkissä luodaan yhteensä yhdeksän merkkijonoa.
 
 Merkkijonojen luonti -- vaikka pienessä mittakaavassa se ei näy -- ei ole nopea operaatio. Jokaista merkkijonoa varten varataan muistista tilaa, mihin merkkijono asetetaan. Mikäli merkkijonoa tarvitaan vain osana laajemman merkkijonon rakentamista, toimintaa kannattaa tehostaa.
 
 Javan valmis luokka StringBuilder tarjoaa tavan merkkijonojen yhdistämiseen ilman turhaa merkkijonojen luomista. Uusi StringBuilder-olio luodaan `new StringBuilder()` -kutsulla, ja olioon lisätään sisältöä `append`-metodilla, joka on kuormitettu, eli siitä on monta versiota eri tyyppisille muuttujille. Lopulta StringBuilder-oliolta saa merkkijonon metodilla `toString`.
 
-Alla olevassa esimerkissä luodaan vain yksi merkkijono.
+Alla olevassa esimerkissä luodaan vain yksi merkkijono. -->
+
+In the previous example, a total of nine strings is created.
+
+String creation - although unnoticeable at a small scale - is not a quick operation. Space is allocated in memory for each string where the string is then placed. If the string is only needed as part of creating a larger string, performance should be improved.
+
+Java's ready-made StringBuilder class  provides a way to concatenate strings without the need to create them. A new StringBuilder object is created with a `new StringBuilder()` call, and content is added to the object using the overloaded `append` method, i.e., there are variations of it for different types of variables. Finally, the StringBuilder object provides a string using the `toString` method.
+
+In the example below, only one string is created.
 
 ```java
 StringBuilder luvut = new StringBuilder();
@@ -116,25 +185,35 @@ for (int i = 1; i < 5; i++) {
 System.out.println(luvut.toString());
 ```
 
-StringBuilderin käyttö on suurien merkkijonojen luomisessa tehokkaampaa kuin merkkijonojen luominen `+`-operaatiolla.
+<!-- StringBuilderin käyttö on suurien merkkijonojen luomisessa tehokkaampaa kuin merkkijonojen luominen `+`-operaatiolla. -->
+Using StringBuilder is more performant that creating strings with the `+` operator.
 
 <quiz id='9fed4b64-9eb2-57e3-a8e7-5f25ec9e051e'></quiz>
 
 <quiz id='1a6c2033-275e-5e5c-a6f8-b18587114e59'></quiz>
 
 
-## Säännölliset lausekkeet
+<!-- ## Säännölliset lausekkeet -->
+## Regular Expressions
 
-Säännöllinen lauseke määrittelee joukon merkkijonoja tiiviissä muodossa. Säännöllisiä lausekkeita käytetään muun muassa merkkijonojen oikeellisuuden tarkistamiseen. Merkkijonojen oikeellisuuden tarkastaminen tapahtuu luomalla säännöllinen lauseke, joka määrittelee merkkijonot, jotka ovat oikein.
+<!-- Säännöllinen lauseke määrittelee joukon merkkijonoja tiiviissä muodossa. Säännöllisiä lausekkeita käytetään muun muassa merkkijonojen oikeellisuuden tarkistamiseen. Merkkijonojen oikeellisuuden tarkastaminen tapahtuu luomalla säännöllinen lauseke, joka määrittelee merkkijonot, jotka ovat oikein.
 
 Tarkastellaan ongelmaa, jossa täytyy tarkistaa, onko käyttäjän antama opiskelijanumero oikeanmuotoinen. Opiskelijanumero alkaa merkkijonolla "01", jota seuraa 7 numeroa väliltä 0&ndash;9.
 
 Opiskelijanumeron oikeellisuuden voisi tarkistaa esimerkiksi käymällä opiskelijanumeroa esittävän merkkijonon läpi merkki merkiltä `charAt`-metodin avulla. Toinen tapa olisi tarkistaa että ensimmäinen merkki on "0", ja käyttää `Integer.valueOf` metodikutsua merkkijonon muuntamiseen numeroksi. Tämän jälkeen voisi tarkistaa että `Integer.valueOf`-metodin palauttama luku on pienempi kuin 20000000.
 
-Oikeellisuuden tarkistus säännöllisten lausekkeiden avulla tapahtuu ensin sopivan säännöllisen lausekkeen määrittelyn. Tämän jälkeen käytetään `String`-luokan metodia `matches`, joka tarkistaa vastaako merkkijono parametrina annettua säännöllistä lauseketta. Opiskelijanumeron tapauksessa sopiva säännöllinen lauseke on `"01[0-9]{7}"`, ja käyttäjän syöttämän opiskelijanumeron tarkistaminen käy seuraavasti:
+Oikeellisuuden tarkistus säännöllisten lausekkeiden avulla tapahtuu ensin sopivan säännöllisen lausekkeen määrittelyn. Tämän jälkeen käytetään `String`-luokan metodia `matches`, joka tarkistaa vastaako merkkijono parametrina annettua säännöllistä lauseketta. Opiskelijanumeron tapauksessa sopiva säännöllinen lauseke on `"01[0-9]{7}"`, ja käyttäjän syöttämän opiskelijanumeron tarkistaminen käy seuraavasti: -->
+
+A regular expression defines a set of strings in a compact form. Regular expressions are used, among other things, to verify the correctness of strings. We can assess the whether or not a string is in the desired form by a regular expression that defines the strings considered correct.
+
+Let's look at a problem where we need to check if a student number  entered by the user is in the correct format. A student number should begin with "01" followed by 7 digits between 0&ndash;9.
+
+You could verify the format of the student number, for instance, by going through the character string representing the student number using the `charAt` method. Another way would be to check that the first character is "0" and call the `Integer.valueOf` method to convert the string to a number. You could then check that the number returned by the `Integer.valueOf` method is less than 20000000.
+
+Checking correctness with the help of regular expressions is done by first defining a suitable regular expression. We can then use the `matches` method of the `String` class, which checks whether the string matches the regular expression given as a parameter. For the student number, the appropriate regular expression is `"01[0-9]{7}"`, and checking the student number entered by a user is done as follows:
 
 
-```java
+<!-- ```java
 System.out.print("Anna opiskelijanumero: ");
 String numero = lukija.nextLine();
 
@@ -143,17 +222,30 @@ if (numero.matches("01[0-9]{7}")) {
 } else {
     System.out.println("Muoto ei ole oikea.");
 }
+``` -->
+```java
+System.out.print("Provide a student number: ");
+String number = scanner.nextLine();
+
+if (number.matches("01[0-9]{7}")) {
+    System.out.println("Correct format.");
+} else {
+    System.out.println("Incorrect format.");
+}
 ```
 
-Käydään seuraavaksi läpi eniten käytettyjä säännöllisten lausekkeiden merkintöjä.
+<!-- Käydään seuraavaksi läpi eniten käytettyjä säännöllisten lausekkeiden merkintöjä. -->
+Let's go through the most common characters used in regular expressions.
 
 
-### Vaihtoehtoisuus (pystyviiva)
+<!-- ### Vaihtoehtoisuus (pystyviiva) -->
+### Alternation (Vertical Line)
 
-Pystyviiva tarkoittaa, että säännöllisen lausekkeen osat ovat vaihtoehtoisia. Esimerkiksi lauseke `00|111|0000` määrittelee merkkijonot `00`, `111` ja `0000`. Metodi `matches` palauttaa arvon `true` jos merkkijono vastaa jotain määritellyistä vaihtoehdoista.
+<!-- Pystyviiva tarkoittaa, että säännöllisen lausekkeen osat ovat vaihtoehtoisia. Esimerkiksi lauseke `00|111|0000` määrittelee merkkijonot `00`, `111` ja `0000`. Metodi `matches` palauttaa arvon `true` jos merkkijono vastaa jotain määritellyistä vaihtoehdoista. -->
+A vertical line indicates that parts of a regular expressions are optional. For example, `00|111|0000` defines the strings `00`,`111` and `0000`. The `respond` method returns` true` if the string matches any one of the specified group of alternatives.
 
 
-```java
+<!-- ```java
 String merkkijono = "00";
 
 if (merkkijono.matches("00|111|0000")) {
@@ -161,18 +253,32 @@ if (merkkijono.matches("00|111|0000")) {
 } else {
     System.out.println("Merkkijonosta ei löytynyt yhtäkään vaihtoehdoista");
 }
+``` -->
+```java
+String string = "00";
+
+if (string.matches("00|111|0000")) {
+    System.out.println("The string contained one of the three alternatives");
+} else {
+    System.out.println("The string contained none of the alternatives");
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Merkkijonosta löytyi joku kolmesta vaihtoehdosta
 
+</sample-output> -->
+<sample-output>
+
+The string contained one of the three alternatives
+
 </sample-output>
 
-Säännöllinen lauseke `00|111|0000` vaatii että merkkijono on täsmälleen määritellyn muotoinen: se ei määrittele *"contains"*-toiminnallisuutta.
+<!-- Säännöllinen lauseke `00|111|0000` vaatii että merkkijono on täsmälleen määritellyn muotoinen: se ei määrittele *"contains"*-toiminnallisuutta. -->
+The regular expression `00|111|0000` demands that the string is exactly it specifies it to be - there is no *"contains"* functionality.
 
-
-```java
+<!-- ```java
 String merkkijono = "1111";
 
 if (merkkijono.matches("00|111|0000")) {
@@ -180,24 +286,41 @@ if (merkkijono.matches("00|111|0000")) {
 } else {
     System.out.println("Merkkijonosta ei löytynyt yhtäkään vaihtoehdoista");
 }
+``` -->
+```java
+String string = "1111";
+
+if (string.matches("00|111|0000")) {
+    System.out.println("The string contained one of the three alternatives");
+} else {
+    System.out.println("The string contained none of the three alternatives");
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Merkkijonosta ei löytynyt yhtäkään vaihtoehdoista
+
+</sample-output> -->
+<sample-output>
+
+The string contained none of the three alternatives
 
 </sample-output>
 
 
-### Merkkijonon osaan rajattu vaikutus (sulut)
+<!-- ### Merkkijonon osaan rajattu vaikutus (sulut) -->
+### Affecting Part of a String (Parentheses)
 
-Sulkujen avulla voi määrittää, mihin säännöllisen lausekkeen osaan sulkujen sisällä olevat merkinnät vaikuttavat. Jos haluamme sallia merkkijonot `00000` ja `00001`, voimme määritellä ne pystyviivan avulla muodossa `00000|00001`. Sulkujen avulla voimme rajoittaa vaihtoehtoisuuden vain osaan merkkijonoa. Lauseke `0000(0|1)` määrittelee merkkijonot `00000` ja `00001`.
-
-
-Vastaavasti säännöllinen lauseke `auto(|n|a)` määrittelee sanan auto yksikön nominatiivin (auto), genetiivin (auton), partitiivin (autoa) ja akkusatiivin (auto tai auton).
+<!-- Sulkujen avulla voi määrittää, mihin säännöllisen lausekkeen osaan sulkujen sisällä olevat merkinnät vaikuttavat. Jos haluamme sallia merkkijonot `00000` ja `00001`, voimme määritellä ne pystyviivan avulla muodossa `00000|00001`. Sulkujen avulla voimme rajoittaa vaihtoehtoisuuden vain osaan merkkijonoa. Lauseke `0000(0|1)` määrittelee merkkijonot `00000` ja `00001`.
 
 
-```java
+Vastaavasti säännöllinen lauseke `auto(|n|a)` määrittelee sanan auto yksikön nominatiivin (auto), genetiivin (auton), partitiivin (autoa) ja akkusatiivin (auto tai auton). -->
+You can use parentheses to determine which part of a regular expression is affected by the rules inside the parentheses. Say we want to allow the strings `00000` and `00001`. We can do that by placing a vertical bar in between them this way `00000|00001`. Parentheses allow us to limit the option to a specific part of the string. The expression `0000(0|1)` specifies the strings `00000` and `00001`.
+
+Similarly, the regular expression `car(|s|)` defines the singular (car) and plural (cars) forms of the word car.
+
+<!-- ```java
 System.out.print("Kirjoita joku sanan auto yksikön taivutusmuoto: ");
 String sana = lukija.nextLine();
 
@@ -206,15 +329,20 @@ if (sana.matches("auto(|n|a|ssa|sta|on|lla|lta|lle|na|ksi|tta)")) {
 } else {
     System.out.println("Taivutusmuoto ei ole oikea.");
 }
-```
+``` -->
 
-### Toistomerkinnät
+<!-- ### Toistomerkinnät -->
+### Quantifiers
 
-Usein halutaan, että merkkijonossa toistuu jokin tietty alimerkkijono. Säännöllisissä lausekkeissa on käytössä seuraavat toistomerkinnät:
+<!-- Usein halutaan, että merkkijonossa toistuu jokin tietty alimerkkijono. Säännöllisissä lausekkeissa on käytössä seuraavat toistomerkinnät:
 
-- Merkintä <strong>`*`</strong> toisto 0... kertaa, esim:
+- Merkintä <strong>`*`</strong> toisto 0... kertaa, esim: -->
 
-```java
+What is often desired is that a particular sub-string is repeated in a string. The following expressions are available in regular expressions:
+
+- The quantifier <strong>`*`</strong> repeats 0 ... times, for example;
+
+<!-- ```java
 String merkkijono = "trolololololo";
 
 if (merkkijono.matches("trolo(lo)*")) {
@@ -222,17 +350,33 @@ if (merkkijono.matches("trolo(lo)*")) {
 } else {
     System.out.println("Muoto ei ole oikea.");
 }
-```
+``` -->
+```java
+String string = "trolololololo";
 
+if (string.matches("trolo(lo)*")) {
+    System.out.println("Correct form.");
+} else {
+    System.out.println("Incorrect form.");
+}
+```
+<!--
 <sample-output>
 
 Muoto on oikea.
 
+</sample-output> -->
+
+<sample-output>
+
+Correct form.
+
 </sample-output>
 
-- Merkintä <strong>`+`</strong> toisto 1... kertaa, esim:
+<!-- - Merkintä <strong>`+`</strong> toisto 1... kertaa, esim: -->
+- The quantifier <strong>`+`</strong> repeats 1... times, for example;
 
-```java
+<!-- ```java
 String merkkijono = "trolololololo";
 
 if (merkkijono.matches("tro(lo)+")) {
@@ -240,15 +384,29 @@ if (merkkijono.matches("tro(lo)+")) {
 } else {
     System.out.println("Muoto ei ole oikea.");
 }
+``` -->
+```java
+String string = "trolololololo";
+
+if (string.matches("tro(lo)+")) {
+    System.out.println("Correct form.");
+} else {
+    System.out.println("Incorrect form.");
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Muoto on oikea.
 
+</sample-output> -->
+<sample-output>
+
+Correct form.
+
 </sample-output>
 
-```java
+<!-- ```java
 String merkkijono = "nänänänänänänänä Bätmään!";
 
 if (merkkijono.matches("(nä)+ Bätmään!")) {
@@ -256,18 +414,33 @@ if (merkkijono.matches("(nä)+ Bätmään!")) {
 } else {
     System.out.println("Muoto ei ole oikea.");
 }
+``` -->
+```java
+String merkkijono = "nananananananana Batmaan!";
+
+if (merkkijono.matches("(na)+ Batmaan!")) {
+    System.out.println("Correct form.");
+} else {
+    System.out.println("Incorrect form.");
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Muoto on oikea.
+
+</sample-output> -->
+<sample-output>
+
+Correct form.
 
 </sample-output>
 
 
-- Merkintä <strong>`?`</strong> toisto 0 tai 1 kertaa, esim:
+<!-- - Merkintä <strong>`?`</strong> toisto 0 tai 1 kertaa, esim: -->
+- The quantifier <strong>`?`</strong> repeats 0 or 1 times, esim:
 
-```java
+<!-- ```java
 String merkkijono = "You have to accidentally the whole meme";
 
 if (merkkijono.matches("You have to accidentally (delete )?the whole meme")) {
@@ -275,18 +448,34 @@ if (merkkijono.matches("You have to accidentally (delete )?the whole meme")) {
 } else {
     System.out.println("Muoto ei ole oikea.");
 }
+``` -->
+```java
+String string = "You have to accidentally the whole meme";
+
+if (string.matches("You have to accidentally (delete )?the whole meme")) {
+    System.out.println("Correct form.");
+} else {
+    System.out.println("Incorrect form.");
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Muoto on oikea.
 
+</sample-output> -->
+<sample-output>
+
+Correct form.
+
 </sample-output>
 
+<!--
+- Merkintä <strong>`{a}`</strong> toisto `a` kertaa, esim: -->
 
-- Merkintä <strong>`{a}`</strong> toisto `a` kertaa, esim:
+- The quantifier <strong>`{a}`</strong> repeats `a` times, for example:
 
-```java
+<!-- ```java
 String merkkijono = "1010";
 
 if (merkkijono.matches("(10){2}")) {
@@ -294,18 +483,32 @@ if (merkkijono.matches("(10){2}")) {
 } else {
     System.out.println("Muoto ei ole oikea.");
 }
+``` -->
+```java
+String string = "1010";
+
+if (string.matches("(10){2}")) {
+    System.out.println("Correct form.");
+} else {
+    System.out.println("Incorrect form.");
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Muoto on oikea.
+
+</sample-output> -->
+<sample-output>
+
+Correct form.
 
 </sample-output>
 
 
-- Merkintä <strong>`{a,b}`</strong> toisto `a` ... `b` kertaa, esim:
+- The quantifier <strong>`{a,b}`</strong> repeats `a` ... `b` times, for example:
 
-```java
+<!-- ```java
 String merkkijono = "1";
 
 if (merkkijono.matches("1{2,4}")) {
@@ -313,18 +516,33 @@ if (merkkijono.matches("1{2,4}")) {
 } else {
     System.out.println("Muoto ei ole oikea.");
 }
+``` -->
+```java
+String string = "1";
+
+if (string.matches("1{2,4}")) {
+    System.out.println("Correct form.");
+} else {
+    System.out.println("Incorrect form.");
+}
 ```
 
-<sample-output>
+<!-- <sample-output>
 
 Muoto ei ole oikea.
+
+</sample-output> -->
+<sample-output>
+
+Incorrect form.
 
 </sample-output>
 
 
-- Merkintä <strong>`{a,}`</strong> toisto `a` ... kertaa, esim:
+<!-- - Merkintä <strong>`{a,}`</strong> toisto `a` ... kertaa, esim: -->
+- The quantifier <strong>`{a,}`</strong> repeats `a` ... times, for example:
 
-```java
+<!-- ```java
 String merkkijono = "11111";
 
 if (merkkijono.matches("1{2,}")) {
@@ -332,21 +550,38 @@ if (merkkijono.matches("1{2,}")) {
 } else {
     System.out.println("Muoto ei ole oikea.");
 }
-```
+``` -->
+```java
+String string = "11111";
 
+if (string.matches("1{2,}")) {
+    System.out.println("Correct form.");
+} else {
+    System.out.println("Incorrect form.");
+}
+```
+<!--
 <sample-output>
 
 Muoto on oikea.
 
+</sample-output> -->
+
+<sample-output>
+
+Correct form.
+
 </sample-output>
 
-Samassa säännöllisessä lausekkeessa voi käyttää myös useampia toistomerkintöjä. Esimerkiksi säännöllinen lauseke `5{3}(1|0)*5{3}` määrittelee merkkijonot, jotka alkavat ja loppuvat kolmella vitosella. Välissä saa tulla rajaton määrä ykkösiä ja nollia.
+<!-- Samassa säännöllisessä lausekkeessa voi käyttää myös useampia toistomerkintöjä. Esimerkiksi säännöllinen lauseke `5{3}(1|0)*5{3}` määrittelee merkkijonot, jotka alkavat ja loppuvat kolmella vitosella. Välissä saa tulla rajaton määrä ykkösiä ja nollia. -->
 
+You can use more than one quantifier in a single regular expression. For example, the regular expression `5{3}(1|0)*5{3}` defines strings that begin and end with three fives. An unlimited number of ones and zeros are allowed in between.
 
+<!-- ### Merkkiryhmät (hakasulut) -->
+### Character Classes (Square Brackets)
 
-### Merkkiryhmät (hakasulut)
-
-Merkkiryhmän avulla voi määritellä lyhyesti joukon merkkejä. Merkit kirjoitetaan hakasulkujen sisään, ja merkkivälin voi määrittää viivan avulla. Esimerkiksi merkintä `[145]` tarkoittaa samaa kuin `(1|4|5)` ja merkintä `[2-36-9]` tarkoittaa samaa kuin `(2|3|6|7|8|9)`. Vastaavasti merkintä `[a-c]*` määrittelee säännöllisen lausekkeen, joka vaatii että merkkijono sisältää vain merkkejä `a`, `b` ja `c`.
+<!-- Merkkiryhmän avulla voi määritellä lyhyesti joukon merkkejä. Merkit kirjoitetaan hakasulkujen sisään, ja merkkivälin voi määrittää viivan avulla. Esimerkiksi merkintä `[145]` tarkoittaa samaa kuin `(1|4|5)` ja merkintä `[2-36-9]` tarkoittaa samaa kuin `(2|3|6|7|8|9)`. Vastaavasti merkintä `[a-c]*` määrittelee säännöllisen lausekkeen, joka vaatii että merkkijono sisältää vain merkkejä `a`, `b` ja `c`. -->
+A character class can be used to specify a set of characters in a compact way. Characters are enclosed in square brackets, and a range is indicated with a dash. For example, `[145]` means `(1|4|5)` and `[2-36-9]` means `(2|3|6|7|8|9)`. Similarly, the entry `[a-c]*` defines a regular expression that requires the string to contain only `a`, `b` and `c`.
 
 
 <quiz id='0cb409d6-7976-5bf7-988a-da5a0783ce00'></quiz>
@@ -499,27 +734,41 @@ The form is incorrect.
 </programming-exercise>
 
 
-Nykyään lähes kaikista ohjelmointikielistä löytyy tuki säännöllisille lausekkeille. Säännöllisten lausekkeiden teoriaa tarkastellaan muunmuassa kurssilla Laskennan mallit (TKT-20005). Lisää säännöllisistä lausekkeista löydät esim. googlaamalla hakusanalla *regular expressions java*.
+<!-- Nykyään lähes kaikista ohjelmointikielistä löytyy tuki säännöllisille lausekkeille. Säännöllisten lausekkeiden teoriaa tarkastellaan muunmuassa kurssilla Laskennan mallit (TKT-20005). Lisää säännöllisistä lausekkeista löydät esim. googlaamalla hakusanalla *regular expressions java*. -->
+Almost all programming languages ​​support regular expressions nowadays. The theory of regular expressions is one of the topics considered in the course Computational Models (TKT-20005). You can find more regular expressions by googling *regular expressions java*, for instance.
 
 
-## Lueteltu tyyppi eli Enum
+<!-- ## Lueteltu tyyppi eli Enum -->
+## Enumerated Type - Enum
 
-Jos tiedämme muuttujien mahdolliset arvot ennalta, voimme käyttää niiden esittämiseen `enum`-tyyppistä luokkaa eli *lueteltua tyyppiä*. Luetellut tyypit ovat oma luokkatyyppinsä rajapinnan ja normaalin luokan lisäksi. Lueteltu tyyppi määritellään avainsanalla `enum`. Esimerkiksi seuraava `Maa`-enumluokka määrittelee neljä vakioarvoa: `RUUTU`, `PATA`, `RISTI` ja `HERTTA`.
+<!-- Jos tiedämme muuttujien mahdolliset arvot ennalta, voimme käyttää niiden esittämiseen `enum`-tyyppistä luokkaa eli *lueteltua tyyppiä*. Luetellut tyypit ovat oma luokkatyyppinsä rajapinnan ja normaalin luokan lisäksi. Lueteltu tyyppi määritellään avainsanalla `enum`. Esimerkiksi seuraava `Maa`-enumluokka määrittelee neljä vakioarvoa: `RUUTU`, `PATA`, `RISTI` ja `HERTTA`. -->
+
+If we know the possible values ​​of a variable in advance, we can use a class of type `enum`, i.e., *enumerated type* to represent the values. Enumerated types are their own type in addition to being normal classes and interfaces. An enumerated type is defined by the keyword `enum`. For example, the following `Earth` enum class defines four constant values:` SCREEN`, `PATA`,` CROSS` and `HEART`.
 
 
-```java
+<!-- ```java
 public enum Maa {
     RUUTU, PATA, RISTI, HERTTA
 }
+``` -->
+```java
+public enum Suit {
+    DIAMOND, SPADE, CLUB, HEART
+}
 ```
 
-Yksinkertaisimmassa muodossaan `enum` luettelee pilkulla erotettuina määrittelemänsä vakioarvot. Lueteltujen tyyppien arvot eli vakiot on yleensä tapana kirjoittaa kokonaan isoin kirjaimin.
+<!-- Yksinkertaisimmassa muodossaan `enum` luettelee pilkulla erotettuina määrittelemänsä vakioarvot. Lueteltujen tyyppien arvot eli vakiot on yleensä tapana kirjoittaa kokonaan isoin kirjaimin.
 
 Enum luodaan (yleensä) omaan tiedostoon, samaan tapaan kuin luokka tai rajapinta. NetBeansissa Enumin saa luotua valitsemalla projektin kohdalla *new/other/java/java enum*.
 
-Seuraavassa luokka `Kortti` jossa maa esitetään enumin avulla:
+Seuraavassa luokka `Kortti` jossa maa esitetään enumin avulla: -->
+In its simplest form, `enum` lists the constant values ​​it declares, separated by a comma. Enum types, i.e., constants, are conventionally written with capital letters.
 
-```java
+An Enum is (usually) written in its own file, much like a class or interface. In NetBeans, you can create an Enum by selecting *new/other/java/java enum* from project.
+
+The following is a `Card` class where the suit is represented by an enum:
+
+<!-- ```java
 public class Kortti {
 
     private int arvo;
@@ -543,11 +792,37 @@ public class Kortti {
         return arvo;
     }
 }
+``` -->
+```java
+public class Card {
+
+    private int value;
+    private Suit suit;
+
+    public Card(int value, Suit suit) {
+        this.value = value;
+        this.suit = suit;
+    }
+
+    @Override
+    public String toString() {
+        return suit + " " + value;
+    }
+
+    public Suit getSuit() {
+        return suit;
+    }
+
+    public int getValue() {
+        return value;
+    }
+}
 ```
 
-Korttia käytetään seuraavasti:
+<!-- Korttia käytetään seuraavasti: -->
+The card is used in the following way:
 
-```java
+<!-- ```java
 Kortti eka = new Kortti(10, Maa.HERTTA);
 
 System.out.println(eka);
@@ -557,29 +832,53 @@ if (eka.getMaa() == Maa.PATA) {
 } else {
     System.out.println("ei ole pata");
 }
+``` -->
+```java
+Card first = new Card(10, Suit.HEART);
+
+System.out.println(first);
+
+if (first.getSuit() == Suit.SPADE) {
+    System.out.println("is a spade");
+} else {
+    System.out.println("is not a spade");
+}
 ```
 
-Tulostuu:
+<!-- Tulostuu: -->
+The output:
 
-<sample-output>
+<!-- <sample-output>
 
 HERTTA 10
 ei ole pata
 
+</sample-output> -->
+<sample-output>
+
+HEARTS 10
+is not a spade
+
 </sample-output>
 
-Huomaamme, että enumin tunnukset tulostuvat mukavasti! Oraclella on `enum`-tyyppiin liittyvä sivusto osoitteessa <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/enum.html" target="_blank" rel="noopener">http://docs.oracle.com/javase/tutorial/java/javaOO/enum.html</a>.
+<!-- Huomaamme, että enumin tunnukset tulostuvat mukavasti! Oraclella on `enum`-tyyppiin liittyvä sivusto osoitteessa <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/enum.html" target="_blank" rel="noopener">http://docs.oracle.com/javase/tutorial/java/javaOO/enum.html</a>.
+ -->
+We see that the Enum values are outputted nicely! Oracle has a site related to the `enum` data type at <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/enum.html" target="_blank" rel="noopener"> http://docs.oracle.com/javase/tutorial/java/javaOO/enum.html </a>.
 
 
+<!-- <text-box variant='hint' name='Enumien vertailu'> -->
+<text-box variant='hint' name='Comparing Enums'>
 
-
-<text-box variant='hint' name='Enumien vertailu'>
-
-Ylläolevassa esimerkissä kahta enumia verrattiin yhtäsuuruusmerkkien avulla. Miksi tämä on ok?
+<!-- Ylläolevassa esimerkissä kahta enumia verrattiin yhtäsuuruusmerkkien avulla. Miksi tämä on ok?
 
 Jokainen lueteltu arvo saa oman uniikin numerotunnuksen, ja niiden vertailu keskenään yhtäsuuruusmerkillä on ok. Kuten muutkin Javan luokat, myös luetellut arvot perivät Object-luokan ja sen equals-metodin. Luetelluilla luokilla myös equals-metodi vertailee tätä numerotunnusta.
 
-Luetellun arvon numeraalisen tunnuksen saa selville metodille `ordinal()`. Metodi palauttaa käytännössä järjestysnumeron -- jos lueteltu arvo on esitelty ensimmäisenä, on sen järjestysnumero 0. Jos toisena, järjestysnumero on 1, jne.
+Luetellun arvon numeraalisen tunnuksen saa selville metodille `ordinal()`. Metodi palauttaa käytännössä järjestysnumeron -- jos lueteltu arvo on esitelty ensimmäisenä, on sen järjestysnumero 0. Jos toisena, järjestysnumero on 1, jne. -->
+In the example above, two enums were compared with equal signs. How does this work?
+
+Each enum field gets a unique number code, and they can be compared using the equals sign. Just as other classes in Java, these values also inherit the Object class and its equals method. The equals method compares this numeric identifier in enum types too.
+
+The numeric identifier of an enum field value can be found with `ordinal()`. The method actually returns an order number - if the enum value is presented first, its order number is 0. If its second, the order number is 1, and so on.
 
 
 ```java
@@ -588,9 +887,13 @@ public enum Maa {
 }
 ```
 
-```java
+<!-- ```java
 System.out.println(Maa.RUUTU.ordinal());
 System.out.println(Maa.HERTTA.ordinal());
+``` -->
+```java
+System.out.println(Suit.DIAMOND.ordinal());
+System.out.println(Suit.HEARTS.ordinal());
 ```
 
 <sample-output>
@@ -603,14 +906,17 @@ System.out.println(Maa.HERTTA.ordinal());
 </text-box>
 
 
-### Lueteltujen tyyppien oliomuuttujat
+<!-- ### Lueteltujen tyyppien oliomuuttujat -->
+### Object References In Enums
 
-Luetellut tyypit voivat sisältää oliomuuttujia. Oliomuuttujien arvot tulee asettaa luetellun tyypin määrittelevän luokan sisäisessä eli näkyvyysmääreen `private` omaavassa konstruktorissa. Enum-tyyppisillä luokilla ei saa olla `public`-konstruktoria.
+<!-- Luetellut tyypit voivat sisältää oliomuuttujia. Oliomuuttujien arvot tulee asettaa luetellun tyypin määrittelevän luokan sisäisessä eli näkyvyysmääreen `private` omaavassa konstruktorissa. Enum-tyyppisillä luokilla ei saa olla `public`-konstruktoria.
 
-Seuraavassa lueteltu tyyppi `Vari`, joka sisältää vakioarvot PUNAINEN, VIHREA ja SININEN. Vakioille on määritelty <a href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank" rel="noopener">värikoodin</a> kertova oliomuuttuja:
+Seuraavassa lueteltu tyyppi `Vari`, joka sisältää vakioarvot PUNAINEN, VIHREA ja SININEN. Vakioille on määritelty <a href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank" rel="noopener">värikoodin</a> kertova oliomuuttuja: -->
+Enumerated types may object reference variables. The values ​​of the reference variables should be set in an internal constructor of the class defining the enumerated type, i.e., within a constructor having a  `private` access modifier. Enum type classes cannot have a `public` constructor.
 
+In the following example, we have an enum `Color` that contains the constants ​​RED, GREEN and BLUE. The constants have been declared with object references  referring to their <a href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank" rel="noopener">color codes</a>:
 
-```java
+<!-- ```java
 public enum Vari {
     // konstruktorin parametrit määritellään vakioarvoja lueteltaessa
     PUNAINEN("#FF0000"),
@@ -627,12 +933,35 @@ public enum Vari {
         return this.koodi;
     }
 }
+``` -->
+```java
+public enum Color {
+    // constructor paramters are defined as
+    // the constants are enumerated
+    RED("#FF0000"),
+    GREEN("#00FF00"),
+    BLUE("#0000FF");
+
+    private String code;        // object reference variable
+
+    private Color(String code) { // constructor
+        this.code = code;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+}
 ```
 
-Lueteltua tyyppiä `Vari` voidaan käyttää esimerkiksi seuraavasti:
+<!-- Lueteltua tyyppiä `Vari` voidaan käyttää esimerkiksi seuraavasti: -->
+The enum `Color` can be used like so:
 
-```java
+<!-- ```java
 System.out.println(Vari.VIHREA.getKoodi());
+``` -->
+```java
+System.out.println(Color.GREEN.getCode());
 ```
 
 <sample-output>
@@ -640,11 +969,13 @@ System.out.println(Vari.VIHREA.getKoodi());
 </sample-output>
 
 
-## Iteraattori
+## Iterator
+<!-- ## Iteraattori -->
 
-Tarkastellaan seuraavaa luokkaa `Kasi`, joka mallintaa tietyssä korttipelissä pelaajan kädessä olevien korttien joukkoa:
+<!-- Tarkastellaan seuraavaa luokkaa `Kasi`, joka mallintaa tietyssä korttipelissä pelaajan kädessä olevien korttien joukkoa: -->
+Let's look at the following `Hand` class that represents the set of cards that a player is holding:
 
-```java
+<!-- ```java
 public class Kasi {
     private List<Kortti> kortit;
 
@@ -662,13 +993,35 @@ public class Kasi {
         });
     }
 }
+``` -->
+```java
+public class Hand {
+    private List<Card> cards;
+
+    public Hand() {
+        this.cards = new ArrayList<>();
+    }
+
+    public void add(Card card) {
+        this.cards.add(card);
+    }
+
+    public void print() {
+        this.cards.stream().forEach(card -> {
+            System.out.println(card);
+        });
+    }
+}
 ```
 
-Luokan metodi `print` printa jokaisen kädessä olevan kortin.
+<!-- Luokan metodi `print` printa jokaisen kädessä olevan kortin.
 
-ArrayList ja muut *Collection*-rajapinnan toteuttavat "oliosäiliöt" toteuttavat rajapinnan *Iterable*, ja ne voidaan käydä läpi myös käyttäen *iteraattoria*, eli olioa, joka on varta vasten tarkoitettu tietyn oliokokoelman läpikäyntiin. Seuraavassa on iteraattoria käyttävä versio korttien printmisesta:
+ArrayList ja muut *Collection*-rajapinnan toteuttavat "oliosäiliöt" toteuttavat rajapinnan *Iterable*, ja ne voidaan käydä läpi myös käyttäen *iteraattoria*, eli olioa, joka on varta vasten tarkoitettu tietyn oliokokoelman läpikäyntiin. Seuraavassa on iteraattoria käyttävä versio korttien printmisesta: -->
+The `print` method of the class Prints each card in the current hand.
 
-```java
+ArrayList and other "object containers" that implement the *Collection* interface implement the *Iterable* interface, and they can also be iterated over with the help of an *iterator* - an object specifically designed to go through a particular type of object collection. The following is a version of printing the cards that uses an iterator:
+
+<!-- ```java
 public void print() {
     Iterator<Kortti> iteraattori = kortit.iterator();
 
@@ -676,16 +1029,31 @@ public void print() {
         System.out.println(iteraattori.next());
     }
 }
+``` -->
+```java
+public void print() {
+    Iterator<Card> iterator = cards.iterator();
+
+    while (iterator.hasNext()) {
+        System.out.println(iterator.next());
+    }
+}
 ```
 
 
-Iteraattori pyydetään kortteja sisältävältä listalta `kortit`. Iteraattori on ikäänkuin "sormi", joka osoittaa aina tiettyä listan sisällä olevaa olioa, ensin ensimmäistä ja sitten seuraavaa jne... kunnes "sormen" avulla on käyty jokainen olio läpi.
+<!-- Iteraattori pyydetään kortteja sisältävältä listalta `kortit`. Iteraattori on ikäänkuin "sormi", joka osoittaa aina tiettyä listan sisällä olevaa olioa, ensin ensimmäistä ja sitten seuraavaa jne... kunnes "sormen" avulla on käyty jokainen olio läpi.
 
 Iteraattori tarjoaa muutaman metodin. Metodilla `hasNext()` kysytään onko läpikäytäviä olioita vielä jäljellä. Jos on, voidaan iteraattorilta pyytää seuraavana vuorossa oleva olio metodilla `next()`. Metodi siis palauttaa seuraavana läpikäyntivuorossa olevan olion ja laittaa iteraattorin eli "sormen" osoittamaan seuraavana vuorossa olevaa läpikäytävää olioa.
 
-Iteraattorin next-metodin palauttama olioviite voidaan ottaa toki talteen myös muuttujaan, eli metodi `print` voitaisiin muotoilla myös seuraavasti.
+Iteraattorin next-metodin palauttama olioviite voidaan ottaa toki talteen myös muuttujaan, eli metodi `print` voitaisiin muotoilla myös seuraavasti. -->
+The iterator is requested from the `cards` list containing cards. The iterator can be thought of as a "finger" that always points to a particular object inside the list. Initially it points to the first item, then to the next, and so on... until all the objects have been gone through with the help of the "finger".
 
-```java
+The iterator offers a few methods. The `hasNext()` method is used to ask if there are any objects still to be iterated over. If there are, the next object in line can be requested from the iterator using the `next()` method. This method returns the next object in line to be processed and moves the iterator, or "finger", to point to the following object in the collection.
+
+The object reference returned by the iterator's next method can of course also be stored in a variable. As such, the `print` method could also be written in the following way.
+
+
+<!-- ```java
 public void print(){
     Iterator<Kortti> iteraattori = kortit.iterator();
 
@@ -694,11 +1062,22 @@ public void print(){
         System.out.println(seuraavanaVuorossa);
     }
 }
+``` -->
+```java
+public void print(){
+    Iterator<Card> iterator = cards.iterator();
+
+    while (iterator.hasNext()) {
+        Card nextInLine = iterator.next();
+        System.out.println(nextInLine);
+    }
+}
 ```
 
-Tarkastellaan seuraavaksi yhtä iteraattorin käyttökohdetta. Motivoidaan käyttökohde ensin ongelmallisella lähestymistavalla. Yritämme tehdä virran avulla metodia, joka poistaa käsiteltävästä virrasta ne kortit, joiden arvo on annettua arvoa pienempi.
+<!-- Tarkastellaan seuraavaksi yhtä iteraattorin käyttökohdetta. Motivoidaan käyttökohde ensin ongelmallisella lähestymistavalla. Yritämme tehdä virran avulla metodia, joka poistaa käsiteltävästä virrasta ne kortit, joiden arvo on annettua arvoa pienempi. -->
+Let's now consider a use case for an iterator. We'll first approach the issue problematically to provide motivation for the coming solution. We attempt to create a method that removes cards from a given stream with a value lower than the given value.
 
-```java
+<!-- ```java
 public class Kasi {
     // ...
 
@@ -710,9 +1089,23 @@ public class Kasi {
         });
     }
 }
+``` -->
+```java
+public class Hand {
+    // ...
+
+    public void removeWorst(int value) {
+        this.cards.stream().forEach(card -> {
+            if (card.getArvo() < value) {
+                cards.remove(card);
+            }
+        });
+    }
+}
 ```
 
-Metodin suoritus aiheuttaa ongelman.
+<!-- Metodin suoritus aiheuttaa ongelman. -->
+Executing the method results in an error.
 
 <sample-output>
 
@@ -722,12 +1115,14 @@ Java Result: 1
 
 </sample-output>
 
-Virheen syynä on se, että listan läpikäynti forEach-metodilla olettaa, ettei listaa muokata läpikäynnin yhteydessä. Listan muokkaaminen (eli tässä tapauksessa alkion poistaminen) aiheuttaa virheen -- voimme ajatella, että komento forEach menee tästä "sekaisin".
+<!-- Virheen syynä on se, että listan läpikäynti forEach-metodilla olettaa, ettei listaa muokata läpikäynnin yhteydessä. Listan muokkaaminen (eli tässä tapauksessa alkion poistaminen) aiheuttaa virheen -- voimme ajatella, että komento forEach menee tästä "sekaisin".
 
-Jos listalta halutaan poistaa osa olioista läpikäynnin aikana osa, voi tämän tehdä iteraattoria käyttäen. Iteraattori-olion metodia `remove` kutsuttaessa listalta poistetaan siististi se alkio jonka iteraattori palautti edellisellä metodin `next` kutsulla. Toimiva versio metodista seuraavassa:
+Jos listalta halutaan poistaa osa olioista läpikäynnin aikana osa, voi tämän tehdä iteraattoria käyttäen. Iteraattori-olion metodia `remove` kutsuttaessa listalta poistetaan siististi se alkio jonka iteraattori palautti edellisellä metodin `next` kutsulla. Toimiva versio metodista seuraavassa: -->
+The reason for this error lies in the fact that when a list is iterated over using the forEach method, it's assumed that the list is not modified during the traversal. Modifying the list (in this case deleting elements) causes an error - we can think of the forEach method as getting "confused" here.
 
+If you want to remove some of the objects from the list during a traversal, you can do so using an iterator. Calling the `remove` method of the iterator object neatly removes form the list the item returned by the iterator with the previous `next` call. Here's a working example of the version of the method:
 
-```java
+<!-- ```java
 public class Kasi {
     // ...
 
@@ -738,6 +1133,22 @@ public class Kasi {
             if (iteraattori.next().getArvo() < arvo) {
                 // poistetaan listalta olio jonka edellinen next-metodin kutsu palautti
                 iteraattori.remove();
+            }
+        }
+    }
+}
+``` -->
+```java
+public class Hand {
+    // ...
+
+    public void removeWorst(int value) {
+        Iterator<Card> iterator = cards.iterator();
+
+        while (iterator.hasNext()) {
+            if (iterator.next().getValue() < value) {
+                // removing from the list the element returned by the previous next-method call
+                iterator.remove();
             }
         }
     }
@@ -1109,7 +1520,7 @@ What if we want to sort the cards in different ways, e.g. sorting all the cards 
 
 
 <!--Vaihtoehtoiset järjestämistavat toteutetaan erillisten vertailun suorittavien luokkien avulla. Korttien vaihtoehtoisten järjestyksen määräävän luokkien tulee toteuttaa `Comparator<Kortti>`-rajapinta. Järjestyksen määräävän luokan olio vertailee kahta parametrina saamaansa korttia. Metodeja on ainoastaan yksi compare(Kortti k1, Kortti k2), jonka tulee palauttaa negatiivinen arvo, jos kortti k1 on järjestyksessä ennen korttia k2, positiivinen arvo jos k2 on järjestyksessä ennen k1:stä ja 0 muuten.-->
-Alternative sorting systems are possible through differnet sorting classes. Such a class must have the `Comparator<Kortti>` interface. An object of the sorting class will then compare two cards give as parameters. The class only has one method, compare(Card c1, Card c2), which returns a negative value if the card c1 should be sorted before card c2, a positive value if card c2 comes before card c1, and zero if they are equal.
+Alternative sorting systems are possible through different sorting classes. Such a class must have the `Comparator<Kortti>` interface. An object of the sorting class will then compare two cards give as parameters. The class only has one method, compare(Card c1, Card c2), which returns a negative value if the card c1 should be sorted before card c2, a positive value if card c2 comes before card c1, and zero if they are equal.
 
 
 <!--Periaatteena on luoda jokaista järjestämistapaa varten oma vertailuluokka, esim. saman maan kortit vierekkäin vievän järjestyksen määrittelevä luokka:-->
