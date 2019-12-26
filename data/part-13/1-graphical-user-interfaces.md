@@ -8,7 +8,7 @@ hidden: false
 <text-box variant='learningObjectives' name='Learning Objectives'>
 
 <!-- - Tiedät mistä käyttöliittymät koostuvat ja osaat käynnistää graafisen käyttöliittymän. -->
-- You know what user interfaces (UIs) consist of and know how to launch a graphical UIs.
+- You know what user interfaces (UIs) consist of and know how to launch a graphical user interfaces (GUIs).
 
 </text-box>
 
@@ -76,7 +76,7 @@ public class JavaFxSovellus extends Application {
 }
 ``` -->
 ```java
-package sovellus;
+package application;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
