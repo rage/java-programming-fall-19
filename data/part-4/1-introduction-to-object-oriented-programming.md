@@ -1,10 +1,9 @@
 ---
-path: '/part-4/1-introduction-to-object-oriented-programming'
+path: "/part-4/1-introduction-to-object-oriented-programming"
 #title: 'Johdatus olio-ohjelmointiin'
-title: 'Introduction to object-oriented programming'
+title: "Introduction to object-oriented programming"
 hidden: false
 ---
-
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->
 
@@ -14,25 +13,25 @@ hidden: false
 - Ymmärrät että luokka määrää olion muuttujat ja metodit, ja tiedät että oliomuuttujien arvot ovat oliokohtaisia.
 - Osaat luoda luokkia ja olioita ja osaat käyttää olioita osana ohjelmia. -->
 
-- You're familiar with the concepts class, object, constructor, object methods, and object variables.
+- You're familiar with the concepts of class, object, constructor, object methods, and object variables.
 
-- You understand that a class defines an object's methods and that the values of instance variables are object-specific.
+- You understand that a class defines an object's methods and that the values of instance (object) variables are object-specific.
 
-- You know how to create classes and objects, and know how to use objects as parts of a program.asdfasdfsa
+- You know how to create classes and objects, and know how to use objects in your programs.
 
 </text-box>
 
 <!-- Aloitamme nyt matkan olio-ohjelmoinnin pariin. Aluksi keskiössä on käsitteiden ja tiedon kuvaaminen luokkien ja olioiden avulla, jonka jälkeen tutustumme toiminnallisuuden eli metodien lisäämiseen. -->
 
-We'll now begin our journey in the world of object-oriented programming. Our primary focus will initially be on the description of concepts and data through the aid of objects. After that, we'll learn how to add  functionality, i.e., methods to our program.
+We'll now begin our journey in to the world of object-oriented programming. We'll start with focusing on describing concepts and data using objects. From there on, we'll learn how to add functionality, i.e., methods to our program.
 
 <!-- Olio-ohjelmoinnissa on kyse ratkaistavassa ongelmassa esiintyvien käsitteiden eristämisestä omiksi kokonaisuuksikseen sekä näiden kokonaisuuksien käyttämistä ongelman ratkaisemisessa. Kun ongelmaan liittyvät käsitteet on tunnistettu, niistä voidaan myös keskustella. Toisin ajatellen, ratkaistavasta ongelmasta muodostetaan abstraktioita, joiden avulla ongelmaa on helpompi käsitellä. -->
 
-Object-oriented programming is concerned with isolating concepts that appear in the problem domain into separate entities and then using those entities to solve a given problem. Once the concepts related to the problem are identified, they can also be discussed. In other words, we form abstractions from the problems and use them to make the problem easier to approach
+Object-oriented programming is concerned with isolating concepts of a problem domain into separate entities and then using those entities to solve problems. Concepts related to a problem can only be considered once they've been identified. In other words, we can form abstractions from problems that make those problem easier to approach.
 
 <!-- Kun ongelmasta tunnistetaan käsitteitä, voidaan niitä vastaavia rakenteita luoda myös ohjelmaan. Näitä rakenteita ja niistä luotavia yksittäisiä ilmentymiä eli olioita käytetään ongelman ratkaisemisessa. Nyt ehkä käsittämättömältä tuntuva lausahdus **ohjelma rakennetaan pienistä selkeistä yhteistoiminnassa olevista olioista** alkaa hiljalleen kurssin edetessä tuntua järkeenkäyvältä ja jopa itsestäänselvältä. -->
 
-Once concepts are identified from a given problem, we can build constructs representing them into programs as well. These constructs, and the individual instances formed from them, i.e., objects, are used in solving the problem. The statement "programs are built from small, clear, and cooperative objects" may currently not make much sense, but will slowly begin to appear more sensible as we progress in the course, perhaps even self-evident.
+Once concepts related to a given problem have been identified, we can also begin to build constructs that represent them them into programs. These constructs, and the individual instances that are formed from them, i.e., objects, are used in solving the problem. The statement "programs are built from small, clear, and cooperative objects" may not make much sense yet. However, it will appear more sensible as we progress through the course, perhaps even self-evident.
 
 <!-- ##  Luokka ja Olio -->
 
@@ -40,15 +39,15 @@ Once concepts are identified from a given problem, we can build constructs repre
 
 <!-- Olemme käyttäneet jo joitakin Javan tarjoamia luokkia ja olioita. **Luokka** määrittelee olioiden ominaisuudet eli niihin liittyvät tiedot eli oliomuuttujat ja niiden tarjoamat komennot eli metodit. Oliomuuttujien arvot määrittelevät yksittäisen olion sisäisen tilan ja metodit taas olion tarjoamat toiminnallisuudet. **Olio** luodaan luokkaan kirjoitetun määrittelyn perusteella. Samasta luokasta voidaan luoda useampia olioita, joilla jokaisella on eri tila eli jokaisella on omat oliomuuttujien arvot. Jokaisella oliolla on myös metodit, jotka olion luomiseen käytetyssä luokassa on määritelty. -->
 
-We've already used some of the classes and objects provided by Java. A **class** defines the attributes of objects, i.e., the information related to them (instance variables), and their commands, i.e., their methods. The values of instance variables define the internal state of an individual object, whereas its methods define the functionality it offers.
+We've already used some of the classes and objects provided by Java. A **class** defines the attributes of objects, i.e., the information related to them (instance variables), and their commands, i.e., their methods. The values of instance (i.e., object) variables define the internal state of an individual object, whereas methods define the functionality it offers.
 
 <!-- **Metodi** on luokkaan kirjoitettu lähdekoodista koostuva kokonaisuus, jolle on annettu nimi, ja jota voidaan kutsua. Metodi liittyy aina tiettyyn luokkaan, ja sitä käytetään usein luokasta tehdyn olion sisäisen tilan muokkaamiseen. -->
 
-A **Method** is an entity comprising of source code that's been written in a class, and which has a name and the ability to be called. A method is always associated with a specific class and is often used to modify the internal state of an object instantiated from a class.
+A **Method** is a piece of source code written inside a class that's been named and has the ability to be called. A method is always part of some class and is often used to modify the internal state of an object instantiated from a class.
 
 <!-- Esimerkiksi `ArrayList` on Javan tarjoama luokka, josta luotuja olioita olemme hyödyntäneet ohjelmissamme. Alla ohjelmassa luodaan `ArrayList`-olio nimeltä `luvut`, johon lisätään kokonaislukuja. -->
 
-For example, `ArrayList` is a class offered by Java, and we've made use of objects instantiated from it in our programs. Below, an `ArrayList`  object named `integers` is created, to which integers are added.
+As an example, `ArrayList` is a class offered by Java, and we've made use of objects instantiated from it in our programs. Below, an `ArrayList` object named `integers` is created and some integers are added to it.
 
 <!--
 ```java
@@ -64,6 +63,7 @@ luvut.add(111);
 // tulostetaan luvut-olion koko
 System.out.println(luvut.size());
 ``` -->
+
 ```java
 // we create an object from the ArrayList class named integers
 ArrayList<Integer> integers = new ArrayList<>();
@@ -77,28 +77,28 @@ integers.add(111);
 // we print the size of the integers object
 System.out.println(integers.size());
 ```
+
 <!--
 Luokasta luodaan olio aina kutsumalla olion luovaa metodia eli **konstruktoria** komennon `new` avulla. Esimerkiksi yllä `ArrayList`-luokasta luodaan uusi kokonaislukuja hyväksyvä ilmentymä eli olio kun kutsutaan `new ArrayList<Integer>()`. Konstruktorit voivat saada parametreja kuten muutkin metodit. -->
 
-An object is always instantiated by calling a method that created an object, i.e., a **constructor** using the `new` keyword.
+An object is always instantiated by calling a method that created an object, i.e., a **constructor** by using the `new` keyword.
 
 <!-- <text-box variant='hint' name='Luokan ja olion suhde'> -->
-<text-box variant='hint' name='The relationship between a class and an object'>
+<text-box variant='hint' name='The Relationship Between a Class and an Object'>
 
 <!-- Luokka kuvaa siitä luotavien olioiden "rakennuspiirustukset". Otetaan analogia tietokoneiden ulkopuoleisesta maailmasta. Rintamamiestalot lienevät monille tuttuja. Voidaan ajatella, että jossain on olemassa piirustukset jotka määrittelevät minkälainen rintamamiestalo on. Piirrustukset ovat luokka, eli ne määrittelevät minkälaisia olioita luokasta voidaan luoda: -->
 
-A class lays out the blueprint for any objects instantiated from it. Let's use an analogy taken from the non-computer world. Detached houses are probably familiar to many, and we can assume that drawings exist somewhere that determine what exactly a detached house is. The blueprint is the class, i.e., they determine what kinds of objects can be instantiated from them:
+A class lays out a blueprint for any objects that are instantiated from it. Let's draw from an analogy from outside the world of computers. Detached houses are most likely familiar to most, and we can safely assume the existence of drawings somewhere that determine what exactly a detached house is to be like. A class is a blueprint. In other words, it specifies what kinds of objects can be instantiated from it:
 
 <img src="../img/rintamamiestalo-rakennuspiirrustus.jpg"/>
 
 <!-- Yksittäiset oliot eli rintamamiestalot on tehty samojen piirustusten perusteella, eli ne ovat saman luokan ilmentymiä. Yksittäisten olioiden tila eli ominaisuudet (esim. seinien väri, katon rakennusmateriaali ja väri, kivijalan väri, ovien rakennusmateriaali ja väri, ...) vaihtelevat. Seuraavassa yksi "rintamamiestalo-luokan olio": -->
 
-Individual objects, i.e., detached houses are created from the same blueprint. In other words, they're instances of the same class. The states of individual objects, i.e., their attributes (e.g. the wall's color, the roof's building material and color, the color of its foundations, the doors' materials and color, ...) vary. The following is an "object of a detached-house class":
+Individual objects, detached houses in this case, are all created based on the same blueprints - they're instances of the same class. The states of individual objects, i.e., their attributes (such as the wall color, the building material of the roof, the color of its foundations, the doors' materials and color, ...) may all vary, however. The following is an "object of a detached-house class":
 
 <img src="../img/rintamamiestalo.jpg" />
 
 </text-box>
-
 
 <!-- <programming-exercise name='Ensimmäinen tilisi' tmcname='osa04-Osa04_01.EnsimmainenTilisi'> -->
 
@@ -149,9 +149,7 @@ System.out.println(artosSwissAccount);
 
 Write a program that creates an account with a balance of 100.0, deposits 20.0 in it, and finally prints the balance. **NB!** Perform all the operations in this exact order.
 
-
 </programming-exercise>
-
 
 <!-- <programming-exercise name='Ensimmäinen tilisiirtosi' tmcname='osa04-Osa04_02.EnsimmainenTilisiirtosi'> -->
 <programming-exercise name='Your first bank transfer' tmcname='part04-Part04_02.YourFirstBankTransfer'>
@@ -166,7 +164,6 @@ Tee ohjelma joka:
 4. Panee omalle tilille 100.0
 5. Tulostaa molemmat tilit -->
 
-
 The `Account` from the previous exercise class is also available in this exercise.
 
 Write a program that:
@@ -179,12 +176,11 @@ Write a program that:
 
 </programming-exercise>
 
-
 <quiz id='777bb8c9-f46f-5a2d-ae99-768f3c2d3671'></quiz>
 
-
 <!-- ## Luokan luominen -->
-## Class creation
+
+## Creating Classes
 
 <!-- **Luokka määrittelee** minkälaisia luokasta luotavat oliot ovat:
 
@@ -197,17 +193,16 @@ Luokka määritellään kuvaamaan jotain mielekästä kokonaisuutta. Usein "miel
 
 Aloitetaan. Oletetaan että meillä on projektirunko jossa on tyhjä pääohjelma: -->
 
-A class determines what the objects instantiated from it are like.
+A class specifies what the objects instantiated from it are like.
 
-- The **object's variables (instance variables)** define the internal state of the object
-- The **object's methods**  define the functionalities offered by the object
+- The **object's variables (instance variables)** specify the internal state of the object
+- The **object's methods** specify what the object does
 
-We'll now acquaint ourselves with creating our own class and defining the variable's belonging to it.
+We'll now familiarize ourselves with creating our own classes and defining the variable that belong to them.
 
-A class is defined to describe a meaningful entity. A "meaningful entity" often describes a real-world idea or concept. If a computer program had to process personal information, it could be meaningful to define a separate class `Person` that comprises of the methods and attributes related to an individual person.
+A class is defined to represent some meaningful entity, where a "meaningful entity" often refers to a real-world object or concept. If a computer program had to process personal information, it would perhaps be meaningful to define a seperate class `Person` consisting of methods and attributes related to an individual.
 
-Let's begin, and assume that we have a project template that has an empty main program:
-
+Let's begin. We'll assume that we have a project template that has an empty main program:
 
 ```java
 public class Main {
@@ -218,9 +213,8 @@ public class Main {
 }
 ```
 
-
 <!-- <text-box variant='hint' name='Uuden luokan luominen'> -->
-<text-box variant='hint' name='Creating a new class'>
+<text-box variant='hint' name='Creating a New Class'>
 
 <!-- Uuden luokan luominen NetBeansissa tapahtuu valitsemalla vasemmalta *projects*-kohdasta hiiren oikealla napilla *new* ja *java class*. Avautuvaan dialogiin annetaan luokalle nimi. -->
 
@@ -228,21 +222,22 @@ public class Main {
 
 *Luokkien, muuttujien ja metodien nimissä ei tyypillisesti käytetä ääkkösiä. Vältä niiden käyttöä myös tässä.* -->
 
-In NetBeans, a new class is created by going to the *projects* section on the left and right-clicking *new* and then *java class*. The class is provided a name in the dialog that opens.
+In NetBeans, a new class can be created by going to the _projects_ section located on the left, right-clicking _new_, and then _java class_. The class is provided a name in the dialog that opens.
 
-As with variables and methods, a class' name should be as descriptive as possible. It's common for a class to live on and changes form as the program progresses. For this reason, the class may get renamed at some later point.
+As with variables and methods, the name of a class should be as descriptive as possible. It's usual for a class to live on and take on a different form as a program develops. As such, the class may have to be renamed at some later point.
 
 </text-box>
 
 <!-- Luodaan luokka nimeltä `Henkilo`. Luokkaa varten luodaan erillinen tiedosto nimeltä `Henkilo.java`. Ohjelmamme koostuu nyt siis kahdesta erillisestä tiedostosta, sillä myös pääohjelma on omassa tiedostossaan. Aluksi Henkilo.java -tiedosto sisältää luokan määrittelyn **public class Henkilo** sekä luokan sisällön rajaavat aaltosulut. -->
 
-Let's create a class named `Person`. For this class, we create a separate file named `Person.java`. Our program now consists of two separate files, since the main program is also in its own file. Initially, the `Person.java` file contains the class definition **public class Person** and the curly brackets that confine the contents of the class.
+Let's create a class named `Person`. For this class, we create a separate file named `Person.java`. Our program now consists of two separate files since the main program is also in its own file. The `Person.java` file initially contains the class definition **public class Person** and the curly brackets that confine the contents of the class.
 
 <!-- ```java
 public class Henkilo {
 
 }
 ``` -->
+
 ```java
 public class Person {
 
@@ -251,20 +246,19 @@ public class Person {
 
 <!-- NetBeansissa uuden tiedoston luomisen jälkeinen tilanne näyttää seuraavalta. Alla olevassa kuvassa Hiekkalaatikkotehtävään on lisätty luokka `Henkilo`. -->
 
-
-After creating a new file in NetBeans, the current state looks as follows. In the image below, the class `Person` has been added to the SandboxExercise.
+After creating a new file in NetBeans, the current state is as follows. In the image below, the class `Person` has been added to the SandboxExercise.
 
 <img src="../img/material/part4.1-class-created.png">
 
 <!-- Luokkaa kuvaamaan voi piirtää myös luokkakaavion, jonka merkintätekniikkaan tutustutaan tässä samalla. Henkilo-niminen luokka, jossa ei ole mitään sisällä näyttää seuraavalta: -->
 
-You can also draw a class diagram to depict the class; we'll become familiar with its notations here as we go along. An empty person-named class looks like this:
+You can also draw a class diagram to depict a class. We'll become familiar with its notations as we go along. An empty person-named class looks like this:
 
 <img src="../img/diagrams/part4.1-classdiagram-person.png">
 
 <!-- Luokka määrittelee luokasta luotavien olioiden ominaisuudet ja toiminnallisuudet. Päätetään, että jokaisella henkilöoliolla on nimi ja ikä. Nimi on luonnollista esittää merkkijonona, eli Stringinä, ja ikä taas kokonaislukuna. Lisätään nämä rakennuspiirustuksiimme: -->
 
-A class defines the attributes and behaviors of objects created from it. Let's decide that each person object has a name and an age. A name is naturally represented as a string, and age as an integer. We'll go ahead and add these to our blueprint:
+A class defines the attributes and behaviors of objects that are created from it. Let's decide that each person object has a name and an age. It's natural to represent the name as a string, and the age as an integer. We'll go ahead and add these to our blueprint:
 
 <!--
 ```java
@@ -273,6 +267,7 @@ public class Henkilo {
     private int ika;
 }
 ``` -->
+
 ```java
 public class Person {
     private String name;
@@ -286,20 +281,17 @@ Oliomuuttujat kirjoitetaan luokan määrittelyä `public class Henkilo {` seuraa
 
 Luokkaakaaviossa luokkaan liittyvät muuttujat määritellään muodossa "muuttujanNimi: muuttujanTyyppi". Miinusmerkki ennen muuttujan nimeä kertoo, että muuttuja on kapseloitu (sillä on avainsana private). -->
 
+We specify above that each object created from the `Person` class has a `name` and an `age`. Variables defined inside a class are called **instance variables**, or object fields or object attributes. Other names also seem to exist.
 
-We specify above that each object created from the `Person` class has a `name` and an `age`. Variables defined inside a class are called **instance variables**, or object fields or object attributes. Other names seem to also exist.
-
-Object variables are written on the lines following the class definition `public class Person {`. Each variable is preceded by the keyword private. The keyword **private** means that the variables are "hidden" inside the object. This is known as **encapsulation**.
+Instance variables are written on the lines following the class definition `public class Person {`. Each variable is preceded by the keyword private. The keyword **private** means that the variables are "hidden" inside the object. This is known as **encapsulation**.
 
 In the class diagram, the variables associated with the class are defined as "variableName: variableType". The minus sign before the variable name indicates that the variable is encapsulated (it has the keyword private).
-
 
 <img src="../img/diagrams/part4.1-classdiagram-person-name-age.png">
 
 <!-- Olemme nyt määritelleet rakennuspiirustukset -- luokan -- henkilöoliolle. Jokaisella uudella henkilöolioilla on muuttujat `nimi` ja `ika`, joissa voi olla oliokohtainen arvo. Henkilöiden "tila" koostuu niiden nimeen ja ikään asetetuista arvoista. -->
 
-We have now defined a blueprint -- a class -- for the person object. Each new person object has the variables `name` and `age`, which can hold object-specific values. The "state" of a person consists of the values assigned to their name and age.
-
+We have now defined a blueprint -- a class -- for the person object. Each new person object has the variables `name` and `age`, which are able to hold object-specific values. The "state" of a person consists of the values assigned to their name and age.
 
 <!-- <programming-exercise name='Koiran ominaisuudet' tmcname='osa04-Osa04_03.KoiranOminaisuudet'> -->
 <programming-exercise name='Dog attributes' tmcname='part04-Part04_03.DogAttributes'>
@@ -314,11 +306,11 @@ Olet nyt luonut luokan nimeltä `Koira`. Lisää luokalle oliomuuttujat `private
 
 In this exercise, you'll practice creating a class.
 
-A new class can be added in NetBeans the following way: On the left side of the screen is the Projects list. Right-click on the project's name, which for this exercise is `Part04_03.DogAttributes`. From the drop-down menu, select *New* and *Java Class*. NetBeans will then ask for the class name.
+A new class can be added in NetBeans the following way: On the left side of the screen is the Projects list. Right-click on the project's name, which for this exercise is `Part04_03.DogAttributes`. From the drop-down menu, select _New_ and _Java Class_. NetBeans will then ask for the class name.
 
 Name the class `Dog` in this exercise, and press the finish button.
 
-You have now created a class called `Dog`. Add the variables `private String name`,` private String breed` and `private int age` to the class. As a class diagram, the class looks like this:
+You have now created a class called `Dog`. Add the variables `private String name`,`private String breed` and `private int age` to the class. As a class diagram, the class looks like this:
 
 <img src="../img/diagrams/part4.1-classdiagram-ex-dog.png" alt="[Koira|-nimi:String;-rotu:String;-ika:int]">
 
@@ -328,13 +320,13 @@ The class doesn't do much yet. However, practicing this step is valuable for wha
 
 </programming-exercise>
 
-
 <!-- ## Konstruktorin määrittely -->
-## Defining a constructor
+
+## Defining a Constructor
 
 <!-- Luotavalle oliolle halutaan asettaa alkutila. Itse määritellyn olion luominen tapahtuu hyvin samaan tapaan kuin olioiden luominen Javan valmiista luokista kuten `ArrayList`istä. Olio luodaan `new`-komennolla. Olion luomisen yhteydessä on kätevää pystyä antamaan arvot luotavan olion muuttujille. Esimerkiksi uutta henkilö-oliota luotaessa olisi kätevää pystyä antamaan oliolle nimi: -->
 
-We want to set an initial state for the object being created. Creating a custom-defined object happens much the same way as creating objects from pre-made Java classes, such as `ArrayList`. The object is created with the `new ` keyword. During an object's creation, it's useful to be able to pass values ​​to the variables of the object that's being created. For example, when creating a new person object, it would be useful to be able to provide it with a name:
+We want to set an initial state for an object that's created. Custom objects are created the same way as objects from pre-made Java classes, such as `ArrayList`, using the `new` keyword. It'd be convenient to pass values ​​to the variables of that object as it's being created. For example, when creating a new person object, it's useful to be able to provide it with a name:
 
 <!-- ```java
 public static void main(String[] args) {
@@ -352,7 +344,8 @@ public static void main(String[] args) {
 
 <!-- Tämä onnistuu määrittelemällä olion luova metodi eli **konstruktori**. Konstruktori määritellään oliomuuttujien jälkeen. Seuraavassa esimerkissä Henkilo-luokalle on määritelty konstruktori, jota voidaan käyttää uuden Henkilo-olion luomiseen. Konstruktori asettaa luotavan olion iäksi 0 ja nimeksi konstruktorin parametrina annettavan merkkijonon: -->
 
-This is done by defining the method that creates the object, i.e., its constructor. The constructor is defined after the instance variables. In the following example, a constructor is defined for the Person class, which can be used to create a new Person object. The constructor sets the age of the object being created to 0, and the string passed to the constructor as a parameter as its name:
+This is achieved by defining the method that creates the object, i.e., its constructor. The constructor is defined after the instance variables. In the following example, a constructor is defined for the Person class, which can be used to create a new Person object. The constructor sets the age of the object being created to 0, and the string passed to the constructor as a parameter as its name:
+
 <!--
 ```java
 public class Henkilo {
@@ -380,8 +373,6 @@ public class Person {
 
 <!-- Konstruktorin nimi on aina sama kuin luokan nimi. Yllä luokka (*class*) on Henkilo, joten konstruktorin nimeksi tulee Henkilo. Konstruktorille annetaan lisäksi parametrina luotavan henkilööolion nimi. Parametri asetetaan sulkuihin konstruktorin nimen perään. Parametreja mahdollisesti sisältävien sulkujen jälkeen tulee aaltosulut, joiden sisälle määritellään lähdekoodi, jonka ohjelma suorittaa konstruktorikutsun (esim. `new Henkilo("Ada")`) yhteydessä. -->
 
-
-
 <!-- Oliot luodaan aina konstruktorin avulla.
 
 Muutama huomio: konstruktorin sisällä on lauseke `this.ika = 0`. Lausekkeessa asetetaan juuri luotavan olion (eli "tämän" olion) oliomuuttujan ika arvoksi 0. Toinen lauseke `this.nimi = nimiAlussa;` taas asettaa juuri tämän olion sisäiselle muuttujalle `nimi` arvoksi parametrina annetun merkkijonon.
@@ -390,15 +381,13 @@ Koska oliomuuttujat on määritelty konstruktorin aaltosulkujen ulkopuolella, vo
 
 Nyt luokkakaavioon on merkitty luokan nimen ja muuttujien lisäksi myös konstruktori. Konstruktori saa public-näkyvyysmääreen takia eteen plussan, jonka lisäksi siitä merkitään sen nimi ja parametrin tyypit (tässä `+ Henkilo(String)`). -->
 
-The constructor's name is always the same as the class name. The class above is named Person, so the constructor will also be named Person. The constructor is also provided the name of the person object to be created as a parameter. The parameter is enclosed in parentheses and comes after the constructor name. The parentheses that may contain parameters are followed by curly brackets. In between those brackets goes the source code that the program executes in the context of a constructor call (eg  `new Person ("Ada")`).
+The constructor's name is always the same as the class name. The class in the example above is named Person, so the constructor will also have to be named Person. The constructor is also provided,  as a parameter, the name of the person object to be created. The parameter is enclosed in parentheses and follows the constructor's name. The parentheses that contain optional parameters are followed by curly brackets. In between these brackets is the source code that the program executes when the constructor is called (e.g., `new Person ("Ada")`).
 
 Objects are always created using a constructor.
 
-A few things to note: the constructor contains the expression `this.age = 0`. This expression sets the age instance variable of the newly created object (i.e., "this" object's age) to 0. The second expression `this.name = initialName` likewise assigns the string passed as a parameter to the instance variable `name` of the object that is to be created.
-
+A few things to note: the constructor contains the expression `this.age = 0`. This expression sets the instance variable `age` of the newly created object (i.e., "this" object's age) to 0. The second expression `this.name = initialName` likewise assigns the string passed as a parameter to the instance variable `name` of the object created.
 
 <img src="../img/diagrams/part4.1-classdiagram-person-name-age-constructor.png">
-
 
 <!-- <programming-exercise name='Huone' tmcname='osa04-Osa04_04.Huone'> -->
 <programming-exercise name='Room' tmcname='part04-Part04_04.Room'>
@@ -409,8 +398,7 @@ A few things to note: the constructor contains the expression `this.age = 0`. Th
 
 Tälläkään luokalla ei vielä oikeastaan tee mitään, mutta seuraavassa tehtävässä luokastamme tehty olio osaa jo tulostaa tekstiä. -->
 
-Create a class named `Room`. Add the variables `private String code` and `private int seats`  to the class. Then create a constructor `public Room(String classCode, int numberOfSeats)` through which values are assigned to the instance variables.
-
+Create a class named `Room`. Add the variables `private String code` and `private int seats` to the class. Then create a constructor `public Room(String classCode, int numberOfSeats)` through which values are assigned to the instance variables.
 
 <img src="../img/diagrams/part4.1-classdiagram-ex-room.png" alt="[Huone|-koodi:String;-istumapaikat:int|+Huone(String‚ int)]">
 
@@ -418,17 +406,15 @@ This class doesn't do much either. However,in the following exercise the object 
 
 </programming-exercise>
 
-
 <!-- <text-box variant='hint' name='Oletuskonstruktori'> -->
 
-<text-box variant='hint' name='Default constructor'>
-
+<text-box variant='hint' name='Default Constructor'>
 
 <!-- Mikäli ohjelmoija ei tee luokalle konstruktoria, tekee Java automaattisesti luokalle oletuskonstruktorin. Oletuskonstruktori on konstruktori joka ei tee mitään muuta kuin luo olion. Olion muuttujat jäävät alustamattomiksi (yleisesti ottaen viittaustyyppisten muuttujien arvoksi tulee `null`, eli ei viitettä mihinkään, ja alkeistyyppisten muuttujien arvoksi `0`).
 
 Esimerkiksi alla olevasta luokasta voidaan luoda olio kutsulla `new Henkilo()`. -->
 
-If the programmer does not define a constructor for a class, Java automatically creates a default one for it. A default constructor is a constructor that doesn't do anything except create an object. The object's variables remain uninitialized (generally, the value of any object references will be `null`, meaning that they do not point to anything, and the values of primitives will be `0`)
+If the programmer does not define a constructor for a class, Java automatically creates a default one for it. A default constructor is a constructor that doesn't do anything apart from creating the object. The object's variables remain uninitialized (generally, the value of any object references will be `null`, meaning that they do not point to anything, and the values of primitives will be `0`)
 
 For example, an object can be created from the class below by making the call `new Person()`
 
@@ -477,15 +463,15 @@ public class Person {
 
 </text-box>
 
-
 <!-- ## Metodien määrittely olioille -->
-## Defining methods for an object
+
+## Defining Methods For an Object
 
 <!-- Osaamme luoda olion ja alustaa olion muuttujat. Toimintaan pystyäkseen olioilla on oltava myös metodeja. Kuten olemme jo oppineet, **metodi** on luokkaan kirjoitettu lähdekoodista koostuva kokonaisuus, jolle on annettu nimi, ja jota voidaan kutsua.
 
 Tehdään luokalle Henkilo metodi, jota käytetään olion tietojen tulostamiseen. -->
 
-We know how to create an object and initialize its variables. The object also needs methods to have any kind of behavior. As we've learned, a **method** is an entity written inside a class comprising of source code, which has also been named and can be invoked.
+We know how to create an object and initialize its variables. However, an object also needs methods to be able to do anything. As we've learned, a **method** is a named section of source code inside a class which can be invoked.
 
 <!-- ```java
 public class Henkilo {
@@ -502,6 +488,7 @@ public class Henkilo {
     }
 }
 ``` -->
+
 ```java
 public class Person {
     private String name;
@@ -522,21 +509,19 @@ public class Person {
 
 A method is written inside of the class beneath the constructor. The method name is preceded by `public void`, since the method is intended to be visible to the outside world (`public`), and it does not return a value (`void`).
 
-
 <!-- <text-box variant='hint' name='Oliot ja määre static'> -->
-<text-box variant='hint' name='Objects and the static modifier'>
+<text-box variant='hint' name='Objects and the Static Modifier'>
 
 <!--
 Aiemmin toteuttamissamme metodeissa on ollut käytössä määre `static`. Määre `static` viittaa siihen, että metodi ei liity olioon ja sen avulla ei voi käsitellä oliolle määriteltyjä muuttujia.
 
 Metodeistamme puuttuu jatkossa määre `static` mikäli ne käsittelevät kyseisestä luokasta luotujen olioiden tietoa. Mikäli metodi saa parametrina kaikki muuttujat, joiden arvoja se käsittelee, voi metodissa olla `static`-määre. -->
 
-We've used the modifier `static` in some of the methods we've written. The `static` modifier indicates that the method in question does not belong to an object and thus cannot access any of the variables defined for objects.
+We've used the modifier `static` in some of the methods that we've written. The `static` modifier indicates that the method in question does not belong to an object and thus cannot be used to access any variables that belong to objects.
 
-From now on, our methods will not include the `static` keyword if they're used to process information about objects created form the given class. If a method receives all the variables whose values ​​it uses as parameters, then it may come with the `static` modifier.
+Going forward, our methods will not include the `static` keyword if they're used to process information about objects created form a given class. If a method receives as parameters all the variables whose values ​​it uses, it can have `static` modifier.
 
 </text-box>
-
 
 <!-- Luokkakaavioon on merkitty luokan nimen, oliomuuttujien ja konstruktorin lisäksi nyt myös metodi `tulostaHenkilo`. Koska metodilla on `public`-määre, tulee sille alkuun plus, jota seuraa metodin nimi. Metodille ei ole määritelty parametreja, joten ei myöskään piirretä metodin sulkujen sisälle. Metodille merkitään myös tieto siitä, että se ei palauta arvoa, tässä `void`. -->
 
@@ -548,10 +533,9 @@ In addition to the class name, instance variables, and constructor, the class di
 
 Luodaan pääohjelmassa kolme henkilöä ja pyydetään niitä tulostamaan itsensä: -->
 
-The method `printPerson` contains one line of code that makes use of the instance variables `name` and `age` -- the class diagram says nothing about internal implementations. Instance variables are referred to with the prefix `this`. All of the object's variables are visible and available from within the method.
+The method `printPerson` contains one line of code that makes use of the instance variables `name` and `age` -- the class diagram says nothing about its internal implementations. Instance variables are referred to with the prefix `this`. All of the object's variables are visible and available from within the method.
 
 Let's create three persons in the main program and request them to print themselves:
-
 
 <!-- ```java
 public class Main {
@@ -567,6 +551,7 @@ public class Main {
     }
 }
 ``` -->
+
 ```java
 public class Main {
 
@@ -603,12 +588,12 @@ Martin, age 0 years
 </sample-output>
 
 <!-- Sama screencastina: -->
-The same as a screencast:
+
+This as a screencast:
 
 <youtube id='fWwXQ5n2gYo'></youtube>
 
 &nbsp;
-
 
 <!-- <programming-exercise name='Pilli' tmcname='osa04-Osa04_05.Pilli'> -->
 
@@ -622,7 +607,6 @@ Pillin tulee toimia seuraavasti. -->
 
 Create a class named `Whistle`. Add the variable `private String sound` to the class. After that, create the constructor `public Whistle(String whistleSound)`, which is used to create a new whistle that's given a sound.
 
-
 <!-- ```java
 Pilli sorsapilli = new Pilli("Kvaak");
 Pilli kukkopilli = new Pilli("Peef");
@@ -631,6 +615,7 @@ sorsapilli.soi();
 kukkopilli.soi();
 sorsapilli.soi();
 ``` -->
+
 ```java
 Whistle duckWhistle = new Whistle("Kvaak");
 Whistle roosterWhistle = new Whistle("Peef");
@@ -650,7 +635,6 @@ Kvaak
 
 </programming-exercise>
 
-
 <!-- <programming-exercise name='Ovi' tmcname='osa04-Osa04_06.Ovi'>
 
 Luo luokka nimeltä `Ovi`. Ovella ei ole oliomuuttujia. Luo sille parametriton konstruktori (tai käytä oletuskonstruktoria).  Luo tämän jälkeen ovelle metodi `public void koputa()`, jota kutsuttaessa tulostuu viesti "Who's there?".
@@ -662,7 +646,6 @@ Oven tulee toimia seuraavasti. -->
 Create a class named `Door`. The door does not have any variables. Create for it a constructor with no parameters (or use the default constructor). After that, create a `public void knock()` method for the door that prints the message "Who's there?" when called.
 
 The door should work as follows.
-
 
 <!-- ```java
 Ovi alexander = new Ovi();
@@ -693,7 +676,6 @@ Who's there?
 </sample-output>
 
 </programming-exercise>
-
 
 <!-- <programming-exercise name='Tuote' tmcname='osa04-Osa04_07.Tuote'>
 
@@ -733,10 +715,9 @@ The output above is based on the product being assigned the name `banana`, with 
 
 </programming-exercise>
 
-
 <!-- ## Oliomuuttujan arvon muuttaminen metodissa -->
-## Changing an instance variable's value in a method
 
+## Changing an Instance Variable's Value in a Method
 
 <!-- Lisätään aiemmin rakentamallemme Henkilo-luokalle metodi, joka kasvattaa henkilön ikää vuodella: -->
 
@@ -762,6 +743,7 @@ public class Henkilo {
     }
 }
 ``` -->
+
 ```java
 public class Person {
     private String name;
@@ -782,15 +764,15 @@ public class Person {
     }
 }
 ```
+
 <!--
 Metodi kirjoitetaan `tulostaHenkilo`-metodin tapaan luokan `Henkilo` sisälle. Metodissa kasvatetaan oliomuuttujan `ika` arvoa yhdellä.
 
 Myös luokkakaavio päivittyy. -->
 
-The method is written inside the `Person` just as the `printPerson` method was. The method increments the value of thr instance variable `age` by one.
+The method is written inside the `Person` class just as the `printPerson` method was. The method increments the value of the instance variable `age` by one.
 
 The class diagram also gets an update.
-
 
 <img src="../img/diagrams/part4.1-classdiagram-person-name-age-constructor-print-grow.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(String);+tulostaHenkilo():void;+vanhene():void]">
 
@@ -842,6 +824,7 @@ public class Main {
 ```
 
 <!-- Ohjelman tulostus on seuraava: -->
+
 The program's print output is as follows:
 
 <sample-output>
@@ -858,7 +841,7 @@ Antti, age 0 years
 
 Metodin sisään voi lisätä myös ehto- ja toistolauseita. Alla olevaa vanhene-metodia käytettäessä kenestäkään ei tulisi yli 30-vuotiasta. -->
 
-That is to say that when the two objects are "born" they're both zero-years old (`this.age = 0;` is one thing executed in the constructor). The `ada` object's `growOlder` method is called twice. As the print output demonstrates, the age of Ada is 2 years after growing older. Calling the method on an object corresponding to Ada has no impact on the age of the other person object since each object instantiated form a class has its own instance variables created for it.
+That is to say that when the two objects are "born" they're both zero-years old (`this.age = 0;` is executed in the constructor). The `ada` object's `growOlder` method is called twice. As the print output demonstrates, the age of Ada is 2 years after growing older. Calling the method on an object corresponding to Ada has no impact on the age of the other person object since each object instantiated form a class has its own instance variables.
 
 The method can also contain conditional statements and loops. The growOlder method below limits aging to 30 years.
 
@@ -907,7 +890,6 @@ public class Person {
     }
 }
 ```
-
 
 <!-- <programming-exercise name='Vähenevä laskuri (3 osaa)' tmcname='osa04-Osa04_08.VahenevaLaskuri'> -->
 <programming-exercise name='Decreasing counter (3 parts)' tmcname='part04-Part04_08.DecreasingCounter'>
@@ -997,6 +979,7 @@ public class MainPorgram {
     }
 }
 ```
+
 <!-- Yllä olevalla ohjelmalla tulostuksen pitäisi olla seuraava. -->
 
 The program above should have the following print output.
@@ -1019,14 +1002,12 @@ value: 8
 
 <!-- `VahenevaLaskuri`-luokan konstruktorille annetaan parametrina alkuarvo. Esimerkin oliota `laskuri` luodessa laskurille välitetään parametrina arvo `10`. Esimerkin `laskuri`-olioon liittyvään oliomuuttujaan `arvo` asetetaan siis aluksi arvo `10`. Laskurin arvon voi tulostaa metodilla `tulostaArvo()`. Laskurilla tulee myös olla metodi `vahene()` joka vähentää laskurin arvoa yhdellä. -->
 
-
-
 <!-- <h2>Metodin vahene() toteutus</h2> -->
 <h2>Implementation of the decrement() method</h2>
 
 <!-- Täydennä luokan runkoon metodin `vahene()` toteutus sellaiseksi, että se vähentää kutsuttavan olion oliomuuttujan `arvo` arvoa yhdellä. Kun olet toteuttanut metodin `vahene()`, edellisen esimerkin pääohjelman tulee toimia esimerkkitulosteen mukaan. -->
 
-Implement the `decrement()` method in the class body in such a way that it decrements the `value` variable of the object it's being called on by one. Once you're done with the `decrement()` method, the main program of the previous example  should work to produce the example output.
+Implement the `decrement()` method in the class body in such a way that it decrements the `value` variable of the object it's being called on by one. Once you're done with the `decrement()` method, the main program of the previous example should work to produce the example output.
 
 <!-- <h2>Laskurin arvo ei saa olla negatiivinen</h2> -->
 <h2>The counter's value cannot be negative</h2>
@@ -1075,6 +1056,7 @@ public class MainProgram {
 ```
 
 <!-- Tulostuu: -->
+
 Prints:
 
 <!-- <sample-output>
@@ -1095,11 +1077,11 @@ value: 0
 
 </sample-output>
 
-
 <!-- <h2>Laskurin arvon nollaus</h2> -->
 <h2>Resetting the counter value</h2>
 
 <!-- Tee laskurille metodi `public void nollaa()` joka nollaa laskurin arvon, esim: -->
+
 Create the method `public void reset()` for the counter that resets the value of the counter to 0. For example:
 
 <!-- ```java
@@ -1135,6 +1117,7 @@ public class MainProgram {
 ```
 
 <!-- Tulostuu: -->
+
 Prints:
 
 <!-- <sample-output>
@@ -1153,9 +1136,7 @@ value: 0
 
 </sample-output>
 
-
 </programming-exercise>
-
 
 <!-- <programming-exercise name='Velka' tmcname='osa04-Osa04_09.Velka'> -->
 <programming-exercise name='Debt' tmcname='part04-Part04_09.Debt'>
@@ -1176,7 +1157,6 @@ In addition, create the methods `public void printBalance()` and `public void wa
 The debt is increased by multiplying the balance by the interest rate.
 
 The class should do the following:
-
 
 <!-- ```java
 public class Paaohjelma {
@@ -1199,6 +1179,7 @@ public class Paaohjelma {
     }
 }
 ``` -->
+
 ```java
 public class MainProgram {
     public static void main(String[] args) {
@@ -1245,13 +1226,13 @@ Once you get the program to work, try out the previous example with the interest
 
 </programming-exercise>
 
-
 <!-- ## Arvon palauttaminen metodista -->
-## Returning a value from a method
+
+## Returning a Value From a Method
 
 <!-- Metodi voi palauttaa arvon. Tähän mennessä olioihin luomamme metodit eivät palauttaneet mitään. Tämä on merkitty kirjoittamalla metodin määrittelyyn avainsana *void*. -->
-A method can return a value. The methods we've created in our objects haven't returned anything so far. This has marked by typing the keyword *void* in the method definition.
 
+A method can return a value. The methods we've created in our objects haven't so far returned anything. This has been marked by typing the keyword _void_ in the method definition.
 
 <!-- ```java
 public class Ovi {
@@ -1275,7 +1256,7 @@ Jos haluamme, että metodi palauttaa arvon, tulee avainsanan `void` paikalle ase
 
 The keyword **void** means that the method does not return a value.
 
-If we want the method to return a value, we need to replace the `void` keyword with the type of the variable to be returned. In the following example below, the Teacher class has the `grade` method defined, which always returns an integer-type (`int`) variable (in this case, the value 10). The value is always reset with the command **return**:
+If we want the method to return a value, we need to replace the `void` keyword with the type of the variable to be returned. In the following example, the Teacher class has a  method `grade` that always returns an integer-type (`int`) variable (in this case, the value 10). The value is always returned with the  **return** command:
 
 <!-- ```java
 public class Opettaja {
@@ -1284,6 +1265,7 @@ public class Opettaja {
     }
 }
 ``` -->
+
 ```java
 public class Teacher {
     public int grade() {
@@ -1295,7 +1277,7 @@ public class Teacher {
 <!-- Ylläoleva metodi siis palauttaa sitä kutsuttaessa `int`-tyyppisen arvon `10`. Jotta metodin palauttamaa arvoa voisi käyttää, tulee se ottaa talteen muuttujaan. Tämä tapahtuu samalla tavalla kuin normaali muuttujan arvon asetus, eli yhtäsuuruusmerkillä: -->
 <!--  -->
 
-The method above returns an `int` type variable of value 10 when called. For the return value to be used, it needs to be assigned to a variable. This happens the same way as a regular value assignment - i.e., by using the equals sign:
+The method above returns an `int` type variable of value 10 when called. For the return value to be used, it needs to be assigned to a variable. This happens the same way as regular value assignment, i.e., by using the equals sign:
 
 <!-- ```java
 public static void main(String[] args) {
@@ -1306,6 +1288,7 @@ public static void main(String[] args) {
     System.out.println("Arvosanaksi tuli " + arvostelu);
 }
 ``` -->
+
 ```java
 public static void main(String[] args) {
     Teacher teacher = new Teacher();
@@ -1330,7 +1313,7 @@ The grade received is 10
 
 <!-- Metodin paluuarvo sijoitetaan `int`-tyyppiseen muuttujaan aivan kuin mikä tahansa muukin int-arvo. Paluuarvo voi toimia myös osana mitä tahansa lauseketta: -->
 
-The method's return value is assigned to a variable of type `int` value just as any other int value would be. The return value can also be used as part of any expression.
+The method's return value is assigned to a variable of type `int` value just as any other int value would be. The return value could also be used to form part of an expression.
 
 <!-- ```java
 public static void main(String[] args) {
@@ -1343,13 +1326,14 @@ public static void main(String[] args) {
     System.out.println("Arvostelujen keskiarvo " + keskiarvo);
 }
 ``` -->
+
 ```java
 public static void main(String[] args) {
     Teacher first = new Teacher();
     Teacher second = new Teacher();
     Teacher third = new Teacher();
 
-    double average = (first.arvostele() + second.arvostele() + third.arvostele()) / 3.0;
+    double average = (first.grade() + second.grade() + third.grade()) / 3.0;
 
     System.out.println("Grading average " + average);
 }
@@ -1369,7 +1353,7 @@ Grading average 10.0
 
 <!-- Kaikki tähän mennessä näkemämme muuttujatyypit voidaan myös palauttaa metodista. Yhteenveto: -->
 
-All the variables we've encountered so far can also be returned by a method. A summary:
+All the variables we've encountered so far can also be returned by a method. To sum:
 
 <!-- - Metodilla, joka ei palauta mitään, on `void`-määre palautettavan muuttujan tyyppinä.
 ```java
@@ -1378,7 +1362,7 @@ public void metodiJokaEiPalautaMitaan() {
 }
 ``` -->
 
-- A method that doesn't return anything has the `void` modifier as the type of variable to be returned.
+- A method that returns nothing has the `void` modifier as the type of variable to be returned.
 
 ```java
 public void methodThatReturnsNothing() {
@@ -1415,6 +1399,7 @@ public int methodThatReturnsAString() {
     // the method body, requires a return statement
 }
 ```
+
 <!--
 - Metodilla, joka palauttaa liukulukutyyppisen muuttujan, on `double`-määre palautettavan muuttujan tyyppinä.
 ```java
@@ -1423,17 +1408,17 @@ public double metodiJokaPalauttaaLiukuluvun() {
 }
 ``` -->
 
-- A method that returns a floating-point number has the `double` modifier as the type of the variable to be returned.
+- A method that returns a double-precision number has the `double` modifier as the type of the variable to be returned.
 
 ```java
-public double methodThatReturnsAFloat() {
+public double methodThatReturnsADouble() {
     // the method body, requires a return statement
 }
 ```
 
 <!-- Jatketaan nyt henkilön parissa ja lisätään henkilölle iän palauttava metodi `palautaIka`. -->
-Let's continue with the Person and add a method to return an age called `returnAge`.
 
+Let's continue with the Person class and add a `returnAge` method that returns the person's age.
 
 <!-- ```java
 
@@ -1490,6 +1475,7 @@ public class Person {
 ```
 
 <!-- Luokka kokonaisuudessaan: -->
+
 The class in its entirety:
 
 <img src="../img/diagrams/part4.1-classdiagram-person-name-age-constructor-print-grow-return.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(String);+tulostaHenkilo():void;+vanhene():void;+palautaIka():int]">
@@ -1519,6 +1505,7 @@ public class Main {
     }
 }
 ``` -->
+
 ```java
 public class Main {
 
@@ -1532,7 +1519,7 @@ public class Main {
         antti.growOlder();
 
         System.out.println("Pekka's age: " + pekka.returnAge());
-        System.out.println("Antti's age: " + antti.returnA
+        System.out.println("Antti's age: " + antti.returnAge())
         int combined = pekka.returnAge() + antti.returnAge();
 
         System.out.println("Pekka's and Antti's combined age " + combined + " years");
@@ -1558,9 +1545,7 @@ Pekka's and Antti's combined age 3 years
 
 </sample-output>
 
-
 <quiz id='518e4a90-d954-50dd-a8a0-bd14da4331e6'></quiz>
-
 
 <!-- <programming-exercise name='Musiikkikappale' tmcname='osa04-Osa04_10.Musiikkikappale'> -->
 <programming-exercise name='Music song' tmcname='part04-Part04_10.MusicSong'>
@@ -1572,6 +1557,7 @@ Luokan tulee toimia seuraavasti. -->
 Create a class called `Song`. The song has the instance variables `name` (string) and `length` in seconds (integer). Both are set in the `public Song(String name, int length)` constructor. Also, add to the object the methods `public String name()`, which returns the name of the song, and `public int length()`, which returns the length of the song.
 
 The class should work as follows.
+
 <!--
 ```java
 Musiikkikappale garden = new Musiikkikappale("In The Garden", 10910);
@@ -1591,13 +1577,13 @@ The song In The Garden has a length of 10910 seconds.
 
 </programming-exercise>
 
-
 <!-- <programming-exercise name='Elokuva' tmcname='osa04-Osa04_11.Elokuva'> -->
 <programming-exercise name='Film' tmcname='part04-Part04_11.Film'>
 
 <!-- Luo luokka Elokuva, jolla on oliomuuttujat `nimi` (String) ja `ikaraja` (int). Tee luokalle konstruktori `public Elokuva(String elokuvanNimi, int elokuvanIkaraja)` sekä metodit `public String nimi()` ja `public int ikaraja()`. Ensimmäinen palauttaa elokuvan nimen ja toinen elokuvan ikärajan.
 
 Esimerkki luokan käytöstä. -->
+
 Create a film class with the instance variables `name` (String) and `ageRating` (int). Write the constructor `public Film(String filmName, int filmAgeRating)` for the class, and also the methods `public String name()` and `public int ageRating()`. The first of these returns the film title and the second returns its rating.
 
 Below is an example use case of the class.
@@ -1653,14 +1639,13 @@ You may not watch the film Alvin and the Chipmunks: The Squeakquel
 
 </programming-exercise>
 
-
 <!-- Kuten aiemmin huomasimme, metodit voivat sisältää lähdekoodia aivan samalla tavalla kuin muutkin ohjelmamme osat. Metodeissa voi olla ehtolauseita tai toistolauseita, ja metodeista voi kutsua myös muita metodeja.
 
 Tehdään seuraavaksi henkilölle metodi, jonka avulla voidaan selvittää onko henkilö täysi-ikäinen. Metodi palauttaa totuusarvon -- joko `true` tai `false`: -->
 
-As we noticed earlier on, methods can contain source code in the same way as other parts of our program. Methods can have conditionals or loops, and other methods can also be called from them.
+As we came to notice, methods can contain source code in the same way as other parts of our program. Methods can have conditionals or loops, and other methods can also be called from them.
 
-Next, let's write a method for the person to determine if the person is of legal age. The method returns a boolean - either `true` or `false`:
+Let's now write a method for the person that determines if the person is of legal age. The method returns a boolean - either `true` or `false`:
 
 <!-- ```java
 public class Henkilo {
@@ -1683,6 +1668,7 @@ public class Henkilo {
     */
 }
 ``` -->
+
 ```java
 public class Person {
     // ...
@@ -1706,6 +1692,7 @@ public class Person {
 ```
 
 <!-- Ja testataan: -->
+
 And let's test it out:
 
 <!-- ```java
@@ -1740,6 +1727,7 @@ public static void main(String[] args) {
     }
 }
 ``` -->
+
 ```java
 public static void main(String[] args) {
     Person pekka = new Person("Pekka");
@@ -1780,8 +1768,6 @@ täysi-ikäinen: Pekka, ikä 30 vuotta
 
 </sample-output> -->
 
-
-
 <sample-output>
 
 underage: Antti, age 1 years
@@ -1791,8 +1777,7 @@ of legal age: Pekka, age 30 years
 
 <!-- Viritellään ratkaisua vielä hiukan. Nyt henkilön pystyy "tulostamaan" ainoastaan siten, että nimen lisäksi tulostuu ikä. On tilanteita, joissa haluamme tietoon pelkän olion nimen. Eli tehdään tarkoitusta varten oma metodi: -->
 
-Let's fine-tune the solution a tad more. Currently, a person can only be "printed" in a way that includes both the name and the age. Situations exist, however, where we only want to know the name of an object. Let's write a separate method for this use case:
-
+Let's fine-tune the solution a bit more. In its current form, a person can only be "printed" in a way that includes both the name and the age. Situations exist, however, where we may only want to know the name of an object. Let's write a separate method for this use case:
 
 <!-- ```java
 public class Henkilo {
@@ -1890,7 +1875,6 @@ public static void main(String[] args) {
 
 The print output is starting to turn out quit neat:
 
-
 <!-- <sample-output>
 
 Antti on alaikäinen
@@ -1904,7 +1888,6 @@ Antti is underage
 Pekka is of legal age
 
 </sample-output>
-
 
 <!-- <programming-exercise name='Mittari' tmcname='osa04-Osa04_12.Mittari'> -->
 <programming-exercise name='Gauge' tmcname='part04-Part04_12.Gauge'>
@@ -1940,6 +1923,7 @@ m.vahenna();
 System.out.println("Ei täynnä! Mitta: " + m.mitta());
 
 ``` -->
+
 ```java
 Gauge g = new Gauge();
 
@@ -1980,15 +1964,13 @@ Not full! Value: 4
 
 </programming-exercise>
 
-
-
 <!-- ## Olion merkkijonoesitys ja toString-metodi -->
+
 ## A string representation of an object and the toString-method
 
 <!-- Olemme syyllistyneet osittain huonoon ohjelmointityyliin tekemällä metodin jonka avulla olio tulostetaan, eli metodin `tulostaHenkilo`. Suositeltavampi tapa on määritellä oliolle metodi jonka palauttaa olion "merkkijonoesityksen". Merkkijonoesityksen palauttavan metodin nimi on Javassa aina `toString`. Määritellään seuraavassa henkilölle tämä metodi: -->
 
 We are guilty of programming in a somewhat poor style by creating a method for printing the object, i.e., the `printPerson` method. A preferred way is to define a method for the object that returns a "string representation" of the object. The method returning the string representation is always `toString` in Java. Let's define this method for the person in the following example:
-
 
 <!-- ```java
 public class Henkilo {
@@ -1999,6 +1981,7 @@ public class Henkilo {
     }
 }
 ``` -->
+
 ```java
 public class Person {
     // ...
@@ -2051,6 +2034,7 @@ public static void main(String[] args) {
     System.out.println(pekka); // sama kun System.out.println(pekka.toString());
 }
 ``` -->
+
 ```java
 public static void main(String[] args) {
     Person pekka = new Person("Pekka");
@@ -2078,8 +2062,8 @@ System.out.println(antti);
 ```
 
 <!-- Java täydentää suorituksen aikana kutsun muotoon: -->
-Java extends the call at run time to the following form:
 
+Java extends the call at run time to the following form:
 
 ```java
 System.out.println(antti.toString());
@@ -2091,7 +2075,6 @@ Voimme nyt poistaa luokasta Henkilo turhaksi käyneen `tulostaHenkilo`-metodin.
 
 Olioscreencastin toinen osa: -->
 
-
 As such, the call `System.out.println(antti)` calls the `toString` method of the `antti` object and prints the string returned by it.
 
 We can remove the now obsolete `printPerson` method from the Person class.
@@ -2102,13 +2085,14 @@ The second part of the screencast:
 
 &nbsp;
 
-
 <!-- <programming-exercise name='Agentti' tmcname='osa04-Osa04_13.Agentti'>**** -->
 
 <programming-exercise name='Agent' tmcname='part04-Part04_13.Agent'>
 
 <!-- Tehtäväpohjassa on määriteltynä luokka Agentti, jolla on etunimi ja sukunimi. Luokalle on määritelty metodi `tulosta`, joka luo seuraavanlaisen merkkijonoesityksen. -->
+
 The exercise template defines an Agent class, having a first name and last name. A `print` method is defined for the class that creates the following string representation.
+
 <!--
 ```java
 Agentti bond = new Agentti("James", "Bond");
@@ -2143,6 +2127,7 @@ System.out.println(bond);
 Agentti ionic = new Agentti("Ionic", "Bond");
 System.out.println(ionic);
 ``` -->
+
 ```java
 Agent bond = new Agent("James", "Bond");
 
@@ -2162,15 +2147,13 @@ My name is Bond, Ionic Bond
 
 </programming-exercise>
 
-
 <!-- ## Metodin parametrit -->
-## Method parameters
 
+## Method parameters
 
 <!-- Jatketaan taas `Henkilo`-luokan parissa. Päätetään että haluamme laskea henkilöiden painoindeksejä. Tätä varten teemme henkilölle metodit pituuden ja painon asettamista varten, sekä metodin joka laskee painoindeksin. Henkilön uudet ja muuttuneet osat seuraavassa: -->
 
 Let's continue with the `Person` class once more. We've decided that we want to calculate people's body mass indexes. To do this, we write methods for the person to set both the height and the weight, and also a method to calculate the body mass index. The new and changed parts of the Person object are as follows:
-
 
 <!-- ```java
 public class Henkilo {
@@ -2234,11 +2217,9 @@ public class Person {
 }
 ```
 
-
 <!-- Eli henkilölle lisättiin oliomuuttujat `pituus` ja `paino`. Näille voi asettaa arvon metodeilla `setPituus` ja `setPaino`. Jälleen käytössä Javaan vakiintunut nimeämiskäytäntö, eli jos metodin tehtävänä on ainoastaan asettaa arvo oliomuuttujaan, on metodi tapana nimetä `setMuuttujanNimi`:ksi. Arvon asettavia metodeja kutsutaan usein "settereiksi". Seuraavassa käytämme uusia metodeja: -->
 
-The instance variables `height` and` weight` were added to the person. Values for these can be set using the `setHeight` and `setWeight` methods. Java's standard naming convention is used once again, that is, if the method's only purpose is to set a value to an instance variable, then it's named as `setVariableName`. Value-setting methods are often called "setters". The new methods are put to use in  the following case:
-
+The instance variables `height` and`weight` were added to the person. Values for these can be set using the `setHeight` and `setWeight` methods. Java's standard naming convention is used once again, that is, if the method's only purpose is to set a value to an instance variable, then it's named as `setVariableName`. Value-setting methods are often called "setters". The new methods are put to use in the following case:
 
 <!-- ```java
 public static void main(String[] args) {
@@ -2255,6 +2236,7 @@ public static void main(String[] args) {
     System.out.println(juhana.getNimi() + ", painoindeksisi on " + juhana.painoindeksi());
 }
 ``` -->
+
 ```java
 public static void main(String[] args) {
     Person matti = new Person("Matti");
@@ -2272,6 +2254,7 @@ public static void main(String[] args) {
 ```
 
 <!-- Tulostus: -->
+
 Prints:
 
 <!-- <sample-output>
@@ -2288,9 +2271,10 @@ Juhana, body mass index is 20.897959183673468
 
 </sample-output>
 
-
 <!-- ## Parametrilla ja oliomuuttujalla sama nimi! -->
+
 ## A parameter and instance variable having the same name!
+
 <!--
 Edellä metodissa `setPituus` asetetaan oliomuuttujaan `pituus` parametrin `uusiPituus` arvo: -->
 
@@ -2301,6 +2285,7 @@ public void setPituus(int uusiPituus) {
     this.pituus = uusiPituus;
 }
 ``` -->
+
 ```java
 public void setHeight(int newHeight) {
     this.height = newHeight;
@@ -2308,14 +2293,15 @@ public void setHeight(int newHeight) {
 ```
 
 <!-- Parametrin nimi voisi olla myös sama kuin oliomuuttujan nimi, eli seuraava toimisi myös: -->
-The parameter's name could also be the same as the instance variable's, so the following would also work:
 
+The parameter's name could also be the same as the instance variable's, so the following would also work:
 
 <!-- ```java
 public void setPituus(int pituus) {
     this.pituus = pituus;
 }
 ``` -->
+
 ```java
 public void setHeight(int height) {
     this.height = height;
@@ -2324,7 +2310,7 @@ public void setHeight(int height) {
 
 <!-- Nyt metodissa `pituus` tarkottaa nimenomaan *pituus*-nimistä parametria ja `this.pituus` saman nimistä oliomuuttujaa. Esim. seuraava ei toimisi sillä koodi ei viittaa ollenkaan oliomuuttujaan *pituus* -- koodi käytännössä asettaa parametrina saadulle `pituus`-muuttujalle siinä jo olevan arvon: -->
 
-In this case, `height` in the method refers specifically to a parameter named *height* and `this.height` to an instance variable of the same name. For example, the following example would not work as the code does not refer to the instance variable *height* at all. What the code does in effect is set the `height` variable received as a parameter to the value it already contains:
+In this case, `height` in the method refers specifically to a parameter named _height_ and `this.height` to an instance variable of the same name. For example, the following example would not work as the code does not refer to the instance variable _height_ at all. What the code does in effect is set the `height` variable received as a parameter to the value it already contains:
 
 <!-- ```java
 public void setPituus(int pituus) {
@@ -2339,6 +2325,7 @@ public void setPituus(int pituus) {
     this.pituus = pituus;
 }
 ``` -->
+
 ```java
 public void setHeight(int height) {
     // DON'T DO THIS!!!
@@ -2352,7 +2339,6 @@ public void setHeight(int height) {
     this.height = height;
 }
 ```
-
 
 <!-- <programming-exercise name='Kertoja' tmcname='osa04-Osa04_14.Kertoja'> -->
 <programming-exercise name='Multiplier' tmcname='part04-Part04_14.Multiplier'>
@@ -2386,6 +2372,7 @@ System.out.println("neljallaKertoja.kerro(2): " + neljallaKertoja.kerro(2));
 System.out.println("kolmellaKertoja.kerro(1): " + kolmellaKertoja.kerro(1));
 System.out.println("neljallaKertoja.kerro(1): " + neljallaKertoja.kerro(1));
 ``` -->
+
 ```java
 Multiplier multiplyByThree = new Multiplier(3);
 
@@ -2399,6 +2386,7 @@ System.out.println("multiplyByFour.multiply(1): " + multiplyByFour.multiply(1));
 ```
 
 <!-- Tulostus -->
+
 Output
 
 <!-- <sample-output>
@@ -2412,7 +2400,6 @@ neljallaKertoja.kerro(1): 4
 
 <sample-output>
 
-
 multiplyByThree.multiply(2): 6
 multiplyByFour.multiply(2): 8
 multiplyByThree.multiply(1): 3
@@ -2422,13 +2409,14 @@ multiplyByFour.multiply(1): 4
 
 </programming-exercise>
 
-
 <!-- ## Oman metodin kutsu -->
+
 ## Calling an internal method
 
 <!-- Olio voi kutsua myös omia metodeitaan. Jos esim. halutaan, että toString-metodin palauttama merkkijonoesitys kertoisi myös henkilön painoindeksin, kannattaa `toString`:istä kutsua olion omaa metodia `painoIndeksi`: -->
 
 The object may also call its methods. For example, if we wanted the string representation returned by toString to also tell of a person's body mass index, the object's own `bodyMassIndex` method should be called in the `toString` method:
+
 <!--
 ```java
 public String toString() {
@@ -2443,6 +2431,7 @@ public String toString() {
 ```
 
 <!-- Eli kun olio kutsuu omaa metodiaan, riittää etuliite this ja pelkkä metodin nimi. Vaihtoehtoinen tapa on tehdä oman metodin kutsu muodossa `painoindeksi()` jolloin ei korosteta, että kutsutaan "olion itsensä" metodia painoindeksi: -->
+
 So, when an object calls an internal method, the name of the method and this prefix suffice. An alternative way is to call the object's own method in the form `bodyMassIndex()`, whereby no emphasis is placed on the fact that the object's own bodyMassIndex method is being called:
 
 <!-- ```java
@@ -2450,6 +2439,7 @@ public String toString() {
     return this.nimi + ", ikä " + this.ika + " vuotta, painoindeksini on " + painoindeksi();
 }
 ``` -->
+
 ```java
 public String toString() {
     return this.name + ", age " + this.age + " years, my body mass index is " + bodyMassIndex();
@@ -2457,12 +2447,12 @@ public String toString() {
 ```
 
 <!-- Olioscreencastin kolmas osa: -->
+
 The screencast's third part:
 
 <youtube id='YKwzIGuCLn8'></youtube>
 
 &nbsp;
-
 
 <!-- <programming-exercise name='Lukutilasto (4 osaa)' tmcname='osa04-Osa04_15.Lukutilasto'> -->
 <programming-exercise name='Statistics (4 parts)' tmcname='part04-Part04_15.NumberStatistics'>
@@ -2487,6 +2477,7 @@ Create a class `Statistics` that has the following functionality(the file for th
 The class does not need to store the added numbers anywhere, it is enough for it to remember their count. At this stage, the `addNumber` method can even neglect the numbers being added to the statistics, since the only thing being stored is the count of numbers added.
 
 The method's body is the following:
+
 <!--
 ```java
 public class Lukutilasto {
@@ -2525,6 +2516,7 @@ public class Statistics {
 ```
 
 <!-- Seuraava ohjelma esittelee luokan käyttöä: -->
+
 The following program introduces the class' use:
 
 <!-- ```java
@@ -2554,6 +2546,7 @@ public class MainProgram {
 ```
 
 <!-- Ohjelman tulostus on seuraava: -->
+
 The program prints the following:
 
 <!-- <sample-output>
@@ -2568,7 +2561,6 @@ Count: 4
 
 </sample-output>
 
-
 <!-- <h2>Summa ja keskiarvo</h2> -->
 <h2>Sum and average</h2>
 
@@ -2578,6 +2570,7 @@ Count: 4
 - metodi `keskiarvo` kertoo lisättyjen lukujen keskiarvon (tyhjän lukutilaston keskiarvo on 0)
 
 Luokan runko on seuraava: -->
+
 Expand the class with the following functionality:
 
 - the `sum` method tells the sum of the numbers added (the sum of an empty number statistics object is 0)
@@ -2611,6 +2604,7 @@ public class Lukutilasto {
     }
 }
 ``` -->
+
 ```java
 public class Statistics {
     private int count;
@@ -2639,6 +2633,7 @@ public class Statistics {
 ```
 
 <!-- Seuraava ohjelma esittelee luokan käyttöä: -->
+
 The following program demonstrates the class' use:
 
 <!-- ```java
@@ -2672,6 +2667,7 @@ public class Main {
 ```
 
 <!-- Ohjelman tulostus on seuraava: -->
+
 The program prints the following:
 
 <!-- <sample-output>
@@ -2688,19 +2684,17 @@ Count: 4
 Sum: 11
 Average: 2.75
 
-
 </sample-output>
-
 
 <!-- <h2>Summa käyttäjältä</h2> -->
 <h2>Sum of user input</h2>
-
 
 <!-- Tee ohjelma, joka kysyy lukuja käyttäjältä, kunnes käyttäjä antaa luvun -1. Sitten ohjelma ilmoittaa lukujen summan.
 
 Ohjelmassa tulee käyttää `Lukutilasto`-olioa summan laskemiseen.
 
 **HUOM:** Älä muuta tässä osassa luokka Lukutilasto, vaan toteuta sitä hyödyntäen summan laskemiseen käytetty ohjelma. -->
+
 Write a program that asks the user for numbers until the user enters -1. The program will then provide the sum of the numbers.
 
 The program should use a `NumberStatistics` object to calculate the sum.
@@ -2731,7 +2725,6 @@ Sum: 15
 
 </sample-output>
 
-
 <!-- <h2>Monta summaa</h2> -->
 <h2>Multiple sums</h2>
 
@@ -2744,16 +2737,16 @@ Sum: 15
 **HUOM:** älä muuta Lukutilasto-luokaa millään tavalla!
 
 Ohjelman tulee toimia seuraavasti: -->
+
 Change the previous program so that it also calculates the sum of even and odd numbers.
 
-**NOTE**: Define *three* Statistics objects in the program. Use the first to calculate the sum of all numbers, the second to calculate the sum of even numbers, and the third to calculate the sum of odd numbers.
+**NOTE**: Define _three_ Statistics objects in the program. Use the first to calculate the sum of all numbers, the second to calculate the sum of even numbers, and the third to calculate the sum of odd numbers.
 
 **For the test to work, the objects must be created in the main program in the order they were mentioned above (i.e., first the object that sums all the numbers, then the one that sums the even ones, and then finally the one that sums the odd numbers)!**
 
 **NOTE:** Do not change the Statistics class in any way!
 
 The program should work as follows:
-
 
 <!-- Anna lukuja:
 **4**
@@ -2783,19 +2776,18 @@ Sum of odd numbers: 5
 
 </programming-exercise>
 
-
-
 <!-- <programming-exercise name='Maksukortti (6 osaa)' tmcname='osa04-Osa04_16.Maksukortti'> -->
 <programming-exercise name='Payment Card (6 parts)' tmcname='part04-Part04_16.PaymentCard'>
 
 <!-- Helsingin Yliopiston opiskelijaruokaloissa eli Unicafeissa opiskelijat maksavat lounaansa käyttäen maksukorttia. Lopullinen Maksukortti tulee näyttämään luokkakaaviona seuraavalta: -->
+
 At the University of Helsinki student canteen, i.e. Unicafe, students pay for their lunch using a payment card. The final PaymentCard will look like the following as a class diagram:
 
 <img src="../img/diagrams/part4.1-classdiagram-ex-paymentCard.png" alt="[Maksukortti|-saldo:double|+Maksukortti(double);+syoEdullisesti():void;+syoMaukkaasti():void;+lataaRahaa(double):void;+toString():String]">
 
 <!-- Tässä tehtäväsäsarjassa tehdään luokka `Maksukortti`, jonka tarkoituksena on jäljitellä Unicafeissa tapahtuvaa maksutoimintaa. -->
-In this exercise series, a class called `PaymentCard` is created which aims to mimic Unicafe's payment process
 
+In this exercise series, a class called `PaymentCard` is created which aims to mimic Unicafe's payment process
 
 <!-- <h2>Luokan runko</h2> -->
 <h2>The class template</h2>
@@ -2814,7 +2806,7 @@ The project will include two code files:
 
 The exercise template comes with a code file called `Main`, which contains the `main` method.
 
-Add a new class to the project called `PaymentCard`. Here's how to add a new class: On the left side of the screen is the list of projects. Right-click on the project name. Select *New* and *Java Class* from the drop-down menu. Name the class as "Payment Card".
+Add a new class to the project called `PaymentCard`. Here's how to add a new class: On the left side of the screen is the list of projects. Right-click on the project name. Select _New_ and _Java Class_ from the drop-down menu. Name the class as "Payment Card".
 
 First, create the `PaymentCard` object's constructor, which is passed the opening balance of the card, and which then stores that balance in the object's internal variable. Then, write the `toString` method, which will return the card's balance in the form "The card has a balance of X euros".
 
@@ -2833,6 +2825,7 @@ public class Maksukortti {
     }
 }
 ``` -->
+
 ```java
 public class PaymentCard {
     private double balance;
@@ -2848,6 +2841,7 @@ public class PaymentCard {
 ```
 
 <!-- Seuraava pääohjelma testaa luokkaa: -->
+
 The following main program tests the class:
 
 <!-- ```java
@@ -2858,6 +2852,7 @@ public class Paaohjelma {
     }
 }
 ``` -->
+
 ```java
 public class MainProgram {
     public static void main(String[] args) {
@@ -2883,14 +2878,13 @@ The card has a balance of 50.0 euros
 
 </sample-output>
 
-
 <!-- <h2>Kortilla maksaminen</h2> -->
 <h2>Making transactions</h2>
 
 <!--
 Täydennä `Maksukortti`-luokkaa seuraavilla metodeilla: -->
-Complement the `PaymentCard` class with the follwing methods:
 
+Complement the `PaymentCard` class with the follwing methods:
 
 <!-- ```java
 public void syoEdullisesti() {
@@ -2901,6 +2895,7 @@ public void syoMaukkaasti() {
     // kirjoita koodia tähän
 }
 ``` -->
+
 ```java
 public void eatAffordably() {
     // write code here
@@ -2914,7 +2909,8 @@ public void eatHeartily() {
 <!-- Metodin `syoEdullisesti` tulisi vähentää kortin saldoa 2.60 eurolla ja metodin `syoMaukkaasti` tulisi vähentää kortin saldoa 4.60 eurolla.
 
 Seuraava pääohjelma testaa luokkaa: -->
-The method `eatAffordably` should reduce the card's balance by € 2.60,  and the method `eatHeartily` should reduce the card's balance by € 4.60.
+
+The method `eatAffordably` should reduce the card's balance by € 2.60, and the method `eatHeartily` should reduce the card's balance by € 4.60.
 
 The following main program tests the class:
 
@@ -2933,6 +2929,7 @@ public class Paaohjelma {
     }
 }
 ``` -->
+
 ```java
 public class MainProgram {
     public static void main(String[] args) {
@@ -2950,6 +2947,7 @@ public class MainProgram {
 ```
 
 <!-- Ohjelman tulisi tuottaa kutakuinkin seuraava tulostus: -->
+
 The program should print approximately the following:
 
 <!-- <sample-output>
@@ -2968,13 +2966,13 @@ The card has a balance of 40.199999999999996 euros
 
 </sample-output>
 
-
 <!-- <h2>Ei-negatiivinen saldo</h2> -->
 <h2>Non-negative balance</h2>
 
 <!-- Mitä tapahtuu, jos kortilta loppuu raha kesken? Ei ole järkevää, että saldo muuttuu negatiiviseksi. Muuta metodeita `syoEdullisesti` ja `syoMaukkaasti` niin, että ne eivät vähennä saldoa, jos saldo menisi negatiiviseksi.
 
 Seuraava pääohjelma testaa luokkaa: -->
+
 What happens if the card runs out of money? It doesn't make sense in this case for the balance to turn negative. Change the methods `eatAffordably` and `eatHeartily` so that they don't reduce the balance should it turn negative.
 
 The following main program tests the class:
@@ -2992,6 +2990,7 @@ public class Paaohjelma {
         System.out.println(kortti);
     }
 } -->
+
 ```java
 public class MainProgram {
     public static void main(String[] args) {
@@ -3008,6 +3007,7 @@ public class MainProgram {
 ```
 
 <!-- Ohjelman tulisi tuottaa seuraava tulostus: -->
+
 The program should print the following:
 
 <!-- <sample-output>
@@ -3027,12 +3027,14 @@ The card has a balance 0.40000000000000036 euros
 </sample-output>
 
 <!-- Yllä toinen metodin `syoMaukkaasti` kutsu ei vaikuttanut saldoon, koska saldo olisi mennyt negatiiviseksi. -->
+
 The second call to the method `eatHeartily` above did not affect the balance, since the balance would have otherwise become negative.
 
 <!-- <h2>Kortin lataaminen</h2> -->
 <h2>Topping up the card</h2>
 
 <!-- Lisää `Maksukortti`-luokkaan seuraava metodi: -->
+
 Add the following method to the `PaymentCard` class:
 
 <!-- ```java
@@ -3040,6 +3042,7 @@ public void lataaRahaa(double rahamaara) {
     // kirjoita koodia tähän
 }
 ``` -->
+
 ```java
 public void addMoney(double amount) {
     // write code here
@@ -3049,10 +3052,10 @@ public void addMoney(double amount) {
 <!-- Metodin tarkoituksena on kasvattaa kortin saldoa parametrina annetulla rahamäärällä. Kuitenkin kortin saldo saa olla korkeintaan 150 euroa, joten jos ladattava rahamäärä ylittäisi sen, saldoksi tulisi tulla silti tasan 150 euroa.
 
 Seuraava pääohjelma testaa luokkaa: -->
+
 The purpose of the method is to increase the card's balance by the amount of money given as a parameter. However, the card's balance may not exceed 150 euros. As such, if the amount to be topped up exceeds this limit, the balance should, in any case, become exactly 150 euros.
 
 The following main program tests the class:
-
 
 <!-- ```java
 public class Paaohjelma {
@@ -3071,6 +3074,7 @@ public class Paaohjelma {
     }
 }
 ``` -->
+
 ```java
 public class MainProgram {
     public static void main(String[] args) {
@@ -3090,6 +3094,7 @@ public class MainProgram {
 ```
 
 <!-- Ohjelman tulisi tuottaa seuraava tulostus: -->
+
 The program should print the following:
 
 <!-- <sample-output>
@@ -3110,13 +3115,13 @@ The card has a balance of 150.0 euros
 
 </sample-output>
 
-
 <!-- <h2>Kortin lataus negatiivisella arvolla</h2> -->
 <h2>Topping up the card with a negative value</h2>
 
 <!-- Muuta metodia `lataaRahaa` vielä siten, että jos yritetään ladata negatiivinen rahamäärä, ei kortilla oleva arvo muutu.
 
 Seuraava pääohjelma testaa luokkaa: -->
+
 Change the `addMoney` method further, so that if there is an attempt to top it up with a negative amount, the value on the card will not change.
 
 The following main program tests the class:
@@ -3131,6 +3136,7 @@ public class Paaohjelma {
     }
 }
 ``` -->
+
 ```java
 public class MainProgram {
     public static void main(String[] args) {
@@ -3160,10 +3166,8 @@ Paul: The card has a balance of 10.0 euros
 
 </sample-output>
 
-
 <!-- <h2>Monta korttia</h -->
 <h2>Multiple cards</h2>
-
 
 <!-- Tee luokan `Paaohjelma` `main`-metodiin koodi, joka sisältää seuraavan tapahtumasarjan:
 
@@ -3182,6 +3186,7 @@ Paul: The card has a balance of 10.0 euros
 
 
 Pääohjelman runko on seuraava: -->
+
 Write code in the `main` method of the `MainProgram` class that contains the following sequence of events:
 
 - Create Paul's card. The opening balance of the card is 20 euros
@@ -3209,6 +3214,7 @@ public class Main {
     }
 }
 ``` -->
+
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -3221,6 +3227,7 @@ public class Main {
 ```
 
 <!-- Ohjelman tulisi tuottaa seuraava tulostus: -->
+
 The program should produce the following print output:
 
 <!-- <sample-output>
@@ -3246,7 +3253,6 @@ Matt: The card has a balance of 72.8 euros
 </sample-output>
 
 </programming-exercise>
-
 
 <!-- <text-box variant='hint' name='Pyöristysvirheet'> -->
 <text-box variant='hint' name='Rounding errors'>
