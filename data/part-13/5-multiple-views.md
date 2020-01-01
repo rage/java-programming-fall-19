@@ -6,20 +6,28 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-- Harjoittelet useamman näkymän lisäämistä graafiseen käyttöliittymään.
+<!-- - Harjoittelet useamman näkymän lisäämistä graafiseen käyttöliittymään.
 - Tunnet näkymän vaihtamiseen käytettäviä menetelmiä.
-- Tunnet menetelmiä sovelluslogiikan ja käyttöliittymälogiikan eriyttämiseen.
+- Tunnet menetelmiä sovelluslogiikan ja käyttöliittymälogiikan eriyttämiseen. -->
+- You've adding multiple views to a graphical user interface.
+- You're aware of methods for switching views.
+- You're aware of methods for isolating application and user interface logic.
 
 </text-box>
 
-
+<!--
 Tähän mennessä toteuttamamme graafiset käyttöliittymät ovat sisältäneet aina yhden näkymän. Tutustutaan seuraavaksi useampia näkymiä sisältäviin käyttöliittymiin.
 
 
-Yleisesti ottaen näkymät luodaan Scene-olion avulla, joiden välillä siirtyminen tapahtuu sovellukseen kytkettyjen tapahtumien avulla. Alla olevassa esimerkissä on luotu kaksi erillistä Scene-oliota, joista kummallakin on oma sisältö sekä sisältöön liittyvä tapahtuma. Alla Scene-olioihin ei ole erikseen liitetty käyttöliittymän asetteluun käytettyä komponenttia (esim. BorderPane), vaan kummassakin Scene-oliossa on täsmälleen yksi käyttöliittymäkomponentti.
+Yleisesti ottaen näkymät luodaan Scene-olion avulla, joiden välillä siirtyminen tapahtuu sovellukseen kytkettyjen tapahtumien avulla. Alla olevassa esimerkissä on luotu kaksi erillistä Scene-oliota, joista kummallakin on oma sisältö sekä sisältöön liittyvä tapahtuma. Alla Scene-olioihin ei ole erikseen liitetty käyttöliittymän asetteluun käytettyä komponenttia (esim. BorderPane), vaan kummassakin Scene-oliossa on täsmälleen yksi käyttöliittymäkomponentti. -->
+
+The graphical user interfaces we've implemented so far have all contained a single view (scene). We'll now become familiar with interfaces that contain multiple scenes.
+
+ Views are generally created using the Scene object, and switching between them happens through events baked into the application. Two Scene objects have been created in the example below, each of which has its own content and an event related to that content. Components used for layouts, such as BorderPane, have not been attached to these Scene objects. Instead, each Scene object has a single user interface component.
 
 
-```java
+
+<!-- ```java
 package sovellus;
 
 import javafx.application.Application;
@@ -54,11 +62,47 @@ public class EdesTakaisinSovellus extends Application {
       launch(EdesTakaisinSovellus.class);
   }
 }
+``` -->
+```java
+package application;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+
+public class BackAndForthApplication extends Application {
+
+  @Override
+  public void start(Stage window) {
+
+      Button forth = new Button("Forth ..");
+      Button back = new Button(".. back.");
+
+      Scene first = new Scene(forth);
+      Scene second = new Scene(back);
+
+      forth.setOnAction((event) -> {
+          window.setScene(second);
+      });
+
+      back.setOnAction((event) -> {
+          window.setScene(first);
+      });
+
+      window.setScene(first);
+      window.show();
+  }
+
+  public static void main(String[] args) {
+      launch(BackAndForthApplication.class);
+  }
+}
 ```
 
 
-Edellä olevan sovelluksen käynnistäminen luo käyttöliittymän, jossa siirtyminen näkymästä toiseen onnistuu nappia painamalla.
-
+<!-- Edellä olevan sovelluksen käynnistäminen luo käyttöliittymän, jossa siirtyminen näkymästä toiseen onnistuu nappia painamalla. -->
+Launching the application above creates an interface where you can switch between views by pressing a button.
 
 <!-- <programming-exercise name='Useampi Näkymä' tmcname='osa13-Osa13_09.UseampiNakyma'> -->
 
@@ -87,19 +131,24 @@ When first started, the program should display the first view.
 </programming-exercise>
 
 
-## Oma asettelu jokaista näkymää varten
+<!-- ## Oma asettelu jokaista näkymää varten -->
+## A Layout For Each View
 
+<!--
+Tutustutaan seuraavaksi kaksi erillistä näkymää sisältävään esimerkkiin. Ensimmäisessä näkymässä käyttäjää pyydetään syöttämään salasana. Jos käyttäjä kirjoittaa väärän salasanan, väärästä salasanasta ilmoitetaan. Jos käyttäjä kirjoittaa oikean salasanan, ohjelma vaihtaa seuraavaan näkymään. Ohjelman toiminta on seuraavanlainen. -->
 
-Tutustutaan seuraavaksi kaksi erillistä näkymää sisältävään esimerkkiin. Ensimmäisessä näkymässä käyttäjää pyydetään syöttämään salasana. Jos käyttäjä kirjoittaa väärän salasanan, väärästä salasanasta ilmoitetaan. Jos käyttäjä kirjoittaa oikean salasanan, ohjelma vaihtaa seuraavaan näkymään. Ohjelman toiminta on seuraavanlainen.
+Let's now look at an example that has two separate views. In the first view, the user is asked to enter a password. If the user enters the wrong password, the user will be informed of this. If the user enters the correct password, the program will switch to the next screen. Here's how the program works.
 
 
 <img src="../img/material/gui-salasana.gif" />
 
 
-Näkymien välillä vaihtaminen tapahtuu kuten edellisessä esimerkissä. Konkreettinen vaihtotapahtuma on määritelty kirjautumisnappiin. Nappia painettaessa ohjelma tarkastaa salasanakenttään kirjoitetun salasanan -- tässä toivotaan, että käyttäjä kirjoittaa "salasana". Jos salasana on oikein, ikkunan näyttämä näkymä vaihdetaan. Esimerkissämme näkymä sisältää vain tekstin "Tervetuloa, tästä se alkaa!".
+<!-- Näkymien välillä vaihtaminen tapahtuu kuten edellisessä esimerkissä. Konkreettinen vaihtotapahtuma on määritelty kirjautumisnappiin. Nappia painettaessa ohjelma tarkastaa salasanakenttään kirjoitetun salasanan -- tässä toivotaan, että käyttäjä kirjoittaa "salasana". Jos salasana on oikein, ikkunan näyttämä näkymä vaihdetaan. Esimerkissämme näkymä sisältää vain tekstin "Tervetuloa, tästä se alkaa!". -->
+
+Switching between views takes place just as in the previous example. The actual switch event has been defined in the sign-up button. When the button is pressed, the program checks the password entered in the password field -- the user is expected to type "password" here. If the password is correct, the view displayed on the window will change. In our example, the view only contains the text "Welcome, it begins here!".
 
 
-```java
+<!-- ```java
 package sovellus;
 
 import javafx.application.Application;
@@ -169,6 +218,83 @@ public class SalattuSovellus extends Application {
 
       ikkuna.setScene(salasanaNakyma);
       ikkuna.show();
+  }
+
+  public static void main(String[] args) {
+      launch(SalattuSovellus.class);
+  }
+}
+``` -->
+```java
+package application;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+public class ProtectedApplication extends Application {
+
+  @Override
+  public void start(Stage window) throws Exception {
+
+      // 1. We create a view for asking the password
+
+      // 1.1  We create the components needed
+      Label instructiontext = new Label("Enter your password and press sign in");
+      PasswordField passwordfield = new PasswordField();
+      Button startbutton = new Button("Sign in");
+      Label errortext = new Label("");
+
+      // 1.2 We create a layout and add the components to it
+      GridPane layout = new GridPane();
+
+      layout.add(instructiontext, 0, 0);
+      layout.add(passwordfield, 0, 1);
+      layout.add(startbutton, 0, 2);
+      layout.add(errortext, 0, 3);
+
+      // 1.3 Styling the layout
+      layout.setPrefSize(300, 180);
+      layout.setAlignment(Pos.CENTER);
+      layout.setVgap(10);
+      layout.setHgap(10);
+      layout.setPadding(new Insets(20, 20, 20, 20));
+
+      // 1.4 luodaan itse näkymä ja asetetaan layout siihen
+      Scene salasanaNakyma = new Scene(layout);
+
+
+      // 2. Luodaan tervetuloa-tekstin näyttämiseen käytetty näkymä
+      Label tervetuloaTeksti = new Label("Tervetuloa, tästä se alkaa!");
+
+      StackPane tervetuloaAsettelu = new StackPane();
+      tervetuloaAsettelu.setPrefSize(300, 180);
+      tervetuloaAsettelu.getChildren().add(tervetuloaTeksti);
+      tervetuloaAsettelu.setAlignment(Pos.CENTER);
+
+      Scene tervetuloaNakyma = new Scene(tervetuloaAsettelu);
+
+
+      // 3. Lisätään salasanaruudun nappiin tapahtumankäsittelijä
+      //    näkymää vaihdetaan jos salasana on oikein
+      startbutton.setOnAction((event) -> {
+          if (!passwordfield.getText().trim().equals("salasana")) {
+              errortext.setText("Tuntematon salasana!");
+              return;
+          }
+
+          window.setScene(tervetuloaNakyma);
+      });
+
+      window.setScene(salasanaNakyma);
+      window.show();
   }
 
   public static void main(String[] args) {
