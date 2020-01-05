@@ -267,38 +267,38 @@ public class ProtectedApplication extends Application {
       layout.setHgap(10);
       layout.setPadding(new Insets(20, 20, 20, 20));
 
-      // 1.4 luodaan itse näkymä ja asetetaan layout siihen
-      Scene salasanaNakyma = new Scene(layout);
+      // 1.4 Creating the view and setting the layout to it
+      Scene passwordView = new Scene(layout);
 
 
-      // 2. Luodaan tervetuloa-tekstin näyttämiseen käytetty näkymä
-      Label tervetuloaTeksti = new Label("Tervetuloa, tästä se alkaa!");
+      // 2. Creating the view for the welcome text
+      Label welcomeText = new Label("Welcome, here it begins!");
 
-      StackPane tervetuloaAsettelu = new StackPane();
-      tervetuloaAsettelu.setPrefSize(300, 180);
-      tervetuloaAsettelu.getChildren().add(tervetuloaTeksti);
-      tervetuloaAsettelu.setAlignment(Pos.CENTER);
+      StackPane welcomeLayout = new StackPane();
+      welcomeLayout.setPrefSize(300, 180);
+      welcomeLayout.getChildren().add(welcomeText);
+      welcomeLayout.setAlignment(Pos.CENTER);
 
-      Scene tervetuloaNakyma = new Scene(tervetuloaAsettelu);
+      Scene welcomeView = new Scene(welcomeLayout);
 
 
-      // 3. Lisätään salasanaruudun nappiin tapahtumankäsittelijä
-      //    näkymää vaihdetaan jos salasana on oikein
+      // 3. Adding an event handler to the button on the password screen
+      //   the view is changed if the password is correct
       startbutton.setOnAction((event) -> {
-          if (!passwordfield.getText().trim().equals("salasana")) {
-              errortext.setText("Tuntematon salasana!");
+          if (!passwordfield.getText().trim().equals("password")) {
+              errortext.setText("Unknown password!");
               return;
           }
 
-          window.setScene(tervetuloaNakyma);
+          window.setScene(welcomeView);
       });
 
-      window.setScene(salasanaNakyma);
+      window.setScene(passwordView);
       window.show();
   }
 
   public static void main(String[] args) {
-      launch(SalattuSovellus.class);
+      launch(ProtectedApplication.class);
   }
 }
 ```
@@ -306,6 +306,7 @@ public class ProtectedApplication extends Application {
 
 Esimerkissä on hyödynnetty sekä GridPanen että StackPanen asettelussa niiden tarjoamia setPrefSize ja setAlignment-metodeja. Metodilla setPrefSize annetaan asettelulle toivottu koko, ja metodilla setAlignment kerrotaan miten asettelun sisältö tulee ryhmittää. Parametrilla Pos.CENTER toivotaan asettelua näkymän keskelle.
 
+In the example, the setPrefSize and setAlignment methods offered by both the GridPane and StackPane have been utilized. The setPreSize method is given the desired size of the layout, whereas the method setAlignment is told how the content of the layout should be grouped. The parameter Pos.CENTER is used to center the layout.
 
 <!-- <programming-exercise name='Tervehtijä' tmcname='osa13-Osa13_10.Tervehtija'> -->
 
@@ -324,14 +325,19 @@ An example of how the program should work:
 </programming-exercise>
 
 
-## Sama pääasettelu näkymillä
+<!-- ## Sama pääasettelu näkymillä -->
+## Views Having The Same Primary Layout
 
-Riippuen sovelluksen käyttötarpeesta, joskus sovellukselle halutaan pysyvä näkymä, jonka osia vaihdetaan tarvittaessa. Jonkinlaisen valikon tarjoavat ohjelmat toimivat tyypillisesti tällä tavalla.
+<!-- Riippuen sovelluksen käyttötarpeesta, joskus sovellukselle halutaan pysyvä näkymä, jonka osia vaihdetaan tarvittaessa. Jonkinlaisen valikon tarjoavat ohjelmat toimivat tyypillisesti tällä tavalla.
 
-Alla olevassa esimerkissä on luotu sovellus, joka sisältää päävalikon sekä vaihtuvasisältöisen alueen. Vaihtuvasisältöisen alueen sisältö vaihtuu päävalikon nappeja painamalla.
+Alla olevassa esimerkissä on luotu sovellus, joka sisältää päävalikon sekä vaihtuvasisältöisen alueen. Vaihtuvasisältöisen alueen sisältö vaihtuu päävalikon nappeja painamalla. -->
+
+Depending on the application's use-case, you may want a permanent view for the application, whose parts are replaced when necessary. Programs that provide some sort of a menu typically function this way.
+
+The example below shows an application that has a main menu and an area whose contents vary. The content of area that contains variable content is changed by pressing the buttons on the main menu.
 
 
-```java
+<!-- ```java
 package sovellus;
 
 import javafx.application.Application;
@@ -404,12 +410,89 @@ public class EsimerkkiSovellus extends Application {
         launch(EsimerkkiSovellus.class);
     }
 }
+``` -->
+```java
+package application;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+public class ExampleApplication extends Application {
+
+    @Override
+    public void start(Stage window) throws Exception {
+
+        // 1. Creating the higher level layout
+        BorderPane layout = new BorderPane();
+
+        // 1.1. Creating the menu for the higher level's layout
+        HBox menu = new HBox();
+        menu.setPadding(new Insets(20, 20, 20, 20));
+        menu.setSpacing(10);
+
+        // 1.2. Creating the layout's buttons
+        Button first = new Button("First");
+        Button second = new Button("Second");
+
+        // 1.3. Adding the buttons to the menu
+        menu.getChildren().addAll(first, second);
+
+        layout.setTop(menu);
+
+
+        // 2. Creating the sub-views and connecting them to the menu buttons
+        // 2.1. Creating the sub-views-- here are the layouts
+        StackPane firstLayout = createView("First view!");
+        StackPane secondLayout = createView("Second view!");
+
+        // 2.2. Connecting the sub-views to the buttons. Pressing a button changes the sub-view.
+        first.setOnAction((event) -> layout.setCenter(firstLayout));
+        second.setOnAction((event) -> layout.setCenter(secondLayout));
+
+        // 2.3. Displaying the first layout initially.
+        layout.setCenter(firstAsettelu);
+
+
+        // 3. Creating the main view and setting the higher-level layout in it
+        Scene view = new Scene(layout);
+
+
+        // 4. Displaying the application
+        window.setScene(view);
+        window.show();
+    }
+
+    private StackPane createView(String text) {
+
+        StackPane layout = new StackPane();
+        layout.setPrefSize(300, 180);
+        layout.getChildren().add(new Label(text));
+        layout.setAlignment(Pos.CENTER);
+
+        return layout;
+    }
+
+    public static void main(String[] args) {
+        launch(ExampleApplication.class);
+    }
+}
 ```
 
 
-Sovellus toimii seuraavalla tavalla:
+<!-- Sovellus toimii seuraavalla tavalla: -->
+The application works as follows:
+<!--
+<img src="../img/material/gui-nakyman-vaihto.gif" alt="Sovellus, joka sisältää valikon. Valikossa olevia nappeja painamalla voidaan vaihtaa sovelluksessa näkyvää sisältöä."/> -->
 
-<img src="../img/material/gui-nakyman-vaihto.gif" alt="Sovellus, joka sisältää valikon. Valikossa olevia nappeja painamalla voidaan vaihtaa sovelluksessa näkyvää sisältöä."/>
+<img src="../img/material/gui-nakyman-vaihto.gif" alt="An application containing a menu. The view displayed by the application can be changed by pressing a button."/>
 
 
 <!-- <programming-exercise name='Vitsi' tmcname='osa13-Osa13_11.Vitsi'> -->
@@ -428,16 +511,19 @@ By default (when it starts) the program should show a joke-related question. Use
 
 
 
-## Sovelluslogiikan ja käyttöliittymälogiikan eriyttäminen
+<!-- ## Sovelluslogiikan ja käyttöliittymälogiikan eriyttäminen -->
+## Separating Application and User Interface Logic
 
 
-Sovelluslogiikan (esimerkiksi ristinollan rivien tarkastamiseen tai vuorojen ylläpitoon liittyvä toiminnallisuus) ja käyttöliittymän pitäminen samassa luokassa tai samoissa luokissa on yleisesti ottaen huono asia. Se vaikeuttaa ohjelman testaamista ja muokkaamista huomattavasti ja tekee lähdekoodista myös vaikeammin luettavaa. Motto "Jokaisella luokalla pitäisi olla vain yksi selkeä vastuu" pätee hyvin tässäkin.
+<!-- Sovelluslogiikan (esimerkiksi ristinollan rivien tarkastamiseen tai vuorojen ylläpitoon liittyvä toiminnallisuus) ja käyttöliittymän pitäminen samassa luokassa tai samoissa luokissa on yleisesti ottaen huono asia. Se vaikeuttaa ohjelman testaamista ja muokkaamista huomattavasti ja tekee lähdekoodista myös vaikeammin luettavaa. Motto "Jokaisella luokalla pitäisi olla vain yksi selkeä vastuu" pätee hyvin tässäkin.
 
 
-Tarkastellaan sovelluslogiikan erottamista käyttöliittymälogiikasta. Oletetaan, että käytössämme on seuraavan rajapinnan toteuttava olio ja haluamme toteuttaa käyttöliittymän henkilöiden tallentamiseen.
+Tarkastellaan sovelluslogiikan erottamista käyttöliittymälogiikasta. Oletetaan, että käytössämme on seuraavan rajapinnan toteuttava olio ja haluamme toteuttaa käyttöliittymän henkilöiden tallentamiseen. -->
+Keeping both the application logic (such as cross zero line check or shift maintenance functionality) and the user interface in the same class or classes is generally considered a bad thing. It makes testing and modifications to the program considerably more difficult, while also making the source code more difficult to read. The motto "Each class should one have one, well-defined, responsibility" applies here as well.
 
+Let's look at separating the application logic from the user-interface logic. We want to implement an interface for keeping record of people and we assume that we have an object that implements the following interface
 
-```java
+<!-- ```java
 public interface Henkilovarasto {
     void talleta(Henkilo henkilo);
     Henkilo hae(String henkilotunnus);
@@ -448,16 +534,30 @@ public interface Henkilovarasto {
 
     Collection<Henkilo> haeKaikki();
 }
+``` -->
+```java
+public interface PersonStore {
+    void save(Person person);
+    Person get(String socialNumber);
+
+    void delete(Person person);
+    void delete(String socialNumber);
+    void deleteAll();
+
+    Collection<Person> getAll();
+}
 ```
 
 
-Käyttöliittymää toteutettaessa hyvä aloitustapa on ensin käyttöliittymän piirtäminen, jota seuraa sopivien käyttöliittymäkomponenttien lisääminen käyttöliittymään. Henkilöiden tallennuksessa tarvitsemme kentät nimelle ja henkilötunnukselle sekä napin jolla henkilö voidaan lisätä. Käytetään luokkaa TextField nimen ja henkilötunnuksen syöttämiseen ja luokkaa Button napin toteuttamiseen. Luodaan käyttöliittymään lisäksi käyttöliittymän toiminnallisuutta selventävät Label-tyyppiset selitystekstit.
+<!-- Käyttöliittymää toteutettaessa hyvä aloitustapa on ensin käyttöliittymän piirtäminen, jota seuraa sopivien käyttöliittymäkomponenttien lisääminen käyttöliittymään. Henkilöiden tallennuksessa tarvitsemme kentät nimelle ja henkilötunnukselle sekä napin jolla henkilö voidaan lisätä. Käytetään luokkaa TextField nimen ja henkilötunnuksen syöttämiseen ja luokkaa Button napin toteuttamiseen. Luodaan käyttöliittymään lisäksi käyttöliittymän toiminnallisuutta selventävät Label-tyyppiset selitystekstit.
 
 
-Käytetään käyttöliittymän asetteluun `GridPane`-asettelijaa. Rivejä käyttöliittymässä on 3, sarakkeita 2. Lisätään tapahtumien käsittelytoiminnallisuus myöhemmin. Käyttöliittymän alustusmetodi näyttää seuraavalta.
+Käytetään käyttöliittymän asetteluun `GridPane`-asettelijaa. Rivejä käyttöliittymässä on 3, sarakkeita 2. Lisätään tapahtumien käsittelytoiminnallisuus myöhemmin. Käyttöliittymän alustusmetodi näyttää seuraavalta. -->
+When implementing a UI, a good way to start is by drawing it, followed by adding the necessary components to it. For keeping a record of people, we need fields for both name and social security number, and a button used to add the person. We'll use the TextField class for the name and social security number entries and the Button class for implementing the button. We'll also complement the interface with descriptions of type Label that clarify the functionality of the user interface.
 
+Let's use the `GridPane` Layout for laying out the user interface. The interface has 3 rows and 2 columns. We'll add the event handling functionality later on. The method that initializes the interface looks like the following.
 
-```java
+<!-- ```java
 @Override
 public void start(Stage ikkuna) {
 
@@ -485,15 +585,45 @@ public void start(Stage ikkuna) {
     ikkuna.setScene(nakyma);
     ikkuna.show();
 }
+``` -->
+```java
+@Override
+public void start(Stage window) {
+
+    Label nameText = new Label("Name: ");
+    TextField nameField = new TextField();
+    Label idText = new Label("Social Number: ");
+    TextField idField = new TextField();
+
+    Button addButton = new Button("Add Person!");
+
+    GridPane componentGroup = new GridPane();
+    componentGroup.add(nameText, 0, 0);
+    componentGroup.add(nameField, 1, 0);
+    componentGroup.add(idText, 0, 1);
+    componentGroup.add(idField, 1, 1);
+    componentGroup.add(addButton, 1, 2);
+
+    // styling: adding some padding empty space to the edges
+    componentGroup.setHgap(10);
+    componentGroup.setVgap(10);
+    componentGroup.setPadding(new Insets(10, 10, 10, 10));
+
+    Scene view = new Scene(componentGroup);
+
+    window.setScene(view);
+    window.show();
+}
 ```
 
-<img src="../img/material/gui-lisaa-henkilo.png" alt="Kaksi tekstikenttää sekä nappi, jossa on teksti 'Kopioi'."/>
+<!-- <img src="../img/material/gui-lisaa-henkilo.png" alt="Kaksi tekstikenttää sekä nappi, jossa on teksti 'Kopioi'."/> -->
+<img src="../img/material/gui-lisaa-henkilo.png" alt="Two text fields and a button that has the text 'Copy'."/>
 
 
-Luodaan seuraavaksi ohjelmaan ActionEvent-rajapinnan toteuttava olio, joka lisää kenttien arvot Henkilovarasto-rajapinnalle.
+<!-- Luodaan seuraavaksi ohjelmaan ActionEvent-rajapinnan toteuttava olio, joka lisää kenttien arvot Henkilovarasto-rajapinnalle. -->
+Let's now add an object that implements the ActionEvent interface to the program. This object adds the values of the field PersonStore interface.
 
-
-```java
+<!-- ```java
 @Override
 public void start(Stage ikkuna) {
     // ...
@@ -503,12 +633,25 @@ public void start(Stage ikkuna) {
     });
     // ...
 }
-```
-
-Mutta. Mistä saamme konkreettisen Henkilovarasto-olion? Se luodaan esimerkiksi start-metodin alussa. Alla annettuna koko sovelluksen runko.
-
+``` -->
 
 ```java
+@Override
+public void start(Stage window) {
+    // ...
+
+    addButton.setOnAction((event) -> {
+        personStore.save(new Person(nameText.getText(), idtext.getText());
+    });
+    // ...
+}
+```
+
+<!-- Mutta. Mistä saamme konkreettisen Henkilovarasto-olion? Se luodaan esimerkiksi start-metodin alussa. Alla annettuna koko sovelluksen runko. -->
+However... where would we get the actual PersonStore object from? It could,  for example, be created at the beginning of the start method. The body of the whole application is found below.
+
+
+<!-- ```java
 // pakkaus
 
 import javafx.application.Application;
@@ -559,14 +702,66 @@ public class HenkiloSovellus extends Application {
         launch(HenkiloSovellus.class);
     }
 }
+``` -->
+```java
+// package
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+public class PersonApplication extends Application {
+
+    @Override
+    public void start(Stage window) {
+        PersonStore personStore = new PersonStoreFactory();
+
+        Label nameText = new Label("Name: ");
+        TextField nameField = new TextField();
+        Label idText = new Label("Social Security: ");
+        TextField idField = new TextField();
+
+        Button addButton = new Button("Add Person!");
+        addButton.setOnAction((event) -> {
+            Person personToAdd = new Person(nameText.getText(), idText.getText());
+            personStore.save(new Person(personToAdd);
+        });
+
+        GridPane componentGroup = new GridPane();
+        componentGroup.add(nameText, 0, 0);
+        componentGroup.add(nameField, 1, 0);
+        componentGroup.add(idText, 0, 1);
+        componentGroup.add(idField, 1, 1);
+        componentGroup.add(addButton, 1, 2);
+
+        // styling: adding some padding empty space to the edges
+        componentGroup.setHgap(10);
+        componentGroup.setVgap(10);
+        componentGroup.setPadding(new Insets(10, 10, 10, 10));
+
+        Scene view = new Scene(componentGroup);
+
+        window.setScene(view);
+        window.show();
+    }
+
+    public static void main(String[] args) {
+        launch(PersonApplication.class);
+    }
+}
 ```
 
 
-## A slightly larger application: Vocabulary practice
+## A Slightly Larger Application: Vocabulary Practice
 
 <!-- Hahmotellaan vieraiden sanojen harjoitteluun tarkoitettua sovellusta. Sovellus tarjoaa käyttäjälle kaksi toimintoa: sanojen ja niiden käännösten syöttämisen sekä harjoittelun. Luodaan sovellusta varten neljä erillistä luokkaa: ensimmäinen luokka tarjoaa sovelluksen ydinlogiikkatoiminnallisuuden eli sanakirjan ylläpidon, toinen ja kolmas luokka sisältävät syöttönäkymän ja harjoittelunäkymän, ja neljäs luokka sovelluksen päävalikon sekä sovelluksen käynnistämiseen tarvittavan toiminnallisuuden. -->
 
-Let's outline an application that can be used to practise vocabulary of a foreign language. The application offers two features to the user: entering words and their translations, and practising with the stored words. We'll create four different classes for the application: the first class offers the core logic, i.e. maintaining a dictionary; second and third classes contain the entering view and the practice view; and the fourth class contains the main menu and the functionality required to start the application.
+Let's outline an application that can be used to practise words of a foreign language. The application offers two features to the user: the ability to add words and their translations, and the ability to practice. We'll create four separate classes for the application: the first one offers the core function, i.e., maintaining a dictionary, the second and third classes contain the input and practice views, and the fourth class contains the application's main menu and that which is needed to start the application.
 
 
 <!-- ### Sanakirja -->
@@ -575,7 +770,7 @@ Let's outline an application that can be used to practise vocabulary of a foreig
 
 <!-- Sanakirja toteutetaan hajautustaulun ja listan avulla. Hajautustaulu sisältää sanat ja niiden käännökset, ja listaa käytetään satunnaisesti kysyttävän sanan arpomiseen. Luokalla on metodit käännösten lisäämiseen, käännöksen hakemiseen sekä käännettävän sanan arpomiseen. -->
 
-The dictionary is going to be implemented with the help of a hash map and a list. The hash map contains the words and their translations, and the list is used to randomly choose the word for practice. The class has the necessary methods for adding a translation, for fetching a translation, and for drawing a random word.
+The dictionary is going to be implemented with a hash map and a list. The hash map holds the words and their translations, and the list is used for randomly selecting a practice word. The class has the methods for adding and fethcing translations, and for randomly drawing a word for translation.
 
 
 <!-- ```java
@@ -636,7 +831,7 @@ public class Dictionary {
         this.words = new ArrayList<>();
         this.translations = new HashMap<>();
 
-        lisaa("sana", "word");
+        add("sana", "word");
     }
 
     public String get(String word) {
@@ -661,22 +856,22 @@ public class Dictionary {
 
 <!-- Sanakirjan voisi toteuttaa myös niin, että sanan arpominen loisi aina uduen listan kaannokset-hajautustaulun avaimista. Tällöin sanat-listalle ei olisi erillistä tarvetta. Tämä vaikuttaisi kuitenkin sovelluksen tehokkuuteen (tai, olisi ainakin vaikuttanut ennen vuosituhannen vaihdetta -- nykyään koneet ovat jo hieman nopeampia..). -->
 
-You could also implement the Dictionary so that returning a random word would always generate a new list of words from the keys of the translations hash map. In such a case there would be no need to maintaing a separate list of words. However, this would have an effect on the performance of the program (or it would have had an effect before the turn of the millennium -- computers these days are a tad faster...).
+You could also implement the dictionary in a way that drawing a random word would always create a new list of words from the keys of the translations hash map. In that case, there would be no need to main a separate list of words. This would, however,impact the performance of the program (or, at least prior to the turn of the millennium -- computers are a bit faster these days...).
 
 
 <!-- ### Sanojen syöttäminen -->
 
-### Entering new words
+### Adding Words
 
 
 <!-- Luodaan seuraavaksi sanojen syöttämiseen tarvittava toiminnallisuus. Sanojen syöttämistä varten tarvitsemme viitteen sanakirja-olioon sekä tekstikentät sanalle ja käännökselle. GridPane-asettelu sopii hyvin kenttien asetteluun. Luodaan luokka Syottonakyma, joka tarjoaa metodin getNakyma, joka luo sanojen syöttämiseen tarvittavan näkymän. Metodi palauttaa viitteen [Parent](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Parent.html)-tyyppiseen olioon. Parent on muunmuassa asetteluun käytettävien luokkien yläluokka, joten mitä tahansa asetteluun käytettävää luokkaa voidaan esittää Parent-oliona. -->
 
-Next we'll shape the functionality that's needed for entering words. In order for us to do that, we're going to need a reference to the dictionary object, and text fields for the word and its translation. The GridPane layout works well for the fields. Let's create a class called InputView. It contains the method getView that creates the view necessary for entering new words. This method should return a reference to a [Parent](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Parent.html) type object. Parent is a superclass to many classes, among them all the classes used for layouts. Therefore any layout class can be represented as a Parent object.
+Next we'll introduce the functionality needed for adding words. To do that, we're going to need a reference to the dictionary object and text fields for both the the word and its translation. The GridPane layout works well for the fields. Let's create a class called InputView. It contains the method getView that creates the view necessary for adding new words. This method should return a reference to a [Parent](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Parent.html) type object. Parent is a superclass to many classes, including all the classes used for layouts. As such, any layout class can be represented as a Parent object.
 
 
 <!-- Luokka määrittelee myös käyttöliittymään liittyvän napinpainallustoiminnallisuuden. Kun käyttäjä painaa nappia, sanapari lisätään sanakirjaan. Samalla myös tekstikentät tyhjennetään seuraavan sanan syöttämistä varten. -->
 
-The class also defines what happens when a button in the user interface is pressed. When the user clicks the button, the new word is added to the dictionary. The text fields are also cleared so that the next word can be entered.
+The class also defines what happens when a user-interface button is clicked. When the user clicks the button, the new word is added to the dictionary. The text fields are also cleared so that the next word can be input.
 
 
 <!-- ```java
@@ -792,17 +987,17 @@ public class InputView {
 
 <!-- ### Sanaharjoittelu -->
 
-### Vocabulary training
+### Vocabulary Training
 
 
 <!-- Luodaan tämän jälkeen harjoitteluun tarvittava toiminnallisuus. Harjoittelua varten tarvitsemme myös viitteen sanakirja-olioon, jotta voimme hakea harjoiteltavia sanoja sekä tarkastaa käyttäjän syöttämien käännösten oikeellisuuden. Sanakirjan lisäksi tarvitsemme tekstin, jonka avulla kysytään sanaa, sekä tekstikentän, johon käyttäjä voi syöttää käännöksen. Myös tässä GridPane sopii hyvin kenttien asetteluun. -->
 
-Now we shall create the functionality to practise mastery of the stored words. We are going to need a reference to a dictionary object, so that we have a source for the words used for practice and so that we can check whether the translation is correct. In addition to the dictionary, we are going to need a text component that informs the user of which word to translate, and a text field where the translation can be placed. GridPane works well enough to handle the layout of the fields in this case, too.
+We'll now be creating the functionality needed for practice. We're going to need a reference to a dictionary object, so that we have a source for the words being practiced and so that we're able to check whether or not the translation is correct. In addition to the dictionary, we're going to need text for the word that requires trasnlating, and a text field for the user's translation. GridPane will also suffice here in handling the layout of the fields.
 
 
 <!-- Kullakin hetkellä harjoiteltava sana on luokalla oliomuuttujana. Oliomuuttujaa voi käsitellä ja muuttaa myös tapahtumankäsittelijän yhteyteen määrittelyssä metodissa. -->
 
-The translated word at each time is an object variable of the class. The object variable can be used and changed also in the method that is defined in the context of an event handler.
+The word being practiced is, in each case, an instance variable of the class. The instance variable can also be used and altered in the method that is defined in the context of an event handler.
 
 
 <!-- ```java
@@ -928,12 +1123,12 @@ public class PracticeView {
 
 <!-- ### Harjoittelusovellus -->
 
-### Practice application
+### Practice Application
 
 
 <!-- Harjoittelusovellus sekä nitoo edellä toteutetut luokat yhteen että tarjoaa sovelluksen valikon. Harjoittelusovelluksen rakenne on seuraava. -->
 
-The practice application both unites the previously created classes and offers the main menu of the application. The structure of the practice application is as follows.
+The practice application combines the previously created classes and also exposes the main menu of the application. The structure of the practice application is as follows.
 
 <!-- ```java
 package sovellus;
