@@ -414,7 +414,7 @@ This class doesn't do much either. However,in the following exercise the object 
 
 Esimerkiksi alla olevasta luokasta voidaan luoda olio kutsulla `new Henkilo()`. -->
 
-If the programmer does not define a constructor for a class, Java automatically creates a default one for it. A default constructor is a constructor that doesn't do anything apart from creating the object. The object's variables remain uninitialized (generally, the value of any object references will be `null`, meaning that they do not point to anything, and the values of primitives will be `0`)
+If the programmer does not define a constructor for a class, Java automatically creates a default one for it. A default constructor is a constructor that doesn't do anything other than create the object. The object's variables remain uninitialized (generally, the value of any object references will be `null`, meaning that they do not point to anything, and the values of primitives will be `0`)
 
 For example, an object can be created from the class below by making the call `new Person()`
 
@@ -533,7 +533,7 @@ In addition to the class name, instance variables, and constructor, the class di
 
 Luodaan pääohjelmassa kolme henkilöä ja pyydetään niitä tulostamaan itsensä: -->
 
-The method `printPerson` contains one line of code that makes use of the instance variables `name` and `age` -- the class diagram says nothing about its internal implementations. Instance variables are referred to with the prefix `this`. All of the object's variables are visible and available from within the method.
+The method `printPerson` contains a single line of code that makes use of the instance variables `name` and `age` -- the class diagram tells us nothing about its internal implementation. Instance variables are referred to with the prefix `this`. All of the object's variables are visible and available from within the method.
 
 Let's create three persons in the main program and request them to print themselves:
 
@@ -1232,7 +1232,7 @@ Once you get the program to work, try out the previous example with the interest
 
 <!-- Metodi voi palauttaa arvon. Tähän mennessä olioihin luomamme metodit eivät palauttaneet mitään. Tämä on merkitty kirjoittamalla metodin määrittelyyn avainsana *void*. -->
 
-A method can return a value. The methods we've created in our objects haven't so far returned anything. This has been marked by typing the keyword _void_ in the method definition.
+A method can return a value. The methods we've created in our objects haven't returned anything so far. This has been noted by typing the keyword *void* in the method definition.
 
 <!-- ```java
 public class Ovi {
@@ -1392,7 +1392,7 @@ public String metodiJokaPalauttaaTekstin() {
 }
 ``` -->
 
-- A method that returns a string has the `String` modifier as the type of the variable to be returned
+- A method that returns a string has the `String` modifier as the type of the variable to be returned.
 
 ```java
 public int methodThatReturnsAString() {
@@ -1643,9 +1643,9 @@ You may not watch the film Alvin and the Chipmunks: The Squeakquel
 
 Tehdään seuraavaksi henkilölle metodi, jonka avulla voidaan selvittää onko henkilö täysi-ikäinen. Metodi palauttaa totuusarvon -- joko `true` tai `false`: -->
 
-As we came to notice, methods can contain source code in the same way as other parts of our program. Methods can have conditionals or loops, and other methods can also be called from them.
+As we saw earlier, methods can contain source code in the same way as other parts of our program. Methods may contain conditionals or loops, and other methods can also be called from them.
 
-Let's now write a method for the person that determines if the person is of legal age. The method returns a boolean - either `true` or `false`:
+Let's write a method for the person that determines whether or not the person is of legal age. The method returns a boolean - either `true` or `false`:
 
 <!-- ```java
 public class Henkilo {
@@ -1777,7 +1777,7 @@ of legal age: Pekka, age 30 years
 
 <!-- Viritellään ratkaisua vielä hiukan. Nyt henkilön pystyy "tulostamaan" ainoastaan siten, että nimen lisäksi tulostuu ikä. On tilanteita, joissa haluamme tietoon pelkän olion nimen. Eli tehdään tarkoitusta varten oma metodi: -->
 
-Let's fine-tune the solution a bit more. In its current form, a person can only be "printed" in a way that includes both the name and the age. Situations exist, however, where we may only want to know the name of an object. Let's write a separate method for this use case:
+Let's polish the solution some more. In its current form, a person can only be "printed" in a way that includes both the name and age. We may in some cases only want to know the name of an object. Let's write a separate method for this use case:
 
 <!-- ```java
 public class Henkilo {
@@ -1803,15 +1803,16 @@ public class Person {
 
 Luokka kokonaisuudessaan: -->
 
-The `getName` method returns the instance variable `name` to the caller. The name of this method is somewhat strange. It is the convention in Java to name a method that returns an instance variable exactly this way, i.e., `getVariableName`. Such methods are often referred to as "getters".
+The `getName` method returns the instance variable `name` to the caller. The name of this method is somewhat odd. It's the convention in Java to name a method that returns an instance variable in this specific format, i.e., `getVariableName`. Such methods are often referred to as "getters".
 
 The class as a whole:
 
-<img src="../img/diagrams/part4.1-classdiagram-person-getters.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(String);+tulostaHenkilo():void;+vanhene():void;+palautaIka():int;+taysiIkainen():boolean;+getNimi():String]">
+<!-- <img src="../img/diagrams/part4.1-classdiagram-person-getters.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(String);+tulostaHenkilo():void;+vanhene():void;+palautaIka():int;+taysiIkainen():boolean;+getNimi():String]"> -->
+<img src="../img/diagrams/part4.1-classdiagram-person-getters.png" alt="[Person|-name:String;-age:int|+Person(String);+printPerson():void;+growOlder():void;+getAge():int;+isOfLegalAge():boolean;+getName():String]">
 
 <!-- Muotoillaan pääohjelma käyttämään uutta "getteri"-metodia: -->
 
-Let's mould the main program to use the new "getter" method:
+Let's shape the main program to use the new "getter" method:
 
 <!-- ```java
 public static void main(String[] args) {
@@ -1873,7 +1874,7 @@ public static void main(String[] args) {
 
 <!-- Tulostus alkaa olla jo aika siisti: -->
 
-The print output is starting to turn out quit neat:
+The print output is starting to look quite neat:
 
 <!-- <sample-output>
 
@@ -1904,7 +1905,7 @@ Esimerkki luokan käytöstä. -->
 Create the class `Gauge`. The gauge has the instance variable `private int value`, a constructor without parameters (sets the initial value of the meter variable to 0), and also the following four methods:
 
 - Method `public void increase()` grows the `value` instance variable's value by one. It does not grow the value beyond five.
-- Method `public void decrease()` decreases the `value` instance variable's value by one. It does not decrease the value to negative numbers.
+- Method `public void decrease()` decreases the `value` instance variable's value by one. It does not decrease the value to negative values.
 - Method `public int value()` returns the `value` variable's value.
 - Method `public boolean full()` returns `true` if the instance variable `value` has the value five. Otherwise, it returns false.
 
@@ -1970,7 +1971,7 @@ Not full! Value: 4
 
 <!-- Olemme syyllistyneet osittain huonoon ohjelmointityyliin tekemällä metodin jonka avulla olio tulostetaan, eli metodin `tulostaHenkilo`. Suositeltavampi tapa on määritellä oliolle metodi jonka palauttaa olion "merkkijonoesityksen". Merkkijonoesityksen palauttavan metodin nimi on Javassa aina `toString`. Määritellään seuraavassa henkilölle tämä metodi: -->
 
-We are guilty of programming in a somewhat poor style by creating a method for printing the object, i.e., the `printPerson` method. A preferred way is to define a method for the object that returns a "string representation" of the object. The method returning the string representation is always `toString` in Java. Let's define this method for the person in the following example:
+We're been guilty of programming in a rather poor way by creating an isolated method for printing the object, i.e., the `printPerson` method. A more preferred way would be to define a method on the object that returns a "string representation" of that very object. The method that returns this string representation is always named `toString` in Java. Let's define this method for the person in the following example:
 
 <!-- ```java
 public class Henkilo {
@@ -1996,7 +1997,7 @@ public class Person {
 
 Metodia käytetään hieman yllättävällä tavalla: -->
 
-The `toString` functions as `printPerson` does. However, it doesn't itself print anything but instead returns a string representation, which the calling method can execute for printing as needed.
+The `toString` functions just as `printPerson` does. However, it doesn't output anything itself, but instead returns a string representation that the calling method can execute to print whenever needed.
 
 The method is used in a somewhat surprising way:
 
@@ -2055,7 +2056,7 @@ public static void main(String[] args) {
 
 <!-- Periaatteena on, että `System.out.println`-metodi pyytää olion merkkijonoesityksen ja tulostaa sen. Merkkijonoesityksen palauttavan `toString`-metodin kutsua ei tarvitse kirjoittaa itse, sillä Java lisää sen automaattisesti. Ohjelmoijan kirjoittaessa: -->
 
-In principle, the `System.out.println` method requests the object's string representation and prints it. The call to the `toString` method returning the string representation does not have to be written explicitly, as Java adds it automatically. When a programmer writes:
+What's happening is that the `System.out.println` method requests the object's string representation and then prints it. The call to the `toString` method, which returns the string representation, does not have to be written explicitly since Java adds it automatically. When a programmer writes:
 
 ```java
 System.out.println(antti);
@@ -2063,7 +2064,7 @@ System.out.println(antti);
 
 <!-- Java täydentää suorituksen aikana kutsun muotoon: -->
 
-Java extends the call at run time to the following form:
+Java completes the call at run time to the following form:
 
 ```java
 System.out.println(antti.toString());
@@ -2149,11 +2150,11 @@ My name is Bond, Ionic Bond
 
 <!-- ## Metodin parametrit -->
 
-## Method parameters
+## Method Parameters
 
 <!-- Jatketaan taas `Henkilo`-luokan parissa. Päätetään että haluamme laskea henkilöiden painoindeksejä. Tätä varten teemme henkilölle metodit pituuden ja painon asettamista varten, sekä metodin joka laskee painoindeksin. Henkilön uudet ja muuttuneet osat seuraavassa: -->
 
-Let's continue with the `Person` class once more. We've decided that we want to calculate people's body mass indexes. To do this, we write methods for the person to set both the height and the weight, and also a method to calculate the body mass index. The new and changed parts of the Person object are as follows:
+Let's resume with our `Person` class. We've decided that we want to calculate body mass indexes for people. To do this, we write methods for the person to set both their height and weight, and also a method that calculates the body mass index. The new and changed parts of the Person object are as follows:
 
 <!-- ```java
 public class Henkilo {
@@ -2219,7 +2220,7 @@ public class Person {
 
 <!-- Eli henkilölle lisättiin oliomuuttujat `pituus` ja `paino`. Näille voi asettaa arvon metodeilla `setPituus` ja `setPaino`. Jälleen käytössä Javaan vakiintunut nimeämiskäytäntö, eli jos metodin tehtävänä on ainoastaan asettaa arvo oliomuuttujaan, on metodi tapana nimetä `setMuuttujanNimi`:ksi. Arvon asettavia metodeja kutsutaan usein "settereiksi". Seuraavassa käytämme uusia metodeja: -->
 
-The instance variables `height` and`weight` were added to the person. Values for these can be set using the `setHeight` and `setWeight` methods. Java's standard naming convention is used once again, that is, if the method's only purpose is to set a value to an instance variable, then it's named as `setVariableName`. Value-setting methods are often called "setters". The new methods are put to use in the following case:
+The instance variables `height` and `weight` have been added to the person. Values for these can be set using the `setHeight` and `setWeight` methods. Java's standard naming convention is used once again, i.e., if the method's only purpose is to set the value of an instance variable it's named `setVariableName`. These value-setting methods are often called "setters". The new methods are put to use in the following instance:
 
 <!-- ```java
 public static void main(String[] args) {
@@ -2273,7 +2274,7 @@ Juhana, body mass index is 20.897959183673468
 
 <!-- ## Parametrilla ja oliomuuttujalla sama nimi! -->
 
-## A parameter and instance variable having the same name!
+## Parameter and Instance Variable Having The Same Name!
 
 <!--
 Edellä metodissa `setPituus` asetetaan oliomuuttujaan `pituus` parametrin `uusiPituus` arvo: -->
@@ -2294,7 +2295,7 @@ public void setHeight(int newHeight) {
 
 <!-- Parametrin nimi voisi olla myös sama kuin oliomuuttujan nimi, eli seuraava toimisi myös: -->
 
-The parameter's name could also be the same as the instance variable's, so the following would also work:
+The parameter's name could also be the same as that of the instance variable, i.e., the following would also work:
 
 <!-- ```java
 public void setPituus(int pituus) {
@@ -2310,7 +2311,7 @@ public void setHeight(int height) {
 
 <!-- Nyt metodissa `pituus` tarkottaa nimenomaan *pituus*-nimistä parametria ja `this.pituus` saman nimistä oliomuuttujaa. Esim. seuraava ei toimisi sillä koodi ei viittaa ollenkaan oliomuuttujaan *pituus* -- koodi käytännössä asettaa parametrina saadulle `pituus`-muuttujalle siinä jo olevan arvon: -->
 
-In this case, `height` in the method refers specifically to a parameter named _height_ and `this.height` to an instance variable of the same name. For example, the following example would not work as the code does not refer to the instance variable _height_ at all. What the code does in effect is set the `height` variable received as a parameter to the value it already contains:
+In this case, `height` in the method refers specifically to a parameter named _height_ and `this.height` to an instance variable of the same name. For example, the following example would not work since the code does not refer to the instance variable _height_ in any way. What the code does in effect is set the `height` variable received as a parameter to the value it already holds:
 
 <!-- ```java
 public void setPituus(int pituus) {
@@ -2335,7 +2336,7 @@ public void setHeight(int height) {
 
 ```java
 public void setHeight(int height) {
-    // DO THIS INSTEAD!!!
+    // BUT THIS!!!
     this.height = height;
 }
 ```
@@ -2411,11 +2412,11 @@ multiplyByFour.multiply(1): 4
 
 <!-- ## Oman metodin kutsu -->
 
-## Calling an internal method
+## Calling An Internal Method
 
 <!-- Olio voi kutsua myös omia metodeitaan. Jos esim. halutaan, että toString-metodin palauttama merkkijonoesitys kertoisi myös henkilön painoindeksin, kannattaa `toString`:istä kutsua olion omaa metodia `painoIndeksi`: -->
 
-The object may also call its methods. For example, if we wanted the string representation returned by toString to also tell of a person's body mass index, the object's own `bodyMassIndex` method should be called in the `toString` method:
+An object may also call its own methods. For example, if we wanted the string representation returned by toString to also contain a person's body mass index, the object's own `bodyMassIndex` method should be called in the `toString` method:
 
 <!--
 ```java
@@ -2432,7 +2433,7 @@ public String toString() {
 
 <!-- Eli kun olio kutsuu omaa metodiaan, riittää etuliite this ja pelkkä metodin nimi. Vaihtoehtoinen tapa on tehdä oman metodin kutsu muodossa `painoindeksi()` jolloin ei korosteta, että kutsutaan "olion itsensä" metodia painoindeksi: -->
 
-So, when an object calls an internal method, the name of the method and this prefix suffice. An alternative way is to call the object's own method in the form `bodyMassIndex()`, whereby no emphasis is placed on the fact that the object's own bodyMassIndex method is being called:
+So when an object calls an internal method, the name of the method and the `this` prefix are sufficient. An alternative way is to call the object's own method in the form `bodyMassIndex()`, whereby the fact that the object's own bodyMassIndex method is being called is not emphasized:
 
 <!-- ```java
 public String toString() {
@@ -2448,7 +2449,7 @@ public String toString() {
 
 <!-- Olioscreencastin kolmas osa: -->
 
-The screencast's third part:
+The third part of the screencast:
 
 <youtube id='YKwzIGuCLn8'></youtube>
 
@@ -2469,12 +2470,12 @@ Luokan ei tarvitse tallentaa mihinkään lisättyjä lukuja, vaan riittää muis
 
 Luokan runko on seuraava: -->
 
-Create a class `Statistics` that has the following functionality(the file for the class is provided in the in the exercise template):
+Create a class `Statistics` that has the following functionality (the file for the class comes with the exercise template):
 
 - a method `addNumber` adds a new number to the statistics
-- a method `getCount` tells the number of added numbers
+- a method `getCount` returns the number of added numbers
 
-The class does not need to store the added numbers anywhere, it is enough for it to remember their count. At this stage, the `addNumber` method can even neglect the numbers being added to the statistics, since the only thing being stored is the count of numbers added.
+The class does not have to store the added numbers anywhere, it is enough for it to keep track of their count. At this stage, the `addNumber` method can even ignore the types of numbers being added to the statistics since the only thing being stored is the count of numbers added.
 
 The method's body is the following:
 
@@ -2517,7 +2518,7 @@ public class Statistics {
 
 <!-- Seuraava ohjelma esittelee luokan käyttöä: -->
 
-The following program introduces the class' use:
+The following program introduces the use of the class:
 
 <!-- ```java
 public class Paaohjelma {
@@ -2562,7 +2563,7 @@ Count: 4
 </sample-output>
 
 <!-- <h2>Summa ja keskiarvo</h2> -->
-<h2>Sum and average</h2>
+<h2>Sum and Average</h2>
 
 <!-- Laajenna luokkaa seuraavilla toiminnoilla:
 
@@ -2573,10 +2574,10 @@ Luokan runko on seuraava: -->
 
 Expand the class with the following functionality:
 
-- the `sum` method tells the sum of the numbers added (the sum of an empty number statistics object is 0)
-- the `average` method tells the average of the numbers added (the average of an empty number statistics object is 0
+- the `sum` method returns the sum of the numbers added (the sum of an empty number statistics object is 0)
+- the `average` method returns the average of the numbers added (the average of an empty number statistics object is 0)
 
-The class' template is the following:
+The template of the class is the following:
 
 <!-- ```java
 public class Lukutilasto {
@@ -2781,9 +2782,10 @@ Sum of odd numbers: 5
 
 <!-- Helsingin Yliopiston opiskelijaruokaloissa eli Unicafeissa opiskelijat maksavat lounaansa käyttäen maksukorttia. Lopullinen Maksukortti tulee näyttämään luokkakaaviona seuraavalta: -->
 
-At the University of Helsinki student canteen, i.e. Unicafe, students pay for their lunch using a payment card. The final PaymentCard will look like the following as a class diagram:
+At the University of Helsinki student canteen, i.e., Unicafe, students pay for their lunch using a payment card. The final PaymentCard will look like the following as a class diagram:
 
-<img src="../img/diagrams/part4.1-classdiagram-ex-paymentCard.png" alt="[Maksukortti|-saldo:double|+Maksukortti(double);+syoEdullisesti():void;+syoMaukkaasti():void;+lataaRahaa(double):void;+toString():String]">
+<!-- <img src="../img/diagrams/part4.1-classdiagram-ex-paymentCard.png" alt="[Maksukortti|-saldo:double|+Maksukortti(double);+syoEdullisesti():void;+syoMaukkaasti():void;+lataaRahaa(double):void;+toString():String]"> -->
+<img src="../img/diagrams/part4.1-classdiagram-ex-paymentCard.png" alt="[Maksukortti|-balance:double|+PaymentCard(double);+eatAffordably():void;+eatHeartily():void;+addMoney(double):void;+toString():String]">
 
 <!-- Tässä tehtäväsäsarjassa tehdään luokka `Maksukortti`, jonka tarkoituksena on jäljitellä Unicafeissa tapahtuvaa maksutoimintaa. -->
 
@@ -3255,7 +3257,7 @@ Matt: The card has a balance of 72.8 euros
 </programming-exercise>
 
 <!-- <text-box variant='hint' name='Pyöristysvirheet'> -->
-<text-box variant='hint' name='Rounding errors'>
+<text-box variant='hint' name='Rounding Errors'>
 
 <!-- Huomasit todennäköisesti, että osassa luvuista ilmenee pyöristysvirheitä. Esimerkiksi edellisessä tehtävässä Pekan saldo 30.7 saattaa tulostua muodossa `30.700000000000003`. Tämä liittyy siihen, että liukuluvut kuten `double` tallennetaan oikeasti binäärimuodossa, eli nollina ja ykkösinä vain rajattua määrää lukuja käyttäen.
 
@@ -3264,8 +3266,9 @@ Koska liukulukuja on ääretön määrä -- (mikäli mietit "miten niin ääret�
 Normaalisti esimerkiksi tilien saldot tallennetaan kokonaislukuina siten, että arvo 1 vastaa esimerkiksi yhtä senttiä. -->
 
 You probably noticed that some of the figures have rounding errors. In the previous exercise, for example, Pekka's balance of 30.7 may be printed as `30.700000000000003`. This is because floating-point numbers, such as `double`, are actually stored in binary form. That is, in zeros and ones using only a limited number of numbers.
-As the number of floating-point numbers is infinite -- (in case you're wondering "how infinite?", think how many floating-point or decimal values fit between the numbers 5 and 6 for instance). All of the floating-point numbers simply cannot be represented by a finite number of zeros and ones. Thus, the computer must place a limit on the accuracy of stored numbers.
 
-Normally, account balances, for instance, are saved as integers such that, say, the value 1 represents one cent.
+As the number of floating-point numbers is infinite -- (in case you're wondering "how infinite?", think how many floating-point or decimal values fit between the numbers 5 and 6, for instance). All of the floating-point numbers simply cannot be represented by a finite number of zeros and ones. As such, the computer must place a limit on the precision of stored numbers.
+
+As an example, account balances are normally saved in integer form so that the number 1 represents a cent, for example.
 
 </text-box>
