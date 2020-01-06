@@ -178,7 +178,8 @@ Calling a constructor with the command `new` causes several things to happen. Fi
 A constructor call returns a reference to an object. A **reference** is information about the location of object data.
 
 
-<img src="../img/drawings/olio-joan.png"/>
+<!-- <img src="../img/drawings/olio-joan.png"/> -->
+<img src="../img/drawings/part5.4-object-joan.png"/>
 
 
 <!-- Muuttujan arvoksi asetetaan siis viite, eli tieto olioon liittyvien tietojen paikasta. Yllä oleva kuva paljastaa myös sen, että merkkijonot -- kuten henkilömme nimi -- ovat myös olioita. -->
@@ -214,8 +215,8 @@ Person ball = joan;
 The statement `Person ball = joan;` creates a new Person variable `call`, and copies the value of the variable `joan` as its value. As a result, `ball` refers to the same object as `joan`.
 
 
-<img src="../img/drawings/olio-joan-ja-ball.png"/>
-
+<!-- <img src="../img/drawings/olio-joan-ja-ball.png"/> -->
+<img src="../img/drawings/part5.4-object-joan-and-ball-1.png"/>
 
 <!-- Tarkastellaan samaa esimerkkiä hieman pidemmälle. -->
 
@@ -268,7 +269,8 @@ Joan Ball -- i.e. the Person object that the reference in the `joan` variable po
 An object's internal state is not copied when a variable's value is assigned. A new object is not being created in the statement `Person ball = joan;` -- the value of the variable ball is assigned to be the copy of  joan's value, i.e. a reference to an object.
 
 
-<img src="../img/drawings/olio-joan-ja-ball-2.png"/>
+<!-- <img src="../img/drawings/olio-joan-ja-ball-2.png"/> -->
+<img src="../img/drawings/part5.4-object-joan-and-ball-2.png"/>
 
 
 <!-- Seuraavassa esimerkkiä on jatkettu siten, että `joan`-muuttujaa varten luodaan uusi olio, jonka viite asetetaan muuttujan arvoksi. Muuttuja `ball` viittaa yhä aiemmin luotuun olioon. -->
@@ -330,7 +332,8 @@ Joan B., age 0 years
 
 So in the beginning the variable `joan` contains a reference to one object, but in the end a reference to another object has been copied as its value. Here is a picture of the situation after the last line of code.
 
-<img src="../img/drawings/olio-joan-ja-ball-3.png"/>
+<!-- <img src="../img/drawings/olio-joan-ja-ball-3.png"/> -->
+<img src="../img/drawings/part5.4-object-joan-and-ball-3.png"/>
 
 
 <!-- ## Viittaustyyppisen muuttujan arvo `null` -->
@@ -380,7 +383,7 @@ ball = null;
 The situation of the program after the last line is depicted below.
 
 
-<img src="../img/drawings/olio-joan-ja-ball-null.png"/>
+<img src="../img/drawings/part5.4-object-joan-and-ball-null.png"/>
 
 <!-- Olioon, jonka nimi on Joan Ball, ei enää viittaa kukaan. Oliosta on siis tullut "roska". Java-ohjelmointikielessä ohjelmoijan ei tarvitse huolehtia ohjelman käyttämästä muistista. Javan automaattinen roskienkerääjä käy siivoamassa roskaksi joutuneet oliot aika ajoin. Jos automaattista roskien keruuta ei tapahtuisi, jäisivät roskaksi joutuneet oliot varaamaan muistia ohjelman suorituksen loppuun asti. -->
 
