@@ -15,7 +15,7 @@ hidden: false
 
 - You're familiar with the concepts of class, object, constructor, object methods, and object variables.
 
-- You understand that a class defines an object's methods and that the values of instance (object) variables are object-specific.
+- You understand that a class defines an object's methods and that the values of an object's variables are specific to that object.
 
 - You know how to create classes and objects, and know how to use objects in your programs.
 
@@ -23,15 +23,15 @@ hidden: false
 
 <!-- Aloitamme nyt matkan olio-ohjelmoinnin pariin. Aluksi keskiössä on käsitteiden ja tiedon kuvaaminen luokkien ja olioiden avulla, jonka jälkeen tutustumme toiminnallisuuden eli metodien lisäämiseen. -->
 
-We'll now begin our journey in to the world of object-oriented programming. We'll start with focusing on describing concepts and data using objects. From there on, we'll learn how to add functionality, i.e., methods to our program.
+We'll now begin our journey into the world of object-oriented programming. We'll start by focusing on describing concepts and information through objects. We'll then learn how to add functionality, i.e., methods to our program.
 
 <!-- Olio-ohjelmoinnissa on kyse ratkaistavassa ongelmassa esiintyvien käsitteiden eristämisestä omiksi kokonaisuuksikseen sekä näiden kokonaisuuksien käyttämistä ongelman ratkaisemisessa. Kun ongelmaan liittyvät käsitteet on tunnistettu, niistä voidaan myös keskustella. Toisin ajatellen, ratkaistavasta ongelmasta muodostetaan abstraktioita, joiden avulla ongelmaa on helpompi käsitellä. -->
 
-Object-oriented programming is concerned with isolating concepts of a problem domain into separate entities and then using those entities to solve problems. Concepts related to a problem can only be considered once they've been identified. In other words, we can form abstractions from problems that make those problem easier to approach.
+Object-oriented programming is about isolating concepts of a problem domain into separate entities and using those entities to solve problems. Once relevant concepts have been identified, they can be reasoned about. In other words, we can from abstractions from a given problem, and use those abstractions to help us deal with the problem.
 
 <!-- Kun ongelmasta tunnistetaan käsitteitä, voidaan niitä vastaavia rakenteita luoda myös ohjelmaan. Näitä rakenteita ja niistä luotavia yksittäisiä ilmentymiä eli olioita käytetään ongelman ratkaisemisessa. Nyt ehkä käsittämättömältä tuntuva lausahdus **ohjelma rakennetaan pienistä selkeistä yhteistoiminnassa olevista olioista** alkaa hiljalleen kurssin edetessä tuntua järkeenkäyvältä ja jopa itsestäänselvältä. -->
 
-Once concepts related to a given problem have been identified, we can also begin to build constructs that represent them them into programs. These constructs, and the individual instances that are formed from them, i.e., objects, are used in solving the problem. The statement "programs are built from small, clear, and cooperative objects" may not make much sense yet. However, it will appear more sensible as we progress through the course, perhaps even self-evident.
+When the concepts have been identified, we can begin to build constructs that represent them into our programs. These constructs, and the individual instances created from them, i.e., objects, are used to solve the problem. The statement "programs are built from small, clear, and cooperative objects" may not make much sense yet. However, it will appear more sensible as we progress through the course, perhaps even self-evident.
 
 <!-- ##  Luokka ja Olio -->
 
@@ -39,15 +39,15 @@ Once concepts related to a given problem have been identified, we can also begin
 
 <!-- Olemme käyttäneet jo joitakin Javan tarjoamia luokkia ja olioita. **Luokka** määrittelee olioiden ominaisuudet eli niihin liittyvät tiedot eli oliomuuttujat ja niiden tarjoamat komennot eli metodit. Oliomuuttujien arvot määrittelevät yksittäisen olion sisäisen tilan ja metodit taas olion tarjoamat toiminnallisuudet. **Olio** luodaan luokkaan kirjoitetun määrittelyn perusteella. Samasta luokasta voidaan luoda useampia olioita, joilla jokaisella on eri tila eli jokaisella on omat oliomuuttujien arvot. Jokaisella oliolla on myös metodit, jotka olion luomiseen käytetyssä luokassa on määritelty. -->
 
-We've already used some of the classes and objects provided by Java. A **class** defines the attributes of objects, i.e., the information related to them (instance variables), and their commands, i.e., their methods. The values of instance (i.e., object) variables define the internal state of an individual object, whereas methods define the functionality it offers.
+We've already used some of the classes and objects that have been provided by Java. A **class** defines the attributes of objects, i.e., information related to them and the commands offered by them, i.e., their methods. The values of instance variables make up the internal state of an individual object, whereas its methods define the functionality it offers. An **object** is created based on what is specified inside of the class. Multiple objects can be created from a single class, each having their own state. In other words, each of these objects holds values specific to itself in its internal variables.
 
 <!-- **Metodi** on luokkaan kirjoitettu lähdekoodista koostuva kokonaisuus, jolle on annettu nimi, ja jota voidaan kutsua. Metodi liittyy aina tiettyyn luokkaan, ja sitä käytetään usein luokasta tehdyn olion sisäisen tilan muokkaamiseen. -->
 
-A **Method** is a piece of source code written inside a class that's been named and has the ability to be called. A method is always part of some class and is often used to modify the internal state of an object instantiated from a class.
+A **Method** refers to a named and invokable section of source code written inside of a class. A method is always part of a class and is often used to modify the internal state of an object that has been created from a class.
 
 <!-- Esimerkiksi `ArrayList` on Javan tarjoama luokka, josta luotuja olioita olemme hyödyntäneet ohjelmissamme. Alla ohjelmassa luodaan `ArrayList`-olio nimeltä `luvut`, johon lisätään kokonaislukuja. -->
 
-As an example, `ArrayList` is a class offered by Java, and we've made use of objects instantiated from it in our programs. Below, an `ArrayList` object named `integers` is created and some integers are added to it.
+As an example, `ArrayList` is a class offered by Java, and we've made use of objects instantiated (i.e., created) from it in our programs. Below, an `ArrayList` object named `integers` is created and some integers are added to it.
 
 <!--
 ```java
@@ -88,15 +88,16 @@ An object is always instantiated by calling a method that created an object, i.e
 
 <!-- Luokka kuvaa siitä luotavien olioiden "rakennuspiirustukset". Otetaan analogia tietokoneiden ulkopuoleisesta maailmasta. Rintamamiestalot lienevät monille tuttuja. Voidaan ajatella, että jossain on olemassa piirustukset jotka määrittelevät minkälainen rintamamiestalo on. Piirrustukset ovat luokka, eli ne määrittelevät minkälaisia olioita luokasta voidaan luoda: -->
 
-A class lays out a blueprint for any objects that are instantiated from it. Let's draw from an analogy from outside the world of computers. Detached houses are most likely familiar to most, and we can safely assume the existence of drawings somewhere that determine what exactly a detached house is to be like. A class is a blueprint. In other words, it specifies what kinds of objects can be instantiated from it:
+A class lays out a blueprint for any objects that are instantiated from it. Let's draw from an analogy that is outside of the world of computers. Detached houses are most likely familiar to most, and we can safely assume that drawings exist somewhere that determine exactly what a detached house should be like. A class is a blueprint. In other words, it specifies what kinds of objects can be instantiated from it:
 
-<img src="../img/rintamamiestalo-rakennuspiirrustus.jpg"/>
+<img src="../img/rintamamiestalo-rakennuspiirrustus.jpg" alt="An image of a detached house blueprint"/>
 
 <!-- Yksittäiset oliot eli rintamamiestalot on tehty samojen piirustusten perusteella, eli ne ovat saman luokan ilmentymiä. Yksittäisten olioiden tila eli ominaisuudet (esim. seinien väri, katon rakennusmateriaali ja väri, kivijalan väri, ovien rakennusmateriaali ja väri, ...) vaihtelevat. Seuraavassa yksi "rintamamiestalo-luokan olio": -->
 
 Individual objects, detached houses in this case, are all created based on the same blueprints - they're instances of the same class. The states of individual objects, i.e., their attributes (such as the wall color, the building material of the roof, the color of its foundations, the doors' materials and color, ...) may all vary, however. The following is an "object of a detached-house class":
 
-<img src="../img/rintamamiestalo.jpg" />
+<!-- <img src="../img/rintamamiestalo.jpg" /> -->
+<img src="../img/rintamamiestalo.jpg" alt="An image of a detached house" />
 
 </text-box>
 
@@ -198,9 +199,9 @@ A class specifies what the objects instantiated from it are like.
 - The **object's variables (instance variables)** specify the internal state of the object
 - The **object's methods** specify what the object does
 
-We'll now familiarize ourselves with creating our own classes and defining the variable that belong to them.
+We'll now familiarize ourselves with creating our own classes and defining variables that belong to them.
 
-A class is defined to represent some meaningful entity, where a "meaningful entity" often refers to a real-world object or concept. If a computer program had to process personal information, it would perhaps be meaningful to define a seperate class `Person` consisting of methods and attributes related to an individual.
+A class is defined to represent some meaningful entity, where a "meaningful entity" often refers to a real-world object or concept. If a computer program had to process personal information, it would perhaps be meaningful to define a separate class `Person` consisting of methods and attributes related to an individual.
 
 Let's begin. We'll assume that we have a project template that has an empty main program:
 
@@ -222,15 +223,15 @@ public class Main {
 
 *Luokkien, muuttujien ja metodien nimissä ei tyypillisesti käytetä ääkkösiä. Vältä niiden käyttöä myös tässä.* -->
 
-In NetBeans, a new class can be created by going to the _projects_ section located on the left, right-clicking _new_, and then _java class_. The class is provided a name in the dialog that opens.
+In NetBeans, a new class can be created by going to the _projects_ section on the left, right-clicking _new_, and then _java class_. The class is named in the dialog that opens.
 
-As with variables and methods, the name of a class should be as descriptive as possible. It's usual for a class to live on and take on a different form as a program develops. As such, the class may have to be renamed at some later point.
+As with variables and methods, the name of a class should be as descriptive as possible. It's usual for a class to live and take on a different form as a program evolves. For this reason, the class may have to be renamed at some later point.
 
 </text-box>
 
 <!-- Luodaan luokka nimeltä `Henkilo`. Luokkaa varten luodaan erillinen tiedosto nimeltä `Henkilo.java`. Ohjelmamme koostuu nyt siis kahdesta erillisestä tiedostosta, sillä myös pääohjelma on omassa tiedostossaan. Aluksi Henkilo.java -tiedosto sisältää luokan määrittelyn **public class Henkilo** sekä luokan sisällön rajaavat aaltosulut. -->
 
-Let's create a class named `Person`. For this class, we create a separate file named `Person.java`. Our program now consists of two separate files since the main program is also in its own file. The `Person.java` file initially contains the class definition **public class Person** and the curly brackets that confine the contents of the class.
+Let's create a class named `Person`. We'll create a separate file for it named `Person.java`. Our program now consists of two separate files as the main program is also in a file of its own. Initially, the `Person.java` file contains the class definition **public class Person** along with the curly brackets that confine the contents of the class.
 
 <!-- ```java
 public class Henkilo {
@@ -246,19 +247,19 @@ public class Person {
 
 <!-- NetBeansissa uuden tiedoston luomisen jälkeinen tilanne näyttää seuraavalta. Alla olevassa kuvassa Hiekkalaatikkotehtävään on lisätty luokka `Henkilo`. -->
 
-After creating a new file in NetBeans, the current state is as follows. In the image below, the class `Person` has been added to the SandboxExercise.
+After creating a new file in NetBeans, the current state is as can be seen below. In the image, the class `Person` has been added to the SandboxExercise.
 
-<img src="../img/material/part4.1-class-created.png">
+<img src="../img/material/part4.1-class-created.png" alt="Public class Person{}">
 
 <!-- Luokkaa kuvaamaan voi piirtää myös luokkakaavion, jonka merkintätekniikkaan tutustutaan tässä samalla. Henkilo-niminen luokka, jossa ei ole mitään sisällä näyttää seuraavalta: -->
 
-You can also draw a class diagram to depict a class. We'll become familiar with its notations as we go along. An empty person-named class looks like this:
+You can also draw a class diagram to depict a class. We'll familiarize ourselves with class-diagram notation here as well. An empty class named Person looks like so:
 
-<img src="../img/diagrams/part4.1-classdiagram-person.png">
+<img src="../img/diagrams/part4.1-classdiagram-person.png" alt="[Person]">
 
 <!-- Luokka määrittelee luokasta luotavien olioiden ominaisuudet ja toiminnallisuudet. Päätetään, että jokaisella henkilöoliolla on nimi ja ikä. Nimi on luonnollista esittää merkkijonona, eli Stringinä, ja ikä taas kokonaislukuna. Lisätään nämä rakennuspiirustuksiimme: -->
 
-A class defines the attributes and behaviors of objects that are created from it. Let's decide that each person object has a name and an age. It's natural to represent the name as a string, and the age as an integer. We'll go ahead and add these to our blueprint:
+A class defines the attributes and behaviors of objects that are created from it. Let's decide that each person object has a name and an age. It makes sense to represent the name as a string, and the age as an integer. We'll add these to our blueprint:
 
 <!--
 ```java
@@ -281,17 +282,17 @@ Oliomuuttujat kirjoitetaan luokan määrittelyä `public class Henkilo {` seuraa
 
 Luokkaakaaviossa luokkaan liittyvät muuttujat määritellään muodossa "muuttujanNimi: muuttujanTyyppi". Miinusmerkki ennen muuttujan nimeä kertoo, että muuttuja on kapseloitu (sillä on avainsana private). -->
 
-We specify above that each object created from the `Person` class has a `name` and an `age`. Variables defined inside a class are called **instance variables**, or object fields or object attributes. Other names also seem to exist.
+We specify above that each object created from the `Person` class has a `name` and an `age`. Variables defined inside a class are called **instance variables**, or object fields or object attributes. Other names seem to also exist.
 
 Instance variables are written on the lines following the class definition `public class Person {`. Each variable is preceded by the keyword private. The keyword **private** means that the variables are "hidden" inside the object. This is known as **encapsulation**.
 
 In the class diagram, the variables associated with the class are defined as "variableName: variableType". The minus sign before the variable name indicates that the variable is encapsulated (it has the keyword private).
 
-<img src="../img/diagrams/part4.1-classdiagram-person-name-age.png">
+<img src="../img/diagrams/part4.1-classdiagram-person-name-age.png" alt="[Person|-name;-age]">
 
 <!-- Olemme nyt määritelleet rakennuspiirustukset -- luokan -- henkilöoliolle. Jokaisella uudella henkilöolioilla on muuttujat `nimi` ja `ika`, joissa voi olla oliokohtainen arvo. Henkilöiden "tila" koostuu niiden nimeen ja ikään asetetuista arvoista. -->
 
-We have now defined a blueprint -- a class -- for the person object. Each new person object has the variables `name` and `age`, which are able to hold object-specific values. The "state" of a person consists of the values assigned to their name and age.
+We have now defined a blueprint -- a class -- for the person object. Each new person object has the variables `name` and `age`, which are able to hold object-specific values. The "state" of a person consists of the values assigned to the variables name and age.
 
 <!-- <programming-exercise name='Koiran ominaisuudet' tmcname='osa04-Osa04_03.KoiranOminaisuudet'> -->
 <programming-exercise name='Dog attributes' tmcname='part04-Part04_03.DogAttributes'>
@@ -312,7 +313,8 @@ Name the class `Dog` in this exercise, and press the finish button.
 
 You have now created a class called `Dog`. Add the variables `private String name`,`private String breed` and `private int age` to the class. As a class diagram, the class looks like this:
 
-<img src="../img/diagrams/part4.1-classdiagram-ex-dog.png" alt="[Koira|-nimi:String;-rotu:String;-ika:int]">
+<!-- <img src="../img/diagrams/part4.1-classdiagram-ex-dog.png" alt="[Koira|-nimi:String;-rotu:String;-ika:int]"> -->
+<img src="../img/diagrams/part4.1-classdiagram-ex-dog.png" alt="[Dog|-name:String;-breed:String;-age:int]">
 
 <!-- Luokalla ei vielä oikeastaan tee mitään, mutta tämän askeleen harjoittelusta on hyötyä myöhempää ajatellen. -->
 
