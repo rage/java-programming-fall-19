@@ -4,23 +4,40 @@ title: 'Maven and third-party libraries'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name='Learning objectives'>
 
-- Tunnet käsitteen kirjasto ja tiedät muutamia kolmannen osapuolen kirjastoja.
-- Tiedät mistä kirjastoja voi etsiä.
-- Toteutat sovelluksen, joka hyödyntää kolmannen osapuolen kirjastoa.
-- Tiedät että sovelluksia voi paketoida ja jakaa muille, ja että jaetut sovellukset eivät vaadi ohjelmointiympäristöä toimiakseen.
+<!-- - Tunnet käsitteen kirjasto ja tiedät muutamia kolmannen osapuolen kirjastoja. -->
+<!-- - Tiedät mistä kirjastoja voi etsiä. -->
+<!-- - Toteutat sovelluksen, joka hyödyntää kolmannen osapuolen kirjastoa. -->
+<!-- - Tiedät että sovelluksia voi paketoida ja jakaa muille, ja että jaetut sovellukset eivät vaadi ohjelmointiympäristöä toimiakseen. -->
+ - Know the term library and know some third party libraries
+ - Know where to search for libraries
+ - Can implement an application which uses a third party library
+ - Know that an application can be packaged and shared with others, and that applications shared this way do not require a development environment to work.
 
 </text-box>
 
 
-Kurssin ohjelmointitehtävät on tehty NetBeans-nimisessä ohjelmointiympäristössä, johon on lisätty tehtävien lataamiseen ja palauttamiseen tarkoitettu Test My Code -liitännäinen. Kurssilla käytetyt tehtäväpohjat eivät kuitenkaan ole millään tavalla NetBeans tai Test My Code -riippuvaisia, vaan niitä voi käyttää muissakin ohjelmointiympäristöissä.
+<!-- Kurssin ohjelmointitehtävät on tehty NetBeans-nimisessä ohjelmointiympäristössä, johon on lisätty tehtävien lataamiseen ja palauttamiseen tarkoitettu Test My Code -liitännäinen. Kurssilla käytetyt tehtäväpohjat eivät kuitenkaan ole millään tavalla NetBeans tai Test My Code -riippuvaisia, vaan niitä voi käyttää muissakin ohjelmointiympäristöissä. -->
+The programming exercises of this course have been done in the NetBeans development environment with a Test My Code plugin for downloading and submitting exercises.
+However the exercise templates we have used are not dependent on NetBeans or Test My Code in any way,  and you can use them in other development environments as well.
 
-Tehtäväpohjissa käytetään [Maven](https://maven.apache.org/)-nimistä työvälinettä, joka tarjoaa apuvälineitä ohjelmien suorittamiseen ja hallintaan. Maven määrää projektiemme rakenteen -- tämän takia jokaisen projektin juuressa on `pom.xml`-niminen tiedosto ja lähdekoodimme sijaitsevat `src`-nimisen kansion alla. Kansiossa `src` on tyypillisesti kaksi kansiota, toinen on `main`, joka sisältää projektin lähdekoodit ym, ja toinen `test`, joka sisältää ohjelman testaamiseen käytettävät lähdekoodit kuten yksikkötestit.
 
-Mavenin etu on se, että se auttaa apukirjastojen lataamisessa. Apukirjastot ovat muiden kirjoittamaa lähdekoodia, joka on paketoitu kaikkien käytettäväksi. Esimerkiksi yksikkötestaukseen on käytetty JUnit-nimistä kirjastoa. Valmiita kirjastoja on hyvin moneen lähtöön. Esimerkiksi osoitteessa [https://mvnrepository.com/](https://mvnrepository.com/) olevan hakukoneen kautta voi löytää yli 10 miljoonaa kirjastoa -- moni näistä on tosin saman kirjaston eri versioita.
+<!-- Tehtäväpohjissa käytetään [Maven](https://maven.apache.org/)-nimistä työvälinettä, joka tarjoaa apuvälineitä ohjelmien suorittamiseen ja hallintaan. Maven määrää projektiemme rakenteen -- tämän takia jokaisen projektin juuressa on `pom.xml`-niminen tiedosto ja lähdekoodimme sijaitsevat `src`-nimisen kansion alla. Kansiossa `src` on tyypillisesti kaksi kansiota, toinen on `main`, joka sisältää projektin lähdekoodit ym, ja toinen `test`, joka sisältää ohjelman testaamiseen käytettävät lähdekoodit kuten yksikkötestit. -->
+The exercise templates use a tool called [Maven](https://maven.apache.org/), which is used for executing and managing programs.
+Maven dictates the structure of our projects -- every project has a file called `pom.xml` located at its root, and their source code is located in a directory called `src`.
 
-Hakukoneesta löytyy esimerkiksi tietokantojen käyttöön sekä vaikkapa telegram-bottien kirjoittamiseen tarkoitettuja kirjastoja. Tutustutaan näihin seuraavaksi lyhyesti.
+The `src` directory typically has two sub-directories: `main` containing the project source code and `test` containing the source code of the tests for the project.
+
+<!-- Mavenin etu on se, että se auttaa apukirjastojen lataamisessa. Apukirjastot ovat muiden kirjoittamaa lähdekoodia, joka on paketoitu kaikkien käytettäväksi. Esimerkiksi yksikkötestaukseen on käytetty JUnit-nimistä kirjastoa. Valmiita kirjastoja on hyvin moneen lähtöön. Esimerkiksi osoitteessa [https://mvnrepository.com/](https://mvnrepository.com/) olevan hakukoneen kautta voi löytää yli 10 miljoonaa kirjastoa -- moni näistä on tosin saman kirjaston eri versioita. -->
+One advantage of using Maven is, that it is useful for downloading libraries.
+Libraries are source code  which has been packaged to be used by anyone.
+For example we have used the JUnit library for unit tests.
+There is a library for almost anything. The search engine at [https://mvnrepository.com/](https://mvnrepository.com/) finds over 10 million libraries, although many of them are different versions of the same library.
+
+<!-- Hakukoneesta löytyy esimerkiksi tietokantojen käyttöön sekä vaikkapa telegram-bottien kirjoittamiseen tarkoitettuja kirjastoja. Tutustutaan näihin seuraavaksi lyhyesti. -->
+You can find for example libraries for using databases or creating telegram bots.
+Next you will get to know some of those libraries a bit better.
 
 
 <!-- ## Tietokannan käyttö -->
@@ -345,28 +362,49 @@ The text user interface in this exercise does not differ in any essential way fr
 </programming-exercise>
 
 
-## Telegrambotti
+## Telegram bot
 
-Kuten todettu, Mavenin avulla löytyy merkittävä määrä kirjastoja, joita voi käyttää osana omia sovelluksia. Hakemalla osoitteesta [https://mvnrepository.com/](https://mvnrepository.com/) sanaa telegram, löytää mm. [TelegramBots](https://github.com/rubenlagus/TelegramBots)-kirjaston Telegram-bottien tekemiseen.
+<!-- Kuten todettu, Mavenin avulla löytyy merkittävä määrä kirjastoja, joita voi käyttää osana omia sovelluksia. Hakemalla osoitteesta [https://mvnrepository.com/](https://mvnrepository.com/) sanaa telegram, löytää mm. [TelegramBots](https://github.com/rubenlagus/TelegramBots)-kirjaston Telegram-bottien tekemiseen. -->
+As we mentioned above, you can use Maven to find a great number of libraries you can use as a part of your own applications.
+By searching telegram from [https://mvnrepository.com/](https://mvnrepository.com/) you find e.g the [TelegramBots](https://github.com/rubenlagus/TelegramBots) library for making Telegram bots.
 
-
-Telegrambotit ovat ohjelmia, jotka reagoivat telegramissa lähetettyihin viesteihin ja esimerkiksi kertovat vitsejä. Bottien tekeminen on kuitenkin tämän kurssin osaamistavoitteiden ulkopuolella. Samalla, kurssin aikana opitut taidot auttavat olemassaolevien oppaiden lukemisessa ja opiskelussa. Mikäli haluat oppia tekemään Telegrambotin, lue osoitteessa [https://github.com/rubenlagus/TelegramBots/wiki/Getting-Started](https://github.com/rubenlagus/TelegramBots/wiki/Getting-Started) oleva opas. Muista aloittaa botin rakennus pienistä osista -- kokeile luoda ensin esimerkiksi botti, joka liittyy kanavalle.
-
-
-## Sovellusten paketointi
-
-Sovelluksemme ovat tähän mennessä toimineet vain ohjelmointiympäristössä. Tämä ei kuitenkaan ole käytännössä totta, sillä ohjelman käynnistäminen ohjelmointiympäristössä vastaa melko vahvasti sen käynnistämistä ohjelmointiympäristön ulkopuolella. Voimme määritellä luokan, jossa olevaa metodia `public static void main` käytetään ohjelman käynnistämiseen.
-
-Oracle tarjoaa [javapackager](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javapackager.html)-työvälineen sovellusten paketointia varten. Osoitteessa [https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/packager.html](https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/packager.html) on ohjeita välineen käyttöön.
-
-Edellä mainittuja ohjeita seuraamalla voit tehdä luomistasi ohjelmista versiot, joita voit jakaa myös muille. Ohjeiden käyttämä kirjasto on paketoitu myös Mavenin käyttöön ns. liitännäiseksi, kts. [https://github.com/javafx-maven-plugin/javafx-maven-plugin](https://github.com/javafx-maven-plugin/javafx-maven-plugin).
-
-Muitakin vaihtoehtoja paketointiin on, kuten vaikkapa [JavaPackager](https://github.com/fvarrui/JavaPackager)-maven liitännäinen.
+<!-- Telegrambotit ovat ohjelmia, jotka reagoivat telegramissa lähetettyihin viesteihin ja esimerkiksi kertovat vitsejä. Bottien tekeminen on kuitenkin tämän kurssin osaamistavoitteiden ulkopuolella. Samalla, kurssin aikana opitut taidot auttavat olemassaolevien oppaiden lukemisessa ja opiskelussa. Mikäli haluat oppia tekemään Telegrambotin, lue osoitteessa [https://github.com/rubenlagus/TelegramBots/wiki/Getting-Started](https://github.com/rubenlagus/TelegramBots/wiki/Getting-Started) oleva opas. Muista aloittaa botin rakennus pienistä osista -- kokeile luoda ensin esimerkiksi botti, joka liittyy kanavalle. -->
+Telegram bots are programs which react to messages sent on Telegram, and for example tell jokes.
+Creating these bots is out of the scope of this course, but the skills you have learned will help you to study different tutorials. .
+If you want to learn to make a Telegram bot, read the guide at [https://github.com/rubenlagus/TelegramBots/wiki/Getting-Started](https://github.com/rubenlagus/TelegramBots/wiki/Getting-Started).
+Remember to start implementing your bot bit by bit -- start by for example making a bit which joins a channel.
 
 
-## Muut ympäristöt
 
-Java on yksi maailman eniten käytetyistä ohjelmointikielistä ja sitä käytetään myös mm. Android-kännyköissä. Kurssin aikana harjoittelemamme käyttöliittymien luomistekniikka ei ole rajoitettu vain työpöytäsovelluksiin, vaikka JavaFX onkin niihin ensisijaisesti suunnattu. Mikäli haluat siirtää JavaFX-sovelluksia kännykkään, on sitä varten luotu [JavaFXPorts](https://gluonhq.com/products/mobile/javafxports/)-projekti. JavaFXPorts-projektin avulla voit tehdä mobiilisovelluksia JavaFX-kirjastoa käyttäen. Osoitteessa [https://docs.gluonhq.com/javafxports/](https://docs.gluonhq.com/javafxports/) on tähän lisää ohjeistusta.
+## Packaging applications
+
+<!-- Sovelluksemme ovat tähän mennessä toimineet vain ohjelmointiympäristössä. Tämä ei kuitenkaan ole käytännössä totta, sillä ohjelman käynnistäminen ohjelmointiympäristössä vastaa melko vahvasti sen käynnistämistä ohjelmointiympäristön ulkopuolella. Voimme määritellä luokan, jossa olevaa metodia `public static void main` käytetään ohjelman käynnistämiseen. -->
+So far it has seemed like our applications have required a development environment to work. This is not strictly true however, because executing a program on a development environment is quite the same as executing a program outside of it.
+We can define a class which contains the `public static void main` method for starting the program.
 
 
-Mobiilisovellusten kehittämisestä enemmän kiinnostuneiden kannattaa tutustua Androidin sovelluskehittäjille luomaan sivustoon, joka löytyy osoitteessa [https://developer.android.com/guide/](https://developer.android.com/guide/). Käymäsi ohjelmoinnin perusteet ja ohjelmoinnin jatkokurssi antaa näihin hyvän lähtökohdan. Vastaavasti, mikäli yksinkertaisten (mobiili)pelien kehittäminen kiinnostaa, tutustu esimerkiksi [FXGL](https://github.com/AlmasB/FXGL/wiki)-kirjastoon.
+<!-- Oracle tarjoaa [javapackager](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javapackager.html)-työvälineen sovellusten paketointia varten. Osoitteessa [https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/packager.html](https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/packager.html) on ohjeita välineen käyttöön. -->
+Oracle has a [javapackager](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javapackager.html) tool for packaging an application.
+You can find information about using it from [https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/packager.html](https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/packager.html).
+
+<!-- Edellä mainittuja ohjeita seuraamalla voit tehdä luomistasi ohjelmista versiot, joita voit jakaa myös muille. Ohjeiden käyttämä kirjasto on paketoitu myös Mavenin käyttöön ns. liitännäiseksi, kts. [https://github.com/javafx-maven-plugin/javafx-maven-plugin](https://github.com/javafx-maven-plugin/javafx-maven-plugin). -->
+Using the instructions on the website linked above you can create packaged versions of your applications you can share with others.
+The library used in the instructions can be found packaged as a Maven plugin from [https://github.com/javafx-maven-plugin/javafx-maven-plugin](https://github.com/javafx-maven-plugin/javafx-maven-plugin).
+
+<!-- Muitakin vaihtoehtoja paketointiin on, kuten vaikkapa [JavaPackager](https://github.com/fvarrui/JavaPackager)-maven liitännäinen. -->
+There are other tools for packaging, for example the [JavaPackager](https://github.com/fvarrui/JavaPackager) Maven plugin.
+
+## Other development environment
+
+<!-- Java on yksi maailman eniten käytetyistä ohjelmointikielistä ja sitä käytetään myös mm. Android-kännyköissä. Kurssin aikana harjoittelemamme käyttöliittymien luomistekniikka ei ole rajoitettu vain työpöytäsovelluksiin, vaikka JavaFX onkin niihin ensisijaisesti suunnattu. Mikäli haluat siirtää JavaFX-sovelluksia kännykkään, on sitä varten luotu [JavaFXPorts](https://gluonhq.com/products/mobile/javafxports/)-projekti. JavaFXPorts-projektin avulla voit tehdä mobiilisovelluksia JavaFX-kirjastoa käyttäen. Osoitteessa [https://docs.gluonhq.com/javafxports/](https://docs.gluonhq.com/javafxports/) on tähän lisää ohjeistusta. -->
+Java is one of the most used programming languages in the world, and it is used i.e in Android phones.
+The techniques for creating graphical user interfaces practiced in this course can be used for mobile applications as well, altough JavaFX is primarily targeted for desktop applications.
+If you want to use JavaFX for a mobile application, [JavaFXPorts](https://gluonhq.com/products/mobile/javafxports/) project is created for that.
+The JavaFXPorts project can be used to create mobile applications using the JavaFX library.
+You can find more information about it from [https://docs.gluonhq.com/javafxports/](https://docs.gluonhq.com/javafxports/).
+
+
+<!-- Mobiilisovellusten kehittämisestä enemmän kiinnostuneiden kannattaa tutustua Androidin sovelluskehittäjille luomaan sivustoon, joka löytyy osoitteessa [https://developer.android.com/guide/](https://developer.android.com/guide/). Käymäsi ohjelmoinnin perusteet ja ohjelmoinnin jatkokurssi antaa näihin hyvän lähtökohdan. Vastaavasti, mikäli yksinkertaisten (mobiili)pelien kehittäminen kiinnostaa, tutustu esimerkiksi [FXGL](https://github.com/AlmasB/FXGL/wiki)-kirjastoon. -->
+If you are interested in developing mobile applications, it is worth it to study the Android's developer guide for app developers which can be found from [https://developer.android.com/guide/](https://developer.android.com/guide/).
+This programming course has given you excellent basis for learning app development.
+Correspondingly if you are interested in developing simple (mobile) games, we recommend learning to use the [FXGL](https://github.com/AlmasB/FXGL/wiki) library.
