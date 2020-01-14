@@ -1,6 +1,6 @@
 ---
-path: '/part-4/3-files-and-reading-data'
-title: 'Files and reading data'
+path: "/part-4/3-files-and-reading-data"
+title: "Files and reading data"
 hidden: false
 ---
 
@@ -21,19 +21,17 @@ hidden: false
 
 </text-box>
 
-
-
 <!-- Merkittävä osa ohjelmistoista perustuu tavalla tai toisella tiedon käsittelyyn. Musiikin toistoon tarkoitetut ohjelmistot käsittelevät musiikkitiedostoja, kuvankäsittelyohjelmat käsittelevät kuvatiedostoja. Verkossa ja mobiililaitteissa toimivat sovellukset kuten Facebook, WhatsApp ja Telegram taas käsittelevät tiedostoihin perustuviin tietokantoihin tallennettuja henkilötietoja. Kaikissa näistä sovelluksista on yhteistä tiedon lukeminen, tiedon käsitteleminen tavalla tai toisella sekä se, että käsiteltävä tieto on loppujenlopulta tallennettu jonkinlaisessa muodossa yhteen tai useampaan tiedostoon. -->
 
-A considerable amount of software is in some way based on handling data. Software for playing music handle music files, and image manipulation software handles image files. Software running on the internet and on mobile devices, like Facebook, WhatsApp, and Telegram handle user information stored in databases, which also use files. What they all have in common is: they read data, they manipulate the data in one way or another, and in the end the data that is being handled is stored in some format into one or multiple files.
+A considerable amount of software is in one way or another based on handling data. Software created for playing music handles music files, and image manipulation software handles image files. Software applications running on the internet and on mobile devices, such as Facebook, WhatsApp, and Telegram, handle user information stored in databases that are based on files. What these all have in common is that they all read data and manipulate it in one way or another, and the fact that the data being handled is ultimately stored in some format in one or more files.
 
 <!-- ## Lukeminen näppäimistöltä -->
-## Reading from the keyboard
+
+## Reading From the Keyboard
 
 <!-- Olemme käyttäneet `Scanner`-luokkaa käyttäjän kirjoittaman syötteen lukemiseen kurssin alusta lähtien. Tiedon lukemiseen käytetty runko on while-true -toistolause, missä lukeminen lopetetaan tietynmuotoiseen syötteeseen. -->
 
-Ever since the beginning of this course we have been using the `Scanner`-class for reading user input. The body for reading data has been a while-true-loop, where the reading is stopped for a specific input.
-
+Since the beginning of this course we've been using the `Scanner`-class for reading user input. The body for reading data has been a while-true loop where the reading is ceased on a specific input.
 
 <!-- ```java
 Scanner lukija = new Scanner(System.in);
@@ -50,6 +48,7 @@ while (true) {
 
 }
 ``` -->
+
 ```java
 Scanner scanner = new Scanner(System.in);
 
@@ -68,7 +67,7 @@ while (true) {
 
 <!-- Yllä Scanner-luokan konstruktorille annetaan parametrina järjestelmän syöte (`System.in`). Tekstikäyttöliittymissä käyttäjän kirjoittama tieto ohjataan syötevirtaan rivi kerrallaan, eli tieto lähetetään käsiteltäväksi aina kun käyttäjä painaa rivinvaihtoa. -->
 
-Above, we give the system input (`System.in`) as a parameter to the constructor of the Scanner-class. In text based user interfaces the input of the user is directed into the input stream one line at a time, meaning the data is sent for handling every time the user presses return for a new line.
+Above, we give the system input (`System.in`) as a parameter to the constructor of the Scanner-class. In text based user interfaces the input of the user is directed into the input stream one line at a time, meaning the data is sent to be handled every time the user presses return for a new line.
 
 <!-- <programming-exercise name='Merkkijonojen lukumäärä' tmcname='osa04-Osa04_21.MerkkijonojenLukumaara'> -->
 
@@ -129,11 +128,9 @@ Write a program that reads strings from the user until the user inputs the strin
 
 </programming-exercise>
 
-
 <!-- Käyttäjän syöttämä syöte luetaan merkkijonomuotoisena. Mikäli syöte halutaan käsitellä esimerkiksi kokonaislukuina, tulee käyttäjän syöte muuntaa toiseen muotoon. Alla olevassa esimerkissä ohjelma lukee käyttäjältä syötettä kunnes käyttäjä syöttää merkkijonon "loppu". Mikäli käyttäjän syöte ei ole "loppu", käsitellään syöte lukuna -- tässä tapauksessa luku vain tulostetaan. -->
 
-The user input is read as strings. If we want to handle the user input as integers we need to do a conversion. Below is an example program that reads input from the user until the user inputs "end". As long as the user input is not "end" the inputs are handled as integers -- and in this case are only printed.
-
+The user input is read in string form. A conversion would have to be performed were we to want to handle the input as integers, for instance. An example program has been provided below that reads input from the user until the user inputs "end". As long as the user input is not "end" the inputs are handled as integers -- the number is only printed here.
 
 <!-- ```java
 Scanner lukija = new Scanner(System.in);
@@ -165,13 +162,12 @@ while (true) {
 }
 ```
 
-
 <!-- <programming-exercise name='Kuutiot' tmcname='osa04-Osa04_22.Kuutiot'> -->
 <programming-exercise name='Cubes' tmcname='part04-Part04_22.Cubes'>
 
 <!-- Kirjoita ohjelma, joka lukee merkkijonoja käyttäjältä kunnes käyttäjä syöttää merkkijonon "loppu". Mikäli syöte ei ole "loppu", ohjelman tulee käsitellä syöte lukuna ja tulostaa syötetyn luvun kuutio (eli luku * luku * luku). Alla on muutamia tulostusesimerkkejä -->
 
-Write a program that reads strings from the user until the user inputs the string "end". As long as the input is not "end" the program should handle the input as an integer and print the cube of the integer (meaning number * number * number). Below are some sample outputs
+Write a program that reads strings from the user until the user inputs the string "end". As long as the input is not "end" the program should handle the input as an integer and print the cube of the integer (meaning number _ number _ number). Below are some sample outputs
 
 <!-- <sample-output>
 
@@ -211,27 +207,27 @@ Write a program that reads strings from the user until the user inputs the strin
 
 </programming-exercise>
 
-
-
 <!-- ## Tiedosto ja tiedostojärjestelmä -->
-## The file and the filesystem
+
+## Files and the Filesystem
 
 <!-- **Tiedostot** ovat tietokoneella sijaitsevia tietokokoelmia, jotka voivat sisältää vaikkapa tekstiä, kuvia, musiikkia tai niiden yhdistelmiä. Tiedoston tallennusmuoto määrittelee tiedoston sisällön sekä tallennusmuodon lukemiseen tarvittavan ohjelman. Esimerkiksi PDF-tiedostoja luetaan PDF-tiedostojen lukemiseen soveltuvalla ohjelmalla ja musiikkitiedostoja luetaan musiikkitiedostojen lukemiseen soveltuvalla ohjelmalla. Jokainen näistä ohjelmista on ihmisen luoma, ja ohjelman luoja tai luojat -- eli ohjelmoijat -- ovat osana työtään myös määritelleet tiedoston tallennusmuodon. -->
 
-**Files** are collections of data that can be found in computers, and may contain e.g. text, images, music or combinations of these. The file format determines the content of the file as well as the program needed to read the file. For example, PDF files are read with a program suited for reading PDF files, and music files are read with a program suited for reading music files. Each of these programs was made by a human, and the creator or creators -- i.e. the programmers -- have, as part of their work, defined the format for the file.
+**Files** are collections of data that can be found in computers, which may contain, for example, text, images, music or combinations of any of these. The file format determines the content of the file as well as the program required to read the file. For example, PDF files are read with a program suited for reading PDF files, and music files are read with a program suited for reading music files. Each of these programs has been made by humans, and the creators of a program -- the programmers -- have, as a part of their work, defined the given file format.
 
 <!-- Tietokoneissa on useampia ohjelmia tiedostojen selaamiseen ja nämä ohjelmistot ovat käyttöjärjestelmäkohtaisia. Kaikki tiedostojen selaamiseen käytettävistä ohjelmista käyttävät tavalla tai toisella tietokoneen tiedostojärjestelmää. -->
 
-Computers have several different programs for browsing files. These programs are specific to the operating system. All programs used for browsing files use the filesystem of the computer in some way.
+Computers have several different programs for browsing files. These programs are specific to the operating system. All programs used for browsing files make use of the filesystem of the computer in one way or another.
 
 <!-- Käyttämämme ohjelmointiympäristö tarjoaa mahdollisuuden projektien sisältämien tiedostojen selaamiseen. Voit käydä tarkastelemassa NetBeansissa kaikkia projektiin liittyviä tiedostoja valitsemalla `Files`-välilehden, joka löytyy `Projects`-välilehden kanssa samasta paikasta. Mikäli `Files`-välilehteä ei löydy, saa sen auki myös `Window`-valikosta. Klikkaamalla projektin auki, näet kaikki siihen liittyvät tiedostot. -->
 
-Our development environment provides the ability to browse the files of a project. In NetBeans you can take a look at all the files related to a project by selecting the `Files` tab, which is found in the same place as the `Projects` tab. If the tab is nowhere to be found it can be opened from the `Window` menu. By clicking the project to open it you will see all the files related to it.
+Our development environment provides us with the ability to browse the files of a project. In NetBeans you can take a look at all the files attached to a project by selecting the `Files` tab, which is found in the same place as the `Projects` tab. If the tab cannot be be found, it can be opened from the `Window` menu. Clicking the project to open it will reveal all its files.
 
 <!-- <programming-exercise name='Uuden tiedoston luominen' tmcname='osa04-Osa04_23.UudenTiedostonLuominen'> -->
 <programming-exercise name='Creating a new file' tmcname='part04-Part04_23.CreatingANewFile'>
 
 <!-- **Huom!** Tässä tehtävässä ei ohjelmoida. Tutustut tässä NetBeansin `Files`-välilehteen sekä tiedoston luomiseen. -->
+
 **NB!** In this exercise we will not be programming. Instead, you will familiarize yourself with the `Files`-tab in NetBeans and how to create a new file.
 
 <!-- Käytä NetBeansin `Files`-välilehteä ja luo tehtäväpohjan juurikansioon (samassa kansiossa kansio `src` ja tiedosto `pom.xml`) tiedosto nimeltä `tiedosto.txt`. Muokkaa tiedostoa, ja kirjoita tiedoston ensimmäisen rivin alkuun viesti `Hei maailma`. -->
@@ -253,17 +249,17 @@ Files can exist practically anywhere on a hard drive, even in a way such that th
 
 </text-box>
 
-
 <!-- ## Lukeminen tiedostosta -->
-## Reading from a file
+
+## Reading From a File
 
 <!-- **Tiedoston lukeminen** tapahtuu Scanner-luokan avulla. Kun Scanner-luokan avulla halutaan lukea tiedosto, annetaan luokan konstruktorille parametrina polku luettavaan tiedostoon. Polku saadaan Javan valmiilla `Paths.get`-komennolla, jolle annetaan parametrina merkkijonomuotoinen tiedoston nimi: `Paths.get("tiedostonnimi.paate")`. -->
 
-**Reading a file** is done using the Scanner-class. When we want to read a file using the Scanner-class we give the path for the file we want to read as a parameter to the constructor of the class. The path can be acquired using Java's `Paths-get`-command, which is given the file's name in the format of a string as a parameter: `Paths.get("filename.extension")`.
+**Reading a file** is done using the Scanner-class. When we want to read a file using the Scanner-class we give the path for the file we want to read as a parameter to the constructor of the class. The path to the file can be acquired using Java's `Paths.get` command, which is given the file's name in string format as a parameter: `Paths.get("filename.extension")`.
 
 <!-- Kun tiedostoa lukeva `Scanner`-olio on luotu, tiedoston lukeminen tapahtuu while-toistolauseella. Lukemista jatketaan kunnes kaikki tiedoston rivit on luettu, eli kunnes tiedostossa ei ole enää luettavia rivejä. Tiedostoja lukiessa voidaan kohdata virhetilanne, joten tiedoston lukeminen vaatii erillisen "yrittämisen" (`try`) sekä mahdollisen virheen kiinnioton (`catch`). Palaamme virhetilanteiden käsittelyyn kurssilla myöhemmin. -->
 
-When the `Scanner`-object for reading the file has been created the reading of the file proceeds using a while-loop. The reading continues until all the lines of the file have been read. In other words, when there are no more lines to read. While reading files one may encounter errors, which means reading a file requires a separate "trying" (`try`) as well catching a possible error (`catch`). We will get back to the topic of error handling later.
+When the `Scanner`-object that reads the file has been created, the file can be read using a while-loop. The reading continues until all the lines of the file have been read, i.e., until the scanner finds no more lines to read. The reading of a file may result in an error situation, and for this reason the process requires a seperate (`try`) as well as a (`catch`) to catch any possible errors. We'll return to the topic of error handling later.
 
 <!-- ```java
 // alkuun
@@ -286,6 +282,7 @@ try (Scanner tiedostonLukija = new Scanner(Paths.get("tiedosto.txt"))) {
     System.out.println("Virhe: " + e.getMessage());
 }
 ``` -->
+
 ```java
 // first
 import java.util.Scanner;
@@ -308,7 +305,6 @@ try (Scanner scanner = new Scanner(Paths.get("file.txt"))) {
 }
 ```
 
-
 <!-- Oletuksena (eli kutsuttaessa `new Scanner(Paths.get("tiedosto.txt"))`) tiedosto luetaan projektin juuresta eli kansiosta, joka sisältää kansion `src` sekä tiedoston `pom.xml` (ja mahdollisesti myös muita tiedostoja). Tämän kansion sisältöä voi tarkastella NetBeansin Files-välilehdeltä. -->
 
 By default (meaning calling `new Scanner(Paths.get("file.txt"))`) the file is being read from the project root, which is the folder containing the folder `src` and the file `pom.xml` (and possibly other files as well). The contents of this folder can the inspected using the `Files`-tab in NetBeans.
@@ -321,6 +317,7 @@ By default (meaning calling `new Scanner(Paths.get("file.txt"))`) the file is be
 Write a program that prints the contents of a file called "data.txt", such that each line of the file gets printed on its own line.
 
 <!-- Mikäli tiedoston sisältö on seuraava: -->
+
 In case the content looks like this:
 
 <!-- <sample-data>
@@ -332,13 +329,13 @@ maailma
 
 <sample-data>
 
-
 In a
 world
 
 </sample-data>
 
 <!-- Niin ohjelman tulostuksen tulee olla seuraava: -->
+
 Then the program should print the following:
 
 <!-- <sample-output>
@@ -356,7 +353,6 @@ world
 </sample-output>
 
 </programming-exercise>
-
 
 <!-- <programming-exercise name='Kysytyn tiedoston tulostaminen' tmcname='osa04-Osa04_25.KysytynTiedostonTulostaminen'> -->
 <programming-exercise name='Printing a specified file' tmcname='part04-Part04_25.PrintingASpecifiedFile'>
@@ -389,7 +385,6 @@ Tieto is here allright!
 
 </sample-output> -->
 
-
 <sample-output>
 
 Which file should have its contents printed?
@@ -412,8 +407,8 @@ Tieto is here allright!
 
 </programming-exercise>
 
-
 <!-- Alla olevassa esimerkissä luetaan tiedoston "tiedosto.txt" kaikki rivit, jotka lisätään ArrayList-listaan. -->
+
 In the example below we read all the lines of the file "file.txt", which are then added to an ArrayList.
 
 <!-- ```java
@@ -433,6 +428,7 @@ try (Scanner tiedostonLukija = new Scanner(Paths.get("tiedosto.txt"))) {
 // tulostetaan rivien lukumäärä
 System.out.println("Rivejä yhteensä: " + rivit.size());
 ``` -->
+
 ```java
 ArrayList<String> lines = new ArrayList<>();
 
@@ -450,7 +446,6 @@ try (Scanner scanner = new Scanner(Paths.get("file.txt"))) {
 // we print the number of lines
 System.out.println("Total lines: " + lines.size());
 ```
-
 
 <!-- <programming-exercise name='Vieraslista tiedostosta' tmcname='osa04-Osa04_26.VieraslistaTiedostosta'> -->
 <programming-exercise name='Guest list from a file' tmcname='part04-Part04_26.GuestListFromAFile'>
@@ -481,7 +476,6 @@ Nimi on listalla.
 
 <sample-output>
 
-
 Name of the file:
 **guestlist.txt**
 
@@ -499,11 +493,12 @@ Thank you!
 
 </sample-output>
 
-
 <!-- Huom! Tehtäväpohjassa on mukana kaksi tiedostoa, `nimet.txt` ja `toiset-nimet.txt`, joiden sisällöt ovat seuravat. Älä muuta näiden tiedostojen sisältöä! -->
+
 **NB!** The exercise template comes with two files, `names.txt` and `other-names.txt`, which have the following contents. Do not change the content of the files!
 
 <!-- nimet.txt: -->
+
 names.txt:
 
 <sample-data>
@@ -516,6 +511,7 @@ test
 </sample-data>
 
 <!-- toiset-nimet.txt: -->
+
 other-names.txt:
 
 <sample-data>
@@ -527,7 +523,6 @@ alicia
 </sample-data>
 
 </programming-exercise>
-
 
 <!-- <programming-exercise name='Löytyykö tiedostosta?' tmcname='osa04-Osa04_27.LoytyykoTiedostosta'> -->
 <programming-exercise name='Is it in the file?' tmcname='part04-Part04_27.IsItInTheFile'>
@@ -551,7 +546,6 @@ Ei löytynyt.
 
 <sample-output>
 
-
 Name of the file:
 **names.txt**
 Search for:
@@ -570,7 +564,6 @@ Löytyi!
 </sample-output> -->
 
 <sample-output>
-
 
 Name of the file:
 **names.txt**
@@ -602,8 +595,6 @@ Failed to read the file nonexistent.txt.
 
 </programming-exercise>
 
-
-
 <!-- <programming-exercise name='Mittaukset tiedostosta' tmcname='osa04-Osa04_08.MittauksetTiedostosta'> -->
 <programming-exercise name='Numbers from a file' tmcname='part04-Part04_28.NumbersFromAFile'>
 
@@ -626,7 +617,6 @@ Lukuja: 2
 
 <sample-output>
 
-
 File? **numbers-1.txt**
 Lower bound? **15**
 Upper bound? **20**
@@ -645,7 +635,6 @@ Lukuja: 4
 
 <sample-output>
 
-
 File? **numbers-1.txt**
 Lower bound? **0**
 Upper bound? **300**
@@ -653,12 +642,12 @@ Numbers: 4
 
 </sample-output>
 
-
 <!-- Huom! Tehtäväpohjassa on mukana kaksi tiedostoa, `mittaukset-1.txt` ja `mittaukset-2.txt`, joiden sisällöt ovat seuravat. Älä muuta näiden tiedostojen sisältöä. -->
 
 **NB**! The exercise template comes with two files, `numbers-1.txt` and `numbers-2.txt`, which have the following contents. Do not change the content of these files.
 
 <!-- mittaukset-1.txt: -->
+
 numbers-1.txt:
 
 <sample-data>
@@ -670,8 +659,8 @@ numbers-1.txt:
 
 </sample-data>
 
-
 <!-- mittaukset-2.txt: -->
+
 numbers-2.txt:
 
 <sample-data>
@@ -687,7 +676,6 @@ numbers-2.txt:
 
 </programming-exercise>
 
-
 <!-- <text-box typie="hint" name="Tyhjä rivi tiedostossa"> -->
 <text-box typie="hint" name="An empty line in a file">
 
@@ -696,9 +684,13 @@ numbers-2.txt:
 Sometimes a file ends up with empty lines. Skipping an empty line can be done using the command `continue` and the `isBlank`-method of the string.
 
 <!-- Alla olevassa esimerkissä luetaan tiedostosta -->
+
 In the below example we read from a file
+
 <!-- Tiedon lukeminen on suoraviivaista. -->
+
 Reading data is quite straightforward.
+
 <!-- ```java
 // luodaan lukija tiedoston lukemista varten
 try (Scanner tiedostonLukija = new Scanner(Paths.get("henkilot.csv"))) {
@@ -719,6 +711,7 @@ try (Scanner tiedostonLukija = new Scanner(Paths.get("henkilot.csv"))) {
     System.out.println("Virhe: " + e.getMessage());
 }
 ``` -->
+
 ```java
 // we create a scanner for reading the file
 try (Scanner scanner = new Scanner(Paths.get("henkilot.csv"))) {
@@ -743,6 +736,7 @@ try (Scanner scanner = new Scanner(Paths.get("henkilot.csv"))) {
 </text-box>
 
 <!-- ## Määrämuotoisen tiedon lukeminen tiedostosta -->
+
 ## Reading data from a file in a specified format
 
 <!-- Maailma on täynnä tietoa, joka liittyy muuhun tietoon -- tieto muodostaa kokonaisuuksia. Esimerkiksi henkilön tietoihin kuuluu nimi, syntymäaika, puhelinnumero, osoitetietoihin kuuluu maa, kaupunki, katuosoite, postinumero ja niin edelleen. -->
@@ -778,6 +772,7 @@ while (true) {
     System.out.println("Ikä: " + ika);
 }
 ``` -->
+
 ```java
 Scanner scanner = new Scanner(System.in);
 
@@ -799,6 +794,7 @@ while (true) {
 ```
 
 <!-- Ohjelman toiminta on seuraava: -->
+
 The program works as follows:
 
 <!-- <sample-output>
@@ -817,7 +813,6 @@ The program works as follows:
 
 <sample-output>
 
-
 Enter name and age separated by a comma:
 **virpi,19**
 Name: virpi
@@ -834,6 +829,7 @@ Age: 20
 </sample-output>
 
 <!-- Tiedostosta `tiedot.txt` vastaavat tiedot lukeva ohjelma näyttäisi seuraavalta. -->
+
 Reading corresponding data from a file called `records.txt` would look like this:
 
 <!-- ```java
@@ -902,7 +898,6 @@ Your task is to write a program that first prompts the user for the filename of 
 
 <sample-output>
 
-
 Name of the file:
 **data.txt**
 lily, age: 3 years
@@ -910,15 +905,16 @@ anton, age: 5 years
 levi, age: 4 years
 amy, age: 1 year
 
-
 </sample-output>
 
 <!-- Huom! Sanan "vuosi" tulee olla iän perusteella muotoiltu. -->
+
 **NB**! The word "year" should be properly formatted based on the age.
 
 </programming-exercise>
 
 <!-- ## Olioiden lukeminen tiedostosta -->
+
 ## Reading objects from a file
 
 <!-- Olioiden luominen tiedostosta luetusta datasta on suoraviivaista. Oletetaan, että käytössämme on seuraava luokka `Henkilo` sekä aiemmin käyttämämme data. -->
@@ -926,6 +922,7 @@ amy, age: 1 year
 Creating object from data read from a file is very straightforward. Let's assume that we have a class called `Person` as well as the data from before.
 
 <!-- Olioiden lukeminen onnistuu seuraavasti: -->
+
 Reading objects can be done as follows:
 
 <!-- ```java
@@ -946,6 +943,7 @@ try (Scanner lukija = new Scanner(Paths.get("tiedot.txt"))) {
 
 System.out.println("Luettuja henkilöitä yhteensä: " + henkilot.size());
 ``` -->
+
 ```java
 ArrayList<Person> people = new ArrayList<>();
 
@@ -995,7 +993,6 @@ The exercise template has a `main`-method, where you may try out the functionali
 
 </programming-exercise>
 
-
 <!-- <programming-exercise name='Urheilutilastot' tmcname='osa04-Osa04_31.Urheilutilastot (2 osaa)'> -->
 <programming-exercise name='Sport statistics (2 parts)' tmcname='part04-Part04_31.SportStatistics'>
 
@@ -1004,6 +1001,7 @@ The exercise template has a `main`-method, where you may try out the functionali
 In this exercise we will be working with files stored in CSV format. Each line of the file contains the home team, visiting team, home team points, and visiting team points, all separated by commas.
 
 <!-- Alla on esimerkki tiedon sisällöstä. Alla oleva tiedosto on tallennettuna myös tehtäväpohjaan nimellä "data.csv". -->
+
 Below you can see an example of the file contents. The file shown below is also included in the exercise template with the name "data.csv".
 
 <sample-data>
@@ -1071,7 +1069,6 @@ Games: 6
 
 </sample-output>
 
-
 <h2>Wins and losses</h2>
 
 <!-- Lisää ohjelmaan toiminnallisuus annetun joukkueen voittojen ja tappioiden määrän tulostamiseen. Voittaja on se joukkue, joka saa ottelussa enemmän pisteitä. -->
@@ -1079,6 +1076,7 @@ Games: 6
 Extend the program to have the ability to print the number of wins and losses of a given team. The winner of a game is the team that has more points.
 
 <!-- Voit olettaa, ettei pelit pääty koskaan tasapeliin. Alla olevassa esimerkissä käytetään edellä kuvattua **data.csv**-tiedostoa. -->
+
 You may assume that the games never end in a tie. Below we are using the aforementioned **data.csv** file.
 
 <!-- <sample-output>
