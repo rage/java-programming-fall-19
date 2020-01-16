@@ -6,43 +6,52 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-- Tunnet menetelmiä moniulotteisen tiedon esittämiseen.
-- Osaat luoda ja käyttää moniulotteisia taulukoita.
+<!-- - Tunnet menetelmiä moniulotteisen tiedon esittämiseen. -->
+<!-- - Osaat luoda ja käyttää moniulotteisia taulukoita. -->
+ -  Know ways to represent multidimensional data
+  - Can create and use multidimensional arrays
 
 </text-box>
 
-Aiemmat esimerkkimme ovat käsitelleet yksiulotteisia taulukoita, missä indeksi kertoo sijainnin yhdessä ulottuvuudessa. Taulukon voi luoda myös useampiulotteisena, jolloin taulukossa olevaa tietoa voi tarkastella useamman indeksin avulla. Tämä on kätevää esimerkiksi silloin, jos tieto on useampiulotteista kuten esimerkiksi koordinaatistossa.
+<!-- Aiemmat esimerkkimme ovat käsitelleet yksiulotteisia taulukoita, missä indeksi kertoo sijainnin yhdessä ulottuvuudessa. Taulukon voi luoda myös useampiulotteisena, jolloin taulukossa olevaa tietoa voi tarkastella useamman indeksin avulla. Tämä on kätevää esimerkiksi silloin, jos tieto on useampiulotteista kuten esimerkiksi koordinaatistossa. -->
+Previously we have used one dimensional arrays, where the index tells us the location of a value in the only dimension.
+We can also create multidimensional arrays. Then we need the indexes of a value in each dimension to access the value.
+This comes handy when our data is multidimensional, for example when dealing with coordinates.
 
-Kaksiulotteinen taulukko, jossa on kaksi riviä ja kolme saraketta, luodaan seuraavasti:
+<!-- Kaksiulotteinen taulukko, jossa on kaksi rowä ja kolme columntta, luodaan seuraavasti: -->
+A two dimensional array with two rows and three columns can be created like so:
 
 
 ```java
-int rivit = 2;
-int sarakkeet = 3;
-int[][] kaksiulotteinenTaulukko = new int[rivit][sarakkeet];
+int rows = 2;
+int columns = 3;
+int[][] twoDimensionalArray = new int[rows][columns];
 ```
 
-Yllä luomme taulukon, jonka jokainen rivi viittaa taulukkoon, jossa on tietty määrä sarakkeita. Kaksiulotteisen taulukon läpikäynti onnistuu kahden sisäkkäisen for-toistolauseen avulla seuraavasti:
+<!-- Yllä luomme taulukon, jonka jokainen row viittaa taulukkoon, jossa on tietty määrä sarakkeita. Kaksiulotteisen taulukon läpikäynti onnistuu kahden sisäkkäisen for-toistolauseen avulla seuraavasti: -->
+In the array we created above, each row refers to an array with a certain number of columns.
+We can iterate over a two dimensional array using two nested for loops like so:
 
 ```java
-int rivit = 2;
-int sarakkeet = 3;
-int[][] kaksiulotteinenTaulukko = new int[rivit][sarakkeet];
+int rows = 2;
+int columns = 3;
+int[][] twoDimensionalArray = new int[rows][columns];
 
-System.out.println("rivi, sarake, arvo");
-for (int rivi = 0; rivi < kaksiulotteinenTaulukko.length; rivi++) {
-    for (int sarake = 0; sarake < kaksiulotteinenTaulukko[rivi].length; sarake++) {
-        int arvo = kaksiulotteinenTaulukko[rivi][sarake];
-        System.out.println("" + rivi + ", " + sarake + ", " + arvo);
+System.out.println("row, column, value");
+for (int row = 0; row < twoDimensionalArray.length; row++) {
+    for (int column = 0; column < twoDimensionalArray[row].length; column++) {
+        int value = twoDimensionalArray[row][column];
+        System.out.println("" + row + ", " + column + ", " + value);
     }
 }
 ```
 
-Ylläolevan ohjelman tulostus on seuraava.
+<!-- Ylläolevan ohjelman tulostus on seuraava. -->
+The program output is as follows:
 
 <sample-output>
 
-rivi, sarake, arvo
+row, column, value
 0, 0, 0
 0, 1, 0
 0, 2, 0
@@ -52,24 +61,27 @@ rivi, sarake, arvo
 
 </sample-output>
 
-Yllä huomataan että `int`-tyyppisten muuttujien oletusarvo on 0.
+<!-- Yllä huomataan että `int`-tyyppisten muuttujien oletusvalue on 0. -->
+We can see that the default value of variables type `int` is 0.
 
-Voimme muuttaa taulukon arvoja kuten ennenkin. Alla asetamme kolmeen kohtaan uudet arvot.
+<!-- Voimme muuttaa taulukon valueja kuten ennenkin. Alla asetamme kolmeen kohtaan uudet valuet. -->
+We can change the values in the array just like before.
+Below we set new values to three elements of the array.
 
 ```java
-int rivit = 2;
-int sarakkeet = 3;
-int[][] kaksiulotteinenTaulukko = new int[rivit][sarakkeet];
+int rows = 2;
+int columns = 3;
+int[][] twoDimensionalArray = new int[rows][columns];
 
-kaksiulotteinenTaulukko[0][1] = 4;
-kaksiulotteinenTaulukko[1][1] = 1;
-kaksiulotteinenTaulukko[1][0] = 8;
+twoDimensionalArray[0][1] = 4;
+twoDimensionalArray[1][1] = 1;
+twoDimensionalArray[1][0] = 8;
 
-System.out.println("rivi, sarake, arvo");
-for (int rivi = 0; rivi < kaksiulotteinenTaulukko.length; rivi++) {
-    for (int sarake = 0; sarake < kaksiulotteinenTaulukko[rivi].length; sarake++) {
-        int arvo = kaksiulotteinenTaulukko[rivi][sarake];
-        System.out.println("" + rivi + ", " + sarake + ", " + arvo);
+System.out.println("row, column, value");
+for (int row = 0; row < twoDimensionalArray.length; row++) {
+    for (int column = 0; column < twoDimensionalArray[row].length; column++) {
+        int value = twoDimensionalArray[row][column];
+        System.out.println("" + row + ", " + column + ", " + value);
     }
 }
 ```
@@ -78,7 +90,7 @@ Nyt tulostus näyttää seuraavalta:
 
 <sample-output>
 
-rivi, sarake, arvo
+row, column, value
 0, 0, 0
 1, 0, 4
 2, 0, 0
@@ -102,9 +114,9 @@ Create in the exercise base a method called `public static String arrayAsString(
 Brush up on using StrinBuilder in part nine before taking  on this exercise. Below there are a few examples of how the method is expected to  work.
 
 <!-- ```java
-int rivit = 2;
-int sarakkeet = 3;
-int[][] matriisi = new int[rivit][sarakkeet];
+int rows = 2;
+int columns = 3;
+int[][] matriisi = new int[rows][columns];
 matriisi[0][1] = 5;
 matriisi[1][0] = 3;
 matriisi[1][2] = 7;
@@ -114,7 +126,7 @@ System.out.println(taulukkoMerkkijonona(matriisi));
 ```java
 int rows = 2;
 int cols = 3;
-int[][] matrix = new int[rivit][sarakkeet];
+int[][] matrix = new int[rows][columns];
 matrix[0][1] = 5;
 matrix[1][0] = 3;
 matrix[1][2] = 7;
@@ -163,7 +175,7 @@ System.out.println(arrayAsString(matrix));
 
 <programming-exercise name='Magic square (4 parts)' tmcname='part12-Part12_10.MagicSquare'>
 
-<!-- <a href="https://fi.wikipedia.org/wiki/Taikaneli%C3%B6" target="_blank">Taikaneliöt</a> ovat kokonaisluvuista järjestettyjä neliöitä, joiden jokaisen rivin, sarakkeen ja lävistäjän summa on sama. Harjoitellaan taulukoiden käyttöä taikaneliöiden yhteydessä. -->
+<!-- <a href="https://fi.wikipedia.org/wiki/Taikaneli%C3%B6" target="_blank">Taikaneliöt</a> ovat kokonaisluvuista järjestettyjä neliöitä, joiden jokaisen rown, sarakkeen ja lävistäjän summa on sama. Harjoitellaan taulukoiden käyttöä taikaneliöiden yhteydessä. -->
 
 <a href="https://en.wikipedia.org/wiki/Magic_square" target="_blank">Magic squares</a> are squares composed of integers, where the sum of each row, column, and diagonal is the same. Let's practice our array skills and play around with magic squares.
 
@@ -178,11 +190,11 @@ In the exercise base there is a partially implemented class called `MagicSquare`
 
 <h2>Sums of rows</h2>
 
-<!-- Luokassa Taikanelio on valmiina metodi `public ArrayList<Integer> rivienSummat()`, joka palauttaa tyhjän ArrayList-olion. Muuta metodin toiminnallisuutta siten, että se palauttaa listan, jossa on jokaisen taikaneliön rivin summa. -->
+<!-- Luokassa Taikanelio on valmiina metodi `public ArrayList<Integer> rowenSummat()`, joka palauttaa tyhjän ArrayList-olion. Muuta metodin toiminnallisuutta siten, että se palauttaa listan, jossa on jokaisen taikaneliön rown summa. -->
 
 In the class MagicSquare there is already a method called `public ArrayList<Integer> sumsOfRows()`, which returns an empty ArrayList object. Change the functionality of the method so that it returns a list of sums of every row of the (magic) square.
 
-<!-- Esimerkiksi seuraavanlaisella taikaneliöllä rivienSummat-metodin pitäisi palauttaa lista, jossa on luvut `15, 15, 15`. -->
+<!-- Esimerkiksi seuraavanlaisella taikaneliöllä rowenSummat-metodin pitäisi palauttaa lista, jossa on luvut `15, 15, 15`. -->
 
 For example, with the following magic square the `sumOfRows` method should return a list that contains the integers `15, 15, 15`.
 
@@ -192,7 +204,7 @@ For example, with the following magic square the `sumOfRows` method should retur
 4 9 2
 ```
 
-<!-- Vaikka taikaneliö ei olisi "oikea" taikaneliö, tulee rivien summat silti palauttaa. Allaolevalla esimerkillä rivienSummat-metodin pitäisi palauttaa lista, jossa on luvut `6, 15, 24`. -->
+<!-- Vaikka taikaneliö ei olisi "oikea" taikaneliö, tulee rowen summat silti palauttaa. Allaolevalla esimerkillä rowenSummat-metodin pitäisi palauttaa lista, jossa on luvut `6, 15, 24`. -->
 
 Even if the magic square is not a "legitimate" magic square, the sums of the rows should still be returned. With the input below, the `sumsOfRows` should return a list with the integer contents `6, 15, 24`.
 
@@ -276,7 +288,7 @@ It's also possible to create magic squares of your own. Let's familiarize oursel
 
 <br/>
 
-<!-- Siamese method -algoritmi toimii siten, että numero yksi asetetaan ylimmän rivin keskimmäiseen sarakkeeseen. Tämän jälkeen siirrytään yksi ylös ja yksi oikealle ja asetetaan luku kaksi. Tämän jälkeen taas siirrytään yksi ylös ja yksi oikealle, ja asetetaan luku kolme jne. -->
+<!-- Siamese method -algoritmi toimii siten, että numero yksi asetetaan ylimmän rown keskimmäiseen sarakkeeseen. Tämän jälkeen siirrytään yksi ylös ja yksi oikealle ja asetetaan luku kaksi. Tämän jälkeen taas siirrytään yksi ylös ja yksi oikealle, ja asetetaan luku kolme jne. -->
 
 The Siamese method algorithm works in the following manner. You set number one to the centermost column of the top row. After this, we move one row up and one column right, and place number two in this cell. We continue by moving one right, one up, and placing the number 3, etc.
 
@@ -300,20 +312,33 @@ Check the visualization for the described algorithm on the Wikipedia page <a hre
 
 <!-- Toteuta luokkaan `Taikaneliotehdas` metodi `luoTaikanelio` joka palauttaa taikaneliön jonka sivun pituus annetaan parametrina. Metodin tarvitsee toimia vain tilanteissa, missä neliön leveys on pariton luku. -->
 
-Implement in the class `MagicSquareFactory` the method `createMagicSquare`. It should return a magic squre whose side has the length that is specified as the parameter. The method only needs to work in cases where the width of the square is an odd integer.
+Implement in the class `MagicSquareFactory` the method `createMagicSquare`. It should return a magic square whose side has the length that is specified as the parameter. The method only needs to work in cases where the width of the square is an odd integer.
 
 </programming-exercise>
 
 
-<text-box variant='hint' name='Taulukko vs. Hajautustaulu'>
+<text-box variant='hint' name='Array vs. Hash table'>
 
-Taulukon toiminnallisuutta vastaavan toiminnallisuuden pystyy toteuttamaan hajautustaulun avulla. Eikö hajautustaulun käyttö olisi yleisesti ottaen parempi vaihtoehto, sillä sitä ei esimerkiksi tarvitse kasvattaa lainkaan?
+<!-- Taulukon toiminnallisuutta vastaavan toiminnallisuuden pystyy toteuttamaan hajautustaulun avulla. Eikö hajautustaulun käyttö olisi yleisesti ottaen parempi vaihtoehto, sillä sitä ei esimerkiksi tarvitse kasvattaa lainkaan? -->
+We can implement the same functionality using a hash table. Wouldn't a hash table be a better option, since we do not have to worry about increasing its size at any point?
 
-Kun hajautustaulusta haetaan tietoa tietyllä avaimella, metodin hashCode perusteella selvitetään paikka, mistä tietoa haetaan. Samassa paikassa voi olla useampi arvo (listassa), jolloin haettavaa avainta verrataan jokaiseen listalla olevaan arvoon equals-metodia käyttäen. Kun taulukosta haetaan arvoa tietyllä avaimella -- eli indeksillä -- ei vastaavaa toiminnallisuutta tarvitse tehdä. Taulukossa joko on arvo tai arvoa ei ole. Taulukkoon liittyy pieni tehokkuushyöty ohjelman suorituskyvyn kannalta.
 
-Tämä tehokkuushyöty kuitenkin tulee lisääntyneen virhealttiuden sekä työmäärän kustannuksella. Hajautustauluun on valmiiksi toteutettuna sisäisen taulukon kasvattaminen ja sen toiminnallisuutta on testattu hyvin laajasti. Taulukkoa käytettäessä tällaista etua ei ole -- uutta toiminnallisuutta toteuttaessa saattaa päätyä virheisiin, mikä kasvattaa työmäärää. Virheet ovat toki luonnollinen osa ohjelmistokehitystä.
+<!-- Kun hajautustaulusta haetaan tietoa tietyllä avaimella, metodin hashCode perusteella selvitetään paikka, mistä tietoa haetaan. Samassa paikassa voi olla useampi value (listassa), jolloin haettavaa avainta verrataan jokaiseen listalla olevaan valueon equals-metodia käyttäen. Kun taulukosta haetaan valuea tietyllä avaimella -- eli indeksillä -- ei vastaavaa toiminnallisuutta tarvitse tehdä. Taulukossa joko on value tai valuea ei ole. Taulukkoon liittyy pieni tehokkuushyöty ohjelman suorituskyvyn kannalta. -->
+When we search for a value of a key from a hash table, we use the hashCode method to find the index to search from.
+There can be multiple values at the same index (on a list). Then we have to kompare the key we want to find the value for to the key of each key-value pair on the list using the equals method.
+When we search for a a value of a key -- or index -- in an array, we do not have to do any of that.
+An array either contains a certain value or it does not, so there is a small performance beneft on using arrays.
 
-Kun ajattelemme muistin käyttöä, hajautustaululla voi olla -- tapauksesta riippuen -- pieni etu. Kun taulukko luodaan, muistista varataan heti tila koko taulukolle. Mikäli taulukon jokaiseen indeksiin ei tarvitse lisätä tietoa, on osa tästä tiedosta varattuna turhaan. Hajautustaululla taas tällaista muistin varaamista ei ennakkoon tehdä -- hajautustaulun kokoa kasvatetaan tarvittaessa.
+<!-- Tämä tehokkuushyöty kuitenkin tulee lisääntyneen virhealttiuden sekä työmäärän kustannuksella. Hajautustauluun on valmiiksi toteutettuna sisäisen taulukon kasvattaminen ja sen toiminnallisuutta on testattu hyvin laajasti. Taulukkoa käytettäessä tällaista etua ei ole -- uutta toiminnallisuutta toteuttaessa saattaa päätyä virheisiin, mikä kasvattaa työmäärää. Virheet ovat toki luonnollinen osa ohjelmistokehitystä. -->
+This performance benefit comes with some added workload and proneness to errors.
+Hash tables have tested and proven functionality for increasing the size of the table. Arrays do not come with this benefit, and when implementing a new functionality we might cause errors which increases the workload.
+However, errors are accepted and natural part of software development.
+
+<!-- Kun ajattelemme muistin käyttöä, hajautustaululla voi olla -- tapauksesta riippuen -- pieni etu. Kun taulukko luodaan, muistista varataan heti tila koko taulukolle. Mikäli taulukon jokaiseen indeksiin ei tarvitse lisätä tietoa, on osa tästä tiedosta varattuna turhaan. Hajautustaululla taas tällaista muistin varaamista ei ennakkoon tehdä -- hajautustaulun kokoa kasvatetaan tarvittaessa. -->
+When we consider the memory usage, hash table might -- in some situations -- have some benefits.
+When an array is created, enough memory for the whole array is allocated for it.
+If we do not have values in each element of the array, some of the memory stays unused.
+With hash tables this does not happen -- the size of the hash table is increased only when necessary.
 
 </text-box>
 

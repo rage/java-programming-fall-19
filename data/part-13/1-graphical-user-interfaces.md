@@ -15,7 +15,7 @@ hidden: false
 
 <!-- Tutustutaan seuraavaksi graafisten käyttöliittymien luomiseen. Graafisia käyttöliittymiä luodessa hyödynnämme ensisijaisesti käyttöliittymäkirjastoja, jotka tarjoavat valmiita komponentteja kuten nappeja ja tekstikenttiä. Käyttöliittymäkirjastot hoitavat komponenttien piirtämisen puolestamme, eli meidän ei tarvitse piirtää jokaista käyttöliittymässä olevaa komponenttia ohjelmassamme -- riittää, että komponentit lisätään ohjelmaan.
 
-Siinä missä tekstikäyttöliittymissä toiminnallisuus kytketään tietyn muotoiseen syötteeseen, graafisissa käyttöliittymissä toiminnallisuus lisätään käyttöliittymäkomponentteihin. Ohjelmoija esimerkiksi lisää käyttöliittymässä olevaan nappiin metodin, joka käsittelee napin painallukseen liittyvän tapahtuman.
+Siinä missä tekstikäyttöliittymissä toiminnallisuus kytketään tietyn muotoiseen syötteeseen, graafisissa käyttöliittymissä toiminnallisuus lisätään käyttöliittymäkomponentteihin. Ohjelmoija esimerkiksi lisää käyttöliittymässä olevaan buttonin metodin, joka käsittelee napin painallukseen liittyvän tapahtuman.
 
 Käytämme graafisten käyttöliittymien luomiseen Javan [JavaFx](https://en.wikipedia.org/wiki/JavaFX) käyttöliittymäkirjastoa. Toteuttamamme sovellukset ovat työpöytäsovelluksia. -->
 
@@ -62,16 +62,16 @@ package sovellus;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class JavaFxSovellus extends Application {
+public class JavaFxApplication extends Application {
 
     @Override
-    public void start(Stage ikkuna) {
-        ikkuna.setTitle("Hei Maailma!");
-        ikkuna.show();
+    public void start(Stage window) {
+        window.setTitle("Hello World!");
+        window.show();
     }
 
     public static void main(String[] args) {
-        launch(JavaFxSovellus.class);
+        launch(JavaFxApplication.class);
     }
 }
 ``` -->
@@ -102,18 +102,11 @@ When the program is launched, it looks as follows.
 <!-- <img src="../img/material/gui-helloworld.png" alt="Tyhjä ikkuna, jonka otsikko on 'Hei Maailma!'"/> -->
 <img src="../img/material/gui-helloworld.png" alt="Empty window with a 'Hello World' title"/>
 
-<!-- Mitä ohjelmassa oikein tapahtuu? Luokkamme JavaFxSovellus perii JavaFx-käyttöliittymäkirjaston luokan [Application](https://docs.oracle.com/javase/8/javafx/api/javafx/application/Application.html), joka tarjoaa rungon graafisten käyttöliittymien luomiseen. Sovellus käynnistetään Application-luokalta perittävällä metodilla [launch](https://docs.oracle.com/javase/8/javafx/api/javafx/application/Application.html#launch-java.lang.Class-java.lang.String...--), jolle annetaan parametrina käynnistettävän luokan nimi muodossa *LuokanNimi.class* -- yllä luokan nimi on JavaFxSovellus, joten metodille launch annetaan parametrina `JavaFxSovellus.class`.
-
-
-Kun metodia launch kutsutaan, Application-luokassa sijaitseva metodi luo parametrina annetusta luokasta (tässä JavaFxSovellus) uuden olion ja kutsuu sen init-metodia. Metodi init on määritelty luokassa Application, ja sitä käytetään esimerkiksi ohjelmassa käytettävien olioiden alustamiseen. Metodin init kutsumisen jälkeen ohjelma kutsuu metodia start, joka saa parametrinaan ikkunaa kuvaavan [Stage](https://docs.oracle.com/javase/8/javafx/api/javafx/stage/Stage.html)-olion. Yllä tehdyssä start-metodin toteutuksessa parametrina saadulle Stage-tyyppiselle ikkunaoliolle asetetaan otsikko metodilla setTitle, jonka jälkeen kutsutaan ikkunan näyttämiseen johtavaa metodia show. Lopulta ohjelma jää kuuntelemaan käyttöliittymässä tapahtuvia tapahtumia kuten ikkunan sulkemista, joka johtaa sovelluksen sammumiseen. -->
-What exactly happened in the program? Our JavaFxApplication class inherits the JavaFx frontend-library's [Application] (https://docs.oracle.com/javase/8/javafx/api/javafx/application/Application.html) class, which provides a framework for creating graphical user interfaces. The application is launched using the [launch] (https://docs.oracle.com/javase/8/javafx/api/javafx/application/Application.html#launch-java.lang.Class-java.lang.String ...--) method of the Application class, which is provided the name of the launched class as a parameter in the form *ClassName.class* - in the program above, the class name is JavaFxApplication, so the launch method is passed `JavaFxApplication.class` as a parameter.
-
 When the launch method is called, the method of the Application class creates a new object from the given class (here JavaFxApplication) and calls its init method. The init method is defined in the Application class and is used, for instance, to initialize objects of a program. After calling the init method, the program calls the start method, which gets a [Stage] (https://docs.oracle.com/javase/8/javafx/api/javafx/stage/Stage.html) object as its parameter, which describes the window. In the implementation of the start method above, the setTitle method sets the title of the Stage-type window object obtained as a parameter. The method show is then called, which leads to the window being displayed. The program then stays in a state where it continuously listens to events on user interface, such as closing the window that causes the application to shut down.
 
 <programming-exercise name='My first application' tmcname='part13-Part13_01.MyFirstApplication'>
 
 <!-- Luo tehtäväpohjassa olevaan luokkaan graafinen käyttöliittymä, jonka otsikkona on "Sovellukseni". Sovelluksen tulee käynnistyä kun main-metodi suoritetaan. -->
-Create a graphic user interface to the class in the exercise template. The title of the interface should by "My first application". The application must start when the main method is run.
 
 </programming-exercise>
 
@@ -138,23 +131,23 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
-public class JavaFxSovellus extends Application {
+public class JavaFxApplication extends Application {
 
     @Override
-    public void start(Stage ikkuna) {
-        Button nappi = new Button("Tämä on nappi");
+    public void start(Stage window) {
+        Button button = new Button("This is a button");
 
-        FlowPane komponenttiryhma = new FlowPane();
-        komponenttiryhma.getChildren().add(nappi);
+        FlowPane componentGroup = new FlowPane();
+        componentGroup.getChildren().add(button);
 
-        Scene nakyma = new Scene(komponenttiryhma);
+        Scene view = new Scene(componentGroup);
 
-        ikkuna.setScene(nakyma);
-        ikkuna.show();
+        window.setScene(view);
+        window.show();
     }
 
     public static void main(String[] args) {
-        launch(JavaFxSovellus.class);
+        launch(JavaFxApplication.class);
     }
 }
 ``` -->
