@@ -62,4 +62,4 @@ No, you cannot apply for the study right based on this course.
 
 ### Encountering 'Cannot run program "cmd"' when doing programming exercises
 
-The issue is probably due to an error with very recent Java 8 JDK versions. See the [Installation guide](/netbeans-installation-guide) for specifics and solutions.
+The issue is probably due to an error with very recent Java 8 JDK versions. See the [Installation guide](https://www.mooc.fi/en/installation/netbeans) for specifics and solutions.

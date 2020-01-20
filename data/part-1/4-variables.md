@@ -15,6 +15,31 @@ title: "Variables"
 
 </text-box>
 
+<ab-study id="ohjelmointi-20-scale-vs-mcq">
+
+<only-for-ab-group group="1">
+
+<text-box variant="hint" name="Median ja tekniikan käyttöön liittyvä kysely">
+Now please respond to a questionnaire about your media and technology use. With the questionnaire we collect information about media and technology use and student's attitudes towards them. Your replies will be used for developing the MOOC courses and research about education.
+<google-form-link href="https://docs.google.com/forms/d/e/1FAIpQLSdRWwKpDzcR7PHtSmeL4o8-JOXyR5ajAeuHz2aw4gnMTikwLg/viewform?usp=pp_url" emailfieldname="entry.575150039">Open the questionnaire by following the link</google-form-link>.
+</text-box>
+
+</only-for-ab-group>
+
+<only-for-ab-group group="2">
+
+<text-box variant="hint" name="Median ja tekniikan käyttöön liittyvä kysely">
+Now please respond to a questionnaire about your media and technology use. With the questionnaire we collect information about media and technology use and student's attitudes towards them. Your replies will be used for developing the MOOC courses and research about education.
+<google-form-link href="https://docs.google.com/forms/d/e/1FAIpQLSfKGPCqp-9H8as73RfwqXkdCFbCL-O85TlqJ5tOZYr-MH-eDA/viewform?usp=pp_url" emailfieldname="entry.575150039">Open the questionnaire by following the link</google-form-link>.
+</text-box>
+
+</only-for-ab-group>
+
+</ab-study>
+
+<quiz id="1fce6fab-fcad-5d58-b68b-8faead42d83e"></quiz>
+
+
 <!-- Tutustuimme syötteen lukemisen yhteydessä jo pikaisesti merkkijonomuuttujiin. Tutustutaan seuraavaksi muihin usein käytettyihin Javan muuttujatyyppeihin. -->
 
 We already familiarized ourselves to some degree with strings while reading user inputs. Let's now move on to learn about other common variable *types* in Java.
@@ -510,7 +535,7 @@ Kunkin tyypin mahdolliset arvot ovat siis rajattuja. Esimerkiksi merkkijonomuutt
 
 As such, the possible values of a given variable type are limited. For example, a string cannot contain an integer, **nor** can a double contain a boolean value.
 
-<!-- TODO: korjaa taulukko? koodinpätkät oikein rivittyvinä!
+<!--
 
 
 | Tyyppi                    | Esimerkki                 | Sallitut arvot                                                                                                                                                                                                                                                                                     |
@@ -525,10 +550,10 @@ As such, the possible values of a given variable type are limited. For example, 
 
 | Type                                  | Example                 | Accepted values                                                                                                                                                                                                                                                                                                                                                      |
 | ------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Whole number, i.e., `int`             | `int value = 4;`        | An integer can contain whole numbers whose values lie between -2147483648 and 2147483647.                                                                                                                                                                                                                                                                            |
-| Floating-point number, i.e., `double` | `double value = 4.2;`   | Floating-point numbers contain decimal numbers, with the greatest possible value being approximately 2<sup>1023</sup>. When a decimal number is represented with a floating-point number, the value can be inaccurate as floating-points are incapable of representing all decimal numbers. The reasons behind this are explored in the Computer organization course. |
-| `String`                              | `String text = "Hi!";`  | A string can contain text. Strings are enclosed in quotation marks.                                                                                                                                                                                                                                                                                                  |
-| True or false value, i.e., `boolean`  | `boolean right = true;` | A boolean contains either the value `true` or `false`.                                                                                                                                                                                                                                                                                                               |
+| Whole number, i.e., `int`             | <span class="singleline-code"> `int value = 4;`  </span>      | An integer can contain whole numbers whose values lie between -2147483648 and 2147483647.                                                                                                                                                                                                                                                                            |
+| Floating-point number, i.e., `double` | <span class="singleline-code"> `double value = 4.2;` </span>  | Floating-point numbers contain decimal numbers, with the greatest possible value being approximately 2<sup>1023</sup>. When a decimal number is represented with a floating-point number, the value can be inaccurate as floating-points are incapable of representing all decimal numbers. The reasons behind this are explored in the Computer organization course. |
+| `String`                              | <span class="singleline-code"> `String text = "Hi!";` </span> | A string can contain text. Strings are enclosed in quotation marks.                                                                                                                                                                                                                                                                                                  |
+| True or false value, i.e., `boolean`  | <span class="singleline-code"> `boolean right = true;` </span> | A boolean contains either the value `true` or `false`.                                                                                                                                                                                                                                                                                                               |
 
 
 <!-- ## Erityyppisten muuttujien lukeminen käyttäjältä -->

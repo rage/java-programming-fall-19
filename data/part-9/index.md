@@ -6,7 +6,7 @@ hidden: false
 ---
 
 <only-for-course-variant variant="dl">
-  <deadline>18.3.2020</deadline>
+  <deadline>7.4.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="nodl">
@@ -30,7 +30,7 @@ hidden: false
 </only-for-course-variant>
 
 <only-for-not-logged-in>
-  <deadline>Kirjaudu sisään nähdäksesi deadlinen tälle osalle</deadline>
+  <deadline>Log in to see the deadline for this part</deadline>
 </only-for-not-logged-in>
 
 <!-- Kurssimateriaalin yhdeksännessä osassa tutustutaan kahteen olio-ohjelmoinnin keskeiseen käsitteeseen eli perintään ja rajapintoihin. Opit luomaan luokkia, jotka periytyvät toisesta luokasta ja opit luomaan luokkia, jotka toteuttavat yhden tai useamman rajapinnan. Tulet myös huomaamaan, että olio voidaan esittää kaikkien sen todellisten tyyppien avulla. -->

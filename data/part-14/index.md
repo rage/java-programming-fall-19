@@ -30,7 +30,7 @@ hidden: false
 </only-for-course-variant>
 
 <only-for-not-logged-in>
-  <deadline>Kirjaudu sisään nähdäksesi deadlinen tälle osalle</deadline>
+  <deadline>Log in to see the deadline for this part</deadline>
 </only-for-not-logged-in>
 
 <!-- Kurssimateriaalin viimeisessä osassa opit menetelmiä tiedon visualisointiin ja tutustut Javan valmiina tarjoamiin kaavioihin (viivakaavio, pylväskaavio). Opit luomaan yksinkertaisia piirroksia ja tutustut kuvien käsittelyyn. Opit myös soittamaan äänitiedostoja. Luot myös hieman suuremman ohjelman -- Asteroids-pelin -- esimerkkiä noudattaen. -->

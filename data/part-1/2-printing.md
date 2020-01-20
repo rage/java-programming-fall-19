@@ -205,8 +205,6 @@ You'll find the second programming exercise of the course below. If you want, yo
 Here is the second programming exercise of the course. If you want, you can see first the video on how to solve this exercise:
 
 
-<!-- TODO video englanniksi? -->
-
 <youtube id="-DzOKI6iH5w"></youtube>
 
 <programming-exercise name='Ada Lovelace' tmcname='part01-Part01_02.AdaLovelace'>
@@ -470,8 +468,6 @@ maailma
 
 Vaikka yllä oleva esimerkki toimii, on rivinvaihtojen käyttö tärkeää muita ohjelmoijia ajatellen. Tällöin ohjelman lukija tietää, että kullakin rivillä tehdään vain yksi konkreettinen asia.
 
-
-TODO: quiz, jossa kysytään että mistä tietyssä termissä on kyse
  -->
 
 ## Terminology and Commenting Code

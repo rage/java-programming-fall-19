@@ -4,7 +4,7 @@ title: 'Part 1'
 overview: true
 ---
 <only-for-course-variant variant="dl">
-  <deadline>21.1.2020</deadline>
+  <deadline>4.2.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="nodl">

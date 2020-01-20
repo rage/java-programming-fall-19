@@ -180,7 +180,14 @@ In Java, code is indented by four spaces or a single tab in each block. Use eith
 
 <!-- Jatkossa ohjelmakoodi tulee sisentää oikein myös tehtävissä. Jos sisennys on väärin, ei ohjelmointiympäristö hyväksy tehtävää. -->
 
-Going forward, program code needs to be indented correctly in exercises too. If the indentation is incorrect, the development environment will not accept the solution.
+Going forward, program code needs to be indented correctly in exercises too. If the indentation is incorrect, the development environment will not accept the solution. You will see indentation errors highlighted yellow in the test results.
+
+![Example of indentation error message](indentationError.png "Indentation Error")
+
+The above error message says, that there should have been 8 spaces at the beginning of line 8, but there was only 2.
+In this case we can fix the indentation by adding 6 more spaces to the beginning of line 8.
+
+
 
 </text-box>
 
