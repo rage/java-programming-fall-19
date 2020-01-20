@@ -70,7 +70,7 @@ public class Person {
 
 <!-- Luokkakaaviossa konstruktori (ja metodit) merkitään oliomuuttujien jälkeen. Oliomuuttujien alapuolelle lisätään viiva, jonka jälkeen tulee konstruktori (ja metodit). Konstruktori saa näkyvyysmääreen public takia eteen plussan, jonka lisäksi siitä merkitään nimi sekä parametrien nimet ja niiden tyypit. Yllä olevan luokan konstruktori merkitään muodossa `+ Henkilo(nimi: String)`. -->
 In a class diagram we list the constructor (and all other methods) below the attributes. A line below the attributes list separates it from the method list.
-Methods are written +/- (debending on the visibility of the method), method name, parameters and their types. The constructor above is written `+ Person(initialName:String)`
+Methods are written +/- (depending on the visibility of the method), method name, parameters and their types. The constructor above is written `+ Person(initialName:String)`
 
 <!-- Parametrit noudattavat siis samaa määrittelymuotoa kuin oliomuuttujat, eli "muuttujanNimi: muuttujanTyyppi". -->
 The parameters are written the same way class attributes were, "parameterName: parameterType".
