@@ -1,7 +1,7 @@
 ---
 path: '/part-4/3-files-and-reading-data'
 title: 'Files and reading data'
-hidden: false
+hidden: true
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->

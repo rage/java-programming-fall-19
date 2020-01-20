@@ -1,7 +1,7 @@
 ---
 path: '/part-11/1-class-diagrams'
 title: 'Class diagrams'
-hidden: false
+hidden: true
 ---
 
 

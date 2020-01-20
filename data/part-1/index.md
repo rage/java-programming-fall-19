@@ -2,6 +2,7 @@
 path: '/part-1'
 title: 'Part 1'
 overview: true
+hidden: false
 ---
 <only-for-course-variant variant="dl">
   <deadline>4.2.2020</deadline>

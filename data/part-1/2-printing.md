@@ -7,7 +7,7 @@ hidden: false
 <!-- ---
 path: '/part-1/2-tulostaminen'
 title: 'Tulostaminen'
-hidden: false
+hidden: true
 --- -->
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'>

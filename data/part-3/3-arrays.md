@@ -1,7 +1,7 @@
 ---
 path: '/part-3/3-arrays'
 title: 'Arrays'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Learning objectives'>

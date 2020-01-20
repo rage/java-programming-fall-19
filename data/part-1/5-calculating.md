@@ -2,6 +2,7 @@
 path: "/part-1/5-calculating"
 # title: "Laskentaa luvuilla"
 title: "Calculating with numbers"
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Learning objectives'>
@@ -537,10 +538,7 @@ y is 5 and z is 6
 <programming-exercise name="Addition formula" tmcname='part01-Part01_19.AdditionFormula'>
 
 
-<!-- TODO: tarkenna tehtävänantoa (myös kaava)
-Tee ohjelma, jonka avulla voidaan laskea kahden kokonaisluvun summa. Ohjelman alussa kysytään kahta kokonaislukua, jotka sisältävät summattavat luvut. Tämän jälkeen ohjelma tulostaa lukujen summausta kuvaavan kaavan. -->
 
-<!-- TODO: specify the assignment (the formula, too) -->
 Create a program that can be used to add two integers together. In the beginning, the user is asked to give two integers that are to be summed. The program then prints the formula that describes the addition of the numbers.
 
 

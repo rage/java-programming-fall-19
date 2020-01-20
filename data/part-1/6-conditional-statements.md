@@ -3,6 +3,7 @@
 # title: "Ehtolauseet ja vaihtoehtoinen toiminta"
 path: "/part-1/6-conditional-statements"
 title: "Conditional statements and alternative operation"
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Learning objectives'>

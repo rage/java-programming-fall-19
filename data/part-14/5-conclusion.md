@@ -1,7 +1,7 @@
 ---
 path: '/part-14/5-conclusion'
 title: 'Conclusion'
-hidden: false
+hidden: true
 ---
 
 <!-- TODO: koko kurssin recap -->

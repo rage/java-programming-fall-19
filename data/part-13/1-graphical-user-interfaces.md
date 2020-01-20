@@ -1,7 +1,7 @@
 ---
 path: '/part-13/1-graphical-user-interfaces'
 title: 'Graphical user interfaces'
-hidden: false
+hidden: true
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->

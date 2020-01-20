@@ -1,7 +1,7 @@
 ---
 path: '/part-13/5-multiple-views'
 title: 'Multiple views'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

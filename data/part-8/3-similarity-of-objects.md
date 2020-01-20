@@ -1,7 +1,7 @@
 ---
 path: "/part-8/3-similarity-of-objects"
 title: "Similarity of objects"
-hidden: false
+hidden: true
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'>

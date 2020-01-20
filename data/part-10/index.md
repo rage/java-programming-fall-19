@@ -2,7 +2,7 @@
 path: '/part-10'
 title: 'Part 10'
 overview: true
-hidden: false
+hidden: true
 ---
 <only-for-course-variant variant="dl">
   <deadline>14.4.2020</deadline>

@@ -1,7 +1,7 @@
 ---
 path: '/part-13/2-UI-components-and-layout'
 title: 'UI components and their layout'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

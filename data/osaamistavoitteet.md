@@ -1,7 +1,7 @@
 ---
 path: "/learning-objectives"
 title: "Learning Objectives"
-hidden: false
+hidden: true
 information_page: true
 ---
 

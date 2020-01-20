@@ -1,7 +1,7 @@
 ---
 path: '/part-6/1-objects-within-objects'
 title: 'Objects on a list and a list as part of an object'
-hidden: false
+hidden: true
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->

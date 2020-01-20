@@ -1,7 +1,7 @@
 ---
 path: '/part-11/3-exceptions'
 title: 'Exceptions'
-hidden: false
+hidden: true
 ---
 
 

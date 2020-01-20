@@ -1,7 +1,7 @@
 ---
 path: '/part-12/2-arraylist-and-hashtable'
 title: 'ArrayList and hash table'
-hidden: false
+hidden: true
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->

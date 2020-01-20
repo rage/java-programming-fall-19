@@ -1,7 +1,7 @@
 ---
 path: '/part-9/2-interface'
 title: 'Interfaces'
-hidden: false
+hidden: true
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 path: '/part-12/1-type-parameters'
 title: 'Type parameters'
-hidden: false
+hidden: true
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'> -->

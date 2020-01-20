@@ -1,7 +1,7 @@
 ---
 path: '/part-14/4-maven-and-third-party-libraries'
 title: 'Maven and third-party libraries'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Learning objectives'>

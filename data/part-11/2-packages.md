@@ -1,7 +1,7 @@
 ---
 path: '/part-11/2-packages'
 title: 'Packages'
-hidden: false
+hidden: true
 ---
 
 

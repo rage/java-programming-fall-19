@@ -2,7 +2,7 @@
 path: '/part-12'
 title: 'Part 12'
 overview: true
-hidden: false
+hidden: true
 ---
 
 <only-for-course-variant variant="dl">

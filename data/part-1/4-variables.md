@@ -3,6 +3,7 @@
 # title: "Muuttujat"
 path: "/part-1/4-variables"
 title: "Variables"
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Learning objectives'>

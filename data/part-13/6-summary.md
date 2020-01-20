@@ -1,7 +1,7 @@
 ---
 path: '/part-13/6-summary'
 title: 'Summary'
-hidden: false
+hidden: true
 ---
 
 <!-- TODO: kerrotaan siitä, miten suuressa osassa käyttöliittymät ovat elämäämme -- mainitaan myös, että hyvän ja huonon käyttölittymän välillä merkittävä ero -->

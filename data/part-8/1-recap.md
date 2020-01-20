@@ -2,7 +2,7 @@
 path: '/part-8/1-recap'
 #title: 'Lyhyt kertaus'
 title: 'Short recap'
-hidden: false
+hidden: true
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'>

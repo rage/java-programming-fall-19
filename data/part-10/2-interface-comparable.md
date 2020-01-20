@@ -1,7 +1,7 @@
 ---
 path: '/part-10/2-interface-comparable'
 title: 'Interface comparable'
-hidden: false
+hidden: true
 ---
 
 

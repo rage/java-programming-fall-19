@@ -1,7 +1,7 @@
 ---
 path: '/part-8/4-grouping-data-using-hash-maps'
 title: 'Grouping data using hash maps'
-hidden: false
+hidden: true
 ---
 
 <!-- <text-box variant='learningObjectives' name='Oppimistavoitteet'>

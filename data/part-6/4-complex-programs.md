@@ -1,7 +1,7 @@
 ---
 path: '/part-6/4-complex-programs'
 title: 'Complex programs'
-hidden: false
+hidden: true
 ---
 
 
