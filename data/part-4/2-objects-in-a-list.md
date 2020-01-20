@@ -13,11 +13,11 @@ hidden: false
 
 <!-- - Osaat lisätä olioita listalle. -->
 
-- You can add objects to a list
+- You know how to add objects to a list
 
 <!-- - Osaat käydä listalla olevia olioita läpi. -->
 
-- You can go through object in a list
+- You know how to iterate over objects in a list
 
 </text-box>
 
@@ -133,15 +133,15 @@ Ruth Lichterman
 
 <!-- ## Olioiden lisääminen listalle -->
 
-## Adding object to a list
+## Adding Object To a List
 
 <!-- Merkkijonot ovat olioita, joten ei liene yllätys että listalla voi olla muunkinlaisia olioita. Tarkastellaan seuraavaksi listan ja olioiden yhteistoimintaa tarkemmin. -->
 
-Strings are objects, so it should come as no surprise that other kinds of objects can also be found in lists. Next, let's examine the cooperation of lists and objects in more detail.
+Strings are objects. It should then come as no surprise that lists may contain other kinds of objects as well. Let's now examine in more detail how lists and objects work together.
 
 <!-- Oletetaan, että käytössämme on alla oleva henkilöä kuvaava luokka. -->
 
-Let's assume we have access to the class defined below, describing a person.
+Let's assume that we have access to the class defined below, which describes a person.
 
 <!-- ```java
 public class Henkilo {
@@ -225,8 +225,8 @@ public class Person {
     }
 
     public double bodyMassIndex() {
-        double heightDivByHundred = this.height / 100.0;
-        return this.weight / (heightDivByHundred * heightDivByHundred);
+        double heightPerHundred = this.height / 100.0;
+        return this.weight / (heightPerHundred * heightPerHundred);
     }
 
     @Override
@@ -238,11 +238,11 @@ public class Person {
 
 <!-- Olioiden käsittely listalla ei oikeastaan poikkea aiemmin näkemästämme listan käytöstä millään tavalla. Oleellista on vain listalle lisättävien olioiden tyypin määrittely listan luomisen yhteydessä. -->
 
-Handling objects in a list is not really different in any way from the previous experience we have with lists. The essential difference is only to define the type for the stored elements when you create the list.
+Handling objects in a list is really no different to what we are used to doing with lists. The essential thing is to define the type of the list objects during the list's declaration.
 
 <!-- Alla olevassa esimerkissä luodaan ensin Henkilo-tyyppisille olioille tarkoitettu lista, jonka jälkeen listalle lisätään henkilöolioita. Lopulta henkilöoliot tulostetaan yksitellen. -->
 
-In the example below we first create a list meant for storing Person type object, after which we add persons to it. Finally the person objects are printed one by one.
+In the example below, we first create a list for storing objects of type Person, after which we add some person objects to it. Finally, the person objects are printed one by one.
 
 <!-- ```java
 ArrayList<Henkilo> henkilot = new ArrayList<>();
@@ -263,12 +263,12 @@ for (Henkilo henkilo: henkilot) {
 ```java
 ArrayList<Person> persons = new ArrayList<>();
 
-// a person object can be created first
+// we can first create a person object
 Person john = new Person("John");
-// and then added to the list
+// and then add it to the list
 persons.add(john);
 
-// person objects can also be created "in the same sentence" that they are added to the list
+// person objects can also be created as they're added to the list, in the same statement
 persons.add(new Person("Matthew"));
 persons.add(new Person("Martin"));
 
@@ -298,7 +298,7 @@ Martin, age 0 years
 
 <!-- ## Käyttäjän syöttämät oliot listalle -->
 
-## Adding user-inputted objects to a list
+## Adding Objects From User Input To a List
 
 <!-- Aiemmin käyttämämme rakenne syötteiden lukemiseen on yhä varsin käytännöllinen. -->
 
@@ -335,21 +335,21 @@ for (Henkilo henkilo: henkilot) {
 Scanner scanner = new Scanner(System.in);
 ArrayList<Person> persons = new ArrayList<>();
 
-// Read the names of persons from the user
+// Reading the names of persons from the user
 while (true) {
-    System.out.print("Enter a name, empty will stop: ");
+    System.out.print("Enter a name, empty will end: ");
     String name = scanner.nextLine();
     if (name.isEmpty()) {
         break;
     }
 
 
-    // Add to the list a new person
-    // whose name is the previous user input
+    // Adding a new person to the list
+    // whose name the user has provided
     persons.add(new Person(name));
 }
 
-// Print the number of the entered persons, and their individual information
+// Printing the number of the inputted persons, and the persons themselves
 System.out.println();
 System.out.println("Persons in total: " + persons.size());
 System.out.println("Persons: ");
@@ -375,9 +375,9 @@ Kristen Nygaard, ikä 0 vuotta
 
 <sample-output>
 
-Enter a name, empty will stop: **Alan Kay**
-Enter a name, empty will stop: **Ivan Sutherland**
-Enter a name, empty will stop: **Kristen Nygaard**
+Enter a name, empty will end: **Alan Kay**
+Enter a name, empty will end: **Ivan Sutherland**
+Enter a name, empty will end: **Kristen Nygaard**
 
 Persons in total: 3
 Perons:
@@ -433,11 +433,11 @@ Collar (created at: 06.07.2018 12:34:57)
 
 <!-- ## Monta konstruktorin parametria -->
 
-## Multiple constructor parameters
+## Multiple Constructor Parameters
 
 <!-- Mikäli konstruktori vaatii useampia parametreja, voi käyttäjältä kysyä enemmän tietoa. Oletetaan, että luokan `Henkilo` konstruktori on seuraavanlainen. -->
 
-If the constructor demands more than one parameters, you can query the user for more information. Let's assume we have the following constructor for the class `Person`.
+If the constructor demands multiple parameters, you can request more information from the user. Let's assume that the constructor for the class `Person` is as follows.
 
 <!-- ```java
 public class Henkilo {
@@ -479,15 +479,15 @@ public class Person {
 
 <!-- Olion luominen vaatii siis kaksiparametrisen konstruktorin kutsumista. -->
 
-In this case, an object is created by calling the two-parameter constructor.
+In this case, creating the objects requires calling a constructor with two parameters.
 
 <!-- Mikäli haluamme lukea tällaisia olioita käyttäjältä, tulee lukemisessa kysyä jokainen parametri erikseen. Alla olevassa esimerkissä käyttäjältä luetaan erikseen nimi ja ikä. Mikäli nimi on tyhjä, lukeminen lopetetaan. -->
 
-If we want to query the user for this kind of objects, they must be asked for each parameter separately. In the example below, name and age parameters are asked separately from the user. Entering an empty name will end the reading part.
+If we want to request objects of this type from the user, each parameter must be requested seperately as the user's input is read. In the example below, the name and age parameters are requested separately from the user. Entering an empty name will end the input-reading process.
 
 <!-- Henkilöt tulostetaan lukemisen jälkeen. -->
 
-The persons are printed after they have been read.
+Once the persons have been read, they're printed.
 
 
 <!-- ```java
@@ -525,7 +525,7 @@ for (Henkilo henkilo: henkilot) {
 Scanner scanner = new Scanner(System.in);
 ArrayList<Person> persons = new ArrayList<>();
 
-// Read person information from the user
+// Reading information about persons from the user
 while (true) {
     System.out.print("Enter name, empty will end: ");
     String name = scanner.nextLine();
@@ -533,12 +533,12 @@ while (true) {
         break;
     }
 
-    System.out.print("Enter the age of the person " + nimi + ": ");
+    System.out.print("Enter the age of the person " + name + ": ");
 
     int age = Integer.valueOf(scanner.nextLine());
 
-    // We add a new person to the list.
-    // The person's name and age were decided by the user
+    // Adding a new person to the list
+    // whose name the user has provided
     persons.add(new Person(name, age));
 }
 
@@ -629,16 +629,16 @@ Betty Holberton
 
 <!-- <text-box type="info" name="Määrämuotoisen tiedon lukeminen"> -->
 
-<text-box type="info" name="Reading input in a specific format">
+<text-box type="info" name="Reading Input In a Specific Format">
 
 
 <!-- Yllä olevassa esimerkissä ja tehtävässä tiedot syötettiin rivi riviltä. Ohjelmassa voisi toki pyytää tietoja määrämuotoisessa muodossa, esimerkiksi pilkulla eroteltuna. -->
 
-In the example and exercise below, the required information was entered line by line. By no means is it impossible to ask for input in a specific format, e.g. separated by a comma.
+In the example and exercise below, the information was provided line by line. It would also be possible for the program to request the information in a specified format, e.g., comma-separated.
 
 <!-- Ohjelma, jossa nimi ja ikä tulisi syöttää pilkulla eroteltuna voisi toimia seuraavalla tavalla. -->
 
-If the name and age were separated by a comma, the program could work in the following manner.
+A program that handles the name and age as comma-separated-values would work like so.
 
 <!-- ```java
 Scanner lukija = new Scanner(System.in);
@@ -673,8 +673,8 @@ for (Henkilo henkilo: henkilot) {
 Scanner scanner = new Scanner(System.in);
 ArrayList<Person> persons = new ArrayList<>();
 
-// Read person information from the user
-System.out.println("Enter the person details separated by a comma, e.g.: Randall, 2")
+// Reading information about persons from the user
+System.out.println("Enter the details separated by a comma, for example: Randall, 2")
 while (true) {
     System.out.print("Enter the details, empty will stop: ");
     String details = scanner.nextLine();
@@ -688,7 +688,7 @@ while (true) {
     persons.add(new Person(name, age));
 }
 
-// Print the number of the entered persons, and the persons themselves
+// Printing the number of the persons entered, and the persons themselves
 System.out.println();
 System.out.println("Total number of persons: " + persons.size());
 System.out.println("Persons: ");
@@ -721,11 +721,11 @@ Sylvi, ikä 0 vuotta
 
 <!-- ## Rajattu tulostus listalta -->
 
-## Filtered printing from the list
+## Conditional Printing From a List
 
 <!-- Listalla olevia olioita voidaan myös tarkastella listan läpikäynnin yhteydessä. Alla olevassa esimerkissä käyttäjältä kysytään ensin ikäraja, jonka jälkeen tulostetaan ne oliot, joiden ikä on vähintään käyttäjän syöttämä ikäraja. -->
 
-You can also examine the objects on the list as you go through it. In the example below, we first ask the user for an age restriction, after which we print all the objects whose age is at least the number given by the user.
+You can also examine the objects on the list as you go through it. In the example below, we first ask the user for an age limit, after which we print all the objects whose age is greater than or equal to the number inputted by the user.
 
 <!-- ```java
 // Oletetaan, että käytössämme on henkilot-lista,
@@ -742,8 +742,8 @@ for (Henkilo henkilo: henkilot) {
 ``` -->
 
 ```java
-// Assume we have a 'persons' list
-// that consists of person objects
+// Assuming that we have a 'persons' list
+// that contains person objects
 
 System.out.print("What is the age limit? ");
 int ageLimit = Integer.valueOf(scanner.nextLine());
@@ -821,7 +821,7 @@ Write a program that first reads book information from the user. The details to 
 
 <!-- Tämän jälkeen käyttäjältä kysytään mitä tulostetaan. Jos käyttäjä syöttää merkkijonon "kaikki", tulostetaan kirjojen nimet, sivujen lukumäärät sekä kirjoitusvuodet. Jos taas käyttäjä syöttää merkkijonon "nimi", tulostetaan vain kirjojen nimet. -->
 
-After this the user is asked for what is to be printed. If the user inputs "everything", all the details are printed: the book titles, the numbers of pages, and the publication years. However, if the user enters the string "title", only the book titles are printed.
+After this the user is asked for what is to be printed. If the user inputs "everything", the book titles, numbers of pages, and publication years are all printed. In the case that the user enters the string "title", only the book titles are printed.
 
 <!-- Ohjelmaa varten kannattanee toteuttaa Kirjaa kuvaava luokka. Tehtävä on kokonaisuudessaan kahden tehtäväpisteen arvoinen. -->
 
