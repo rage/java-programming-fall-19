@@ -44,7 +44,7 @@ const layoutQuery = graphql`
 `
 
 const Wrapper = styled.div`
-  ${props =>
+  ${(props) =>
     props.mobileMenuOpen &&
     `
     height: 100vh;
@@ -96,7 +96,7 @@ class Layout extends React.Component {
   }
 
   toggleMobileMenu = () => {
-    this.setState(prev => {
+    this.setState((prev) => {
       return {
         mobileMenuOpen: !prev.mobileMenuOpen,
       }
@@ -110,7 +110,7 @@ class Layout extends React.Component {
       <Fragment>
         <StaticQuery
           query={layoutQuery}
-          render={data => {
+          render={(data) => {
             const siteTitle = data.title.siteMetadata.title
             return (
               <Wrapper mobileMenuOpen={this.state.mobileMenuOpen}>

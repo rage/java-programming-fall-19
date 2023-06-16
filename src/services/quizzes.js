@@ -7,7 +7,7 @@ export async function fetchQuizzesProgress() {
     { headers: { Authorization: `Bearer ${accessToken()}` } },
   )
 
-  const result = response.data?.points_by_group.map(info => ({
+  const result = response.data?.points_by_group.map((info) => ({
     ...info,
     group: info.group.replace("osa", "part"),
   }))
